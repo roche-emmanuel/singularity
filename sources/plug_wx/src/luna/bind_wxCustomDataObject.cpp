@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCustomDataObject* self= (wxCustomDataObject*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDataObject >::check(L,1));
@@ -195,8 +192,7 @@ public:
 	// wxCustomDataObject::wxCustomDataObject(lua_Table * data, const wxDataFormat & format = wxFormatInvalid)
 	static wxCustomDataObject* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCustomDataObject::wxCustomDataObject(lua_Table * data, const wxDataFormat & format = wxFormatInvalid) function, expected prototype:\nwxCustomDataObject::wxCustomDataObject(lua_Table * data, const wxDataFormat & format = wxFormatInvalid)\nClass arguments details:\narg 2 ID = 9988153\n");
+			luaL_error(L, "luna typecheck failed in wxCustomDataObject::wxCustomDataObject(lua_Table * data, const wxDataFormat & format = wxFormatInvalid) function, expected prototype:\nwxCustomDataObject::wxCustomDataObject(lua_Table * data, const wxDataFormat & format = wxFormatInvalid)\nClass arguments details:\narg 2 ID = 9988153\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -215,16 +211,14 @@ public:
 	// void * wxCustomDataObject::Alloc(size_t size)
 	static int _bind_Alloc(lua_State *L) {
 		if (!_lg_typecheck_Alloc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * wxCustomDataObject::Alloc(size_t size) function, expected prototype:\nvoid * wxCustomDataObject::Alloc(size_t size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * wxCustomDataObject::Alloc(size_t size) function, expected prototype:\nvoid * wxCustomDataObject::Alloc(size_t size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t size=(size_t)lua_tointeger(L,2);
 
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::Alloc(size_t). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::Alloc(size_t). Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->Alloc(size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -237,15 +231,13 @@ public:
 	// void wxCustomDataObject::Free()
 	static int _bind_Free(lua_State *L) {
 		if (!_lg_typecheck_Free(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCustomDataObject::Free() function, expected prototype:\nvoid wxCustomDataObject::Free()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCustomDataObject::Free() function, expected prototype:\nvoid wxCustomDataObject::Free()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCustomDataObject::Free(). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCustomDataObject::Free(). Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Free();
 
@@ -255,15 +247,13 @@ public:
 	// void * wxCustomDataObject::GetData() const
 	static int _bind_GetData(lua_State *L) {
 		if (!_lg_typecheck_GetData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * wxCustomDataObject::GetData() const function, expected prototype:\nvoid * wxCustomDataObject::GetData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * wxCustomDataObject::GetData() const function, expected prototype:\nvoid * wxCustomDataObject::GetData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::GetData() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::GetData() const. Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->GetData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -276,15 +266,13 @@ public:
 	// size_t wxCustomDataObject::GetSize() const
 	static int _bind_GetSize(lua_State *L) {
 		if (!_lg_typecheck_GetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxCustomDataObject::GetSize() const function, expected prototype:\nsize_t wxCustomDataObject::GetSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxCustomDataObject::GetSize() const function, expected prototype:\nsize_t wxCustomDataObject::GetSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxCustomDataObject::GetSize() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxCustomDataObject::GetSize() const. Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->GetSize();
 		lua_pushnumber(L,lret);
@@ -295,17 +283,15 @@ public:
 	// bool wxCustomDataObject::SetData(size_t size, const void * data)
 	static int _bind_SetData(lua_State *L) {
 		if (!_lg_typecheck_SetData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCustomDataObject::SetData(size_t size, const void * data) function, expected prototype:\nbool wxCustomDataObject::SetData(size_t size, const void * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCustomDataObject::SetData(size_t size, const void * data) function, expected prototype:\nbool wxCustomDataObject::SetData(size_t size, const void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t size=(size_t)lua_tointeger(L,2);
-		void* data=(Luna< void >::check(L,3));
+		const void* data=(Luna< void >::check(L,3));
 
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCustomDataObject::SetData(size_t, const void *). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCustomDataObject::SetData(size_t, const void *). Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SetData(size, data);
 		lua_pushboolean(L,lret?1:0);
@@ -316,8 +302,7 @@ public:
 	// void wxCustomDataObject::TakeData(size_t size, void * data)
 	static int _bind_TakeData(lua_State *L) {
 		if (!_lg_typecheck_TakeData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCustomDataObject::TakeData(size_t size, void * data) function, expected prototype:\nvoid wxCustomDataObject::TakeData(size_t size, void * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCustomDataObject::TakeData(size_t size, void * data) function, expected prototype:\nvoid wxCustomDataObject::TakeData(size_t size, void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t size=(size_t)lua_tointeger(L,2);
@@ -325,8 +310,7 @@ public:
 
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCustomDataObject::TakeData(size_t, void *). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCustomDataObject::TakeData(size_t, void *). Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TakeData(size, data);
 
@@ -336,16 +320,14 @@ public:
 	// bool wxCustomDataObject::base_GetDataHere(void * buf) const
 	static int _bind_base_GetDataHere(lua_State *L) {
 		if (!_lg_typecheck_base_GetDataHere(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCustomDataObject::base_GetDataHere(void * buf) const function, expected prototype:\nbool wxCustomDataObject::base_GetDataHere(void * buf) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCustomDataObject::base_GetDataHere(void * buf) const function, expected prototype:\nbool wxCustomDataObject::base_GetDataHere(void * buf) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* buf=(Luna< void >::check(L,2));
 
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCustomDataObject::base_GetDataHere(void *) const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCustomDataObject::base_GetDataHere(void *) const. Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxCustomDataObject::GetDataHere(buf);
 		lua_pushboolean(L,lret?1:0);
@@ -356,15 +338,13 @@ public:
 	// size_t wxCustomDataObject::base_GetDataSize() const
 	static int _bind_base_GetDataSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetDataSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxCustomDataObject::base_GetDataSize() const function, expected prototype:\nsize_t wxCustomDataObject::base_GetDataSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxCustomDataObject::base_GetDataSize() const function, expected prototype:\nsize_t wxCustomDataObject::base_GetDataSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxCustomDataObject::base_GetDataSize() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxCustomDataObject::base_GetDataSize() const. Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->wxCustomDataObject::GetDataSize();
 		lua_pushnumber(L,lret);
@@ -375,16 +355,14 @@ public:
 	// void * wxCustomDataObject::base_Alloc(size_t size)
 	static int _bind_base_Alloc(lua_State *L) {
 		if (!_lg_typecheck_base_Alloc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * wxCustomDataObject::base_Alloc(size_t size) function, expected prototype:\nvoid * wxCustomDataObject::base_Alloc(size_t size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * wxCustomDataObject::base_Alloc(size_t size) function, expected prototype:\nvoid * wxCustomDataObject::base_Alloc(size_t size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t size=(size_t)lua_tointeger(L,2);
 
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::base_Alloc(size_t). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::base_Alloc(size_t). Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->wxCustomDataObject::Alloc(size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -397,15 +375,13 @@ public:
 	// void wxCustomDataObject::base_Free()
 	static int _bind_base_Free(lua_State *L) {
 		if (!_lg_typecheck_base_Free(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCustomDataObject::base_Free() function, expected prototype:\nvoid wxCustomDataObject::base_Free()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCustomDataObject::base_Free() function, expected prototype:\nvoid wxCustomDataObject::base_Free()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCustomDataObject::base_Free(). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCustomDataObject::base_Free(). Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxCustomDataObject::Free();
 
@@ -415,15 +391,13 @@ public:
 	// void * wxCustomDataObject::base_GetData() const
 	static int _bind_base_GetData(lua_State *L) {
 		if (!_lg_typecheck_base_GetData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * wxCustomDataObject::base_GetData() const function, expected prototype:\nvoid * wxCustomDataObject::base_GetData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * wxCustomDataObject::base_GetData() const function, expected prototype:\nvoid * wxCustomDataObject::base_GetData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::base_GetData() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * wxCustomDataObject::base_GetData() const. Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->wxCustomDataObject::GetData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -436,15 +410,13 @@ public:
 	// size_t wxCustomDataObject::base_GetSize() const
 	static int _bind_base_GetSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxCustomDataObject::base_GetSize() const function, expected prototype:\nsize_t wxCustomDataObject::base_GetSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxCustomDataObject::base_GetSize() const function, expected prototype:\nsize_t wxCustomDataObject::base_GetSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxCustomDataObject::base_GetSize() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxCustomDataObject::base_GetSize() const. Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->wxCustomDataObject::GetSize();
 		lua_pushnumber(L,lret);
@@ -455,17 +427,15 @@ public:
 	// bool wxCustomDataObject::base_SetData(size_t size, const void * data)
 	static int _bind_base_SetData(lua_State *L) {
 		if (!_lg_typecheck_base_SetData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCustomDataObject::base_SetData(size_t size, const void * data) function, expected prototype:\nbool wxCustomDataObject::base_SetData(size_t size, const void * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCustomDataObject::base_SetData(size_t size, const void * data) function, expected prototype:\nbool wxCustomDataObject::base_SetData(size_t size, const void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t size=(size_t)lua_tointeger(L,2);
-		void* data=(Luna< void >::check(L,3));
+		const void* data=(Luna< void >::check(L,3));
 
 		wxCustomDataObject* self=Luna< wxDataObject >::checkSubType< wxCustomDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCustomDataObject::base_SetData(size_t, const void *). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCustomDataObject::base_SetData(size_t, const void *). Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxCustomDataObject::SetData(size, data);
 		lua_pushboolean(L,lret?1:0);

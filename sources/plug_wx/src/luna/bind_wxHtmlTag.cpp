@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxHtmlTag*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxHtmlTag*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlTag* rhs =(Luna< wxHtmlTag >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlTag* self= (wxHtmlTag*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxHtmlTag >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -197,15 +193,13 @@ public:
 	// wxString wxHtmlTag::GetAllParams() const
 	static int _bind_GetAllParams(lua_State *L) {
 		if (!_lg_typecheck_GetAllParams(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxHtmlTag::GetAllParams() const function, expected prototype:\nwxString wxHtmlTag::GetAllParams() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxHtmlTag::GetAllParams() const function, expected prototype:\nwxString wxHtmlTag::GetAllParams() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlTag::GetAllParams() const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxHtmlTag::GetAllParams() const. Got : '%s'\n%s",typeid(Luna< wxHtmlTag >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetAllParams();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -216,15 +210,13 @@ public:
 	// int wxHtmlTag::GetBeginPos() const
 	static int _bind_GetBeginPos(lua_State *L) {
 		if (!_lg_typecheck_GetBeginPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxHtmlTag::GetBeginPos() const function, expected prototype:\nint wxHtmlTag::GetBeginPos() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxHtmlTag::GetBeginPos() const function, expected prototype:\nint wxHtmlTag::GetBeginPos() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlTag::GetBeginPos() const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxHtmlTag::GetBeginPos() const. Got : '%s'\n%s",typeid(Luna< wxHtmlTag >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetBeginPos();
 		lua_pushnumber(L,lret);
@@ -235,15 +227,13 @@ public:
 	// int wxHtmlTag::GetEndPos1() const
 	static int _bind_GetEndPos1(lua_State *L) {
 		if (!_lg_typecheck_GetEndPos1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxHtmlTag::GetEndPos1() const function, expected prototype:\nint wxHtmlTag::GetEndPos1() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxHtmlTag::GetEndPos1() const function, expected prototype:\nint wxHtmlTag::GetEndPos1() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlTag::GetEndPos1() const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxHtmlTag::GetEndPos1() const. Got : '%s'\n%s",typeid(Luna< wxHtmlTag >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetEndPos1();
 		lua_pushnumber(L,lret);
@@ -254,15 +244,13 @@ public:
 	// int wxHtmlTag::GetEndPos2() const
 	static int _bind_GetEndPos2(lua_State *L) {
 		if (!_lg_typecheck_GetEndPos2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxHtmlTag::GetEndPos2() const function, expected prototype:\nint wxHtmlTag::GetEndPos2() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxHtmlTag::GetEndPos2() const function, expected prototype:\nint wxHtmlTag::GetEndPos2() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlTag::GetEndPos2() const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxHtmlTag::GetEndPos2() const. Got : '%s'\n%s",typeid(Luna< wxHtmlTag >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetEndPos2();
 		lua_pushnumber(L,lret);
@@ -273,15 +261,13 @@ public:
 	// wxString wxHtmlTag::GetName() const
 	static int _bind_GetName(lua_State *L) {
 		if (!_lg_typecheck_GetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxHtmlTag::GetName() const function, expected prototype:\nwxString wxHtmlTag::GetName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxHtmlTag::GetName() const function, expected prototype:\nwxString wxHtmlTag::GetName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlTag::GetName() const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxHtmlTag::GetName() const. Got : '%s'\n%s",typeid(Luna< wxHtmlTag >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -292,8 +278,7 @@ public:
 	// wxString wxHtmlTag::GetParam(const wxString & par, bool with_quotes = false) const
 	static int _bind_GetParam(lua_State *L) {
 		if (!_lg_typecheck_GetParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxHtmlTag::GetParam(const wxString & par, bool with_quotes = false) const function, expected prototype:\nwxString wxHtmlTag::GetParam(const wxString & par, bool with_quotes = false) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxHtmlTag::GetParam(const wxString & par, bool with_quotes = false) const function, expected prototype:\nwxString wxHtmlTag::GetParam(const wxString & par, bool with_quotes = false) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -303,8 +288,7 @@ public:
 
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHtmlTag::GetParam(const wxString &, bool) const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxHtmlTag::GetParam(const wxString &, bool) const. Got : '%s'\n%s",typeid(Luna< wxHtmlTag >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetParam(par, with_quotes);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -315,8 +299,7 @@ public:
 	// bool wxHtmlTag::GetParamAsColour(const wxString & par, wxColour * clr) const
 	static int _bind_GetParamAsColour(lua_State *L) {
 		if (!_lg_typecheck_GetParamAsColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlTag::GetParamAsColour(const wxString & par, wxColour * clr) const function, expected prototype:\nbool wxHtmlTag::GetParamAsColour(const wxString & par, wxColour * clr) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlTag::GetParamAsColour(const wxString & par, wxColour * clr) const function, expected prototype:\nbool wxHtmlTag::GetParamAsColour(const wxString & par, wxColour * clr) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString par(lua_tostring(L,2),lua_objlen(L,2));
@@ -324,8 +307,7 @@ public:
 
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlTag::GetParamAsColour(const wxString &, wxColour *) const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlTag::GetParamAsColour(const wxString &, wxColour *) const. Got : '%s'\n%s",typeid(Luna< wxHtmlTag >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetParamAsColour(par, clr);
 		lua_pushboolean(L,lret?1:0);
@@ -336,8 +318,7 @@ public:
 	// bool wxHtmlTag::GetParamAsInt(const wxString & par, int * value) const
 	static int _bind_GetParamAsInt(lua_State *L) {
 		if (!_lg_typecheck_GetParamAsInt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlTag::GetParamAsInt(const wxString & par, int * value) const function, expected prototype:\nbool wxHtmlTag::GetParamAsInt(const wxString & par, int * value) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlTag::GetParamAsInt(const wxString & par, int * value) const function, expected prototype:\nbool wxHtmlTag::GetParamAsInt(const wxString & par, int * value) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString par(lua_tostring(L,2),lua_objlen(L,2));
@@ -345,8 +326,7 @@ public:
 
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlTag::GetParamAsInt(const wxString &, int *) const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlTag::GetParamAsInt(const wxString &, int *) const. Got : '%s'\n%s",typeid(Luna< wxHtmlTag >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetParamAsInt(par, value);
 		lua_pushboolean(L,lret?1:0);
@@ -357,15 +337,13 @@ public:
 	// bool wxHtmlTag::HasEnding() const
 	static int _bind_HasEnding(lua_State *L) {
 		if (!_lg_typecheck_HasEnding(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlTag::HasEnding() const function, expected prototype:\nbool wxHtmlTag::HasEnding() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlTag::HasEnding() const function, expected prototype:\nbool wxHtmlTag::HasEnding() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlTag::HasEnding() const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlTag::HasEnding() const. Got : '%s'\n%s",typeid(Luna< wxHtmlTag >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasEnding();
 		lua_pushboolean(L,lret?1:0);
@@ -376,16 +354,14 @@ public:
 	// bool wxHtmlTag::HasParam(const wxString & par) const
 	static int _bind_HasParam(lua_State *L) {
 		if (!_lg_typecheck_HasParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlTag::HasParam(const wxString & par) const function, expected prototype:\nbool wxHtmlTag::HasParam(const wxString & par) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlTag::HasParam(const wxString & par) const function, expected prototype:\nbool wxHtmlTag::HasParam(const wxString & par) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString par(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlTag::HasParam(const wxString &) const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlTag::HasParam(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxHtmlTag >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasParam(par);
 		lua_pushboolean(L,lret?1:0);
@@ -396,8 +372,7 @@ public:
 	// int wxHtmlTag::ScanParam(const wxString & par, const char * format, void * value) const
 	static int _bind_ScanParam(lua_State *L) {
 		if (!_lg_typecheck_ScanParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxHtmlTag::ScanParam(const wxString & par, const char * format, void * value) const function, expected prototype:\nint wxHtmlTag::ScanParam(const wxString & par, const char * format, void * value) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxHtmlTag::ScanParam(const wxString & par, const char * format, void * value) const function, expected prototype:\nint wxHtmlTag::ScanParam(const wxString & par, const char * format, void * value) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString par(lua_tostring(L,2),lua_objlen(L,2));
@@ -406,8 +381,7 @@ public:
 
 		wxHtmlTag* self=(Luna< wxHtmlTag >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlTag::ScanParam(const wxString &, const char *, void *) const. Got : '%s'",typeid(Luna< wxHtmlTag >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxHtmlTag::ScanParam(const wxString &, const char *, void *) const. Got : '%s'\n%s",typeid(Luna< wxHtmlTag >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->ScanParam(par, format, value);
 		lua_pushnumber(L,lret);
@@ -418,8 +392,7 @@ public:
 	// static bool wxHtmlTag::ParseAsColour(const wxString & str, wxColour * clr)
 	static int _bind_ParseAsColour(lua_State *L) {
 		if (!_lg_typecheck_ParseAsColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxHtmlTag::ParseAsColour(const wxString & str, wxColour * clr) function, expected prototype:\nstatic bool wxHtmlTag::ParseAsColour(const wxString & str, wxColour * clr)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in static bool wxHtmlTag::ParseAsColour(const wxString & str, wxColour * clr) function, expected prototype:\nstatic bool wxHtmlTag::ParseAsColour(const wxString & str, wxColour * clr)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString str(lua_tostring(L,1),lua_objlen(L,1));

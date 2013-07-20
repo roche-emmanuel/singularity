@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxColour* self= (wxColour*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -116,7 +113,7 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( lua_isnumber(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -159,7 +156,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -190,7 +187,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -258,7 +255,7 @@ public:
 	inline static bool _lg_typecheck_Set_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -359,7 +356,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -410,8 +407,7 @@ public:
 	// wxColour::wxColour()
 	static wxColour* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour::wxColour() function, expected prototype:\nwxColour::wxColour()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour::wxColour() function, expected prototype:\nwxColour::wxColour()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -421,8 +417,7 @@ public:
 	// wxColour::wxColour(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE)
 	static wxColour* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour::wxColour(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE) function, expected prototype:\nwxColour::wxColour(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour::wxColour(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE) function, expected prototype:\nwxColour::wxColour(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -438,8 +433,7 @@ public:
 	// wxColour::wxColour(const wxString & colourName)
 	static wxColour* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour::wxColour(const wxString & colourName) function, expected prototype:\nwxColour::wxColour(const wxString & colourName)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxColour::wxColour(const wxString & colourName) function, expected prototype:\nwxColour::wxColour(const wxString & colourName)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString colourName(lua_tostring(L,1),lua_objlen(L,1));
@@ -450,11 +444,10 @@ public:
 	// wxColour::wxColour(unsigned long colRGB)
 	static wxColour* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour::wxColour(unsigned long colRGB) function, expected prototype:\nwxColour::wxColour(unsigned long colRGB)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour::wxColour(unsigned long colRGB) function, expected prototype:\nwxColour::wxColour(unsigned long colRGB)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long colRGB=(unsigned long)lua_tointeger(L,1);
+		unsigned long colRGB=(unsigned long)lua_tonumber(L,1);
 
 		return new wxColour(colRGB);
 	}
@@ -462,8 +455,7 @@ public:
 	// wxColour::wxColour(const wxColour & colour)
 	static wxColour* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour::wxColour(const wxColour & colour) function, expected prototype:\nwxColour::wxColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxColour::wxColour(const wxColour & colour) function, expected prototype:\nwxColour::wxColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,1));
@@ -478,8 +470,7 @@ public:
 	// wxColour::wxColour(lua_Table * data)
 	static wxColour* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour::wxColour(lua_Table * data) function, expected prototype:\nwxColour::wxColour(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour::wxColour(lua_Table * data) function, expected prototype:\nwxColour::wxColour(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -489,8 +480,7 @@ public:
 	// wxColour::wxColour(lua_Table * data, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE)
 	static wxColour* _bind_ctor_overload_7(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour::wxColour(lua_Table * data, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE) function, expected prototype:\nwxColour::wxColour(lua_Table * data, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour::wxColour(lua_Table * data, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE) function, expected prototype:\nwxColour::wxColour(lua_Table * data, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -506,8 +496,7 @@ public:
 	// wxColour::wxColour(lua_Table * data, const wxString & colourName)
 	static wxColour* _bind_ctor_overload_8(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour::wxColour(lua_Table * data, const wxString & colourName) function, expected prototype:\nwxColour::wxColour(lua_Table * data, const wxString & colourName)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxColour::wxColour(lua_Table * data, const wxString & colourName) function, expected prototype:\nwxColour::wxColour(lua_Table * data, const wxString & colourName)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString colourName(lua_tostring(L,2),lua_objlen(L,2));
@@ -518,11 +507,10 @@ public:
 	// wxColour::wxColour(lua_Table * data, unsigned long colRGB)
 	static wxColour* _bind_ctor_overload_9(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_9(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour::wxColour(lua_Table * data, unsigned long colRGB) function, expected prototype:\nwxColour::wxColour(lua_Table * data, unsigned long colRGB)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour::wxColour(lua_Table * data, unsigned long colRGB) function, expected prototype:\nwxColour::wxColour(lua_Table * data, unsigned long colRGB)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long colRGB=(unsigned long)lua_tointeger(L,2);
+		unsigned long colRGB=(unsigned long)lua_tonumber(L,2);
 
 		return new wrapper_wxColour(L,NULL, colRGB);
 	}
@@ -530,8 +518,7 @@ public:
 	// wxColour::wxColour(lua_Table * data, const wxColour & colour)
 	static wxColour* _bind_ctor_overload_10(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_10(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour::wxColour(lua_Table * data, const wxColour & colour) function, expected prototype:\nwxColour::wxColour(lua_Table * data, const wxColour & colour)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxColour::wxColour(lua_Table * data, const wxColour & colour) function, expected prototype:\nwxColour::wxColour(lua_Table * data, const wxColour & colour)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -565,15 +552,13 @@ public:
 	// unsigned char wxColour::Alpha() const
 	static int _bind_Alpha(lua_State *L) {
 		if (!_lg_typecheck_Alpha(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char wxColour::Alpha() const function, expected prototype:\nunsigned char wxColour::Alpha() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char wxColour::Alpha() const function, expected prototype:\nunsigned char wxColour::Alpha() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxColour::Alpha() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::Alpha() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char lret = self->Alpha();
 		lua_pushnumber(L,(int)lret);
@@ -584,15 +569,13 @@ public:
 	// unsigned char wxColour::Blue() const
 	static int _bind_Blue(lua_State *L) {
 		if (!_lg_typecheck_Blue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char wxColour::Blue() const function, expected prototype:\nunsigned char wxColour::Blue() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char wxColour::Blue() const function, expected prototype:\nunsigned char wxColour::Blue() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxColour::Blue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::Blue() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char lret = self->Blue();
 		lua_pushnumber(L,(int)lret);
@@ -603,18 +586,16 @@ public:
 	// wxString wxColour::GetAsString(long flags = ::wxC2S_NAME | ::wxC2S_CSS_SYNTAX) const
 	static int _bind_GetAsString(lua_State *L) {
 		if (!_lg_typecheck_GetAsString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxColour::GetAsString(long flags = ::wxC2S_NAME | ::wxC2S_CSS_SYNTAX) const function, expected prototype:\nwxString wxColour::GetAsString(long flags = ::wxC2S_NAME | ::wxC2S_CSS_SYNTAX) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxColour::GetAsString(long flags = ::wxC2S_NAME | ::wxC2S_CSS_SYNTAX) const function, expected prototype:\nwxString wxColour::GetAsString(long flags = ::wxC2S_NAME | ::wxC2S_CSS_SYNTAX) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxC2S_NAME | ::wxC2S_CSS_SYNTAX;
+		long flags=luatop>1 ? (long)lua_tonumber(L,2) : (long)::wxC2S_NAME | ::wxC2S_CSS_SYNTAX;
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxColour::GetAsString(long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxColour::GetAsString(long) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetAsString(flags);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -625,16 +606,14 @@ public:
 	// void wxColour::SetRGB(unsigned int colRGB)
 	static int _bind_SetRGB(lua_State *L) {
 		if (!_lg_typecheck_SetRGB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxColour::SetRGB(unsigned int colRGB) function, expected prototype:\nvoid wxColour::SetRGB(unsigned int colRGB)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxColour::SetRGB(unsigned int colRGB) function, expected prototype:\nvoid wxColour::SetRGB(unsigned int colRGB)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int colRGB=(unsigned int)lua_tointeger(L,2);
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColour::SetRGB(unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxColour::SetRGB(unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRGB(colRGB);
 
@@ -644,16 +623,14 @@ public:
 	// void wxColour::SetRGBA(unsigned int colRGBA)
 	static int _bind_SetRGBA(lua_State *L) {
 		if (!_lg_typecheck_SetRGBA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxColour::SetRGBA(unsigned int colRGBA) function, expected prototype:\nvoid wxColour::SetRGBA(unsigned int colRGBA)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxColour::SetRGBA(unsigned int colRGBA) function, expected prototype:\nvoid wxColour::SetRGBA(unsigned int colRGBA)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int colRGBA=(unsigned int)lua_tointeger(L,2);
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColour::SetRGBA(unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxColour::SetRGBA(unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRGBA(colRGBA);
 
@@ -663,15 +640,13 @@ public:
 	// unsigned int wxColour::GetRGB() const
 	static int _bind_GetRGB(lua_State *L) {
 		if (!_lg_typecheck_GetRGB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int wxColour::GetRGB() const function, expected prototype:\nunsigned int wxColour::GetRGB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int wxColour::GetRGB() const function, expected prototype:\nunsigned int wxColour::GetRGB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxColour::GetRGB() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int wxColour::GetRGB() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->GetRGB();
 		lua_pushnumber(L,lret);
@@ -682,15 +657,13 @@ public:
 	// unsigned int wxColour::GetRGBA() const
 	static int _bind_GetRGBA(lua_State *L) {
 		if (!_lg_typecheck_GetRGBA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int wxColour::GetRGBA() const function, expected prototype:\nunsigned int wxColour::GetRGBA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int wxColour::GetRGBA() const function, expected prototype:\nunsigned int wxColour::GetRGBA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxColour::GetRGBA() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int wxColour::GetRGBA() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->GetRGBA();
 		lua_pushnumber(L,lret);
@@ -701,15 +674,13 @@ public:
 	// ssize_t wxColour::GetPixel() const
 	static int _bind_GetPixel(lua_State *L) {
 		if (!_lg_typecheck_GetPixel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ssize_t wxColour::GetPixel() const function, expected prototype:\nssize_t wxColour::GetPixel() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ssize_t wxColour::GetPixel() const function, expected prototype:\nssize_t wxColour::GetPixel() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ssize_t wxColour::GetPixel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call ssize_t wxColour::GetPixel() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ssize_t lret = self->GetPixel();
 		lua_pushnumber(L,lret);
@@ -720,15 +691,13 @@ public:
 	// unsigned char wxColour::Green() const
 	static int _bind_Green(lua_State *L) {
 		if (!_lg_typecheck_Green(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char wxColour::Green() const function, expected prototype:\nunsigned char wxColour::Green() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char wxColour::Green() const function, expected prototype:\nunsigned char wxColour::Green() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxColour::Green() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::Green() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char lret = self->Green();
 		lua_pushnumber(L,(int)lret);
@@ -739,15 +708,13 @@ public:
 	// bool wxColour::IsOk() const
 	static int _bind_IsOk(lua_State *L) {
 		if (!_lg_typecheck_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxColour::IsOk() const function, expected prototype:\nbool wxColour::IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxColour::IsOk() const function, expected prototype:\nbool wxColour::IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColour::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxColour::IsOk() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -758,15 +725,13 @@ public:
 	// unsigned char wxColour::Red() const
 	static int _bind_Red(lua_State *L) {
 		if (!_lg_typecheck_Red(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char wxColour::Red() const function, expected prototype:\nunsigned char wxColour::Red() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char wxColour::Red() const function, expected prototype:\nunsigned char wxColour::Red() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxColour::Red() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::Red() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char lret = self->Red();
 		lua_pushnumber(L,(int)lret);
@@ -777,8 +742,7 @@ public:
 	// void wxColour::Set(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE)
 	static int _bind_Set_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Set_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxColour::Set(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE) function, expected prototype:\nvoid wxColour::Set(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxColour::Set(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE) function, expected prototype:\nvoid wxColour::Set(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha = wxALPHA_OPAQUE)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -790,8 +754,7 @@ public:
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColour::Set(unsigned char, unsigned char, unsigned char, unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxColour::Set(unsigned char, unsigned char, unsigned char, unsigned char). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Set(red, green, blue, alpha);
 
@@ -801,16 +764,14 @@ public:
 	// void wxColour::Set(unsigned long RGB)
 	static int _bind_Set_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Set_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxColour::Set(unsigned long RGB) function, expected prototype:\nvoid wxColour::Set(unsigned long RGB)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxColour::Set(unsigned long RGB) function, expected prototype:\nvoid wxColour::Set(unsigned long RGB)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long RGB=(unsigned long)lua_tointeger(L,2);
+		unsigned long RGB=(unsigned long)lua_tonumber(L,2);
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxColour::Set(unsigned long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxColour::Set(unsigned long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Set(RGB);
 
@@ -820,16 +781,14 @@ public:
 	// bool wxColour::Set(const wxString & str)
 	static int _bind_Set_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Set_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxColour::Set(const wxString & str) function, expected prototype:\nbool wxColour::Set(const wxString & str)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxColour::Set(const wxString & str) function, expected prototype:\nbool wxColour::Set(const wxString & str)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString str(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColour::Set(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxColour::Set(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Set(str);
 		lua_pushboolean(L,lret?1:0);
@@ -850,16 +809,14 @@ public:
 	// wxColour wxColour::ChangeLightness(int ialpha) const
 	static int _bind_ChangeLightness_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ChangeLightness_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxColour::ChangeLightness(int ialpha) const function, expected prototype:\nwxColour wxColour::ChangeLightness(int ialpha) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxColour::ChangeLightness(int ialpha) const function, expected prototype:\nwxColour wxColour::ChangeLightness(int ialpha) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int ialpha=(int)lua_tointeger(L,2);
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxColour::ChangeLightness(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxColour::ChangeLightness(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxColour stack_lret = self->ChangeLightness(ialpha);
 		wxColour* lret = new wxColour(stack_lret);
@@ -873,8 +830,7 @@ public:
 	// static void wxColour::ChangeLightness(unsigned char * r, unsigned char * g, unsigned char * b, int ialpha)
 	static int _bind_ChangeLightness_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ChangeLightness_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxColour::ChangeLightness(unsigned char * r, unsigned char * g, unsigned char * b, int ialpha) function, expected prototype:\nstatic void wxColour::ChangeLightness(unsigned char * r, unsigned char * g, unsigned char * b, int ialpha)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxColour::ChangeLightness(unsigned char * r, unsigned char * g, unsigned char * b, int ialpha) function, expected prototype:\nstatic void wxColour::ChangeLightness(unsigned char * r, unsigned char * g, unsigned char * b, int ialpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char r = (unsigned char)(lua_tointeger(L,1));
@@ -899,8 +855,7 @@ public:
 	// static void wxColour::MakeMono(unsigned char * r, unsigned char * g, unsigned char * b, bool on)
 	static int _bind_MakeMono(lua_State *L) {
 		if (!_lg_typecheck_MakeMono(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxColour::MakeMono(unsigned char * r, unsigned char * g, unsigned char * b, bool on) function, expected prototype:\nstatic void wxColour::MakeMono(unsigned char * r, unsigned char * g, unsigned char * b, bool on)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxColour::MakeMono(unsigned char * r, unsigned char * g, unsigned char * b, bool on) function, expected prototype:\nstatic void wxColour::MakeMono(unsigned char * r, unsigned char * g, unsigned char * b, bool on)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char r = (unsigned char)(lua_tointeger(L,1));
@@ -916,8 +871,7 @@ public:
 	// static void wxColour::MakeDisabled(unsigned char * r, unsigned char * g, unsigned char * b, unsigned char brightness = 255)
 	static int _bind_MakeDisabled(lua_State *L) {
 		if (!_lg_typecheck_MakeDisabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxColour::MakeDisabled(unsigned char * r, unsigned char * g, unsigned char * b, unsigned char brightness = 255) function, expected prototype:\nstatic void wxColour::MakeDisabled(unsigned char * r, unsigned char * g, unsigned char * b, unsigned char brightness = 255)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxColour::MakeDisabled(unsigned char * r, unsigned char * g, unsigned char * b, unsigned char brightness = 255) function, expected prototype:\nstatic void wxColour::MakeDisabled(unsigned char * r, unsigned char * g, unsigned char * b, unsigned char brightness = 255)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -935,8 +889,7 @@ public:
 	// static void wxColour::MakeGrey(unsigned char * r, unsigned char * g, unsigned char * b)
 	static int _bind_MakeGrey_overload_1(lua_State *L) {
 		if (!_lg_typecheck_MakeGrey_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxColour::MakeGrey(unsigned char * r, unsigned char * g, unsigned char * b) function, expected prototype:\nstatic void wxColour::MakeGrey(unsigned char * r, unsigned char * g, unsigned char * b)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxColour::MakeGrey(unsigned char * r, unsigned char * g, unsigned char * b) function, expected prototype:\nstatic void wxColour::MakeGrey(unsigned char * r, unsigned char * g, unsigned char * b)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char r = (unsigned char)(lua_tointeger(L,1));
@@ -951,8 +904,7 @@ public:
 	// static void wxColour::MakeGrey(unsigned char * r, unsigned char * g, unsigned char * b, double weight_r, double weight_g, double weight_b)
 	static int _bind_MakeGrey_overload_2(lua_State *L) {
 		if (!_lg_typecheck_MakeGrey_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxColour::MakeGrey(unsigned char * r, unsigned char * g, unsigned char * b, double weight_r, double weight_g, double weight_b) function, expected prototype:\nstatic void wxColour::MakeGrey(unsigned char * r, unsigned char * g, unsigned char * b, double weight_r, double weight_g, double weight_b)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxColour::MakeGrey(unsigned char * r, unsigned char * g, unsigned char * b, double weight_r, double weight_g, double weight_b) function, expected prototype:\nstatic void wxColour::MakeGrey(unsigned char * r, unsigned char * g, unsigned char * b, double weight_r, double weight_g, double weight_b)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char r = (unsigned char)(lua_tointeger(L,1));
@@ -979,8 +931,7 @@ public:
 	// static unsigned char wxColour::AlphaBlend(unsigned char fg, unsigned char bg, double alpha)
 	static int _bind_AlphaBlend(lua_State *L) {
 		if (!_lg_typecheck_AlphaBlend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static unsigned char wxColour::AlphaBlend(unsigned char fg, unsigned char bg, double alpha) function, expected prototype:\nstatic unsigned char wxColour::AlphaBlend(unsigned char fg, unsigned char bg, double alpha)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static unsigned char wxColour::AlphaBlend(unsigned char fg, unsigned char bg, double alpha) function, expected prototype:\nstatic unsigned char wxColour::AlphaBlend(unsigned char fg, unsigned char bg, double alpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char fg = (unsigned char)(lua_tointeger(L,1));
@@ -996,15 +947,13 @@ public:
 	// wxClassInfo * wxColour::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxColour::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxColour::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxColour::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxColour::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxColour::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxColour::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxColour::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1017,15 +966,13 @@ public:
 	// unsigned char wxColour::base_Alpha() const
 	static int _bind_base_Alpha(lua_State *L) {
 		if (!_lg_typecheck_base_Alpha(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char wxColour::base_Alpha() const function, expected prototype:\nunsigned char wxColour::base_Alpha() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char wxColour::base_Alpha() const function, expected prototype:\nunsigned char wxColour::base_Alpha() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxColour::base_Alpha() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::base_Alpha() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char lret = self->wxColour::Alpha();
 		lua_pushnumber(L,(int)lret);
@@ -1036,15 +983,13 @@ public:
 	// unsigned char wxColour::base_Blue() const
 	static int _bind_base_Blue(lua_State *L) {
 		if (!_lg_typecheck_base_Blue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char wxColour::base_Blue() const function, expected prototype:\nunsigned char wxColour::base_Blue() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char wxColour::base_Blue() const function, expected prototype:\nunsigned char wxColour::base_Blue() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxColour::base_Blue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::base_Blue() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char lret = self->wxColour::Blue();
 		lua_pushnumber(L,(int)lret);
@@ -1055,18 +1000,16 @@ public:
 	// wxString wxColour::base_GetAsString(long flags = ::wxC2S_NAME | ::wxC2S_CSS_SYNTAX) const
 	static int _bind_base_GetAsString(lua_State *L) {
 		if (!_lg_typecheck_base_GetAsString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxColour::base_GetAsString(long flags = ::wxC2S_NAME | ::wxC2S_CSS_SYNTAX) const function, expected prototype:\nwxString wxColour::base_GetAsString(long flags = ::wxC2S_NAME | ::wxC2S_CSS_SYNTAX) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxColour::base_GetAsString(long flags = ::wxC2S_NAME | ::wxC2S_CSS_SYNTAX) const function, expected prototype:\nwxString wxColour::base_GetAsString(long flags = ::wxC2S_NAME | ::wxC2S_CSS_SYNTAX) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxC2S_NAME | ::wxC2S_CSS_SYNTAX;
+		long flags=luatop>1 ? (long)lua_tonumber(L,2) : (long)::wxC2S_NAME | ::wxC2S_CSS_SYNTAX;
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxColour::base_GetAsString(long) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxColour::base_GetAsString(long) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxColour::GetAsString(flags);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1077,15 +1020,13 @@ public:
 	// unsigned char wxColour::base_Green() const
 	static int _bind_base_Green(lua_State *L) {
 		if (!_lg_typecheck_base_Green(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char wxColour::base_Green() const function, expected prototype:\nunsigned char wxColour::base_Green() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char wxColour::base_Green() const function, expected prototype:\nunsigned char wxColour::base_Green() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxColour::base_Green() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::base_Green() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char lret = self->wxColour::Green();
 		lua_pushnumber(L,(int)lret);
@@ -1096,15 +1037,13 @@ public:
 	// bool wxColour::base_IsOk() const
 	static int _bind_base_IsOk(lua_State *L) {
 		if (!_lg_typecheck_base_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxColour::base_IsOk() const function, expected prototype:\nbool wxColour::base_IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxColour::base_IsOk() const function, expected prototype:\nbool wxColour::base_IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColour::base_IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxColour::base_IsOk() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxColour::IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -1115,15 +1054,13 @@ public:
 	// unsigned char wxColour::base_Red() const
 	static int _bind_base_Red(lua_State *L) {
 		if (!_lg_typecheck_base_Red(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char wxColour::base_Red() const function, expected prototype:\nunsigned char wxColour::base_Red() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char wxColour::base_Red() const function, expected prototype:\nunsigned char wxColour::base_Red() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char wxColour::base_Red() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char wxColour::base_Red() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char lret = self->wxColour::Red();
 		lua_pushnumber(L,(int)lret);
@@ -1136,8 +1073,7 @@ public:
 	// bool wxColour::operator!=(const wxColour & colour) const
 	static int _bind_op_neq(lua_State *L) {
 		if (!_lg_typecheck_op_neq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxColour::operator!=(const wxColour & colour) const function, expected prototype:\nbool wxColour::operator!=(const wxColour & colour) const\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxColour::operator!=(const wxColour & colour) const function, expected prototype:\nbool wxColour::operator!=(const wxColour & colour) const\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -1148,8 +1084,7 @@ public:
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColour::operator!=(const wxColour &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxColour::operator!=(const wxColour &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator!=(colour);
 		lua_pushboolean(L,lret?1:0);
@@ -1160,8 +1095,7 @@ public:
 	// wxColour & wxColour::operator=(const wxColour & colour)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour & wxColour::operator=(const wxColour & colour) function, expected prototype:\nwxColour & wxColour::operator=(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxColour & wxColour::operator=(const wxColour & colour) function, expected prototype:\nwxColour & wxColour::operator=(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -1172,8 +1106,7 @@ public:
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour & wxColour::operator=(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour & wxColour::operator=(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxColour* lret = &self->operator=(colour);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1186,8 +1119,7 @@ public:
 	// bool wxColour::operator==(const wxColour & colour) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxColour::operator==(const wxColour & colour) const function, expected prototype:\nbool wxColour::operator==(const wxColour & colour) const\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxColour::operator==(const wxColour & colour) const function, expected prototype:\nbool wxColour::operator==(const wxColour & colour) const\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -1198,8 +1130,7 @@ public:
 
 		wxColour* self=Luna< wxObject >::checkSubType< wxColour >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxColour::operator==(const wxColour &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxColour::operator==(const wxColour &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(colour);
 		lua_pushboolean(L,lret?1:0);

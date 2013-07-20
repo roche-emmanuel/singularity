@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPasswordEntryDialog* self= (wxPasswordEntryDialog*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -98,7 +95,7 @@ public:
 		if( lua_isstring(L,2)==0 ) return false;
 		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
 		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
 		if( luatop>5 && !Luna<void>::has_uniqueid(L,6,25723480) ) return false;
 		if( luatop>5 && (!(Luna< wxPoint >::check(L,6))) ) return false;
 		return true;
@@ -114,7 +111,7 @@ public:
 		if( lua_isstring(L,3)==0 ) return false;
 		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
 		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
 		if( luatop>6 && !Luna<void>::has_uniqueid(L,7,25723480) ) return false;
 		if( luatop>6 && (!(Luna< wxPoint >::check(L,7))) ) return false;
 		return true;
@@ -481,14 +478,14 @@ public:
 	inline static bool _lg_typecheck_base_SetExtraStyle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_SetWindowStyleFlag(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -745,7 +742,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -893,7 +890,7 @@ public:
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -971,8 +968,7 @@ public:
 	// wxPasswordEntryDialog::wxPasswordEntryDialog(wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition)
 	static wxPasswordEntryDialog* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPasswordEntryDialog::wxPasswordEntryDialog(wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition) function, expected prototype:\nwxPasswordEntryDialog::wxPasswordEntryDialog(wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 6 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in wxPasswordEntryDialog::wxPasswordEntryDialog(wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition) function, expected prototype:\nwxPasswordEntryDialog::wxPasswordEntryDialog(wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 6 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -981,7 +977,7 @@ public:
 		wxString message(lua_tostring(L,2),lua_objlen(L,2));
 		wxString caption(lua_tostring(L,3),lua_objlen(L,3));
 		wxString defaultValue(lua_tostring(L,4),lua_objlen(L,4));
-		long style=luatop>4 ? (long)lua_tointeger(L,5) : (long)wxOK | wxCANCEL | ::wxCENTRE;
+		long style=luatop>4 ? (long)lua_tonumber(L,5) : (long)wxOK | wxCANCEL | ::wxCENTRE;
 		const wxPoint* pos_ptr=luatop>5 ? (Luna< wxPoint >::check(L,6)) : NULL;
 		if( luatop>5 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxPasswordEntryDialog::wxPasswordEntryDialog function");
@@ -994,8 +990,7 @@ public:
 	// wxPasswordEntryDialog::wxPasswordEntryDialog(lua_Table * data, wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition)
 	static wxPasswordEntryDialog* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPasswordEntryDialog::wxPasswordEntryDialog(lua_Table * data, wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition) function, expected prototype:\nwxPasswordEntryDialog::wxPasswordEntryDialog(lua_Table * data, wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 88196105\narg 7 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in wxPasswordEntryDialog::wxPasswordEntryDialog(lua_Table * data, wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition) function, expected prototype:\nwxPasswordEntryDialog::wxPasswordEntryDialog(lua_Table * data, wxWindow * parent, const wxString & message, const wxString & caption = wxGetPasswordFromUserPromptStr, const wxString & defaultValue = wxEmptyString, long style = wxOK | wxCANCEL | ::wxCENTRE, const wxPoint & pos = wxDefaultPosition)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 88196105\narg 7 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1004,7 +999,7 @@ public:
 		wxString message(lua_tostring(L,3),lua_objlen(L,3));
 		wxString caption(lua_tostring(L,4),lua_objlen(L,4));
 		wxString defaultValue(lua_tostring(L,5),lua_objlen(L,5));
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)wxOK | wxCANCEL | ::wxCENTRE;
+		long style=luatop>5 ? (long)lua_tonumber(L,6) : (long)wxOK | wxCANCEL | ::wxCENTRE;
 		const wxPoint* pos_ptr=luatop>6 ? (Luna< wxPoint >::check(L,7)) : NULL;
 		if( luatop>6 && !pos_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxPasswordEntryDialog::wxPasswordEntryDialog function");
@@ -1028,15 +1023,13 @@ public:
 	// wxClassInfo * wxPasswordEntryDialog::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxPasswordEntryDialog::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxPasswordEntryDialog::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxPasswordEntryDialog::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxPasswordEntryDialog::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxPasswordEntryDialog::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPasswordEntryDialog::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxPasswordEntryDialog::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1049,15 +1042,13 @@ public:
 	// bool wxPasswordEntryDialog::base_AcceptsFocus() const
 	static int _bind_base_AcceptsFocus(lua_State *L) {
 		if (!_lg_typecheck_base_AcceptsFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_AcceptsFocus() const function, expected prototype:\nbool wxPasswordEntryDialog::base_AcceptsFocus() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_AcceptsFocus() const function, expected prototype:\nbool wxPasswordEntryDialog::base_AcceptsFocus() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_AcceptsFocus() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1068,15 +1059,13 @@ public:
 	// bool wxPasswordEntryDialog::base_AcceptsFocusFromKeyboard() const
 	static int _bind_base_AcceptsFocusFromKeyboard(lua_State *L) {
 		if (!_lg_typecheck_base_AcceptsFocusFromKeyboard(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_AcceptsFocusFromKeyboard() const function, expected prototype:\nbool wxPasswordEntryDialog::base_AcceptsFocusFromKeyboard() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_AcceptsFocusFromKeyboard() const function, expected prototype:\nbool wxPasswordEntryDialog::base_AcceptsFocusFromKeyboard() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_AcceptsFocusFromKeyboard() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1087,15 +1076,13 @@ public:
 	// bool wxPasswordEntryDialog::base_AcceptsFocusRecursively() const
 	static int _bind_base_AcceptsFocusRecursively(lua_State *L) {
 		if (!_lg_typecheck_base_AcceptsFocusRecursively(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_AcceptsFocusRecursively() const function, expected prototype:\nbool wxPasswordEntryDialog::base_AcceptsFocusRecursively() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_AcceptsFocusRecursively() const function, expected prototype:\nbool wxPasswordEntryDialog::base_AcceptsFocusRecursively() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_AcceptsFocusRecursively() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1106,15 +1093,13 @@ public:
 	// bool wxPasswordEntryDialog::base_HasFocus() const
 	static int _bind_base_HasFocus(lua_State *L) {
 		if (!_lg_typecheck_base_HasFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_HasFocus() const function, expected prototype:\nbool wxPasswordEntryDialog::base_HasFocus() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_HasFocus() const function, expected prototype:\nbool wxPasswordEntryDialog::base_HasFocus() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_HasFocus() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1125,16 +1110,14 @@ public:
 	// void wxPasswordEntryDialog::base_SetCanFocus(bool canFocus)
 	static int _bind_base_SetCanFocus(lua_State *L) {
 		if (!_lg_typecheck_base_SetCanFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetCanFocus(bool canFocus) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetCanFocus(bool canFocus)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetCanFocus(bool canFocus) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetCanFocus(bool canFocus)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool canFocus=(bool)(lua_toboolean(L,2)==1);
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetCanFocus(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetCanFocus(canFocus);
 
@@ -1144,15 +1127,13 @@ public:
 	// void wxPasswordEntryDialog::base_SetFocus()
 	static int _bind_base_SetFocus(lua_State *L) {
 		if (!_lg_typecheck_base_SetFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetFocus() function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetFocus()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetFocus() function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetFocus()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetFocus(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetFocus();
 
@@ -1162,15 +1143,13 @@ public:
 	// void wxPasswordEntryDialog::base_SetFocusFromKbd()
 	static int _bind_base_SetFocusFromKbd(lua_State *L) {
 		if (!_lg_typecheck_base_SetFocusFromKbd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetFocusFromKbd() function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetFocusFromKbd()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetFocusFromKbd() function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetFocusFromKbd()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetFocusFromKbd(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetFocusFromKbd();
 
@@ -1180,16 +1159,14 @@ public:
 	// void wxPasswordEntryDialog::base_AddChild(wxWindow * child)
 	static int _bind_base_AddChild(lua_State *L) {
 		if (!_lg_typecheck_base_AddChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_AddChild(wxWindow * child) function, expected prototype:\nvoid wxPasswordEntryDialog::base_AddChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_AddChild(wxWindow * child) function, expected prototype:\nvoid wxPasswordEntryDialog::base_AddChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* child=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_AddChild(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::AddChild(child);
 
@@ -1199,16 +1176,14 @@ public:
 	// void wxPasswordEntryDialog::base_RemoveChild(wxWindow * child)
 	static int _bind_base_RemoveChild(lua_State *L) {
 		if (!_lg_typecheck_base_RemoveChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_RemoveChild(wxWindow * child) function, expected prototype:\nvoid wxPasswordEntryDialog::base_RemoveChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_RemoveChild(wxWindow * child) function, expected prototype:\nvoid wxPasswordEntryDialog::base_RemoveChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* child=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_RemoveChild(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::RemoveChild(child);
 
@@ -1218,16 +1193,14 @@ public:
 	// bool wxPasswordEntryDialog::base_Reparent(wxWindow * newParent)
 	static int _bind_base_Reparent(lua_State *L) {
 		if (!_lg_typecheck_base_Reparent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_Reparent(wxWindow * newParent) function, expected prototype:\nbool wxPasswordEntryDialog::base_Reparent(wxWindow * newParent)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_Reparent(wxWindow * newParent) function, expected prototype:\nbool wxPasswordEntryDialog::base_Reparent(wxWindow * newParent)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* newParent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Reparent(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1238,8 +1211,7 @@ public:
 	// void wxPasswordEntryDialog::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true)
 	static int _bind_base_AlwaysShowScrollbars(lua_State *L) {
 		if (!_lg_typecheck_base_AlwaysShowScrollbars(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true) function, expected prototype:\nvoid wxPasswordEntryDialog::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true) function, expected prototype:\nvoid wxPasswordEntryDialog::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1249,8 +1221,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_AlwaysShowScrollbars(bool, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1260,16 +1231,14 @@ public:
 	// int wxPasswordEntryDialog::base_GetScrollPos(int orientation) const
 	static int _bind_base_GetScrollPos(lua_State *L) {
 		if (!_lg_typecheck_base_GetScrollPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxPasswordEntryDialog::base_GetScrollPos(int orientation) const function, expected prototype:\nint wxPasswordEntryDialog::base_GetScrollPos(int orientation) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxPasswordEntryDialog::base_GetScrollPos(int orientation) const function, expected prototype:\nint wxPasswordEntryDialog::base_GetScrollPos(int orientation) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orientation=(int)lua_tointeger(L,2);
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetScrollPos(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxPasswordEntryDialog::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1280,16 +1249,14 @@ public:
 	// int wxPasswordEntryDialog::base_GetScrollRange(int orientation) const
 	static int _bind_base_GetScrollRange(lua_State *L) {
 		if (!_lg_typecheck_base_GetScrollRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxPasswordEntryDialog::base_GetScrollRange(int orientation) const function, expected prototype:\nint wxPasswordEntryDialog::base_GetScrollRange(int orientation) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxPasswordEntryDialog::base_GetScrollRange(int orientation) const function, expected prototype:\nint wxPasswordEntryDialog::base_GetScrollRange(int orientation) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orientation=(int)lua_tointeger(L,2);
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetScrollRange(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxPasswordEntryDialog::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1300,16 +1267,14 @@ public:
 	// int wxPasswordEntryDialog::base_GetScrollThumb(int orientation) const
 	static int _bind_base_GetScrollThumb(lua_State *L) {
 		if (!_lg_typecheck_base_GetScrollThumb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxPasswordEntryDialog::base_GetScrollThumb(int orientation) const function, expected prototype:\nint wxPasswordEntryDialog::base_GetScrollThumb(int orientation) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxPasswordEntryDialog::base_GetScrollThumb(int orientation) const function, expected prototype:\nint wxPasswordEntryDialog::base_GetScrollThumb(int orientation) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orientation=(int)lua_tointeger(L,2);
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetScrollThumb(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxPasswordEntryDialog::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1320,16 +1285,14 @@ public:
 	// bool wxPasswordEntryDialog::base_IsScrollbarAlwaysShown(int orient) const
 	static int _bind_base_IsScrollbarAlwaysShown(lua_State *L) {
 		if (!_lg_typecheck_base_IsScrollbarAlwaysShown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsScrollbarAlwaysShown(int orient) const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsScrollbarAlwaysShown(int orient) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsScrollbarAlwaysShown(int orient) const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsScrollbarAlwaysShown(int orient) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orient=(int)lua_tointeger(L,2);
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsScrollbarAlwaysShown(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1340,16 +1303,14 @@ public:
 	// bool wxPasswordEntryDialog::base_ScrollLines(int lines)
 	static int _bind_base_ScrollLines(lua_State *L) {
 		if (!_lg_typecheck_base_ScrollLines(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_ScrollLines(int lines) function, expected prototype:\nbool wxPasswordEntryDialog::base_ScrollLines(int lines)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_ScrollLines(int lines) function, expected prototype:\nbool wxPasswordEntryDialog::base_ScrollLines(int lines)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int lines=(int)lua_tointeger(L,2);
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ScrollLines(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1360,16 +1321,14 @@ public:
 	// bool wxPasswordEntryDialog::base_ScrollPages(int pages)
 	static int _bind_base_ScrollPages(lua_State *L) {
 		if (!_lg_typecheck_base_ScrollPages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_ScrollPages(int pages) function, expected prototype:\nbool wxPasswordEntryDialog::base_ScrollPages(int pages)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_ScrollPages(int pages) function, expected prototype:\nbool wxPasswordEntryDialog::base_ScrollPages(int pages)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pages=(int)lua_tointeger(L,2);
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ScrollPages(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1380,8 +1339,7 @@ public:
 	// void wxPasswordEntryDialog::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL)
 	static int _bind_base_ScrollWindow(lua_State *L) {
 		if (!_lg_typecheck_base_ScrollWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL) function, expected prototype:\nvoid wxPasswordEntryDialog::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL)\nClass arguments details:\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL) function, expected prototype:\nvoid wxPasswordEntryDialog::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL)\nClass arguments details:\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1392,8 +1350,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_ScrollWindow(int, int, const wxRect *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::ScrollWindow(dx, dy, rect);
 
@@ -1403,8 +1360,7 @@ public:
 	// void wxPasswordEntryDialog::base_SetScrollPos(int orientation, int pos, bool refresh = true)
 	static int _bind_base_SetScrollPos(lua_State *L) {
 		if (!_lg_typecheck_base_SetScrollPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetScrollPos(int orientation, int pos, bool refresh = true) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetScrollPos(int orientation, int pos, bool refresh = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetScrollPos(int orientation, int pos, bool refresh = true) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetScrollPos(int orientation, int pos, bool refresh = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1415,8 +1371,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetScrollPos(int, int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetScrollPos(orientation, pos, refresh);
 
@@ -1426,8 +1381,7 @@ public:
 	// void wxPasswordEntryDialog::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)
 	static int _bind_base_SetScrollbar(lua_State *L) {
 		if (!_lg_typecheck_base_SetScrollbar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1440,8 +1394,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetScrollbar(int, int, int, int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1451,8 +1404,7 @@ public:
 	// wxSize wxPasswordEntryDialog::base_ClientToWindowSize(const wxSize & size) const
 	static int _bind_base_ClientToWindowSize(lua_State *L) {
 		if (!_lg_typecheck_base_ClientToWindowSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_ClientToWindowSize(const wxSize & size) const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_ClientToWindowSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_ClientToWindowSize(const wxSize & size) const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_ClientToWindowSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -1463,8 +1415,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_ClientToWindowSize(const wxSize &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1478,8 +1429,7 @@ public:
 	// wxSize wxPasswordEntryDialog::base_WindowToClientSize(const wxSize & size) const
 	static int _bind_base_WindowToClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_WindowToClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_WindowToClientSize(const wxSize & size) const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_WindowToClientSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_WindowToClientSize(const wxSize & size) const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_WindowToClientSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -1490,8 +1440,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_WindowToClientSize(const wxSize &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1505,15 +1454,13 @@ public:
 	// void wxPasswordEntryDialog::base_Fit()
 	static int _bind_base_Fit(lua_State *L) {
 		if (!_lg_typecheck_base_Fit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_Fit() function, expected prototype:\nvoid wxPasswordEntryDialog::base_Fit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_Fit() function, expected prototype:\nvoid wxPasswordEntryDialog::base_Fit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Fit(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::Fit();
 
@@ -1523,15 +1470,13 @@ public:
 	// void wxPasswordEntryDialog::base_FitInside()
 	static int _bind_base_FitInside(lua_State *L) {
 		if (!_lg_typecheck_base_FitInside(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_FitInside() function, expected prototype:\nvoid wxPasswordEntryDialog::base_FitInside()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_FitInside() function, expected prototype:\nvoid wxPasswordEntryDialog::base_FitInside()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_FitInside(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::FitInside();
 
@@ -1541,15 +1486,13 @@ public:
 	// wxSize wxPasswordEntryDialog::base_GetEffectiveMinSize() const
 	static int _bind_base_GetEffectiveMinSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetEffectiveMinSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_GetEffectiveMinSize() const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_GetEffectiveMinSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_GetEffectiveMinSize() const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_GetEffectiveMinSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetEffectiveMinSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1563,15 +1506,13 @@ public:
 	// wxSize wxPasswordEntryDialog::base_GetMaxClientSize() const
 	static int _bind_base_GetMaxClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMaxClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_GetMaxClientSize() const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_GetMaxClientSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_GetMaxClientSize() const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_GetMaxClientSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetMaxClientSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1585,15 +1526,13 @@ public:
 	// wxSize wxPasswordEntryDialog::base_GetMaxSize() const
 	static int _bind_base_GetMaxSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMaxSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_GetMaxSize() const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_GetMaxSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_GetMaxSize() const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_GetMaxSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetMaxSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1607,15 +1546,13 @@ public:
 	// wxSize wxPasswordEntryDialog::base_GetMinClientSize() const
 	static int _bind_base_GetMinClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMinClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_GetMinClientSize() const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_GetMinClientSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_GetMinClientSize() const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_GetMinClientSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetMinClientSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1629,15 +1566,13 @@ public:
 	// wxSize wxPasswordEntryDialog::base_GetMinSize() const
 	static int _bind_base_GetMinSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMinSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_GetMinSize() const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_GetMinSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_GetMinSize() const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_GetMinSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetMinSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1651,15 +1586,13 @@ public:
 	// wxSize wxPasswordEntryDialog::base_GetBestVirtualSize() const
 	static int _bind_base_GetBestVirtualSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetBestVirtualSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_GetBestVirtualSize() const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_GetBestVirtualSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_GetBestVirtualSize() const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_GetBestVirtualSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetBestVirtualSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1673,15 +1606,13 @@ public:
 	// wxSize wxPasswordEntryDialog::base_GetWindowBorderSize() const
 	static int _bind_base_GetWindowBorderSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetWindowBorderSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_GetWindowBorderSize() const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_GetWindowBorderSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxPasswordEntryDialog::base_GetWindowBorderSize() const function, expected prototype:\nwxSize wxPasswordEntryDialog::base_GetWindowBorderSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxPasswordEntryDialog::base_GetWindowBorderSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxPasswordEntryDialog::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1695,8 +1626,7 @@ public:
 	// bool wxPasswordEntryDialog::base_InformFirstDirection(int direction, int size, int availableOtherDir)
 	static int _bind_base_InformFirstDirection(lua_State *L) {
 		if (!_lg_typecheck_base_InformFirstDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_InformFirstDirection(int direction, int size, int availableOtherDir) function, expected prototype:\nbool wxPasswordEntryDialog::base_InformFirstDirection(int direction, int size, int availableOtherDir)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_InformFirstDirection(int direction, int size, int availableOtherDir) function, expected prototype:\nbool wxPasswordEntryDialog::base_InformFirstDirection(int direction, int size, int availableOtherDir)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int direction=(int)lua_tointeger(L,2);
@@ -1705,8 +1635,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_InformFirstDirection(int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1717,8 +1646,7 @@ public:
 	// void wxPasswordEntryDialog::base_SendSizeEvent(int flags = 0)
 	static int _bind_base_SendSizeEvent(lua_State *L) {
 		if (!_lg_typecheck_base_SendSizeEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SendSizeEvent(int flags = 0) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SendSizeEvent(int flags = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SendSizeEvent(int flags = 0) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SendSizeEvent(int flags = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1727,8 +1655,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SendSizeEvent(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SendSizeEvent(flags);
 
@@ -1738,8 +1665,7 @@ public:
 	// void wxPasswordEntryDialog::base_SetMaxClientSize(const wxSize & size)
 	static int _bind_base_SetMaxClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMaxClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetMaxClientSize(const wxSize & size) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetMaxClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetMaxClientSize(const wxSize & size) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetMaxClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -1750,8 +1676,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetMaxClientSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetMaxClientSize(size);
 
@@ -1761,8 +1686,7 @@ public:
 	// void wxPasswordEntryDialog::base_SetMinClientSize(const wxSize & size)
 	static int _bind_base_SetMinClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMinClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetMinClientSize(const wxSize & size) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetMinClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetMinClientSize(const wxSize & size) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetMinClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -1773,8 +1697,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetMinClientSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetMinClientSize(size);
 
@@ -1784,15 +1707,13 @@ public:
 	// wxPoint wxPasswordEntryDialog::base_GetClientAreaOrigin() const
 	static int _bind_base_GetClientAreaOrigin(lua_State *L) {
 		if (!_lg_typecheck_base_GetClientAreaOrigin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint wxPasswordEntryDialog::base_GetClientAreaOrigin() const function, expected prototype:\nwxPoint wxPasswordEntryDialog::base_GetClientAreaOrigin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint wxPasswordEntryDialog::base_GetClientAreaOrigin() const function, expected prototype:\nwxPoint wxPasswordEntryDialog::base_GetClientAreaOrigin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxPasswordEntryDialog::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint wxPasswordEntryDialog::base_GetClientAreaOrigin() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint stack_lret = self->wxPasswordEntryDialog::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1806,15 +1727,13 @@ public:
 	// void wxPasswordEntryDialog::base_ClearBackground()
 	static int _bind_base_ClearBackground(lua_State *L) {
 		if (!_lg_typecheck_base_ClearBackground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_ClearBackground() function, expected prototype:\nvoid wxPasswordEntryDialog::base_ClearBackground()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_ClearBackground() function, expected prototype:\nvoid wxPasswordEntryDialog::base_ClearBackground()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_ClearBackground(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::ClearBackground();
 
@@ -1824,15 +1743,13 @@ public:
 	// wxBackgroundStyle wxPasswordEntryDialog::base_GetBackgroundStyle() const
 	static int _bind_base_GetBackgroundStyle(lua_State *L) {
 		if (!_lg_typecheck_base_GetBackgroundStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBackgroundStyle wxPasswordEntryDialog::base_GetBackgroundStyle() const function, expected prototype:\nwxBackgroundStyle wxPasswordEntryDialog::base_GetBackgroundStyle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBackgroundStyle wxPasswordEntryDialog::base_GetBackgroundStyle() const function, expected prototype:\nwxBackgroundStyle wxPasswordEntryDialog::base_GetBackgroundStyle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxPasswordEntryDialog::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxPasswordEntryDialog::base_GetBackgroundStyle() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxBackgroundStyle lret = self->wxPasswordEntryDialog::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -1843,15 +1760,13 @@ public:
 	// int wxPasswordEntryDialog::base_GetCharHeight() const
 	static int _bind_base_GetCharHeight(lua_State *L) {
 		if (!_lg_typecheck_base_GetCharHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxPasswordEntryDialog::base_GetCharHeight() const function, expected prototype:\nint wxPasswordEntryDialog::base_GetCharHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxPasswordEntryDialog::base_GetCharHeight() const function, expected prototype:\nint wxPasswordEntryDialog::base_GetCharHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetCharHeight() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxPasswordEntryDialog::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -1862,15 +1777,13 @@ public:
 	// int wxPasswordEntryDialog::base_GetCharWidth() const
 	static int _bind_base_GetCharWidth(lua_State *L) {
 		if (!_lg_typecheck_base_GetCharWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxPasswordEntryDialog::base_GetCharWidth() const function, expected prototype:\nint wxPasswordEntryDialog::base_GetCharWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxPasswordEntryDialog::base_GetCharWidth() const function, expected prototype:\nint wxPasswordEntryDialog::base_GetCharWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_GetCharWidth() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxPasswordEntryDialog::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -1881,15 +1794,13 @@ public:
 	// wxVisualAttributes wxPasswordEntryDialog::base_GetDefaultAttributes() const
 	static int _bind_base_GetDefaultAttributes(lua_State *L) {
 		if (!_lg_typecheck_base_GetDefaultAttributes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxVisualAttributes wxPasswordEntryDialog::base_GetDefaultAttributes() const function, expected prototype:\nwxVisualAttributes wxPasswordEntryDialog::base_GetDefaultAttributes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxVisualAttributes wxPasswordEntryDialog::base_GetDefaultAttributes() const function, expected prototype:\nwxVisualAttributes wxPasswordEntryDialog::base_GetDefaultAttributes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxPasswordEntryDialog::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxPasswordEntryDialog::base_GetDefaultAttributes() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxVisualAttributes stack_lret = self->wxPasswordEntryDialog::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -1903,8 +1814,7 @@ public:
 	// void wxPasswordEntryDialog::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL)
 	static int _bind_base_Refresh(lua_State *L) {
 		if (!_lg_typecheck_base_Refresh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL) function, expected prototype:\nvoid wxPasswordEntryDialog::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL)\nClass arguments details:\narg 2 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL) function, expected prototype:\nvoid wxPasswordEntryDialog::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL)\nClass arguments details:\narg 2 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1914,8 +1824,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Refresh(bool, const wxRect *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::Refresh(eraseBackground, rect);
 
@@ -1925,15 +1834,13 @@ public:
 	// void wxPasswordEntryDialog::base_Update()
 	static int _bind_base_Update(lua_State *L) {
 		if (!_lg_typecheck_base_Update(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_Update() function, expected prototype:\nvoid wxPasswordEntryDialog::base_Update()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_Update() function, expected prototype:\nvoid wxPasswordEntryDialog::base_Update()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Update(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::Update();
 
@@ -1943,16 +1850,14 @@ public:
 	// bool wxPasswordEntryDialog::base_SetBackgroundStyle(wxBackgroundStyle style)
 	static int _bind_base_SetBackgroundStyle(lua_State *L) {
 		if (!_lg_typecheck_base_SetBackgroundStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_SetBackgroundStyle(wxBackgroundStyle style) function, expected prototype:\nbool wxPasswordEntryDialog::base_SetBackgroundStyle(wxBackgroundStyle style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_SetBackgroundStyle(wxBackgroundStyle style) function, expected prototype:\nbool wxPasswordEntryDialog::base_SetBackgroundStyle(wxBackgroundStyle style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxBackgroundStyle style=(wxBackgroundStyle)lua_tointeger(L,2);
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -1963,8 +1868,7 @@ public:
 	// bool wxPasswordEntryDialog::base_SetFont(const wxFont & font)
 	static int _bind_base_SetFont(lua_State *L) {
 		if (!_lg_typecheck_base_SetFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_SetFont(const wxFont & font) function, expected prototype:\nbool wxPasswordEntryDialog::base_SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_SetFont(const wxFont & font) function, expected prototype:\nbool wxPasswordEntryDialog::base_SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -1975,8 +1879,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_SetFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -1987,15 +1890,13 @@ public:
 	// bool wxPasswordEntryDialog::base_ShouldInheritColours() const
 	static int _bind_base_ShouldInheritColours(lua_State *L) {
 		if (!_lg_typecheck_base_ShouldInheritColours(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_ShouldInheritColours() const function, expected prototype:\nbool wxPasswordEntryDialog::base_ShouldInheritColours() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_ShouldInheritColours() const function, expected prototype:\nbool wxPasswordEntryDialog::base_ShouldInheritColours() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ShouldInheritColours() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2006,16 +1907,14 @@ public:
 	// void wxPasswordEntryDialog::base_SetThemeEnabled(bool enable)
 	static int _bind_base_SetThemeEnabled(lua_State *L) {
 		if (!_lg_typecheck_base_SetThemeEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetThemeEnabled(bool enable) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetThemeEnabled(bool enable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetThemeEnabled(bool enable) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetThemeEnabled(bool enable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enable=(bool)(lua_toboolean(L,2)==1);
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetThemeEnabled(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetThemeEnabled(enable);
 
@@ -2025,15 +1924,13 @@ public:
 	// bool wxPasswordEntryDialog::base_GetThemeEnabled() const
 	static int _bind_base_GetThemeEnabled(lua_State *L) {
 		if (!_lg_typecheck_base_GetThemeEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_GetThemeEnabled() const function, expected prototype:\nbool wxPasswordEntryDialog::base_GetThemeEnabled() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_GetThemeEnabled() const function, expected prototype:\nbool wxPasswordEntryDialog::base_GetThemeEnabled() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_GetThemeEnabled() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2044,16 +1941,14 @@ public:
 	// void wxPasswordEntryDialog::base_SetNextHandler(wxEvtHandler * handler)
 	static int _bind_base_SetNextHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetNextHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetNextHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetNextHandler(handler);
 
@@ -2063,16 +1958,14 @@ public:
 	// void wxPasswordEntryDialog::base_SetPreviousHandler(wxEvtHandler * handler)
 	static int _bind_base_SetPreviousHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetPreviousHandler(handler);
 
@@ -2082,15 +1975,13 @@ public:
 	// long wxPasswordEntryDialog::base_GetWindowStyleFlag() const
 	static int _bind_base_GetWindowStyleFlag(lua_State *L) {
 		if (!_lg_typecheck_base_GetWindowStyleFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxPasswordEntryDialog::base_GetWindowStyleFlag() const function, expected prototype:\nlong wxPasswordEntryDialog::base_GetWindowStyleFlag() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxPasswordEntryDialog::base_GetWindowStyleFlag() const function, expected prototype:\nlong wxPasswordEntryDialog::base_GetWindowStyleFlag() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxPasswordEntryDialog::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long wxPasswordEntryDialog::base_GetWindowStyleFlag() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->wxPasswordEntryDialog::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2101,16 +1992,14 @@ public:
 	// void wxPasswordEntryDialog::base_SetExtraStyle(long exStyle)
 	static int _bind_base_SetExtraStyle(lua_State *L) {
 		if (!_lg_typecheck_base_SetExtraStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetExtraStyle(long exStyle) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetExtraStyle(long exStyle)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetExtraStyle(long exStyle) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetExtraStyle(long exStyle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long exStyle=(long)lua_tointeger(L,2);
+		long exStyle=(long)lua_tonumber(L,2);
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetExtraStyle(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetExtraStyle(exStyle);
 
@@ -2120,16 +2009,14 @@ public:
 	// void wxPasswordEntryDialog::base_SetWindowStyleFlag(long style)
 	static int _bind_base_SetWindowStyleFlag(lua_State *L) {
 		if (!_lg_typecheck_base_SetWindowStyleFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetWindowStyleFlag(long style) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetWindowStyleFlag(long style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetWindowStyleFlag(long style) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetWindowStyleFlag(long style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long style=(long)lua_tointeger(L,2);
+		long style=(long)lua_tonumber(L,2);
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetWindowStyleFlag(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetWindowStyleFlag(style);
 
@@ -2139,15 +2026,13 @@ public:
 	// void wxPasswordEntryDialog::base_Lower()
 	static int _bind_base_Lower(lua_State *L) {
 		if (!_lg_typecheck_base_Lower(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_Lower() function, expected prototype:\nvoid wxPasswordEntryDialog::base_Lower()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_Lower() function, expected prototype:\nvoid wxPasswordEntryDialog::base_Lower()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Lower(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::Lower();
 
@@ -2157,15 +2042,13 @@ public:
 	// void wxPasswordEntryDialog::base_Raise()
 	static int _bind_base_Raise(lua_State *L) {
 		if (!_lg_typecheck_base_Raise(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_Raise() function, expected prototype:\nvoid wxPasswordEntryDialog::base_Raise()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_Raise() function, expected prototype:\nvoid wxPasswordEntryDialog::base_Raise()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Raise(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::Raise();
 
@@ -2175,8 +2058,7 @@ public:
 	// bool wxPasswordEntryDialog::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)
 	static int _bind_base_HideWithEffect(lua_State *L) {
 		if (!_lg_typecheck_base_HideWithEffect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxPasswordEntryDialog::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxPasswordEntryDialog::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2186,8 +2068,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2198,15 +2079,13 @@ public:
 	// bool wxPasswordEntryDialog::base_IsShown() const
 	static int _bind_base_IsShown(lua_State *L) {
 		if (!_lg_typecheck_base_IsShown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsShown() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsShown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsShown() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsShown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsShown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2217,15 +2096,13 @@ public:
 	// bool wxPasswordEntryDialog::base_IsShownOnScreen() const
 	static int _bind_base_IsShownOnScreen(lua_State *L) {
 		if (!_lg_typecheck_base_IsShownOnScreen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsShownOnScreen() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsShownOnScreen() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsShownOnScreen() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsShownOnScreen() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsShownOnScreen() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2236,8 +2113,7 @@ public:
 	// bool wxPasswordEntryDialog::base_Enable(bool enable = true)
 	static int _bind_base_Enable(lua_State *L) {
 		if (!_lg_typecheck_base_Enable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_Enable(bool enable = true) function, expected prototype:\nbool wxPasswordEntryDialog::base_Enable(bool enable = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_Enable(bool enable = true) function, expected prototype:\nbool wxPasswordEntryDialog::base_Enable(bool enable = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2246,8 +2122,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Enable(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2258,8 +2133,7 @@ public:
 	// bool wxPasswordEntryDialog::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)
 	static int _bind_base_ShowWithEffect(lua_State *L) {
 		if (!_lg_typecheck_base_ShowWithEffect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxPasswordEntryDialog::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxPasswordEntryDialog::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2269,8 +2143,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2281,8 +2154,7 @@ public:
 	// wxString wxPasswordEntryDialog::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const
 	static int _bind_base_GetHelpTextAtPoint(lua_State *L) {
 		if (!_lg_typecheck_base_GetHelpTextAtPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxPasswordEntryDialog::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const function, expected prototype:\nwxString wxPasswordEntryDialog::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const\nClass arguments details:\narg 1 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in wxString wxPasswordEntryDialog::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const function, expected prototype:\nwxString wxPasswordEntryDialog::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* point_ptr=(Luna< wxPoint >::check(L,2));
@@ -2294,8 +2166,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPasswordEntryDialog::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxPasswordEntryDialog::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxPasswordEntryDialog::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2306,15 +2177,13 @@ public:
 	// wxValidator * wxPasswordEntryDialog::base_GetValidator()
 	static int _bind_base_GetValidator(lua_State *L) {
 		if (!_lg_typecheck_base_GetValidator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxValidator * wxPasswordEntryDialog::base_GetValidator() function, expected prototype:\nwxValidator * wxPasswordEntryDialog::base_GetValidator()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxValidator * wxPasswordEntryDialog::base_GetValidator() function, expected prototype:\nwxValidator * wxPasswordEntryDialog::base_GetValidator()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxPasswordEntryDialog::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxValidator * wxPasswordEntryDialog::base_GetValidator(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxValidator * lret = self->wxPasswordEntryDialog::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2327,8 +2196,7 @@ public:
 	// void wxPasswordEntryDialog::base_SetValidator(const wxValidator & validator)
 	static int _bind_base_SetValidator(lua_State *L) {
 		if (!_lg_typecheck_base_SetValidator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetValidator(const wxValidator & validator) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetValidator(const wxValidator & validator)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetValidator(const wxValidator & validator) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetValidator(const wxValidator & validator)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxValidator* validator_ptr=(Luna< wxObject >::checkSubType< wxValidator >(L,2));
@@ -2339,8 +2207,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetValidator(const wxValidator &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetValidator(validator);
 
@@ -2350,15 +2217,13 @@ public:
 	// bool wxPasswordEntryDialog::base_TransferDataFromWindow()
 	static int _bind_base_TransferDataFromWindow(lua_State *L) {
 		if (!_lg_typecheck_base_TransferDataFromWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_TransferDataFromWindow() function, expected prototype:\nbool wxPasswordEntryDialog::base_TransferDataFromWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_TransferDataFromWindow() function, expected prototype:\nbool wxPasswordEntryDialog::base_TransferDataFromWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_TransferDataFromWindow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2369,15 +2234,13 @@ public:
 	// bool wxPasswordEntryDialog::base_TransferDataToWindow()
 	static int _bind_base_TransferDataToWindow(lua_State *L) {
 		if (!_lg_typecheck_base_TransferDataToWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_TransferDataToWindow() function, expected prototype:\nbool wxPasswordEntryDialog::base_TransferDataToWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_TransferDataToWindow() function, expected prototype:\nbool wxPasswordEntryDialog::base_TransferDataToWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_TransferDataToWindow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2388,15 +2251,13 @@ public:
 	// bool wxPasswordEntryDialog::base_Validate()
 	static int _bind_base_Validate(lua_State *L) {
 		if (!_lg_typecheck_base_Validate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_Validate() function, expected prototype:\nbool wxPasswordEntryDialog::base_Validate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_Validate() function, expected prototype:\nbool wxPasswordEntryDialog::base_Validate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Validate(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2407,15 +2268,13 @@ public:
 	// wxString wxPasswordEntryDialog::base_GetLabel() const
 	static int _bind_base_GetLabel(lua_State *L) {
 		if (!_lg_typecheck_base_GetLabel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxPasswordEntryDialog::base_GetLabel() const function, expected prototype:\nwxString wxPasswordEntryDialog::base_GetLabel() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxPasswordEntryDialog::base_GetLabel() const function, expected prototype:\nwxString wxPasswordEntryDialog::base_GetLabel() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPasswordEntryDialog::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxPasswordEntryDialog::base_GetLabel() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxPasswordEntryDialog::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2426,15 +2285,13 @@ public:
 	// wxLayoutDirection wxPasswordEntryDialog::base_GetLayoutDirection() const
 	static int _bind_base_GetLayoutDirection(lua_State *L) {
 		if (!_lg_typecheck_base_GetLayoutDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxLayoutDirection wxPasswordEntryDialog::base_GetLayoutDirection() const function, expected prototype:\nwxLayoutDirection wxPasswordEntryDialog::base_GetLayoutDirection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxLayoutDirection wxPasswordEntryDialog::base_GetLayoutDirection() const function, expected prototype:\nwxLayoutDirection wxPasswordEntryDialog::base_GetLayoutDirection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxPasswordEntryDialog::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxPasswordEntryDialog::base_GetLayoutDirection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxLayoutDirection lret = self->wxPasswordEntryDialog::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2445,15 +2302,13 @@ public:
 	// wxString wxPasswordEntryDialog::base_GetName() const
 	static int _bind_base_GetName(lua_State *L) {
 		if (!_lg_typecheck_base_GetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxPasswordEntryDialog::base_GetName() const function, expected prototype:\nwxString wxPasswordEntryDialog::base_GetName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxPasswordEntryDialog::base_GetName() const function, expected prototype:\nwxString wxPasswordEntryDialog::base_GetName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPasswordEntryDialog::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxPasswordEntryDialog::base_GetName() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxPasswordEntryDialog::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2464,16 +2319,14 @@ public:
 	// void wxPasswordEntryDialog::base_SetLabel(const wxString & label)
 	static int _bind_base_SetLabel(lua_State *L) {
 		if (!_lg_typecheck_base_SetLabel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetLabel(const wxString & label) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetLabel(const wxString & label)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetLabel(const wxString & label) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetLabel(const wxString & label)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetLabel(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetLabel(label);
 
@@ -2483,16 +2336,14 @@ public:
 	// void wxPasswordEntryDialog::base_SetLayoutDirection(wxLayoutDirection dir)
 	static int _bind_base_SetLayoutDirection(lua_State *L) {
 		if (!_lg_typecheck_base_SetLayoutDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetLayoutDirection(wxLayoutDirection dir) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetLayoutDirection(wxLayoutDirection dir)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetLayoutDirection(wxLayoutDirection dir) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetLayoutDirection(wxLayoutDirection dir)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLayoutDirection dir=(wxLayoutDirection)lua_tointeger(L,2);
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetLayoutDirection(dir);
 
@@ -2502,16 +2353,14 @@ public:
 	// void wxPasswordEntryDialog::base_SetName(const wxString & name)
 	static int _bind_base_SetName(lua_State *L) {
 		if (!_lg_typecheck_base_SetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetName(const wxString & name) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetName(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetName(const wxString & name) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetName(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetName(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetName(name);
 
@@ -2521,8 +2370,7 @@ public:
 	// void wxPasswordEntryDialog::base_SetAcceleratorTable(const wxAcceleratorTable & accel)
 	static int _bind_base_SetAcceleratorTable(lua_State *L) {
 		if (!_lg_typecheck_base_SetAcceleratorTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetAcceleratorTable(const wxAcceleratorTable & accel) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetAcceleratorTable(const wxAcceleratorTable & accel)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetAcceleratorTable(const wxAcceleratorTable & accel) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetAcceleratorTable(const wxAcceleratorTable & accel)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxAcceleratorTable* accel_ptr=(Luna< wxObject >::checkSubType< wxAcceleratorTable >(L,2));
@@ -2533,8 +2381,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetAcceleratorTable(accel);
 
@@ -2544,15 +2391,13 @@ public:
 	// bool wxPasswordEntryDialog::base_Destroy()
 	static int _bind_base_Destroy(lua_State *L) {
 		if (!_lg_typecheck_base_Destroy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_Destroy() function, expected prototype:\nbool wxPasswordEntryDialog::base_Destroy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_Destroy() function, expected prototype:\nbool wxPasswordEntryDialog::base_Destroy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Destroy(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2563,15 +2408,13 @@ public:
 	// wxDropTarget * wxPasswordEntryDialog::base_GetDropTarget() const
 	static int _bind_base_GetDropTarget(lua_State *L) {
 		if (!_lg_typecheck_base_GetDropTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDropTarget * wxPasswordEntryDialog::base_GetDropTarget() const function, expected prototype:\nwxDropTarget * wxPasswordEntryDialog::base_GetDropTarget() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDropTarget * wxPasswordEntryDialog::base_GetDropTarget() const function, expected prototype:\nwxDropTarget * wxPasswordEntryDialog::base_GetDropTarget() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxPasswordEntryDialog::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxPasswordEntryDialog::base_GetDropTarget() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDropTarget * lret = self->wxPasswordEntryDialog::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2584,16 +2427,14 @@ public:
 	// void wxPasswordEntryDialog::base_SetDropTarget(wxDropTarget * target)
 	static int _bind_base_SetDropTarget(lua_State *L) {
 		if (!_lg_typecheck_base_SetDropTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetDropTarget(wxDropTarget * target) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetDropTarget(wxDropTarget * target)\nClass arguments details:\narg 1 ID = 93694316\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetDropTarget(wxDropTarget * target) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetDropTarget(wxDropTarget * target)\nClass arguments details:\narg 1 ID = 93694316\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDropTarget* target=(Luna< wxDropTarget >::check(L,2));
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetDropTarget(wxDropTarget *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetDropTarget(target);
 
@@ -2603,16 +2444,14 @@ public:
 	// void wxPasswordEntryDialog::base_DragAcceptFiles(bool accept)
 	static int _bind_base_DragAcceptFiles(lua_State *L) {
 		if (!_lg_typecheck_base_DragAcceptFiles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_DragAcceptFiles(bool accept) function, expected prototype:\nvoid wxPasswordEntryDialog::base_DragAcceptFiles(bool accept)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_DragAcceptFiles(bool accept) function, expected prototype:\nvoid wxPasswordEntryDialog::base_DragAcceptFiles(bool accept)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool accept=(bool)(lua_toboolean(L,2)==1);
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_DragAcceptFiles(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::DragAcceptFiles(accept);
 
@@ -2622,15 +2461,13 @@ public:
 	// bool wxPasswordEntryDialog::base_HasCapture() const
 	static int _bind_base_HasCapture(lua_State *L) {
 		if (!_lg_typecheck_base_HasCapture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_HasCapture() const function, expected prototype:\nbool wxPasswordEntryDialog::base_HasCapture() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_HasCapture() const function, expected prototype:\nbool wxPasswordEntryDialog::base_HasCapture() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_HasCapture() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2641,8 +2478,7 @@ public:
 	// bool wxPasswordEntryDialog::base_SetCursor(const wxCursor & cursor)
 	static int _bind_base_SetCursor(lua_State *L) {
 		if (!_lg_typecheck_base_SetCursor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_SetCursor(const wxCursor & cursor) function, expected prototype:\nbool wxPasswordEntryDialog::base_SetCursor(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_SetCursor(const wxCursor & cursor) function, expected prototype:\nbool wxPasswordEntryDialog::base_SetCursor(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxCursor* cursor_ptr=(Luna< wxObject >::checkSubType< wxCursor >(L,2));
@@ -2653,8 +2489,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_SetCursor(const wxCursor &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2665,8 +2500,7 @@ public:
 	// void wxPasswordEntryDialog::base_WarpPointer(int x, int y)
 	static int _bind_base_WarpPointer(lua_State *L) {
 		if (!_lg_typecheck_base_WarpPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_WarpPointer(int x, int y) function, expected prototype:\nvoid wxPasswordEntryDialog::base_WarpPointer(int x, int y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_WarpPointer(int x, int y) function, expected prototype:\nvoid wxPasswordEntryDialog::base_WarpPointer(int x, int y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,2);
@@ -2674,8 +2508,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_WarpPointer(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::WarpPointer(x, y);
 
@@ -2685,8 +2518,7 @@ public:
 	// void wxPasswordEntryDialog::base_DoUpdateWindowUI(wxUpdateUIEvent & event)
 	static int _bind_base_DoUpdateWindowUI(lua_State *L) {
 		if (!_lg_typecheck_base_DoUpdateWindowUI(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_DoUpdateWindowUI(wxUpdateUIEvent & event) function, expected prototype:\nvoid wxPasswordEntryDialog::base_DoUpdateWindowUI(wxUpdateUIEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_DoUpdateWindowUI(wxUpdateUIEvent & event) function, expected prototype:\nvoid wxPasswordEntryDialog::base_DoUpdateWindowUI(wxUpdateUIEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxUpdateUIEvent* event_ptr=(Luna< wxObject >::checkSubType< wxUpdateUIEvent >(L,2));
@@ -2697,8 +2529,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::DoUpdateWindowUI(event);
 
@@ -2708,15 +2539,13 @@ public:
 	// bool wxPasswordEntryDialog::base_HasMultiplePages() const
 	static int _bind_base_HasMultiplePages(lua_State *L) {
 		if (!_lg_typecheck_base_HasMultiplePages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_HasMultiplePages() const function, expected prototype:\nbool wxPasswordEntryDialog::base_HasMultiplePages() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_HasMultiplePages() const function, expected prototype:\nbool wxPasswordEntryDialog::base_HasMultiplePages() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_HasMultiplePages() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -2727,15 +2556,13 @@ public:
 	// void wxPasswordEntryDialog::base_InheritAttributes()
 	static int _bind_base_InheritAttributes(lua_State *L) {
 		if (!_lg_typecheck_base_InheritAttributes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_InheritAttributes() function, expected prototype:\nvoid wxPasswordEntryDialog::base_InheritAttributes()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_InheritAttributes() function, expected prototype:\nvoid wxPasswordEntryDialog::base_InheritAttributes()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_InheritAttributes(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::InheritAttributes();
 
@@ -2745,15 +2572,13 @@ public:
 	// void wxPasswordEntryDialog::base_InitDialog()
 	static int _bind_base_InitDialog(lua_State *L) {
 		if (!_lg_typecheck_base_InitDialog(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_InitDialog() function, expected prototype:\nvoid wxPasswordEntryDialog::base_InitDialog()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_InitDialog() function, expected prototype:\nvoid wxPasswordEntryDialog::base_InitDialog()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_InitDialog(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::InitDialog();
 
@@ -2763,15 +2588,13 @@ public:
 	// bool wxPasswordEntryDialog::base_IsRetained() const
 	static int _bind_base_IsRetained(lua_State *L) {
 		if (!_lg_typecheck_base_IsRetained(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsRetained() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsRetained() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsRetained() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsRetained() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsRetained() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -2782,15 +2605,13 @@ public:
 	// bool wxPasswordEntryDialog::base_IsTopLevel() const
 	static int _bind_base_IsTopLevel(lua_State *L) {
 		if (!_lg_typecheck_base_IsTopLevel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsTopLevel() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsTopLevel() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsTopLevel() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsTopLevel() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsTopLevel() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -2801,8 +2622,7 @@ public:
 	// void wxPasswordEntryDialog::base_MakeModal(bool modal = true)
 	static int _bind_base_MakeModal(lua_State *L) {
 		if (!_lg_typecheck_base_MakeModal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_MakeModal(bool modal = true) function, expected prototype:\nvoid wxPasswordEntryDialog::base_MakeModal(bool modal = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_MakeModal(bool modal = true) function, expected prototype:\nvoid wxPasswordEntryDialog::base_MakeModal(bool modal = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2811,8 +2631,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_MakeModal(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::MakeModal(modal);
 
@@ -2822,15 +2641,13 @@ public:
 	// void wxPasswordEntryDialog::base_OnInternalIdle()
 	static int _bind_base_OnInternalIdle(lua_State *L) {
 		if (!_lg_typecheck_base_OnInternalIdle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_OnInternalIdle() function, expected prototype:\nvoid wxPasswordEntryDialog::base_OnInternalIdle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_OnInternalIdle() function, expected prototype:\nvoid wxPasswordEntryDialog::base_OnInternalIdle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_OnInternalIdle(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::OnInternalIdle();
 
@@ -2840,8 +2657,7 @@ public:
 	// bool wxPasswordEntryDialog::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)
 	static int _bind_base_RegisterHotKey(lua_State *L) {
 		if (!_lg_typecheck_base_RegisterHotKey(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode) function, expected prototype:\nbool wxPasswordEntryDialog::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode) function, expected prototype:\nbool wxPasswordEntryDialog::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int hotkeyId=(int)lua_tointeger(L,2);
@@ -2850,8 +2666,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_RegisterHotKey(int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -2862,16 +2677,14 @@ public:
 	// bool wxPasswordEntryDialog::base_UnregisterHotKey(int hotkeyId)
 	static int _bind_base_UnregisterHotKey(lua_State *L) {
 		if (!_lg_typecheck_base_UnregisterHotKey(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_UnregisterHotKey(int hotkeyId) function, expected prototype:\nbool wxPasswordEntryDialog::base_UnregisterHotKey(int hotkeyId)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_UnregisterHotKey(int hotkeyId) function, expected prototype:\nbool wxPasswordEntryDialog::base_UnregisterHotKey(int hotkeyId)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int hotkeyId=(int)lua_tointeger(L,2);
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_UnregisterHotKey(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -2882,18 +2695,16 @@ public:
 	// void wxPasswordEntryDialog::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)
 	static int _bind_base_UpdateWindowUI(lua_State *L) {
 		if (!_lg_typecheck_base_UpdateWindowUI(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE) function, expected prototype:\nvoid wxPasswordEntryDialog::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE) function, expected prototype:\nvoid wxPasswordEntryDialog::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxUPDATE_UI_NONE;
+		long flags=luatop>1 ? (long)lua_tonumber(L,2) : (long)::wxUPDATE_UI_NONE;
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_UpdateWindowUI(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::UpdateWindowUI(flags);
 
@@ -2903,15 +2714,13 @@ public:
 	// bool wxPasswordEntryDialog::base_CanSetTransparent()
 	static int _bind_base_CanSetTransparent(lua_State *L) {
 		if (!_lg_typecheck_base_CanSetTransparent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_CanSetTransparent() function, expected prototype:\nbool wxPasswordEntryDialog::base_CanSetTransparent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_CanSetTransparent() function, expected prototype:\nbool wxPasswordEntryDialog::base_CanSetTransparent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_CanSetTransparent(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2922,8 +2731,7 @@ public:
 	// bool wxPasswordEntryDialog::base_EnableCloseButton(bool enable = true)
 	static int _bind_base_EnableCloseButton(lua_State *L) {
 		if (!_lg_typecheck_base_EnableCloseButton(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_EnableCloseButton(bool enable = true) function, expected prototype:\nbool wxPasswordEntryDialog::base_EnableCloseButton(bool enable = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_EnableCloseButton(bool enable = true) function, expected prototype:\nbool wxPasswordEntryDialog::base_EnableCloseButton(bool enable = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2932,8 +2740,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_EnableCloseButton(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_EnableCloseButton(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::EnableCloseButton(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2944,15 +2751,13 @@ public:
 	// wxString wxPasswordEntryDialog::base_GetTitle() const
 	static int _bind_base_GetTitle(lua_State *L) {
 		if (!_lg_typecheck_base_GetTitle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxPasswordEntryDialog::base_GetTitle() const function, expected prototype:\nwxString wxPasswordEntryDialog::base_GetTitle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxPasswordEntryDialog::base_GetTitle() const function, expected prototype:\nwxString wxPasswordEntryDialog::base_GetTitle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPasswordEntryDialog::base_GetTitle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxPasswordEntryDialog::base_GetTitle() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxPasswordEntryDialog::GetTitle();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2963,15 +2768,13 @@ public:
 	// bool wxPasswordEntryDialog::base_IsActive()
 	static int _bind_base_IsActive(lua_State *L) {
 		if (!_lg_typecheck_base_IsActive(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsActive() function, expected prototype:\nbool wxPasswordEntryDialog::base_IsActive()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsActive() function, expected prototype:\nbool wxPasswordEntryDialog::base_IsActive()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsActive(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsActive(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsActive();
 		lua_pushboolean(L,lret?1:0);
@@ -2982,15 +2785,13 @@ public:
 	// bool wxPasswordEntryDialog::base_IsAlwaysMaximized() const
 	static int _bind_base_IsAlwaysMaximized(lua_State *L) {
 		if (!_lg_typecheck_base_IsAlwaysMaximized(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsAlwaysMaximized() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsAlwaysMaximized() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsAlwaysMaximized() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsAlwaysMaximized() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsAlwaysMaximized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsAlwaysMaximized() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsAlwaysMaximized();
 		lua_pushboolean(L,lret?1:0);
@@ -3001,15 +2802,13 @@ public:
 	// bool wxPasswordEntryDialog::base_IsFullScreen() const
 	static int _bind_base_IsFullScreen(lua_State *L) {
 		if (!_lg_typecheck_base_IsFullScreen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsFullScreen() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsFullScreen() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsFullScreen() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsFullScreen() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsFullScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsFullScreen() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsFullScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -3020,15 +2819,13 @@ public:
 	// bool wxPasswordEntryDialog::base_IsMaximized() const
 	static int _bind_base_IsMaximized(lua_State *L) {
 		if (!_lg_typecheck_base_IsMaximized(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsMaximized() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsMaximized() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsMaximized() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsMaximized() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsMaximized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsMaximized() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsMaximized();
 		lua_pushboolean(L,lret?1:0);
@@ -3039,15 +2836,13 @@ public:
 	// bool wxPasswordEntryDialog::base_Layout()
 	static int _bind_base_Layout(lua_State *L) {
 		if (!_lg_typecheck_base_Layout(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_Layout() function, expected prototype:\nbool wxPasswordEntryDialog::base_Layout()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_Layout() function, expected prototype:\nbool wxPasswordEntryDialog::base_Layout()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Layout(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3058,8 +2853,7 @@ public:
 	// void wxPasswordEntryDialog::base_Maximize(bool maximize = true)
 	static int _bind_base_Maximize(lua_State *L) {
 		if (!_lg_typecheck_base_Maximize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_Maximize(bool maximize = true) function, expected prototype:\nvoid wxPasswordEntryDialog::base_Maximize(bool maximize = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_Maximize(bool maximize = true) function, expected prototype:\nvoid wxPasswordEntryDialog::base_Maximize(bool maximize = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3068,8 +2862,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Maximize(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Maximize(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::Maximize(maximize);
 
@@ -3079,8 +2872,7 @@ public:
 	// void wxPasswordEntryDialog::base_RequestUserAttention(int flags = ::wxUSER_ATTENTION_INFO)
 	static int _bind_base_RequestUserAttention(lua_State *L) {
 		if (!_lg_typecheck_base_RequestUserAttention(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_RequestUserAttention(int flags = ::wxUSER_ATTENTION_INFO) function, expected prototype:\nvoid wxPasswordEntryDialog::base_RequestUserAttention(int flags = ::wxUSER_ATTENTION_INFO)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_RequestUserAttention(int flags = ::wxUSER_ATTENTION_INFO) function, expected prototype:\nvoid wxPasswordEntryDialog::base_RequestUserAttention(int flags = ::wxUSER_ATTENTION_INFO)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3089,8 +2881,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_RequestUserAttention(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_RequestUserAttention(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::RequestUserAttention(flags);
 
@@ -3100,8 +2891,7 @@ public:
 	// void wxPasswordEntryDialog::base_SetMaxSize(const wxSize & size)
 	static int _bind_base_SetMaxSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMaxSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetMaxSize(const wxSize & size) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetMaxSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetMaxSize(const wxSize & size) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetMaxSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -3112,8 +2902,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetMaxSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetMaxSize(size);
 
@@ -3123,8 +2912,7 @@ public:
 	// void wxPasswordEntryDialog::base_SetMinSize(const wxSize & size)
 	static int _bind_base_SetMinSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMinSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetMinSize(const wxSize & size) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetMinSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetMinSize(const wxSize & size) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetMinSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -3135,8 +2923,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetMinSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetMinSize(size);
 
@@ -3146,8 +2933,7 @@ public:
 	// void wxPasswordEntryDialog::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)
 	static int _bind_base_SetSizeHints_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_SetSizeHints_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3161,8 +2947,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -3172,8 +2957,7 @@ public:
 	// void wxPasswordEntryDialog::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)
 	static int _bind_base_SetSizeHints_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_SetSizeHints_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)\nClass arguments details:\narg 1 ID = 20268751\narg 2 ID = 20268751\narg 3 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)\nClass arguments details:\narg 1 ID = 20268751\narg 2 ID = 20268751\narg 3 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3196,8 +2980,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetSizeHints(minSize, maxSize, incSize);
 
@@ -3216,16 +2999,14 @@ public:
 	// void wxPasswordEntryDialog::base_SetTitle(const wxString & title)
 	static int _bind_base_SetTitle(lua_State *L) {
 		if (!_lg_typecheck_base_SetTitle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetTitle(const wxString & title) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetTitle(const wxString & title)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetTitle(const wxString & title) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetTitle(const wxString & title)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString title(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetTitle(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetTitle(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetTitle(title);
 
@@ -3235,16 +3016,14 @@ public:
 	// bool wxPasswordEntryDialog::base_SetTransparent(unsigned char alpha)
 	static int _bind_base_SetTransparent(lua_State *L) {
 		if (!_lg_typecheck_base_SetTransparent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_SetTransparent(unsigned char alpha) function, expected prototype:\nbool wxPasswordEntryDialog::base_SetTransparent(unsigned char alpha)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_SetTransparent(unsigned char alpha) function, expected prototype:\nbool wxPasswordEntryDialog::base_SetTransparent(unsigned char alpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char alpha = (unsigned char)(lua_tointeger(L,2));
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_SetTransparent(unsigned char). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -3255,15 +3034,13 @@ public:
 	// bool wxPasswordEntryDialog::base_ShouldPreventAppExit() const
 	static int _bind_base_ShouldPreventAppExit(lua_State *L) {
 		if (!_lg_typecheck_base_ShouldPreventAppExit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_ShouldPreventAppExit() const function, expected prototype:\nbool wxPasswordEntryDialog::base_ShouldPreventAppExit() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_ShouldPreventAppExit() const function, expected prototype:\nbool wxPasswordEntryDialog::base_ShouldPreventAppExit() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ShouldPreventAppExit() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ShouldPreventAppExit() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::ShouldPreventAppExit();
 		lua_pushboolean(L,lret?1:0);
@@ -3274,16 +3051,14 @@ public:
 	// void wxPasswordEntryDialog::base_OSXSetModified(bool modified)
 	static int _bind_base_OSXSetModified(lua_State *L) {
 		if (!_lg_typecheck_base_OSXSetModified(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_OSXSetModified(bool modified) function, expected prototype:\nvoid wxPasswordEntryDialog::base_OSXSetModified(bool modified)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_OSXSetModified(bool modified) function, expected prototype:\nvoid wxPasswordEntryDialog::base_OSXSetModified(bool modified)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool modified=(bool)(lua_toboolean(L,2)==1);
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_OSXSetModified(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_OSXSetModified(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::OSXSetModified(modified);
 
@@ -3293,15 +3068,13 @@ public:
 	// bool wxPasswordEntryDialog::base_OSXIsModified() const
 	static int _bind_base_OSXIsModified(lua_State *L) {
 		if (!_lg_typecheck_base_OSXIsModified(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_OSXIsModified() const function, expected prototype:\nbool wxPasswordEntryDialog::base_OSXIsModified() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_OSXIsModified() const function, expected prototype:\nbool wxPasswordEntryDialog::base_OSXIsModified() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_OSXIsModified() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_OSXIsModified() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::OSXIsModified();
 		lua_pushboolean(L,lret?1:0);
@@ -3312,19 +3085,17 @@ public:
 	// bool wxPasswordEntryDialog::base_ShowFullScreen(bool show, long style = ::wxFULLSCREEN_ALL)
 	static int _bind_base_ShowFullScreen(lua_State *L) {
 		if (!_lg_typecheck_base_ShowFullScreen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_ShowFullScreen(bool show, long style = ::wxFULLSCREEN_ALL) function, expected prototype:\nbool wxPasswordEntryDialog::base_ShowFullScreen(bool show, long style = ::wxFULLSCREEN_ALL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_ShowFullScreen(bool show, long style = ::wxFULLSCREEN_ALL) function, expected prototype:\nbool wxPasswordEntryDialog::base_ShowFullScreen(bool show, long style = ::wxFULLSCREEN_ALL)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
 		bool show=(bool)(lua_toboolean(L,2)==1);
-		long style=luatop>2 ? (long)lua_tointeger(L,3) : (long)::wxFULLSCREEN_ALL;
+		long style=luatop>2 ? (long)lua_tonumber(L,3) : (long)::wxFULLSCREEN_ALL;
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ShowFullScreen(bool, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_ShowFullScreen(bool, long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::ShowFullScreen(show, style);
 		lua_pushboolean(L,lret?1:0);
@@ -3335,15 +3106,13 @@ public:
 	// bool wxPasswordEntryDialog::base_CanDoLayoutAdaptation()
 	static int _bind_base_CanDoLayoutAdaptation(lua_State *L) {
 		if (!_lg_typecheck_base_CanDoLayoutAdaptation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_CanDoLayoutAdaptation() function, expected prototype:\nbool wxPasswordEntryDialog::base_CanDoLayoutAdaptation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_CanDoLayoutAdaptation() function, expected prototype:\nbool wxPasswordEntryDialog::base_CanDoLayoutAdaptation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_CanDoLayoutAdaptation(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_CanDoLayoutAdaptation(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::CanDoLayoutAdaptation();
 		lua_pushboolean(L,lret?1:0);
@@ -3354,15 +3123,13 @@ public:
 	// bool wxPasswordEntryDialog::base_DoLayoutAdaptation()
 	static int _bind_base_DoLayoutAdaptation(lua_State *L) {
 		if (!_lg_typecheck_base_DoLayoutAdaptation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_DoLayoutAdaptation() function, expected prototype:\nbool wxPasswordEntryDialog::base_DoLayoutAdaptation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_DoLayoutAdaptation() function, expected prototype:\nbool wxPasswordEntryDialog::base_DoLayoutAdaptation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_DoLayoutAdaptation(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_DoLayoutAdaptation(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::DoLayoutAdaptation();
 		lua_pushboolean(L,lret?1:0);
@@ -3373,16 +3140,14 @@ public:
 	// void wxPasswordEntryDialog::base_EndModal(int retCode)
 	static int _bind_base_EndModal(lua_State *L) {
 		if (!_lg_typecheck_base_EndModal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_EndModal(int retCode) function, expected prototype:\nvoid wxPasswordEntryDialog::base_EndModal(int retCode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_EndModal(int retCode) function, expected prototype:\nvoid wxPasswordEntryDialog::base_EndModal(int retCode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int retCode=(int)lua_tointeger(L,2);
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_EndModal(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_EndModal(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::EndModal(retCode);
 
@@ -3392,15 +3157,13 @@ public:
 	// wxWindow * wxPasswordEntryDialog::base_GetContentWindow() const
 	static int _bind_base_GetContentWindow(lua_State *L) {
 		if (!_lg_typecheck_base_GetContentWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxWindow * wxPasswordEntryDialog::base_GetContentWindow() const function, expected prototype:\nwxWindow * wxPasswordEntryDialog::base_GetContentWindow() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxWindow * wxPasswordEntryDialog::base_GetContentWindow() const function, expected prototype:\nwxWindow * wxPasswordEntryDialog::base_GetContentWindow() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxPasswordEntryDialog::base_GetContentWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxWindow * wxPasswordEntryDialog::base_GetContentWindow() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxWindow * lret = self->wxPasswordEntryDialog::GetContentWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3413,8 +3176,7 @@ public:
 	// void wxPasswordEntryDialog::base_Iconize(bool iconize = true)
 	static int _bind_base_Iconize(lua_State *L) {
 		if (!_lg_typecheck_base_Iconize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_Iconize(bool iconize = true) function, expected prototype:\nvoid wxPasswordEntryDialog::base_Iconize(bool iconize = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_Iconize(bool iconize = true) function, expected prototype:\nvoid wxPasswordEntryDialog::base_Iconize(bool iconize = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3423,8 +3185,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Iconize(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_Iconize(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::Iconize(iconize);
 
@@ -3434,15 +3195,13 @@ public:
 	// bool wxPasswordEntryDialog::base_IsIconized() const
 	static int _bind_base_IsIconized(lua_State *L) {
 		if (!_lg_typecheck_base_IsIconized(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsIconized() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsIconized() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsIconized() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsIconized() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsIconized() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsIconized() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsIconized();
 		lua_pushboolean(L,lret?1:0);
@@ -3453,15 +3212,13 @@ public:
 	// bool wxPasswordEntryDialog::base_IsModal() const
 	static int _bind_base_IsModal(lua_State *L) {
 		if (!_lg_typecheck_base_IsModal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsModal() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsModal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_IsModal() const function, expected prototype:\nbool wxPasswordEntryDialog::base_IsModal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsModal() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_IsModal() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::IsModal();
 		lua_pushboolean(L,lret?1:0);
@@ -3472,8 +3229,7 @@ public:
 	// void wxPasswordEntryDialog::base_SetIcons(const wxIconBundle & icons)
 	static int _bind_base_SetIcons(lua_State *L) {
 		if (!_lg_typecheck_base_SetIcons(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetIcons(const wxIconBundle & icons) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetIcons(const wxIconBundle & icons)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPasswordEntryDialog::base_SetIcons(const wxIconBundle & icons) function, expected prototype:\nvoid wxPasswordEntryDialog::base_SetIcons(const wxIconBundle & icons)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxIconBundle* icons_ptr=(Luna< wxObject >::checkSubType< wxIconBundle >(L,2));
@@ -3484,8 +3240,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetIcons(const wxIconBundle &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPasswordEntryDialog::base_SetIcons(const wxIconBundle &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxPasswordEntryDialog::SetIcons(icons);
 
@@ -3495,8 +3250,7 @@ public:
 	// bool wxPasswordEntryDialog::base_Show(bool show = 1)
 	static int _bind_base_Show(lua_State *L) {
 		if (!_lg_typecheck_base_Show(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_Show(bool show = 1) function, expected prototype:\nbool wxPasswordEntryDialog::base_Show(bool show = 1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPasswordEntryDialog::base_Show(bool show = 1) function, expected prototype:\nbool wxPasswordEntryDialog::base_Show(bool show = 1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3505,8 +3259,7 @@ public:
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPasswordEntryDialog::base_Show(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxPasswordEntryDialog::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -3517,15 +3270,13 @@ public:
 	// int wxPasswordEntryDialog::base_ShowModal()
 	static int _bind_base_ShowModal(lua_State *L) {
 		if (!_lg_typecheck_base_ShowModal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxPasswordEntryDialog::base_ShowModal() function, expected prototype:\nint wxPasswordEntryDialog::base_ShowModal()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxPasswordEntryDialog::base_ShowModal() function, expected prototype:\nint wxPasswordEntryDialog::base_ShowModal()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPasswordEntryDialog* self=Luna< wxObject >::checkSubType< wxPasswordEntryDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_ShowModal(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxPasswordEntryDialog::base_ShowModal(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxPasswordEntryDialog::ShowModal();
 		lua_pushnumber(L,lret);

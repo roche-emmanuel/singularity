@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxCalendarDateAttr*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxCalendarDateAttr*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCalendarDateAttr* rhs =(Luna< wxCalendarDateAttr >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCalendarDateAttr* self= (wxCalendarDateAttr*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxCalendarDateAttr >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -257,8 +253,7 @@ public:
 	// wxCalendarDateAttr::wxCalendarDateAttr(const wxColour & colText = wxNullColour, const wxColour & colBack = wxNullColour, const wxColour & colBorder = wxNullColour, const wxFont & font = wxNullFont, wxCalendarDateBorder border = ::wxCAL_BORDER_NONE)
 	static wxCalendarDateAttr* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCalendarDateAttr::wxCalendarDateAttr(const wxColour & colText = wxNullColour, const wxColour & colBack = wxNullColour, const wxColour & colBorder = wxNullColour, const wxFont & font = wxNullFont, wxCalendarDateBorder border = ::wxCAL_BORDER_NONE) function, expected prototype:\nwxCalendarDateAttr::wxCalendarDateAttr(const wxColour & colText = wxNullColour, const wxColour & colBack = wxNullColour, const wxColour & colBorder = wxNullColour, const wxFont & font = wxNullFont, wxCalendarDateBorder border = ::wxCAL_BORDER_NONE)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxCalendarDateAttr::wxCalendarDateAttr(const wxColour & colText = wxNullColour, const wxColour & colBack = wxNullColour, const wxColour & colBorder = wxNullColour, const wxFont & font = wxNullFont, wxCalendarDateBorder border = ::wxCAL_BORDER_NONE) function, expected prototype:\nwxCalendarDateAttr::wxCalendarDateAttr(const wxColour & colText = wxNullColour, const wxColour & colBack = wxNullColour, const wxColour & colBorder = wxNullColour, const wxFont & font = wxNullFont, wxCalendarDateBorder border = ::wxCAL_BORDER_NONE)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -291,8 +286,7 @@ public:
 	// wxCalendarDateAttr::wxCalendarDateAttr(wxCalendarDateBorder border, const wxColour & colBorder = wxNullColour)
 	static wxCalendarDateAttr* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCalendarDateAttr::wxCalendarDateAttr(wxCalendarDateBorder border, const wxColour & colBorder = wxNullColour) function, expected prototype:\nwxCalendarDateAttr::wxCalendarDateAttr(wxCalendarDateBorder border, const wxColour & colBorder = wxNullColour)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxCalendarDateAttr::wxCalendarDateAttr(wxCalendarDateBorder border, const wxColour & colBorder = wxNullColour) function, expected prototype:\nwxCalendarDateAttr::wxCalendarDateAttr(wxCalendarDateBorder border, const wxColour & colBorder = wxNullColour)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -321,15 +315,13 @@ public:
 	// const wxColour & wxCalendarDateAttr::GetBackgroundColour() const
 	static int _bind_GetBackgroundColour(lua_State *L) {
 		if (!_lg_typecheck_GetBackgroundColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxColour & wxCalendarDateAttr::GetBackgroundColour() const function, expected prototype:\nconst wxColour & wxCalendarDateAttr::GetBackgroundColour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxColour & wxCalendarDateAttr::GetBackgroundColour() const function, expected prototype:\nconst wxColour & wxCalendarDateAttr::GetBackgroundColour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarDateAttr::GetBackgroundColour() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarDateAttr::GetBackgroundColour() const. Got : '%s'\n%s",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxColour* lret = &self->GetBackgroundColour();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -342,15 +334,13 @@ public:
 	// wxCalendarDateBorder wxCalendarDateAttr::GetBorder() const
 	static int _bind_GetBorder(lua_State *L) {
 		if (!_lg_typecheck_GetBorder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCalendarDateBorder wxCalendarDateAttr::GetBorder() const function, expected prototype:\nwxCalendarDateBorder wxCalendarDateAttr::GetBorder() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxCalendarDateBorder wxCalendarDateAttr::GetBorder() const function, expected prototype:\nwxCalendarDateBorder wxCalendarDateAttr::GetBorder() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxCalendarDateBorder wxCalendarDateAttr::GetBorder() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxCalendarDateBorder wxCalendarDateAttr::GetBorder() const. Got : '%s'\n%s",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxCalendarDateBorder lret = self->GetBorder();
 		lua_pushnumber(L,lret);
@@ -361,15 +351,13 @@ public:
 	// const wxColour & wxCalendarDateAttr::GetBorderColour() const
 	static int _bind_GetBorderColour(lua_State *L) {
 		if (!_lg_typecheck_GetBorderColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxColour & wxCalendarDateAttr::GetBorderColour() const function, expected prototype:\nconst wxColour & wxCalendarDateAttr::GetBorderColour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxColour & wxCalendarDateAttr::GetBorderColour() const function, expected prototype:\nconst wxColour & wxCalendarDateAttr::GetBorderColour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarDateAttr::GetBorderColour() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarDateAttr::GetBorderColour() const. Got : '%s'\n%s",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxColour* lret = &self->GetBorderColour();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -382,15 +370,13 @@ public:
 	// const wxFont & wxCalendarDateAttr::GetFont() const
 	static int _bind_GetFont(lua_State *L) {
 		if (!_lg_typecheck_GetFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxFont & wxCalendarDateAttr::GetFont() const function, expected prototype:\nconst wxFont & wxCalendarDateAttr::GetFont() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxFont & wxCalendarDateAttr::GetFont() const function, expected prototype:\nconst wxFont & wxCalendarDateAttr::GetFont() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxFont & wxCalendarDateAttr::GetFont() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxFont & wxCalendarDateAttr::GetFont() const. Got : '%s'\n%s",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxFont* lret = &self->GetFont();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -403,15 +389,13 @@ public:
 	// const wxColour & wxCalendarDateAttr::GetTextColour() const
 	static int _bind_GetTextColour(lua_State *L) {
 		if (!_lg_typecheck_GetTextColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxColour & wxCalendarDateAttr::GetTextColour() const function, expected prototype:\nconst wxColour & wxCalendarDateAttr::GetTextColour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxColour & wxCalendarDateAttr::GetTextColour() const function, expected prototype:\nconst wxColour & wxCalendarDateAttr::GetTextColour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarDateAttr::GetTextColour() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxColour & wxCalendarDateAttr::GetTextColour() const. Got : '%s'\n%s",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxColour* lret = &self->GetTextColour();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -424,15 +408,13 @@ public:
 	// bool wxCalendarDateAttr::HasBackgroundColour() const
 	static int _bind_HasBackgroundColour(lua_State *L) {
 		if (!_lg_typecheck_HasBackgroundColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCalendarDateAttr::HasBackgroundColour() const function, expected prototype:\nbool wxCalendarDateAttr::HasBackgroundColour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCalendarDateAttr::HasBackgroundColour() const function, expected prototype:\nbool wxCalendarDateAttr::HasBackgroundColour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasBackgroundColour() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasBackgroundColour() const. Got : '%s'\n%s",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasBackgroundColour();
 		lua_pushboolean(L,lret?1:0);
@@ -443,15 +425,13 @@ public:
 	// bool wxCalendarDateAttr::HasBorder() const
 	static int _bind_HasBorder(lua_State *L) {
 		if (!_lg_typecheck_HasBorder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCalendarDateAttr::HasBorder() const function, expected prototype:\nbool wxCalendarDateAttr::HasBorder() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCalendarDateAttr::HasBorder() const function, expected prototype:\nbool wxCalendarDateAttr::HasBorder() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasBorder() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasBorder() const. Got : '%s'\n%s",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasBorder();
 		lua_pushboolean(L,lret?1:0);
@@ -462,15 +442,13 @@ public:
 	// bool wxCalendarDateAttr::HasBorderColour() const
 	static int _bind_HasBorderColour(lua_State *L) {
 		if (!_lg_typecheck_HasBorderColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCalendarDateAttr::HasBorderColour() const function, expected prototype:\nbool wxCalendarDateAttr::HasBorderColour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCalendarDateAttr::HasBorderColour() const function, expected prototype:\nbool wxCalendarDateAttr::HasBorderColour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasBorderColour() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasBorderColour() const. Got : '%s'\n%s",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasBorderColour();
 		lua_pushboolean(L,lret?1:0);
@@ -481,15 +459,13 @@ public:
 	// bool wxCalendarDateAttr::HasFont() const
 	static int _bind_HasFont(lua_State *L) {
 		if (!_lg_typecheck_HasFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCalendarDateAttr::HasFont() const function, expected prototype:\nbool wxCalendarDateAttr::HasFont() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCalendarDateAttr::HasFont() const function, expected prototype:\nbool wxCalendarDateAttr::HasFont() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasFont() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasFont() const. Got : '%s'\n%s",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasFont();
 		lua_pushboolean(L,lret?1:0);
@@ -500,15 +476,13 @@ public:
 	// bool wxCalendarDateAttr::HasTextColour() const
 	static int _bind_HasTextColour(lua_State *L) {
 		if (!_lg_typecheck_HasTextColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCalendarDateAttr::HasTextColour() const function, expected prototype:\nbool wxCalendarDateAttr::HasTextColour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCalendarDateAttr::HasTextColour() const function, expected prototype:\nbool wxCalendarDateAttr::HasTextColour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasTextColour() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::HasTextColour() const. Got : '%s'\n%s",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasTextColour();
 		lua_pushboolean(L,lret?1:0);
@@ -519,15 +493,13 @@ public:
 	// bool wxCalendarDateAttr::IsHoliday() const
 	static int _bind_IsHoliday(lua_State *L) {
 		if (!_lg_typecheck_IsHoliday(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCalendarDateAttr::IsHoliday() const function, expected prototype:\nbool wxCalendarDateAttr::IsHoliday() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCalendarDateAttr::IsHoliday() const function, expected prototype:\nbool wxCalendarDateAttr::IsHoliday() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::IsHoliday() const. Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCalendarDateAttr::IsHoliday() const. Got : '%s'\n%s",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsHoliday();
 		lua_pushboolean(L,lret?1:0);
@@ -538,8 +510,7 @@ public:
 	// void wxCalendarDateAttr::SetBackgroundColour(const wxColour & colBack)
 	static int _bind_SetBackgroundColour(lua_State *L) {
 		if (!_lg_typecheck_SetBackgroundColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCalendarDateAttr::SetBackgroundColour(const wxColour & colBack) function, expected prototype:\nvoid wxCalendarDateAttr::SetBackgroundColour(const wxColour & colBack)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxCalendarDateAttr::SetBackgroundColour(const wxColour & colBack) function, expected prototype:\nvoid wxCalendarDateAttr::SetBackgroundColour(const wxColour & colBack)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* colBack_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -550,8 +521,7 @@ public:
 
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetBackgroundColour(const wxColour &). Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetBackgroundColour(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetBackgroundColour(colBack);
 
@@ -561,16 +531,14 @@ public:
 	// void wxCalendarDateAttr::SetBorder(wxCalendarDateBorder border)
 	static int _bind_SetBorder(lua_State *L) {
 		if (!_lg_typecheck_SetBorder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCalendarDateAttr::SetBorder(wxCalendarDateBorder border) function, expected prototype:\nvoid wxCalendarDateAttr::SetBorder(wxCalendarDateBorder border)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCalendarDateAttr::SetBorder(wxCalendarDateBorder border) function, expected prototype:\nvoid wxCalendarDateAttr::SetBorder(wxCalendarDateBorder border)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCalendarDateBorder border=(wxCalendarDateBorder)lua_tointeger(L,2);
 
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetBorder(wxCalendarDateBorder). Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetBorder(wxCalendarDateBorder). Got : '%s'\n%s",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetBorder(border);
 
@@ -580,8 +548,7 @@ public:
 	// void wxCalendarDateAttr::SetBorderColour(const wxColour & col)
 	static int _bind_SetBorderColour(lua_State *L) {
 		if (!_lg_typecheck_SetBorderColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCalendarDateAttr::SetBorderColour(const wxColour & col) function, expected prototype:\nvoid wxCalendarDateAttr::SetBorderColour(const wxColour & col)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxCalendarDateAttr::SetBorderColour(const wxColour & col) function, expected prototype:\nvoid wxCalendarDateAttr::SetBorderColour(const wxColour & col)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* col_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -592,8 +559,7 @@ public:
 
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetBorderColour(const wxColour &). Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetBorderColour(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetBorderColour(col);
 
@@ -603,8 +569,7 @@ public:
 	// void wxCalendarDateAttr::SetFont(const wxFont & font)
 	static int _bind_SetFont(lua_State *L) {
 		if (!_lg_typecheck_SetFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCalendarDateAttr::SetFont(const wxFont & font) function, expected prototype:\nvoid wxCalendarDateAttr::SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxCalendarDateAttr::SetFont(const wxFont & font) function, expected prototype:\nvoid wxCalendarDateAttr::SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -615,8 +580,7 @@ public:
 
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFont(font);
 
@@ -626,16 +590,14 @@ public:
 	// void wxCalendarDateAttr::SetHoliday(bool holiday)
 	static int _bind_SetHoliday(lua_State *L) {
 		if (!_lg_typecheck_SetHoliday(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCalendarDateAttr::SetHoliday(bool holiday) function, expected prototype:\nvoid wxCalendarDateAttr::SetHoliday(bool holiday)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCalendarDateAttr::SetHoliday(bool holiday) function, expected prototype:\nvoid wxCalendarDateAttr::SetHoliday(bool holiday)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool holiday=(bool)(lua_toboolean(L,2)==1);
 
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetHoliday(bool). Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetHoliday(bool). Got : '%s'\n%s",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetHoliday(holiday);
 
@@ -645,8 +607,7 @@ public:
 	// void wxCalendarDateAttr::SetTextColour(const wxColour & colText)
 	static int _bind_SetTextColour(lua_State *L) {
 		if (!_lg_typecheck_SetTextColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCalendarDateAttr::SetTextColour(const wxColour & colText) function, expected prototype:\nvoid wxCalendarDateAttr::SetTextColour(const wxColour & colText)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxCalendarDateAttr::SetTextColour(const wxColour & colText) function, expected prototype:\nvoid wxCalendarDateAttr::SetTextColour(const wxColour & colText)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* colText_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -657,8 +618,7 @@ public:
 
 		wxCalendarDateAttr* self=(Luna< wxCalendarDateAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetTextColour(const wxColour &). Got : '%s'",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCalendarDateAttr::SetTextColour(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxCalendarDateAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTextColour(colText);
 
@@ -668,8 +628,7 @@ public:
 	// static const wxCalendarDateAttr & wxCalendarDateAttr::GetMark()
 	static int _bind_GetMark(lua_State *L) {
 		if (!_lg_typecheck_GetMark(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static const wxCalendarDateAttr & wxCalendarDateAttr::GetMark() function, expected prototype:\nstatic const wxCalendarDateAttr & wxCalendarDateAttr::GetMark()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static const wxCalendarDateAttr & wxCalendarDateAttr::GetMark() function, expected prototype:\nstatic const wxCalendarDateAttr & wxCalendarDateAttr::GetMark()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -684,8 +643,7 @@ public:
 	// static void wxCalendarDateAttr::SetMark(wxCalendarDateAttr const & m)
 	static int _bind_SetMark(lua_State *L) {
 		if (!_lg_typecheck_SetMark(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxCalendarDateAttr::SetMark(wxCalendarDateAttr const & m) function, expected prototype:\nstatic void wxCalendarDateAttr::SetMark(wxCalendarDateAttr const & m)\nClass arguments details:\narg 1 ID = 34465170\n");
+			luaL_error(L, "luna typecheck failed in static void wxCalendarDateAttr::SetMark(wxCalendarDateAttr const & m) function, expected prototype:\nstatic void wxCalendarDateAttr::SetMark(wxCalendarDateAttr const & m)\nClass arguments details:\narg 1 ID = 34465170\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCalendarDateAttr* m_ptr=(Luna< wxCalendarDateAttr >::check(L,1));

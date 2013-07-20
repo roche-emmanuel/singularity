@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGridCellRenderer* self=(Luna< wxGridCellRenderer >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGridCellFloatRenderer* self= (wxGridCellFloatRenderer*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxGridCellRenderer >::check(L,1));
@@ -163,8 +160,7 @@ public:
 	// wxGridCellFloatRenderer::wxGridCellFloatRenderer(lua_Table * data, int width = -1, int precision = -1, int format = ::wxGRID_FLOAT_FORMAT_DEFAULT)
 	static wxGridCellFloatRenderer* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridCellFloatRenderer::wxGridCellFloatRenderer(lua_Table * data, int width = -1, int precision = -1, int format = ::wxGRID_FLOAT_FORMAT_DEFAULT) function, expected prototype:\nwxGridCellFloatRenderer::wxGridCellFloatRenderer(lua_Table * data, int width = -1, int precision = -1, int format = ::wxGRID_FLOAT_FORMAT_DEFAULT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGridCellFloatRenderer::wxGridCellFloatRenderer(lua_Table * data, int width = -1, int precision = -1, int format = ::wxGRID_FLOAT_FORMAT_DEFAULT) function, expected prototype:\nwxGridCellFloatRenderer::wxGridCellFloatRenderer(lua_Table * data, int width = -1, int precision = -1, int format = ::wxGRID_FLOAT_FORMAT_DEFAULT)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -181,15 +177,13 @@ public:
 	// int wxGridCellFloatRenderer::GetFormat() const
 	static int _bind_GetFormat(lua_State *L) {
 		if (!_lg_typecheck_GetFormat(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGridCellFloatRenderer::GetFormat() const function, expected prototype:\nint wxGridCellFloatRenderer::GetFormat() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGridCellFloatRenderer::GetFormat() const function, expected prototype:\nint wxGridCellFloatRenderer::GetFormat() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellFloatRenderer* self=Luna< wxGridCellRenderer >::checkSubType< wxGridCellFloatRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridCellFloatRenderer::GetFormat() const. Got : '%s'",typeid(Luna< wxGridCellRenderer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGridCellFloatRenderer::GetFormat() const. Got : '%s'\n%s",typeid(Luna< wxGridCellRenderer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetFormat();
 		lua_pushnumber(L,lret);
@@ -200,15 +194,13 @@ public:
 	// int wxGridCellFloatRenderer::GetPrecision() const
 	static int _bind_GetPrecision(lua_State *L) {
 		if (!_lg_typecheck_GetPrecision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGridCellFloatRenderer::GetPrecision() const function, expected prototype:\nint wxGridCellFloatRenderer::GetPrecision() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGridCellFloatRenderer::GetPrecision() const function, expected prototype:\nint wxGridCellFloatRenderer::GetPrecision() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellFloatRenderer* self=Luna< wxGridCellRenderer >::checkSubType< wxGridCellFloatRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridCellFloatRenderer::GetPrecision() const. Got : '%s'",typeid(Luna< wxGridCellRenderer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGridCellFloatRenderer::GetPrecision() const. Got : '%s'\n%s",typeid(Luna< wxGridCellRenderer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetPrecision();
 		lua_pushnumber(L,lret);
@@ -219,15 +211,13 @@ public:
 	// int wxGridCellFloatRenderer::GetWidth() const
 	static int _bind_GetWidth(lua_State *L) {
 		if (!_lg_typecheck_GetWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGridCellFloatRenderer::GetWidth() const function, expected prototype:\nint wxGridCellFloatRenderer::GetWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGridCellFloatRenderer::GetWidth() const function, expected prototype:\nint wxGridCellFloatRenderer::GetWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellFloatRenderer* self=Luna< wxGridCellRenderer >::checkSubType< wxGridCellFloatRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridCellFloatRenderer::GetWidth() const. Got : '%s'",typeid(Luna< wxGridCellRenderer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGridCellFloatRenderer::GetWidth() const. Got : '%s'\n%s",typeid(Luna< wxGridCellRenderer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetWidth();
 		lua_pushnumber(L,lret);
@@ -238,16 +228,14 @@ public:
 	// void wxGridCellFloatRenderer::SetFormat(int format)
 	static int _bind_SetFormat(lua_State *L) {
 		if (!_lg_typecheck_SetFormat(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellFloatRenderer::SetFormat(int format) function, expected prototype:\nvoid wxGridCellFloatRenderer::SetFormat(int format)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellFloatRenderer::SetFormat(int format) function, expected prototype:\nvoid wxGridCellFloatRenderer::SetFormat(int format)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int format=(int)lua_tointeger(L,2);
 
 		wxGridCellFloatRenderer* self=Luna< wxGridCellRenderer >::checkSubType< wxGridCellFloatRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellFloatRenderer::SetFormat(int). Got : '%s'",typeid(Luna< wxGridCellRenderer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellFloatRenderer::SetFormat(int). Got : '%s'\n%s",typeid(Luna< wxGridCellRenderer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFormat(format);
 
@@ -257,16 +245,14 @@ public:
 	// void wxGridCellFloatRenderer::SetParameters(const wxString & params)
 	static int _bind_SetParameters(lua_State *L) {
 		if (!_lg_typecheck_SetParameters(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellFloatRenderer::SetParameters(const wxString & params) function, expected prototype:\nvoid wxGridCellFloatRenderer::SetParameters(const wxString & params)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellFloatRenderer::SetParameters(const wxString & params) function, expected prototype:\nvoid wxGridCellFloatRenderer::SetParameters(const wxString & params)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString params(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxGridCellFloatRenderer* self=Luna< wxGridCellRenderer >::checkSubType< wxGridCellFloatRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellFloatRenderer::SetParameters(const wxString &). Got : '%s'",typeid(Luna< wxGridCellRenderer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellFloatRenderer::SetParameters(const wxString &). Got : '%s'\n%s",typeid(Luna< wxGridCellRenderer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetParameters(params);
 
@@ -276,16 +262,14 @@ public:
 	// void wxGridCellFloatRenderer::SetPrecision(int precision)
 	static int _bind_SetPrecision(lua_State *L) {
 		if (!_lg_typecheck_SetPrecision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellFloatRenderer::SetPrecision(int precision) function, expected prototype:\nvoid wxGridCellFloatRenderer::SetPrecision(int precision)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellFloatRenderer::SetPrecision(int precision) function, expected prototype:\nvoid wxGridCellFloatRenderer::SetPrecision(int precision)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int precision=(int)lua_tointeger(L,2);
 
 		wxGridCellFloatRenderer* self=Luna< wxGridCellRenderer >::checkSubType< wxGridCellFloatRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellFloatRenderer::SetPrecision(int). Got : '%s'",typeid(Luna< wxGridCellRenderer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellFloatRenderer::SetPrecision(int). Got : '%s'\n%s",typeid(Luna< wxGridCellRenderer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetPrecision(precision);
 
@@ -295,16 +279,14 @@ public:
 	// void wxGridCellFloatRenderer::SetWidth(int width)
 	static int _bind_SetWidth(lua_State *L) {
 		if (!_lg_typecheck_SetWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellFloatRenderer::SetWidth(int width) function, expected prototype:\nvoid wxGridCellFloatRenderer::SetWidth(int width)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellFloatRenderer::SetWidth(int width) function, expected prototype:\nvoid wxGridCellFloatRenderer::SetWidth(int width)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int width=(int)lua_tointeger(L,2);
 
 		wxGridCellFloatRenderer* self=Luna< wxGridCellRenderer >::checkSubType< wxGridCellFloatRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellFloatRenderer::SetWidth(int). Got : '%s'",typeid(Luna< wxGridCellRenderer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellFloatRenderer::SetWidth(int). Got : '%s'\n%s",typeid(Luna< wxGridCellRenderer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWidth(width);
 
@@ -314,16 +296,14 @@ public:
 	// void wxGridCellFloatRenderer::base_SetParameters(const wxString & params)
 	static int _bind_base_SetParameters(lua_State *L) {
 		if (!_lg_typecheck_base_SetParameters(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellFloatRenderer::base_SetParameters(const wxString & params) function, expected prototype:\nvoid wxGridCellFloatRenderer::base_SetParameters(const wxString & params)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellFloatRenderer::base_SetParameters(const wxString & params) function, expected prototype:\nvoid wxGridCellFloatRenderer::base_SetParameters(const wxString & params)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString params(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxGridCellFloatRenderer* self=Luna< wxGridCellRenderer >::checkSubType< wxGridCellFloatRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellFloatRenderer::base_SetParameters(const wxString &). Got : '%s'",typeid(Luna< wxGridCellRenderer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellFloatRenderer::base_SetParameters(const wxString &). Got : '%s'\n%s",typeid(Luna< wxGridCellRenderer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxGridCellFloatRenderer::SetParameters(params);
 

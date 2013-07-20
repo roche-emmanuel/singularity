@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxRealPoint*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxRealPoint*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRealPoint* rhs =(Luna< wxRealPoint >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRealPoint* self= (wxRealPoint*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxRealPoint >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -197,8 +193,7 @@ public:
 	// wxRealPoint::wxRealPoint()
 	static wxRealPoint* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRealPoint::wxRealPoint() function, expected prototype:\nwxRealPoint::wxRealPoint()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRealPoint::wxRealPoint() function, expected prototype:\nwxRealPoint::wxRealPoint()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -208,8 +203,7 @@ public:
 	// wxRealPoint::wxRealPoint(double x, double y)
 	static wxRealPoint* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRealPoint::wxRealPoint(double x, double y) function, expected prototype:\nwxRealPoint::wxRealPoint(double x, double y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRealPoint::wxRealPoint(double x, double y) function, expected prototype:\nwxRealPoint::wxRealPoint(double x, double y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double x=(double)lua_tonumber(L,1);
@@ -221,8 +215,7 @@ public:
 	// wxRealPoint::wxRealPoint(const wxPoint & pt)
 	static wxRealPoint* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRealPoint::wxRealPoint(const wxPoint & pt) function, expected prototype:\nwxRealPoint::wxRealPoint(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in wxRealPoint::wxRealPoint(const wxPoint & pt) function, expected prototype:\nwxRealPoint::wxRealPoint(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* pt_ptr=(Luna< wxPoint >::check(L,1));
@@ -249,15 +242,13 @@ public:
 	// double wxRealPoint::x()
 	static int _bind_getX(lua_State *L) {
 		if (!_lg_typecheck_getX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxRealPoint::x() function, expected prototype:\ndouble wxRealPoint::x()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxRealPoint::x() function, expected prototype:\ndouble wxRealPoint::x()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxRealPoint::x(). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxRealPoint::x(). Got : '%s'\n%s",typeid(Luna< wxRealPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->x;
 		lua_pushnumber(L,lret);
@@ -268,15 +259,13 @@ public:
 	// double wxRealPoint::y()
 	static int _bind_getY(lua_State *L) {
 		if (!_lg_typecheck_getY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxRealPoint::y() function, expected prototype:\ndouble wxRealPoint::y()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxRealPoint::y() function, expected prototype:\ndouble wxRealPoint::y()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxRealPoint::y(). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxRealPoint::y(). Got : '%s'\n%s",typeid(Luna< wxRealPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->y;
 		lua_pushnumber(L,lret);
@@ -287,16 +276,14 @@ public:
 	// void wxRealPoint::x(double value)
 	static int _bind_setX(lua_State *L) {
 		if (!_lg_typecheck_setX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRealPoint::x(double value) function, expected prototype:\nvoid wxRealPoint::x(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRealPoint::x(double value) function, expected prototype:\nvoid wxRealPoint::x(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRealPoint::x(double). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRealPoint::x(double). Got : '%s'\n%s",typeid(Luna< wxRealPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->x = value;
 
@@ -306,16 +293,14 @@ public:
 	// void wxRealPoint::y(double value)
 	static int _bind_setY(lua_State *L) {
 		if (!_lg_typecheck_setY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRealPoint::y(double value) function, expected prototype:\nvoid wxRealPoint::y(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRealPoint::y(double value) function, expected prototype:\nvoid wxRealPoint::y(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRealPoint::y(double). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRealPoint::y(double). Got : '%s'\n%s",typeid(Luna< wxRealPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->y = value;
 
@@ -327,8 +312,7 @@ public:
 	// wxRealPoint & wxRealPoint::operator=(const wxRealPoint & pt)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRealPoint & wxRealPoint::operator=(const wxRealPoint & pt) function, expected prototype:\nwxRealPoint & wxRealPoint::operator=(const wxRealPoint & pt)\nClass arguments details:\narg 1 ID = 40755714\n");
+			luaL_error(L, "luna typecheck failed in wxRealPoint & wxRealPoint::operator=(const wxRealPoint & pt) function, expected prototype:\nwxRealPoint & wxRealPoint::operator=(const wxRealPoint & pt)\nClass arguments details:\narg 1 ID = 40755714\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRealPoint* pt_ptr=(Luna< wxRealPoint >::check(L,2));
@@ -339,8 +323,7 @@ public:
 
 		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator=(const wxRealPoint &). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator=(const wxRealPoint &). Got : '%s'\n%s",typeid(Luna< wxRealPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxRealPoint* lret = &self->operator=(pt);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -353,8 +336,7 @@ public:
 	// wxRealPoint & wxRealPoint::operator+=(const wxRealPoint & pt)
 	static int _bind_op_add_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_add_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRealPoint & wxRealPoint::operator+=(const wxRealPoint & pt) function, expected prototype:\nwxRealPoint & wxRealPoint::operator+=(const wxRealPoint & pt)\nClass arguments details:\narg 1 ID = 40755714\n");
+			luaL_error(L, "luna typecheck failed in wxRealPoint & wxRealPoint::operator+=(const wxRealPoint & pt) function, expected prototype:\nwxRealPoint & wxRealPoint::operator+=(const wxRealPoint & pt)\nClass arguments details:\narg 1 ID = 40755714\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRealPoint* pt_ptr=(Luna< wxRealPoint >::check(L,2));
@@ -365,8 +347,7 @@ public:
 
 		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator+=(const wxRealPoint &). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator+=(const wxRealPoint &). Got : '%s'\n%s",typeid(Luna< wxRealPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxRealPoint* lret = &self->operator+=(pt);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -379,8 +360,7 @@ public:
 	// wxRealPoint & wxRealPoint::operator+=(const wxSize & sz)
 	static int _bind_op_add_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_add_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRealPoint & wxRealPoint::operator+=(const wxSize & sz) function, expected prototype:\nwxRealPoint & wxRealPoint::operator+=(const wxSize & sz)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxRealPoint & wxRealPoint::operator+=(const wxSize & sz) function, expected prototype:\nwxRealPoint & wxRealPoint::operator+=(const wxSize & sz)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* sz_ptr=(Luna< wxSize >::check(L,2));
@@ -391,8 +371,7 @@ public:
 
 		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator+=(const wxSize &). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator+=(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxRealPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxRealPoint* lret = &self->operator+=(sz);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -414,8 +393,7 @@ public:
 	// wxRealPoint & wxRealPoint::operator-=(const wxRealPoint & pt)
 	static int _bind_op_sub_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_sub_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRealPoint & wxRealPoint::operator-=(const wxRealPoint & pt) function, expected prototype:\nwxRealPoint & wxRealPoint::operator-=(const wxRealPoint & pt)\nClass arguments details:\narg 1 ID = 40755714\n");
+			luaL_error(L, "luna typecheck failed in wxRealPoint & wxRealPoint::operator-=(const wxRealPoint & pt) function, expected prototype:\nwxRealPoint & wxRealPoint::operator-=(const wxRealPoint & pt)\nClass arguments details:\narg 1 ID = 40755714\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRealPoint* pt_ptr=(Luna< wxRealPoint >::check(L,2));
@@ -426,8 +404,7 @@ public:
 
 		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator-=(const wxRealPoint &). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator-=(const wxRealPoint &). Got : '%s'\n%s",typeid(Luna< wxRealPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxRealPoint* lret = &self->operator-=(pt);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -440,8 +417,7 @@ public:
 	// wxRealPoint & wxRealPoint::operator-=(const wxSize & sz)
 	static int _bind_op_sub_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_sub_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRealPoint & wxRealPoint::operator-=(const wxSize & sz) function, expected prototype:\nwxRealPoint & wxRealPoint::operator-=(const wxSize & sz)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxRealPoint & wxRealPoint::operator-=(const wxSize & sz) function, expected prototype:\nwxRealPoint & wxRealPoint::operator-=(const wxSize & sz)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* sz_ptr=(Luna< wxSize >::check(L,2));
@@ -452,8 +428,7 @@ public:
 
 		wxRealPoint* self=(Luna< wxRealPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator-=(const wxSize &). Got : '%s'",typeid(Luna< wxRealPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRealPoint & wxRealPoint::operator-=(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxRealPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxRealPoint* lret = &self->operator-=(sz);
 		if(!lret) return 0; // Do not write NULL pointers.

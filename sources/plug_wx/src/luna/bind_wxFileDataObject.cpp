@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFileDataObject* self= (wxFileDataObject*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDataObject >::check(L,1));
@@ -140,8 +137,7 @@ public:
 	// wxFileDataObject::wxFileDataObject(lua_Table * data)
 	static wxFileDataObject* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFileDataObject::wxFileDataObject(lua_Table * data) function, expected prototype:\nwxFileDataObject::wxFileDataObject(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFileDataObject::wxFileDataObject(lua_Table * data) function, expected prototype:\nwxFileDataObject::wxFileDataObject(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -153,16 +149,14 @@ public:
 	// void wxFileDataObject::AddFile(const wxString & file)
 	static int _bind_AddFile(lua_State *L) {
 		if (!_lg_typecheck_AddFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileDataObject::AddFile(const wxString & file) function, expected prototype:\nvoid wxFileDataObject::AddFile(const wxString & file)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxFileDataObject::AddFile(const wxString & file) function, expected prototype:\nvoid wxFileDataObject::AddFile(const wxString & file)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString file(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxFileDataObject* self=Luna< wxDataObject >::checkSubType< wxFileDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileDataObject::AddFile(const wxString &). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFileDataObject::AddFile(const wxString &). Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddFile(file);
 
@@ -172,15 +166,13 @@ public:
 	// const wxArrayString & wxFileDataObject::GetFilenames() const
 	static int _bind_GetFilenames(lua_State *L) {
 		if (!_lg_typecheck_GetFilenames(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxArrayString & wxFileDataObject::GetFilenames() const function, expected prototype:\nconst wxArrayString & wxFileDataObject::GetFilenames() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxArrayString & wxFileDataObject::GetFilenames() const function, expected prototype:\nconst wxArrayString & wxFileDataObject::GetFilenames() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileDataObject* self=Luna< wxDataObject >::checkSubType< wxFileDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxArrayString & wxFileDataObject::GetFilenames() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxArrayString & wxFileDataObject::GetFilenames() const. Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxArrayString* lret = &self->GetFilenames();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -193,16 +185,14 @@ public:
 	// bool wxFileDataObject::base_GetDataHere(void * buf) const
 	static int _bind_base_GetDataHere(lua_State *L) {
 		if (!_lg_typecheck_base_GetDataHere(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileDataObject::base_GetDataHere(void * buf) const function, expected prototype:\nbool wxFileDataObject::base_GetDataHere(void * buf) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileDataObject::base_GetDataHere(void * buf) const function, expected prototype:\nbool wxFileDataObject::base_GetDataHere(void * buf) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* buf=(Luna< void >::check(L,2));
 
 		wxFileDataObject* self=Luna< wxDataObject >::checkSubType< wxFileDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileDataObject::base_GetDataHere(void *) const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileDataObject::base_GetDataHere(void *) const. Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxFileDataObject::GetDataHere(buf);
 		lua_pushboolean(L,lret?1:0);
@@ -213,15 +203,13 @@ public:
 	// size_t wxFileDataObject::base_GetDataSize() const
 	static int _bind_base_GetDataSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetDataSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxFileDataObject::base_GetDataSize() const function, expected prototype:\nsize_t wxFileDataObject::base_GetDataSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxFileDataObject::base_GetDataSize() const function, expected prototype:\nsize_t wxFileDataObject::base_GetDataSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileDataObject* self=Luna< wxDataObject >::checkSubType< wxFileDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxFileDataObject::base_GetDataSize() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxFileDataObject::base_GetDataSize() const. Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->wxFileDataObject::GetDataSize();
 		lua_pushnumber(L,lret);
@@ -232,17 +220,15 @@ public:
 	// bool wxFileDataObject::base_SetData(size_t len, const void * buf)
 	static int _bind_base_SetData(lua_State *L) {
 		if (!_lg_typecheck_base_SetData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileDataObject::base_SetData(size_t len, const void * buf) function, expected prototype:\nbool wxFileDataObject::base_SetData(size_t len, const void * buf)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileDataObject::base_SetData(size_t len, const void * buf) function, expected prototype:\nbool wxFileDataObject::base_SetData(size_t len, const void * buf)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t len=(size_t)lua_tointeger(L,2);
-		void* buf=(Luna< void >::check(L,3));
+		const void* buf=(Luna< void >::check(L,3));
 
 		wxFileDataObject* self=Luna< wxDataObject >::checkSubType< wxFileDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileDataObject::base_SetData(size_t, const void *). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileDataObject::base_SetData(size_t, const void *). Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxFileDataObject::SetData(len, buf);
 		lua_pushboolean(L,lret?1:0);

@@ -236,16 +236,14 @@ public:
 	// bool wxTextValidator::public_ContainsOnlyIncludedCharacters(const wxString & val) const
 	static int _bind_public_ContainsOnlyIncludedCharacters(lua_State *L) {
 		if (!_lg_typecheck_public_ContainsOnlyIncludedCharacters(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextValidator::public_ContainsOnlyIncludedCharacters(const wxString & val) const function, expected prototype:\nbool wxTextValidator::public_ContainsOnlyIncludedCharacters(const wxString & val) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextValidator::public_ContainsOnlyIncludedCharacters(const wxString & val) const function, expected prototype:\nbool wxTextValidator::public_ContainsOnlyIncludedCharacters(const wxString & val) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString val(lua_tostring(L,2),lua_objlen(L,2));
 
 		wrapper_wxTextValidator* self=Luna< wxObject >::checkSubType< wrapper_wxTextValidator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextValidator::public_ContainsOnlyIncludedCharacters(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextValidator::public_ContainsOnlyIncludedCharacters(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_ContainsOnlyIncludedCharacters(val);
 		lua_pushboolean(L,lret?1:0);
@@ -256,16 +254,14 @@ public:
 	// bool wxTextValidator::public_ContainsExcludedCharacters(const wxString & val) const
 	static int _bind_public_ContainsExcludedCharacters(lua_State *L) {
 		if (!_lg_typecheck_public_ContainsExcludedCharacters(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTextValidator::public_ContainsExcludedCharacters(const wxString & val) const function, expected prototype:\nbool wxTextValidator::public_ContainsExcludedCharacters(const wxString & val) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTextValidator::public_ContainsExcludedCharacters(const wxString & val) const function, expected prototype:\nbool wxTextValidator::public_ContainsExcludedCharacters(const wxString & val) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString val(lua_tostring(L,2),lua_objlen(L,2));
 
 		wrapper_wxTextValidator* self=Luna< wxObject >::checkSubType< wrapper_wxTextValidator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTextValidator::public_ContainsExcludedCharacters(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTextValidator::public_ContainsExcludedCharacters(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_ContainsExcludedCharacters(val);
 		lua_pushboolean(L,lret?1:0);

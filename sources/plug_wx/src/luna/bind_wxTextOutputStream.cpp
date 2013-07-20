@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTextOutputStream*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTextOutputStream*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTextOutputStream* rhs =(Luna< wxTextOutputStream >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTextOutputStream* self= (wxTextOutputStream*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxTextOutputStream >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -213,15 +208,13 @@ public:
 	// void wxTextOutputStream::Flush()
 	static int _bind_Flush(lua_State *L) {
 		if (!_lg_typecheck_Flush(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::Flush() function, expected prototype:\nvoid wxTextOutputStream::Flush()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::Flush() function, expected prototype:\nvoid wxTextOutputStream::Flush()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::Flush(). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::Flush(). Got : '%s'\n%s",typeid(Luna< wxTextOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Flush();
 
@@ -231,15 +224,13 @@ public:
 	// const wxOutputStream & wxTextOutputStream::GetOutputStream() const
 	static int _bind_GetOutputStream(lua_State *L) {
 		if (!_lg_typecheck_GetOutputStream(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxOutputStream & wxTextOutputStream::GetOutputStream() const function, expected prototype:\nconst wxOutputStream & wxTextOutputStream::GetOutputStream() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxOutputStream & wxTextOutputStream::GetOutputStream() const function, expected prototype:\nconst wxOutputStream & wxTextOutputStream::GetOutputStream() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxOutputStream & wxTextOutputStream::GetOutputStream() const. Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxOutputStream & wxTextOutputStream::GetOutputStream() const. Got : '%s'\n%s",typeid(Luna< wxTextOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxOutputStream* lret = &self->GetOutputStream();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -252,15 +243,13 @@ public:
 	// wxEOL wxTextOutputStream::GetMode()
 	static int _bind_GetMode(lua_State *L) {
 		if (!_lg_typecheck_GetMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEOL wxTextOutputStream::GetMode() function, expected prototype:\nwxEOL wxTextOutputStream::GetMode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEOL wxTextOutputStream::GetMode() function, expected prototype:\nwxEOL wxTextOutputStream::GetMode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEOL wxTextOutputStream::GetMode(). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEOL wxTextOutputStream::GetMode(). Got : '%s'\n%s",typeid(Luna< wxTextOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEOL lret = self->GetMode();
 		lua_pushnumber(L,lret);
@@ -271,8 +260,7 @@ public:
 	// void wxTextOutputStream::SetMode(wxEOL mode = ::wxEOL_NATIVE)
 	static int _bind_SetMode(lua_State *L) {
 		if (!_lg_typecheck_SetMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::SetMode(wxEOL mode = ::wxEOL_NATIVE) function, expected prototype:\nvoid wxTextOutputStream::SetMode(wxEOL mode = ::wxEOL_NATIVE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::SetMode(wxEOL mode = ::wxEOL_NATIVE) function, expected prototype:\nvoid wxTextOutputStream::SetMode(wxEOL mode = ::wxEOL_NATIVE)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -281,8 +269,7 @@ public:
 
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::SetMode(wxEOL). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::SetMode(wxEOL). Got : '%s'\n%s",typeid(Luna< wxTextOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMode(mode);
 
@@ -292,16 +279,14 @@ public:
 	// void wxTextOutputStream::Write16(unsigned short i16)
 	static int _bind_Write16(lua_State *L) {
 		if (!_lg_typecheck_Write16(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::Write16(unsigned short i16) function, expected prototype:\nvoid wxTextOutputStream::Write16(unsigned short i16)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::Write16(unsigned short i16) function, expected prototype:\nvoid wxTextOutputStream::Write16(unsigned short i16)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short i16=(unsigned short)lua_tointeger(L,2);
 
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::Write16(unsigned short). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::Write16(unsigned short). Got : '%s'\n%s",typeid(Luna< wxTextOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Write16(i16);
 
@@ -311,16 +296,14 @@ public:
 	// void wxTextOutputStream::Write32(unsigned int i32)
 	static int _bind_Write32(lua_State *L) {
 		if (!_lg_typecheck_Write32(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::Write32(unsigned int i32) function, expected prototype:\nvoid wxTextOutputStream::Write32(unsigned int i32)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::Write32(unsigned int i32) function, expected prototype:\nvoid wxTextOutputStream::Write32(unsigned int i32)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i32=(unsigned int)lua_tointeger(L,2);
 
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::Write32(unsigned int). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::Write32(unsigned int). Got : '%s'\n%s",typeid(Luna< wxTextOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Write32(i32);
 
@@ -330,16 +313,14 @@ public:
 	// void wxTextOutputStream::Write8(unsigned char i8)
 	static int _bind_Write8(lua_State *L) {
 		if (!_lg_typecheck_Write8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::Write8(unsigned char i8) function, expected prototype:\nvoid wxTextOutputStream::Write8(unsigned char i8)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::Write8(unsigned char i8) function, expected prototype:\nvoid wxTextOutputStream::Write8(unsigned char i8)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char i8 = (unsigned char)(lua_tointeger(L,2));
 
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::Write8(unsigned char). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::Write8(unsigned char). Got : '%s'\n%s",typeid(Luna< wxTextOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Write8(i8);
 
@@ -349,16 +330,14 @@ public:
 	// void wxTextOutputStream::WriteDouble(double f)
 	static int _bind_WriteDouble(lua_State *L) {
 		if (!_lg_typecheck_WriteDouble(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::WriteDouble(double f) function, expected prototype:\nvoid wxTextOutputStream::WriteDouble(double f)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::WriteDouble(double f) function, expected prototype:\nvoid wxTextOutputStream::WriteDouble(double f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double f=(double)lua_tonumber(L,2);
 
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::WriteDouble(double). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::WriteDouble(double). Got : '%s'\n%s",typeid(Luna< wxTextOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteDouble(f);
 
@@ -368,16 +347,14 @@ public:
 	// void wxTextOutputStream::WriteString(const wxString & string)
 	static int _bind_WriteString(lua_State *L) {
 		if (!_lg_typecheck_WriteString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::WriteString(const wxString & string) function, expected prototype:\nvoid wxTextOutputStream::WriteString(const wxString & string)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::WriteString(const wxString & string) function, expected prototype:\nvoid wxTextOutputStream::WriteString(const wxString & string)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString string(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::WriteString(const wxString &). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::WriteString(const wxString &). Got : '%s'\n%s",typeid(Luna< wxTextOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteString(string);
 
@@ -387,16 +364,14 @@ public:
 	// void wxTextOutputStream::base_WriteDouble(double f)
 	static int _bind_base_WriteDouble(lua_State *L) {
 		if (!_lg_typecheck_base_WriteDouble(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::base_WriteDouble(double f) function, expected prototype:\nvoid wxTextOutputStream::base_WriteDouble(double f)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::base_WriteDouble(double f) function, expected prototype:\nvoid wxTextOutputStream::base_WriteDouble(double f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double f=(double)lua_tonumber(L,2);
 
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::base_WriteDouble(double). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::base_WriteDouble(double). Got : '%s'\n%s",typeid(Luna< wxTextOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextOutputStream::WriteDouble(f);
 
@@ -406,16 +381,14 @@ public:
 	// void wxTextOutputStream::base_WriteString(const wxString & string)
 	static int _bind_base_WriteString(lua_State *L) {
 		if (!_lg_typecheck_base_WriteString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::base_WriteString(const wxString & string) function, expected prototype:\nvoid wxTextOutputStream::base_WriteString(const wxString & string)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxTextOutputStream::base_WriteString(const wxString & string) function, expected prototype:\nvoid wxTextOutputStream::base_WriteString(const wxString & string)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString string(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTextOutputStream* self=(Luna< wxTextOutputStream >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextOutputStream::base_WriteString(const wxString &). Got : '%s'",typeid(Luna< wxTextOutputStream >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextOutputStream::base_WriteString(const wxString &). Got : '%s'\n%s",typeid(Luna< wxTextOutputStream >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTextOutputStream::WriteString(string);
 

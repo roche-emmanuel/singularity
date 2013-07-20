@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxAnimation* self= (wxAnimation*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -248,8 +245,7 @@ public:
 	// wxAnimation::wxAnimation(const wxAnimation & anim)
 	static wxAnimation* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAnimation::wxAnimation(const wxAnimation & anim) function, expected prototype:\nwxAnimation::wxAnimation(const wxAnimation & anim)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxAnimation::wxAnimation(const wxAnimation & anim) function, expected prototype:\nwxAnimation::wxAnimation(const wxAnimation & anim)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxAnimation* anim_ptr=(Luna< wxObject >::checkSubType< wxAnimation >(L,1));
@@ -264,8 +260,7 @@ public:
 	// wxAnimation::wxAnimation(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)
 	static wxAnimation* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAnimation::wxAnimation(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY) function, expected prototype:\nwxAnimation::wxAnimation(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxAnimation::wxAnimation(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY) function, expected prototype:\nwxAnimation::wxAnimation(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -279,8 +274,7 @@ public:
 	// wxAnimation::wxAnimation(lua_Table * data, const wxAnimation & anim)
 	static wxAnimation* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAnimation::wxAnimation(lua_Table * data, const wxAnimation & anim) function, expected prototype:\nwxAnimation::wxAnimation(lua_Table * data, const wxAnimation & anim)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxAnimation::wxAnimation(lua_Table * data, const wxAnimation & anim) function, expected prototype:\nwxAnimation::wxAnimation(lua_Table * data, const wxAnimation & anim)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxAnimation* anim_ptr=(Luna< wxObject >::checkSubType< wxAnimation >(L,2));
@@ -295,8 +289,7 @@ public:
 	// wxAnimation::wxAnimation(lua_Table * data, const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)
 	static wxAnimation* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAnimation::wxAnimation(lua_Table * data, const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY) function, expected prototype:\nwxAnimation::wxAnimation(lua_Table * data, const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxAnimation::wxAnimation(lua_Table * data, const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY) function, expected prototype:\nwxAnimation::wxAnimation(lua_Table * data, const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -323,16 +316,14 @@ public:
 	// int wxAnimation::GetDelay(unsigned int i) const
 	static int _bind_GetDelay(lua_State *L) {
 		if (!_lg_typecheck_GetDelay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAnimation::GetDelay(unsigned int i) const function, expected prototype:\nint wxAnimation::GetDelay(unsigned int i) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAnimation::GetDelay(unsigned int i) const function, expected prototype:\nint wxAnimation::GetDelay(unsigned int i) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAnimation::GetDelay(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAnimation::GetDelay(unsigned int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetDelay(i);
 		lua_pushnumber(L,lret);
@@ -343,16 +334,14 @@ public:
 	// wxImage wxAnimation::GetFrame(unsigned int i) const
 	static int _bind_GetFrame(lua_State *L) {
 		if (!_lg_typecheck_GetFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxImage wxAnimation::GetFrame(unsigned int i) const function, expected prototype:\nwxImage wxAnimation::GetFrame(unsigned int i) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxImage wxAnimation::GetFrame(unsigned int i) const function, expected prototype:\nwxImage wxAnimation::GetFrame(unsigned int i) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxImage wxAnimation::GetFrame(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxImage wxAnimation::GetFrame(unsigned int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxImage stack_lret = self->GetFrame(i);
 		wxImage* lret = new wxImage(stack_lret);
@@ -366,15 +355,13 @@ public:
 	// unsigned int wxAnimation::GetFrameCount() const
 	static int _bind_GetFrameCount(lua_State *L) {
 		if (!_lg_typecheck_GetFrameCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int wxAnimation::GetFrameCount() const function, expected prototype:\nunsigned int wxAnimation::GetFrameCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int wxAnimation::GetFrameCount() const function, expected prototype:\nunsigned int wxAnimation::GetFrameCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxAnimation::GetFrameCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int wxAnimation::GetFrameCount() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->GetFrameCount();
 		lua_pushnumber(L,lret);
@@ -385,15 +372,13 @@ public:
 	// wxSize wxAnimation::GetSize() const
 	static int _bind_GetSize(lua_State *L) {
 		if (!_lg_typecheck_GetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxAnimation::GetSize() const function, expected prototype:\nwxSize wxAnimation::GetSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxAnimation::GetSize() const function, expected prototype:\nwxSize wxAnimation::GetSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAnimation::GetSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxAnimation::GetSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->GetSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -407,15 +392,13 @@ public:
 	// bool wxAnimation::IsOk() const
 	static int _bind_IsOk(lua_State *L) {
 		if (!_lg_typecheck_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAnimation::IsOk() const function, expected prototype:\nbool wxAnimation::IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAnimation::IsOk() const function, expected prototype:\nbool wxAnimation::IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAnimation::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAnimation::IsOk() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -426,8 +409,7 @@ public:
 	// bool wxAnimation::Load(wxInputStream & stream, wxAnimationType type = ::wxANIMATION_TYPE_ANY)
 	static int _bind_Load(lua_State *L) {
 		if (!_lg_typecheck_Load(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAnimation::Load(wxInputStream & stream, wxAnimationType type = ::wxANIMATION_TYPE_ANY) function, expected prototype:\nbool wxAnimation::Load(wxInputStream & stream, wxAnimationType type = ::wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxAnimation::Load(wxInputStream & stream, wxAnimationType type = ::wxANIMATION_TYPE_ANY) function, expected prototype:\nbool wxAnimation::Load(wxInputStream & stream, wxAnimationType type = ::wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -441,8 +423,7 @@ public:
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAnimation::Load(wxInputStream &, wxAnimationType). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAnimation::Load(wxInputStream &, wxAnimationType). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Load(stream, type);
 		lua_pushboolean(L,lret?1:0);
@@ -453,8 +434,7 @@ public:
 	// bool wxAnimation::LoadFile(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)
 	static int _bind_LoadFile(lua_State *L) {
 		if (!_lg_typecheck_LoadFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAnimation::LoadFile(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY) function, expected prototype:\nbool wxAnimation::LoadFile(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxAnimation::LoadFile(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY) function, expected prototype:\nbool wxAnimation::LoadFile(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -464,8 +444,7 @@ public:
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAnimation::LoadFile(const wxString &, wxAnimationType). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAnimation::LoadFile(const wxString &, wxAnimationType). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->LoadFile(name, type);
 		lua_pushboolean(L,lret?1:0);
@@ -476,15 +455,13 @@ public:
 	// wxClassInfo * wxAnimation::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxAnimation::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxAnimation::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxAnimation::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxAnimation::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxAnimation::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxAnimation::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxAnimation::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -497,16 +474,14 @@ public:
 	// int wxAnimation::base_GetDelay(unsigned int i) const
 	static int _bind_base_GetDelay(lua_State *L) {
 		if (!_lg_typecheck_base_GetDelay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAnimation::base_GetDelay(unsigned int i) const function, expected prototype:\nint wxAnimation::base_GetDelay(unsigned int i) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAnimation::base_GetDelay(unsigned int i) const function, expected prototype:\nint wxAnimation::base_GetDelay(unsigned int i) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAnimation::base_GetDelay(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAnimation::base_GetDelay(unsigned int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxAnimation::GetDelay(i);
 		lua_pushnumber(L,lret);
@@ -517,16 +492,14 @@ public:
 	// wxImage wxAnimation::base_GetFrame(unsigned int i) const
 	static int _bind_base_GetFrame(lua_State *L) {
 		if (!_lg_typecheck_base_GetFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxImage wxAnimation::base_GetFrame(unsigned int i) const function, expected prototype:\nwxImage wxAnimation::base_GetFrame(unsigned int i) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxImage wxAnimation::base_GetFrame(unsigned int i) const function, expected prototype:\nwxImage wxAnimation::base_GetFrame(unsigned int i) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxImage wxAnimation::base_GetFrame(unsigned int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxImage wxAnimation::base_GetFrame(unsigned int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxImage stack_lret = self->wxAnimation::GetFrame(i);
 		wxImage* lret = new wxImage(stack_lret);
@@ -540,15 +513,13 @@ public:
 	// unsigned int wxAnimation::base_GetFrameCount() const
 	static int _bind_base_GetFrameCount(lua_State *L) {
 		if (!_lg_typecheck_base_GetFrameCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int wxAnimation::base_GetFrameCount() const function, expected prototype:\nunsigned int wxAnimation::base_GetFrameCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int wxAnimation::base_GetFrameCount() const function, expected prototype:\nunsigned int wxAnimation::base_GetFrameCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxAnimation::base_GetFrameCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int wxAnimation::base_GetFrameCount() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->wxAnimation::GetFrameCount();
 		lua_pushnumber(L,lret);
@@ -559,15 +530,13 @@ public:
 	// wxSize wxAnimation::base_GetSize() const
 	static int _bind_base_GetSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxAnimation::base_GetSize() const function, expected prototype:\nwxSize wxAnimation::base_GetSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxAnimation::base_GetSize() const function, expected prototype:\nwxSize wxAnimation::base_GetSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAnimation::base_GetSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxAnimation::base_GetSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxAnimation::GetSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -581,15 +550,13 @@ public:
 	// bool wxAnimation::base_IsOk() const
 	static int _bind_base_IsOk(lua_State *L) {
 		if (!_lg_typecheck_base_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAnimation::base_IsOk() const function, expected prototype:\nbool wxAnimation::base_IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAnimation::base_IsOk() const function, expected prototype:\nbool wxAnimation::base_IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAnimation::base_IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAnimation::base_IsOk() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAnimation::IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -600,8 +567,7 @@ public:
 	// bool wxAnimation::base_Load(wxInputStream & stream, wxAnimationType type = ::wxANIMATION_TYPE_ANY)
 	static int _bind_base_Load(lua_State *L) {
 		if (!_lg_typecheck_base_Load(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAnimation::base_Load(wxInputStream & stream, wxAnimationType type = ::wxANIMATION_TYPE_ANY) function, expected prototype:\nbool wxAnimation::base_Load(wxInputStream & stream, wxAnimationType type = ::wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxAnimation::base_Load(wxInputStream & stream, wxAnimationType type = ::wxANIMATION_TYPE_ANY) function, expected prototype:\nbool wxAnimation::base_Load(wxInputStream & stream, wxAnimationType type = ::wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -615,8 +581,7 @@ public:
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAnimation::base_Load(wxInputStream &, wxAnimationType). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAnimation::base_Load(wxInputStream &, wxAnimationType). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAnimation::Load(stream, type);
 		lua_pushboolean(L,lret?1:0);
@@ -627,8 +592,7 @@ public:
 	// bool wxAnimation::base_LoadFile(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)
 	static int _bind_base_LoadFile(lua_State *L) {
 		if (!_lg_typecheck_base_LoadFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAnimation::base_LoadFile(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY) function, expected prototype:\nbool wxAnimation::base_LoadFile(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxAnimation::base_LoadFile(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY) function, expected prototype:\nbool wxAnimation::base_LoadFile(const wxString & name, wxAnimationType type = ::wxANIMATION_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -638,8 +602,7 @@ public:
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAnimation::base_LoadFile(const wxString &, wxAnimationType). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAnimation::base_LoadFile(const wxString &, wxAnimationType). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAnimation::LoadFile(name, type);
 		lua_pushboolean(L,lret?1:0);
@@ -652,8 +615,7 @@ public:
 	// wxAnimation & wxAnimation::operator=(const wxAnimation & brush)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAnimation & wxAnimation::operator=(const wxAnimation & brush) function, expected prototype:\nwxAnimation & wxAnimation::operator=(const wxAnimation & brush)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxAnimation & wxAnimation::operator=(const wxAnimation & brush) function, expected prototype:\nwxAnimation & wxAnimation::operator=(const wxAnimation & brush)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxAnimation* brush_ptr=(Luna< wxObject >::checkSubType< wxAnimation >(L,2));
@@ -664,8 +626,7 @@ public:
 
 		wxAnimation* self=Luna< wxObject >::checkSubType< wxAnimation >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAnimation & wxAnimation::operator=(const wxAnimation &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxAnimation & wxAnimation::operator=(const wxAnimation &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxAnimation* lret = &self->operator=(brush);
 		if(!lret) return 0; // Do not write NULL pointers.

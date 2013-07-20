@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxBrushList* self= (wxBrushList*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxList >::check(L,1));
@@ -84,8 +82,7 @@ public:
 	// wxBrush * wxBrushList::FindOrCreateBrush(const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID)
 	static int _bind_FindOrCreateBrush(lua_State *L) {
 		if (!_lg_typecheck_FindOrCreateBrush(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBrush * wxBrushList::FindOrCreateBrush(const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID) function, expected prototype:\nwxBrush * wxBrushList::FindOrCreateBrush(const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxBrush * wxBrushList::FindOrCreateBrush(const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID) function, expected prototype:\nwxBrush * wxBrushList::FindOrCreateBrush(const wxColour & colour, wxBrushStyle style = ::wxBRUSHSTYLE_SOLID)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -99,8 +96,7 @@ public:
 
 		wxBrushList* self=Luna< wxList >::checkSubType< wxBrushList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBrush * wxBrushList::FindOrCreateBrush(const wxColour &, wxBrushStyle). Got : '%s'",typeid(Luna< wxList >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBrush * wxBrushList::FindOrCreateBrush(const wxColour &, wxBrushStyle). Got : '%s'\n%s",typeid(Luna< wxList >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxBrush * lret = self->FindOrCreateBrush(colour, style);
 		if(!lret) return 0; // Do not write NULL pointers.

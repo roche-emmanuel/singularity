@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPageSetupDialogData* self= (wxPageSetupDialogData*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -317,8 +314,7 @@ public:
 	// wxPageSetupDialogData::wxPageSetupDialogData()
 	static wxPageSetupDialogData* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPageSetupDialogData::wxPageSetupDialogData() function, expected prototype:\nwxPageSetupDialogData::wxPageSetupDialogData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPageSetupDialogData::wxPageSetupDialogData() function, expected prototype:\nwxPageSetupDialogData::wxPageSetupDialogData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -328,8 +324,7 @@ public:
 	// wxPageSetupDialogData::wxPageSetupDialogData(const wxPageSetupDialogData & data)
 	static wxPageSetupDialogData* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPageSetupDialogData::wxPageSetupDialogData(const wxPageSetupDialogData & data) function, expected prototype:\nwxPageSetupDialogData::wxPageSetupDialogData(const wxPageSetupDialogData & data)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxPageSetupDialogData::wxPageSetupDialogData(const wxPageSetupDialogData & data) function, expected prototype:\nwxPageSetupDialogData::wxPageSetupDialogData(const wxPageSetupDialogData & data)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPageSetupDialogData* data_ptr=(Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1));
@@ -344,8 +339,7 @@ public:
 	// wxPageSetupDialogData::wxPageSetupDialogData(lua_Table * data)
 	static wxPageSetupDialogData* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPageSetupDialogData::wxPageSetupDialogData(lua_Table * data) function, expected prototype:\nwxPageSetupDialogData::wxPageSetupDialogData(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPageSetupDialogData::wxPageSetupDialogData(lua_Table * data) function, expected prototype:\nwxPageSetupDialogData::wxPageSetupDialogData(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -355,8 +349,7 @@ public:
 	// wxPageSetupDialogData::wxPageSetupDialogData(lua_Table * data, const wxPageSetupDialogData & data)
 	static wxPageSetupDialogData* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPageSetupDialogData::wxPageSetupDialogData(lua_Table * data, const wxPageSetupDialogData & data) function, expected prototype:\nwxPageSetupDialogData::wxPageSetupDialogData(lua_Table * data, const wxPageSetupDialogData & data)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxPageSetupDialogData::wxPageSetupDialogData(lua_Table * data, const wxPageSetupDialogData & data) function, expected prototype:\nwxPageSetupDialogData::wxPageSetupDialogData(lua_Table * data, const wxPageSetupDialogData & data)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPageSetupDialogData* data_ptr=(Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,2));
@@ -384,16 +377,14 @@ public:
 	// void wxPageSetupDialogData::EnableHelp(bool flag)
 	static int _bind_EnableHelp(lua_State *L) {
 		if (!_lg_typecheck_EnableHelp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::EnableHelp(bool flag) function, expected prototype:\nvoid wxPageSetupDialogData::EnableHelp(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::EnableHelp(bool flag) function, expected prototype:\nvoid wxPageSetupDialogData::EnableHelp(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::EnableHelp(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::EnableHelp(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EnableHelp(flag);
 
@@ -403,16 +394,14 @@ public:
 	// void wxPageSetupDialogData::EnableMargins(bool flag)
 	static int _bind_EnableMargins(lua_State *L) {
 		if (!_lg_typecheck_EnableMargins(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::EnableMargins(bool flag) function, expected prototype:\nvoid wxPageSetupDialogData::EnableMargins(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::EnableMargins(bool flag) function, expected prototype:\nvoid wxPageSetupDialogData::EnableMargins(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::EnableMargins(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::EnableMargins(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EnableMargins(flag);
 
@@ -422,16 +411,14 @@ public:
 	// void wxPageSetupDialogData::EnableOrientation(bool flag)
 	static int _bind_EnableOrientation(lua_State *L) {
 		if (!_lg_typecheck_EnableOrientation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::EnableOrientation(bool flag) function, expected prototype:\nvoid wxPageSetupDialogData::EnableOrientation(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::EnableOrientation(bool flag) function, expected prototype:\nvoid wxPageSetupDialogData::EnableOrientation(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::EnableOrientation(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::EnableOrientation(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EnableOrientation(flag);
 
@@ -441,16 +428,14 @@ public:
 	// void wxPageSetupDialogData::EnablePaper(bool flag)
 	static int _bind_EnablePaper(lua_State *L) {
 		if (!_lg_typecheck_EnablePaper(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::EnablePaper(bool flag) function, expected prototype:\nvoid wxPageSetupDialogData::EnablePaper(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::EnablePaper(bool flag) function, expected prototype:\nvoid wxPageSetupDialogData::EnablePaper(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::EnablePaper(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::EnablePaper(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EnablePaper(flag);
 
@@ -460,16 +445,14 @@ public:
 	// void wxPageSetupDialogData::EnablePrinter(bool flag)
 	static int _bind_EnablePrinter(lua_State *L) {
 		if (!_lg_typecheck_EnablePrinter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::EnablePrinter(bool flag) function, expected prototype:\nvoid wxPageSetupDialogData::EnablePrinter(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::EnablePrinter(bool flag) function, expected prototype:\nvoid wxPageSetupDialogData::EnablePrinter(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::EnablePrinter(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::EnablePrinter(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EnablePrinter(flag);
 
@@ -479,15 +462,13 @@ public:
 	// bool wxPageSetupDialogData::GetDefaultInfo() const
 	static int _bind_GetDefaultInfo(lua_State *L) {
 		if (!_lg_typecheck_GetDefaultInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPageSetupDialogData::GetDefaultInfo() const function, expected prototype:\nbool wxPageSetupDialogData::GetDefaultInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPageSetupDialogData::GetDefaultInfo() const function, expected prototype:\nbool wxPageSetupDialogData::GetDefaultInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPageSetupDialogData::GetDefaultInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPageSetupDialogData::GetDefaultInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetDefaultInfo();
 		lua_pushboolean(L,lret?1:0);
@@ -498,15 +479,13 @@ public:
 	// bool wxPageSetupDialogData::GetDefaultMinMargins() const
 	static int _bind_GetDefaultMinMargins(lua_State *L) {
 		if (!_lg_typecheck_GetDefaultMinMargins(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPageSetupDialogData::GetDefaultMinMargins() const function, expected prototype:\nbool wxPageSetupDialogData::GetDefaultMinMargins() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPageSetupDialogData::GetDefaultMinMargins() const function, expected prototype:\nbool wxPageSetupDialogData::GetDefaultMinMargins() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPageSetupDialogData::GetDefaultMinMargins() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPageSetupDialogData::GetDefaultMinMargins() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetDefaultMinMargins();
 		lua_pushboolean(L,lret?1:0);
@@ -517,15 +496,13 @@ public:
 	// bool wxPageSetupDialogData::GetEnableHelp() const
 	static int _bind_GetEnableHelp(lua_State *L) {
 		if (!_lg_typecheck_GetEnableHelp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPageSetupDialogData::GetEnableHelp() const function, expected prototype:\nbool wxPageSetupDialogData::GetEnableHelp() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPageSetupDialogData::GetEnableHelp() const function, expected prototype:\nbool wxPageSetupDialogData::GetEnableHelp() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPageSetupDialogData::GetEnableHelp() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPageSetupDialogData::GetEnableHelp() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetEnableHelp();
 		lua_pushboolean(L,lret?1:0);
@@ -536,15 +513,13 @@ public:
 	// bool wxPageSetupDialogData::GetEnableMargins() const
 	static int _bind_GetEnableMargins(lua_State *L) {
 		if (!_lg_typecheck_GetEnableMargins(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPageSetupDialogData::GetEnableMargins() const function, expected prototype:\nbool wxPageSetupDialogData::GetEnableMargins() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPageSetupDialogData::GetEnableMargins() const function, expected prototype:\nbool wxPageSetupDialogData::GetEnableMargins() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPageSetupDialogData::GetEnableMargins() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPageSetupDialogData::GetEnableMargins() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetEnableMargins();
 		lua_pushboolean(L,lret?1:0);
@@ -555,15 +530,13 @@ public:
 	// bool wxPageSetupDialogData::GetEnableOrientation() const
 	static int _bind_GetEnableOrientation(lua_State *L) {
 		if (!_lg_typecheck_GetEnableOrientation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPageSetupDialogData::GetEnableOrientation() const function, expected prototype:\nbool wxPageSetupDialogData::GetEnableOrientation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPageSetupDialogData::GetEnableOrientation() const function, expected prototype:\nbool wxPageSetupDialogData::GetEnableOrientation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPageSetupDialogData::GetEnableOrientation() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPageSetupDialogData::GetEnableOrientation() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetEnableOrientation();
 		lua_pushboolean(L,lret?1:0);
@@ -574,15 +547,13 @@ public:
 	// bool wxPageSetupDialogData::GetEnablePaper() const
 	static int _bind_GetEnablePaper(lua_State *L) {
 		if (!_lg_typecheck_GetEnablePaper(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPageSetupDialogData::GetEnablePaper() const function, expected prototype:\nbool wxPageSetupDialogData::GetEnablePaper() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPageSetupDialogData::GetEnablePaper() const function, expected prototype:\nbool wxPageSetupDialogData::GetEnablePaper() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPageSetupDialogData::GetEnablePaper() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPageSetupDialogData::GetEnablePaper() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetEnablePaper();
 		lua_pushboolean(L,lret?1:0);
@@ -593,15 +564,13 @@ public:
 	// bool wxPageSetupDialogData::GetEnablePrinter() const
 	static int _bind_GetEnablePrinter(lua_State *L) {
 		if (!_lg_typecheck_GetEnablePrinter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPageSetupDialogData::GetEnablePrinter() const function, expected prototype:\nbool wxPageSetupDialogData::GetEnablePrinter() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPageSetupDialogData::GetEnablePrinter() const function, expected prototype:\nbool wxPageSetupDialogData::GetEnablePrinter() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPageSetupDialogData::GetEnablePrinter() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPageSetupDialogData::GetEnablePrinter() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetEnablePrinter();
 		lua_pushboolean(L,lret?1:0);
@@ -612,15 +581,13 @@ public:
 	// wxPoint wxPageSetupDialogData::GetMarginBottomRight() const
 	static int _bind_GetMarginBottomRight(lua_State *L) {
 		if (!_lg_typecheck_GetMarginBottomRight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint wxPageSetupDialogData::GetMarginBottomRight() const function, expected prototype:\nwxPoint wxPageSetupDialogData::GetMarginBottomRight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint wxPageSetupDialogData::GetMarginBottomRight() const function, expected prototype:\nwxPoint wxPageSetupDialogData::GetMarginBottomRight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxPageSetupDialogData::GetMarginBottomRight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint wxPageSetupDialogData::GetMarginBottomRight() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint stack_lret = self->GetMarginBottomRight();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -634,15 +601,13 @@ public:
 	// wxPoint wxPageSetupDialogData::GetMarginTopLeft() const
 	static int _bind_GetMarginTopLeft(lua_State *L) {
 		if (!_lg_typecheck_GetMarginTopLeft(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint wxPageSetupDialogData::GetMarginTopLeft() const function, expected prototype:\nwxPoint wxPageSetupDialogData::GetMarginTopLeft() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint wxPageSetupDialogData::GetMarginTopLeft() const function, expected prototype:\nwxPoint wxPageSetupDialogData::GetMarginTopLeft() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxPageSetupDialogData::GetMarginTopLeft() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint wxPageSetupDialogData::GetMarginTopLeft() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint stack_lret = self->GetMarginTopLeft();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -656,15 +621,13 @@ public:
 	// wxPoint wxPageSetupDialogData::GetMinMarginBottomRight() const
 	static int _bind_GetMinMarginBottomRight(lua_State *L) {
 		if (!_lg_typecheck_GetMinMarginBottomRight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint wxPageSetupDialogData::GetMinMarginBottomRight() const function, expected prototype:\nwxPoint wxPageSetupDialogData::GetMinMarginBottomRight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint wxPageSetupDialogData::GetMinMarginBottomRight() const function, expected prototype:\nwxPoint wxPageSetupDialogData::GetMinMarginBottomRight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxPageSetupDialogData::GetMinMarginBottomRight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint wxPageSetupDialogData::GetMinMarginBottomRight() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint stack_lret = self->GetMinMarginBottomRight();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -678,15 +641,13 @@ public:
 	// wxPoint wxPageSetupDialogData::GetMinMarginTopLeft() const
 	static int _bind_GetMinMarginTopLeft(lua_State *L) {
 		if (!_lg_typecheck_GetMinMarginTopLeft(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint wxPageSetupDialogData::GetMinMarginTopLeft() const function, expected prototype:\nwxPoint wxPageSetupDialogData::GetMinMarginTopLeft() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint wxPageSetupDialogData::GetMinMarginTopLeft() const function, expected prototype:\nwxPoint wxPageSetupDialogData::GetMinMarginTopLeft() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxPageSetupDialogData::GetMinMarginTopLeft() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint wxPageSetupDialogData::GetMinMarginTopLeft() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint stack_lret = self->GetMinMarginTopLeft();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -700,15 +661,13 @@ public:
 	// wxPaperSize wxPageSetupDialogData::GetPaperId() const
 	static int _bind_GetPaperId(lua_State *L) {
 		if (!_lg_typecheck_GetPaperId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPaperSize wxPageSetupDialogData::GetPaperId() const function, expected prototype:\nwxPaperSize wxPageSetupDialogData::GetPaperId() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPaperSize wxPageSetupDialogData::GetPaperId() const function, expected prototype:\nwxPaperSize wxPageSetupDialogData::GetPaperId() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPaperSize wxPageSetupDialogData::GetPaperId() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPaperSize wxPageSetupDialogData::GetPaperId() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPaperSize lret = self->GetPaperId();
 		lua_pushnumber(L,lret);
@@ -719,15 +678,13 @@ public:
 	// wxSize wxPageSetupDialogData::GetPaperSize() const
 	static int _bind_GetPaperSize(lua_State *L) {
 		if (!_lg_typecheck_GetPaperSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxPageSetupDialogData::GetPaperSize() const function, expected prototype:\nwxSize wxPageSetupDialogData::GetPaperSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxPageSetupDialogData::GetPaperSize() const function, expected prototype:\nwxSize wxPageSetupDialogData::GetPaperSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxPageSetupDialogData::GetPaperSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxPageSetupDialogData::GetPaperSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->GetPaperSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -741,15 +698,13 @@ public:
 	// bool wxPageSetupDialogData::IsOk() const
 	static int _bind_IsOk(lua_State *L) {
 		if (!_lg_typecheck_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPageSetupDialogData::IsOk() const function, expected prototype:\nbool wxPageSetupDialogData::IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPageSetupDialogData::IsOk() const function, expected prototype:\nbool wxPageSetupDialogData::IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPageSetupDialogData::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPageSetupDialogData::IsOk() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -760,16 +715,14 @@ public:
 	// void wxPageSetupDialogData::SetDefaultInfo(bool flag)
 	static int _bind_SetDefaultInfo(lua_State *L) {
 		if (!_lg_typecheck_SetDefaultInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::SetDefaultInfo(bool flag) function, expected prototype:\nvoid wxPageSetupDialogData::SetDefaultInfo(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::SetDefaultInfo(bool flag) function, expected prototype:\nvoid wxPageSetupDialogData::SetDefaultInfo(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::SetDefaultInfo(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::SetDefaultInfo(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetDefaultInfo(flag);
 
@@ -779,16 +732,14 @@ public:
 	// void wxPageSetupDialogData::SetDefaultMinMargins(bool flag)
 	static int _bind_SetDefaultMinMargins(lua_State *L) {
 		if (!_lg_typecheck_SetDefaultMinMargins(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::SetDefaultMinMargins(bool flag) function, expected prototype:\nvoid wxPageSetupDialogData::SetDefaultMinMargins(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::SetDefaultMinMargins(bool flag) function, expected prototype:\nvoid wxPageSetupDialogData::SetDefaultMinMargins(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::SetDefaultMinMargins(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::SetDefaultMinMargins(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetDefaultMinMargins(flag);
 
@@ -798,8 +749,7 @@ public:
 	// void wxPageSetupDialogData::SetMarginBottomRight(const wxPoint & pt)
 	static int _bind_SetMarginBottomRight(lua_State *L) {
 		if (!_lg_typecheck_SetMarginBottomRight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::SetMarginBottomRight(const wxPoint & pt) function, expected prototype:\nvoid wxPageSetupDialogData::SetMarginBottomRight(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::SetMarginBottomRight(const wxPoint & pt) function, expected prototype:\nvoid wxPageSetupDialogData::SetMarginBottomRight(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* pt_ptr=(Luna< wxPoint >::check(L,2));
@@ -810,8 +760,7 @@ public:
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::SetMarginBottomRight(const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::SetMarginBottomRight(const wxPoint &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMarginBottomRight(pt);
 
@@ -821,8 +770,7 @@ public:
 	// void wxPageSetupDialogData::SetMarginTopLeft(const wxPoint & pt)
 	static int _bind_SetMarginTopLeft(lua_State *L) {
 		if (!_lg_typecheck_SetMarginTopLeft(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::SetMarginTopLeft(const wxPoint & pt) function, expected prototype:\nvoid wxPageSetupDialogData::SetMarginTopLeft(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::SetMarginTopLeft(const wxPoint & pt) function, expected prototype:\nvoid wxPageSetupDialogData::SetMarginTopLeft(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* pt_ptr=(Luna< wxPoint >::check(L,2));
@@ -833,8 +781,7 @@ public:
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::SetMarginTopLeft(const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::SetMarginTopLeft(const wxPoint &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMarginTopLeft(pt);
 
@@ -844,8 +791,7 @@ public:
 	// void wxPageSetupDialogData::SetMinMarginBottomRight(const wxPoint & pt)
 	static int _bind_SetMinMarginBottomRight(lua_State *L) {
 		if (!_lg_typecheck_SetMinMarginBottomRight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::SetMinMarginBottomRight(const wxPoint & pt) function, expected prototype:\nvoid wxPageSetupDialogData::SetMinMarginBottomRight(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::SetMinMarginBottomRight(const wxPoint & pt) function, expected prototype:\nvoid wxPageSetupDialogData::SetMinMarginBottomRight(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* pt_ptr=(Luna< wxPoint >::check(L,2));
@@ -856,8 +802,7 @@ public:
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::SetMinMarginBottomRight(const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::SetMinMarginBottomRight(const wxPoint &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMinMarginBottomRight(pt);
 
@@ -867,8 +812,7 @@ public:
 	// void wxPageSetupDialogData::SetMinMarginTopLeft(const wxPoint & pt)
 	static int _bind_SetMinMarginTopLeft(lua_State *L) {
 		if (!_lg_typecheck_SetMinMarginTopLeft(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::SetMinMarginTopLeft(const wxPoint & pt) function, expected prototype:\nvoid wxPageSetupDialogData::SetMinMarginTopLeft(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::SetMinMarginTopLeft(const wxPoint & pt) function, expected prototype:\nvoid wxPageSetupDialogData::SetMinMarginTopLeft(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* pt_ptr=(Luna< wxPoint >::check(L,2));
@@ -879,8 +823,7 @@ public:
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::SetMinMarginTopLeft(const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::SetMinMarginTopLeft(const wxPoint &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMinMarginTopLeft(pt);
 
@@ -890,16 +833,14 @@ public:
 	// void wxPageSetupDialogData::SetPaperId(wxPaperSize id)
 	static int _bind_SetPaperId(lua_State *L) {
 		if (!_lg_typecheck_SetPaperId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::SetPaperId(wxPaperSize id) function, expected prototype:\nvoid wxPageSetupDialogData::SetPaperId(wxPaperSize id)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::SetPaperId(wxPaperSize id) function, expected prototype:\nvoid wxPageSetupDialogData::SetPaperId(wxPaperSize id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPaperSize id=(wxPaperSize)lua_tointeger(L,2);
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::SetPaperId(wxPaperSize). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::SetPaperId(wxPaperSize). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetPaperId(id);
 
@@ -909,8 +850,7 @@ public:
 	// void wxPageSetupDialogData::SetPaperSize(const wxSize & size)
 	static int _bind_SetPaperSize(lua_State *L) {
 		if (!_lg_typecheck_SetPaperSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::SetPaperSize(const wxSize & size) function, expected prototype:\nvoid wxPageSetupDialogData::SetPaperSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxPageSetupDialogData::SetPaperSize(const wxSize & size) function, expected prototype:\nvoid wxPageSetupDialogData::SetPaperSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -921,8 +861,7 @@ public:
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::SetPaperSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPageSetupDialogData::SetPaperSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetPaperSize(size);
 
@@ -932,15 +871,13 @@ public:
 	// wxClassInfo * wxPageSetupDialogData::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxPageSetupDialogData::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxPageSetupDialogData::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxPageSetupDialogData::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxPageSetupDialogData::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxPageSetupDialogData::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPageSetupDialogData::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxPageSetupDialogData::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -955,8 +892,7 @@ public:
 	// wxPageSetupDialogData & wxPageSetupDialogData::operator=(const wxPageSetupDialogData & data)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPageSetupDialogData & wxPageSetupDialogData::operator=(const wxPageSetupDialogData & data) function, expected prototype:\nwxPageSetupDialogData & wxPageSetupDialogData::operator=(const wxPageSetupDialogData & data)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxPageSetupDialogData & wxPageSetupDialogData::operator=(const wxPageSetupDialogData & data) function, expected prototype:\nwxPageSetupDialogData & wxPageSetupDialogData::operator=(const wxPageSetupDialogData & data)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPageSetupDialogData* data_ptr=(Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,2));
@@ -967,8 +903,7 @@ public:
 
 		wxPageSetupDialogData* self=Luna< wxObject >::checkSubType< wxPageSetupDialogData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPageSetupDialogData & wxPageSetupDialogData::operator=(const wxPageSetupDialogData &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPageSetupDialogData & wxPageSetupDialogData::operator=(const wxPageSetupDialogData &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxPageSetupDialogData* lret = &self->operator=(data);
 		if(!lret) return 0; // Do not write NULL pointers.

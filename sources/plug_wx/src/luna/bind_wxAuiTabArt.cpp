@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxAuiTabArt*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxAuiTabArt*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxAuiTabArt* rhs =(Luna< wxAuiTabArt >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxAuiTabArt* self= (wxAuiTabArt*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxAuiTabArt >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -272,8 +267,7 @@ public:
 	// wxAuiTabArt::wxAuiTabArt(lua_Table * data)
 	static wxAuiTabArt* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAuiTabArt::wxAuiTabArt(lua_Table * data) function, expected prototype:\nwxAuiTabArt::wxAuiTabArt(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxAuiTabArt::wxAuiTabArt(lua_Table * data) function, expected prototype:\nwxAuiTabArt::wxAuiTabArt(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -285,15 +279,13 @@ public:
 	// wxAuiTabArt * wxAuiTabArt::Clone()
 	static int _bind_Clone(lua_State *L) {
 		if (!_lg_typecheck_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAuiTabArt * wxAuiTabArt::Clone() function, expected prototype:\nwxAuiTabArt * wxAuiTabArt::Clone()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxAuiTabArt * wxAuiTabArt::Clone() function, expected prototype:\nwxAuiTabArt * wxAuiTabArt::Clone()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiTabArt * wxAuiTabArt::Clone(). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxAuiTabArt * wxAuiTabArt::Clone(). Got : '%s'\n%s",typeid(Luna< wxAuiTabArt >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxAuiTabArt * lret = self->Clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -306,8 +298,7 @@ public:
 	// void wxAuiTabArt::DrawBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect)
 	static int _bind_DrawBackground(lua_State *L) {
 		if (!_lg_typecheck_DrawBackground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::DrawBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect) function, expected prototype:\nvoid wxAuiTabArt::DrawBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::DrawBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect) function, expected prototype:\nvoid wxAuiTabArt::DrawBackground(wxDC & dc, wxWindow * wnd, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
@@ -324,8 +315,7 @@ public:
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::DrawBackground(wxDC &, wxWindow *, const wxRect &). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::DrawBackground(wxDC &, wxWindow *, const wxRect &). Got : '%s'\n%s",typeid(Luna< wxAuiTabArt >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DrawBackground(dc, wnd, rect);
 
@@ -335,8 +325,7 @@ public:
 	// void wxAuiTabArt::DrawButton(wxDC & dc, wxWindow * wnd, const wxRect & in_rect, int bitmap_id, int button_state, int orientation, wxRect * out_rect)
 	static int _bind_DrawButton(lua_State *L) {
 		if (!_lg_typecheck_DrawButton(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::DrawButton(wxDC & dc, wxWindow * wnd, const wxRect & in_rect, int bitmap_id, int button_state, int orientation, wxRect * out_rect) function, expected prototype:\nvoid wxAuiTabArt::DrawButton(wxDC & dc, wxWindow * wnd, const wxRect & in_rect, int bitmap_id, int button_state, int orientation, wxRect * out_rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 7 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::DrawButton(wxDC & dc, wxWindow * wnd, const wxRect & in_rect, int bitmap_id, int button_state, int orientation, wxRect * out_rect) function, expected prototype:\nvoid wxAuiTabArt::DrawButton(wxDC & dc, wxWindow * wnd, const wxRect & in_rect, int bitmap_id, int button_state, int orientation, wxRect * out_rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\narg 7 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
@@ -357,8 +346,7 @@ public:
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::DrawButton(wxDC &, wxWindow *, const wxRect &, int, int, int, wxRect *). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::DrawButton(wxDC &, wxWindow *, const wxRect &, int, int, int, wxRect *). Got : '%s'\n%s",typeid(Luna< wxAuiTabArt >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DrawButton(dc, wnd, in_rect, bitmap_id, button_state, orientation, out_rect);
 
@@ -368,8 +356,7 @@ public:
 	// void wxAuiTabArt::DrawTab(wxDC & dc, wxWindow * wnd, const wxAuiNotebookPage & page, const wxRect & rect, int close_button_state, wxRect * out_tab_rect, wxRect * out_button_rect, int * x_extent)
 	static int _bind_DrawTab(lua_State *L) {
 		if (!_lg_typecheck_DrawTab(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::DrawTab(wxDC & dc, wxWindow * wnd, const wxAuiNotebookPage & page, const wxRect & rect, int close_button_state, wxRect * out_tab_rect, wxRect * out_button_rect, int * x_extent) function, expected prototype:\nvoid wxAuiTabArt::DrawTab(wxDC & dc, wxWindow * wnd, const wxAuiNotebookPage & page, const wxRect & rect, int close_button_state, wxRect * out_tab_rect, wxRect * out_button_rect, int * x_extent)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 43006525\narg 4 ID = 20234418\narg 6 ID = 20234418\narg 7 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::DrawTab(wxDC & dc, wxWindow * wnd, const wxAuiNotebookPage & page, const wxRect & rect, int close_button_state, wxRect * out_tab_rect, wxRect * out_button_rect, int * x_extent) function, expected prototype:\nvoid wxAuiTabArt::DrawTab(wxDC & dc, wxWindow * wnd, const wxAuiNotebookPage & page, const wxRect & rect, int close_button_state, wxRect * out_tab_rect, wxRect * out_button_rect, int * x_extent)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 43006525\narg 4 ID = 20234418\narg 6 ID = 20234418\narg 7 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
@@ -395,8 +382,7 @@ public:
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::DrawTab(wxDC &, wxWindow *, const wxAuiNotebookPage &, const wxRect &, int, wxRect *, wxRect *, int *). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::DrawTab(wxDC &, wxWindow *, const wxAuiNotebookPage &, const wxRect &, int, wxRect *, wxRect *, int *). Got : '%s'\n%s",typeid(Luna< wxAuiTabArt >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DrawTab(dc, wnd, page, rect, close_button_state, out_tab_rect, out_button_rect, x_extent);
 
@@ -406,8 +392,7 @@ public:
 	// int wxAuiTabArt::GetBestTabCtrlSize(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, const wxSize & arg3)
 	static int _bind_GetBestTabCtrlSize(lua_State *L) {
 		if (!_lg_typecheck_GetBestTabCtrlSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiTabArt::GetBestTabCtrlSize(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, const wxSize & arg3) function, expected prototype:\nint wxAuiTabArt::GetBestTabCtrlSize(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, const wxSize & arg3)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 39809356\narg 3 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiTabArt::GetBestTabCtrlSize(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, const wxSize & arg3) function, expected prototype:\nint wxAuiTabArt::GetBestTabCtrlSize(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, const wxSize & arg3)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 39809356\narg 3 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* _arg1=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
@@ -424,8 +409,7 @@ public:
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiTabArt::GetBestTabCtrlSize(wxWindow *, const wxAuiNotebookPageArray &, const wxSize &). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiTabArt::GetBestTabCtrlSize(wxWindow *, const wxAuiNotebookPageArray &, const wxSize &). Got : '%s'\n%s",typeid(Luna< wxAuiTabArt >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetBestTabCtrlSize(_arg1, _arg2, _arg3);
 		lua_pushnumber(L,lret);
@@ -436,15 +420,13 @@ public:
 	// int wxAuiTabArt::GetIndentSize()
 	static int _bind_GetIndentSize(lua_State *L) {
 		if (!_lg_typecheck_GetIndentSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiTabArt::GetIndentSize() function, expected prototype:\nint wxAuiTabArt::GetIndentSize()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiTabArt::GetIndentSize() function, expected prototype:\nint wxAuiTabArt::GetIndentSize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiTabArt::GetIndentSize(). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiTabArt::GetIndentSize(). Got : '%s'\n%s",typeid(Luna< wxAuiTabArt >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetIndentSize();
 		lua_pushnumber(L,lret);
@@ -455,8 +437,7 @@ public:
 	// wxSize wxAuiTabArt::GetTabSize(wxDC & dc, wxWindow * wnd, const wxString & caption, const wxBitmap & bitmap, bool active, int close_button_state, int * x_extent)
 	static int _bind_GetTabSize(lua_State *L) {
 		if (!_lg_typecheck_GetTabSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxAuiTabArt::GetTabSize(wxDC & dc, wxWindow * wnd, const wxString & caption, const wxBitmap & bitmap, bool active, int close_button_state, int * x_extent) function, expected prototype:\nwxSize wxAuiTabArt::GetTabSize(wxDC & dc, wxWindow * wnd, const wxString & caption, const wxBitmap & bitmap, bool active, int close_button_state, int * x_extent)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiTabArt::GetTabSize(wxDC & dc, wxWindow * wnd, const wxString & caption, const wxBitmap & bitmap, bool active, int close_button_state, int * x_extent) function, expected prototype:\nwxSize wxAuiTabArt::GetTabSize(wxDC & dc, wxWindow * wnd, const wxString & caption, const wxBitmap & bitmap, bool active, int close_button_state, int * x_extent)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
@@ -477,8 +458,7 @@ public:
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiTabArt::GetTabSize(wxDC &, wxWindow *, const wxString &, const wxBitmap &, bool, int, int *). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxAuiTabArt::GetTabSize(wxDC &, wxWindow *, const wxString &, const wxBitmap &, bool, int, int *). Got : '%s'\n%s",typeid(Luna< wxAuiTabArt >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->GetTabSize(dc, wnd, caption, bitmap, active, close_button_state, x_extent);
 		wxSize* lret = new wxSize(stack_lret);
@@ -492,16 +472,14 @@ public:
 	// void wxAuiTabArt::SetFlags(unsigned int flags)
 	static int _bind_SetFlags(lua_State *L) {
 		if (!_lg_typecheck_SetFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetFlags(unsigned int flags) function, expected prototype:\nvoid wxAuiTabArt::SetFlags(unsigned int flags)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetFlags(unsigned int flags) function, expected prototype:\nvoid wxAuiTabArt::SetFlags(unsigned int flags)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int flags=(unsigned int)lua_tointeger(L,2);
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetFlags(unsigned int). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetFlags(unsigned int). Got : '%s'\n%s",typeid(Luna< wxAuiTabArt >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFlags(flags);
 
@@ -511,8 +489,7 @@ public:
 	// void wxAuiTabArt::SetMeasuringFont(const wxFont & font)
 	static int _bind_SetMeasuringFont(lua_State *L) {
 		if (!_lg_typecheck_SetMeasuringFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetMeasuringFont(const wxFont & font) function, expected prototype:\nvoid wxAuiTabArt::SetMeasuringFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetMeasuringFont(const wxFont & font) function, expected prototype:\nvoid wxAuiTabArt::SetMeasuringFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -523,8 +500,7 @@ public:
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetMeasuringFont(const wxFont &). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetMeasuringFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxAuiTabArt >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMeasuringFont(font);
 
@@ -534,8 +510,7 @@ public:
 	// void wxAuiTabArt::SetNormalFont(const wxFont & font)
 	static int _bind_SetNormalFont(lua_State *L) {
 		if (!_lg_typecheck_SetNormalFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetNormalFont(const wxFont & font) function, expected prototype:\nvoid wxAuiTabArt::SetNormalFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetNormalFont(const wxFont & font) function, expected prototype:\nvoid wxAuiTabArt::SetNormalFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -546,8 +521,7 @@ public:
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetNormalFont(const wxFont &). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetNormalFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxAuiTabArt >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetNormalFont(font);
 
@@ -557,8 +531,7 @@ public:
 	// void wxAuiTabArt::SetSelectedFont(const wxFont & font)
 	static int _bind_SetSelectedFont(lua_State *L) {
 		if (!_lg_typecheck_SetSelectedFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetSelectedFont(const wxFont & font) function, expected prototype:\nvoid wxAuiTabArt::SetSelectedFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetSelectedFont(const wxFont & font) function, expected prototype:\nvoid wxAuiTabArt::SetSelectedFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -569,8 +542,7 @@ public:
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetSelectedFont(const wxFont &). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetSelectedFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxAuiTabArt >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelectedFont(font);
 
@@ -580,8 +552,7 @@ public:
 	// void wxAuiTabArt::SetColour(const wxColour & colour)
 	static int _bind_SetColour(lua_State *L) {
 		if (!_lg_typecheck_SetColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetColour(const wxColour & colour) function, expected prototype:\nvoid wxAuiTabArt::SetColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetColour(const wxColour & colour) function, expected prototype:\nvoid wxAuiTabArt::SetColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -592,8 +563,7 @@ public:
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetColour(const wxColour &). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetColour(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxAuiTabArt >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetColour(colour);
 
@@ -603,8 +573,7 @@ public:
 	// void wxAuiTabArt::SetActiveColour(const wxColour & colour)
 	static int _bind_SetActiveColour(lua_State *L) {
 		if (!_lg_typecheck_SetActiveColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetActiveColour(const wxColour & colour) function, expected prototype:\nvoid wxAuiTabArt::SetActiveColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetActiveColour(const wxColour & colour) function, expected prototype:\nvoid wxAuiTabArt::SetActiveColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -615,8 +584,7 @@ public:
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetActiveColour(const wxColour &). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetActiveColour(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxAuiTabArt >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetActiveColour(colour);
 
@@ -626,8 +594,7 @@ public:
 	// void wxAuiTabArt::SetSizingInfo(const wxSize & tab_ctrl_size, size_t tab_count)
 	static int _bind_SetSizingInfo(lua_State *L) {
 		if (!_lg_typecheck_SetSizingInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetSizingInfo(const wxSize & tab_ctrl_size, size_t tab_count) function, expected prototype:\nvoid wxAuiTabArt::SetSizingInfo(const wxSize & tab_ctrl_size, size_t tab_count)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiTabArt::SetSizingInfo(const wxSize & tab_ctrl_size, size_t tab_count) function, expected prototype:\nvoid wxAuiTabArt::SetSizingInfo(const wxSize & tab_ctrl_size, size_t tab_count)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* tab_ctrl_size_ptr=(Luna< wxSize >::check(L,2));
@@ -639,8 +606,7 @@ public:
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetSizingInfo(const wxSize &, size_t). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiTabArt::SetSizingInfo(const wxSize &, size_t). Got : '%s'\n%s",typeid(Luna< wxAuiTabArt >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSizingInfo(tab_ctrl_size, tab_count);
 
@@ -650,8 +616,7 @@ public:
 	// int wxAuiTabArt::ShowDropDown(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, int arg3)
 	static int _bind_ShowDropDown(lua_State *L) {
 		if (!_lg_typecheck_ShowDropDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiTabArt::ShowDropDown(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, int arg3) function, expected prototype:\nint wxAuiTabArt::ShowDropDown(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, int arg3)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 39809356\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiTabArt::ShowDropDown(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, int arg3) function, expected prototype:\nint wxAuiTabArt::ShowDropDown(wxWindow * arg1, const wxAuiNotebookPageArray & arg2, int arg3)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 39809356\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* _arg1=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
@@ -664,8 +629,7 @@ public:
 
 		wxAuiTabArt* self=(Luna< wxAuiTabArt >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiTabArt::ShowDropDown(wxWindow *, const wxAuiNotebookPageArray &, int). Got : '%s'",typeid(Luna< wxAuiTabArt >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiTabArt::ShowDropDown(wxWindow *, const wxAuiNotebookPageArray &, int). Got : '%s'\n%s",typeid(Luna< wxAuiTabArt >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->ShowDropDown(_arg1, _arg2, _arg3);
 		lua_pushnumber(L,lret);

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxIndividualLayoutConstraint* self= (wxIndividualLayoutConstraint*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -305,8 +302,7 @@ public:
 	// wxIndividualLayoutConstraint::wxIndividualLayoutConstraint()
 	static wxIndividualLayoutConstraint* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIndividualLayoutConstraint::wxIndividualLayoutConstraint() function, expected prototype:\nwxIndividualLayoutConstraint::wxIndividualLayoutConstraint()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxIndividualLayoutConstraint::wxIndividualLayoutConstraint() function, expected prototype:\nwxIndividualLayoutConstraint::wxIndividualLayoutConstraint()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -316,8 +312,7 @@ public:
 	// wxIndividualLayoutConstraint::wxIndividualLayoutConstraint(lua_Table * data)
 	static wxIndividualLayoutConstraint* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIndividualLayoutConstraint::wxIndividualLayoutConstraint(lua_Table * data) function, expected prototype:\nwxIndividualLayoutConstraint::wxIndividualLayoutConstraint(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxIndividualLayoutConstraint::wxIndividualLayoutConstraint(lua_Table * data) function, expected prototype:\nwxIndividualLayoutConstraint::wxIndividualLayoutConstraint(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -338,8 +333,7 @@ public:
 	// void wxIndividualLayoutConstraint::Set(wxRelationship rel, wxWindow * otherW, wxEdge otherE, int val = 0, int margin = wxLAYOUT_DEFAULT_MARGIN)
 	static int _bind_Set(lua_State *L) {
 		if (!_lg_typecheck_Set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::Set(wxRelationship rel, wxWindow * otherW, wxEdge otherE, int val = 0, int margin = wxLAYOUT_DEFAULT_MARGIN) function, expected prototype:\nvoid wxIndividualLayoutConstraint::Set(wxRelationship rel, wxWindow * otherW, wxEdge otherE, int val = 0, int margin = wxLAYOUT_DEFAULT_MARGIN)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::Set(wxRelationship rel, wxWindow * otherW, wxEdge otherE, int val = 0, int margin = wxLAYOUT_DEFAULT_MARGIN) function, expected prototype:\nvoid wxIndividualLayoutConstraint::Set(wxRelationship rel, wxWindow * otherW, wxEdge otherE, int val = 0, int margin = wxLAYOUT_DEFAULT_MARGIN)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -352,8 +346,7 @@ public:
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Set(wxRelationship, wxWindow *, wxEdge, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Set(wxRelationship, wxWindow *, wxEdge, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Set(rel, otherW, otherE, val, margin);
 
@@ -363,8 +356,7 @@ public:
 	// void wxIndividualLayoutConstraint::LeftOf(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN)
 	static int _bind_LeftOf(lua_State *L) {
 		if (!_lg_typecheck_LeftOf(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::LeftOf(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN) function, expected prototype:\nvoid wxIndividualLayoutConstraint::LeftOf(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::LeftOf(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN) function, expected prototype:\nvoid wxIndividualLayoutConstraint::LeftOf(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -374,8 +366,7 @@ public:
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::LeftOf(wxWindow *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::LeftOf(wxWindow *, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LeftOf(sibling, margin);
 
@@ -385,8 +376,7 @@ public:
 	// void wxIndividualLayoutConstraint::RightOf(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN)
 	static int _bind_RightOf(lua_State *L) {
 		if (!_lg_typecheck_RightOf(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::RightOf(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN) function, expected prototype:\nvoid wxIndividualLayoutConstraint::RightOf(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::RightOf(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN) function, expected prototype:\nvoid wxIndividualLayoutConstraint::RightOf(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -396,8 +386,7 @@ public:
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::RightOf(wxWindow *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::RightOf(wxWindow *, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RightOf(sibling, margin);
 
@@ -407,8 +396,7 @@ public:
 	// void wxIndividualLayoutConstraint::Above(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN)
 	static int _bind_Above(lua_State *L) {
 		if (!_lg_typecheck_Above(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::Above(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN) function, expected prototype:\nvoid wxIndividualLayoutConstraint::Above(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::Above(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN) function, expected prototype:\nvoid wxIndividualLayoutConstraint::Above(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -418,8 +406,7 @@ public:
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Above(wxWindow *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Above(wxWindow *, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Above(sibling, margin);
 
@@ -429,8 +416,7 @@ public:
 	// void wxIndividualLayoutConstraint::Below(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN)
 	static int _bind_Below(lua_State *L) {
 		if (!_lg_typecheck_Below(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::Below(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN) function, expected prototype:\nvoid wxIndividualLayoutConstraint::Below(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::Below(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN) function, expected prototype:\nvoid wxIndividualLayoutConstraint::Below(wxWindow * sibling, int margin = wxLAYOUT_DEFAULT_MARGIN)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -440,8 +426,7 @@ public:
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Below(wxWindow *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Below(wxWindow *, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Below(sibling, margin);
 
@@ -451,8 +436,7 @@ public:
 	// void wxIndividualLayoutConstraint::SameAs(wxWindow * otherW, wxEdge edge, int margin = wxLAYOUT_DEFAULT_MARGIN)
 	static int _bind_SameAs(lua_State *L) {
 		if (!_lg_typecheck_SameAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::SameAs(wxWindow * otherW, wxEdge edge, int margin = wxLAYOUT_DEFAULT_MARGIN) function, expected prototype:\nvoid wxIndividualLayoutConstraint::SameAs(wxWindow * otherW, wxEdge edge, int margin = wxLAYOUT_DEFAULT_MARGIN)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::SameAs(wxWindow * otherW, wxEdge edge, int margin = wxLAYOUT_DEFAULT_MARGIN) function, expected prototype:\nvoid wxIndividualLayoutConstraint::SameAs(wxWindow * otherW, wxEdge edge, int margin = wxLAYOUT_DEFAULT_MARGIN)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -463,8 +447,7 @@ public:
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SameAs(wxWindow *, wxEdge, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SameAs(wxWindow *, wxEdge, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SameAs(otherW, edge, margin);
 
@@ -474,8 +457,7 @@ public:
 	// void wxIndividualLayoutConstraint::PercentOf(wxWindow * otherW, wxEdge wh, int per)
 	static int _bind_PercentOf(lua_State *L) {
 		if (!_lg_typecheck_PercentOf(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::PercentOf(wxWindow * otherW, wxEdge wh, int per) function, expected prototype:\nvoid wxIndividualLayoutConstraint::PercentOf(wxWindow * otherW, wxEdge wh, int per)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::PercentOf(wxWindow * otherW, wxEdge wh, int per) function, expected prototype:\nvoid wxIndividualLayoutConstraint::PercentOf(wxWindow * otherW, wxEdge wh, int per)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* otherW=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
@@ -484,8 +466,7 @@ public:
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::PercentOf(wxWindow *, wxEdge, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::PercentOf(wxWindow *, wxEdge, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PercentOf(otherW, wh, per);
 
@@ -495,16 +476,14 @@ public:
 	// void wxIndividualLayoutConstraint::Absolute(int val)
 	static int _bind_Absolute(lua_State *L) {
 		if (!_lg_typecheck_Absolute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::Absolute(int val) function, expected prototype:\nvoid wxIndividualLayoutConstraint::Absolute(int val)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::Absolute(int val) function, expected prototype:\nvoid wxIndividualLayoutConstraint::Absolute(int val)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int val=(int)lua_tointeger(L,2);
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Absolute(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Absolute(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Absolute(val);
 
@@ -514,15 +493,13 @@ public:
 	// void wxIndividualLayoutConstraint::Unconstrained()
 	static int _bind_Unconstrained(lua_State *L) {
 		if (!_lg_typecheck_Unconstrained(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::Unconstrained() function, expected prototype:\nvoid wxIndividualLayoutConstraint::Unconstrained()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::Unconstrained() function, expected prototype:\nvoid wxIndividualLayoutConstraint::Unconstrained()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Unconstrained(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::Unconstrained(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Unconstrained();
 
@@ -532,15 +509,13 @@ public:
 	// void wxIndividualLayoutConstraint::AsIs()
 	static int _bind_AsIs(lua_State *L) {
 		if (!_lg_typecheck_AsIs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::AsIs() function, expected prototype:\nvoid wxIndividualLayoutConstraint::AsIs()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::AsIs() function, expected prototype:\nvoid wxIndividualLayoutConstraint::AsIs()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::AsIs(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::AsIs(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AsIs();
 
@@ -550,15 +525,13 @@ public:
 	// wxEdge wxIndividualLayoutConstraint::GetMyEdge() const
 	static int _bind_GetMyEdge(lua_State *L) {
 		if (!_lg_typecheck_GetMyEdge(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEdge wxIndividualLayoutConstraint::GetMyEdge() const function, expected prototype:\nwxEdge wxIndividualLayoutConstraint::GetMyEdge() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEdge wxIndividualLayoutConstraint::GetMyEdge() const function, expected prototype:\nwxEdge wxIndividualLayoutConstraint::GetMyEdge() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEdge wxIndividualLayoutConstraint::GetMyEdge() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEdge wxIndividualLayoutConstraint::GetMyEdge() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEdge lret = self->GetMyEdge();
 		lua_pushnumber(L,lret);
@@ -569,16 +542,14 @@ public:
 	// void wxIndividualLayoutConstraint::SetEdge(wxEdge which)
 	static int _bind_SetEdge(lua_State *L) {
 		if (!_lg_typecheck_SetEdge(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::SetEdge(wxEdge which) function, expected prototype:\nvoid wxIndividualLayoutConstraint::SetEdge(wxEdge which)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::SetEdge(wxEdge which) function, expected prototype:\nvoid wxIndividualLayoutConstraint::SetEdge(wxEdge which)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEdge which=(wxEdge)lua_tointeger(L,2);
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetEdge(wxEdge). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetEdge(wxEdge). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetEdge(which);
 
@@ -588,16 +559,14 @@ public:
 	// void wxIndividualLayoutConstraint::SetValue(int v)
 	static int _bind_SetValue(lua_State *L) {
 		if (!_lg_typecheck_SetValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::SetValue(int v) function, expected prototype:\nvoid wxIndividualLayoutConstraint::SetValue(int v)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::SetValue(int v) function, expected prototype:\nvoid wxIndividualLayoutConstraint::SetValue(int v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int v=(int)lua_tointeger(L,2);
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetValue(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetValue(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetValue(v);
 
@@ -607,15 +576,13 @@ public:
 	// int wxIndividualLayoutConstraint::GetMargin()
 	static int _bind_GetMargin(lua_State *L) {
 		if (!_lg_typecheck_GetMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxIndividualLayoutConstraint::GetMargin() function, expected prototype:\nint wxIndividualLayoutConstraint::GetMargin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxIndividualLayoutConstraint::GetMargin() function, expected prototype:\nint wxIndividualLayoutConstraint::GetMargin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetMargin(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetMargin(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetMargin();
 		lua_pushnumber(L,lret);
@@ -626,16 +593,14 @@ public:
 	// void wxIndividualLayoutConstraint::SetMargin(int m)
 	static int _bind_SetMargin(lua_State *L) {
 		if (!_lg_typecheck_SetMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::SetMargin(int m) function, expected prototype:\nvoid wxIndividualLayoutConstraint::SetMargin(int m)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::SetMargin(int m) function, expected prototype:\nvoid wxIndividualLayoutConstraint::SetMargin(int m)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int m=(int)lua_tointeger(L,2);
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetMargin(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetMargin(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMargin(m);
 
@@ -645,15 +610,13 @@ public:
 	// int wxIndividualLayoutConstraint::GetValue() const
 	static int _bind_GetValue(lua_State *L) {
 		if (!_lg_typecheck_GetValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxIndividualLayoutConstraint::GetValue() const function, expected prototype:\nint wxIndividualLayoutConstraint::GetValue() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxIndividualLayoutConstraint::GetValue() const function, expected prototype:\nint wxIndividualLayoutConstraint::GetValue() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetValue() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetValue() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetValue();
 		lua_pushnumber(L,lret);
@@ -664,15 +627,13 @@ public:
 	// int wxIndividualLayoutConstraint::GetPercent() const
 	static int _bind_GetPercent(lua_State *L) {
 		if (!_lg_typecheck_GetPercent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxIndividualLayoutConstraint::GetPercent() const function, expected prototype:\nint wxIndividualLayoutConstraint::GetPercent() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxIndividualLayoutConstraint::GetPercent() const function, expected prototype:\nint wxIndividualLayoutConstraint::GetPercent() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetPercent() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetPercent() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetPercent();
 		lua_pushnumber(L,lret);
@@ -683,15 +644,13 @@ public:
 	// int wxIndividualLayoutConstraint::GetOtherEdge() const
 	static int _bind_GetOtherEdge(lua_State *L) {
 		if (!_lg_typecheck_GetOtherEdge(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxIndividualLayoutConstraint::GetOtherEdge() const function, expected prototype:\nint wxIndividualLayoutConstraint::GetOtherEdge() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxIndividualLayoutConstraint::GetOtherEdge() const function, expected prototype:\nint wxIndividualLayoutConstraint::GetOtherEdge() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetOtherEdge() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetOtherEdge() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetOtherEdge();
 		lua_pushnumber(L,lret);
@@ -702,15 +661,13 @@ public:
 	// bool wxIndividualLayoutConstraint::GetDone() const
 	static int _bind_GetDone(lua_State *L) {
 		if (!_lg_typecheck_GetDone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxIndividualLayoutConstraint::GetDone() const function, expected prototype:\nbool wxIndividualLayoutConstraint::GetDone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxIndividualLayoutConstraint::GetDone() const function, expected prototype:\nbool wxIndividualLayoutConstraint::GetDone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIndividualLayoutConstraint::GetDone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxIndividualLayoutConstraint::GetDone() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetDone();
 		lua_pushboolean(L,lret?1:0);
@@ -721,16 +678,14 @@ public:
 	// void wxIndividualLayoutConstraint::SetDone(bool d)
 	static int _bind_SetDone(lua_State *L) {
 		if (!_lg_typecheck_SetDone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::SetDone(bool d) function, expected prototype:\nvoid wxIndividualLayoutConstraint::SetDone(bool d)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::SetDone(bool d) function, expected prototype:\nvoid wxIndividualLayoutConstraint::SetDone(bool d)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool d=(bool)(lua_toboolean(L,2)==1);
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetDone(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetDone(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetDone(d);
 
@@ -740,15 +695,13 @@ public:
 	// wxRelationship wxIndividualLayoutConstraint::GetRelationship()
 	static int _bind_GetRelationship(lua_State *L) {
 		if (!_lg_typecheck_GetRelationship(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRelationship wxIndividualLayoutConstraint::GetRelationship() function, expected prototype:\nwxRelationship wxIndividualLayoutConstraint::GetRelationship()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRelationship wxIndividualLayoutConstraint::GetRelationship() function, expected prototype:\nwxRelationship wxIndividualLayoutConstraint::GetRelationship()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRelationship wxIndividualLayoutConstraint::GetRelationship(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRelationship wxIndividualLayoutConstraint::GetRelationship(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxRelationship lret = self->GetRelationship();
 		lua_pushnumber(L,lret);
@@ -759,16 +712,14 @@ public:
 	// void wxIndividualLayoutConstraint::SetRelationship(wxRelationship r)
 	static int _bind_SetRelationship(lua_State *L) {
 		if (!_lg_typecheck_SetRelationship(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::SetRelationship(wxRelationship r) function, expected prototype:\nvoid wxIndividualLayoutConstraint::SetRelationship(wxRelationship r)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxIndividualLayoutConstraint::SetRelationship(wxRelationship r) function, expected prototype:\nvoid wxIndividualLayoutConstraint::SetRelationship(wxRelationship r)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRelationship r=(wxRelationship)lua_tointeger(L,2);
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetRelationship(wxRelationship). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIndividualLayoutConstraint::SetRelationship(wxRelationship). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRelationship(r);
 
@@ -778,16 +729,14 @@ public:
 	// bool wxIndividualLayoutConstraint::ResetIfWin(wxWindow * otherW)
 	static int _bind_ResetIfWin(lua_State *L) {
 		if (!_lg_typecheck_ResetIfWin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxIndividualLayoutConstraint::ResetIfWin(wxWindow * otherW) function, expected prototype:\nbool wxIndividualLayoutConstraint::ResetIfWin(wxWindow * otherW)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxIndividualLayoutConstraint::ResetIfWin(wxWindow * otherW) function, expected prototype:\nbool wxIndividualLayoutConstraint::ResetIfWin(wxWindow * otherW)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* otherW=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIndividualLayoutConstraint::ResetIfWin(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxIndividualLayoutConstraint::ResetIfWin(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ResetIfWin(otherW);
 		lua_pushboolean(L,lret?1:0);
@@ -798,8 +747,7 @@ public:
 	// bool wxIndividualLayoutConstraint::SatisfyConstraint(wxLayoutConstraints * constraints, wxWindow * win)
 	static int _bind_SatisfyConstraint(lua_State *L) {
 		if (!_lg_typecheck_SatisfyConstraint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxIndividualLayoutConstraint::SatisfyConstraint(wxLayoutConstraints * constraints, wxWindow * win) function, expected prototype:\nbool wxIndividualLayoutConstraint::SatisfyConstraint(wxLayoutConstraints * constraints, wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxIndividualLayoutConstraint::SatisfyConstraint(wxLayoutConstraints * constraints, wxWindow * win) function, expected prototype:\nbool wxIndividualLayoutConstraint::SatisfyConstraint(wxLayoutConstraints * constraints, wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLayoutConstraints* constraints=(Luna< wxObject >::checkSubType< wxLayoutConstraints >(L,2));
@@ -807,8 +755,7 @@ public:
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIndividualLayoutConstraint::SatisfyConstraint(wxLayoutConstraints *, wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxIndividualLayoutConstraint::SatisfyConstraint(wxLayoutConstraints *, wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SatisfyConstraint(constraints, win);
 		lua_pushboolean(L,lret?1:0);
@@ -819,8 +766,7 @@ public:
 	// int wxIndividualLayoutConstraint::GetEdge(wxEdge which, wxWindow * thisWin, wxWindow * other) const
 	static int _bind_GetEdge(lua_State *L) {
 		if (!_lg_typecheck_GetEdge(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxIndividualLayoutConstraint::GetEdge(wxEdge which, wxWindow * thisWin, wxWindow * other) const function, expected prototype:\nint wxIndividualLayoutConstraint::GetEdge(wxEdge which, wxWindow * thisWin, wxWindow * other) const\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in int wxIndividualLayoutConstraint::GetEdge(wxEdge which, wxWindow * thisWin, wxWindow * other) const function, expected prototype:\nint wxIndividualLayoutConstraint::GetEdge(wxEdge which, wxWindow * thisWin, wxWindow * other) const\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEdge which=(wxEdge)lua_tointeger(L,2);
@@ -829,8 +775,7 @@ public:
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetEdge(wxEdge, wxWindow *, wxWindow *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxIndividualLayoutConstraint::GetEdge(wxEdge, wxWindow *, wxWindow *) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetEdge(which, thisWin, other);
 		lua_pushnumber(L,lret);
@@ -841,15 +786,13 @@ public:
 	// wxClassInfo * wxIndividualLayoutConstraint::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxIndividualLayoutConstraint::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxIndividualLayoutConstraint::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxIndividualLayoutConstraint::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxIndividualLayoutConstraint::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxIndividualLayoutConstraint* self=Luna< wxObject >::checkSubType< wxIndividualLayoutConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxIndividualLayoutConstraint::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxIndividualLayoutConstraint::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxIndividualLayoutConstraint::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

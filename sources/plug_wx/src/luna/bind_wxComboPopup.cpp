@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxComboPopup*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxComboPopup*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxComboPopup* rhs =(Luna< wxComboPopup >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxComboPopup* self= (wxComboPopup*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxComboPopup >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -332,8 +327,7 @@ public:
 	// wxComboPopup::wxComboPopup(lua_Table * data)
 	static wxComboPopup* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxComboPopup::wxComboPopup(lua_Table * data) function, expected prototype:\nwxComboPopup::wxComboPopup(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxComboPopup::wxComboPopup(lua_Table * data) function, expected prototype:\nwxComboPopup::wxComboPopup(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -345,16 +339,14 @@ public:
 	// bool wxComboPopup::Create(wxWindow * parent)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboPopup::Create(wxWindow * parent) function, expected prototype:\nbool wxComboPopup::Create(wxWindow * parent)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboPopup::Create(wxWindow * parent) function, expected prototype:\nbool wxComboPopup::Create(wxWindow * parent)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboPopup::Create(wxWindow *). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboPopup::Create(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Create(parent);
 		lua_pushboolean(L,lret?1:0);
@@ -365,15 +357,13 @@ public:
 	// void wxComboPopup::DestroyPopup()
 	static int _bind_DestroyPopup(lua_State *L) {
 		if (!_lg_typecheck_DestroyPopup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboPopup::DestroyPopup() function, expected prototype:\nvoid wxComboPopup::DestroyPopup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::DestroyPopup() function, expected prototype:\nvoid wxComboPopup::DestroyPopup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::DestroyPopup(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboPopup::DestroyPopup(). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DestroyPopup();
 
@@ -383,15 +373,13 @@ public:
 	// void wxComboPopup::Dismiss()
 	static int _bind_Dismiss(lua_State *L) {
 		if (!_lg_typecheck_Dismiss(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboPopup::Dismiss() function, expected prototype:\nvoid wxComboPopup::Dismiss()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::Dismiss() function, expected prototype:\nvoid wxComboPopup::Dismiss()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::Dismiss(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboPopup::Dismiss(). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Dismiss();
 
@@ -401,8 +389,7 @@ public:
 	// bool wxComboPopup::FindItem(const wxString & item, wxString * trueItem = NULL)
 	static int _bind_FindItem(lua_State *L) {
 		if (!_lg_typecheck_FindItem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboPopup::FindItem(const wxString & item, wxString * trueItem = NULL) function, expected prototype:\nbool wxComboPopup::FindItem(const wxString & item, wxString * trueItem = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboPopup::FindItem(const wxString & item, wxString * trueItem = NULL) function, expected prototype:\nbool wxComboPopup::FindItem(const wxString & item, wxString * trueItem = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -412,8 +399,7 @@ public:
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboPopup::FindItem(const wxString &, wxString *). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboPopup::FindItem(const wxString &, wxString *). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->FindItem(item, &trueItem);
 		lua_pushboolean(L,lret?1:0);
@@ -424,8 +410,7 @@ public:
 	// wxSize wxComboPopup::GetAdjustedSize(int minWidth, int prefHeight, int maxHeight)
 	static int _bind_GetAdjustedSize(lua_State *L) {
 		if (!_lg_typecheck_GetAdjustedSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxComboPopup::GetAdjustedSize(int minWidth, int prefHeight, int maxHeight) function, expected prototype:\nwxSize wxComboPopup::GetAdjustedSize(int minWidth, int prefHeight, int maxHeight)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxComboPopup::GetAdjustedSize(int minWidth, int prefHeight, int maxHeight) function, expected prototype:\nwxSize wxComboPopup::GetAdjustedSize(int minWidth, int prefHeight, int maxHeight)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int minWidth=(int)lua_tointeger(L,2);
@@ -434,8 +419,7 @@ public:
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboPopup::GetAdjustedSize(int, int, int). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxComboPopup::GetAdjustedSize(int, int, int). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->GetAdjustedSize(minWidth, prefHeight, maxHeight);
 		wxSize* lret = new wxSize(stack_lret);
@@ -449,15 +433,13 @@ public:
 	// wxComboCtrl * wxComboPopup::GetComboCtrl() const
 	static int _bind_GetComboCtrl(lua_State *L) {
 		if (!_lg_typecheck_GetComboCtrl(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxComboCtrl * wxComboPopup::GetComboCtrl() const function, expected prototype:\nwxComboCtrl * wxComboPopup::GetComboCtrl() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxComboCtrl * wxComboPopup::GetComboCtrl() const function, expected prototype:\nwxComboCtrl * wxComboPopup::GetComboCtrl() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxComboCtrl * wxComboPopup::GetComboCtrl() const. Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxComboCtrl * wxComboPopup::GetComboCtrl() const. Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxComboCtrl * lret = self->GetComboCtrl();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -470,15 +452,13 @@ public:
 	// wxWindow * wxComboPopup::GetControl()
 	static int _bind_GetControl(lua_State *L) {
 		if (!_lg_typecheck_GetControl(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxWindow * wxComboPopup::GetControl() function, expected prototype:\nwxWindow * wxComboPopup::GetControl()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxWindow * wxComboPopup::GetControl() function, expected prototype:\nwxWindow * wxComboPopup::GetControl()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxComboPopup::GetControl(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxWindow * wxComboPopup::GetControl(). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxWindow * lret = self->GetControl();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -491,15 +471,13 @@ public:
 	// wxString wxComboPopup::GetStringValue() const
 	static int _bind_GetStringValue(lua_State *L) {
 		if (!_lg_typecheck_GetStringValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxComboPopup::GetStringValue() const function, expected prototype:\nwxString wxComboPopup::GetStringValue() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxComboPopup::GetStringValue() const function, expected prototype:\nwxString wxComboPopup::GetStringValue() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxComboPopup::GetStringValue() const. Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxComboPopup::GetStringValue() const. Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetStringValue();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -510,15 +488,13 @@ public:
 	// void wxComboPopup::Init()
 	static int _bind_Init(lua_State *L) {
 		if (!_lg_typecheck_Init(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboPopup::Init() function, expected prototype:\nvoid wxComboPopup::Init()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::Init() function, expected prototype:\nvoid wxComboPopup::Init()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::Init(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboPopup::Init(). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Init();
 
@@ -528,15 +504,13 @@ public:
 	// bool wxComboPopup::IsCreated() const
 	static int _bind_IsCreated(lua_State *L) {
 		if (!_lg_typecheck_IsCreated(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboPopup::IsCreated() const function, expected prototype:\nbool wxComboPopup::IsCreated() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboPopup::IsCreated() const function, expected prototype:\nbool wxComboPopup::IsCreated() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboPopup::IsCreated() const. Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboPopup::IsCreated() const. Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsCreated();
 		lua_pushboolean(L,lret?1:0);
@@ -547,15 +521,13 @@ public:
 	// bool wxComboPopup::LazyCreate()
 	static int _bind_LazyCreate(lua_State *L) {
 		if (!_lg_typecheck_LazyCreate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboPopup::LazyCreate() function, expected prototype:\nbool wxComboPopup::LazyCreate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboPopup::LazyCreate() function, expected prototype:\nbool wxComboPopup::LazyCreate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboPopup::LazyCreate(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboPopup::LazyCreate(). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->LazyCreate();
 		lua_pushboolean(L,lret?1:0);
@@ -566,15 +538,13 @@ public:
 	// void wxComboPopup::OnComboDoubleClick()
 	static int _bind_OnComboDoubleClick(lua_State *L) {
 		if (!_lg_typecheck_OnComboDoubleClick(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboPopup::OnComboDoubleClick() function, expected prototype:\nvoid wxComboPopup::OnComboDoubleClick()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::OnComboDoubleClick() function, expected prototype:\nvoid wxComboPopup::OnComboDoubleClick()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::OnComboDoubleClick(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboPopup::OnComboDoubleClick(). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnComboDoubleClick();
 
@@ -584,8 +554,7 @@ public:
 	// void wxComboPopup::OnComboKeyEvent(wxKeyEvent & event)
 	static int _bind_OnComboKeyEvent(lua_State *L) {
 		if (!_lg_typecheck_OnComboKeyEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboPopup::OnComboKeyEvent(wxKeyEvent & event) function, expected prototype:\nvoid wxComboPopup::OnComboKeyEvent(wxKeyEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::OnComboKeyEvent(wxKeyEvent & event) function, expected prototype:\nvoid wxComboPopup::OnComboKeyEvent(wxKeyEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxKeyEvent* event_ptr=(Luna< wxObject >::checkSubType< wxKeyEvent >(L,2));
@@ -596,8 +565,7 @@ public:
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::OnComboKeyEvent(wxKeyEvent &). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboPopup::OnComboKeyEvent(wxKeyEvent &). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnComboKeyEvent(event);
 
@@ -607,15 +575,13 @@ public:
 	// void wxComboPopup::OnDismiss()
 	static int _bind_OnDismiss(lua_State *L) {
 		if (!_lg_typecheck_OnDismiss(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboPopup::OnDismiss() function, expected prototype:\nvoid wxComboPopup::OnDismiss()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::OnDismiss() function, expected prototype:\nvoid wxComboPopup::OnDismiss()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::OnDismiss(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboPopup::OnDismiss(). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnDismiss();
 
@@ -625,15 +591,13 @@ public:
 	// void wxComboPopup::OnPopup()
 	static int _bind_OnPopup(lua_State *L) {
 		if (!_lg_typecheck_OnPopup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboPopup::OnPopup() function, expected prototype:\nvoid wxComboPopup::OnPopup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::OnPopup() function, expected prototype:\nvoid wxComboPopup::OnPopup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::OnPopup(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboPopup::OnPopup(). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnPopup();
 
@@ -643,8 +607,7 @@ public:
 	// void wxComboPopup::PaintComboControl(wxDC & dc, const wxRect & rect)
 	static int _bind_PaintComboControl(lua_State *L) {
 		if (!_lg_typecheck_PaintComboControl(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboPopup::PaintComboControl(wxDC & dc, const wxRect & rect) function, expected prototype:\nvoid wxComboPopup::PaintComboControl(wxDC & dc, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::PaintComboControl(wxDC & dc, const wxRect & rect) function, expected prototype:\nvoid wxComboPopup::PaintComboControl(wxDC & dc, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
@@ -660,8 +623,7 @@ public:
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::PaintComboControl(wxDC &, const wxRect &). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboPopup::PaintComboControl(wxDC &, const wxRect &). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PaintComboControl(dc, rect);
 
@@ -671,16 +633,14 @@ public:
 	// void wxComboPopup::SetStringValue(const wxString & value)
 	static int _bind_SetStringValue(lua_State *L) {
 		if (!_lg_typecheck_SetStringValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboPopup::SetStringValue(const wxString & value) function, expected prototype:\nvoid wxComboPopup::SetStringValue(const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::SetStringValue(const wxString & value) function, expected prototype:\nvoid wxComboPopup::SetStringValue(const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString value(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::SetStringValue(const wxString &). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboPopup::SetStringValue(const wxString &). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetStringValue(value);
 
@@ -690,15 +650,13 @@ public:
 	// void wxComboPopup::base_DestroyPopup()
 	static int _bind_base_DestroyPopup(lua_State *L) {
 		if (!_lg_typecheck_base_DestroyPopup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_DestroyPopup() function, expected prototype:\nvoid wxComboPopup::base_DestroyPopup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_DestroyPopup() function, expected prototype:\nvoid wxComboPopup::base_DestroyPopup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::base_DestroyPopup(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_DestroyPopup(). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboPopup::DestroyPopup();
 
@@ -708,8 +666,7 @@ public:
 	// bool wxComboPopup::base_FindItem(const wxString & item, wxString * trueItem = NULL)
 	static int _bind_base_FindItem(lua_State *L) {
 		if (!_lg_typecheck_base_FindItem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboPopup::base_FindItem(const wxString & item, wxString * trueItem = NULL) function, expected prototype:\nbool wxComboPopup::base_FindItem(const wxString & item, wxString * trueItem = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboPopup::base_FindItem(const wxString & item, wxString * trueItem = NULL) function, expected prototype:\nbool wxComboPopup::base_FindItem(const wxString & item, wxString * trueItem = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -719,8 +676,7 @@ public:
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboPopup::base_FindItem(const wxString &, wxString *). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboPopup::base_FindItem(const wxString &, wxString *). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboPopup::FindItem(item, &trueItem);
 		lua_pushboolean(L,lret?1:0);
@@ -731,8 +687,7 @@ public:
 	// wxSize wxComboPopup::base_GetAdjustedSize(int minWidth, int prefHeight, int maxHeight)
 	static int _bind_base_GetAdjustedSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetAdjustedSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxComboPopup::base_GetAdjustedSize(int minWidth, int prefHeight, int maxHeight) function, expected prototype:\nwxSize wxComboPopup::base_GetAdjustedSize(int minWidth, int prefHeight, int maxHeight)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxComboPopup::base_GetAdjustedSize(int minWidth, int prefHeight, int maxHeight) function, expected prototype:\nwxSize wxComboPopup::base_GetAdjustedSize(int minWidth, int prefHeight, int maxHeight)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int minWidth=(int)lua_tointeger(L,2);
@@ -741,8 +696,7 @@ public:
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxComboPopup::base_GetAdjustedSize(int, int, int). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxComboPopup::base_GetAdjustedSize(int, int, int). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxComboPopup::GetAdjustedSize(minWidth, prefHeight, maxHeight);
 		wxSize* lret = new wxSize(stack_lret);
@@ -756,15 +710,13 @@ public:
 	// void wxComboPopup::base_Init()
 	static int _bind_base_Init(lua_State *L) {
 		if (!_lg_typecheck_base_Init(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_Init() function, expected prototype:\nvoid wxComboPopup::base_Init()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_Init() function, expected prototype:\nvoid wxComboPopup::base_Init()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::base_Init(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_Init(). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboPopup::Init();
 
@@ -774,15 +726,13 @@ public:
 	// bool wxComboPopup::base_LazyCreate()
 	static int _bind_base_LazyCreate(lua_State *L) {
 		if (!_lg_typecheck_base_LazyCreate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxComboPopup::base_LazyCreate() function, expected prototype:\nbool wxComboPopup::base_LazyCreate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxComboPopup::base_LazyCreate() function, expected prototype:\nbool wxComboPopup::base_LazyCreate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxComboPopup::base_LazyCreate(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxComboPopup::base_LazyCreate(). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxComboPopup::LazyCreate();
 		lua_pushboolean(L,lret?1:0);
@@ -793,15 +743,13 @@ public:
 	// void wxComboPopup::base_OnComboDoubleClick()
 	static int _bind_base_OnComboDoubleClick(lua_State *L) {
 		if (!_lg_typecheck_base_OnComboDoubleClick(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_OnComboDoubleClick() function, expected prototype:\nvoid wxComboPopup::base_OnComboDoubleClick()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_OnComboDoubleClick() function, expected prototype:\nvoid wxComboPopup::base_OnComboDoubleClick()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnComboDoubleClick(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnComboDoubleClick(). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboPopup::OnComboDoubleClick();
 
@@ -811,8 +759,7 @@ public:
 	// void wxComboPopup::base_OnComboKeyEvent(wxKeyEvent & event)
 	static int _bind_base_OnComboKeyEvent(lua_State *L) {
 		if (!_lg_typecheck_base_OnComboKeyEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_OnComboKeyEvent(wxKeyEvent & event) function, expected prototype:\nvoid wxComboPopup::base_OnComboKeyEvent(wxKeyEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_OnComboKeyEvent(wxKeyEvent & event) function, expected prototype:\nvoid wxComboPopup::base_OnComboKeyEvent(wxKeyEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxKeyEvent* event_ptr=(Luna< wxObject >::checkSubType< wxKeyEvent >(L,2));
@@ -823,8 +770,7 @@ public:
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnComboKeyEvent(wxKeyEvent &). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnComboKeyEvent(wxKeyEvent &). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboPopup::OnComboKeyEvent(event);
 
@@ -834,15 +780,13 @@ public:
 	// void wxComboPopup::base_OnDismiss()
 	static int _bind_base_OnDismiss(lua_State *L) {
 		if (!_lg_typecheck_base_OnDismiss(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_OnDismiss() function, expected prototype:\nvoid wxComboPopup::base_OnDismiss()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_OnDismiss() function, expected prototype:\nvoid wxComboPopup::base_OnDismiss()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnDismiss(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnDismiss(). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboPopup::OnDismiss();
 
@@ -852,15 +796,13 @@ public:
 	// void wxComboPopup::base_OnPopup()
 	static int _bind_base_OnPopup(lua_State *L) {
 		if (!_lg_typecheck_base_OnPopup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_OnPopup() function, expected prototype:\nvoid wxComboPopup::base_OnPopup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_OnPopup() function, expected prototype:\nvoid wxComboPopup::base_OnPopup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnPopup(). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_OnPopup(). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboPopup::OnPopup();
 
@@ -870,8 +812,7 @@ public:
 	// void wxComboPopup::base_PaintComboControl(wxDC & dc, const wxRect & rect)
 	static int _bind_base_PaintComboControl(lua_State *L) {
 		if (!_lg_typecheck_base_PaintComboControl(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_PaintComboControl(wxDC & dc, const wxRect & rect) function, expected prototype:\nvoid wxComboPopup::base_PaintComboControl(wxDC & dc, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_PaintComboControl(wxDC & dc, const wxRect & rect) function, expected prototype:\nvoid wxComboPopup::base_PaintComboControl(wxDC & dc, const wxRect & rect)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
@@ -887,8 +828,7 @@ public:
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::base_PaintComboControl(wxDC &, const wxRect &). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_PaintComboControl(wxDC &, const wxRect &). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboPopup::PaintComboControl(dc, rect);
 
@@ -898,16 +838,14 @@ public:
 	// void wxComboPopup::base_SetStringValue(const wxString & value)
 	static int _bind_base_SetStringValue(lua_State *L) {
 		if (!_lg_typecheck_base_SetStringValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_SetStringValue(const wxString & value) function, expected prototype:\nvoid wxComboPopup::base_SetStringValue(const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxComboPopup::base_SetStringValue(const wxString & value) function, expected prototype:\nvoid wxComboPopup::base_SetStringValue(const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString value(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxComboPopup* self=(Luna< wxComboPopup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxComboPopup::base_SetStringValue(const wxString &). Got : '%s'",typeid(Luna< wxComboPopup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxComboPopup::base_SetStringValue(const wxString &). Got : '%s'\n%s",typeid(Luna< wxComboPopup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxComboPopup::SetStringValue(value);
 

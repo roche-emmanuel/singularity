@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDialUpManager*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDialUpManager*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDialUpManager* rhs =(Luna< wxDialUpManager >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDialUpManager* self= (wxDialUpManager*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDialUpManager >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -238,15 +233,13 @@ public:
 	// bool wxDialUpManager::CancelDialing()
 	static int _bind_CancelDialing(lua_State *L) {
 		if (!_lg_typecheck_CancelDialing(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDialUpManager::CancelDialing() function, expected prototype:\nbool wxDialUpManager::CancelDialing()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDialUpManager::CancelDialing() function, expected prototype:\nbool wxDialUpManager::CancelDialing()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpManager::CancelDialing(). Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDialUpManager::CancelDialing(). Got : '%s'\n%s",typeid(Luna< wxDialUpManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CancelDialing();
 		lua_pushboolean(L,lret?1:0);
@@ -257,8 +250,7 @@ public:
 	// bool wxDialUpManager::Dial(const wxString & nameOfISP = wxEmptyString, const wxString & username = wxEmptyString, const wxString & password = wxEmptyString, bool async = true)
 	static int _bind_Dial(lua_State *L) {
 		if (!_lg_typecheck_Dial(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDialUpManager::Dial(const wxString & nameOfISP = wxEmptyString, const wxString & username = wxEmptyString, const wxString & password = wxEmptyString, bool async = true) function, expected prototype:\nbool wxDialUpManager::Dial(const wxString & nameOfISP = wxEmptyString, const wxString & username = wxEmptyString, const wxString & password = wxEmptyString, bool async = true)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxDialUpManager::Dial(const wxString & nameOfISP = wxEmptyString, const wxString & username = wxEmptyString, const wxString & password = wxEmptyString, bool async = true) function, expected prototype:\nbool wxDialUpManager::Dial(const wxString & nameOfISP = wxEmptyString, const wxString & username = wxEmptyString, const wxString & password = wxEmptyString, bool async = true)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -270,8 +262,7 @@ public:
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpManager::Dial(const wxString &, const wxString &, const wxString &, bool). Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDialUpManager::Dial(const wxString &, const wxString &, const wxString &, bool). Got : '%s'\n%s",typeid(Luna< wxDialUpManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Dial(nameOfISP, username, password, async);
 		lua_pushboolean(L,lret?1:0);
@@ -282,15 +273,13 @@ public:
 	// void wxDialUpManager::DisableAutoCheckOnlineStatus()
 	static int _bind_DisableAutoCheckOnlineStatus(lua_State *L) {
 		if (!_lg_typecheck_DisableAutoCheckOnlineStatus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDialUpManager::DisableAutoCheckOnlineStatus() function, expected prototype:\nvoid wxDialUpManager::DisableAutoCheckOnlineStatus()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDialUpManager::DisableAutoCheckOnlineStatus() function, expected prototype:\nvoid wxDialUpManager::DisableAutoCheckOnlineStatus()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDialUpManager::DisableAutoCheckOnlineStatus(). Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDialUpManager::DisableAutoCheckOnlineStatus(). Got : '%s'\n%s",typeid(Luna< wxDialUpManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DisableAutoCheckOnlineStatus();
 
@@ -300,8 +289,7 @@ public:
 	// bool wxDialUpManager::EnableAutoCheckOnlineStatus(size_t nSeconds = 60)
 	static int _bind_EnableAutoCheckOnlineStatus(lua_State *L) {
 		if (!_lg_typecheck_EnableAutoCheckOnlineStatus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDialUpManager::EnableAutoCheckOnlineStatus(size_t nSeconds = 60) function, expected prototype:\nbool wxDialUpManager::EnableAutoCheckOnlineStatus(size_t nSeconds = 60)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDialUpManager::EnableAutoCheckOnlineStatus(size_t nSeconds = 60) function, expected prototype:\nbool wxDialUpManager::EnableAutoCheckOnlineStatus(size_t nSeconds = 60)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -310,8 +298,7 @@ public:
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpManager::EnableAutoCheckOnlineStatus(size_t). Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDialUpManager::EnableAutoCheckOnlineStatus(size_t). Got : '%s'\n%s",typeid(Luna< wxDialUpManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->EnableAutoCheckOnlineStatus(nSeconds);
 		lua_pushboolean(L,lret?1:0);
@@ -322,8 +309,7 @@ public:
 	// size_t wxDialUpManager::GetISPNames(wxArrayString & names) const
 	static int _bind_GetISPNames(lua_State *L) {
 		if (!_lg_typecheck_GetISPNames(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxDialUpManager::GetISPNames(wxArrayString & names) const function, expected prototype:\nsize_t wxDialUpManager::GetISPNames(wxArrayString & names) const\nClass arguments details:\narg 1 ID = 59507769\n");
+			luaL_error(L, "luna typecheck failed in size_t wxDialUpManager::GetISPNames(wxArrayString & names) const function, expected prototype:\nsize_t wxDialUpManager::GetISPNames(wxArrayString & names) const\nClass arguments details:\narg 1 ID = 59507769\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxArrayString* names_ptr=(Luna< wxArrayString >::check(L,2));
@@ -334,8 +320,7 @@ public:
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxDialUpManager::GetISPNames(wxArrayString &) const. Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxDialUpManager::GetISPNames(wxArrayString &) const. Got : '%s'\n%s",typeid(Luna< wxDialUpManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->GetISPNames(names);
 		lua_pushnumber(L,lret);
@@ -346,15 +331,13 @@ public:
 	// bool wxDialUpManager::HangUp()
 	static int _bind_HangUp(lua_State *L) {
 		if (!_lg_typecheck_HangUp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDialUpManager::HangUp() function, expected prototype:\nbool wxDialUpManager::HangUp()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDialUpManager::HangUp() function, expected prototype:\nbool wxDialUpManager::HangUp()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpManager::HangUp(). Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDialUpManager::HangUp(). Got : '%s'\n%s",typeid(Luna< wxDialUpManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HangUp();
 		lua_pushboolean(L,lret?1:0);
@@ -365,15 +348,13 @@ public:
 	// bool wxDialUpManager::IsAlwaysOnline() const
 	static int _bind_IsAlwaysOnline(lua_State *L) {
 		if (!_lg_typecheck_IsAlwaysOnline(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDialUpManager::IsAlwaysOnline() const function, expected prototype:\nbool wxDialUpManager::IsAlwaysOnline() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDialUpManager::IsAlwaysOnline() const function, expected prototype:\nbool wxDialUpManager::IsAlwaysOnline() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpManager::IsAlwaysOnline() const. Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDialUpManager::IsAlwaysOnline() const. Got : '%s'\n%s",typeid(Luna< wxDialUpManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsAlwaysOnline();
 		lua_pushboolean(L,lret?1:0);
@@ -384,15 +365,13 @@ public:
 	// bool wxDialUpManager::IsDialing() const
 	static int _bind_IsDialing(lua_State *L) {
 		if (!_lg_typecheck_IsDialing(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDialUpManager::IsDialing() const function, expected prototype:\nbool wxDialUpManager::IsDialing() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDialUpManager::IsDialing() const function, expected prototype:\nbool wxDialUpManager::IsDialing() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpManager::IsDialing() const. Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDialUpManager::IsDialing() const. Got : '%s'\n%s",typeid(Luna< wxDialUpManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsDialing();
 		lua_pushboolean(L,lret?1:0);
@@ -403,15 +382,13 @@ public:
 	// bool wxDialUpManager::IsOk() const
 	static int _bind_IsOk(lua_State *L) {
 		if (!_lg_typecheck_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDialUpManager::IsOk() const function, expected prototype:\nbool wxDialUpManager::IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDialUpManager::IsOk() const function, expected prototype:\nbool wxDialUpManager::IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpManager::IsOk() const. Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDialUpManager::IsOk() const. Got : '%s'\n%s",typeid(Luna< wxDialUpManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -422,15 +399,13 @@ public:
 	// bool wxDialUpManager::IsOnline() const
 	static int _bind_IsOnline(lua_State *L) {
 		if (!_lg_typecheck_IsOnline(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDialUpManager::IsOnline() const function, expected prototype:\nbool wxDialUpManager::IsOnline() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDialUpManager::IsOnline() const function, expected prototype:\nbool wxDialUpManager::IsOnline() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDialUpManager::IsOnline() const. Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDialUpManager::IsOnline() const. Got : '%s'\n%s",typeid(Luna< wxDialUpManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOnline();
 		lua_pushboolean(L,lret?1:0);
@@ -441,8 +416,7 @@ public:
 	// void wxDialUpManager::SetConnectCommand(const wxString & commandDial = "/usr/bin/pon", const wxString & commandHangup = "/usr/bin/poff")
 	static int _bind_SetConnectCommand(lua_State *L) {
 		if (!_lg_typecheck_SetConnectCommand(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDialUpManager::SetConnectCommand(const wxString & commandDial = \"/usr/bin/pon\", const wxString & commandHangup = \"/usr/bin/poff\") function, expected prototype:\nvoid wxDialUpManager::SetConnectCommand(const wxString & commandDial = \"/usr/bin/pon\", const wxString & commandHangup = \"/usr/bin/poff\")\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxDialUpManager::SetConnectCommand(const wxString & commandDial = \"/usr/bin/pon\", const wxString & commandHangup = \"/usr/bin/poff\") function, expected prototype:\nvoid wxDialUpManager::SetConnectCommand(const wxString & commandDial = \"/usr/bin/pon\", const wxString & commandHangup = \"/usr/bin/poff\")\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -452,8 +426,7 @@ public:
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDialUpManager::SetConnectCommand(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDialUpManager::SetConnectCommand(const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxDialUpManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetConnectCommand(commandDial, commandHangup);
 
@@ -463,8 +436,7 @@ public:
 	// void wxDialUpManager::SetOnlineStatus(bool isOnline = true)
 	static int _bind_SetOnlineStatus(lua_State *L) {
 		if (!_lg_typecheck_SetOnlineStatus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDialUpManager::SetOnlineStatus(bool isOnline = true) function, expected prototype:\nvoid wxDialUpManager::SetOnlineStatus(bool isOnline = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDialUpManager::SetOnlineStatus(bool isOnline = true) function, expected prototype:\nvoid wxDialUpManager::SetOnlineStatus(bool isOnline = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -473,8 +445,7 @@ public:
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDialUpManager::SetOnlineStatus(bool). Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDialUpManager::SetOnlineStatus(bool). Got : '%s'\n%s",typeid(Luna< wxDialUpManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetOnlineStatus(isOnline);
 
@@ -484,8 +455,7 @@ public:
 	// void wxDialUpManager::SetWellKnownHost(const wxString & hostname, int portno = 80)
 	static int _bind_SetWellKnownHost(lua_State *L) {
 		if (!_lg_typecheck_SetWellKnownHost(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDialUpManager::SetWellKnownHost(const wxString & hostname, int portno = 80) function, expected prototype:\nvoid wxDialUpManager::SetWellKnownHost(const wxString & hostname, int portno = 80)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxDialUpManager::SetWellKnownHost(const wxString & hostname, int portno = 80) function, expected prototype:\nvoid wxDialUpManager::SetWellKnownHost(const wxString & hostname, int portno = 80)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -495,8 +465,7 @@ public:
 
 		wxDialUpManager* self=(Luna< wxDialUpManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDialUpManager::SetWellKnownHost(const wxString &, int). Got : '%s'",typeid(Luna< wxDialUpManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDialUpManager::SetWellKnownHost(const wxString &, int). Got : '%s'\n%s",typeid(Luna< wxDialUpManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWellKnownHost(hostname, portno);
 
@@ -506,8 +475,7 @@ public:
 	// static wxDialUpManager * wxDialUpManager::Create()
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxDialUpManager * wxDialUpManager::Create() function, expected prototype:\nstatic wxDialUpManager * wxDialUpManager::Create()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxDialUpManager * wxDialUpManager::Create() function, expected prototype:\nstatic wxDialUpManager * wxDialUpManager::Create()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 

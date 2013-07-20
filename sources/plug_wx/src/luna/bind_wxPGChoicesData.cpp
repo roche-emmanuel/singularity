@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPGChoicesData* self= (wxPGChoicesData*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObjectRefData >::check(L,1));
@@ -120,8 +118,7 @@ public:
 	// wxPGChoicesData::wxPGChoicesData()
 	static wxPGChoicesData* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGChoicesData::wxPGChoicesData() function, expected prototype:\nwxPGChoicesData::wxPGChoicesData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPGChoicesData::wxPGChoicesData() function, expected prototype:\nwxPGChoicesData::wxPGChoicesData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -133,16 +130,14 @@ public:
 	// void wxPGChoicesData::CopyDataFrom(wxPGChoicesData * data)
 	static int _bind_CopyDataFrom(lua_State *L) {
 		if (!_lg_typecheck_CopyDataFrom(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPGChoicesData::CopyDataFrom(wxPGChoicesData * data) function, expected prototype:\nvoid wxPGChoicesData::CopyDataFrom(wxPGChoicesData * data)\nClass arguments details:\narg 1 ID = 60960840\n");
+			luaL_error(L, "luna typecheck failed in void wxPGChoicesData::CopyDataFrom(wxPGChoicesData * data) function, expected prototype:\nvoid wxPGChoicesData::CopyDataFrom(wxPGChoicesData * data)\nClass arguments details:\narg 1 ID = 60960840\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPGChoicesData* data=(Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,2));
 
 		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGChoicesData::CopyDataFrom(wxPGChoicesData *). Got : '%s'",typeid(Luna< wxObjectRefData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPGChoicesData::CopyDataFrom(wxPGChoicesData *). Got : '%s'\n%s",typeid(Luna< wxObjectRefData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CopyDataFrom(data);
 
@@ -152,8 +147,7 @@ public:
 	// wxPGChoiceEntry & wxPGChoicesData::Insert(int index, const wxPGChoiceEntry & item)
 	static int _bind_Insert(lua_State *L) {
 		if (!_lg_typecheck_Insert(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGChoiceEntry & wxPGChoicesData::Insert(int index, const wxPGChoiceEntry & item) function, expected prototype:\nwxPGChoiceEntry & wxPGChoicesData::Insert(int index, const wxPGChoiceEntry & item)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxPGChoiceEntry & wxPGChoicesData::Insert(int index, const wxPGChoiceEntry & item) function, expected prototype:\nwxPGChoiceEntry & wxPGChoicesData::Insert(int index, const wxPGChoiceEntry & item)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -165,8 +159,7 @@ public:
 
 		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoicesData::Insert(int, const wxPGChoiceEntry &). Got : '%s'",typeid(Luna< wxObjectRefData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoicesData::Insert(int, const wxPGChoiceEntry &). Got : '%s'\n%s",typeid(Luna< wxObjectRefData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxPGChoiceEntry* lret = &self->Insert(index, item);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -179,15 +172,13 @@ public:
 	// void wxPGChoicesData::Clear()
 	static int _bind_Clear(lua_State *L) {
 		if (!_lg_typecheck_Clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPGChoicesData::Clear() function, expected prototype:\nvoid wxPGChoicesData::Clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPGChoicesData::Clear() function, expected prototype:\nvoid wxPGChoicesData::Clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGChoicesData::Clear(). Got : '%s'",typeid(Luna< wxObjectRefData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPGChoicesData::Clear(). Got : '%s'\n%s",typeid(Luna< wxObjectRefData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Clear();
 
@@ -197,15 +188,13 @@ public:
 	// unsigned int wxPGChoicesData::GetCount() const
 	static int _bind_GetCount(lua_State *L) {
 		if (!_lg_typecheck_GetCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int wxPGChoicesData::GetCount() const function, expected prototype:\nunsigned int wxPGChoicesData::GetCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int wxPGChoicesData::GetCount() const function, expected prototype:\nunsigned int wxPGChoicesData::GetCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxPGChoicesData::GetCount() const. Got : '%s'",typeid(Luna< wxObjectRefData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int wxPGChoicesData::GetCount() const. Got : '%s'\n%s",typeid(Luna< wxObjectRefData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->GetCount();
 		lua_pushnumber(L,lret);
@@ -216,16 +205,14 @@ public:
 	// const wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int i) const
 	static int _bind_Item_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Item_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int i) const function, expected prototype:\nconst wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int i) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int i) const function, expected prototype:\nconst wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int i) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int) const. Got : '%s'",typeid(Luna< wxObjectRefData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int) const. Got : '%s'\n%s",typeid(Luna< wxObjectRefData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxPGChoiceEntry* lret = &self->Item(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -238,16 +225,14 @@ public:
 	// wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int i)
 	static int _bind_Item_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Item_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int i) function, expected prototype:\nwxPGChoiceEntry & wxPGChoicesData::Item(unsigned int i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int i) function, expected prototype:\nwxPGChoiceEntry & wxPGChoicesData::Item(unsigned int i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		wxPGChoicesData* self=Luna< wxObjectRefData >::checkSubType< wxPGChoicesData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int). Got : '%s'",typeid(Luna< wxObjectRefData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPGChoiceEntry & wxPGChoicesData::Item(unsigned int). Got : '%s'\n%s",typeid(Luna< wxObjectRefData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxPGChoiceEntry* lret = &self->Item(i);
 		if(!lret) return 0; // Do not write NULL pointers.

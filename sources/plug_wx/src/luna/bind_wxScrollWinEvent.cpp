@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxScrollWinEvent* self= (wxScrollWinEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -148,8 +145,7 @@ public:
 	// wxScrollWinEvent::wxScrollWinEvent(lua_Table * data, int commandType = wxEVT_NULL, int pos = 0, int orientation = 0)
 	static wxScrollWinEvent* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxScrollWinEvent::wxScrollWinEvent(lua_Table * data, int commandType = wxEVT_NULL, int pos = 0, int orientation = 0) function, expected prototype:\nwxScrollWinEvent::wxScrollWinEvent(lua_Table * data, int commandType = wxEVT_NULL, int pos = 0, int orientation = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxScrollWinEvent::wxScrollWinEvent(lua_Table * data, int commandType = wxEVT_NULL, int pos = 0, int orientation = 0) function, expected prototype:\nwxScrollWinEvent::wxScrollWinEvent(lua_Table * data, int commandType = wxEVT_NULL, int pos = 0, int orientation = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -166,15 +162,13 @@ public:
 	// int wxScrollWinEvent::GetOrientation() const
 	static int _bind_GetOrientation(lua_State *L) {
 		if (!_lg_typecheck_GetOrientation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxScrollWinEvent::GetOrientation() const function, expected prototype:\nint wxScrollWinEvent::GetOrientation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxScrollWinEvent::GetOrientation() const function, expected prototype:\nint wxScrollWinEvent::GetOrientation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxScrollWinEvent* self=Luna< wxObject >::checkSubType< wxScrollWinEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxScrollWinEvent::GetOrientation() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxScrollWinEvent::GetOrientation() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetOrientation();
 		lua_pushnumber(L,lret);
@@ -185,15 +179,13 @@ public:
 	// int wxScrollWinEvent::GetPosition() const
 	static int _bind_GetPosition(lua_State *L) {
 		if (!_lg_typecheck_GetPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxScrollWinEvent::GetPosition() const function, expected prototype:\nint wxScrollWinEvent::GetPosition() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxScrollWinEvent::GetPosition() const function, expected prototype:\nint wxScrollWinEvent::GetPosition() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxScrollWinEvent* self=Luna< wxObject >::checkSubType< wxScrollWinEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxScrollWinEvent::GetPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxScrollWinEvent::GetPosition() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetPosition();
 		lua_pushnumber(L,lret);
@@ -204,16 +196,14 @@ public:
 	// void wxScrollWinEvent::SetOrientation(int orient)
 	static int _bind_SetOrientation(lua_State *L) {
 		if (!_lg_typecheck_SetOrientation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxScrollWinEvent::SetOrientation(int orient) function, expected prototype:\nvoid wxScrollWinEvent::SetOrientation(int orient)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxScrollWinEvent::SetOrientation(int orient) function, expected prototype:\nvoid wxScrollWinEvent::SetOrientation(int orient)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orient=(int)lua_tointeger(L,2);
 
 		wxScrollWinEvent* self=Luna< wxObject >::checkSubType< wxScrollWinEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollWinEvent::SetOrientation(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxScrollWinEvent::SetOrientation(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetOrientation(orient);
 
@@ -223,16 +213,14 @@ public:
 	// void wxScrollWinEvent::SetPosition(int pos)
 	static int _bind_SetPosition(lua_State *L) {
 		if (!_lg_typecheck_SetPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxScrollWinEvent::SetPosition(int pos) function, expected prototype:\nvoid wxScrollWinEvent::SetPosition(int pos)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxScrollWinEvent::SetPosition(int pos) function, expected prototype:\nvoid wxScrollWinEvent::SetPosition(int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pos=(int)lua_tointeger(L,2);
 
 		wxScrollWinEvent* self=Luna< wxObject >::checkSubType< wxScrollWinEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxScrollWinEvent::SetPosition(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxScrollWinEvent::SetPosition(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetPosition(pos);
 
@@ -242,15 +230,13 @@ public:
 	// wxClassInfo * wxScrollWinEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxScrollWinEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxScrollWinEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxScrollWinEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxScrollWinEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxScrollWinEvent* self=Luna< wxObject >::checkSubType< wxScrollWinEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxScrollWinEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxScrollWinEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxScrollWinEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -263,15 +249,13 @@ public:
 	// wxEventCategory wxScrollWinEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxScrollWinEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxScrollWinEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxScrollWinEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxScrollWinEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxScrollWinEvent* self=Luna< wxObject >::checkSubType< wxScrollWinEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxScrollWinEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxScrollWinEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxScrollWinEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

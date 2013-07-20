@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFontPickerEvent* self= (wxFontPickerEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -153,8 +150,7 @@ public:
 	// wxFontPickerEvent::wxFontPickerEvent(wxObject * generator, int id, const wxFont & font)
 	static wxFontPickerEvent* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFontPickerEvent::wxFontPickerEvent(wxObject * generator, int id, const wxFont & font) function, expected prototype:\nwxFontPickerEvent::wxFontPickerEvent(wxObject * generator, int id, const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxFontPickerEvent::wxFontPickerEvent(wxObject * generator, int id, const wxFont & font) function, expected prototype:\nwxFontPickerEvent::wxFontPickerEvent(wxObject * generator, int id, const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* generator=(Luna< wxObject >::check(L,1));
@@ -171,8 +167,7 @@ public:
 	// wxFontPickerEvent::wxFontPickerEvent(lua_Table * data, wxObject * generator, int id, const wxFont & font)
 	static wxFontPickerEvent* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFontPickerEvent::wxFontPickerEvent(lua_Table * data, wxObject * generator, int id, const wxFont & font) function, expected prototype:\nwxFontPickerEvent::wxFontPickerEvent(lua_Table * data, wxObject * generator, int id, const wxFont & font)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxFontPickerEvent::wxFontPickerEvent(lua_Table * data, wxObject * generator, int id, const wxFont & font) function, expected prototype:\nwxFontPickerEvent::wxFontPickerEvent(lua_Table * data, wxObject * generator, int id, const wxFont & font)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* generator=(Luna< wxObject >::check(L,2));
@@ -200,15 +195,13 @@ public:
 	// wxFont wxFontPickerEvent::GetFont() const
 	static int _bind_GetFont(lua_State *L) {
 		if (!_lg_typecheck_GetFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFont wxFontPickerEvent::GetFont() const function, expected prototype:\nwxFont wxFontPickerEvent::GetFont() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFont wxFontPickerEvent::GetFont() const function, expected prototype:\nwxFont wxFontPickerEvent::GetFont() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFontPickerEvent* self=Luna< wxObject >::checkSubType< wxFontPickerEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFont wxFontPickerEvent::GetFont() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFont wxFontPickerEvent::GetFont() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFont stack_lret = self->GetFont();
 		wxFont* lret = new wxFont(stack_lret);
@@ -222,8 +215,7 @@ public:
 	// void wxFontPickerEvent::SetFont(const wxFont & f)
 	static int _bind_SetFont(lua_State *L) {
 		if (!_lg_typecheck_SetFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFontPickerEvent::SetFont(const wxFont & f) function, expected prototype:\nvoid wxFontPickerEvent::SetFont(const wxFont & f)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxFontPickerEvent::SetFont(const wxFont & f) function, expected prototype:\nvoid wxFontPickerEvent::SetFont(const wxFont & f)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* f_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -234,8 +226,7 @@ public:
 
 		wxFontPickerEvent* self=Luna< wxObject >::checkSubType< wxFontPickerEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontPickerEvent::SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFontPickerEvent::SetFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFont(f);
 
@@ -245,15 +236,13 @@ public:
 	// wxClassInfo * wxFontPickerEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFontPickerEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFontPickerEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFontPickerEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFontPickerEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFontPickerEvent* self=Luna< wxObject >::checkSubType< wxFontPickerEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFontPickerEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFontPickerEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxFontPickerEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -266,15 +255,13 @@ public:
 	// wxEventCategory wxFontPickerEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxFontPickerEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxFontPickerEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxFontPickerEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxFontPickerEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFontPickerEvent* self=Luna< wxObject >::checkSubType< wxFontPickerEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxFontPickerEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxFontPickerEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxFontPickerEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
@@ -285,15 +272,13 @@ public:
 	// wxEvent * wxFontPickerEvent::base_Clone() const
 	static int _bind_base_Clone(lua_State *L) {
 		if (!_lg_typecheck_base_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvent * wxFontPickerEvent::base_Clone() const function, expected prototype:\nwxEvent * wxFontPickerEvent::base_Clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvent * wxFontPickerEvent::base_Clone() const function, expected prototype:\nwxEvent * wxFontPickerEvent::base_Clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFontPickerEvent* self=Luna< wxObject >::checkSubType< wxFontPickerEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvent * wxFontPickerEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEvent * wxFontPickerEvent::base_Clone() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEvent * lret = self->wxFontPickerEvent::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.

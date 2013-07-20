@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEraseEvent* self= (wxEraseEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -127,8 +124,7 @@ public:
 	// wxEraseEvent::wxEraseEvent(lua_Table * data, int id = 0, wxDC * dc = NULL)
 	static wxEraseEvent* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEraseEvent::wxEraseEvent(lua_Table * data, int id = 0, wxDC * dc = NULL) function, expected prototype:\nwxEraseEvent::wxEraseEvent(lua_Table * data, int id = 0, wxDC * dc = NULL)\nClass arguments details:\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxEraseEvent::wxEraseEvent(lua_Table * data, int id = 0, wxDC * dc = NULL) function, expected prototype:\nwxEraseEvent::wxEraseEvent(lua_Table * data, int id = 0, wxDC * dc = NULL)\nClass arguments details:\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -144,15 +140,13 @@ public:
 	// wxDC * wxEraseEvent::GetDC() const
 	static int _bind_GetDC(lua_State *L) {
 		if (!_lg_typecheck_GetDC(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDC * wxEraseEvent::GetDC() const function, expected prototype:\nwxDC * wxEraseEvent::GetDC() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDC * wxEraseEvent::GetDC() const function, expected prototype:\nwxDC * wxEraseEvent::GetDC() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxEraseEvent* self=Luna< wxObject >::checkSubType< wxEraseEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDC * wxEraseEvent::GetDC() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDC * wxEraseEvent::GetDC() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDC * lret = self->GetDC();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -165,15 +159,13 @@ public:
 	// wxClassInfo * wxEraseEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxEraseEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxEraseEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxEraseEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxEraseEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxEraseEvent* self=Luna< wxObject >::checkSubType< wxEraseEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxEraseEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxEraseEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxEraseEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -186,15 +178,13 @@ public:
 	// wxEventCategory wxEraseEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxEraseEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxEraseEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxEraseEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxEraseEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxEraseEvent* self=Luna< wxObject >::checkSubType< wxEraseEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxEraseEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxEraseEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxEraseEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

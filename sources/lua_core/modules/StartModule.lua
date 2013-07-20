@@ -2,6 +2,7 @@ _G.requireLua = _G.require
 
 local sgt = require "core"
 local level = sgt.LogManager.INFO
+local root_dir = sgt_root or root_path
 
 sgt.doLog(level,"Updating require function.")
 
@@ -53,7 +54,7 @@ end
 
 -- This function can be used to load a package easily:
 _G.requirePackage = function(packName)
-	sgt.ModuleProvider.loadPackage(root_path .. "bin/" .. flavor .. "/packages/" .. packName .. ".lpak")
+	sgt.ModuleProvider.loadPackage(root_dir .. "bin/" .. flavor .. "/packages/" .. packName .. ".lpak")
 end
 
 -- function used to add a search path for lua module:
@@ -89,7 +90,6 @@ sgt.LogManager.instance():setDefaultTraceFlags(sgt.LogManager.TIME_STAMP+sgt.Log
 
 
 sgt.doLog(level,"Loading external package...")
--- sgt.ModuleProvider.loadPackage(root_path .. "bin/".. flavor .."/packages/externals.lpak")
 requirePackage "externals"
 
 require "luna"

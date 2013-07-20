@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDataViewItemAttr*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDataViewItemAttr*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataViewItemAttr* rhs =(Luna< wxDataViewItemAttr >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataViewItemAttr* self= (wxDataViewItemAttr*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDataViewItemAttr >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -137,8 +133,7 @@ public:
 	// wxDataViewItemAttr::wxDataViewItemAttr()
 	static wxDataViewItemAttr* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewItemAttr::wxDataViewItemAttr() function, expected prototype:\nwxDataViewItemAttr::wxDataViewItemAttr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewItemAttr::wxDataViewItemAttr() function, expected prototype:\nwxDataViewItemAttr::wxDataViewItemAttr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -150,16 +145,14 @@ public:
 	// void wxDataViewItemAttr::SetBold(bool set)
 	static int _bind_SetBold(lua_State *L) {
 		if (!_lg_typecheck_SetBold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewItemAttr::SetBold(bool set) function, expected prototype:\nvoid wxDataViewItemAttr::SetBold(bool set)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewItemAttr::SetBold(bool set) function, expected prototype:\nvoid wxDataViewItemAttr::SetBold(bool set)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool set=(bool)(lua_toboolean(L,2)==1);
 
 		wxDataViewItemAttr* self=(Luna< wxDataViewItemAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewItemAttr::SetBold(bool). Got : '%s'",typeid(Luna< wxDataViewItemAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewItemAttr::SetBold(bool). Got : '%s'\n%s",typeid(Luna< wxDataViewItemAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetBold(set);
 
@@ -169,8 +162,7 @@ public:
 	// void wxDataViewItemAttr::SetColour(const wxColour & colour)
 	static int _bind_SetColour(lua_State *L) {
 		if (!_lg_typecheck_SetColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewItemAttr::SetColour(const wxColour & colour) function, expected prototype:\nvoid wxDataViewItemAttr::SetColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewItemAttr::SetColour(const wxColour & colour) function, expected prototype:\nvoid wxDataViewItemAttr::SetColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -181,8 +173,7 @@ public:
 
 		wxDataViewItemAttr* self=(Luna< wxDataViewItemAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewItemAttr::SetColour(const wxColour &). Got : '%s'",typeid(Luna< wxDataViewItemAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewItemAttr::SetColour(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxDataViewItemAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetColour(colour);
 
@@ -192,16 +183,14 @@ public:
 	// void wxDataViewItemAttr::SetItalic(bool set)
 	static int _bind_SetItalic(lua_State *L) {
 		if (!_lg_typecheck_SetItalic(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewItemAttr::SetItalic(bool set) function, expected prototype:\nvoid wxDataViewItemAttr::SetItalic(bool set)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewItemAttr::SetItalic(bool set) function, expected prototype:\nvoid wxDataViewItemAttr::SetItalic(bool set)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool set=(bool)(lua_toboolean(L,2)==1);
 
 		wxDataViewItemAttr* self=(Luna< wxDataViewItemAttr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewItemAttr::SetItalic(bool). Got : '%s'",typeid(Luna< wxDataViewItemAttr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewItemAttr::SetItalic(bool). Got : '%s'\n%s",typeid(Luna< wxDataViewItemAttr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetItalic(set);
 

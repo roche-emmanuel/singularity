@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxAuiNotebook* self= (wxAuiNotebook*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -118,7 +115,7 @@ public:
 		if( luatop>2 && (!(Luna< wxPoint >::check(L,3))) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
 		if( luatop>3 && (!(Luna< wxSize >::check(L,4))) ) return false;
-		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
 		return true;
 	}
 
@@ -141,7 +138,7 @@ public:
 		if( luatop>3 && (!(Luna< wxPoint >::check(L,4))) ) return false;
 		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
 		if( luatop>4 && (!(Luna< wxSize >::check(L,5))) ) return false;
-		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
 		return true;
 	}
 
@@ -201,7 +198,7 @@ public:
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
 		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
-		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
 		return true;
 	}
 
@@ -816,14 +813,14 @@ public:
 	inline static bool _lg_typecheck_base_SetExtraStyle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_SetWindowStyleFlag(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -1081,7 +1078,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -1263,8 +1260,7 @@ public:
 	// wxAuiNotebook::wxAuiNotebook()
 	static wxAuiNotebook* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAuiNotebook::wxAuiNotebook() function, expected prototype:\nwxAuiNotebook::wxAuiNotebook()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxAuiNotebook::wxAuiNotebook() function, expected prototype:\nwxAuiNotebook::wxAuiNotebook()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -1274,8 +1270,7 @@ public:
 	// wxAuiNotebook::wxAuiNotebook(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE)
 	static wxAuiNotebook* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAuiNotebook::wxAuiNotebook(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE) function, expected prototype:\nwxAuiNotebook::wxAuiNotebook(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxAuiNotebook::wxAuiNotebook(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE) function, expected prototype:\nwxAuiNotebook::wxAuiNotebook(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1292,7 +1287,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxAuiNotebook::wxAuiNotebook function");
 		}
 		const wxSize & size=luatop>3 ? *size_ptr : (const wxSize&)wxDefaultSize;
-		long style=luatop>4 ? (long)lua_tointeger(L,5) : (long)::wxAUI_NB_DEFAULT_STYLE;
+		long style=luatop>4 ? (long)lua_tonumber(L,5) : (long)::wxAUI_NB_DEFAULT_STYLE;
 
 		return new wxAuiNotebook(parent, id, pos, size, style);
 	}
@@ -1300,8 +1295,7 @@ public:
 	// wxAuiNotebook::wxAuiNotebook(lua_Table * data)
 	static wxAuiNotebook* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAuiNotebook::wxAuiNotebook(lua_Table * data) function, expected prototype:\nwxAuiNotebook::wxAuiNotebook(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxAuiNotebook::wxAuiNotebook(lua_Table * data) function, expected prototype:\nwxAuiNotebook::wxAuiNotebook(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -1311,8 +1305,7 @@ public:
 	// wxAuiNotebook::wxAuiNotebook(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE)
 	static wxAuiNotebook* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAuiNotebook::wxAuiNotebook(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE) function, expected prototype:\nwxAuiNotebook::wxAuiNotebook(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxAuiNotebook::wxAuiNotebook(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE) function, expected prototype:\nwxAuiNotebook::wxAuiNotebook(lua_Table * data, wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = ::wxAUI_NB_DEFAULT_STYLE)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1329,7 +1322,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxAuiNotebook::wxAuiNotebook function");
 		}
 		const wxSize & size=luatop>4 ? *size_ptr : (const wxSize&)wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)::wxAUI_NB_DEFAULT_STYLE;
+		long style=luatop>5 ? (long)lua_tonumber(L,6) : (long)::wxAUI_NB_DEFAULT_STYLE;
 
 		return new wrapper_wxAuiNotebook(L,NULL, parent, id, pos, size, style);
 	}
@@ -1350,16 +1343,14 @@ public:
 	// int wxAuiNotebook::GetPageImage(size_t nPage) const
 	static int _bind_GetPageImage(lua_State *L) {
 		if (!_lg_typecheck_GetPageImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::GetPageImage(size_t nPage) const function, expected prototype:\nint wxAuiNotebook::GetPageImage(size_t nPage) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::GetPageImage(size_t nPage) const function, expected prototype:\nint wxAuiNotebook::GetPageImage(size_t nPage) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t nPage=(size_t)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetPageImage(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetPageImage(size_t) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetPageImage(nPage);
 		lua_pushnumber(L,lret);
@@ -1370,8 +1361,7 @@ public:
 	// bool wxAuiNotebook::AddPage(wxWindow * page, const wxString & caption, bool select = false, const wxBitmap & bitmap = wxNullBitmap)
 	static int _bind_AddPage_overload_1(lua_State *L) {
 		if (!_lg_typecheck_AddPage_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::AddPage(wxWindow * page, const wxString & caption, bool select = false, const wxBitmap & bitmap = wxNullBitmap) function, expected prototype:\nbool wxAuiNotebook::AddPage(wxWindow * page, const wxString & caption, bool select = false, const wxBitmap & bitmap = wxNullBitmap)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 4 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::AddPage(wxWindow * page, const wxString & caption, bool select = false, const wxBitmap & bitmap = wxNullBitmap) function, expected prototype:\nbool wxAuiNotebook::AddPage(wxWindow * page, const wxString & caption, bool select = false, const wxBitmap & bitmap = wxNullBitmap)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1387,8 +1377,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::AddPage(wxWindow *, const wxString &, bool, const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::AddPage(wxWindow *, const wxString &, bool, const wxBitmap &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AddPage(page, caption, select, bitmap);
 		lua_pushboolean(L,lret?1:0);
@@ -1399,8 +1388,7 @@ public:
 	// bool wxAuiNotebook::AddPage(wxWindow * page, const wxString & text, bool select, int imageId)
 	static int _bind_AddPage_overload_2(lua_State *L) {
 		if (!_lg_typecheck_AddPage_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::AddPage(wxWindow * page, const wxString & text, bool select, int imageId) function, expected prototype:\nbool wxAuiNotebook::AddPage(wxWindow * page, const wxString & text, bool select, int imageId)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::AddPage(wxWindow * page, const wxString & text, bool select, int imageId) function, expected prototype:\nbool wxAuiNotebook::AddPage(wxWindow * page, const wxString & text, bool select, int imageId)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* page=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
@@ -1410,8 +1398,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::AddPage(wxWindow *, const wxString &, bool, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::AddPage(wxWindow *, const wxString &, bool, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AddPage(page, text, select, imageId);
 		lua_pushboolean(L,lret?1:0);
@@ -1431,8 +1418,7 @@ public:
 	// void wxAuiNotebook::AdvanceSelection(bool forward = true)
 	static int _bind_AdvanceSelection(lua_State *L) {
 		if (!_lg_typecheck_AdvanceSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::AdvanceSelection(bool forward = true) function, expected prototype:\nvoid wxAuiNotebook::AdvanceSelection(bool forward = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::AdvanceSelection(bool forward = true) function, expected prototype:\nvoid wxAuiNotebook::AdvanceSelection(bool forward = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1441,8 +1427,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::AdvanceSelection(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::AdvanceSelection(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AdvanceSelection(forward);
 
@@ -1452,16 +1437,14 @@ public:
 	// int wxAuiNotebook::ChangeSelection(size_t n)
 	static int _bind_ChangeSelection(lua_State *L) {
 		if (!_lg_typecheck_ChangeSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::ChangeSelection(size_t n) function, expected prototype:\nint wxAuiNotebook::ChangeSelection(size_t n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::ChangeSelection(size_t n) function, expected prototype:\nint wxAuiNotebook::ChangeSelection(size_t n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t n=(size_t)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::ChangeSelection(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::ChangeSelection(size_t). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->ChangeSelection(n);
 		lua_pushnumber(L,lret);
@@ -1472,8 +1455,7 @@ public:
 	// bool wxAuiNotebook::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0) function, expected prototype:\nbool wxAuiNotebook::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0) function, expected prototype:\nbool wxAuiNotebook::Create(wxWindow * parent, int id = ::wxID_ANY, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1490,12 +1472,11 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg size in wxAuiNotebook::Create function");
 		}
 		const wxSize & size=luatop>4 ? *size_ptr : (const wxSize&)wxDefaultSize;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)0;
+		long style=luatop>5 ? (long)lua_tonumber(L,6) : (long)0;
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::Create(wxWindow *, int, const wxPoint &, const wxSize &, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::Create(wxWindow *, int, const wxPoint &, const wxSize &, long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Create(parent, id, pos, size, style);
 		lua_pushboolean(L,lret?1:0);
@@ -1506,15 +1487,13 @@ public:
 	// bool wxAuiNotebook::DeleteAllPages()
 	static int _bind_DeleteAllPages(lua_State *L) {
 		if (!_lg_typecheck_DeleteAllPages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::DeleteAllPages() function, expected prototype:\nbool wxAuiNotebook::DeleteAllPages()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::DeleteAllPages() function, expected prototype:\nbool wxAuiNotebook::DeleteAllPages()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::DeleteAllPages(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::DeleteAllPages(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DeleteAllPages();
 		lua_pushboolean(L,lret?1:0);
@@ -1525,16 +1504,14 @@ public:
 	// bool wxAuiNotebook::DeletePage(size_t page)
 	static int _bind_DeletePage(lua_State *L) {
 		if (!_lg_typecheck_DeletePage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::DeletePage(size_t page) function, expected prototype:\nbool wxAuiNotebook::DeletePage(size_t page)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::DeletePage(size_t page) function, expected prototype:\nbool wxAuiNotebook::DeletePage(size_t page)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t page=(size_t)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::DeletePage(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::DeletePage(size_t). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DeletePage(page);
 		lua_pushboolean(L,lret?1:0);
@@ -1545,15 +1522,13 @@ public:
 	// wxAuiTabArt * wxAuiNotebook::GetArtProvider() const
 	static int _bind_GetArtProvider(lua_State *L) {
 		if (!_lg_typecheck_GetArtProvider(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAuiTabArt * wxAuiNotebook::GetArtProvider() const function, expected prototype:\nwxAuiTabArt * wxAuiNotebook::GetArtProvider() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxAuiTabArt * wxAuiNotebook::GetArtProvider() const function, expected prototype:\nwxAuiTabArt * wxAuiNotebook::GetArtProvider() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiTabArt * wxAuiNotebook::GetArtProvider() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxAuiTabArt * wxAuiNotebook::GetArtProvider() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxAuiTabArt * lret = self->GetArtProvider();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1566,15 +1541,13 @@ public:
 	// wxWindow * wxAuiNotebook::GetCurrentPage() const
 	static int _bind_GetCurrentPage(lua_State *L) {
 		if (!_lg_typecheck_GetCurrentPage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxWindow * wxAuiNotebook::GetCurrentPage() const function, expected prototype:\nwxWindow * wxAuiNotebook::GetCurrentPage() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxWindow * wxAuiNotebook::GetCurrentPage() const function, expected prototype:\nwxWindow * wxAuiNotebook::GetCurrentPage() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxAuiNotebook::GetCurrentPage() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxWindow * wxAuiNotebook::GetCurrentPage() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxWindow * lret = self->GetCurrentPage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1587,16 +1560,14 @@ public:
 	// int wxAuiNotebook::GetHeightForPageHeight(int pageHeight)
 	static int _bind_GetHeightForPageHeight(lua_State *L) {
 		if (!_lg_typecheck_GetHeightForPageHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::GetHeightForPageHeight(int pageHeight) function, expected prototype:\nint wxAuiNotebook::GetHeightForPageHeight(int pageHeight)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::GetHeightForPageHeight(int pageHeight) function, expected prototype:\nint wxAuiNotebook::GetHeightForPageHeight(int pageHeight)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pageHeight=(int)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetHeightForPageHeight(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetHeightForPageHeight(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetHeightForPageHeight(pageHeight);
 		lua_pushnumber(L,lret);
@@ -1607,16 +1578,14 @@ public:
 	// wxWindow * wxAuiNotebook::GetPage(size_t page_idx) const
 	static int _bind_GetPage(lua_State *L) {
 		if (!_lg_typecheck_GetPage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxWindow * wxAuiNotebook::GetPage(size_t page_idx) const function, expected prototype:\nwxWindow * wxAuiNotebook::GetPage(size_t page_idx) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxWindow * wxAuiNotebook::GetPage(size_t page_idx) const function, expected prototype:\nwxWindow * wxAuiNotebook::GetPage(size_t page_idx) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t page_idx=(size_t)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxAuiNotebook::GetPage(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxWindow * wxAuiNotebook::GetPage(size_t) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxWindow * lret = self->GetPage(page_idx);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1629,16 +1598,14 @@ public:
 	// wxBitmap wxAuiNotebook::GetPageBitmap(size_t page) const
 	static int _bind_GetPageBitmap(lua_State *L) {
 		if (!_lg_typecheck_GetPageBitmap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBitmap wxAuiNotebook::GetPageBitmap(size_t page) const function, expected prototype:\nwxBitmap wxAuiNotebook::GetPageBitmap(size_t page) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBitmap wxAuiNotebook::GetPageBitmap(size_t page) const function, expected prototype:\nwxBitmap wxAuiNotebook::GetPageBitmap(size_t page) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t page=(size_t)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap wxAuiNotebook::GetPageBitmap(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBitmap wxAuiNotebook::GetPageBitmap(size_t) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxBitmap stack_lret = self->GetPageBitmap(page);
 		wxBitmap* lret = new wxBitmap(stack_lret);
@@ -1652,15 +1619,13 @@ public:
 	// size_t wxAuiNotebook::GetPageCount() const
 	static int _bind_GetPageCount(lua_State *L) {
 		if (!_lg_typecheck_GetPageCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxAuiNotebook::GetPageCount() const function, expected prototype:\nsize_t wxAuiNotebook::GetPageCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxAuiNotebook::GetPageCount() const function, expected prototype:\nsize_t wxAuiNotebook::GetPageCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxAuiNotebook::GetPageCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxAuiNotebook::GetPageCount() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->GetPageCount();
 		lua_pushnumber(L,lret);
@@ -1671,16 +1636,14 @@ public:
 	// int wxAuiNotebook::GetPageIndex(wxWindow * page_wnd) const
 	static int _bind_GetPageIndex(lua_State *L) {
 		if (!_lg_typecheck_GetPageIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::GetPageIndex(wxWindow * page_wnd) const function, expected prototype:\nint wxAuiNotebook::GetPageIndex(wxWindow * page_wnd) const\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::GetPageIndex(wxWindow * page_wnd) const function, expected prototype:\nint wxAuiNotebook::GetPageIndex(wxWindow * page_wnd) const\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* page_wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetPageIndex(wxWindow *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetPageIndex(wxWindow *) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetPageIndex(page_wnd);
 		lua_pushnumber(L,lret);
@@ -1691,16 +1654,14 @@ public:
 	// wxString wxAuiNotebook::GetPageText(size_t page) const
 	static int _bind_GetPageText(lua_State *L) {
 		if (!_lg_typecheck_GetPageText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxAuiNotebook::GetPageText(size_t page) const function, expected prototype:\nwxString wxAuiNotebook::GetPageText(size_t page) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxAuiNotebook::GetPageText(size_t page) const function, expected prototype:\nwxString wxAuiNotebook::GetPageText(size_t page) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t page=(size_t)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::GetPageText(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::GetPageText(size_t) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetPageText(page);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1711,15 +1672,13 @@ public:
 	// int wxAuiNotebook::GetSelection() const
 	static int _bind_GetSelection(lua_State *L) {
 		if (!_lg_typecheck_GetSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::GetSelection() const function, expected prototype:\nint wxAuiNotebook::GetSelection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::GetSelection() const function, expected prototype:\nint wxAuiNotebook::GetSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetSelection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSelection();
 		lua_pushnumber(L,lret);
@@ -1730,15 +1689,13 @@ public:
 	// int wxAuiNotebook::GetTabCtrlHeight() const
 	static int _bind_GetTabCtrlHeight(lua_State *L) {
 		if (!_lg_typecheck_GetTabCtrlHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::GetTabCtrlHeight() const function, expected prototype:\nint wxAuiNotebook::GetTabCtrlHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::GetTabCtrlHeight() const function, expected prototype:\nint wxAuiNotebook::GetTabCtrlHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetTabCtrlHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::GetTabCtrlHeight() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetTabCtrlHeight();
 		lua_pushnumber(L,lret);
@@ -1749,8 +1706,7 @@ public:
 	// bool wxAuiNotebook::InsertPage(size_t page_idx, wxWindow * page, const wxString & caption, bool select = false, const wxBitmap & bitmap = wxNullBitmap)
 	static int _bind_InsertPage_overload_1(lua_State *L) {
 		if (!_lg_typecheck_InsertPage_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::InsertPage(size_t page_idx, wxWindow * page, const wxString & caption, bool select = false, const wxBitmap & bitmap = wxNullBitmap) function, expected prototype:\nbool wxAuiNotebook::InsertPage(size_t page_idx, wxWindow * page, const wxString & caption, bool select = false, const wxBitmap & bitmap = wxNullBitmap)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 5 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::InsertPage(size_t page_idx, wxWindow * page, const wxString & caption, bool select = false, const wxBitmap & bitmap = wxNullBitmap) function, expected prototype:\nbool wxAuiNotebook::InsertPage(size_t page_idx, wxWindow * page, const wxString & caption, bool select = false, const wxBitmap & bitmap = wxNullBitmap)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 5 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1767,8 +1723,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::InsertPage(size_t, wxWindow *, const wxString &, bool, const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::InsertPage(size_t, wxWindow *, const wxString &, bool, const wxBitmap &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->InsertPage(page_idx, page, caption, select, bitmap);
 		lua_pushboolean(L,lret?1:0);
@@ -1779,8 +1734,7 @@ public:
 	// bool wxAuiNotebook::InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE)
 	static int _bind_InsertPage_overload_2(lua_State *L) {
 		if (!_lg_typecheck_InsertPage_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE) function, expected prototype:\nbool wxAuiNotebook::InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE) function, expected prototype:\nbool wxAuiNotebook::InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1793,8 +1747,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::InsertPage(size_t, wxWindow *, const wxString &, bool, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::InsertPage(size_t, wxWindow *, const wxString &, bool, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->InsertPage(index, page, text, select, imageId);
 		lua_pushboolean(L,lret?1:0);
@@ -1814,16 +1767,14 @@ public:
 	// bool wxAuiNotebook::RemovePage(size_t page)
 	static int _bind_RemovePage(lua_State *L) {
 		if (!_lg_typecheck_RemovePage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::RemovePage(size_t page) function, expected prototype:\nbool wxAuiNotebook::RemovePage(size_t page)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::RemovePage(size_t page) function, expected prototype:\nbool wxAuiNotebook::RemovePage(size_t page)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t page=(size_t)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::RemovePage(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::RemovePage(size_t). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RemovePage(page);
 		lua_pushboolean(L,lret?1:0);
@@ -1834,16 +1785,14 @@ public:
 	// void wxAuiNotebook::SetArtProvider(wxAuiTabArt * art)
 	static int _bind_SetArtProvider(lua_State *L) {
 		if (!_lg_typecheck_SetArtProvider(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::SetArtProvider(wxAuiTabArt * art) function, expected prototype:\nvoid wxAuiNotebook::SetArtProvider(wxAuiTabArt * art)\nClass arguments details:\narg 1 ID = 24264105\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::SetArtProvider(wxAuiTabArt * art) function, expected prototype:\nvoid wxAuiNotebook::SetArtProvider(wxAuiTabArt * art)\nClass arguments details:\narg 1 ID = 24264105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxAuiTabArt* art=(Luna< wxAuiTabArt >::check(L,2));
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetArtProvider(wxAuiTabArt *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetArtProvider(wxAuiTabArt *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetArtProvider(art);
 
@@ -1853,8 +1802,7 @@ public:
 	// bool wxAuiNotebook::SetFont(const wxFont & font)
 	static int _bind_SetFont(lua_State *L) {
 		if (!_lg_typecheck_SetFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::SetFont(const wxFont & font) function, expected prototype:\nbool wxAuiNotebook::SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::SetFont(const wxFont & font) function, expected prototype:\nbool wxAuiNotebook::SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -1865,8 +1813,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::SetFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -1877,8 +1824,7 @@ public:
 	// void wxAuiNotebook::SetMeasuringFont(const wxFont & font)
 	static int _bind_SetMeasuringFont(lua_State *L) {
 		if (!_lg_typecheck_SetMeasuringFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::SetMeasuringFont(const wxFont & font) function, expected prototype:\nvoid wxAuiNotebook::SetMeasuringFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::SetMeasuringFont(const wxFont & font) function, expected prototype:\nvoid wxAuiNotebook::SetMeasuringFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -1889,8 +1835,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetMeasuringFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetMeasuringFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMeasuringFont(font);
 
@@ -1900,8 +1845,7 @@ public:
 	// void wxAuiNotebook::SetNormalFont(const wxFont & font)
 	static int _bind_SetNormalFont(lua_State *L) {
 		if (!_lg_typecheck_SetNormalFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::SetNormalFont(const wxFont & font) function, expected prototype:\nvoid wxAuiNotebook::SetNormalFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::SetNormalFont(const wxFont & font) function, expected prototype:\nvoid wxAuiNotebook::SetNormalFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -1912,8 +1856,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetNormalFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetNormalFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetNormalFont(font);
 
@@ -1923,8 +1866,7 @@ public:
 	// bool wxAuiNotebook::SetPageBitmap(size_t page, const wxBitmap & bitmap)
 	static int _bind_SetPageBitmap(lua_State *L) {
 		if (!_lg_typecheck_SetPageBitmap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::SetPageBitmap(size_t page, const wxBitmap & bitmap) function, expected prototype:\nbool wxAuiNotebook::SetPageBitmap(size_t page, const wxBitmap & bitmap)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::SetPageBitmap(size_t page, const wxBitmap & bitmap) function, expected prototype:\nbool wxAuiNotebook::SetPageBitmap(size_t page, const wxBitmap & bitmap)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t page=(size_t)lua_tointeger(L,2);
@@ -1936,8 +1878,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::SetPageBitmap(size_t, const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::SetPageBitmap(size_t, const wxBitmap &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SetPageBitmap(page, bitmap);
 		lua_pushboolean(L,lret?1:0);
@@ -1948,8 +1889,7 @@ public:
 	// bool wxAuiNotebook::SetPageImage(size_t n, int imageId)
 	static int _bind_SetPageImage(lua_State *L) {
 		if (!_lg_typecheck_SetPageImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::SetPageImage(size_t n, int imageId) function, expected prototype:\nbool wxAuiNotebook::SetPageImage(size_t n, int imageId)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::SetPageImage(size_t n, int imageId) function, expected prototype:\nbool wxAuiNotebook::SetPageImage(size_t n, int imageId)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t n=(size_t)lua_tointeger(L,2);
@@ -1957,8 +1897,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::SetPageImage(size_t, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::SetPageImage(size_t, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SetPageImage(n, imageId);
 		lua_pushboolean(L,lret?1:0);
@@ -1969,8 +1908,7 @@ public:
 	// bool wxAuiNotebook::SetPageText(size_t page, const wxString & text)
 	static int _bind_SetPageText(lua_State *L) {
 		if (!_lg_typecheck_SetPageText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::SetPageText(size_t page, const wxString & text) function, expected prototype:\nbool wxAuiNotebook::SetPageText(size_t page, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::SetPageText(size_t page, const wxString & text) function, expected prototype:\nbool wxAuiNotebook::SetPageText(size_t page, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t page=(size_t)lua_tointeger(L,2);
@@ -1978,8 +1916,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::SetPageText(size_t, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::SetPageText(size_t, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SetPageText(page, text);
 		lua_pushboolean(L,lret?1:0);
@@ -1990,8 +1927,7 @@ public:
 	// void wxAuiNotebook::SetSelectedFont(const wxFont & font)
 	static int _bind_SetSelectedFont(lua_State *L) {
 		if (!_lg_typecheck_SetSelectedFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::SetSelectedFont(const wxFont & font) function, expected prototype:\nvoid wxAuiNotebook::SetSelectedFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::SetSelectedFont(const wxFont & font) function, expected prototype:\nvoid wxAuiNotebook::SetSelectedFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -2002,8 +1938,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetSelectedFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetSelectedFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelectedFont(font);
 
@@ -2013,16 +1948,14 @@ public:
 	// int wxAuiNotebook::SetSelection(size_t new_page)
 	static int _bind_SetSelection(lua_State *L) {
 		if (!_lg_typecheck_SetSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::SetSelection(size_t new_page) function, expected prototype:\nint wxAuiNotebook::SetSelection(size_t new_page)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::SetSelection(size_t new_page) function, expected prototype:\nint wxAuiNotebook::SetSelection(size_t new_page)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t new_page=(size_t)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::SetSelection(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::SetSelection(size_t). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->SetSelection(new_page);
 		lua_pushnumber(L,lret);
@@ -2033,16 +1966,14 @@ public:
 	// void wxAuiNotebook::SetTabCtrlHeight(int height)
 	static int _bind_SetTabCtrlHeight(lua_State *L) {
 		if (!_lg_typecheck_SetTabCtrlHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::SetTabCtrlHeight(int height) function, expected prototype:\nvoid wxAuiNotebook::SetTabCtrlHeight(int height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::SetTabCtrlHeight(int height) function, expected prototype:\nvoid wxAuiNotebook::SetTabCtrlHeight(int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int height=(int)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetTabCtrlHeight(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetTabCtrlHeight(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTabCtrlHeight(height);
 
@@ -2052,8 +1983,7 @@ public:
 	// void wxAuiNotebook::SetUniformBitmapSize(const wxSize & size)
 	static int _bind_SetUniformBitmapSize(lua_State *L) {
 		if (!_lg_typecheck_SetUniformBitmapSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::SetUniformBitmapSize(const wxSize & size) function, expected prototype:\nvoid wxAuiNotebook::SetUniformBitmapSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::SetUniformBitmapSize(const wxSize & size) function, expected prototype:\nvoid wxAuiNotebook::SetUniformBitmapSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -2064,8 +1994,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetUniformBitmapSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::SetUniformBitmapSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetUniformBitmapSize(size);
 
@@ -2075,8 +2004,7 @@ public:
 	// void wxAuiNotebook::Split(size_t page, int direction)
 	static int _bind_Split(lua_State *L) {
 		if (!_lg_typecheck_Split(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::Split(size_t page, int direction) function, expected prototype:\nvoid wxAuiNotebook::Split(size_t page, int direction)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::Split(size_t page, int direction) function, expected prototype:\nvoid wxAuiNotebook::Split(size_t page, int direction)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t page=(size_t)lua_tointeger(L,2);
@@ -2084,8 +2012,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::Split(size_t, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::Split(size_t, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Split(page, direction);
 
@@ -2095,15 +2022,13 @@ public:
 	// bool wxAuiNotebook::ShowWindowMenu()
 	static int _bind_ShowWindowMenu(lua_State *L) {
 		if (!_lg_typecheck_ShowWindowMenu(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::ShowWindowMenu() function, expected prototype:\nbool wxAuiNotebook::ShowWindowMenu()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::ShowWindowMenu() function, expected prototype:\nbool wxAuiNotebook::ShowWindowMenu()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::ShowWindowMenu(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::ShowWindowMenu(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ShowWindowMenu();
 		lua_pushboolean(L,lret?1:0);
@@ -2114,15 +2039,13 @@ public:
 	// wxClassInfo * wxAuiNotebook::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxAuiNotebook::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxAuiNotebook::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxAuiNotebook::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxAuiNotebook::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxAuiNotebook::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxAuiNotebook::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxAuiNotebook::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2135,15 +2058,13 @@ public:
 	// bool wxAuiNotebook::base_AcceptsFocus() const
 	static int _bind_base_AcceptsFocus(lua_State *L) {
 		if (!_lg_typecheck_base_AcceptsFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_AcceptsFocus() const function, expected prototype:\nbool wxAuiNotebook::base_AcceptsFocus() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_AcceptsFocus() const function, expected prototype:\nbool wxAuiNotebook::base_AcceptsFocus() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_AcceptsFocus() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -2154,15 +2075,13 @@ public:
 	// bool wxAuiNotebook::base_AcceptsFocusFromKeyboard() const
 	static int _bind_base_AcceptsFocusFromKeyboard(lua_State *L) {
 		if (!_lg_typecheck_base_AcceptsFocusFromKeyboard(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_AcceptsFocusFromKeyboard() const function, expected prototype:\nbool wxAuiNotebook::base_AcceptsFocusFromKeyboard() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_AcceptsFocusFromKeyboard() const function, expected prototype:\nbool wxAuiNotebook::base_AcceptsFocusFromKeyboard() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_AcceptsFocusFromKeyboard() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -2173,15 +2092,13 @@ public:
 	// bool wxAuiNotebook::base_AcceptsFocusRecursively() const
 	static int _bind_base_AcceptsFocusRecursively(lua_State *L) {
 		if (!_lg_typecheck_base_AcceptsFocusRecursively(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_AcceptsFocusRecursively() const function, expected prototype:\nbool wxAuiNotebook::base_AcceptsFocusRecursively() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_AcceptsFocusRecursively() const function, expected prototype:\nbool wxAuiNotebook::base_AcceptsFocusRecursively() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_AcceptsFocusRecursively() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -2192,15 +2109,13 @@ public:
 	// bool wxAuiNotebook::base_HasFocus() const
 	static int _bind_base_HasFocus(lua_State *L) {
 		if (!_lg_typecheck_base_HasFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_HasFocus() const function, expected prototype:\nbool wxAuiNotebook::base_HasFocus() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_HasFocus() const function, expected prototype:\nbool wxAuiNotebook::base_HasFocus() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_HasFocus() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -2211,16 +2126,14 @@ public:
 	// void wxAuiNotebook::base_SetCanFocus(bool canFocus)
 	static int _bind_base_SetCanFocus(lua_State *L) {
 		if (!_lg_typecheck_base_SetCanFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetCanFocus(bool canFocus) function, expected prototype:\nvoid wxAuiNotebook::base_SetCanFocus(bool canFocus)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetCanFocus(bool canFocus) function, expected prototype:\nvoid wxAuiNotebook::base_SetCanFocus(bool canFocus)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool canFocus=(bool)(lua_toboolean(L,2)==1);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetCanFocus(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetCanFocus(canFocus);
 
@@ -2230,15 +2143,13 @@ public:
 	// void wxAuiNotebook::base_SetFocus()
 	static int _bind_base_SetFocus(lua_State *L) {
 		if (!_lg_typecheck_base_SetFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetFocus() function, expected prototype:\nvoid wxAuiNotebook::base_SetFocus()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetFocus() function, expected prototype:\nvoid wxAuiNotebook::base_SetFocus()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetFocus(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetFocus();
 
@@ -2248,15 +2159,13 @@ public:
 	// void wxAuiNotebook::base_SetFocusFromKbd()
 	static int _bind_base_SetFocusFromKbd(lua_State *L) {
 		if (!_lg_typecheck_base_SetFocusFromKbd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetFocusFromKbd() function, expected prototype:\nvoid wxAuiNotebook::base_SetFocusFromKbd()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetFocusFromKbd() function, expected prototype:\nvoid wxAuiNotebook::base_SetFocusFromKbd()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetFocusFromKbd(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetFocusFromKbd();
 
@@ -2266,16 +2175,14 @@ public:
 	// void wxAuiNotebook::base_AddChild(wxWindow * child)
 	static int _bind_base_AddChild(lua_State *L) {
 		if (!_lg_typecheck_base_AddChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_AddChild(wxWindow * child) function, expected prototype:\nvoid wxAuiNotebook::base_AddChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_AddChild(wxWindow * child) function, expected prototype:\nvoid wxAuiNotebook::base_AddChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* child=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_AddChild(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::AddChild(child);
 
@@ -2285,16 +2192,14 @@ public:
 	// void wxAuiNotebook::base_RemoveChild(wxWindow * child)
 	static int _bind_base_RemoveChild(lua_State *L) {
 		if (!_lg_typecheck_base_RemoveChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_RemoveChild(wxWindow * child) function, expected prototype:\nvoid wxAuiNotebook::base_RemoveChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_RemoveChild(wxWindow * child) function, expected prototype:\nvoid wxAuiNotebook::base_RemoveChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* child=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_RemoveChild(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::RemoveChild(child);
 
@@ -2304,16 +2209,14 @@ public:
 	// bool wxAuiNotebook::base_Reparent(wxWindow * newParent)
 	static int _bind_base_Reparent(lua_State *L) {
 		if (!_lg_typecheck_base_Reparent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_Reparent(wxWindow * newParent) function, expected prototype:\nbool wxAuiNotebook::base_Reparent(wxWindow * newParent)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_Reparent(wxWindow * newParent) function, expected prototype:\nbool wxAuiNotebook::base_Reparent(wxWindow * newParent)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* newParent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Reparent(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -2324,8 +2227,7 @@ public:
 	// void wxAuiNotebook::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true)
 	static int _bind_base_AlwaysShowScrollbars(lua_State *L) {
 		if (!_lg_typecheck_base_AlwaysShowScrollbars(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true) function, expected prototype:\nvoid wxAuiNotebook::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true) function, expected prototype:\nvoid wxAuiNotebook::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2335,8 +2237,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_AlwaysShowScrollbars(bool, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::AlwaysShowScrollbars(hflag, vflag);
 
@@ -2346,16 +2247,14 @@ public:
 	// int wxAuiNotebook::base_GetScrollPos(int orientation) const
 	static int _bind_base_GetScrollPos(lua_State *L) {
 		if (!_lg_typecheck_base_GetScrollPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_GetScrollPos(int orientation) const function, expected prototype:\nint wxAuiNotebook::base_GetScrollPos(int orientation) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_GetScrollPos(int orientation) const function, expected prototype:\nint wxAuiNotebook::base_GetScrollPos(int orientation) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orientation=(int)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetScrollPos(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxAuiNotebook::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -2366,16 +2265,14 @@ public:
 	// int wxAuiNotebook::base_GetScrollRange(int orientation) const
 	static int _bind_base_GetScrollRange(lua_State *L) {
 		if (!_lg_typecheck_base_GetScrollRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_GetScrollRange(int orientation) const function, expected prototype:\nint wxAuiNotebook::base_GetScrollRange(int orientation) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_GetScrollRange(int orientation) const function, expected prototype:\nint wxAuiNotebook::base_GetScrollRange(int orientation) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orientation=(int)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetScrollRange(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxAuiNotebook::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -2386,16 +2283,14 @@ public:
 	// int wxAuiNotebook::base_GetScrollThumb(int orientation) const
 	static int _bind_base_GetScrollThumb(lua_State *L) {
 		if (!_lg_typecheck_base_GetScrollThumb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_GetScrollThumb(int orientation) const function, expected prototype:\nint wxAuiNotebook::base_GetScrollThumb(int orientation) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_GetScrollThumb(int orientation) const function, expected prototype:\nint wxAuiNotebook::base_GetScrollThumb(int orientation) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orientation=(int)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetScrollThumb(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxAuiNotebook::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -2406,16 +2301,14 @@ public:
 	// bool wxAuiNotebook::base_IsScrollbarAlwaysShown(int orient) const
 	static int _bind_base_IsScrollbarAlwaysShown(lua_State *L) {
 		if (!_lg_typecheck_base_IsScrollbarAlwaysShown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_IsScrollbarAlwaysShown(int orient) const function, expected prototype:\nbool wxAuiNotebook::base_IsScrollbarAlwaysShown(int orient) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_IsScrollbarAlwaysShown(int orient) const function, expected prototype:\nbool wxAuiNotebook::base_IsScrollbarAlwaysShown(int orient) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orient=(int)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsScrollbarAlwaysShown(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -2426,16 +2319,14 @@ public:
 	// bool wxAuiNotebook::base_ScrollLines(int lines)
 	static int _bind_base_ScrollLines(lua_State *L) {
 		if (!_lg_typecheck_base_ScrollLines(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_ScrollLines(int lines) function, expected prototype:\nbool wxAuiNotebook::base_ScrollLines(int lines)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_ScrollLines(int lines) function, expected prototype:\nbool wxAuiNotebook::base_ScrollLines(int lines)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int lines=(int)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_ScrollLines(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -2446,16 +2337,14 @@ public:
 	// bool wxAuiNotebook::base_ScrollPages(int pages)
 	static int _bind_base_ScrollPages(lua_State *L) {
 		if (!_lg_typecheck_base_ScrollPages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_ScrollPages(int pages) function, expected prototype:\nbool wxAuiNotebook::base_ScrollPages(int pages)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_ScrollPages(int pages) function, expected prototype:\nbool wxAuiNotebook::base_ScrollPages(int pages)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pages=(int)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_ScrollPages(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -2466,8 +2355,7 @@ public:
 	// void wxAuiNotebook::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL)
 	static int _bind_base_ScrollWindow(lua_State *L) {
 		if (!_lg_typecheck_base_ScrollWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL) function, expected prototype:\nvoid wxAuiNotebook::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL)\nClass arguments details:\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL) function, expected prototype:\nvoid wxAuiNotebook::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL)\nClass arguments details:\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2478,8 +2366,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_ScrollWindow(int, int, const wxRect *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::ScrollWindow(dx, dy, rect);
 
@@ -2489,8 +2376,7 @@ public:
 	// void wxAuiNotebook::base_SetScrollPos(int orientation, int pos, bool refresh = true)
 	static int _bind_base_SetScrollPos(lua_State *L) {
 		if (!_lg_typecheck_base_SetScrollPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetScrollPos(int orientation, int pos, bool refresh = true) function, expected prototype:\nvoid wxAuiNotebook::base_SetScrollPos(int orientation, int pos, bool refresh = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetScrollPos(int orientation, int pos, bool refresh = true) function, expected prototype:\nvoid wxAuiNotebook::base_SetScrollPos(int orientation, int pos, bool refresh = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2501,8 +2387,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetScrollPos(int, int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetScrollPos(orientation, pos, refresh);
 
@@ -2512,8 +2397,7 @@ public:
 	// void wxAuiNotebook::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)
 	static int _bind_base_SetScrollbar(lua_State *L) {
 		if (!_lg_typecheck_base_SetScrollbar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true) function, expected prototype:\nvoid wxAuiNotebook::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true) function, expected prototype:\nvoid wxAuiNotebook::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2526,8 +2410,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetScrollbar(int, int, int, int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -2537,8 +2420,7 @@ public:
 	// wxSize wxAuiNotebook::base_ClientToWindowSize(const wxSize & size) const
 	static int _bind_base_ClientToWindowSize(lua_State *L) {
 		if (!_lg_typecheck_base_ClientToWindowSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_ClientToWindowSize(const wxSize & size) const function, expected prototype:\nwxSize wxAuiNotebook::base_ClientToWindowSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_ClientToWindowSize(const wxSize & size) const function, expected prototype:\nwxSize wxAuiNotebook::base_ClientToWindowSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -2549,8 +2431,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_ClientToWindowSize(const wxSize &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2564,8 +2445,7 @@ public:
 	// wxSize wxAuiNotebook::base_WindowToClientSize(const wxSize & size) const
 	static int _bind_base_WindowToClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_WindowToClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_WindowToClientSize(const wxSize & size) const function, expected prototype:\nwxSize wxAuiNotebook::base_WindowToClientSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_WindowToClientSize(const wxSize & size) const function, expected prototype:\nwxSize wxAuiNotebook::base_WindowToClientSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -2576,8 +2456,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_WindowToClientSize(const wxSize &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -2591,15 +2470,13 @@ public:
 	// void wxAuiNotebook::base_Fit()
 	static int _bind_base_Fit(lua_State *L) {
 		if (!_lg_typecheck_base_Fit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_Fit() function, expected prototype:\nvoid wxAuiNotebook::base_Fit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_Fit() function, expected prototype:\nvoid wxAuiNotebook::base_Fit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Fit(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::Fit();
 
@@ -2609,15 +2486,13 @@ public:
 	// void wxAuiNotebook::base_FitInside()
 	static int _bind_base_FitInside(lua_State *L) {
 		if (!_lg_typecheck_base_FitInside(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_FitInside() function, expected prototype:\nvoid wxAuiNotebook::base_FitInside()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_FitInside() function, expected prototype:\nvoid wxAuiNotebook::base_FitInside()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_FitInside(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::FitInside();
 
@@ -2627,15 +2502,13 @@ public:
 	// wxSize wxAuiNotebook::base_GetEffectiveMinSize() const
 	static int _bind_base_GetEffectiveMinSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetEffectiveMinSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_GetEffectiveMinSize() const function, expected prototype:\nwxSize wxAuiNotebook::base_GetEffectiveMinSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_GetEffectiveMinSize() const function, expected prototype:\nwxSize wxAuiNotebook::base_GetEffectiveMinSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetEffectiveMinSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2649,15 +2522,13 @@ public:
 	// wxSize wxAuiNotebook::base_GetMaxClientSize() const
 	static int _bind_base_GetMaxClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMaxClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_GetMaxClientSize() const function, expected prototype:\nwxSize wxAuiNotebook::base_GetMaxClientSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_GetMaxClientSize() const function, expected prototype:\nwxSize wxAuiNotebook::base_GetMaxClientSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetMaxClientSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2671,15 +2542,13 @@ public:
 	// wxSize wxAuiNotebook::base_GetMaxSize() const
 	static int _bind_base_GetMaxSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMaxSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_GetMaxSize() const function, expected prototype:\nwxSize wxAuiNotebook::base_GetMaxSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_GetMaxSize() const function, expected prototype:\nwxSize wxAuiNotebook::base_GetMaxSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetMaxSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2693,15 +2562,13 @@ public:
 	// wxSize wxAuiNotebook::base_GetMinClientSize() const
 	static int _bind_base_GetMinClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMinClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_GetMinClientSize() const function, expected prototype:\nwxSize wxAuiNotebook::base_GetMinClientSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_GetMinClientSize() const function, expected prototype:\nwxSize wxAuiNotebook::base_GetMinClientSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetMinClientSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2715,15 +2582,13 @@ public:
 	// wxSize wxAuiNotebook::base_GetMinSize() const
 	static int _bind_base_GetMinSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMinSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_GetMinSize() const function, expected prototype:\nwxSize wxAuiNotebook::base_GetMinSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_GetMinSize() const function, expected prototype:\nwxSize wxAuiNotebook::base_GetMinSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetMinSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2737,15 +2602,13 @@ public:
 	// wxSize wxAuiNotebook::base_GetBestVirtualSize() const
 	static int _bind_base_GetBestVirtualSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetBestVirtualSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_GetBestVirtualSize() const function, expected prototype:\nwxSize wxAuiNotebook::base_GetBestVirtualSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_GetBestVirtualSize() const function, expected prototype:\nwxSize wxAuiNotebook::base_GetBestVirtualSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetBestVirtualSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2759,15 +2622,13 @@ public:
 	// wxSize wxAuiNotebook::base_GetWindowBorderSize() const
 	static int _bind_base_GetWindowBorderSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetWindowBorderSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_GetWindowBorderSize() const function, expected prototype:\nwxSize wxAuiNotebook::base_GetWindowBorderSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxAuiNotebook::base_GetWindowBorderSize() const function, expected prototype:\nwxSize wxAuiNotebook::base_GetWindowBorderSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxAuiNotebook::base_GetWindowBorderSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxAuiNotebook::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -2781,8 +2642,7 @@ public:
 	// bool wxAuiNotebook::base_InformFirstDirection(int direction, int size, int availableOtherDir)
 	static int _bind_base_InformFirstDirection(lua_State *L) {
 		if (!_lg_typecheck_base_InformFirstDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_InformFirstDirection(int direction, int size, int availableOtherDir) function, expected prototype:\nbool wxAuiNotebook::base_InformFirstDirection(int direction, int size, int availableOtherDir)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_InformFirstDirection(int direction, int size, int availableOtherDir) function, expected prototype:\nbool wxAuiNotebook::base_InformFirstDirection(int direction, int size, int availableOtherDir)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int direction=(int)lua_tointeger(L,2);
@@ -2791,8 +2651,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_InformFirstDirection(int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -2803,8 +2662,7 @@ public:
 	// void wxAuiNotebook::base_SendSizeEvent(int flags = 0)
 	static int _bind_base_SendSizeEvent(lua_State *L) {
 		if (!_lg_typecheck_base_SendSizeEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SendSizeEvent(int flags = 0) function, expected prototype:\nvoid wxAuiNotebook::base_SendSizeEvent(int flags = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SendSizeEvent(int flags = 0) function, expected prototype:\nvoid wxAuiNotebook::base_SendSizeEvent(int flags = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2813,8 +2671,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SendSizeEvent(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SendSizeEvent(flags);
 
@@ -2824,8 +2681,7 @@ public:
 	// void wxAuiNotebook::base_SetMaxClientSize(const wxSize & size)
 	static int _bind_base_SetMaxClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMaxClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetMaxClientSize(const wxSize & size) function, expected prototype:\nvoid wxAuiNotebook::base_SetMaxClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetMaxClientSize(const wxSize & size) function, expected prototype:\nvoid wxAuiNotebook::base_SetMaxClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -2836,8 +2692,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetMaxClientSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetMaxClientSize(size);
 
@@ -2847,8 +2702,7 @@ public:
 	// void wxAuiNotebook::base_SetMaxSize(const wxSize & size)
 	static int _bind_base_SetMaxSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMaxSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetMaxSize(const wxSize & size) function, expected prototype:\nvoid wxAuiNotebook::base_SetMaxSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetMaxSize(const wxSize & size) function, expected prototype:\nvoid wxAuiNotebook::base_SetMaxSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -2859,8 +2713,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetMaxSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetMaxSize(size);
 
@@ -2870,8 +2723,7 @@ public:
 	// void wxAuiNotebook::base_SetMinClientSize(const wxSize & size)
 	static int _bind_base_SetMinClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMinClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetMinClientSize(const wxSize & size) function, expected prototype:\nvoid wxAuiNotebook::base_SetMinClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetMinClientSize(const wxSize & size) function, expected prototype:\nvoid wxAuiNotebook::base_SetMinClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -2882,8 +2734,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetMinClientSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetMinClientSize(size);
 
@@ -2893,8 +2744,7 @@ public:
 	// void wxAuiNotebook::base_SetMinSize(const wxSize & size)
 	static int _bind_base_SetMinSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMinSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetMinSize(const wxSize & size) function, expected prototype:\nvoid wxAuiNotebook::base_SetMinSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetMinSize(const wxSize & size) function, expected prototype:\nvoid wxAuiNotebook::base_SetMinSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -2905,8 +2755,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetMinSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetMinSize(size);
 
@@ -2916,8 +2765,7 @@ public:
 	// void wxAuiNotebook::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)
 	static int _bind_base_SetSizeHints_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_SetSizeHints_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize) function, expected prototype:\nvoid wxAuiNotebook::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)\nClass arguments details:\narg 1 ID = 20268751\narg 2 ID = 20268751\narg 3 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize) function, expected prototype:\nvoid wxAuiNotebook::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)\nClass arguments details:\narg 1 ID = 20268751\narg 2 ID = 20268751\narg 3 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2940,8 +2788,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetSizeHints(minSize, maxSize, incSize);
 
@@ -2951,8 +2798,7 @@ public:
 	// void wxAuiNotebook::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)
 	static int _bind_base_SetSizeHints_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_SetSizeHints_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1) function, expected prototype:\nvoid wxAuiNotebook::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1) function, expected prototype:\nvoid wxAuiNotebook::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2966,8 +2812,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2986,15 +2831,13 @@ public:
 	// wxPoint wxAuiNotebook::base_GetClientAreaOrigin() const
 	static int _bind_base_GetClientAreaOrigin(lua_State *L) {
 		if (!_lg_typecheck_base_GetClientAreaOrigin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint wxAuiNotebook::base_GetClientAreaOrigin() const function, expected prototype:\nwxPoint wxAuiNotebook::base_GetClientAreaOrigin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint wxAuiNotebook::base_GetClientAreaOrigin() const function, expected prototype:\nwxPoint wxAuiNotebook::base_GetClientAreaOrigin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxAuiNotebook::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint wxAuiNotebook::base_GetClientAreaOrigin() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint stack_lret = self->wxAuiNotebook::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -3008,15 +2851,13 @@ public:
 	// void wxAuiNotebook::base_ClearBackground()
 	static int _bind_base_ClearBackground(lua_State *L) {
 		if (!_lg_typecheck_base_ClearBackground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_ClearBackground() function, expected prototype:\nvoid wxAuiNotebook::base_ClearBackground()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_ClearBackground() function, expected prototype:\nvoid wxAuiNotebook::base_ClearBackground()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_ClearBackground(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::ClearBackground();
 
@@ -3026,15 +2867,13 @@ public:
 	// wxBackgroundStyle wxAuiNotebook::base_GetBackgroundStyle() const
 	static int _bind_base_GetBackgroundStyle(lua_State *L) {
 		if (!_lg_typecheck_base_GetBackgroundStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBackgroundStyle wxAuiNotebook::base_GetBackgroundStyle() const function, expected prototype:\nwxBackgroundStyle wxAuiNotebook::base_GetBackgroundStyle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBackgroundStyle wxAuiNotebook::base_GetBackgroundStyle() const function, expected prototype:\nwxBackgroundStyle wxAuiNotebook::base_GetBackgroundStyle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxAuiNotebook::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxAuiNotebook::base_GetBackgroundStyle() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxBackgroundStyle lret = self->wxAuiNotebook::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -3045,15 +2884,13 @@ public:
 	// int wxAuiNotebook::base_GetCharHeight() const
 	static int _bind_base_GetCharHeight(lua_State *L) {
 		if (!_lg_typecheck_base_GetCharHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_GetCharHeight() const function, expected prototype:\nint wxAuiNotebook::base_GetCharHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_GetCharHeight() const function, expected prototype:\nint wxAuiNotebook::base_GetCharHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetCharHeight() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxAuiNotebook::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -3064,15 +2901,13 @@ public:
 	// int wxAuiNotebook::base_GetCharWidth() const
 	static int _bind_base_GetCharWidth(lua_State *L) {
 		if (!_lg_typecheck_base_GetCharWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_GetCharWidth() const function, expected prototype:\nint wxAuiNotebook::base_GetCharWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_GetCharWidth() const function, expected prototype:\nint wxAuiNotebook::base_GetCharWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetCharWidth() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxAuiNotebook::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -3083,15 +2918,13 @@ public:
 	// wxVisualAttributes wxAuiNotebook::base_GetDefaultAttributes() const
 	static int _bind_base_GetDefaultAttributes(lua_State *L) {
 		if (!_lg_typecheck_base_GetDefaultAttributes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxVisualAttributes wxAuiNotebook::base_GetDefaultAttributes() const function, expected prototype:\nwxVisualAttributes wxAuiNotebook::base_GetDefaultAttributes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxVisualAttributes wxAuiNotebook::base_GetDefaultAttributes() const function, expected prototype:\nwxVisualAttributes wxAuiNotebook::base_GetDefaultAttributes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxAuiNotebook::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxAuiNotebook::base_GetDefaultAttributes() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxVisualAttributes stack_lret = self->wxAuiNotebook::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -3105,8 +2938,7 @@ public:
 	// void wxAuiNotebook::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL)
 	static int _bind_base_Refresh(lua_State *L) {
 		if (!_lg_typecheck_base_Refresh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL) function, expected prototype:\nvoid wxAuiNotebook::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL)\nClass arguments details:\narg 2 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL) function, expected prototype:\nvoid wxAuiNotebook::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL)\nClass arguments details:\narg 2 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3116,8 +2948,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Refresh(bool, const wxRect *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::Refresh(eraseBackground, rect);
 
@@ -3127,15 +2958,13 @@ public:
 	// void wxAuiNotebook::base_Update()
 	static int _bind_base_Update(lua_State *L) {
 		if (!_lg_typecheck_base_Update(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_Update() function, expected prototype:\nvoid wxAuiNotebook::base_Update()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_Update() function, expected prototype:\nvoid wxAuiNotebook::base_Update()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Update(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::Update();
 
@@ -3145,16 +2974,14 @@ public:
 	// bool wxAuiNotebook::base_SetBackgroundStyle(wxBackgroundStyle style)
 	static int _bind_base_SetBackgroundStyle(lua_State *L) {
 		if (!_lg_typecheck_base_SetBackgroundStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_SetBackgroundStyle(wxBackgroundStyle style) function, expected prototype:\nbool wxAuiNotebook::base_SetBackgroundStyle(wxBackgroundStyle style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_SetBackgroundStyle(wxBackgroundStyle style) function, expected prototype:\nbool wxAuiNotebook::base_SetBackgroundStyle(wxBackgroundStyle style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxBackgroundStyle style=(wxBackgroundStyle)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -3165,15 +2992,13 @@ public:
 	// bool wxAuiNotebook::base_ShouldInheritColours() const
 	static int _bind_base_ShouldInheritColours(lua_State *L) {
 		if (!_lg_typecheck_base_ShouldInheritColours(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_ShouldInheritColours() const function, expected prototype:\nbool wxAuiNotebook::base_ShouldInheritColours() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_ShouldInheritColours() const function, expected prototype:\nbool wxAuiNotebook::base_ShouldInheritColours() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_ShouldInheritColours() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -3184,16 +3009,14 @@ public:
 	// void wxAuiNotebook::base_SetThemeEnabled(bool enable)
 	static int _bind_base_SetThemeEnabled(lua_State *L) {
 		if (!_lg_typecheck_base_SetThemeEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetThemeEnabled(bool enable) function, expected prototype:\nvoid wxAuiNotebook::base_SetThemeEnabled(bool enable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetThemeEnabled(bool enable) function, expected prototype:\nvoid wxAuiNotebook::base_SetThemeEnabled(bool enable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enable=(bool)(lua_toboolean(L,2)==1);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetThemeEnabled(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetThemeEnabled(enable);
 
@@ -3203,15 +3026,13 @@ public:
 	// bool wxAuiNotebook::base_GetThemeEnabled() const
 	static int _bind_base_GetThemeEnabled(lua_State *L) {
 		if (!_lg_typecheck_base_GetThemeEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_GetThemeEnabled() const function, expected prototype:\nbool wxAuiNotebook::base_GetThemeEnabled() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_GetThemeEnabled() const function, expected prototype:\nbool wxAuiNotebook::base_GetThemeEnabled() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_GetThemeEnabled() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -3222,15 +3043,13 @@ public:
 	// bool wxAuiNotebook::base_CanSetTransparent()
 	static int _bind_base_CanSetTransparent(lua_State *L) {
 		if (!_lg_typecheck_base_CanSetTransparent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_CanSetTransparent() function, expected prototype:\nbool wxAuiNotebook::base_CanSetTransparent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_CanSetTransparent() function, expected prototype:\nbool wxAuiNotebook::base_CanSetTransparent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_CanSetTransparent(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -3241,16 +3060,14 @@ public:
 	// bool wxAuiNotebook::base_SetTransparent(unsigned char alpha)
 	static int _bind_base_SetTransparent(lua_State *L) {
 		if (!_lg_typecheck_base_SetTransparent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_SetTransparent(unsigned char alpha) function, expected prototype:\nbool wxAuiNotebook::base_SetTransparent(unsigned char alpha)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_SetTransparent(unsigned char alpha) function, expected prototype:\nbool wxAuiNotebook::base_SetTransparent(unsigned char alpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char alpha = (unsigned char)(lua_tointeger(L,2));
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetTransparent(unsigned char). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -3261,16 +3078,14 @@ public:
 	// void wxAuiNotebook::base_SetNextHandler(wxEvtHandler * handler)
 	static int _bind_base_SetNextHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetNextHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxAuiNotebook::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxAuiNotebook::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetNextHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetNextHandler(handler);
 
@@ -3280,16 +3095,14 @@ public:
 	// void wxAuiNotebook::base_SetPreviousHandler(wxEvtHandler * handler)
 	static int _bind_base_SetPreviousHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxAuiNotebook::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxAuiNotebook::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetPreviousHandler(handler);
 
@@ -3299,15 +3112,13 @@ public:
 	// long wxAuiNotebook::base_GetWindowStyleFlag() const
 	static int _bind_base_GetWindowStyleFlag(lua_State *L) {
 		if (!_lg_typecheck_base_GetWindowStyleFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxAuiNotebook::base_GetWindowStyleFlag() const function, expected prototype:\nlong wxAuiNotebook::base_GetWindowStyleFlag() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxAuiNotebook::base_GetWindowStyleFlag() const function, expected prototype:\nlong wxAuiNotebook::base_GetWindowStyleFlag() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxAuiNotebook::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long wxAuiNotebook::base_GetWindowStyleFlag() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->wxAuiNotebook::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -3318,16 +3129,14 @@ public:
 	// void wxAuiNotebook::base_SetExtraStyle(long exStyle)
 	static int _bind_base_SetExtraStyle(lua_State *L) {
 		if (!_lg_typecheck_base_SetExtraStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetExtraStyle(long exStyle) function, expected prototype:\nvoid wxAuiNotebook::base_SetExtraStyle(long exStyle)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetExtraStyle(long exStyle) function, expected prototype:\nvoid wxAuiNotebook::base_SetExtraStyle(long exStyle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long exStyle=(long)lua_tointeger(L,2);
+		long exStyle=(long)lua_tonumber(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetExtraStyle(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetExtraStyle(exStyle);
 
@@ -3337,16 +3146,14 @@ public:
 	// void wxAuiNotebook::base_SetWindowStyleFlag(long style)
 	static int _bind_base_SetWindowStyleFlag(lua_State *L) {
 		if (!_lg_typecheck_base_SetWindowStyleFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetWindowStyleFlag(long style) function, expected prototype:\nvoid wxAuiNotebook::base_SetWindowStyleFlag(long style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetWindowStyleFlag(long style) function, expected prototype:\nvoid wxAuiNotebook::base_SetWindowStyleFlag(long style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long style=(long)lua_tointeger(L,2);
+		long style=(long)lua_tonumber(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetWindowStyleFlag(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetWindowStyleFlag(style);
 
@@ -3356,15 +3163,13 @@ public:
 	// void wxAuiNotebook::base_Lower()
 	static int _bind_base_Lower(lua_State *L) {
 		if (!_lg_typecheck_base_Lower(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_Lower() function, expected prototype:\nvoid wxAuiNotebook::base_Lower()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_Lower() function, expected prototype:\nvoid wxAuiNotebook::base_Lower()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Lower(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::Lower();
 
@@ -3374,15 +3179,13 @@ public:
 	// void wxAuiNotebook::base_Raise()
 	static int _bind_base_Raise(lua_State *L) {
 		if (!_lg_typecheck_base_Raise(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_Raise() function, expected prototype:\nvoid wxAuiNotebook::base_Raise()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_Raise() function, expected prototype:\nvoid wxAuiNotebook::base_Raise()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Raise(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::Raise();
 
@@ -3392,8 +3195,7 @@ public:
 	// bool wxAuiNotebook::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)
 	static int _bind_base_HideWithEffect(lua_State *L) {
 		if (!_lg_typecheck_base_HideWithEffect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxAuiNotebook::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxAuiNotebook::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3403,8 +3205,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -3415,15 +3216,13 @@ public:
 	// bool wxAuiNotebook::base_IsShown() const
 	static int _bind_base_IsShown(lua_State *L) {
 		if (!_lg_typecheck_base_IsShown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_IsShown() const function, expected prototype:\nbool wxAuiNotebook::base_IsShown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_IsShown() const function, expected prototype:\nbool wxAuiNotebook::base_IsShown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsShown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -3434,15 +3233,13 @@ public:
 	// bool wxAuiNotebook::base_IsShownOnScreen() const
 	static int _bind_base_IsShownOnScreen(lua_State *L) {
 		if (!_lg_typecheck_base_IsShownOnScreen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_IsShownOnScreen() const function, expected prototype:\nbool wxAuiNotebook::base_IsShownOnScreen() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_IsShownOnScreen() const function, expected prototype:\nbool wxAuiNotebook::base_IsShownOnScreen() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsShownOnScreen() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -3453,8 +3250,7 @@ public:
 	// bool wxAuiNotebook::base_Enable(bool enable = true)
 	static int _bind_base_Enable(lua_State *L) {
 		if (!_lg_typecheck_base_Enable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_Enable(bool enable = true) function, expected prototype:\nbool wxAuiNotebook::base_Enable(bool enable = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_Enable(bool enable = true) function, expected prototype:\nbool wxAuiNotebook::base_Enable(bool enable = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3463,8 +3259,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Enable(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -3475,8 +3270,7 @@ public:
 	// bool wxAuiNotebook::base_Show(bool show = true)
 	static int _bind_base_Show(lua_State *L) {
 		if (!_lg_typecheck_base_Show(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_Show(bool show = true) function, expected prototype:\nbool wxAuiNotebook::base_Show(bool show = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_Show(bool show = true) function, expected prototype:\nbool wxAuiNotebook::base_Show(bool show = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3485,8 +3279,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Show(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -3497,8 +3290,7 @@ public:
 	// bool wxAuiNotebook::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)
 	static int _bind_base_ShowWithEffect(lua_State *L) {
 		if (!_lg_typecheck_base_ShowWithEffect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxAuiNotebook::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxAuiNotebook::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3508,8 +3300,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -3520,8 +3311,7 @@ public:
 	// wxString wxAuiNotebook::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const
 	static int _bind_base_GetHelpTextAtPoint(lua_State *L) {
 		if (!_lg_typecheck_base_GetHelpTextAtPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxAuiNotebook::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const function, expected prototype:\nwxString wxAuiNotebook::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const\nClass arguments details:\narg 1 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in wxString wxAuiNotebook::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const function, expected prototype:\nwxString wxAuiNotebook::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* point_ptr=(Luna< wxPoint >::check(L,2));
@@ -3533,8 +3323,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxAuiNotebook::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3545,15 +3334,13 @@ public:
 	// wxValidator * wxAuiNotebook::base_GetValidator()
 	static int _bind_base_GetValidator(lua_State *L) {
 		if (!_lg_typecheck_base_GetValidator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxValidator * wxAuiNotebook::base_GetValidator() function, expected prototype:\nwxValidator * wxAuiNotebook::base_GetValidator()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxValidator * wxAuiNotebook::base_GetValidator() function, expected prototype:\nwxValidator * wxAuiNotebook::base_GetValidator()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxAuiNotebook::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxValidator * wxAuiNotebook::base_GetValidator(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxValidator * lret = self->wxAuiNotebook::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3566,8 +3353,7 @@ public:
 	// void wxAuiNotebook::base_SetValidator(const wxValidator & validator)
 	static int _bind_base_SetValidator(lua_State *L) {
 		if (!_lg_typecheck_base_SetValidator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetValidator(const wxValidator & validator) function, expected prototype:\nvoid wxAuiNotebook::base_SetValidator(const wxValidator & validator)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetValidator(const wxValidator & validator) function, expected prototype:\nvoid wxAuiNotebook::base_SetValidator(const wxValidator & validator)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxValidator* validator_ptr=(Luna< wxObject >::checkSubType< wxValidator >(L,2));
@@ -3578,8 +3364,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetValidator(const wxValidator &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetValidator(validator);
 
@@ -3589,15 +3374,13 @@ public:
 	// bool wxAuiNotebook::base_TransferDataFromWindow()
 	static int _bind_base_TransferDataFromWindow(lua_State *L) {
 		if (!_lg_typecheck_base_TransferDataFromWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_TransferDataFromWindow() function, expected prototype:\nbool wxAuiNotebook::base_TransferDataFromWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_TransferDataFromWindow() function, expected prototype:\nbool wxAuiNotebook::base_TransferDataFromWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_TransferDataFromWindow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3608,15 +3391,13 @@ public:
 	// bool wxAuiNotebook::base_TransferDataToWindow()
 	static int _bind_base_TransferDataToWindow(lua_State *L) {
 		if (!_lg_typecheck_base_TransferDataToWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_TransferDataToWindow() function, expected prototype:\nbool wxAuiNotebook::base_TransferDataToWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_TransferDataToWindow() function, expected prototype:\nbool wxAuiNotebook::base_TransferDataToWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_TransferDataToWindow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -3627,15 +3408,13 @@ public:
 	// bool wxAuiNotebook::base_Validate()
 	static int _bind_base_Validate(lua_State *L) {
 		if (!_lg_typecheck_base_Validate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_Validate() function, expected prototype:\nbool wxAuiNotebook::base_Validate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_Validate() function, expected prototype:\nbool wxAuiNotebook::base_Validate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Validate(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -3646,15 +3425,13 @@ public:
 	// wxLayoutDirection wxAuiNotebook::base_GetLayoutDirection() const
 	static int _bind_base_GetLayoutDirection(lua_State *L) {
 		if (!_lg_typecheck_base_GetLayoutDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxLayoutDirection wxAuiNotebook::base_GetLayoutDirection() const function, expected prototype:\nwxLayoutDirection wxAuiNotebook::base_GetLayoutDirection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxLayoutDirection wxAuiNotebook::base_GetLayoutDirection() const function, expected prototype:\nwxLayoutDirection wxAuiNotebook::base_GetLayoutDirection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxAuiNotebook::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxAuiNotebook::base_GetLayoutDirection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxLayoutDirection lret = self->wxAuiNotebook::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -3665,15 +3442,13 @@ public:
 	// wxString wxAuiNotebook::base_GetName() const
 	static int _bind_base_GetName(lua_State *L) {
 		if (!_lg_typecheck_base_GetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxAuiNotebook::base_GetName() const function, expected prototype:\nwxString wxAuiNotebook::base_GetName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxAuiNotebook::base_GetName() const function, expected prototype:\nwxString wxAuiNotebook::base_GetName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::base_GetName() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxAuiNotebook::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3684,16 +3459,14 @@ public:
 	// void wxAuiNotebook::base_SetLayoutDirection(wxLayoutDirection dir)
 	static int _bind_base_SetLayoutDirection(lua_State *L) {
 		if (!_lg_typecheck_base_SetLayoutDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetLayoutDirection(wxLayoutDirection dir) function, expected prototype:\nvoid wxAuiNotebook::base_SetLayoutDirection(wxLayoutDirection dir)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetLayoutDirection(wxLayoutDirection dir) function, expected prototype:\nvoid wxAuiNotebook::base_SetLayoutDirection(wxLayoutDirection dir)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLayoutDirection dir=(wxLayoutDirection)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetLayoutDirection(dir);
 
@@ -3703,16 +3476,14 @@ public:
 	// void wxAuiNotebook::base_SetName(const wxString & name)
 	static int _bind_base_SetName(lua_State *L) {
 		if (!_lg_typecheck_base_SetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetName(const wxString & name) function, expected prototype:\nvoid wxAuiNotebook::base_SetName(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetName(const wxString & name) function, expected prototype:\nvoid wxAuiNotebook::base_SetName(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetName(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetName(name);
 
@@ -3722,8 +3493,7 @@ public:
 	// void wxAuiNotebook::base_SetAcceleratorTable(const wxAcceleratorTable & accel)
 	static int _bind_base_SetAcceleratorTable(lua_State *L) {
 		if (!_lg_typecheck_base_SetAcceleratorTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetAcceleratorTable(const wxAcceleratorTable & accel) function, expected prototype:\nvoid wxAuiNotebook::base_SetAcceleratorTable(const wxAcceleratorTable & accel)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetAcceleratorTable(const wxAcceleratorTable & accel) function, expected prototype:\nvoid wxAuiNotebook::base_SetAcceleratorTable(const wxAcceleratorTable & accel)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxAcceleratorTable* accel_ptr=(Luna< wxObject >::checkSubType< wxAcceleratorTable >(L,2));
@@ -3734,8 +3504,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetAcceleratorTable(accel);
 
@@ -3745,15 +3514,13 @@ public:
 	// bool wxAuiNotebook::base_Destroy()
 	static int _bind_base_Destroy(lua_State *L) {
 		if (!_lg_typecheck_base_Destroy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_Destroy() function, expected prototype:\nbool wxAuiNotebook::base_Destroy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_Destroy() function, expected prototype:\nbool wxAuiNotebook::base_Destroy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Destroy(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -3764,15 +3531,13 @@ public:
 	// wxDropTarget * wxAuiNotebook::base_GetDropTarget() const
 	static int _bind_base_GetDropTarget(lua_State *L) {
 		if (!_lg_typecheck_base_GetDropTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDropTarget * wxAuiNotebook::base_GetDropTarget() const function, expected prototype:\nwxDropTarget * wxAuiNotebook::base_GetDropTarget() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDropTarget * wxAuiNotebook::base_GetDropTarget() const function, expected prototype:\nwxDropTarget * wxAuiNotebook::base_GetDropTarget() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxAuiNotebook::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxAuiNotebook::base_GetDropTarget() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDropTarget * lret = self->wxAuiNotebook::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3785,16 +3550,14 @@ public:
 	// void wxAuiNotebook::base_SetDropTarget(wxDropTarget * target)
 	static int _bind_base_SetDropTarget(lua_State *L) {
 		if (!_lg_typecheck_base_SetDropTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetDropTarget(wxDropTarget * target) function, expected prototype:\nvoid wxAuiNotebook::base_SetDropTarget(wxDropTarget * target)\nClass arguments details:\narg 1 ID = 93694316\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetDropTarget(wxDropTarget * target) function, expected prototype:\nvoid wxAuiNotebook::base_SetDropTarget(wxDropTarget * target)\nClass arguments details:\narg 1 ID = 93694316\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDropTarget* target=(Luna< wxDropTarget >::check(L,2));
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetDropTarget(wxDropTarget *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetDropTarget(target);
 
@@ -3804,16 +3567,14 @@ public:
 	// void wxAuiNotebook::base_DragAcceptFiles(bool accept)
 	static int _bind_base_DragAcceptFiles(lua_State *L) {
 		if (!_lg_typecheck_base_DragAcceptFiles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_DragAcceptFiles(bool accept) function, expected prototype:\nvoid wxAuiNotebook::base_DragAcceptFiles(bool accept)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_DragAcceptFiles(bool accept) function, expected prototype:\nvoid wxAuiNotebook::base_DragAcceptFiles(bool accept)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool accept=(bool)(lua_toboolean(L,2)==1);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_DragAcceptFiles(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::DragAcceptFiles(accept);
 
@@ -3823,15 +3584,13 @@ public:
 	// bool wxAuiNotebook::base_Layout()
 	static int _bind_base_Layout(lua_State *L) {
 		if (!_lg_typecheck_base_Layout(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_Layout() function, expected prototype:\nbool wxAuiNotebook::base_Layout()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_Layout() function, expected prototype:\nbool wxAuiNotebook::base_Layout()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_Layout(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -3842,15 +3601,13 @@ public:
 	// bool wxAuiNotebook::base_HasCapture() const
 	static int _bind_base_HasCapture(lua_State *L) {
 		if (!_lg_typecheck_base_HasCapture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_HasCapture() const function, expected prototype:\nbool wxAuiNotebook::base_HasCapture() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_HasCapture() const function, expected prototype:\nbool wxAuiNotebook::base_HasCapture() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_HasCapture() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -3861,8 +3618,7 @@ public:
 	// bool wxAuiNotebook::base_SetCursor(const wxCursor & cursor)
 	static int _bind_base_SetCursor(lua_State *L) {
 		if (!_lg_typecheck_base_SetCursor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_SetCursor(const wxCursor & cursor) function, expected prototype:\nbool wxAuiNotebook::base_SetCursor(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_SetCursor(const wxCursor & cursor) function, expected prototype:\nbool wxAuiNotebook::base_SetCursor(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxCursor* cursor_ptr=(Luna< wxObject >::checkSubType< wxCursor >(L,2));
@@ -3873,8 +3629,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetCursor(const wxCursor &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -3885,8 +3640,7 @@ public:
 	// void wxAuiNotebook::base_WarpPointer(int x, int y)
 	static int _bind_base_WarpPointer(lua_State *L) {
 		if (!_lg_typecheck_base_WarpPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_WarpPointer(int x, int y) function, expected prototype:\nvoid wxAuiNotebook::base_WarpPointer(int x, int y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_WarpPointer(int x, int y) function, expected prototype:\nvoid wxAuiNotebook::base_WarpPointer(int x, int y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,2);
@@ -3894,8 +3648,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_WarpPointer(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::WarpPointer(x, y);
 
@@ -3905,8 +3658,7 @@ public:
 	// void wxAuiNotebook::base_DoUpdateWindowUI(wxUpdateUIEvent & event)
 	static int _bind_base_DoUpdateWindowUI(lua_State *L) {
 		if (!_lg_typecheck_base_DoUpdateWindowUI(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_DoUpdateWindowUI(wxUpdateUIEvent & event) function, expected prototype:\nvoid wxAuiNotebook::base_DoUpdateWindowUI(wxUpdateUIEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_DoUpdateWindowUI(wxUpdateUIEvent & event) function, expected prototype:\nvoid wxAuiNotebook::base_DoUpdateWindowUI(wxUpdateUIEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxUpdateUIEvent* event_ptr=(Luna< wxObject >::checkSubType< wxUpdateUIEvent >(L,2));
@@ -3917,8 +3669,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::DoUpdateWindowUI(event);
 
@@ -3928,15 +3679,13 @@ public:
 	// bool wxAuiNotebook::base_HasMultiplePages() const
 	static int _bind_base_HasMultiplePages(lua_State *L) {
 		if (!_lg_typecheck_base_HasMultiplePages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_HasMultiplePages() const function, expected prototype:\nbool wxAuiNotebook::base_HasMultiplePages() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_HasMultiplePages() const function, expected prototype:\nbool wxAuiNotebook::base_HasMultiplePages() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_HasMultiplePages() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3947,15 +3696,13 @@ public:
 	// void wxAuiNotebook::base_InheritAttributes()
 	static int _bind_base_InheritAttributes(lua_State *L) {
 		if (!_lg_typecheck_base_InheritAttributes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_InheritAttributes() function, expected prototype:\nvoid wxAuiNotebook::base_InheritAttributes()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_InheritAttributes() function, expected prototype:\nvoid wxAuiNotebook::base_InheritAttributes()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_InheritAttributes(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::InheritAttributes();
 
@@ -3965,15 +3712,13 @@ public:
 	// void wxAuiNotebook::base_InitDialog()
 	static int _bind_base_InitDialog(lua_State *L) {
 		if (!_lg_typecheck_base_InitDialog(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_InitDialog() function, expected prototype:\nvoid wxAuiNotebook::base_InitDialog()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_InitDialog() function, expected prototype:\nvoid wxAuiNotebook::base_InitDialog()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_InitDialog(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::InitDialog();
 
@@ -3983,15 +3728,13 @@ public:
 	// bool wxAuiNotebook::base_IsRetained() const
 	static int _bind_base_IsRetained(lua_State *L) {
 		if (!_lg_typecheck_base_IsRetained(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_IsRetained() const function, expected prototype:\nbool wxAuiNotebook::base_IsRetained() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_IsRetained() const function, expected prototype:\nbool wxAuiNotebook::base_IsRetained() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsRetained() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -4002,15 +3745,13 @@ public:
 	// bool wxAuiNotebook::base_IsTopLevel() const
 	static int _bind_base_IsTopLevel(lua_State *L) {
 		if (!_lg_typecheck_base_IsTopLevel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_IsTopLevel() const function, expected prototype:\nbool wxAuiNotebook::base_IsTopLevel() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_IsTopLevel() const function, expected prototype:\nbool wxAuiNotebook::base_IsTopLevel() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_IsTopLevel() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -4021,8 +3762,7 @@ public:
 	// void wxAuiNotebook::base_MakeModal(bool modal = true)
 	static int _bind_base_MakeModal(lua_State *L) {
 		if (!_lg_typecheck_base_MakeModal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_MakeModal(bool modal = true) function, expected prototype:\nvoid wxAuiNotebook::base_MakeModal(bool modal = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_MakeModal(bool modal = true) function, expected prototype:\nvoid wxAuiNotebook::base_MakeModal(bool modal = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -4031,8 +3771,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_MakeModal(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::MakeModal(modal);
 
@@ -4042,15 +3781,13 @@ public:
 	// void wxAuiNotebook::base_OnInternalIdle()
 	static int _bind_base_OnInternalIdle(lua_State *L) {
 		if (!_lg_typecheck_base_OnInternalIdle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_OnInternalIdle() function, expected prototype:\nvoid wxAuiNotebook::base_OnInternalIdle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_OnInternalIdle() function, expected prototype:\nvoid wxAuiNotebook::base_OnInternalIdle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_OnInternalIdle(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::OnInternalIdle();
 
@@ -4060,8 +3797,7 @@ public:
 	// bool wxAuiNotebook::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)
 	static int _bind_base_RegisterHotKey(lua_State *L) {
 		if (!_lg_typecheck_base_RegisterHotKey(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode) function, expected prototype:\nbool wxAuiNotebook::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode) function, expected prototype:\nbool wxAuiNotebook::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int hotkeyId=(int)lua_tointeger(L,2);
@@ -4070,8 +3806,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_RegisterHotKey(int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -4082,16 +3817,14 @@ public:
 	// bool wxAuiNotebook::base_UnregisterHotKey(int hotkeyId)
 	static int _bind_base_UnregisterHotKey(lua_State *L) {
 		if (!_lg_typecheck_base_UnregisterHotKey(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_UnregisterHotKey(int hotkeyId) function, expected prototype:\nbool wxAuiNotebook::base_UnregisterHotKey(int hotkeyId)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_UnregisterHotKey(int hotkeyId) function, expected prototype:\nbool wxAuiNotebook::base_UnregisterHotKey(int hotkeyId)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int hotkeyId=(int)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_UnregisterHotKey(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -4102,18 +3835,16 @@ public:
 	// void wxAuiNotebook::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)
 	static int _bind_base_UpdateWindowUI(lua_State *L) {
 		if (!_lg_typecheck_base_UpdateWindowUI(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE) function, expected prototype:\nvoid wxAuiNotebook::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE) function, expected prototype:\nvoid wxAuiNotebook::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxUPDATE_UI_NONE;
+		long flags=luatop>1 ? (long)lua_tonumber(L,2) : (long)::wxUPDATE_UI_NONE;
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_UpdateWindowUI(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::UpdateWindowUI(flags);
 
@@ -4123,8 +3854,7 @@ public:
 	// void wxAuiNotebook::base_Command(wxCommandEvent & event)
 	static int _bind_base_Command(lua_State *L) {
 		if (!_lg_typecheck_base_Command(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_Command(wxCommandEvent & event) function, expected prototype:\nvoid wxAuiNotebook::base_Command(wxCommandEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_Command(wxCommandEvent & event) function, expected prototype:\nvoid wxAuiNotebook::base_Command(wxCommandEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCommandEvent* event_ptr=(Luna< wxObject >::checkSubType< wxCommandEvent >(L,2));
@@ -4135,8 +3865,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Command(wxCommandEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::Command(event);
 
@@ -4146,15 +3875,13 @@ public:
 	// wxString wxAuiNotebook::base_GetLabel() const
 	static int _bind_base_GetLabel(lua_State *L) {
 		if (!_lg_typecheck_base_GetLabel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxAuiNotebook::base_GetLabel() const function, expected prototype:\nwxString wxAuiNotebook::base_GetLabel() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxAuiNotebook::base_GetLabel() const function, expected prototype:\nwxString wxAuiNotebook::base_GetLabel() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::base_GetLabel() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxAuiNotebook::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4165,16 +3892,14 @@ public:
 	// void wxAuiNotebook::base_SetLabel(const wxString & label)
 	static int _bind_base_SetLabel(lua_State *L) {
 		if (!_lg_typecheck_base_SetLabel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetLabel(const wxString & label) function, expected prototype:\nvoid wxAuiNotebook::base_SetLabel(const wxString & label)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetLabel(const wxString & label) function, expected prototype:\nvoid wxAuiNotebook::base_SetLabel(const wxString & label)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetLabel(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetLabel(label);
 
@@ -4184,16 +3909,14 @@ public:
 	// void wxAuiNotebook::base_SetImageList(wxImageList * imageList)
 	static int _bind_base_SetImageList(lua_State *L) {
 		if (!_lg_typecheck_base_SetImageList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetImageList(wxImageList * imageList) function, expected prototype:\nvoid wxAuiNotebook::base_SetImageList(wxImageList * imageList)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetImageList(wxImageList * imageList) function, expected prototype:\nvoid wxAuiNotebook::base_SetImageList(wxImageList * imageList)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxImageList* imageList=(Luna< wxObject >::checkSubType< wxImageList >(L,2));
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetImageList(wxImageList *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetImageList(wxImageList *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetImageList(imageList);
 
@@ -4203,8 +3926,7 @@ public:
 	// void wxAuiNotebook::base_SetPageSize(const wxSize & size)
 	static int _bind_base_SetPageSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetPageSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetPageSize(const wxSize & size) function, expected prototype:\nvoid wxAuiNotebook::base_SetPageSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetPageSize(const wxSize & size) function, expected prototype:\nvoid wxAuiNotebook::base_SetPageSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -4215,8 +3937,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetPageSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetPageSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetPageSize(size);
 
@@ -4226,8 +3947,7 @@ public:
 	// int wxAuiNotebook::base_HitTest(const wxPoint & pt, long * flags = NULL) const
 	static int _bind_base_HitTest(lua_State *L) {
 		if (!_lg_typecheck_base_HitTest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_HitTest(const wxPoint & pt, long * flags = NULL) const function, expected prototype:\nint wxAuiNotebook::base_HitTest(const wxPoint & pt, long * flags = NULL) const\nClass arguments details:\narg 1 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_HitTest(const wxPoint & pt, long * flags = NULL) const function, expected prototype:\nint wxAuiNotebook::base_HitTest(const wxPoint & pt, long * flags = NULL) const\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -4241,8 +3961,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_HitTest(const wxPoint &, long *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_HitTest(const wxPoint &, long *) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxAuiNotebook::HitTest(pt, flags);
 		lua_pushnumber(L,lret);
@@ -4253,16 +3972,14 @@ public:
 	// int wxAuiNotebook::base_GetPageImage(size_t nPage) const
 	static int _bind_base_GetPageImage(lua_State *L) {
 		if (!_lg_typecheck_base_GetPageImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_GetPageImage(size_t nPage) const function, expected prototype:\nint wxAuiNotebook::base_GetPageImage(size_t nPage) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_GetPageImage(size_t nPage) const function, expected prototype:\nint wxAuiNotebook::base_GetPageImage(size_t nPage) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t nPage=(size_t)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetPageImage(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetPageImage(size_t) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxAuiNotebook::GetPageImage(nPage);
 		lua_pushnumber(L,lret);
@@ -4273,8 +3990,7 @@ public:
 	// bool wxAuiNotebook::base_AddPage(wxWindow * page, const wxString & text, bool select, int imageId)
 	static int _bind_base_AddPage(lua_State *L) {
 		if (!_lg_typecheck_base_AddPage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_AddPage(wxWindow * page, const wxString & text, bool select, int imageId) function, expected prototype:\nbool wxAuiNotebook::base_AddPage(wxWindow * page, const wxString & text, bool select, int imageId)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_AddPage(wxWindow * page, const wxString & text, bool select, int imageId) function, expected prototype:\nbool wxAuiNotebook::base_AddPage(wxWindow * page, const wxString & text, bool select, int imageId)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* page=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
@@ -4284,8 +4000,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_AddPage(wxWindow *, const wxString &, bool, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_AddPage(wxWindow *, const wxString &, bool, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::AddPage(page, text, select, imageId);
 		lua_pushboolean(L,lret?1:0);
@@ -4296,16 +4011,14 @@ public:
 	// int wxAuiNotebook::base_ChangeSelection(size_t n)
 	static int _bind_base_ChangeSelection(lua_State *L) {
 		if (!_lg_typecheck_base_ChangeSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_ChangeSelection(size_t n) function, expected prototype:\nint wxAuiNotebook::base_ChangeSelection(size_t n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_ChangeSelection(size_t n) function, expected prototype:\nint wxAuiNotebook::base_ChangeSelection(size_t n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t n=(size_t)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_ChangeSelection(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_ChangeSelection(size_t). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxAuiNotebook::ChangeSelection(n);
 		lua_pushnumber(L,lret);
@@ -4316,15 +4029,13 @@ public:
 	// bool wxAuiNotebook::base_DeleteAllPages()
 	static int _bind_base_DeleteAllPages(lua_State *L) {
 		if (!_lg_typecheck_base_DeleteAllPages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_DeleteAllPages() function, expected prototype:\nbool wxAuiNotebook::base_DeleteAllPages()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_DeleteAllPages() function, expected prototype:\nbool wxAuiNotebook::base_DeleteAllPages()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_DeleteAllPages(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_DeleteAllPages(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::DeleteAllPages();
 		lua_pushboolean(L,lret?1:0);
@@ -4335,16 +4046,14 @@ public:
 	// bool wxAuiNotebook::base_DeletePage(size_t page)
 	static int _bind_base_DeletePage(lua_State *L) {
 		if (!_lg_typecheck_base_DeletePage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_DeletePage(size_t page) function, expected prototype:\nbool wxAuiNotebook::base_DeletePage(size_t page)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_DeletePage(size_t page) function, expected prototype:\nbool wxAuiNotebook::base_DeletePage(size_t page)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t page=(size_t)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_DeletePage(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_DeletePage(size_t). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::DeletePage(page);
 		lua_pushboolean(L,lret?1:0);
@@ -4355,15 +4064,13 @@ public:
 	// size_t wxAuiNotebook::base_GetPageCount() const
 	static int _bind_base_GetPageCount(lua_State *L) {
 		if (!_lg_typecheck_base_GetPageCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxAuiNotebook::base_GetPageCount() const function, expected prototype:\nsize_t wxAuiNotebook::base_GetPageCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxAuiNotebook::base_GetPageCount() const function, expected prototype:\nsize_t wxAuiNotebook::base_GetPageCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxAuiNotebook::base_GetPageCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxAuiNotebook::base_GetPageCount() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->wxAuiNotebook::GetPageCount();
 		lua_pushnumber(L,lret);
@@ -4374,16 +4081,14 @@ public:
 	// wxString wxAuiNotebook::base_GetPageText(size_t page) const
 	static int _bind_base_GetPageText(lua_State *L) {
 		if (!_lg_typecheck_base_GetPageText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxAuiNotebook::base_GetPageText(size_t page) const function, expected prototype:\nwxString wxAuiNotebook::base_GetPageText(size_t page) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxAuiNotebook::base_GetPageText(size_t page) const function, expected prototype:\nwxString wxAuiNotebook::base_GetPageText(size_t page) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t page=(size_t)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::base_GetPageText(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxAuiNotebook::base_GetPageText(size_t) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxAuiNotebook::GetPageText(page);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -4394,15 +4099,13 @@ public:
 	// int wxAuiNotebook::base_GetSelection() const
 	static int _bind_base_GetSelection(lua_State *L) {
 		if (!_lg_typecheck_base_GetSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_GetSelection() const function, expected prototype:\nint wxAuiNotebook::base_GetSelection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_GetSelection() const function, expected prototype:\nint wxAuiNotebook::base_GetSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_GetSelection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxAuiNotebook::GetSelection();
 		lua_pushnumber(L,lret);
@@ -4413,8 +4116,7 @@ public:
 	// bool wxAuiNotebook::base_InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE)
 	static int _bind_base_InsertPage(lua_State *L) {
 		if (!_lg_typecheck_base_InsertPage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE) function, expected prototype:\nbool wxAuiNotebook::base_InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE) function, expected prototype:\nbool wxAuiNotebook::base_InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -4427,8 +4129,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_InsertPage(size_t, wxWindow *, const wxString &, bool, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_InsertPage(size_t, wxWindow *, const wxString &, bool, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::InsertPage(index, page, text, select, imageId);
 		lua_pushboolean(L,lret?1:0);
@@ -4439,16 +4140,14 @@ public:
 	// bool wxAuiNotebook::base_RemovePage(size_t page)
 	static int _bind_base_RemovePage(lua_State *L) {
 		if (!_lg_typecheck_base_RemovePage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_RemovePage(size_t page) function, expected prototype:\nbool wxAuiNotebook::base_RemovePage(size_t page)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_RemovePage(size_t page) function, expected prototype:\nbool wxAuiNotebook::base_RemovePage(size_t page)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t page=(size_t)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_RemovePage(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_RemovePage(size_t). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::RemovePage(page);
 		lua_pushboolean(L,lret?1:0);
@@ -4459,8 +4158,7 @@ public:
 	// bool wxAuiNotebook::base_SetFont(const wxFont & font)
 	static int _bind_base_SetFont(lua_State *L) {
 		if (!_lg_typecheck_base_SetFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_SetFont(const wxFont & font) function, expected prototype:\nbool wxAuiNotebook::base_SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_SetFont(const wxFont & font) function, expected prototype:\nbool wxAuiNotebook::base_SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -4471,8 +4169,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -4483,8 +4180,7 @@ public:
 	// bool wxAuiNotebook::base_SetPageImage(size_t n, int imageId)
 	static int _bind_base_SetPageImage(lua_State *L) {
 		if (!_lg_typecheck_base_SetPageImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_SetPageImage(size_t n, int imageId) function, expected prototype:\nbool wxAuiNotebook::base_SetPageImage(size_t n, int imageId)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_SetPageImage(size_t n, int imageId) function, expected prototype:\nbool wxAuiNotebook::base_SetPageImage(size_t n, int imageId)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t n=(size_t)lua_tointeger(L,2);
@@ -4492,8 +4188,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetPageImage(size_t, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetPageImage(size_t, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::SetPageImage(n, imageId);
 		lua_pushboolean(L,lret?1:0);
@@ -4504,8 +4199,7 @@ public:
 	// bool wxAuiNotebook::base_SetPageText(size_t page, const wxString & text)
 	static int _bind_base_SetPageText(lua_State *L) {
 		if (!_lg_typecheck_base_SetPageText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_SetPageText(size_t page, const wxString & text) function, expected prototype:\nbool wxAuiNotebook::base_SetPageText(size_t page, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiNotebook::base_SetPageText(size_t page, const wxString & text) function, expected prototype:\nbool wxAuiNotebook::base_SetPageText(size_t page, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t page=(size_t)lua_tointeger(L,2);
@@ -4513,8 +4207,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetPageText(size_t, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiNotebook::base_SetPageText(size_t, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiNotebook::SetPageText(page, text);
 		lua_pushboolean(L,lret?1:0);
@@ -4525,16 +4218,14 @@ public:
 	// int wxAuiNotebook::base_SetSelection(size_t new_page)
 	static int _bind_base_SetSelection(lua_State *L) {
 		if (!_lg_typecheck_base_SetSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_SetSelection(size_t new_page) function, expected prototype:\nint wxAuiNotebook::base_SetSelection(size_t new_page)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxAuiNotebook::base_SetSelection(size_t new_page) function, expected prototype:\nint wxAuiNotebook::base_SetSelection(size_t new_page)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t new_page=(size_t)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_SetSelection(size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxAuiNotebook::base_SetSelection(size_t). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxAuiNotebook::SetSelection(new_page);
 		lua_pushnumber(L,lret);
@@ -4545,16 +4236,14 @@ public:
 	// void wxAuiNotebook::base_SetTabCtrlHeight(int height)
 	static int _bind_base_SetTabCtrlHeight(lua_State *L) {
 		if (!_lg_typecheck_base_SetTabCtrlHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetTabCtrlHeight(int height) function, expected prototype:\nvoid wxAuiNotebook::base_SetTabCtrlHeight(int height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetTabCtrlHeight(int height) function, expected prototype:\nvoid wxAuiNotebook::base_SetTabCtrlHeight(int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int height=(int)lua_tointeger(L,2);
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetTabCtrlHeight(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetTabCtrlHeight(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetTabCtrlHeight(height);
 
@@ -4564,8 +4253,7 @@ public:
 	// void wxAuiNotebook::base_SetUniformBitmapSize(const wxSize & size)
 	static int _bind_base_SetUniformBitmapSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetUniformBitmapSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetUniformBitmapSize(const wxSize & size) function, expected prototype:\nvoid wxAuiNotebook::base_SetUniformBitmapSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_SetUniformBitmapSize(const wxSize & size) function, expected prototype:\nvoid wxAuiNotebook::base_SetUniformBitmapSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -4576,8 +4264,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetUniformBitmapSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_SetUniformBitmapSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::SetUniformBitmapSize(size);
 
@@ -4587,8 +4274,7 @@ public:
 	// void wxAuiNotebook::base_Split(size_t page, int direction)
 	static int _bind_base_Split(lua_State *L) {
 		if (!_lg_typecheck_base_Split(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_Split(size_t page, int direction) function, expected prototype:\nvoid wxAuiNotebook::base_Split(size_t page, int direction)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiNotebook::base_Split(size_t page, int direction) function, expected prototype:\nvoid wxAuiNotebook::base_Split(size_t page, int direction)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t page=(size_t)lua_tointeger(L,2);
@@ -4596,8 +4282,7 @@ public:
 
 		wxAuiNotebook* self=Luna< wxObject >::checkSubType< wxAuiNotebook >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Split(size_t, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiNotebook::base_Split(size_t, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiNotebook::Split(page, direction);
 

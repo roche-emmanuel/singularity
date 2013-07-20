@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxStackFrame*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxStackFrame*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxStackFrame* rhs =(Luna< wxStackFrame >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxStackFrame* self= (wxStackFrame*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxStackFrame >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -218,15 +213,13 @@ public:
 	// void * wxStackFrame::GetAddress() const
 	static int _bind_GetAddress(lua_State *L) {
 		if (!_lg_typecheck_GetAddress(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * wxStackFrame::GetAddress() const function, expected prototype:\nvoid * wxStackFrame::GetAddress() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * wxStackFrame::GetAddress() const function, expected prototype:\nvoid * wxStackFrame::GetAddress() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxStackFrame::GetAddress() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * wxStackFrame::GetAddress() const. Got : '%s'\n%s",typeid(Luna< wxStackFrame >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->GetAddress();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -239,15 +232,13 @@ public:
 	// wxString wxStackFrame::GetFileName() const
 	static int _bind_GetFileName(lua_State *L) {
 		if (!_lg_typecheck_GetFileName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStackFrame::GetFileName() const function, expected prototype:\nwxString wxStackFrame::GetFileName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStackFrame::GetFileName() const function, expected prototype:\nwxString wxStackFrame::GetFileName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStackFrame::GetFileName() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStackFrame::GetFileName() const. Got : '%s'\n%s",typeid(Luna< wxStackFrame >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetFileName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -258,15 +249,13 @@ public:
 	// size_t wxStackFrame::GetLevel() const
 	static int _bind_GetLevel(lua_State *L) {
 		if (!_lg_typecheck_GetLevel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxStackFrame::GetLevel() const function, expected prototype:\nsize_t wxStackFrame::GetLevel() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxStackFrame::GetLevel() const function, expected prototype:\nsize_t wxStackFrame::GetLevel() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxStackFrame::GetLevel() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxStackFrame::GetLevel() const. Got : '%s'\n%s",typeid(Luna< wxStackFrame >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->GetLevel();
 		lua_pushnumber(L,lret);
@@ -277,15 +266,13 @@ public:
 	// size_t wxStackFrame::GetLine() const
 	static int _bind_GetLine(lua_State *L) {
 		if (!_lg_typecheck_GetLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxStackFrame::GetLine() const function, expected prototype:\nsize_t wxStackFrame::GetLine() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxStackFrame::GetLine() const function, expected prototype:\nsize_t wxStackFrame::GetLine() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxStackFrame::GetLine() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxStackFrame::GetLine() const. Got : '%s'\n%s",typeid(Luna< wxStackFrame >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->GetLine();
 		lua_pushnumber(L,lret);
@@ -296,15 +283,13 @@ public:
 	// wxString wxStackFrame::GetModule() const
 	static int _bind_GetModule(lua_State *L) {
 		if (!_lg_typecheck_GetModule(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStackFrame::GetModule() const function, expected prototype:\nwxString wxStackFrame::GetModule() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStackFrame::GetModule() const function, expected prototype:\nwxString wxStackFrame::GetModule() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStackFrame::GetModule() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStackFrame::GetModule() const. Got : '%s'\n%s",typeid(Luna< wxStackFrame >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetModule();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -315,15 +300,13 @@ public:
 	// wxString wxStackFrame::GetName() const
 	static int _bind_GetName(lua_State *L) {
 		if (!_lg_typecheck_GetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxStackFrame::GetName() const function, expected prototype:\nwxString wxStackFrame::GetName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxStackFrame::GetName() const function, expected prototype:\nwxString wxStackFrame::GetName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxStackFrame::GetName() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxStackFrame::GetName() const. Got : '%s'\n%s",typeid(Luna< wxStackFrame >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -334,15 +317,13 @@ public:
 	// size_t wxStackFrame::GetOffset() const
 	static int _bind_GetOffset(lua_State *L) {
 		if (!_lg_typecheck_GetOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxStackFrame::GetOffset() const function, expected prototype:\nsize_t wxStackFrame::GetOffset() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxStackFrame::GetOffset() const function, expected prototype:\nsize_t wxStackFrame::GetOffset() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxStackFrame::GetOffset() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxStackFrame::GetOffset() const. Got : '%s'\n%s",typeid(Luna< wxStackFrame >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->GetOffset();
 		lua_pushnumber(L,lret);
@@ -353,8 +334,7 @@ public:
 	// bool wxStackFrame::GetParam(size_t n, wxString * type, wxString * name, wxString * value) const
 	static int _bind_GetParam(lua_State *L) {
 		if (!_lg_typecheck_GetParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStackFrame::GetParam(size_t n, wxString * type, wxString * name, wxString * value) const function, expected prototype:\nbool wxStackFrame::GetParam(size_t n, wxString * type, wxString * name, wxString * value) const\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxStackFrame::GetParam(size_t n, wxString * type, wxString * name, wxString * value) const function, expected prototype:\nbool wxStackFrame::GetParam(size_t n, wxString * type, wxString * name, wxString * value) const\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t n=(size_t)lua_tointeger(L,2);
@@ -364,8 +344,7 @@ public:
 
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStackFrame::GetParam(size_t, wxString *, wxString *, wxString *) const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStackFrame::GetParam(size_t, wxString *, wxString *, wxString *) const. Got : '%s'\n%s",typeid(Luna< wxStackFrame >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetParam(n, &type, &name, &value);
 		lua_pushboolean(L,lret?1:0);
@@ -376,15 +355,13 @@ public:
 	// size_t wxStackFrame::GetParamCount() const
 	static int _bind_GetParamCount(lua_State *L) {
 		if (!_lg_typecheck_GetParamCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxStackFrame::GetParamCount() const function, expected prototype:\nsize_t wxStackFrame::GetParamCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxStackFrame::GetParamCount() const function, expected prototype:\nsize_t wxStackFrame::GetParamCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxStackFrame::GetParamCount() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxStackFrame::GetParamCount() const. Got : '%s'\n%s",typeid(Luna< wxStackFrame >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->GetParamCount();
 		lua_pushnumber(L,lret);
@@ -395,15 +372,13 @@ public:
 	// bool wxStackFrame::HasSourceLocation() const
 	static int _bind_HasSourceLocation(lua_State *L) {
 		if (!_lg_typecheck_HasSourceLocation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStackFrame::HasSourceLocation() const function, expected prototype:\nbool wxStackFrame::HasSourceLocation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxStackFrame::HasSourceLocation() const function, expected prototype:\nbool wxStackFrame::HasSourceLocation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStackFrame::HasSourceLocation() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStackFrame::HasSourceLocation() const. Got : '%s'\n%s",typeid(Luna< wxStackFrame >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasSourceLocation();
 		lua_pushboolean(L,lret?1:0);
@@ -414,8 +389,7 @@ public:
 	// bool wxStackFrame::base_GetParam(size_t n, wxString * type, wxString * name, wxString * value) const
 	static int _bind_base_GetParam(lua_State *L) {
 		if (!_lg_typecheck_base_GetParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxStackFrame::base_GetParam(size_t n, wxString * type, wxString * name, wxString * value) const function, expected prototype:\nbool wxStackFrame::base_GetParam(size_t n, wxString * type, wxString * name, wxString * value) const\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxStackFrame::base_GetParam(size_t n, wxString * type, wxString * name, wxString * value) const function, expected prototype:\nbool wxStackFrame::base_GetParam(size_t n, wxString * type, wxString * name, wxString * value) const\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t n=(size_t)lua_tointeger(L,2);
@@ -425,8 +399,7 @@ public:
 
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxStackFrame::base_GetParam(size_t, wxString *, wxString *, wxString *) const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxStackFrame::base_GetParam(size_t, wxString *, wxString *, wxString *) const. Got : '%s'\n%s",typeid(Luna< wxStackFrame >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxStackFrame::GetParam(n, &type, &name, &value);
 		lua_pushboolean(L,lret?1:0);
@@ -437,15 +410,13 @@ public:
 	// size_t wxStackFrame::base_GetParamCount() const
 	static int _bind_base_GetParamCount(lua_State *L) {
 		if (!_lg_typecheck_base_GetParamCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxStackFrame::base_GetParamCount() const function, expected prototype:\nsize_t wxStackFrame::base_GetParamCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxStackFrame::base_GetParamCount() const function, expected prototype:\nsize_t wxStackFrame::base_GetParamCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxStackFrame* self=(Luna< wxStackFrame >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxStackFrame::base_GetParamCount() const. Got : '%s'",typeid(Luna< wxStackFrame >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxStackFrame::base_GetParamCount() const. Got : '%s'\n%s",typeid(Luna< wxStackFrame >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->wxStackFrame::GetParamCount();
 		lua_pushnumber(L,lret);

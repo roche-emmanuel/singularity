@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGridCellEditor* self=(Luna< wxGridCellEditor >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGridCellChoiceEditor* self= (wxGridCellChoiceEditor*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxGridCellEditor >::check(L,1));
@@ -173,8 +170,7 @@ public:
 	// wxGridCellChoiceEditor::wxGridCellChoiceEditor(lua_Table * data, const wxArrayString & choices, bool allowOthers = false)
 	static wxGridCellChoiceEditor* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridCellChoiceEditor::wxGridCellChoiceEditor(lua_Table * data, const wxArrayString & choices, bool allowOthers = false) function, expected prototype:\nwxGridCellChoiceEditor::wxGridCellChoiceEditor(lua_Table * data, const wxArrayString & choices, bool allowOthers = false)\nClass arguments details:\narg 2 ID = 59507769\n");
+			luaL_error(L, "luna typecheck failed in wxGridCellChoiceEditor::wxGridCellChoiceEditor(lua_Table * data, const wxArrayString & choices, bool allowOthers = false) function, expected prototype:\nwxGridCellChoiceEditor::wxGridCellChoiceEditor(lua_Table * data, const wxArrayString & choices, bool allowOthers = false)\nClass arguments details:\narg 2 ID = 59507769\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -194,16 +190,14 @@ public:
 	// void wxGridCellChoiceEditor::SetParameters(const wxString & params)
 	static int _bind_SetParameters(lua_State *L) {
 		if (!_lg_typecheck_SetParameters(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::SetParameters(const wxString & params) function, expected prototype:\nvoid wxGridCellChoiceEditor::SetParameters(const wxString & params)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::SetParameters(const wxString & params) function, expected prototype:\nvoid wxGridCellChoiceEditor::SetParameters(const wxString & params)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString params(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::SetParameters(const wxString &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::SetParameters(const wxString &). Got : '%s'\n%s",typeid(Luna< wxGridCellEditor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetParameters(params);
 
@@ -213,15 +207,13 @@ public:
 	// void wxGridCellChoiceEditor::base_Destroy()
 	static int _bind_base_Destroy(lua_State *L) {
 		if (!_lg_typecheck_base_Destroy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_Destroy() function, expected prototype:\nvoid wxGridCellChoiceEditor::base_Destroy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_Destroy() function, expected prototype:\nvoid wxGridCellChoiceEditor::base_Destroy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_Destroy(). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_Destroy(). Got : '%s'\n%s",typeid(Luna< wxGridCellEditor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxGridCellChoiceEditor::Destroy();
 
@@ -231,8 +223,7 @@ public:
 	// void wxGridCellChoiceEditor::base_HandleReturn(wxKeyEvent & event)
 	static int _bind_base_HandleReturn(lua_State *L) {
 		if (!_lg_typecheck_base_HandleReturn(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_HandleReturn(wxKeyEvent & event) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_HandleReturn(wxKeyEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_HandleReturn(wxKeyEvent & event) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_HandleReturn(wxKeyEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxKeyEvent* event_ptr=(Luna< wxObject >::checkSubType< wxKeyEvent >(L,2));
@@ -243,8 +234,7 @@ public:
 
 		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_HandleReturn(wxKeyEvent &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_HandleReturn(wxKeyEvent &). Got : '%s'\n%s",typeid(Luna< wxGridCellEditor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxGridCellChoiceEditor::HandleReturn(event);
 
@@ -254,8 +244,7 @@ public:
 	// void wxGridCellChoiceEditor::base_PaintBackground(const wxRect & rectCell, wxGridCellAttr * attr)
 	static int _bind_base_PaintBackground(lua_State *L) {
 		if (!_lg_typecheck_base_PaintBackground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_PaintBackground(const wxRect & rectCell, wxGridCellAttr * attr) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_PaintBackground(const wxRect & rectCell, wxGridCellAttr * attr)\nClass arguments details:\narg 1 ID = 20234418\narg 2 ID = 25758569\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_PaintBackground(const wxRect & rectCell, wxGridCellAttr * attr) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_PaintBackground(const wxRect & rectCell, wxGridCellAttr * attr)\nClass arguments details:\narg 1 ID = 20234418\narg 2 ID = 25758569\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect* rectCell_ptr=(Luna< wxRect >::check(L,2));
@@ -267,8 +256,7 @@ public:
 
 		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_PaintBackground(const wxRect &, wxGridCellAttr *). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_PaintBackground(const wxRect &, wxGridCellAttr *). Got : '%s'\n%s",typeid(Luna< wxGridCellEditor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxGridCellChoiceEditor::PaintBackground(rectCell, attr);
 
@@ -278,8 +266,7 @@ public:
 	// void wxGridCellChoiceEditor::base_SetSize(const wxRect & rect)
 	static int _bind_base_SetSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_SetSize(const wxRect & rect) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_SetSize(const wxRect & rect)\nClass arguments details:\narg 1 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_SetSize(const wxRect & rect) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_SetSize(const wxRect & rect)\nClass arguments details:\narg 1 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,2));
@@ -290,8 +277,7 @@ public:
 
 		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_SetSize(const wxRect &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_SetSize(const wxRect &). Got : '%s'\n%s",typeid(Luna< wxGridCellEditor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxGridCellChoiceEditor::SetSize(rect);
 
@@ -301,8 +287,7 @@ public:
 	// void wxGridCellChoiceEditor::base_Show(bool show, wxGridCellAttr * attr = NULL)
 	static int _bind_base_Show(lua_State *L) {
 		if (!_lg_typecheck_base_Show(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_Show(bool show, wxGridCellAttr * attr = NULL) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_Show(bool show, wxGridCellAttr * attr = NULL)\nClass arguments details:\narg 2 ID = 25758569\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_Show(bool show, wxGridCellAttr * attr = NULL) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_Show(bool show, wxGridCellAttr * attr = NULL)\nClass arguments details:\narg 2 ID = 25758569\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -312,8 +297,7 @@ public:
 
 		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_Show(bool, wxGridCellAttr *). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_Show(bool, wxGridCellAttr *). Got : '%s'\n%s",typeid(Luna< wxGridCellEditor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxGridCellChoiceEditor::Show(show, attr);
 
@@ -323,15 +307,13 @@ public:
 	// void wxGridCellChoiceEditor::base_StartingClick()
 	static int _bind_base_StartingClick(lua_State *L) {
 		if (!_lg_typecheck_base_StartingClick(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_StartingClick() function, expected prototype:\nvoid wxGridCellChoiceEditor::base_StartingClick()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_StartingClick() function, expected prototype:\nvoid wxGridCellChoiceEditor::base_StartingClick()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_StartingClick(). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_StartingClick(). Got : '%s'\n%s",typeid(Luna< wxGridCellEditor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxGridCellChoiceEditor::StartingClick();
 
@@ -341,8 +323,7 @@ public:
 	// void wxGridCellChoiceEditor::base_StartingKey(wxKeyEvent & event)
 	static int _bind_base_StartingKey(lua_State *L) {
 		if (!_lg_typecheck_base_StartingKey(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_StartingKey(wxKeyEvent & event) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_StartingKey(wxKeyEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_StartingKey(wxKeyEvent & event) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_StartingKey(wxKeyEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxKeyEvent* event_ptr=(Luna< wxObject >::checkSubType< wxKeyEvent >(L,2));
@@ -353,8 +334,7 @@ public:
 
 		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_StartingKey(wxKeyEvent &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_StartingKey(wxKeyEvent &). Got : '%s'\n%s",typeid(Luna< wxGridCellEditor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxGridCellChoiceEditor::StartingKey(event);
 
@@ -364,16 +344,14 @@ public:
 	// void wxGridCellChoiceEditor::base_SetParameters(const wxString & params)
 	static int _bind_base_SetParameters(lua_State *L) {
 		if (!_lg_typecheck_base_SetParameters(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_SetParameters(const wxString & params) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_SetParameters(const wxString & params)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellChoiceEditor::base_SetParameters(const wxString & params) function, expected prototype:\nvoid wxGridCellChoiceEditor::base_SetParameters(const wxString & params)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString params(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxGridCellChoiceEditor* self=Luna< wxGridCellEditor >::checkSubType< wxGridCellChoiceEditor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_SetParameters(const wxString &). Got : '%s'",typeid(Luna< wxGridCellEditor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellChoiceEditor::base_SetParameters(const wxString &). Got : '%s'\n%s",typeid(Luna< wxGridCellEditor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxGridCellChoiceEditor::SetParameters(params);
 

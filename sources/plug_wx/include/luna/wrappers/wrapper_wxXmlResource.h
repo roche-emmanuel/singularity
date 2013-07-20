@@ -93,8 +93,7 @@ public:
 	// void wxXmlResource::public_ReportError(const wxXmlNode * context, const wxString & message)
 	static int _bind_public_ReportError(lua_State *L) {
 		if (!_lg_typecheck_public_ReportError(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlResource::public_ReportError(const wxXmlNode * context, const wxString & message) function, expected prototype:\nvoid wxXmlResource::public_ReportError(const wxXmlNode * context, const wxString & message)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlResource::public_ReportError(const wxXmlNode * context, const wxString & message) function, expected prototype:\nvoid wxXmlResource::public_ReportError(const wxXmlNode * context, const wxString & message)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxXmlNode* context=(Luna< wxXmlNode >::check(L,2));
@@ -102,8 +101,7 @@ public:
 
 		wrapper_wxXmlResource* self=Luna< wxObject >::checkSubType< wrapper_wxXmlResource >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlResource::public_ReportError(const wxXmlNode *, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlResource::public_ReportError(const wxXmlNode *, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_ReportError(context, message);
 

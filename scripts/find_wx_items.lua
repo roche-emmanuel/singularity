@@ -51,9 +51,9 @@ local nfinder = require("helpers.wxEnumFinder"){rootFolder=rpath,
 			"wxHT_","wxPROP_","wxT_"}}
 	
 local t1 = os.clock()
---efinder:run()
---dfinder:run()
-nfinder:run()
+-- efinder:run()
+dfinder:run()
+-- nfinder:run()
 
 local t2 = os.clock();
 

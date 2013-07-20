@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxSize*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxSize*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxSize* rhs =(Luna< wxSize >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxSize* self= (wxSize*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxSize >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -255,8 +251,7 @@ public:
 	// wxSize::wxSize()
 	static wxSize* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize::wxSize() function, expected prototype:\nwxSize::wxSize()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize::wxSize() function, expected prototype:\nwxSize::wxSize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -266,8 +261,7 @@ public:
 	// wxSize::wxSize(int width, int height)
 	static wxSize* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize::wxSize(int width, int height) function, expected prototype:\nwxSize::wxSize(int width, int height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize::wxSize(int width, int height) function, expected prototype:\nwxSize::wxSize(int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int width=(int)lua_tointeger(L,1);
@@ -290,8 +284,7 @@ public:
 	// void wxSize::DecBy(const wxPoint & pt)
 	static int _bind_DecBy_overload_1(lua_State *L) {
 		if (!_lg_typecheck_DecBy_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSize::DecBy(const wxPoint & pt) function, expected prototype:\nvoid wxSize::DecBy(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in void wxSize::DecBy(const wxPoint & pt) function, expected prototype:\nvoid wxSize::DecBy(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* pt_ptr=(Luna< wxPoint >::check(L,2));
@@ -302,8 +295,7 @@ public:
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::DecBy(const wxPoint &). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSize::DecBy(const wxPoint &). Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DecBy(pt);
 
@@ -313,8 +305,7 @@ public:
 	// void wxSize::DecBy(const wxSize & size)
 	static int _bind_DecBy_overload_2(lua_State *L) {
 		if (!_lg_typecheck_DecBy_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSize::DecBy(const wxSize & size) function, expected prototype:\nvoid wxSize::DecBy(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxSize::DecBy(const wxSize & size) function, expected prototype:\nvoid wxSize::DecBy(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -325,8 +316,7 @@ public:
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::DecBy(const wxSize &). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSize::DecBy(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DecBy(size);
 
@@ -336,8 +326,7 @@ public:
 	// void wxSize::DecBy(int dx, int dy)
 	static int _bind_DecBy_overload_3(lua_State *L) {
 		if (!_lg_typecheck_DecBy_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSize::DecBy(int dx, int dy) function, expected prototype:\nvoid wxSize::DecBy(int dx, int dy)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSize::DecBy(int dx, int dy) function, expected prototype:\nvoid wxSize::DecBy(int dx, int dy)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int dx=(int)lua_tointeger(L,2);
@@ -345,8 +334,7 @@ public:
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::DecBy(int, int). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSize::DecBy(int, int). Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DecBy(dx, dy);
 
@@ -356,16 +344,14 @@ public:
 	// void wxSize::DecBy(int d)
 	static int _bind_DecBy_overload_4(lua_State *L) {
 		if (!_lg_typecheck_DecBy_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSize::DecBy(int d) function, expected prototype:\nvoid wxSize::DecBy(int d)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSize::DecBy(int d) function, expected prototype:\nvoid wxSize::DecBy(int d)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int d=(int)lua_tointeger(L,2);
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::DecBy(int). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSize::DecBy(int). Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DecBy(d);
 
@@ -386,8 +372,7 @@ public:
 	// void wxSize::DecTo(const wxSize & size)
 	static int _bind_DecTo(lua_State *L) {
 		if (!_lg_typecheck_DecTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSize::DecTo(const wxSize & size) function, expected prototype:\nvoid wxSize::DecTo(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxSize::DecTo(const wxSize & size) function, expected prototype:\nvoid wxSize::DecTo(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -398,8 +383,7 @@ public:
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::DecTo(const wxSize &). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSize::DecTo(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DecTo(size);
 
@@ -409,15 +393,13 @@ public:
 	// int wxSize::GetHeight() const
 	static int _bind_GetHeight(lua_State *L) {
 		if (!_lg_typecheck_GetHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxSize::GetHeight() const function, expected prototype:\nint wxSize::GetHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxSize::GetHeight() const function, expected prototype:\nint wxSize::GetHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSize::GetHeight() const. Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxSize::GetHeight() const. Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetHeight();
 		lua_pushnumber(L,lret);
@@ -428,15 +410,13 @@ public:
 	// int wxSize::GetWidth() const
 	static int _bind_GetWidth(lua_State *L) {
 		if (!_lg_typecheck_GetWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxSize::GetWidth() const function, expected prototype:\nint wxSize::GetWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxSize::GetWidth() const function, expected prototype:\nint wxSize::GetWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxSize::GetWidth() const. Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxSize::GetWidth() const. Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetWidth();
 		lua_pushnumber(L,lret);
@@ -447,8 +427,7 @@ public:
 	// void wxSize::IncBy(const wxPoint & pt)
 	static int _bind_IncBy_overload_1(lua_State *L) {
 		if (!_lg_typecheck_IncBy_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSize::IncBy(const wxPoint & pt) function, expected prototype:\nvoid wxSize::IncBy(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in void wxSize::IncBy(const wxPoint & pt) function, expected prototype:\nvoid wxSize::IncBy(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* pt_ptr=(Luna< wxPoint >::check(L,2));
@@ -459,8 +438,7 @@ public:
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::IncBy(const wxPoint &). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSize::IncBy(const wxPoint &). Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->IncBy(pt);
 
@@ -470,8 +448,7 @@ public:
 	// void wxSize::IncBy(const wxSize & size)
 	static int _bind_IncBy_overload_2(lua_State *L) {
 		if (!_lg_typecheck_IncBy_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSize::IncBy(const wxSize & size) function, expected prototype:\nvoid wxSize::IncBy(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxSize::IncBy(const wxSize & size) function, expected prototype:\nvoid wxSize::IncBy(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -482,8 +459,7 @@ public:
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::IncBy(const wxSize &). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSize::IncBy(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->IncBy(size);
 
@@ -493,8 +469,7 @@ public:
 	// void wxSize::IncBy(int dx, int dy)
 	static int _bind_IncBy_overload_3(lua_State *L) {
 		if (!_lg_typecheck_IncBy_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSize::IncBy(int dx, int dy) function, expected prototype:\nvoid wxSize::IncBy(int dx, int dy)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSize::IncBy(int dx, int dy) function, expected prototype:\nvoid wxSize::IncBy(int dx, int dy)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int dx=(int)lua_tointeger(L,2);
@@ -502,8 +477,7 @@ public:
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::IncBy(int, int). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSize::IncBy(int, int). Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->IncBy(dx, dy);
 
@@ -513,16 +487,14 @@ public:
 	// void wxSize::IncBy(int d)
 	static int _bind_IncBy_overload_4(lua_State *L) {
 		if (!_lg_typecheck_IncBy_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSize::IncBy(int d) function, expected prototype:\nvoid wxSize::IncBy(int d)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSize::IncBy(int d) function, expected prototype:\nvoid wxSize::IncBy(int d)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int d=(int)lua_tointeger(L,2);
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::IncBy(int). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSize::IncBy(int). Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->IncBy(d);
 
@@ -543,8 +515,7 @@ public:
 	// void wxSize::IncTo(const wxSize & size)
 	static int _bind_IncTo(lua_State *L) {
 		if (!_lg_typecheck_IncTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSize::IncTo(const wxSize & size) function, expected prototype:\nvoid wxSize::IncTo(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxSize::IncTo(const wxSize & size) function, expected prototype:\nvoid wxSize::IncTo(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -555,8 +526,7 @@ public:
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::IncTo(const wxSize &). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSize::IncTo(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->IncTo(size);
 
@@ -566,15 +536,13 @@ public:
 	// bool wxSize::IsFullySpecified() const
 	static int _bind_IsFullySpecified(lua_State *L) {
 		if (!_lg_typecheck_IsFullySpecified(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxSize::IsFullySpecified() const function, expected prototype:\nbool wxSize::IsFullySpecified() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxSize::IsFullySpecified() const function, expected prototype:\nbool wxSize::IsFullySpecified() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxSize::IsFullySpecified() const. Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxSize::IsFullySpecified() const. Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsFullySpecified();
 		lua_pushboolean(L,lret?1:0);
@@ -585,8 +553,7 @@ public:
 	// wxSize & wxSize::Scale(float xscale, float yscale)
 	static int _bind_Scale(lua_State *L) {
 		if (!_lg_typecheck_Scale(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize & wxSize::Scale(float xscale, float yscale) function, expected prototype:\nwxSize & wxSize::Scale(float xscale, float yscale)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize & wxSize::Scale(float xscale, float yscale) function, expected prototype:\nwxSize & wxSize::Scale(float xscale, float yscale)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float xscale=(float)lua_tonumber(L,2);
@@ -594,8 +561,7 @@ public:
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize & wxSize::Scale(float, float). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize & wxSize::Scale(float, float). Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSize* lret = &self->Scale(xscale, yscale);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -608,8 +574,7 @@ public:
 	// void wxSize::Set(int width, int height)
 	static int _bind_Set(lua_State *L) {
 		if (!_lg_typecheck_Set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSize::Set(int width, int height) function, expected prototype:\nvoid wxSize::Set(int width, int height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSize::Set(int width, int height) function, expected prototype:\nvoid wxSize::Set(int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int width=(int)lua_tointeger(L,2);
@@ -617,8 +582,7 @@ public:
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::Set(int, int). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSize::Set(int, int). Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Set(width, height);
 
@@ -628,8 +592,7 @@ public:
 	// void wxSize::SetDefaults(const wxSize & sizeDefault)
 	static int _bind_SetDefaults(lua_State *L) {
 		if (!_lg_typecheck_SetDefaults(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSize::SetDefaults(const wxSize & sizeDefault) function, expected prototype:\nvoid wxSize::SetDefaults(const wxSize & sizeDefault)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxSize::SetDefaults(const wxSize & sizeDefault) function, expected prototype:\nvoid wxSize::SetDefaults(const wxSize & sizeDefault)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* sizeDefault_ptr=(Luna< wxSize >::check(L,2));
@@ -640,8 +603,7 @@ public:
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::SetDefaults(const wxSize &). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSize::SetDefaults(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetDefaults(sizeDefault);
 
@@ -651,16 +613,14 @@ public:
 	// void wxSize::SetHeight(int height)
 	static int _bind_SetHeight(lua_State *L) {
 		if (!_lg_typecheck_SetHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSize::SetHeight(int height) function, expected prototype:\nvoid wxSize::SetHeight(int height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSize::SetHeight(int height) function, expected prototype:\nvoid wxSize::SetHeight(int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int height=(int)lua_tointeger(L,2);
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::SetHeight(int). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSize::SetHeight(int). Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetHeight(height);
 
@@ -670,16 +630,14 @@ public:
 	// void wxSize::SetWidth(int width)
 	static int _bind_SetWidth(lua_State *L) {
 		if (!_lg_typecheck_SetWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxSize::SetWidth(int width) function, expected prototype:\nvoid wxSize::SetWidth(int width)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxSize::SetWidth(int width) function, expected prototype:\nvoid wxSize::SetWidth(int width)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int width=(int)lua_tointeger(L,2);
 
 		wxSize* self=(Luna< wxSize >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxSize::SetWidth(int). Got : '%s'",typeid(Luna< wxSize >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxSize::SetWidth(int). Got : '%s'\n%s",typeid(Luna< wxSize >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWidth(width);
 

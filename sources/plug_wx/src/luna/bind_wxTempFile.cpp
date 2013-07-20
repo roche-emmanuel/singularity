@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTempFile*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTempFile*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTempFile* rhs =(Luna< wxTempFile >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTempFile* self= (wxTempFile*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxTempFile >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -150,7 +146,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -169,8 +165,7 @@ public:
 	// wxTempFile::wxTempFile(const wxString & strName)
 	static wxTempFile* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTempFile::wxTempFile(const wxString & strName) function, expected prototype:\nwxTempFile::wxTempFile(const wxString & strName)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxTempFile::wxTempFile(const wxString & strName) function, expected prototype:\nwxTempFile::wxTempFile(const wxString & strName)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString strName(lua_tostring(L,1),lua_objlen(L,1));
@@ -183,15 +178,13 @@ public:
 	// bool wxTempFile::Commit()
 	static int _bind_Commit(lua_State *L) {
 		if (!_lg_typecheck_Commit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTempFile::Commit() function, expected prototype:\nbool wxTempFile::Commit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTempFile::Commit() function, expected prototype:\nbool wxTempFile::Commit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTempFile* self=(Luna< wxTempFile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTempFile::Commit(). Got : '%s'",typeid(Luna< wxTempFile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTempFile::Commit(). Got : '%s'\n%s",typeid(Luna< wxTempFile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Commit();
 		lua_pushboolean(L,lret?1:0);
@@ -202,15 +195,13 @@ public:
 	// void wxTempFile::Discard()
 	static int _bind_Discard(lua_State *L) {
 		if (!_lg_typecheck_Discard(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTempFile::Discard() function, expected prototype:\nvoid wxTempFile::Discard()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTempFile::Discard() function, expected prototype:\nvoid wxTempFile::Discard()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTempFile* self=(Luna< wxTempFile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTempFile::Discard(). Got : '%s'",typeid(Luna< wxTempFile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTempFile::Discard(). Got : '%s'\n%s",typeid(Luna< wxTempFile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Discard();
 
@@ -220,15 +211,13 @@ public:
 	// bool wxTempFile::Flush()
 	static int _bind_Flush(lua_State *L) {
 		if (!_lg_typecheck_Flush(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTempFile::Flush() function, expected prototype:\nbool wxTempFile::Flush()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTempFile::Flush() function, expected prototype:\nbool wxTempFile::Flush()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTempFile* self=(Luna< wxTempFile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTempFile::Flush(). Got : '%s'",typeid(Luna< wxTempFile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTempFile::Flush(). Got : '%s'\n%s",typeid(Luna< wxTempFile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Flush();
 		lua_pushboolean(L,lret?1:0);
@@ -239,15 +228,13 @@ public:
 	// bool wxTempFile::IsOpened() const
 	static int _bind_IsOpened(lua_State *L) {
 		if (!_lg_typecheck_IsOpened(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTempFile::IsOpened() const function, expected prototype:\nbool wxTempFile::IsOpened() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTempFile::IsOpened() const function, expected prototype:\nbool wxTempFile::IsOpened() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTempFile* self=(Luna< wxTempFile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTempFile::IsOpened() const. Got : '%s'",typeid(Luna< wxTempFile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTempFile::IsOpened() const. Got : '%s'\n%s",typeid(Luna< wxTempFile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOpened();
 		lua_pushboolean(L,lret?1:0);
@@ -258,15 +245,13 @@ public:
 	// long long wxTempFile::Length() const
 	static int _bind_Length(lua_State *L) {
 		if (!_lg_typecheck_Length(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long long wxTempFile::Length() const function, expected prototype:\nlong long wxTempFile::Length() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxTempFile::Length() const function, expected prototype:\nlong long wxTempFile::Length() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTempFile* self=(Luna< wxTempFile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxTempFile::Length() const. Got : '%s'",typeid(Luna< wxTempFile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long long wxTempFile::Length() const. Got : '%s'\n%s",typeid(Luna< wxTempFile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long long lret = self->Length();
 		lua_pushnumber(L,lret);
@@ -277,16 +262,14 @@ public:
 	// bool wxTempFile::Open(const wxString & strName)
 	static int _bind_Open(lua_State *L) {
 		if (!_lg_typecheck_Open(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTempFile::Open(const wxString & strName) function, expected prototype:\nbool wxTempFile::Open(const wxString & strName)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTempFile::Open(const wxString & strName) function, expected prototype:\nbool wxTempFile::Open(const wxString & strName)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString strName(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxTempFile* self=(Luna< wxTempFile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTempFile::Open(const wxString &). Got : '%s'",typeid(Luna< wxTempFile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTempFile::Open(const wxString &). Got : '%s'\n%s",typeid(Luna< wxTempFile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Open(strName);
 		lua_pushboolean(L,lret?1:0);
@@ -297,19 +280,17 @@ public:
 	// long long wxTempFile::Seek(long long ofs, wxSeekMode mode = ::wxFromStart)
 	static int _bind_Seek(lua_State *L) {
 		if (!_lg_typecheck_Seek(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long long wxTempFile::Seek(long long ofs, wxSeekMode mode = ::wxFromStart) function, expected prototype:\nlong long wxTempFile::Seek(long long ofs, wxSeekMode mode = ::wxFromStart)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxTempFile::Seek(long long ofs, wxSeekMode mode = ::wxFromStart) function, expected prototype:\nlong long wxTempFile::Seek(long long ofs, wxSeekMode mode = ::wxFromStart)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
-		long long ofs=(long long)lua_tointeger(L,2);
+		long long ofs=(long long)lua_tonumber(L,2);
 		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : (wxSeekMode)::wxFromStart;
 
 		wxTempFile* self=(Luna< wxTempFile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxTempFile::Seek(long long, wxSeekMode). Got : '%s'",typeid(Luna< wxTempFile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long long wxTempFile::Seek(long long, wxSeekMode). Got : '%s'\n%s",typeid(Luna< wxTempFile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long long lret = self->Seek(ofs, mode);
 		lua_pushnumber(L,lret);
@@ -320,15 +301,13 @@ public:
 	// long long wxTempFile::Tell() const
 	static int _bind_Tell(lua_State *L) {
 		if (!_lg_typecheck_Tell(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long long wxTempFile::Tell() const function, expected prototype:\nlong long wxTempFile::Tell() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxTempFile::Tell() const function, expected prototype:\nlong long wxTempFile::Tell() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTempFile* self=(Luna< wxTempFile >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxTempFile::Tell() const. Got : '%s'",typeid(Luna< wxTempFile >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long long wxTempFile::Tell() const. Got : '%s'\n%s",typeid(Luna< wxTempFile >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long long lret = self->Tell();
 		lua_pushnumber(L,lret);

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxImageHistogram*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxImageHistogram*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxImageHistogram* rhs =(Luna< wxImageHistogram >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxImageHistogram* self= (wxImageHistogram*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxImageHistogram >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -138,8 +134,7 @@ public:
 	// wxImageHistogram::wxImageHistogram()
 	static wxImageHistogram* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxImageHistogram::wxImageHistogram() function, expected prototype:\nwxImageHistogram::wxImageHistogram()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxImageHistogram::wxImageHistogram() function, expected prototype:\nwxImageHistogram::wxImageHistogram()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -151,8 +146,7 @@ public:
 	// bool wxImageHistogram::FindFirstUnusedColour(unsigned char * r, unsigned char * g, unsigned char * b, unsigned char startR = 1, unsigned char startG = 0, unsigned char startB = 0) const
 	static int _bind_FindFirstUnusedColour(lua_State *L) {
 		if (!_lg_typecheck_FindFirstUnusedColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxImageHistogram::FindFirstUnusedColour(unsigned char * r, unsigned char * g, unsigned char * b, unsigned char startR = 1, unsigned char startG = 0, unsigned char startB = 0) const function, expected prototype:\nbool wxImageHistogram::FindFirstUnusedColour(unsigned char * r, unsigned char * g, unsigned char * b, unsigned char startR = 1, unsigned char startG = 0, unsigned char startB = 0) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxImageHistogram::FindFirstUnusedColour(unsigned char * r, unsigned char * g, unsigned char * b, unsigned char startR = 1, unsigned char startG = 0, unsigned char startB = 0) const function, expected prototype:\nbool wxImageHistogram::FindFirstUnusedColour(unsigned char * r, unsigned char * g, unsigned char * b, unsigned char startR = 1, unsigned char startG = 0, unsigned char startB = 0) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -166,8 +160,7 @@ public:
 
 		wxImageHistogram* self=(Luna< wxImageHistogram >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxImageHistogram::FindFirstUnusedColour(unsigned char *, unsigned char *, unsigned char *, unsigned char, unsigned char, unsigned char) const. Got : '%s'",typeid(Luna< wxImageHistogram >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxImageHistogram::FindFirstUnusedColour(unsigned char *, unsigned char *, unsigned char *, unsigned char, unsigned char, unsigned char) const. Got : '%s'\n%s",typeid(Luna< wxImageHistogram >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->FindFirstUnusedColour(&r, &g, &b, startR, startG, startB);
 		lua_pushboolean(L,lret?1:0);
@@ -178,8 +171,7 @@ public:
 	// static unsigned long wxImageHistogram::MakeKey(unsigned char r, unsigned char g, unsigned char b)
 	static int _bind_MakeKey(lua_State *L) {
 		if (!_lg_typecheck_MakeKey(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static unsigned long wxImageHistogram::MakeKey(unsigned char r, unsigned char g, unsigned char b) function, expected prototype:\nstatic unsigned long wxImageHistogram::MakeKey(unsigned char r, unsigned char g, unsigned char b)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static unsigned long wxImageHistogram::MakeKey(unsigned char r, unsigned char g, unsigned char b) function, expected prototype:\nstatic unsigned long wxImageHistogram::MakeKey(unsigned char r, unsigned char g, unsigned char b)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char r = (unsigned char)(lua_tointeger(L,1));

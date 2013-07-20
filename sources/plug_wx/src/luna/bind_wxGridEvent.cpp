@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGridEvent* self= (wxGridEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -227,8 +224,7 @@ public:
 	// wxGridEvent::wxGridEvent()
 	static wxGridEvent* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridEvent::wxGridEvent() function, expected prototype:\nwxGridEvent::wxGridEvent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGridEvent::wxGridEvent() function, expected prototype:\nwxGridEvent::wxGridEvent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -238,8 +234,7 @@ public:
 	// wxGridEvent::wxGridEvent(int id, int type, wxObject * obj, int row = -1, int col = -1, int x = -1, int y = -1, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ())
 	static wxGridEvent* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridEvent::wxGridEvent(int id, int type, wxObject * obj, int row = -1, int col = -1, int x = -1, int y = -1, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ()) function, expected prototype:\nwxGridEvent::wxGridEvent(int id, int type, wxObject * obj, int row = -1, int col = -1, int x = -1, int y = -1, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ())\nClass arguments details:\narg 3 ID = 56813631\narg 9 ID = 92036952\n");
+			luaL_error(L, "luna typecheck failed in wxGridEvent::wxGridEvent(int id, int type, wxObject * obj, int row = -1, int col = -1, int x = -1, int y = -1, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ()) function, expected prototype:\nwxGridEvent::wxGridEvent(int id, int type, wxObject * obj, int row = -1, int col = -1, int x = -1, int y = -1, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ())\nClass arguments details:\narg 3 ID = 56813631\narg 9 ID = 92036952\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -264,8 +259,7 @@ public:
 	// wxGridEvent::wxGridEvent(lua_Table * data)
 	static wxGridEvent* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridEvent::wxGridEvent(lua_Table * data) function, expected prototype:\nwxGridEvent::wxGridEvent(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGridEvent::wxGridEvent(lua_Table * data) function, expected prototype:\nwxGridEvent::wxGridEvent(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -275,8 +269,7 @@ public:
 	// wxGridEvent::wxGridEvent(lua_Table * data, int id, int type, wxObject * obj, int row = -1, int col = -1, int x = -1, int y = -1, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ())
 	static wxGridEvent* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridEvent::wxGridEvent(lua_Table * data, int id, int type, wxObject * obj, int row = -1, int col = -1, int x = -1, int y = -1, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ()) function, expected prototype:\nwxGridEvent::wxGridEvent(lua_Table * data, int id, int type, wxObject * obj, int row = -1, int col = -1, int x = -1, int y = -1, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ())\nClass arguments details:\narg 4 ID = 56813631\narg 10 ID = 92036952\n");
+			luaL_error(L, "luna typecheck failed in wxGridEvent::wxGridEvent(lua_Table * data, int id, int type, wxObject * obj, int row = -1, int col = -1, int x = -1, int y = -1, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ()) function, expected prototype:\nwxGridEvent::wxGridEvent(lua_Table * data, int id, int type, wxObject * obj, int row = -1, int col = -1, int x = -1, int y = -1, bool sel = true, const wxKeyboardState & kbd = wxKeyboardState ())\nClass arguments details:\narg 4 ID = 56813631\narg 10 ID = 92036952\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -314,15 +307,13 @@ public:
 	// bool wxGridEvent::AltDown() const
 	static int _bind_AltDown(lua_State *L) {
 		if (!_lg_typecheck_AltDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridEvent::AltDown() const function, expected prototype:\nbool wxGridEvent::AltDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridEvent::AltDown() const function, expected prototype:\nbool wxGridEvent::AltDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridEvent::AltDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridEvent::AltDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AltDown();
 		lua_pushboolean(L,lret?1:0);
@@ -333,15 +324,13 @@ public:
 	// bool wxGridEvent::ControlDown() const
 	static int _bind_ControlDown(lua_State *L) {
 		if (!_lg_typecheck_ControlDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridEvent::ControlDown() const function, expected prototype:\nbool wxGridEvent::ControlDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridEvent::ControlDown() const function, expected prototype:\nbool wxGridEvent::ControlDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridEvent::ControlDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridEvent::ControlDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ControlDown();
 		lua_pushboolean(L,lret?1:0);
@@ -352,15 +341,13 @@ public:
 	// int wxGridEvent::GetCol()
 	static int _bind_GetCol(lua_State *L) {
 		if (!_lg_typecheck_GetCol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGridEvent::GetCol() function, expected prototype:\nint wxGridEvent::GetCol()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGridEvent::GetCol() function, expected prototype:\nint wxGridEvent::GetCol()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridEvent::GetCol(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGridEvent::GetCol(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetCol();
 		lua_pushnumber(L,lret);
@@ -371,15 +358,13 @@ public:
 	// wxPoint wxGridEvent::GetPosition()
 	static int _bind_GetPosition(lua_State *L) {
 		if (!_lg_typecheck_GetPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint wxGridEvent::GetPosition() function, expected prototype:\nwxPoint wxGridEvent::GetPosition()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint wxGridEvent::GetPosition() function, expected prototype:\nwxPoint wxGridEvent::GetPosition()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxGridEvent::GetPosition(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint wxGridEvent::GetPosition(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint stack_lret = self->GetPosition();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -393,15 +378,13 @@ public:
 	// int wxGridEvent::GetRow()
 	static int _bind_GetRow(lua_State *L) {
 		if (!_lg_typecheck_GetRow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGridEvent::GetRow() function, expected prototype:\nint wxGridEvent::GetRow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGridEvent::GetRow() function, expected prototype:\nint wxGridEvent::GetRow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridEvent::GetRow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGridEvent::GetRow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetRow();
 		lua_pushnumber(L,lret);
@@ -412,15 +395,13 @@ public:
 	// bool wxGridEvent::MetaDown() const
 	static int _bind_MetaDown(lua_State *L) {
 		if (!_lg_typecheck_MetaDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridEvent::MetaDown() const function, expected prototype:\nbool wxGridEvent::MetaDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridEvent::MetaDown() const function, expected prototype:\nbool wxGridEvent::MetaDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridEvent::MetaDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridEvent::MetaDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->MetaDown();
 		lua_pushboolean(L,lret?1:0);
@@ -431,15 +412,13 @@ public:
 	// bool wxGridEvent::Selecting()
 	static int _bind_Selecting(lua_State *L) {
 		if (!_lg_typecheck_Selecting(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridEvent::Selecting() function, expected prototype:\nbool wxGridEvent::Selecting()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridEvent::Selecting() function, expected prototype:\nbool wxGridEvent::Selecting()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridEvent::Selecting(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridEvent::Selecting(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Selecting();
 		lua_pushboolean(L,lret?1:0);
@@ -450,15 +429,13 @@ public:
 	// bool wxGridEvent::ShiftDown() const
 	static int _bind_ShiftDown(lua_State *L) {
 		if (!_lg_typecheck_ShiftDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridEvent::ShiftDown() const function, expected prototype:\nbool wxGridEvent::ShiftDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridEvent::ShiftDown() const function, expected prototype:\nbool wxGridEvent::ShiftDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridEvent::ShiftDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridEvent::ShiftDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ShiftDown();
 		lua_pushboolean(L,lret?1:0);
@@ -469,15 +446,13 @@ public:
 	// wxClassInfo * wxGridEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxGridEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxGridEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxGridEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxGridEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxGridEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxGridEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxGridEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -490,15 +465,13 @@ public:
 	// wxEventCategory wxGridEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxGridEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxGridEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxGridEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxGridEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxGridEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxGridEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxGridEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
@@ -509,15 +482,13 @@ public:
 	// wxEvent * wxGridEvent::base_Clone() const
 	static int _bind_base_Clone(lua_State *L) {
 		if (!_lg_typecheck_base_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvent * wxGridEvent::base_Clone() const function, expected prototype:\nwxEvent * wxGridEvent::base_Clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvent * wxGridEvent::base_Clone() const function, expected prototype:\nwxEvent * wxGridEvent::base_Clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvent * wxGridEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEvent * wxGridEvent::base_Clone() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEvent * lret = self->wxGridEvent::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -530,15 +501,13 @@ public:
 	// int wxGridEvent::base_GetCol()
 	static int _bind_base_GetCol(lua_State *L) {
 		if (!_lg_typecheck_base_GetCol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGridEvent::base_GetCol() function, expected prototype:\nint wxGridEvent::base_GetCol()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGridEvent::base_GetCol() function, expected prototype:\nint wxGridEvent::base_GetCol()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridEvent::base_GetCol(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGridEvent::base_GetCol(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxGridEvent::GetCol();
 		lua_pushnumber(L,lret);
@@ -549,15 +518,13 @@ public:
 	// int wxGridEvent::base_GetRow()
 	static int _bind_base_GetRow(lua_State *L) {
 		if (!_lg_typecheck_base_GetRow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGridEvent::base_GetRow() function, expected prototype:\nint wxGridEvent::base_GetRow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGridEvent::base_GetRow() function, expected prototype:\nint wxGridEvent::base_GetRow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridEvent* self=Luna< wxObject >::checkSubType< wxGridEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridEvent::base_GetRow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGridEvent::base_GetRow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxGridEvent::GetRow();
 		lua_pushnumber(L,lret);

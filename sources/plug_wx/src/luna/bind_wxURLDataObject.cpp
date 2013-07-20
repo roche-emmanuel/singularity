@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataObject* self=(Luna< wxDataObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxURLDataObject* self= (wxURLDataObject*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDataObject >::check(L,1));
@@ -121,8 +118,7 @@ public:
 	// wxURLDataObject::wxURLDataObject(lua_Table * data, const wxString & url = wxEmptyString)
 	static wxURLDataObject* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxURLDataObject::wxURLDataObject(lua_Table * data, const wxString & url = wxEmptyString) function, expected prototype:\nwxURLDataObject::wxURLDataObject(lua_Table * data, const wxString & url = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxURLDataObject::wxURLDataObject(lua_Table * data, const wxString & url = wxEmptyString) function, expected prototype:\nwxURLDataObject::wxURLDataObject(lua_Table * data, const wxString & url = wxEmptyString)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -137,15 +133,13 @@ public:
 	// wxString wxURLDataObject::GetURL() const
 	static int _bind_GetURL(lua_State *L) {
 		if (!_lg_typecheck_GetURL(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxURLDataObject::GetURL() const function, expected prototype:\nwxString wxURLDataObject::GetURL() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxURLDataObject::GetURL() const function, expected prototype:\nwxString wxURLDataObject::GetURL() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxURLDataObject* self=Luna< wxDataObject >::checkSubType< wxURLDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxURLDataObject::GetURL() const. Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxURLDataObject::GetURL() const. Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetURL();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -156,16 +150,14 @@ public:
 	// void wxURLDataObject::SetURL(const wxString & url)
 	static int _bind_SetURL(lua_State *L) {
 		if (!_lg_typecheck_SetURL(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxURLDataObject::SetURL(const wxString & url) function, expected prototype:\nvoid wxURLDataObject::SetURL(const wxString & url)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxURLDataObject::SetURL(const wxString & url) function, expected prototype:\nvoid wxURLDataObject::SetURL(const wxString & url)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString url(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxURLDataObject* self=Luna< wxDataObject >::checkSubType< wxURLDataObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxURLDataObject::SetURL(const wxString &). Got : '%s'",typeid(Luna< wxDataObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxURLDataObject::SetURL(const wxString &). Got : '%s'\n%s",typeid(Luna< wxDataObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetURL(url);
 

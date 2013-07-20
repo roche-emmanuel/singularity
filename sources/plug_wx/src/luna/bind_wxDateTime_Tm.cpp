@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDateTime::Tm*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDateTime::Tm*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDateTime::Tm* rhs =(Luna< wxDateTime::Tm >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDateTime::Tm* self= (wxDateTime::Tm*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDateTime::Tm >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -228,15 +224,13 @@ public:
 	// bool wxDateTime::Tm::IsValid() const
 	static int _bind_IsValid(lua_State *L) {
 		if (!_lg_typecheck_IsValid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateTime::Tm::IsValid() const function, expected prototype:\nbool wxDateTime::Tm::IsValid() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateTime::Tm::IsValid() const function, expected prototype:\nbool wxDateTime::Tm::IsValid() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::Tm::IsValid() const. Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDateTime::Tm::IsValid() const. Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsValid();
 		lua_pushboolean(L,lret?1:0);
@@ -247,15 +241,13 @@ public:
 	// wxDateTime::WeekDay wxDateTime::Tm::GetWeekDay()
 	static int _bind_GetWeekDay(lua_State *L) {
 		if (!_lg_typecheck_GetWeekDay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime::WeekDay wxDateTime::Tm::GetWeekDay() function, expected prototype:\nwxDateTime::WeekDay wxDateTime::Tm::GetWeekDay()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime::WeekDay wxDateTime::Tm::GetWeekDay() function, expected prototype:\nwxDateTime::WeekDay wxDateTime::Tm::GetWeekDay()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime::WeekDay wxDateTime::Tm::GetWeekDay(). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime::WeekDay wxDateTime::Tm::GetWeekDay(). Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime::WeekDay lret = self->GetWeekDay();
 		lua_pushnumber(L,lret);
@@ -266,15 +258,13 @@ public:
 	// unsigned short wxDateTime::Tm::msec()
 	static int _bind_getMsec(lua_State *L) {
 		if (!_lg_typecheck_getMsec(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned short wxDateTime::Tm::msec() function, expected prototype:\nunsigned short wxDateTime::Tm::msec()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned short wxDateTime::Tm::msec() function, expected prototype:\nunsigned short wxDateTime::Tm::msec()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::Tm::msec(). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::Tm::msec(). Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned short lret = self->msec;
 		lua_pushnumber(L,lret);
@@ -285,15 +275,13 @@ public:
 	// unsigned short wxDateTime::Tm::sec()
 	static int _bind_getSec(lua_State *L) {
 		if (!_lg_typecheck_getSec(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned short wxDateTime::Tm::sec() function, expected prototype:\nunsigned short wxDateTime::Tm::sec()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned short wxDateTime::Tm::sec() function, expected prototype:\nunsigned short wxDateTime::Tm::sec()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::Tm::sec(). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::Tm::sec(). Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned short lret = self->sec;
 		lua_pushnumber(L,lret);
@@ -304,15 +292,13 @@ public:
 	// unsigned short wxDateTime::Tm::min()
 	static int _bind_getMin(lua_State *L) {
 		if (!_lg_typecheck_getMin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned short wxDateTime::Tm::min() function, expected prototype:\nunsigned short wxDateTime::Tm::min()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned short wxDateTime::Tm::min() function, expected prototype:\nunsigned short wxDateTime::Tm::min()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::Tm::min(). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::Tm::min(). Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned short lret = self->min;
 		lua_pushnumber(L,lret);
@@ -323,15 +309,13 @@ public:
 	// unsigned short wxDateTime::Tm::hour()
 	static int _bind_getHour(lua_State *L) {
 		if (!_lg_typecheck_getHour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned short wxDateTime::Tm::hour() function, expected prototype:\nunsigned short wxDateTime::Tm::hour()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned short wxDateTime::Tm::hour() function, expected prototype:\nunsigned short wxDateTime::Tm::hour()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::Tm::hour(). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::Tm::hour(). Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned short lret = self->hour;
 		lua_pushnumber(L,lret);
@@ -342,15 +326,13 @@ public:
 	// unsigned short wxDateTime::Tm::mday()
 	static int _bind_getMday(lua_State *L) {
 		if (!_lg_typecheck_getMday(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned short wxDateTime::Tm::mday() function, expected prototype:\nunsigned short wxDateTime::Tm::mday()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned short wxDateTime::Tm::mday() function, expected prototype:\nunsigned short wxDateTime::Tm::mday()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::Tm::mday(). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::Tm::mday(). Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned short lret = self->mday;
 		lua_pushnumber(L,lret);
@@ -361,15 +343,13 @@ public:
 	// unsigned short wxDateTime::Tm::yday()
 	static int _bind_getYday(lua_State *L) {
 		if (!_lg_typecheck_getYday(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned short wxDateTime::Tm::yday() function, expected prototype:\nunsigned short wxDateTime::Tm::yday()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned short wxDateTime::Tm::yday() function, expected prototype:\nunsigned short wxDateTime::Tm::yday()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::Tm::yday(). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::Tm::yday(). Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned short lret = self->yday;
 		lua_pushnumber(L,lret);
@@ -380,15 +360,13 @@ public:
 	// wxDateTime::Month wxDateTime::Tm::mon()
 	static int _bind_getMon(lua_State *L) {
 		if (!_lg_typecheck_getMon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime::Month wxDateTime::Tm::mon() function, expected prototype:\nwxDateTime::Month wxDateTime::Tm::mon()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime::Month wxDateTime::Tm::mon() function, expected prototype:\nwxDateTime::Month wxDateTime::Tm::mon()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime::Month wxDateTime::Tm::mon(). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime::Month wxDateTime::Tm::mon(). Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime::Month lret = self->mon;
 		lua_pushnumber(L,lret);
@@ -399,15 +377,13 @@ public:
 	// int wxDateTime::Tm::year()
 	static int _bind_getYear(lua_State *L) {
 		if (!_lg_typecheck_getYear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxDateTime::Tm::year() function, expected prototype:\nint wxDateTime::Tm::year()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxDateTime::Tm::year() function, expected prototype:\nint wxDateTime::Tm::year()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDateTime::Tm::year(). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxDateTime::Tm::year(). Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->year;
 		lua_pushnumber(L,lret);
@@ -418,16 +394,14 @@ public:
 	// void wxDateTime::Tm::msec(unsigned short value)
 	static int _bind_setMsec(lua_State *L) {
 		if (!_lg_typecheck_setMsec(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDateTime::Tm::msec(unsigned short value) function, expected prototype:\nvoid wxDateTime::Tm::msec(unsigned short value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDateTime::Tm::msec(unsigned short value) function, expected prototype:\nvoid wxDateTime::Tm::msec(unsigned short value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short value=(unsigned short)lua_tointeger(L,2);
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDateTime::Tm::msec(unsigned short). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDateTime::Tm::msec(unsigned short). Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->msec = value;
 
@@ -437,16 +411,14 @@ public:
 	// void wxDateTime::Tm::sec(unsigned short value)
 	static int _bind_setSec(lua_State *L) {
 		if (!_lg_typecheck_setSec(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDateTime::Tm::sec(unsigned short value) function, expected prototype:\nvoid wxDateTime::Tm::sec(unsigned short value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDateTime::Tm::sec(unsigned short value) function, expected prototype:\nvoid wxDateTime::Tm::sec(unsigned short value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short value=(unsigned short)lua_tointeger(L,2);
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDateTime::Tm::sec(unsigned short). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDateTime::Tm::sec(unsigned short). Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->sec = value;
 
@@ -456,16 +428,14 @@ public:
 	// void wxDateTime::Tm::min(unsigned short value)
 	static int _bind_setMin(lua_State *L) {
 		if (!_lg_typecheck_setMin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDateTime::Tm::min(unsigned short value) function, expected prototype:\nvoid wxDateTime::Tm::min(unsigned short value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDateTime::Tm::min(unsigned short value) function, expected prototype:\nvoid wxDateTime::Tm::min(unsigned short value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short value=(unsigned short)lua_tointeger(L,2);
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDateTime::Tm::min(unsigned short). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDateTime::Tm::min(unsigned short). Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->min = value;
 
@@ -475,16 +445,14 @@ public:
 	// void wxDateTime::Tm::hour(unsigned short value)
 	static int _bind_setHour(lua_State *L) {
 		if (!_lg_typecheck_setHour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDateTime::Tm::hour(unsigned short value) function, expected prototype:\nvoid wxDateTime::Tm::hour(unsigned short value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDateTime::Tm::hour(unsigned short value) function, expected prototype:\nvoid wxDateTime::Tm::hour(unsigned short value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short value=(unsigned short)lua_tointeger(L,2);
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDateTime::Tm::hour(unsigned short). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDateTime::Tm::hour(unsigned short). Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->hour = value;
 
@@ -494,16 +462,14 @@ public:
 	// void wxDateTime::Tm::mday(unsigned short value)
 	static int _bind_setMday(lua_State *L) {
 		if (!_lg_typecheck_setMday(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDateTime::Tm::mday(unsigned short value) function, expected prototype:\nvoid wxDateTime::Tm::mday(unsigned short value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDateTime::Tm::mday(unsigned short value) function, expected prototype:\nvoid wxDateTime::Tm::mday(unsigned short value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short value=(unsigned short)lua_tointeger(L,2);
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDateTime::Tm::mday(unsigned short). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDateTime::Tm::mday(unsigned short). Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mday = value;
 
@@ -513,16 +479,14 @@ public:
 	// void wxDateTime::Tm::yday(unsigned short value)
 	static int _bind_setYday(lua_State *L) {
 		if (!_lg_typecheck_setYday(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDateTime::Tm::yday(unsigned short value) function, expected prototype:\nvoid wxDateTime::Tm::yday(unsigned short value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDateTime::Tm::yday(unsigned short value) function, expected prototype:\nvoid wxDateTime::Tm::yday(unsigned short value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short value=(unsigned short)lua_tointeger(L,2);
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDateTime::Tm::yday(unsigned short). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDateTime::Tm::yday(unsigned short). Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->yday = value;
 
@@ -532,16 +496,14 @@ public:
 	// void wxDateTime::Tm::mon(wxDateTime::Month value)
 	static int _bind_setMon(lua_State *L) {
 		if (!_lg_typecheck_setMon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDateTime::Tm::mon(wxDateTime::Month value) function, expected prototype:\nvoid wxDateTime::Tm::mon(wxDateTime::Month value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDateTime::Tm::mon(wxDateTime::Month value) function, expected prototype:\nvoid wxDateTime::Tm::mon(wxDateTime::Month value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDateTime::Month value=(wxDateTime::Month)lua_tointeger(L,2);
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDateTime::Tm::mon(wxDateTime::Month). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDateTime::Tm::mon(wxDateTime::Month). Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mon = value;
 
@@ -551,16 +513,14 @@ public:
 	// void wxDateTime::Tm::year(int value)
 	static int _bind_setYear(lua_State *L) {
 		if (!_lg_typecheck_setYear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDateTime::Tm::year(int value) function, expected prototype:\nvoid wxDateTime::Tm::year(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDateTime::Tm::year(int value) function, expected prototype:\nvoid wxDateTime::Tm::year(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		wxDateTime::Tm* self=(Luna< wxDateTime::Tm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDateTime::Tm::year(int). Got : '%s'",typeid(Luna< wxDateTime::Tm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDateTime::Tm::year(int). Got : '%s'\n%s",typeid(Luna< wxDateTime::Tm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->year = value;
 

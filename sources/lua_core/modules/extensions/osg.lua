@@ -117,7 +117,6 @@ osg.Vec3f.dot = function(self,rhs)
 	return self*rhs
 end
 
-
 osg.XAXIS = osg.Vec3d(1.0,0.0,0.0)
 osg.YAXIS = osg.Vec3d(0.0,1.0,0.0)
 osg.ZAXIS = osg.Vec3d(0.0,0.0,1.0)

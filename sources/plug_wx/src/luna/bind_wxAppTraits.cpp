@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxAppTraits*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxAppTraits*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxAppTraits* rhs =(Luna< wxAppTraits >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxAppTraits* self= (wxAppTraits*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxAppTraits >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -265,15 +260,13 @@ public:
 	// wxConfigBase * wxAppTraits::CreateConfig()
 	static int _bind_CreateConfig(lua_State *L) {
 		if (!_lg_typecheck_CreateConfig(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxConfigBase * wxAppTraits::CreateConfig() function, expected prototype:\nwxConfigBase * wxAppTraits::CreateConfig()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxConfigBase * wxAppTraits::CreateConfig() function, expected prototype:\nwxConfigBase * wxAppTraits::CreateConfig()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConfigBase * wxAppTraits::CreateConfig(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxConfigBase * wxAppTraits::CreateConfig(). Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxConfigBase * lret = self->CreateConfig();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -286,15 +279,13 @@ public:
 	// wxEventLoopBase * wxAppTraits::CreateEventLoop()
 	static int _bind_CreateEventLoop(lua_State *L) {
 		if (!_lg_typecheck_CreateEventLoop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventLoopBase * wxAppTraits::CreateEventLoop() function, expected prototype:\nwxEventLoopBase * wxAppTraits::CreateEventLoop()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventLoopBase * wxAppTraits::CreateEventLoop() function, expected prototype:\nwxEventLoopBase * wxAppTraits::CreateEventLoop()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventLoopBase * wxAppTraits::CreateEventLoop(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventLoopBase * wxAppTraits::CreateEventLoop(). Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventLoopBase * lret = self->CreateEventLoop();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -307,15 +298,13 @@ public:
 	// wxFontMapper * wxAppTraits::CreateFontMapper()
 	static int _bind_CreateFontMapper(lua_State *L) {
 		if (!_lg_typecheck_CreateFontMapper(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFontMapper * wxAppTraits::CreateFontMapper() function, expected prototype:\nwxFontMapper * wxAppTraits::CreateFontMapper()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFontMapper * wxAppTraits::CreateFontMapper() function, expected prototype:\nwxFontMapper * wxAppTraits::CreateFontMapper()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFontMapper * wxAppTraits::CreateFontMapper(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFontMapper * wxAppTraits::CreateFontMapper(). Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFontMapper * lret = self->CreateFontMapper();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -328,15 +317,13 @@ public:
 	// wxLog * wxAppTraits::CreateLogTarget()
 	static int _bind_CreateLogTarget(lua_State *L) {
 		if (!_lg_typecheck_CreateLogTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxLog * wxAppTraits::CreateLogTarget() function, expected prototype:\nwxLog * wxAppTraits::CreateLogTarget()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxLog * wxAppTraits::CreateLogTarget() function, expected prototype:\nwxLog * wxAppTraits::CreateLogTarget()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLog * wxAppTraits::CreateLogTarget(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxLog * wxAppTraits::CreateLogTarget(). Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxLog * lret = self->CreateLogTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -349,15 +336,13 @@ public:
 	// wxMessageOutput * wxAppTraits::CreateMessageOutput()
 	static int _bind_CreateMessageOutput(lua_State *L) {
 		if (!_lg_typecheck_CreateMessageOutput(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMessageOutput * wxAppTraits::CreateMessageOutput() function, expected prototype:\nwxMessageOutput * wxAppTraits::CreateMessageOutput()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxMessageOutput * wxAppTraits::CreateMessageOutput() function, expected prototype:\nwxMessageOutput * wxAppTraits::CreateMessageOutput()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMessageOutput * wxAppTraits::CreateMessageOutput(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxMessageOutput * wxAppTraits::CreateMessageOutput(). Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxMessageOutput * lret = self->CreateMessageOutput();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -370,15 +355,13 @@ public:
 	// wxRendererNative * wxAppTraits::CreateRenderer()
 	static int _bind_CreateRenderer(lua_State *L) {
 		if (!_lg_typecheck_CreateRenderer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRendererNative * wxAppTraits::CreateRenderer() function, expected prototype:\nwxRendererNative * wxAppTraits::CreateRenderer()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRendererNative * wxAppTraits::CreateRenderer() function, expected prototype:\nwxRendererNative * wxAppTraits::CreateRenderer()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRendererNative * wxAppTraits::CreateRenderer(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRendererNative * wxAppTraits::CreateRenderer(). Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxRendererNative * lret = self->CreateRenderer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -391,15 +374,13 @@ public:
 	// wxString wxAppTraits::GetDesktopEnvironment() const
 	static int _bind_GetDesktopEnvironment(lua_State *L) {
 		if (!_lg_typecheck_GetDesktopEnvironment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxAppTraits::GetDesktopEnvironment() const function, expected prototype:\nwxString wxAppTraits::GetDesktopEnvironment() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxAppTraits::GetDesktopEnvironment() const function, expected prototype:\nwxString wxAppTraits::GetDesktopEnvironment() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAppTraits::GetDesktopEnvironment() const. Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxAppTraits::GetDesktopEnvironment() const. Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetDesktopEnvironment();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -410,15 +391,13 @@ public:
 	// wxStandardPaths & wxAppTraits::GetStandardPaths()
 	static int _bind_GetStandardPaths(lua_State *L) {
 		if (!_lg_typecheck_GetStandardPaths(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxStandardPaths & wxAppTraits::GetStandardPaths() function, expected prototype:\nwxStandardPaths & wxAppTraits::GetStandardPaths()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxStandardPaths & wxAppTraits::GetStandardPaths() function, expected prototype:\nwxStandardPaths & wxAppTraits::GetStandardPaths()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxStandardPaths & wxAppTraits::GetStandardPaths(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxStandardPaths & wxAppTraits::GetStandardPaths(). Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxStandardPaths* lret = &self->GetStandardPaths();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -431,8 +410,7 @@ public:
 	// wxPortId wxAppTraits::GetToolkitVersion(int * major = NULL, int * minor = NULL) const
 	static int _bind_GetToolkitVersion(lua_State *L) {
 		if (!_lg_typecheck_GetToolkitVersion(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPortId wxAppTraits::GetToolkitVersion(int * major = NULL, int * minor = NULL) const function, expected prototype:\nwxPortId wxAppTraits::GetToolkitVersion(int * major = NULL, int * minor = NULL) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPortId wxAppTraits::GetToolkitVersion(int * major = NULL, int * minor = NULL) const function, expected prototype:\nwxPortId wxAppTraits::GetToolkitVersion(int * major = NULL, int * minor = NULL) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -442,8 +420,7 @@ public:
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPortId wxAppTraits::GetToolkitVersion(int *, int *) const. Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPortId wxAppTraits::GetToolkitVersion(int *, int *) const. Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPortId lret = self->GetToolkitVersion(major, minor);
 		lua_pushnumber(L,lret);
@@ -454,15 +431,13 @@ public:
 	// bool wxAppTraits::HasStderr()
 	static int _bind_HasStderr(lua_State *L) {
 		if (!_lg_typecheck_HasStderr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAppTraits::HasStderr() function, expected prototype:\nbool wxAppTraits::HasStderr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAppTraits::HasStderr() function, expected prototype:\nbool wxAppTraits::HasStderr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppTraits::HasStderr(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAppTraits::HasStderr(). Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasStderr();
 		lua_pushboolean(L,lret?1:0);
@@ -473,15 +448,13 @@ public:
 	// bool wxAppTraits::IsUsingUniversalWidgets() const
 	static int _bind_IsUsingUniversalWidgets(lua_State *L) {
 		if (!_lg_typecheck_IsUsingUniversalWidgets(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAppTraits::IsUsingUniversalWidgets() const function, expected prototype:\nbool wxAppTraits::IsUsingUniversalWidgets() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAppTraits::IsUsingUniversalWidgets() const function, expected prototype:\nbool wxAppTraits::IsUsingUniversalWidgets() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppTraits::IsUsingUniversalWidgets() const. Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAppTraits::IsUsingUniversalWidgets() const. Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsUsingUniversalWidgets();
 		lua_pushboolean(L,lret?1:0);
@@ -492,16 +465,14 @@ public:
 	// bool wxAppTraits::ShowAssertDialog(const wxString & msg)
 	static int _bind_ShowAssertDialog(lua_State *L) {
 		if (!_lg_typecheck_ShowAssertDialog(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAppTraits::ShowAssertDialog(const wxString & msg) function, expected prototype:\nbool wxAppTraits::ShowAssertDialog(const wxString & msg)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxAppTraits::ShowAssertDialog(const wxString & msg) function, expected prototype:\nbool wxAppTraits::ShowAssertDialog(const wxString & msg)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString msg(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppTraits::ShowAssertDialog(const wxString &). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAppTraits::ShowAssertDialog(const wxString &). Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ShowAssertDialog(msg);
 		lua_pushboolean(L,lret?1:0);
@@ -512,16 +483,14 @@ public:
 	// wxTimerImpl * wxAppTraits::CreateTimerImpl(wxTimer * arg1)
 	static int _bind_CreateTimerImpl(lua_State *L) {
 		if (!_lg_typecheck_CreateTimerImpl(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTimerImpl * wxAppTraits::CreateTimerImpl(wxTimer * arg1) function, expected prototype:\nwxTimerImpl * wxAppTraits::CreateTimerImpl(wxTimer * arg1)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxTimerImpl * wxAppTraits::CreateTimerImpl(wxTimer * arg1) function, expected prototype:\nwxTimerImpl * wxAppTraits::CreateTimerImpl(wxTimer * arg1)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTimer* _arg1=(Luna< wxObject >::checkSubType< wxTimer >(L,2));
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimerImpl * wxAppTraits::CreateTimerImpl(wxTimer *). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxTimerImpl * wxAppTraits::CreateTimerImpl(wxTimer *). Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxTimerImpl * lret = self->CreateTimerImpl(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -534,15 +503,13 @@ public:
 	// void * wxAppTraits::BeforeChildWaitLoop()
 	static int _bind_BeforeChildWaitLoop(lua_State *L) {
 		if (!_lg_typecheck_BeforeChildWaitLoop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * wxAppTraits::BeforeChildWaitLoop() function, expected prototype:\nvoid * wxAppTraits::BeforeChildWaitLoop()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * wxAppTraits::BeforeChildWaitLoop() function, expected prototype:\nvoid * wxAppTraits::BeforeChildWaitLoop()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxAppTraits::BeforeChildWaitLoop(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * wxAppTraits::BeforeChildWaitLoop(). Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->BeforeChildWaitLoop();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -555,16 +522,14 @@ public:
 	// void wxAppTraits::AfterChildWaitLoop(void * arg1)
 	static int _bind_AfterChildWaitLoop(lua_State *L) {
 		if (!_lg_typecheck_AfterChildWaitLoop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAppTraits::AfterChildWaitLoop(void * arg1) function, expected prototype:\nvoid wxAppTraits::AfterChildWaitLoop(void * arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAppTraits::AfterChildWaitLoop(void * arg1) function, expected prototype:\nvoid wxAppTraits::AfterChildWaitLoop(void * arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* _arg1=(Luna< void >::check(L,2));
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAppTraits::AfterChildWaitLoop(void *). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAppTraits::AfterChildWaitLoop(void *). Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AfterChildWaitLoop(_arg1);
 
@@ -574,15 +539,13 @@ public:
 	// bool wxAppTraits::DoMessageFromThreadWait()
 	static int _bind_DoMessageFromThreadWait(lua_State *L) {
 		if (!_lg_typecheck_DoMessageFromThreadWait(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAppTraits::DoMessageFromThreadWait() function, expected prototype:\nbool wxAppTraits::DoMessageFromThreadWait()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAppTraits::DoMessageFromThreadWait() function, expected prototype:\nbool wxAppTraits::DoMessageFromThreadWait()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppTraits::DoMessageFromThreadWait(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAppTraits::DoMessageFromThreadWait(). Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DoMessageFromThreadWait();
 		lua_pushboolean(L,lret?1:0);
@@ -593,15 +556,13 @@ public:
 	// bool wxAppTraits::CanUseStderr()
 	static int _bind_CanUseStderr(lua_State *L) {
 		if (!_lg_typecheck_CanUseStderr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAppTraits::CanUseStderr() function, expected prototype:\nbool wxAppTraits::CanUseStderr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxAppTraits::CanUseStderr() function, expected prototype:\nbool wxAppTraits::CanUseStderr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppTraits::CanUseStderr(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAppTraits::CanUseStderr(). Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CanUseStderr();
 		lua_pushboolean(L,lret?1:0);
@@ -612,16 +573,14 @@ public:
 	// bool wxAppTraits::WriteToStderr(const wxString & arg1)
 	static int _bind_WriteToStderr(lua_State *L) {
 		if (!_lg_typecheck_WriteToStderr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAppTraits::WriteToStderr(const wxString & arg1) function, expected prototype:\nbool wxAppTraits::WriteToStderr(const wxString & arg1)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxAppTraits::WriteToStderr(const wxString & arg1) function, expected prototype:\nbool wxAppTraits::WriteToStderr(const wxString & arg1)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString _arg1(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAppTraits::WriteToStderr(const wxString &). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAppTraits::WriteToStderr(const wxString &). Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->WriteToStderr(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -632,15 +591,13 @@ public:
 	// wxConfigBase * wxAppTraits::base_CreateConfig()
 	static int _bind_base_CreateConfig(lua_State *L) {
 		if (!_lg_typecheck_base_CreateConfig(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxConfigBase * wxAppTraits::base_CreateConfig() function, expected prototype:\nwxConfigBase * wxAppTraits::base_CreateConfig()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxConfigBase * wxAppTraits::base_CreateConfig() function, expected prototype:\nwxConfigBase * wxAppTraits::base_CreateConfig()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConfigBase * wxAppTraits::base_CreateConfig(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxConfigBase * wxAppTraits::base_CreateConfig(). Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxConfigBase * lret = self->wxAppTraits::CreateConfig();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -653,15 +610,13 @@ public:
 	// wxStandardPaths & wxAppTraits::base_GetStandardPaths()
 	static int _bind_base_GetStandardPaths(lua_State *L) {
 		if (!_lg_typecheck_base_GetStandardPaths(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxStandardPaths & wxAppTraits::base_GetStandardPaths() function, expected prototype:\nwxStandardPaths & wxAppTraits::base_GetStandardPaths()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxStandardPaths & wxAppTraits::base_GetStandardPaths() function, expected prototype:\nwxStandardPaths & wxAppTraits::base_GetStandardPaths()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAppTraits* self=(Luna< wxAppTraits >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxStandardPaths & wxAppTraits::base_GetStandardPaths(). Got : '%s'",typeid(Luna< wxAppTraits >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxStandardPaths & wxAppTraits::base_GetStandardPaths(). Got : '%s'\n%s",typeid(Luna< wxAppTraits >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxStandardPaths* lret = &self->wxAppTraits::GetStandardPaths();
 		if(!lret) return 0; // Do not write NULL pointers.

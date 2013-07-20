@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxStackWalker* self=(Luna< wxStackWalker >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxStackWalker*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxStackWalker*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxStackWalker* rhs =(Luna< wxStackWalker >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxStackWalker* self= (wxStackWalker*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxStackWalker >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -179,8 +174,7 @@ public:
 	// wxStackWalker::wxStackWalker(lua_Table * data, const char * argv0 = NULL)
 	static wxStackWalker* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxStackWalker::wxStackWalker(lua_Table * data, const char * argv0 = NULL) function, expected prototype:\nwxStackWalker::wxStackWalker(lua_Table * data, const char * argv0 = NULL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxStackWalker::wxStackWalker(lua_Table * data, const char * argv0 = NULL) function, expected prototype:\nwxStackWalker::wxStackWalker(lua_Table * data, const char * argv0 = NULL)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -195,8 +189,7 @@ public:
 	// void wxStackWalker::Walk(size_t skip = 1, size_t maxDepth = (200))
 	static int _bind_Walk(lua_State *L) {
 		if (!_lg_typecheck_Walk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStackWalker::Walk(size_t skip = 1, size_t maxDepth = (200)) function, expected prototype:\nvoid wxStackWalker::Walk(size_t skip = 1, size_t maxDepth = (200))\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStackWalker::Walk(size_t skip = 1, size_t maxDepth = (200)) function, expected prototype:\nvoid wxStackWalker::Walk(size_t skip = 1, size_t maxDepth = (200))\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -206,8 +199,7 @@ public:
 
 		wxStackWalker* self=(Luna< wxStackWalker >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStackWalker::Walk(size_t, size_t). Got : '%s'",typeid(Luna< wxStackWalker >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStackWalker::Walk(size_t, size_t). Got : '%s'\n%s",typeid(Luna< wxStackWalker >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Walk(skip, maxDepth);
 
@@ -217,8 +209,7 @@ public:
 	// void wxStackWalker::WalkFromException(size_t maxDepth = (200))
 	static int _bind_WalkFromException(lua_State *L) {
 		if (!_lg_typecheck_WalkFromException(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStackWalker::WalkFromException(size_t maxDepth = (200)) function, expected prototype:\nvoid wxStackWalker::WalkFromException(size_t maxDepth = (200))\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStackWalker::WalkFromException(size_t maxDepth = (200)) function, expected prototype:\nvoid wxStackWalker::WalkFromException(size_t maxDepth = (200))\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -227,8 +218,7 @@ public:
 
 		wxStackWalker* self=(Luna< wxStackWalker >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStackWalker::WalkFromException(size_t). Got : '%s'",typeid(Luna< wxStackWalker >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStackWalker::WalkFromException(size_t). Got : '%s'\n%s",typeid(Luna< wxStackWalker >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WalkFromException(maxDepth);
 
@@ -238,8 +228,7 @@ public:
 	// void wxStackWalker::base_Walk(size_t skip = 1, size_t maxDepth = (200))
 	static int _bind_base_Walk(lua_State *L) {
 		if (!_lg_typecheck_base_Walk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStackWalker::base_Walk(size_t skip = 1, size_t maxDepth = (200)) function, expected prototype:\nvoid wxStackWalker::base_Walk(size_t skip = 1, size_t maxDepth = (200))\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStackWalker::base_Walk(size_t skip = 1, size_t maxDepth = (200)) function, expected prototype:\nvoid wxStackWalker::base_Walk(size_t skip = 1, size_t maxDepth = (200))\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -249,8 +238,7 @@ public:
 
 		wxStackWalker* self=(Luna< wxStackWalker >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStackWalker::base_Walk(size_t, size_t). Got : '%s'",typeid(Luna< wxStackWalker >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStackWalker::base_Walk(size_t, size_t). Got : '%s'\n%s",typeid(Luna< wxStackWalker >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStackWalker::Walk(skip, maxDepth);
 
@@ -260,8 +248,7 @@ public:
 	// void wxStackWalker::base_WalkFromException(size_t maxDepth = (200))
 	static int _bind_base_WalkFromException(lua_State *L) {
 		if (!_lg_typecheck_base_WalkFromException(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxStackWalker::base_WalkFromException(size_t maxDepth = (200)) function, expected prototype:\nvoid wxStackWalker::base_WalkFromException(size_t maxDepth = (200))\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxStackWalker::base_WalkFromException(size_t maxDepth = (200)) function, expected prototype:\nvoid wxStackWalker::base_WalkFromException(size_t maxDepth = (200))\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -270,8 +257,7 @@ public:
 
 		wxStackWalker* self=(Luna< wxStackWalker >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxStackWalker::base_WalkFromException(size_t). Got : '%s'",typeid(Luna< wxStackWalker >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxStackWalker::base_WalkFromException(size_t). Got : '%s'\n%s",typeid(Luna< wxStackWalker >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxStackWalker::WalkFromException(maxDepth);
 

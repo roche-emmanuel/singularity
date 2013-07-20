@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxMemoryFSHandler* self= (wxMemoryFSHandler*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -173,8 +170,7 @@ public:
 	// wxMemoryFSHandler::wxMemoryFSHandler(lua_Table * data)
 	static wxMemoryFSHandler* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMemoryFSHandler::wxMemoryFSHandler(lua_Table * data) function, expected prototype:\nwxMemoryFSHandler::wxMemoryFSHandler(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxMemoryFSHandler::wxMemoryFSHandler(lua_Table * data) function, expected prototype:\nwxMemoryFSHandler::wxMemoryFSHandler(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -186,8 +182,7 @@ public:
 	// static void wxMemoryFSHandler::AddFile(const wxString & filename, wxImage & image, wxBitmapType type)
 	static int _bind_AddFile_overload_1(lua_State *L) {
 		if (!_lg_typecheck_AddFile_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxMemoryFSHandler::AddFile(const wxString & filename, wxImage & image, wxBitmapType type) function, expected prototype:\nstatic void wxMemoryFSHandler::AddFile(const wxString & filename, wxImage & image, wxBitmapType type)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in static void wxMemoryFSHandler::AddFile(const wxString & filename, wxImage & image, wxBitmapType type) function, expected prototype:\nstatic void wxMemoryFSHandler::AddFile(const wxString & filename, wxImage & image, wxBitmapType type)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -206,8 +201,7 @@ public:
 	// static void wxMemoryFSHandler::AddFile(const wxString & filename, const wxBitmap & bitmap, wxBitmapType type)
 	static int _bind_AddFile_overload_2(lua_State *L) {
 		if (!_lg_typecheck_AddFile_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxMemoryFSHandler::AddFile(const wxString & filename, const wxBitmap & bitmap, wxBitmapType type) function, expected prototype:\nstatic void wxMemoryFSHandler::AddFile(const wxString & filename, const wxBitmap & bitmap, wxBitmapType type)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in static void wxMemoryFSHandler::AddFile(const wxString & filename, const wxBitmap & bitmap, wxBitmapType type) function, expected prototype:\nstatic void wxMemoryFSHandler::AddFile(const wxString & filename, const wxBitmap & bitmap, wxBitmapType type)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -235,8 +229,7 @@ public:
 	// static void wxMemoryFSHandler::AddFileWithMimeType(const wxString & filename, const wxString & textdata, const wxString & mimetype)
 	static int _bind_AddFileWithMimeType_overload_1(lua_State *L) {
 		if (!_lg_typecheck_AddFileWithMimeType_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxMemoryFSHandler::AddFileWithMimeType(const wxString & filename, const wxString & textdata, const wxString & mimetype) function, expected prototype:\nstatic void wxMemoryFSHandler::AddFileWithMimeType(const wxString & filename, const wxString & textdata, const wxString & mimetype)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static void wxMemoryFSHandler::AddFileWithMimeType(const wxString & filename, const wxString & textdata, const wxString & mimetype) function, expected prototype:\nstatic void wxMemoryFSHandler::AddFileWithMimeType(const wxString & filename, const wxString & textdata, const wxString & mimetype)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -251,12 +244,11 @@ public:
 	// static void wxMemoryFSHandler::AddFileWithMimeType(const wxString & filename, const void * binarydata, size_t size, const wxString & mimetype)
 	static int _bind_AddFileWithMimeType_overload_2(lua_State *L) {
 		if (!_lg_typecheck_AddFileWithMimeType_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxMemoryFSHandler::AddFileWithMimeType(const wxString & filename, const void * binarydata, size_t size, const wxString & mimetype) function, expected prototype:\nstatic void wxMemoryFSHandler::AddFileWithMimeType(const wxString & filename, const void * binarydata, size_t size, const wxString & mimetype)\nClass arguments details:\narg 1 ID = 88196105\narg 4 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static void wxMemoryFSHandler::AddFileWithMimeType(const wxString & filename, const void * binarydata, size_t size, const wxString & mimetype) function, expected prototype:\nstatic void wxMemoryFSHandler::AddFileWithMimeType(const wxString & filename, const void * binarydata, size_t size, const wxString & mimetype)\nClass arguments details:\narg 1 ID = 88196105\narg 4 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString filename(lua_tostring(L,1),lua_objlen(L,1));
-		void* binarydata=(Luna< void >::check(L,2));
+		const void* binarydata=(Luna< void >::check(L,2));
 		size_t size=(size_t)lua_tointeger(L,3);
 		wxString mimetype(lua_tostring(L,4),lua_objlen(L,4));
 
@@ -277,8 +269,7 @@ public:
 	// static void wxMemoryFSHandler::RemoveFile(const wxString & filename)
 	static int _bind_RemoveFile(lua_State *L) {
 		if (!_lg_typecheck_RemoveFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxMemoryFSHandler::RemoveFile(const wxString & filename) function, expected prototype:\nstatic void wxMemoryFSHandler::RemoveFile(const wxString & filename)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static void wxMemoryFSHandler::RemoveFile(const wxString & filename) function, expected prototype:\nstatic void wxMemoryFSHandler::RemoveFile(const wxString & filename)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -291,15 +282,13 @@ public:
 	// wxClassInfo * wxMemoryFSHandler::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxMemoryFSHandler::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxMemoryFSHandler::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxMemoryFSHandler::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxMemoryFSHandler::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxMemoryFSHandler* self=Luna< wxObject >::checkSubType< wxMemoryFSHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxMemoryFSHandler::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxMemoryFSHandler::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxMemoryFSHandler::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -312,8 +301,7 @@ public:
 	// wxString wxMemoryFSHandler::base_FindFirst(const wxString & wildcard, int flags = 0)
 	static int _bind_base_FindFirst(lua_State *L) {
 		if (!_lg_typecheck_base_FindFirst(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxMemoryFSHandler::base_FindFirst(const wxString & wildcard, int flags = 0) function, expected prototype:\nwxString wxMemoryFSHandler::base_FindFirst(const wxString & wildcard, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxMemoryFSHandler::base_FindFirst(const wxString & wildcard, int flags = 0) function, expected prototype:\nwxString wxMemoryFSHandler::base_FindFirst(const wxString & wildcard, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -323,8 +311,7 @@ public:
 
 		wxMemoryFSHandler* self=Luna< wxObject >::checkSubType< wxMemoryFSHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxMemoryFSHandler::base_FindFirst(const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxMemoryFSHandler::base_FindFirst(const wxString &, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxMemoryFSHandler::FindFirst(wildcard, flags);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -335,15 +322,13 @@ public:
 	// wxString wxMemoryFSHandler::base_FindNext()
 	static int _bind_base_FindNext(lua_State *L) {
 		if (!_lg_typecheck_base_FindNext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxMemoryFSHandler::base_FindNext() function, expected prototype:\nwxString wxMemoryFSHandler::base_FindNext()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxMemoryFSHandler::base_FindNext() function, expected prototype:\nwxString wxMemoryFSHandler::base_FindNext()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxMemoryFSHandler* self=Luna< wxObject >::checkSubType< wxMemoryFSHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxMemoryFSHandler::base_FindNext(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxMemoryFSHandler::base_FindNext(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxMemoryFSHandler::FindNext();
 		lua_pushlstring(L,lret.data(),lret.size());

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlWinTagHandler* self= (wxHtmlWinTagHandler*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -114,15 +111,13 @@ public:
 	// wxClassInfo * wxHtmlWinTagHandler::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlWinTagHandler::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlWinTagHandler::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlWinTagHandler::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlWinTagHandler::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlWinTagHandler* self=Luna< wxObject >::checkSubType< wxHtmlWinTagHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlWinTagHandler::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlWinTagHandler::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxHtmlWinTagHandler::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -135,16 +130,14 @@ public:
 	// void wxHtmlWinTagHandler::base_SetParser(wxHtmlParser * parser)
 	static int _bind_base_SetParser(lua_State *L) {
 		if (!_lg_typecheck_base_SetParser(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlWinTagHandler::base_SetParser(wxHtmlParser * parser) function, expected prototype:\nvoid wxHtmlWinTagHandler::base_SetParser(wxHtmlParser * parser)\nClass arguments details:\narg 1 ID = 65918681\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlWinTagHandler::base_SetParser(wxHtmlParser * parser) function, expected prototype:\nvoid wxHtmlWinTagHandler::base_SetParser(wxHtmlParser * parser)\nClass arguments details:\narg 1 ID = 65918681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlParser* parser=(Luna< wxHtmlParser >::check(L,2));
 
 		wxHtmlWinTagHandler* self=Luna< wxObject >::checkSubType< wxHtmlWinTagHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlWinTagHandler::base_SetParser(wxHtmlParser *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlWinTagHandler::base_SetParser(wxHtmlParser *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxHtmlWinTagHandler::SetParser(parser);
 

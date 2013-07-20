@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTaskBarIcon* self= (wxTaskBarIcon*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -221,8 +218,7 @@ public:
 	// wxTaskBarIcon::wxTaskBarIcon()
 	static wxTaskBarIcon* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTaskBarIcon::wxTaskBarIcon() function, expected prototype:\nwxTaskBarIcon::wxTaskBarIcon()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxTaskBarIcon::wxTaskBarIcon() function, expected prototype:\nwxTaskBarIcon::wxTaskBarIcon()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -232,8 +228,7 @@ public:
 	// wxTaskBarIcon::wxTaskBarIcon(lua_Table * data)
 	static wxTaskBarIcon* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTaskBarIcon::wxTaskBarIcon(lua_Table * data) function, expected prototype:\nwxTaskBarIcon::wxTaskBarIcon(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxTaskBarIcon::wxTaskBarIcon(lua_Table * data) function, expected prototype:\nwxTaskBarIcon::wxTaskBarIcon(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -254,15 +249,13 @@ public:
 	// void wxTaskBarIcon::Destroy()
 	static int _bind_Destroy(lua_State *L) {
 		if (!_lg_typecheck_Destroy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTaskBarIcon::Destroy() function, expected prototype:\nvoid wxTaskBarIcon::Destroy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTaskBarIcon::Destroy() function, expected prototype:\nvoid wxTaskBarIcon::Destroy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::Destroy(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Destroy();
 
@@ -272,15 +265,13 @@ public:
 	// bool wxTaskBarIcon::IsIconInstalled() const
 	static int _bind_IsIconInstalled(lua_State *L) {
 		if (!_lg_typecheck_IsIconInstalled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::IsIconInstalled() const function, expected prototype:\nbool wxTaskBarIcon::IsIconInstalled() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::IsIconInstalled() const function, expected prototype:\nbool wxTaskBarIcon::IsIconInstalled() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::IsIconInstalled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::IsIconInstalled() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsIconInstalled();
 		lua_pushboolean(L,lret?1:0);
@@ -291,15 +282,13 @@ public:
 	// bool wxTaskBarIcon::IsOk() const
 	static int _bind_IsOk(lua_State *L) {
 		if (!_lg_typecheck_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::IsOk() const function, expected prototype:\nbool wxTaskBarIcon::IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::IsOk() const function, expected prototype:\nbool wxTaskBarIcon::IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::IsOk() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -310,16 +299,14 @@ public:
 	// bool wxTaskBarIcon::PopupMenu(wxMenu * menu)
 	static int _bind_PopupMenu(lua_State *L) {
 		if (!_lg_typecheck_PopupMenu(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::PopupMenu(wxMenu * menu) function, expected prototype:\nbool wxTaskBarIcon::PopupMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::PopupMenu(wxMenu * menu) function, expected prototype:\nbool wxTaskBarIcon::PopupMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxMenu* menu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
 
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::PopupMenu(wxMenu *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::PopupMenu(wxMenu *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->PopupMenu(menu);
 		lua_pushboolean(L,lret?1:0);
@@ -330,15 +317,13 @@ public:
 	// bool wxTaskBarIcon::RemoveIcon()
 	static int _bind_RemoveIcon(lua_State *L) {
 		if (!_lg_typecheck_RemoveIcon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::RemoveIcon() function, expected prototype:\nbool wxTaskBarIcon::RemoveIcon()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::RemoveIcon() function, expected prototype:\nbool wxTaskBarIcon::RemoveIcon()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::RemoveIcon(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::RemoveIcon(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RemoveIcon();
 		lua_pushboolean(L,lret?1:0);
@@ -349,8 +334,7 @@ public:
 	// bool wxTaskBarIcon::SetIcon(const wxIcon & icon, const wxString & tooltip = wxEmptyString)
 	static int _bind_SetIcon(lua_State *L) {
 		if (!_lg_typecheck_SetIcon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::SetIcon(const wxIcon & icon, const wxString & tooltip = wxEmptyString) function, expected prototype:\nbool wxTaskBarIcon::SetIcon(const wxIcon & icon, const wxString & tooltip = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::SetIcon(const wxIcon & icon, const wxString & tooltip = wxEmptyString) function, expected prototype:\nbool wxTaskBarIcon::SetIcon(const wxIcon & icon, const wxString & tooltip = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -364,8 +348,7 @@ public:
 
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::SetIcon(const wxIcon &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::SetIcon(const wxIcon &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SetIcon(icon, tooltip);
 		lua_pushboolean(L,lret?1:0);
@@ -376,8 +359,7 @@ public:
 	// static bool wxTaskBarIcon::IsAvailable()
 	static int _bind_IsAvailable(lua_State *L) {
 		if (!_lg_typecheck_IsAvailable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxTaskBarIcon::IsAvailable() function, expected prototype:\nstatic bool wxTaskBarIcon::IsAvailable()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool wxTaskBarIcon::IsAvailable() function, expected prototype:\nstatic bool wxTaskBarIcon::IsAvailable()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -390,15 +372,13 @@ public:
 	// wxClassInfo * wxTaskBarIcon::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxTaskBarIcon::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxTaskBarIcon::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxTaskBarIcon::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxTaskBarIcon::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxTaskBarIcon::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxTaskBarIcon::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxTaskBarIcon::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -411,16 +391,14 @@ public:
 	// void wxTaskBarIcon::base_QueueEvent(wxEvent * event)
 	static int _bind_base_QueueEvent(lua_State *L) {
 		if (!_lg_typecheck_base_QueueEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTaskBarIcon::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxTaskBarIcon::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxTaskBarIcon::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxTaskBarIcon::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvent* event=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
 
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_QueueEvent(wxEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_QueueEvent(wxEvent *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTaskBarIcon::QueueEvent(event);
 
@@ -430,8 +408,7 @@ public:
 	// void wxTaskBarIcon::base_AddPendingEvent(const wxEvent & event)
 	static int _bind_base_AddPendingEvent(lua_State *L) {
 		if (!_lg_typecheck_base_AddPendingEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTaskBarIcon::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxTaskBarIcon::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxTaskBarIcon::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxTaskBarIcon::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
@@ -442,8 +419,7 @@ public:
 
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_AddPendingEvent(const wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_AddPendingEvent(const wxEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTaskBarIcon::AddPendingEvent(event);
 
@@ -453,8 +429,7 @@ public:
 	// bool wxTaskBarIcon::base_ProcessEvent(wxEvent & event)
 	static int _bind_base_ProcessEvent(lua_State *L) {
 		if (!_lg_typecheck_base_ProcessEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxTaskBarIcon::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxTaskBarIcon::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
@@ -465,8 +440,7 @@ public:
 
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_ProcessEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_ProcessEvent(wxEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTaskBarIcon::ProcessEvent(event);
 		lua_pushboolean(L,lret?1:0);
@@ -477,16 +451,14 @@ public:
 	// void wxTaskBarIcon::base_SetNextHandler(wxEvtHandler * handler)
 	static int _bind_base_SetNextHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetNextHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTaskBarIcon::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxTaskBarIcon::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxTaskBarIcon::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxTaskBarIcon::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_SetNextHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTaskBarIcon::SetNextHandler(handler);
 
@@ -496,16 +468,14 @@ public:
 	// void wxTaskBarIcon::base_SetPreviousHandler(wxEvtHandler * handler)
 	static int _bind_base_SetPreviousHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTaskBarIcon::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxTaskBarIcon::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxTaskBarIcon::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxTaskBarIcon::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTaskBarIcon::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxTaskBarIcon::SetPreviousHandler(handler);
 
@@ -515,16 +485,14 @@ public:
 	// bool wxTaskBarIcon::base_PopupMenu(wxMenu * menu)
 	static int _bind_base_PopupMenu(lua_State *L) {
 		if (!_lg_typecheck_base_PopupMenu(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::base_PopupMenu(wxMenu * menu) function, expected prototype:\nbool wxTaskBarIcon::base_PopupMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::base_PopupMenu(wxMenu * menu) function, expected prototype:\nbool wxTaskBarIcon::base_PopupMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxMenu* menu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
 
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_PopupMenu(wxMenu *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_PopupMenu(wxMenu *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTaskBarIcon::PopupMenu(menu);
 		lua_pushboolean(L,lret?1:0);
@@ -535,15 +503,13 @@ public:
 	// bool wxTaskBarIcon::base_RemoveIcon()
 	static int _bind_base_RemoveIcon(lua_State *L) {
 		if (!_lg_typecheck_base_RemoveIcon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::base_RemoveIcon() function, expected prototype:\nbool wxTaskBarIcon::base_RemoveIcon()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::base_RemoveIcon() function, expected prototype:\nbool wxTaskBarIcon::base_RemoveIcon()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_RemoveIcon(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_RemoveIcon(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTaskBarIcon::RemoveIcon();
 		lua_pushboolean(L,lret?1:0);
@@ -554,8 +520,7 @@ public:
 	// bool wxTaskBarIcon::base_SetIcon(const wxIcon & icon, const wxString & tooltip = wxEmptyString)
 	static int _bind_base_SetIcon(lua_State *L) {
 		if (!_lg_typecheck_base_SetIcon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::base_SetIcon(const wxIcon & icon, const wxString & tooltip = wxEmptyString) function, expected prototype:\nbool wxTaskBarIcon::base_SetIcon(const wxIcon & icon, const wxString & tooltip = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxTaskBarIcon::base_SetIcon(const wxIcon & icon, const wxString & tooltip = wxEmptyString) function, expected prototype:\nbool wxTaskBarIcon::base_SetIcon(const wxIcon & icon, const wxString & tooltip = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -569,8 +534,7 @@ public:
 
 		wxTaskBarIcon* self=Luna< wxObject >::checkSubType< wxTaskBarIcon >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_SetIcon(const wxIcon &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxTaskBarIcon::base_SetIcon(const wxIcon &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxTaskBarIcon::SetIcon(icon, tooltip);
 		lua_pushboolean(L,lret?1:0);

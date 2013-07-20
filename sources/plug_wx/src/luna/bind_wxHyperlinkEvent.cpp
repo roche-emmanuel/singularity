@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHyperlinkEvent* self= (wxHyperlinkEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -151,8 +148,7 @@ public:
 	// wxHyperlinkEvent::wxHyperlinkEvent(wxObject * generator, int id, const wxString & url)
 	static wxHyperlinkEvent* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHyperlinkEvent::wxHyperlinkEvent(wxObject * generator, int id, const wxString & url) function, expected prototype:\nwxHyperlinkEvent::wxHyperlinkEvent(wxObject * generator, int id, const wxString & url)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxHyperlinkEvent::wxHyperlinkEvent(wxObject * generator, int id, const wxString & url) function, expected prototype:\nwxHyperlinkEvent::wxHyperlinkEvent(wxObject * generator, int id, const wxString & url)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* generator=(Luna< wxObject >::check(L,1));
@@ -165,8 +161,7 @@ public:
 	// wxHyperlinkEvent::wxHyperlinkEvent(lua_Table * data, wxObject * generator, int id, const wxString & url)
 	static wxHyperlinkEvent* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHyperlinkEvent::wxHyperlinkEvent(lua_Table * data, wxObject * generator, int id, const wxString & url) function, expected prototype:\nwxHyperlinkEvent::wxHyperlinkEvent(lua_Table * data, wxObject * generator, int id, const wxString & url)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxHyperlinkEvent::wxHyperlinkEvent(lua_Table * data, wxObject * generator, int id, const wxString & url) function, expected prototype:\nwxHyperlinkEvent::wxHyperlinkEvent(lua_Table * data, wxObject * generator, int id, const wxString & url)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* generator=(Luna< wxObject >::check(L,2));
@@ -190,15 +185,13 @@ public:
 	// wxString wxHyperlinkEvent::GetURL() const
 	static int _bind_GetURL(lua_State *L) {
 		if (!_lg_typecheck_GetURL(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxHyperlinkEvent::GetURL() const function, expected prototype:\nwxString wxHyperlinkEvent::GetURL() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxHyperlinkEvent::GetURL() const function, expected prototype:\nwxString wxHyperlinkEvent::GetURL() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHyperlinkEvent* self=Luna< wxObject >::checkSubType< wxHyperlinkEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxHyperlinkEvent::GetURL() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxHyperlinkEvent::GetURL() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetURL();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -209,16 +202,14 @@ public:
 	// void wxHyperlinkEvent::SetURL(const wxString & url)
 	static int _bind_SetURL(lua_State *L) {
 		if (!_lg_typecheck_SetURL(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHyperlinkEvent::SetURL(const wxString & url) function, expected prototype:\nvoid wxHyperlinkEvent::SetURL(const wxString & url)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHyperlinkEvent::SetURL(const wxString & url) function, expected prototype:\nvoid wxHyperlinkEvent::SetURL(const wxString & url)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString url(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHyperlinkEvent* self=Luna< wxObject >::checkSubType< wxHyperlinkEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHyperlinkEvent::SetURL(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHyperlinkEvent::SetURL(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetURL(url);
 
@@ -228,15 +219,13 @@ public:
 	// wxClassInfo * wxHyperlinkEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHyperlinkEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHyperlinkEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHyperlinkEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHyperlinkEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHyperlinkEvent* self=Luna< wxObject >::checkSubType< wxHyperlinkEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHyperlinkEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHyperlinkEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxHyperlinkEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -249,15 +238,13 @@ public:
 	// wxEventCategory wxHyperlinkEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxHyperlinkEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxHyperlinkEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxHyperlinkEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxHyperlinkEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHyperlinkEvent* self=Luna< wxObject >::checkSubType< wxHyperlinkEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxHyperlinkEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxHyperlinkEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxHyperlinkEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
@@ -268,15 +255,13 @@ public:
 	// wxEvent * wxHyperlinkEvent::base_Clone() const
 	static int _bind_base_Clone(lua_State *L) {
 		if (!_lg_typecheck_base_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvent * wxHyperlinkEvent::base_Clone() const function, expected prototype:\nwxEvent * wxHyperlinkEvent::base_Clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvent * wxHyperlinkEvent::base_Clone() const function, expected prototype:\nwxEvent * wxHyperlinkEvent::base_Clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHyperlinkEvent* self=Luna< wxObject >::checkSubType< wxHyperlinkEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvent * wxHyperlinkEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEvent * wxHyperlinkEvent::base_Clone() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEvent * lret = self->wxHyperlinkEvent::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.

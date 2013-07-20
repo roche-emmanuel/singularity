@@ -1282,15 +1282,13 @@ public:
 	// void wxHtmlHelpWindow::public_CreateSearch()
 	static int _bind_public_CreateSearch(lua_State *L) {
 		if (!_lg_typecheck_public_CreateSearch(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlHelpWindow::public_CreateSearch() function, expected prototype:\nvoid wxHtmlHelpWindow::public_CreateSearch()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpWindow::public_CreateSearch() function, expected prototype:\nvoid wxHtmlHelpWindow::public_CreateSearch()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_wxHtmlHelpWindow* self=Luna< wxObject >::checkSubType< wrapper_wxHtmlHelpWindow >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateSearch(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateSearch(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_CreateSearch();
 
@@ -1300,15 +1298,13 @@ public:
 	// void wxHtmlHelpWindow::public_CreateContents()
 	static int _bind_public_CreateContents(lua_State *L) {
 		if (!_lg_typecheck_public_CreateContents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlHelpWindow::public_CreateContents() function, expected prototype:\nvoid wxHtmlHelpWindow::public_CreateContents()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpWindow::public_CreateContents() function, expected prototype:\nvoid wxHtmlHelpWindow::public_CreateContents()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_wxHtmlHelpWindow* self=Luna< wxObject >::checkSubType< wrapper_wxHtmlHelpWindow >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateContents(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateContents(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_CreateContents();
 
@@ -1318,15 +1314,13 @@ public:
 	// void wxHtmlHelpWindow::public_CreateIndex()
 	static int _bind_public_CreateIndex(lua_State *L) {
 		if (!_lg_typecheck_public_CreateIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlHelpWindow::public_CreateIndex() function, expected prototype:\nvoid wxHtmlHelpWindow::public_CreateIndex()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpWindow::public_CreateIndex() function, expected prototype:\nvoid wxHtmlHelpWindow::public_CreateIndex()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_wxHtmlHelpWindow* self=Luna< wxObject >::checkSubType< wrapper_wxHtmlHelpWindow >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateIndex(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpWindow::public_CreateIndex(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_CreateIndex();
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCommandProcessor* self= (wxCommandProcessor*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -325,8 +322,7 @@ public:
 	// wxCommandProcessor::wxCommandProcessor(int maxCommands = -1)
 	static wxCommandProcessor* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCommandProcessor::wxCommandProcessor(int maxCommands = -1) function, expected prototype:\nwxCommandProcessor::wxCommandProcessor(int maxCommands = -1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxCommandProcessor::wxCommandProcessor(int maxCommands = -1) function, expected prototype:\nwxCommandProcessor::wxCommandProcessor(int maxCommands = -1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -339,8 +335,7 @@ public:
 	// wxCommandProcessor::wxCommandProcessor(lua_Table * data, int maxCommands = -1)
 	static wxCommandProcessor* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCommandProcessor::wxCommandProcessor(lua_Table * data, int maxCommands = -1) function, expected prototype:\nwxCommandProcessor::wxCommandProcessor(lua_Table * data, int maxCommands = -1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxCommandProcessor::wxCommandProcessor(lua_Table * data, int maxCommands = -1) function, expected prototype:\nwxCommandProcessor::wxCommandProcessor(lua_Table * data, int maxCommands = -1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -364,15 +359,13 @@ public:
 	// bool wxCommandProcessor::CanUndo() const
 	static int _bind_CanUndo(lua_State *L) {
 		if (!_lg_typecheck_CanUndo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::CanUndo() const function, expected prototype:\nbool wxCommandProcessor::CanUndo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::CanUndo() const function, expected prototype:\nbool wxCommandProcessor::CanUndo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::CanUndo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::CanUndo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CanUndo();
 		lua_pushboolean(L,lret?1:0);
@@ -383,15 +376,13 @@ public:
 	// bool wxCommandProcessor::CanRedo() const
 	static int _bind_CanRedo(lua_State *L) {
 		if (!_lg_typecheck_CanRedo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::CanRedo() const function, expected prototype:\nbool wxCommandProcessor::CanRedo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::CanRedo() const function, expected prototype:\nbool wxCommandProcessor::CanRedo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::CanRedo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::CanRedo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CanRedo();
 		lua_pushboolean(L,lret?1:0);
@@ -402,15 +393,13 @@ public:
 	// void wxCommandProcessor::ClearCommands()
 	static int _bind_ClearCommands(lua_State *L) {
 		if (!_lg_typecheck_ClearCommands(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::ClearCommands() function, expected prototype:\nvoid wxCommandProcessor::ClearCommands()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::ClearCommands() function, expected prototype:\nvoid wxCommandProcessor::ClearCommands()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandProcessor::ClearCommands(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCommandProcessor::ClearCommands(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClearCommands();
 
@@ -420,15 +409,13 @@ public:
 	// wxList & wxCommandProcessor::GetCommands()
 	static int _bind_GetCommands(lua_State *L) {
 		if (!_lg_typecheck_GetCommands(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxList & wxCommandProcessor::GetCommands() function, expected prototype:\nwxList & wxCommandProcessor::GetCommands()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxList & wxCommandProcessor::GetCommands() function, expected prototype:\nwxList & wxCommandProcessor::GetCommands()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxList & wxCommandProcessor::GetCommands(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxList & wxCommandProcessor::GetCommands(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxList* lret = &self->GetCommands();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -441,15 +428,13 @@ public:
 	// wxCommand * wxCommandProcessor::GetCurrentCommand() const
 	static int _bind_GetCurrentCommand(lua_State *L) {
 		if (!_lg_typecheck_GetCurrentCommand(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCommand * wxCommandProcessor::GetCurrentCommand() const function, expected prototype:\nwxCommand * wxCommandProcessor::GetCurrentCommand() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxCommand * wxCommandProcessor::GetCurrentCommand() const function, expected prototype:\nwxCommand * wxCommandProcessor::GetCurrentCommand() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxCommand * wxCommandProcessor::GetCurrentCommand() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxCommand * wxCommandProcessor::GetCurrentCommand() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxCommand * lret = self->GetCurrentCommand();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -462,15 +447,13 @@ public:
 	// wxMenu * wxCommandProcessor::GetEditMenu() const
 	static int _bind_GetEditMenu(lua_State *L) {
 		if (!_lg_typecheck_GetEditMenu(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMenu * wxCommandProcessor::GetEditMenu() const function, expected prototype:\nwxMenu * wxCommandProcessor::GetEditMenu() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxMenu * wxCommandProcessor::GetEditMenu() const function, expected prototype:\nwxMenu * wxCommandProcessor::GetEditMenu() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxMenu * wxCommandProcessor::GetEditMenu() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxMenu * wxCommandProcessor::GetEditMenu() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxMenu * lret = self->GetEditMenu();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -483,15 +466,13 @@ public:
 	// int wxCommandProcessor::GetMaxCommands() const
 	static int _bind_GetMaxCommands(lua_State *L) {
 		if (!_lg_typecheck_GetMaxCommands(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxCommandProcessor::GetMaxCommands() const function, expected prototype:\nint wxCommandProcessor::GetMaxCommands() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxCommandProcessor::GetMaxCommands() const function, expected prototype:\nint wxCommandProcessor::GetMaxCommands() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxCommandProcessor::GetMaxCommands() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxCommandProcessor::GetMaxCommands() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetMaxCommands();
 		lua_pushnumber(L,lret);
@@ -502,15 +483,13 @@ public:
 	// const wxString & wxCommandProcessor::GetRedoAccelerator() const
 	static int _bind_GetRedoAccelerator(lua_State *L) {
 		if (!_lg_typecheck_GetRedoAccelerator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxCommandProcessor::GetRedoAccelerator() const function, expected prototype:\nconst wxString & wxCommandProcessor::GetRedoAccelerator() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxCommandProcessor::GetRedoAccelerator() const function, expected prototype:\nconst wxString & wxCommandProcessor::GetRedoAccelerator() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxCommandProcessor::GetRedoAccelerator() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxString & wxCommandProcessor::GetRedoAccelerator() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxString & lret = self->GetRedoAccelerator();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -521,15 +500,13 @@ public:
 	// wxString wxCommandProcessor::GetRedoMenuLabel() const
 	static int _bind_GetRedoMenuLabel(lua_State *L) {
 		if (!_lg_typecheck_GetRedoMenuLabel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxCommandProcessor::GetRedoMenuLabel() const function, expected prototype:\nwxString wxCommandProcessor::GetRedoMenuLabel() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxCommandProcessor::GetRedoMenuLabel() const function, expected prototype:\nwxString wxCommandProcessor::GetRedoMenuLabel() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxCommandProcessor::GetRedoMenuLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxCommandProcessor::GetRedoMenuLabel() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetRedoMenuLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -540,15 +517,13 @@ public:
 	// const wxString & wxCommandProcessor::GetUndoAccelerator() const
 	static int _bind_GetUndoAccelerator(lua_State *L) {
 		if (!_lg_typecheck_GetUndoAccelerator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxCommandProcessor::GetUndoAccelerator() const function, expected prototype:\nconst wxString & wxCommandProcessor::GetUndoAccelerator() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxCommandProcessor::GetUndoAccelerator() const function, expected prototype:\nconst wxString & wxCommandProcessor::GetUndoAccelerator() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxCommandProcessor::GetUndoAccelerator() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxString & wxCommandProcessor::GetUndoAccelerator() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxString & lret = self->GetUndoAccelerator();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -559,15 +534,13 @@ public:
 	// wxString wxCommandProcessor::GetUndoMenuLabel() const
 	static int _bind_GetUndoMenuLabel(lua_State *L) {
 		if (!_lg_typecheck_GetUndoMenuLabel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxCommandProcessor::GetUndoMenuLabel() const function, expected prototype:\nwxString wxCommandProcessor::GetUndoMenuLabel() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxCommandProcessor::GetUndoMenuLabel() const function, expected prototype:\nwxString wxCommandProcessor::GetUndoMenuLabel() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxCommandProcessor::GetUndoMenuLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxCommandProcessor::GetUndoMenuLabel() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetUndoMenuLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -578,15 +551,13 @@ public:
 	// void wxCommandProcessor::Initialize()
 	static int _bind_Initialize(lua_State *L) {
 		if (!_lg_typecheck_Initialize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::Initialize() function, expected prototype:\nvoid wxCommandProcessor::Initialize()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::Initialize() function, expected prototype:\nvoid wxCommandProcessor::Initialize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandProcessor::Initialize(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCommandProcessor::Initialize(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Initialize();
 
@@ -596,15 +567,13 @@ public:
 	// bool wxCommandProcessor::IsDirty() const
 	static int _bind_IsDirty(lua_State *L) {
 		if (!_lg_typecheck_IsDirty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::IsDirty() const function, expected prototype:\nbool wxCommandProcessor::IsDirty() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::IsDirty() const function, expected prototype:\nbool wxCommandProcessor::IsDirty() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::IsDirty() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::IsDirty() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsDirty();
 		lua_pushboolean(L,lret?1:0);
@@ -615,15 +584,13 @@ public:
 	// void wxCommandProcessor::MarkAsSaved()
 	static int _bind_MarkAsSaved(lua_State *L) {
 		if (!_lg_typecheck_MarkAsSaved(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::MarkAsSaved() function, expected prototype:\nvoid wxCommandProcessor::MarkAsSaved()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::MarkAsSaved() function, expected prototype:\nvoid wxCommandProcessor::MarkAsSaved()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandProcessor::MarkAsSaved(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCommandProcessor::MarkAsSaved(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MarkAsSaved();
 
@@ -633,15 +600,13 @@ public:
 	// bool wxCommandProcessor::Redo()
 	static int _bind_Redo(lua_State *L) {
 		if (!_lg_typecheck_Redo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::Redo() function, expected prototype:\nbool wxCommandProcessor::Redo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::Redo() function, expected prototype:\nbool wxCommandProcessor::Redo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::Redo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::Redo(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Redo();
 		lua_pushboolean(L,lret?1:0);
@@ -652,16 +617,14 @@ public:
 	// void wxCommandProcessor::SetEditMenu(wxMenu * menu)
 	static int _bind_SetEditMenu(lua_State *L) {
 		if (!_lg_typecheck_SetEditMenu(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::SetEditMenu(wxMenu * menu) function, expected prototype:\nvoid wxCommandProcessor::SetEditMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::SetEditMenu(wxMenu * menu) function, expected prototype:\nvoid wxCommandProcessor::SetEditMenu(wxMenu * menu)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxMenu* menu=(Luna< wxObject >::checkSubType< wxMenu >(L,2));
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandProcessor::SetEditMenu(wxMenu *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCommandProcessor::SetEditMenu(wxMenu *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetEditMenu(menu);
 
@@ -671,15 +634,13 @@ public:
 	// void wxCommandProcessor::SetMenuStrings()
 	static int _bind_SetMenuStrings(lua_State *L) {
 		if (!_lg_typecheck_SetMenuStrings(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::SetMenuStrings() function, expected prototype:\nvoid wxCommandProcessor::SetMenuStrings()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::SetMenuStrings() function, expected prototype:\nvoid wxCommandProcessor::SetMenuStrings()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandProcessor::SetMenuStrings(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCommandProcessor::SetMenuStrings(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMenuStrings();
 
@@ -689,16 +650,14 @@ public:
 	// void wxCommandProcessor::SetRedoAccelerator(const wxString & accel)
 	static int _bind_SetRedoAccelerator(lua_State *L) {
 		if (!_lg_typecheck_SetRedoAccelerator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::SetRedoAccelerator(const wxString & accel) function, expected prototype:\nvoid wxCommandProcessor::SetRedoAccelerator(const wxString & accel)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::SetRedoAccelerator(const wxString & accel) function, expected prototype:\nvoid wxCommandProcessor::SetRedoAccelerator(const wxString & accel)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString accel(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandProcessor::SetRedoAccelerator(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCommandProcessor::SetRedoAccelerator(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRedoAccelerator(accel);
 
@@ -708,16 +667,14 @@ public:
 	// void wxCommandProcessor::SetUndoAccelerator(const wxString & accel)
 	static int _bind_SetUndoAccelerator(lua_State *L) {
 		if (!_lg_typecheck_SetUndoAccelerator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::SetUndoAccelerator(const wxString & accel) function, expected prototype:\nvoid wxCommandProcessor::SetUndoAccelerator(const wxString & accel)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::SetUndoAccelerator(const wxString & accel) function, expected prototype:\nvoid wxCommandProcessor::SetUndoAccelerator(const wxString & accel)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString accel(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandProcessor::SetUndoAccelerator(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCommandProcessor::SetUndoAccelerator(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetUndoAccelerator(accel);
 
@@ -727,8 +684,7 @@ public:
 	// bool wxCommandProcessor::Submit(wxCommand * command, bool storeIt = true)
 	static int _bind_Submit(lua_State *L) {
 		if (!_lg_typecheck_Submit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::Submit(wxCommand * command, bool storeIt = true) function, expected prototype:\nbool wxCommandProcessor::Submit(wxCommand * command, bool storeIt = true)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::Submit(wxCommand * command, bool storeIt = true) function, expected prototype:\nbool wxCommandProcessor::Submit(wxCommand * command, bool storeIt = true)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -738,8 +694,7 @@ public:
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::Submit(wxCommand *, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::Submit(wxCommand *, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Submit(command, storeIt);
 		lua_pushboolean(L,lret?1:0);
@@ -750,16 +705,14 @@ public:
 	// void wxCommandProcessor::Store(wxCommand * command)
 	static int _bind_Store(lua_State *L) {
 		if (!_lg_typecheck_Store(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::Store(wxCommand * command) function, expected prototype:\nvoid wxCommandProcessor::Store(wxCommand * command)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::Store(wxCommand * command) function, expected prototype:\nvoid wxCommandProcessor::Store(wxCommand * command)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCommand* command=(Luna< wxObject >::checkSubType< wxCommand >(L,2));
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandProcessor::Store(wxCommand *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCommandProcessor::Store(wxCommand *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Store(command);
 
@@ -769,15 +722,13 @@ public:
 	// bool wxCommandProcessor::Undo()
 	static int _bind_Undo(lua_State *L) {
 		if (!_lg_typecheck_Undo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::Undo() function, expected prototype:\nbool wxCommandProcessor::Undo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::Undo() function, expected prototype:\nbool wxCommandProcessor::Undo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::Undo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::Undo(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Undo();
 		lua_pushboolean(L,lret?1:0);
@@ -788,15 +739,13 @@ public:
 	// wxClassInfo * wxCommandProcessor::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxCommandProcessor::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxCommandProcessor::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxCommandProcessor::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxCommandProcessor::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxCommandProcessor::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxCommandProcessor::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxCommandProcessor::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -809,15 +758,13 @@ public:
 	// bool wxCommandProcessor::base_CanUndo() const
 	static int _bind_base_CanUndo(lua_State *L) {
 		if (!_lg_typecheck_base_CanUndo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::base_CanUndo() const function, expected prototype:\nbool wxCommandProcessor::base_CanUndo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::base_CanUndo() const function, expected prototype:\nbool wxCommandProcessor::base_CanUndo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::base_CanUndo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::base_CanUndo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxCommandProcessor::CanUndo();
 		lua_pushboolean(L,lret?1:0);
@@ -828,15 +775,13 @@ public:
 	// bool wxCommandProcessor::base_CanRedo() const
 	static int _bind_base_CanRedo(lua_State *L) {
 		if (!_lg_typecheck_base_CanRedo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::base_CanRedo() const function, expected prototype:\nbool wxCommandProcessor::base_CanRedo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::base_CanRedo() const function, expected prototype:\nbool wxCommandProcessor::base_CanRedo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::base_CanRedo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::base_CanRedo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxCommandProcessor::CanRedo();
 		lua_pushboolean(L,lret?1:0);
@@ -847,15 +792,13 @@ public:
 	// void wxCommandProcessor::base_ClearCommands()
 	static int _bind_base_ClearCommands(lua_State *L) {
 		if (!_lg_typecheck_base_ClearCommands(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::base_ClearCommands() function, expected prototype:\nvoid wxCommandProcessor::base_ClearCommands()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::base_ClearCommands() function, expected prototype:\nvoid wxCommandProcessor::base_ClearCommands()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandProcessor::base_ClearCommands(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCommandProcessor::base_ClearCommands(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxCommandProcessor::ClearCommands();
 
@@ -865,15 +808,13 @@ public:
 	// void wxCommandProcessor::base_Initialize()
 	static int _bind_base_Initialize(lua_State *L) {
 		if (!_lg_typecheck_base_Initialize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::base_Initialize() function, expected prototype:\nvoid wxCommandProcessor::base_Initialize()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::base_Initialize() function, expected prototype:\nvoid wxCommandProcessor::base_Initialize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandProcessor::base_Initialize(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCommandProcessor::base_Initialize(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxCommandProcessor::Initialize();
 
@@ -883,15 +824,13 @@ public:
 	// bool wxCommandProcessor::base_IsDirty() const
 	static int _bind_base_IsDirty(lua_State *L) {
 		if (!_lg_typecheck_base_IsDirty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::base_IsDirty() const function, expected prototype:\nbool wxCommandProcessor::base_IsDirty() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::base_IsDirty() const function, expected prototype:\nbool wxCommandProcessor::base_IsDirty() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::base_IsDirty() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::base_IsDirty() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxCommandProcessor::IsDirty();
 		lua_pushboolean(L,lret?1:0);
@@ -902,15 +841,13 @@ public:
 	// bool wxCommandProcessor::base_Redo()
 	static int _bind_base_Redo(lua_State *L) {
 		if (!_lg_typecheck_base_Redo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::base_Redo() function, expected prototype:\nbool wxCommandProcessor::base_Redo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::base_Redo() function, expected prototype:\nbool wxCommandProcessor::base_Redo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::base_Redo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::base_Redo(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxCommandProcessor::Redo();
 		lua_pushboolean(L,lret?1:0);
@@ -921,15 +858,13 @@ public:
 	// void wxCommandProcessor::base_SetMenuStrings()
 	static int _bind_base_SetMenuStrings(lua_State *L) {
 		if (!_lg_typecheck_base_SetMenuStrings(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::base_SetMenuStrings() function, expected prototype:\nvoid wxCommandProcessor::base_SetMenuStrings()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::base_SetMenuStrings() function, expected prototype:\nvoid wxCommandProcessor::base_SetMenuStrings()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandProcessor::base_SetMenuStrings(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCommandProcessor::base_SetMenuStrings(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxCommandProcessor::SetMenuStrings();
 
@@ -939,8 +874,7 @@ public:
 	// bool wxCommandProcessor::base_Submit(wxCommand * command, bool storeIt = true)
 	static int _bind_base_Submit(lua_State *L) {
 		if (!_lg_typecheck_base_Submit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::base_Submit(wxCommand * command, bool storeIt = true) function, expected prototype:\nbool wxCommandProcessor::base_Submit(wxCommand * command, bool storeIt = true)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::base_Submit(wxCommand * command, bool storeIt = true) function, expected prototype:\nbool wxCommandProcessor::base_Submit(wxCommand * command, bool storeIt = true)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -950,8 +884,7 @@ public:
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::base_Submit(wxCommand *, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::base_Submit(wxCommand *, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxCommandProcessor::Submit(command, storeIt);
 		lua_pushboolean(L,lret?1:0);
@@ -962,16 +895,14 @@ public:
 	// void wxCommandProcessor::base_Store(wxCommand * command)
 	static int _bind_base_Store(lua_State *L) {
 		if (!_lg_typecheck_base_Store(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::base_Store(wxCommand * command) function, expected prototype:\nvoid wxCommandProcessor::base_Store(wxCommand * command)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxCommandProcessor::base_Store(wxCommand * command) function, expected prototype:\nvoid wxCommandProcessor::base_Store(wxCommand * command)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCommand* command=(Luna< wxObject >::checkSubType< wxCommand >(L,2));
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCommandProcessor::base_Store(wxCommand *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCommandProcessor::base_Store(wxCommand *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxCommandProcessor::Store(command);
 
@@ -981,15 +912,13 @@ public:
 	// bool wxCommandProcessor::base_Undo()
 	static int _bind_base_Undo(lua_State *L) {
 		if (!_lg_typecheck_base_Undo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::base_Undo() function, expected prototype:\nbool wxCommandProcessor::base_Undo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCommandProcessor::base_Undo() function, expected prototype:\nbool wxCommandProcessor::base_Undo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCommandProcessor* self=Luna< wxObject >::checkSubType< wxCommandProcessor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::base_Undo(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCommandProcessor::base_Undo(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxCommandProcessor::Undo();
 		lua_pushboolean(L,lret?1:0);

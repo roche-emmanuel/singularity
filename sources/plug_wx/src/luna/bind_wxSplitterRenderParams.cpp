@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxSplitterRenderParams*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxSplitterRenderParams*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxSplitterRenderParams* rhs =(Luna< wxSplitterRenderParams >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxSplitterRenderParams* self= (wxSplitterRenderParams*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxSplitterRenderParams >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -137,8 +133,7 @@ public:
 	// wxSplitterRenderParams::wxSplitterRenderParams(int widthSash_, int border_, bool isSens_)
 	static wxSplitterRenderParams* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSplitterRenderParams::wxSplitterRenderParams(int widthSash_, int border_, bool isSens_) function, expected prototype:\nwxSplitterRenderParams::wxSplitterRenderParams(int widthSash_, int border_, bool isSens_)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSplitterRenderParams::wxSplitterRenderParams(int widthSash_, int border_, bool isSens_) function, expected prototype:\nwxSplitterRenderParams::wxSplitterRenderParams(int widthSash_, int border_, bool isSens_)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int widthSash_=(int)lua_tointeger(L,1);
@@ -153,15 +148,13 @@ public:
 	// const int wxSplitterRenderParams::border()
 	static int _bind_getBorder(lua_State *L) {
 		if (!_lg_typecheck_getBorder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const int wxSplitterRenderParams::border() function, expected prototype:\nconst int wxSplitterRenderParams::border()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const int wxSplitterRenderParams::border() function, expected prototype:\nconst int wxSplitterRenderParams::border()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSplitterRenderParams* self=(Luna< wxSplitterRenderParams >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const int wxSplitterRenderParams::border(). Got : '%s'",typeid(Luna< wxSplitterRenderParams >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const int wxSplitterRenderParams::border(). Got : '%s'\n%s",typeid(Luna< wxSplitterRenderParams >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const int lret = self->border;
 		lua_pushnumber(L,lret);
@@ -172,15 +165,13 @@ public:
 	// const bool wxSplitterRenderParams::isHotSensitive()
 	static int _bind_getIsHotSensitive(lua_State *L) {
 		if (!_lg_typecheck_getIsHotSensitive(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const bool wxSplitterRenderParams::isHotSensitive() function, expected prototype:\nconst bool wxSplitterRenderParams::isHotSensitive()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const bool wxSplitterRenderParams::isHotSensitive() function, expected prototype:\nconst bool wxSplitterRenderParams::isHotSensitive()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSplitterRenderParams* self=(Luna< wxSplitterRenderParams >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const bool wxSplitterRenderParams::isHotSensitive(). Got : '%s'",typeid(Luna< wxSplitterRenderParams >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const bool wxSplitterRenderParams::isHotSensitive(). Got : '%s'\n%s",typeid(Luna< wxSplitterRenderParams >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const bool lret = self->isHotSensitive;
 		lua_pushboolean(L,lret?1:0);
@@ -191,15 +182,13 @@ public:
 	// const int wxSplitterRenderParams::widthSash()
 	static int _bind_getWidthSash(lua_State *L) {
 		if (!_lg_typecheck_getWidthSash(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const int wxSplitterRenderParams::widthSash() function, expected prototype:\nconst int wxSplitterRenderParams::widthSash()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const int wxSplitterRenderParams::widthSash() function, expected prototype:\nconst int wxSplitterRenderParams::widthSash()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSplitterRenderParams* self=(Luna< wxSplitterRenderParams >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const int wxSplitterRenderParams::widthSash(). Got : '%s'",typeid(Luna< wxSplitterRenderParams >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const int wxSplitterRenderParams::widthSash(). Got : '%s'\n%s",typeid(Luna< wxSplitterRenderParams >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const int lret = self->widthSash;
 		lua_pushnumber(L,lret);

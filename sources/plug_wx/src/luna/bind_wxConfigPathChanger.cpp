@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxConfigPathChanger*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxConfigPathChanger*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxConfigPathChanger* rhs =(Luna< wxConfigPathChanger >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxConfigPathChanger* self= (wxConfigPathChanger*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxConfigPathChanger >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -130,8 +126,7 @@ public:
 	// wxConfigPathChanger::wxConfigPathChanger(const wxConfigBase * pContainer, const wxString & strEntry)
 	static wxConfigPathChanger* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxConfigPathChanger::wxConfigPathChanger(const wxConfigBase * pContainer, const wxString & strEntry) function, expected prototype:\nwxConfigPathChanger::wxConfigPathChanger(const wxConfigBase * pContainer, const wxString & strEntry)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxConfigPathChanger::wxConfigPathChanger(const wxConfigBase * pContainer, const wxString & strEntry) function, expected prototype:\nwxConfigPathChanger::wxConfigPathChanger(const wxConfigBase * pContainer, const wxString & strEntry)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxConfigBase* pContainer=(Luna< wxObject >::checkSubType< wxConfigBase >(L,1));
@@ -145,15 +140,13 @@ public:
 	// const wxString & wxConfigPathChanger::Name() const
 	static int _bind_Name(lua_State *L) {
 		if (!_lg_typecheck_Name(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxConfigPathChanger::Name() const function, expected prototype:\nconst wxString & wxConfigPathChanger::Name() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxConfigPathChanger::Name() const function, expected prototype:\nconst wxString & wxConfigPathChanger::Name() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxConfigPathChanger* self=(Luna< wxConfigPathChanger >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxConfigPathChanger::Name() const. Got : '%s'",typeid(Luna< wxConfigPathChanger >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxString & wxConfigPathChanger::Name() const. Got : '%s'\n%s",typeid(Luna< wxConfigPathChanger >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxString & lret = self->Name();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -164,15 +157,13 @@ public:
 	// void wxConfigPathChanger::UpdateIfDeleted()
 	static int _bind_UpdateIfDeleted(lua_State *L) {
 		if (!_lg_typecheck_UpdateIfDeleted(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxConfigPathChanger::UpdateIfDeleted() function, expected prototype:\nvoid wxConfigPathChanger::UpdateIfDeleted()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxConfigPathChanger::UpdateIfDeleted() function, expected prototype:\nvoid wxConfigPathChanger::UpdateIfDeleted()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxConfigPathChanger* self=(Luna< wxConfigPathChanger >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxConfigPathChanger::UpdateIfDeleted(). Got : '%s'",typeid(Luna< wxConfigPathChanger >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxConfigPathChanger::UpdateIfDeleted(). Got : '%s'\n%s",typeid(Luna< wxConfigPathChanger >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->UpdateIfDeleted();
 

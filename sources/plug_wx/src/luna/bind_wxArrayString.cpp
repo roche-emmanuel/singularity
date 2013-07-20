@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxArrayString* self= (wxArrayString*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxArrayString >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -239,8 +236,7 @@ public:
 	// wxArrayString::wxArrayString()
 	static wxArrayString* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxArrayString::wxArrayString() function, expected prototype:\nwxArrayString::wxArrayString()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxArrayString::wxArrayString() function, expected prototype:\nwxArrayString::wxArrayString()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -250,8 +246,7 @@ public:
 	// wxArrayString::wxArrayString(const wxArrayString & array)
 	static wxArrayString* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxArrayString::wxArrayString(const wxArrayString & array) function, expected prototype:\nwxArrayString::wxArrayString(const wxArrayString & array)\nClass arguments details:\narg 1 ID = 59507769\n");
+			luaL_error(L, "luna typecheck failed in wxArrayString::wxArrayString(const wxArrayString & array) function, expected prototype:\nwxArrayString::wxArrayString(const wxArrayString & array)\nClass arguments details:\narg 1 ID = 59507769\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxArrayString* array_ptr=(Luna< wxArrayString >::check(L,1));
@@ -266,8 +261,7 @@ public:
 	// wxArrayString::wxArrayString(size_t sz, const wxString * arr)
 	static wxArrayString* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxArrayString::wxArrayString(size_t sz, const wxString * arr) function, expected prototype:\nwxArrayString::wxArrayString(size_t sz, const wxString * arr)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxArrayString::wxArrayString(size_t sz, const wxString * arr) function, expected prototype:\nwxArrayString::wxArrayString(size_t sz, const wxString * arr)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t sz=(size_t)lua_tointeger(L,1);
@@ -291,8 +285,7 @@ public:
 	// size_t wxArrayString::Add(const wxString & str, size_t copies = 1)
 	static int _bind_Add(lua_State *L) {
 		if (!_lg_typecheck_Add(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxArrayString::Add(const wxString & str, size_t copies = 1) function, expected prototype:\nsize_t wxArrayString::Add(const wxString & str, size_t copies = 1)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in size_t wxArrayString::Add(const wxString & str, size_t copies = 1) function, expected prototype:\nsize_t wxArrayString::Add(const wxString & str, size_t copies = 1)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -302,8 +295,7 @@ public:
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxArrayString::Add(const wxString &, size_t). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxArrayString::Add(const wxString &, size_t). Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->Add(str, copies);
 		lua_pushnumber(L,lret);
@@ -314,16 +306,14 @@ public:
 	// void wxArrayString::Alloc(size_t nCount)
 	static int _bind_Alloc(lua_State *L) {
 		if (!_lg_typecheck_Alloc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxArrayString::Alloc(size_t nCount) function, expected prototype:\nvoid wxArrayString::Alloc(size_t nCount)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxArrayString::Alloc(size_t nCount) function, expected prototype:\nvoid wxArrayString::Alloc(size_t nCount)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t nCount=(size_t)lua_tointeger(L,2);
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxArrayString::Alloc(size_t). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxArrayString::Alloc(size_t). Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Alloc(nCount);
 
@@ -333,15 +323,13 @@ public:
 	// void wxArrayString::Clear()
 	static int _bind_Clear(lua_State *L) {
 		if (!_lg_typecheck_Clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxArrayString::Clear() function, expected prototype:\nvoid wxArrayString::Clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxArrayString::Clear() function, expected prototype:\nvoid wxArrayString::Clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxArrayString::Clear(). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxArrayString::Clear(). Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Clear();
 
@@ -351,15 +339,13 @@ public:
 	// void wxArrayString::Empty()
 	static int _bind_Empty(lua_State *L) {
 		if (!_lg_typecheck_Empty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxArrayString::Empty() function, expected prototype:\nvoid wxArrayString::Empty()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxArrayString::Empty() function, expected prototype:\nvoid wxArrayString::Empty()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxArrayString::Empty(). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxArrayString::Empty(). Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Empty();
 
@@ -369,15 +355,13 @@ public:
 	// size_t wxArrayString::GetCount() const
 	static int _bind_GetCount(lua_State *L) {
 		if (!_lg_typecheck_GetCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxArrayString::GetCount() const function, expected prototype:\nsize_t wxArrayString::GetCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxArrayString::GetCount() const function, expected prototype:\nsize_t wxArrayString::GetCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxArrayString::GetCount() const. Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxArrayString::GetCount() const. Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->GetCount();
 		lua_pushnumber(L,lret);
@@ -388,8 +372,7 @@ public:
 	// int wxArrayString::Index(const wxString & sz, bool bCase = true, bool bFromEnd = false) const
 	static int _bind_Index(lua_State *L) {
 		if (!_lg_typecheck_Index(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxArrayString::Index(const wxString & sz, bool bCase = true, bool bFromEnd = false) const function, expected prototype:\nint wxArrayString::Index(const wxString & sz, bool bCase = true, bool bFromEnd = false) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxArrayString::Index(const wxString & sz, bool bCase = true, bool bFromEnd = false) const function, expected prototype:\nint wxArrayString::Index(const wxString & sz, bool bCase = true, bool bFromEnd = false) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -400,8 +383,7 @@ public:
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxArrayString::Index(const wxString &, bool, bool) const. Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxArrayString::Index(const wxString &, bool, bool) const. Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Index(sz, bCase, bFromEnd);
 		lua_pushnumber(L,lret);
@@ -412,8 +394,7 @@ public:
 	// void wxArrayString::Insert(wxString lItem, size_t nIndex, size_t copies = 1)
 	static int _bind_Insert(lua_State *L) {
 		if (!_lg_typecheck_Insert(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxArrayString::Insert(wxString lItem, size_t nIndex, size_t copies = 1) function, expected prototype:\nvoid wxArrayString::Insert(wxString lItem, size_t nIndex, size_t copies = 1)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxArrayString::Insert(wxString lItem, size_t nIndex, size_t copies = 1) function, expected prototype:\nvoid wxArrayString::Insert(wxString lItem, size_t nIndex, size_t copies = 1)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -424,8 +405,7 @@ public:
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxArrayString::Insert(wxString, size_t, size_t). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxArrayString::Insert(wxString, size_t, size_t). Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Insert(lItem, nIndex, copies);
 
@@ -435,15 +415,13 @@ public:
 	// bool wxArrayString::IsEmpty() const
 	static int _bind_IsEmpty(lua_State *L) {
 		if (!_lg_typecheck_IsEmpty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxArrayString::IsEmpty() const function, expected prototype:\nbool wxArrayString::IsEmpty() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxArrayString::IsEmpty() const function, expected prototype:\nbool wxArrayString::IsEmpty() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxArrayString::IsEmpty() const. Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxArrayString::IsEmpty() const. Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -454,16 +432,14 @@ public:
 	// wxString & wxArrayString::Item(size_t nIndex) const
 	static int _bind_Item(lua_State *L) {
 		if (!_lg_typecheck_Item(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString & wxArrayString::Item(size_t nIndex) const function, expected prototype:\nwxString & wxArrayString::Item(size_t nIndex) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString & wxArrayString::Item(size_t nIndex) const function, expected prototype:\nwxString & wxArrayString::Item(size_t nIndex) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t nIndex=(size_t)lua_tointeger(L,2);
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString & wxArrayString::Item(size_t) const. Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString & wxArrayString::Item(size_t) const. Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString & lret = self->Item(nIndex);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -474,15 +450,13 @@ public:
 	// wxString & wxArrayString::Last() const
 	static int _bind_Last(lua_State *L) {
 		if (!_lg_typecheck_Last(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString & wxArrayString::Last() const function, expected prototype:\nwxString & wxArrayString::Last() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString & wxArrayString::Last() const function, expected prototype:\nwxString & wxArrayString::Last() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString & wxArrayString::Last() const. Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString & wxArrayString::Last() const. Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString & lret = self->Last();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -493,16 +467,14 @@ public:
 	// void wxArrayString::Remove(const wxString & sz)
 	static int _bind_Remove(lua_State *L) {
 		if (!_lg_typecheck_Remove(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxArrayString::Remove(const wxString & sz) function, expected prototype:\nvoid wxArrayString::Remove(const wxString & sz)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxArrayString::Remove(const wxString & sz) function, expected prototype:\nvoid wxArrayString::Remove(const wxString & sz)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString sz(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxArrayString::Remove(const wxString &). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxArrayString::Remove(const wxString &). Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Remove(sz);
 
@@ -512,8 +484,7 @@ public:
 	// void wxArrayString::RemoveAt(size_t nIndex, size_t count = 1)
 	static int _bind_RemoveAt(lua_State *L) {
 		if (!_lg_typecheck_RemoveAt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxArrayString::RemoveAt(size_t nIndex, size_t count = 1) function, expected prototype:\nvoid wxArrayString::RemoveAt(size_t nIndex, size_t count = 1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxArrayString::RemoveAt(size_t nIndex, size_t count = 1) function, expected prototype:\nvoid wxArrayString::RemoveAt(size_t nIndex, size_t count = 1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -523,8 +494,7 @@ public:
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxArrayString::RemoveAt(size_t, size_t). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxArrayString::RemoveAt(size_t, size_t). Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RemoveAt(nIndex, count);
 
@@ -534,15 +504,13 @@ public:
 	// void wxArrayString::Shrink()
 	static int _bind_Shrink(lua_State *L) {
 		if (!_lg_typecheck_Shrink(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxArrayString::Shrink() function, expected prototype:\nvoid wxArrayString::Shrink()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxArrayString::Shrink() function, expected prototype:\nvoid wxArrayString::Shrink()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxArrayString::Shrink(). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxArrayString::Shrink(). Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Shrink();
 
@@ -552,8 +520,7 @@ public:
 	// void wxArrayString::Sort(bool reverseOrder = false)
 	static int _bind_Sort(lua_State *L) {
 		if (!_lg_typecheck_Sort(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxArrayString::Sort(bool reverseOrder = false) function, expected prototype:\nvoid wxArrayString::Sort(bool reverseOrder = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxArrayString::Sort(bool reverseOrder = false) function, expected prototype:\nvoid wxArrayString::Sort(bool reverseOrder = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -562,8 +529,7 @@ public:
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxArrayString::Sort(bool). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxArrayString::Sort(bool). Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Sort(reverseOrder);
 
@@ -575,8 +541,7 @@ public:
 	// bool wxArrayString::operator!=(const wxArrayString & array) const
 	static int _bind_op_neq(lua_State *L) {
 		if (!_lg_typecheck_op_neq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxArrayString::operator!=(const wxArrayString & array) const function, expected prototype:\nbool wxArrayString::operator!=(const wxArrayString & array) const\nClass arguments details:\narg 1 ID = 59507769\n");
+			luaL_error(L, "luna typecheck failed in bool wxArrayString::operator!=(const wxArrayString & array) const function, expected prototype:\nbool wxArrayString::operator!=(const wxArrayString & array) const\nClass arguments details:\narg 1 ID = 59507769\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxArrayString* array_ptr=(Luna< wxArrayString >::check(L,2));
@@ -587,8 +552,7 @@ public:
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxArrayString::operator!=(const wxArrayString &) const. Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxArrayString::operator!=(const wxArrayString &) const. Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator!=(array);
 		lua_pushboolean(L,lret?1:0);
@@ -599,8 +563,7 @@ public:
 	// wxArrayString & wxArrayString::operator=(const wxArrayString & arg1)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxArrayString & wxArrayString::operator=(const wxArrayString & arg1) function, expected prototype:\nwxArrayString & wxArrayString::operator=(const wxArrayString & arg1)\nClass arguments details:\narg 1 ID = 59507769\n");
+			luaL_error(L, "luna typecheck failed in wxArrayString & wxArrayString::operator=(const wxArrayString & arg1) function, expected prototype:\nwxArrayString & wxArrayString::operator=(const wxArrayString & arg1)\nClass arguments details:\narg 1 ID = 59507769\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxArrayString* _arg1_ptr=(Luna< wxArrayString >::check(L,2));
@@ -611,8 +574,7 @@ public:
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxArrayString & wxArrayString::operator=(const wxArrayString &). Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxArrayString & wxArrayString::operator=(const wxArrayString &). Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxArrayString* lret = &self->operator=(_arg1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -625,8 +587,7 @@ public:
 	// bool wxArrayString::operator==(const wxArrayString & array) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxArrayString::operator==(const wxArrayString & array) const function, expected prototype:\nbool wxArrayString::operator==(const wxArrayString & array) const\nClass arguments details:\narg 1 ID = 59507769\n");
+			luaL_error(L, "luna typecheck failed in bool wxArrayString::operator==(const wxArrayString & array) const function, expected prototype:\nbool wxArrayString::operator==(const wxArrayString & array) const\nClass arguments details:\narg 1 ID = 59507769\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxArrayString* array_ptr=(Luna< wxArrayString >::check(L,2));
@@ -637,8 +598,7 @@ public:
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxArrayString::operator==(const wxArrayString &) const. Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxArrayString::operator==(const wxArrayString &) const. Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(array);
 		lua_pushboolean(L,lret?1:0);
@@ -649,16 +609,14 @@ public:
 	// wxString & wxArrayString::operator[](size_t nIndex) const
 	static int _bind_op_index(lua_State *L) {
 		if (!_lg_typecheck_op_index(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString & wxArrayString::operator[](size_t nIndex) const function, expected prototype:\nwxString & wxArrayString::operator[](size_t nIndex) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString & wxArrayString::operator[](size_t nIndex) const function, expected prototype:\nwxString & wxArrayString::operator[](size_t nIndex) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t nIndex=(size_t)lua_tointeger(L,2);
 
 		wxArrayString* self=(Luna< wxArrayString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString & wxArrayString::operator[](size_t) const. Got : '%s'",typeid(Luna< wxArrayString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString & wxArrayString::operator[](size_t) const. Got : '%s'\n%s",typeid(Luna< wxArrayString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString & lret = self->operator[](nIndex);
 		lua_pushlstring(L,lret.data(),lret.size());

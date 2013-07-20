@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWithImages* self=(Luna< wxWithImages >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxWithImages*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxWithImages*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWithImages* rhs =(Luna< wxWithImages >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWithImages* self= (wxWithImages*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxWithImages >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -176,8 +171,7 @@ public:
 	// wxWithImages::wxWithImages()
 	static wxWithImages* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxWithImages::wxWithImages() function, expected prototype:\nwxWithImages::wxWithImages()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxWithImages::wxWithImages() function, expected prototype:\nwxWithImages::wxWithImages()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -187,8 +181,7 @@ public:
 	// wxWithImages::wxWithImages(lua_Table * data)
 	static wxWithImages* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxWithImages::wxWithImages(lua_Table * data) function, expected prototype:\nwxWithImages::wxWithImages(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxWithImages::wxWithImages(lua_Table * data) function, expected prototype:\nwxWithImages::wxWithImages(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -209,16 +202,14 @@ public:
 	// void wxWithImages::AssignImageList(wxImageList * imageList)
 	static int _bind_AssignImageList(lua_State *L) {
 		if (!_lg_typecheck_AssignImageList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxWithImages::AssignImageList(wxImageList * imageList) function, expected prototype:\nvoid wxWithImages::AssignImageList(wxImageList * imageList)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxWithImages::AssignImageList(wxImageList * imageList) function, expected prototype:\nvoid wxWithImages::AssignImageList(wxImageList * imageList)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxImageList* imageList=(Luna< wxObject >::checkSubType< wxImageList >(L,2));
 
 		wxWithImages* self=(Luna< wxWithImages >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxWithImages::AssignImageList(wxImageList *). Got : '%s'",typeid(Luna< wxWithImages >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxWithImages::AssignImageList(wxImageList *). Got : '%s'\n%s",typeid(Luna< wxWithImages >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AssignImageList(imageList);
 
@@ -228,16 +219,14 @@ public:
 	// void wxWithImages::SetImageList(wxImageList * imageList)
 	static int _bind_SetImageList(lua_State *L) {
 		if (!_lg_typecheck_SetImageList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxWithImages::SetImageList(wxImageList * imageList) function, expected prototype:\nvoid wxWithImages::SetImageList(wxImageList * imageList)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxWithImages::SetImageList(wxImageList * imageList) function, expected prototype:\nvoid wxWithImages::SetImageList(wxImageList * imageList)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxImageList* imageList=(Luna< wxObject >::checkSubType< wxImageList >(L,2));
 
 		wxWithImages* self=(Luna< wxWithImages >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxWithImages::SetImageList(wxImageList *). Got : '%s'",typeid(Luna< wxWithImages >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxWithImages::SetImageList(wxImageList *). Got : '%s'\n%s",typeid(Luna< wxWithImages >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetImageList(imageList);
 
@@ -247,15 +236,13 @@ public:
 	// wxImageList * wxWithImages::GetImageList() const
 	static int _bind_GetImageList(lua_State *L) {
 		if (!_lg_typecheck_GetImageList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxImageList * wxWithImages::GetImageList() const function, expected prototype:\nwxImageList * wxWithImages::GetImageList() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxImageList * wxWithImages::GetImageList() const function, expected prototype:\nwxImageList * wxWithImages::GetImageList() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxWithImages* self=(Luna< wxWithImages >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxImageList * wxWithImages::GetImageList() const. Got : '%s'",typeid(Luna< wxWithImages >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxImageList * wxWithImages::GetImageList() const. Got : '%s'\n%s",typeid(Luna< wxWithImages >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxImageList * lret = self->GetImageList();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -268,16 +255,14 @@ public:
 	// void wxWithImages::base_SetImageList(wxImageList * imageList)
 	static int _bind_base_SetImageList(lua_State *L) {
 		if (!_lg_typecheck_base_SetImageList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxWithImages::base_SetImageList(wxImageList * imageList) function, expected prototype:\nvoid wxWithImages::base_SetImageList(wxImageList * imageList)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxWithImages::base_SetImageList(wxImageList * imageList) function, expected prototype:\nvoid wxWithImages::base_SetImageList(wxImageList * imageList)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxImageList* imageList=(Luna< wxObject >::checkSubType< wxImageList >(L,2));
 
 		wxWithImages* self=(Luna< wxWithImages >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxWithImages::base_SetImageList(wxImageList *). Got : '%s'",typeid(Luna< wxWithImages >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxWithImages::base_SetImageList(wxImageList *). Got : '%s'\n%s",typeid(Luna< wxWithImages >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxWithImages::SetImageList(imageList);
 

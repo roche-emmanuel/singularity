@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxRichToolTip*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxRichToolTip*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRichToolTip* rhs =(Luna< wxRichToolTip >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRichToolTip* self= (wxRichToolTip*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxRichToolTip >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -164,8 +160,7 @@ public:
 	// wxRichToolTip::wxRichToolTip(const wxString & title, const wxString & message)
 	static wxRichToolTip* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRichToolTip::wxRichToolTip(const wxString & title, const wxString & message) function, expected prototype:\nwxRichToolTip::wxRichToolTip(const wxString & title, const wxString & message)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxRichToolTip::wxRichToolTip(const wxString & title, const wxString & message) function, expected prototype:\nwxRichToolTip::wxRichToolTip(const wxString & title, const wxString & message)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString title(lua_tostring(L,1),lua_objlen(L,1));
@@ -179,8 +174,7 @@ public:
 	// void wxRichToolTip::SetBackgroundColour(const wxColour & col, const wxColour & colEnd = wxColour ())
 	static int _bind_SetBackgroundColour(lua_State *L) {
 		if (!_lg_typecheck_SetBackgroundColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRichToolTip::SetBackgroundColour(const wxColour & col, const wxColour & colEnd = wxColour ()) function, expected prototype:\nvoid wxRichToolTip::SetBackgroundColour(const wxColour & col, const wxColour & colEnd = wxColour ())\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxRichToolTip::SetBackgroundColour(const wxColour & col, const wxColour & colEnd = wxColour ()) function, expected prototype:\nvoid wxRichToolTip::SetBackgroundColour(const wxColour & col, const wxColour & colEnd = wxColour ())\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -198,8 +192,7 @@ public:
 
 		wxRichToolTip* self=(Luna< wxRichToolTip >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetBackgroundColour(const wxColour &, const wxColour &). Got : '%s'",typeid(Luna< wxRichToolTip >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetBackgroundColour(const wxColour &, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxRichToolTip >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetBackgroundColour(col, colEnd);
 
@@ -209,8 +202,7 @@ public:
 	// void wxRichToolTip::SetIcon(int icon = wxICON_INFORMATION)
 	static int _bind_SetIcon_overload_1(lua_State *L) {
 		if (!_lg_typecheck_SetIcon_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRichToolTip::SetIcon(int icon = wxICON_INFORMATION) function, expected prototype:\nvoid wxRichToolTip::SetIcon(int icon = wxICON_INFORMATION)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRichToolTip::SetIcon(int icon = wxICON_INFORMATION) function, expected prototype:\nvoid wxRichToolTip::SetIcon(int icon = wxICON_INFORMATION)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -219,8 +211,7 @@ public:
 
 		wxRichToolTip* self=(Luna< wxRichToolTip >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetIcon(int). Got : '%s'",typeid(Luna< wxRichToolTip >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetIcon(int). Got : '%s'\n%s",typeid(Luna< wxRichToolTip >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetIcon(icon);
 
@@ -230,8 +221,7 @@ public:
 	// void wxRichToolTip::SetIcon(const wxIcon & icon)
 	static int _bind_SetIcon_overload_2(lua_State *L) {
 		if (!_lg_typecheck_SetIcon_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRichToolTip::SetIcon(const wxIcon & icon) function, expected prototype:\nvoid wxRichToolTip::SetIcon(const wxIcon & icon)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxRichToolTip::SetIcon(const wxIcon & icon) function, expected prototype:\nvoid wxRichToolTip::SetIcon(const wxIcon & icon)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxIcon* icon_ptr=(Luna< wxObject >::checkSubType< wxIcon >(L,2));
@@ -242,8 +232,7 @@ public:
 
 		wxRichToolTip* self=(Luna< wxRichToolTip >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetIcon(const wxIcon &). Got : '%s'",typeid(Luna< wxRichToolTip >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetIcon(const wxIcon &). Got : '%s'\n%s",typeid(Luna< wxRichToolTip >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetIcon(icon);
 
@@ -262,16 +251,14 @@ public:
 	// void wxRichToolTip::SetTimeout(unsigned int milliseconds)
 	static int _bind_SetTimeout(lua_State *L) {
 		if (!_lg_typecheck_SetTimeout(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRichToolTip::SetTimeout(unsigned int milliseconds) function, expected prototype:\nvoid wxRichToolTip::SetTimeout(unsigned int milliseconds)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRichToolTip::SetTimeout(unsigned int milliseconds) function, expected prototype:\nvoid wxRichToolTip::SetTimeout(unsigned int milliseconds)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned milliseconds=(unsigned)lua_tointeger(L,2);
 
 		wxRichToolTip* self=(Luna< wxRichToolTip >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetTimeout(unsigned int). Got : '%s'",typeid(Luna< wxRichToolTip >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetTimeout(unsigned int). Got : '%s'\n%s",typeid(Luna< wxRichToolTip >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTimeout(milliseconds);
 
@@ -281,16 +268,14 @@ public:
 	// void wxRichToolTip::SetTipKind(wxTipKind tipKind)
 	static int _bind_SetTipKind(lua_State *L) {
 		if (!_lg_typecheck_SetTipKind(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRichToolTip::SetTipKind(wxTipKind tipKind) function, expected prototype:\nvoid wxRichToolTip::SetTipKind(wxTipKind tipKind)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRichToolTip::SetTipKind(wxTipKind tipKind) function, expected prototype:\nvoid wxRichToolTip::SetTipKind(wxTipKind tipKind)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTipKind tipKind=(wxTipKind)lua_tointeger(L,2);
 
 		wxRichToolTip* self=(Luna< wxRichToolTip >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetTipKind(wxTipKind). Got : '%s'",typeid(Luna< wxRichToolTip >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRichToolTip::SetTipKind(wxTipKind). Got : '%s'\n%s",typeid(Luna< wxRichToolTip >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTipKind(tipKind);
 
@@ -300,16 +285,14 @@ public:
 	// void wxRichToolTip::ShowFor(wxWindow * win)
 	static int _bind_ShowFor(lua_State *L) {
 		if (!_lg_typecheck_ShowFor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRichToolTip::ShowFor(wxWindow * win) function, expected prototype:\nvoid wxRichToolTip::ShowFor(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxRichToolTip::ShowFor(wxWindow * win) function, expected prototype:\nvoid wxRichToolTip::ShowFor(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxRichToolTip* self=(Luna< wxRichToolTip >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRichToolTip::ShowFor(wxWindow *). Got : '%s'",typeid(Luna< wxRichToolTip >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRichToolTip::ShowFor(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxRichToolTip >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ShowFor(win);
 

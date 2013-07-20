@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTextAttrDimensionConverter*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTextAttrDimensionConverter*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTextAttrDimensionConverter* rhs =(Luna< wxTextAttrDimensionConverter >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTextAttrDimensionConverter* self= (wxTextAttrDimensionConverter*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxTextAttrDimensionConverter >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -202,8 +198,7 @@ public:
 	// wxTextAttrDimensionConverter::wxTextAttrDimensionConverter(wxDC & dc, double scale = 1.0, const wxSize & parentSize = wxDefaultSize)
 	static wxTextAttrDimensionConverter* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTextAttrDimensionConverter::wxTextAttrDimensionConverter(wxDC & dc, double scale = 1.0, const wxSize & parentSize = wxDefaultSize) function, expected prototype:\nwxTextAttrDimensionConverter::wxTextAttrDimensionConverter(wxDC & dc, double scale = 1.0, const wxSize & parentSize = wxDefaultSize)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxTextAttrDimensionConverter::wxTextAttrDimensionConverter(wxDC & dc, double scale = 1.0, const wxSize & parentSize = wxDefaultSize) function, expected prototype:\nwxTextAttrDimensionConverter::wxTextAttrDimensionConverter(wxDC & dc, double scale = 1.0, const wxSize & parentSize = wxDefaultSize)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -226,8 +221,7 @@ public:
 	// wxTextAttrDimensionConverter::wxTextAttrDimensionConverter(int ppi, double scale = 1.0, const wxSize & parentSize = wxDefaultSize)
 	static wxTextAttrDimensionConverter* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTextAttrDimensionConverter::wxTextAttrDimensionConverter(int ppi, double scale = 1.0, const wxSize & parentSize = wxDefaultSize) function, expected prototype:\nwxTextAttrDimensionConverter::wxTextAttrDimensionConverter(int ppi, double scale = 1.0, const wxSize & parentSize = wxDefaultSize)\nClass arguments details:\narg 3 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxTextAttrDimensionConverter::wxTextAttrDimensionConverter(int ppi, double scale = 1.0, const wxSize & parentSize = wxDefaultSize) function, expected prototype:\nwxTextAttrDimensionConverter::wxTextAttrDimensionConverter(int ppi, double scale = 1.0, const wxSize & parentSize = wxDefaultSize)\nClass arguments details:\narg 3 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -257,8 +251,7 @@ public:
 	// int wxTextAttrDimensionConverter::GetPixels(const wxTextAttrDimension & dim, int direction = ::wxHORIZONTAL) const
 	static int _bind_GetPixels(lua_State *L) {
 		if (!_lg_typecheck_GetPixels(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTextAttrDimensionConverter::GetPixels(const wxTextAttrDimension & dim, int direction = ::wxHORIZONTAL) const function, expected prototype:\nint wxTextAttrDimensionConverter::GetPixels(const wxTextAttrDimension & dim, int direction = ::wxHORIZONTAL) const\nClass arguments details:\narg 1 ID = 25580455\n");
+			luaL_error(L, "luna typecheck failed in int wxTextAttrDimensionConverter::GetPixels(const wxTextAttrDimension & dim, int direction = ::wxHORIZONTAL) const function, expected prototype:\nint wxTextAttrDimensionConverter::GetPixels(const wxTextAttrDimension & dim, int direction = ::wxHORIZONTAL) const\nClass arguments details:\narg 1 ID = 25580455\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -272,8 +265,7 @@ public:
 
 		wxTextAttrDimensionConverter* self=(Luna< wxTextAttrDimensionConverter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::GetPixels(const wxTextAttrDimension &, int) const. Got : '%s'",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::GetPixels(const wxTextAttrDimension &, int) const. Got : '%s'\n%s",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetPixels(dim, direction);
 		lua_pushnumber(L,lret);
@@ -284,8 +276,7 @@ public:
 	// int wxTextAttrDimensionConverter::GetTenthsMM(const wxTextAttrDimension & dim) const
 	static int _bind_GetTenthsMM(lua_State *L) {
 		if (!_lg_typecheck_GetTenthsMM(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTextAttrDimensionConverter::GetTenthsMM(const wxTextAttrDimension & dim) const function, expected prototype:\nint wxTextAttrDimensionConverter::GetTenthsMM(const wxTextAttrDimension & dim) const\nClass arguments details:\narg 1 ID = 25580455\n");
+			luaL_error(L, "luna typecheck failed in int wxTextAttrDimensionConverter::GetTenthsMM(const wxTextAttrDimension & dim) const function, expected prototype:\nint wxTextAttrDimensionConverter::GetTenthsMM(const wxTextAttrDimension & dim) const\nClass arguments details:\narg 1 ID = 25580455\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxTextAttrDimension* dim_ptr=(Luna< wxTextAttrDimension >::check(L,2));
@@ -296,8 +287,7 @@ public:
 
 		wxTextAttrDimensionConverter* self=(Luna< wxTextAttrDimensionConverter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::GetTenthsMM(const wxTextAttrDimension &) const. Got : '%s'",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::GetTenthsMM(const wxTextAttrDimension &) const. Got : '%s'\n%s",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetTenthsMM(dim);
 		lua_pushnumber(L,lret);
@@ -308,16 +298,14 @@ public:
 	// int wxTextAttrDimensionConverter::ConvertTenthsMMToPixels(int units) const
 	static int _bind_ConvertTenthsMMToPixels(lua_State *L) {
 		if (!_lg_typecheck_ConvertTenthsMMToPixels(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTextAttrDimensionConverter::ConvertTenthsMMToPixels(int units) const function, expected prototype:\nint wxTextAttrDimensionConverter::ConvertTenthsMMToPixels(int units) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxTextAttrDimensionConverter::ConvertTenthsMMToPixels(int units) const function, expected prototype:\nint wxTextAttrDimensionConverter::ConvertTenthsMMToPixels(int units) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int units=(int)lua_tointeger(L,2);
 
 		wxTextAttrDimensionConverter* self=(Luna< wxTextAttrDimensionConverter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::ConvertTenthsMMToPixels(int) const. Got : '%s'",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::ConvertTenthsMMToPixels(int) const. Got : '%s'\n%s",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->ConvertTenthsMMToPixels(units);
 		lua_pushnumber(L,lret);
@@ -328,16 +316,14 @@ public:
 	// int wxTextAttrDimensionConverter::ConvertPixelsToTenthsMM(int pixels) const
 	static int _bind_ConvertPixelsToTenthsMM(lua_State *L) {
 		if (!_lg_typecheck_ConvertPixelsToTenthsMM(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTextAttrDimensionConverter::ConvertPixelsToTenthsMM(int pixels) const function, expected prototype:\nint wxTextAttrDimensionConverter::ConvertPixelsToTenthsMM(int pixels) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxTextAttrDimensionConverter::ConvertPixelsToTenthsMM(int pixels) const function, expected prototype:\nint wxTextAttrDimensionConverter::ConvertPixelsToTenthsMM(int pixels) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pixels=(int)lua_tointeger(L,2);
 
 		wxTextAttrDimensionConverter* self=(Luna< wxTextAttrDimensionConverter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::ConvertPixelsToTenthsMM(int) const. Got : '%s'",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::ConvertPixelsToTenthsMM(int) const. Got : '%s'\n%s",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->ConvertPixelsToTenthsMM(pixels);
 		lua_pushnumber(L,lret);
@@ -348,15 +334,13 @@ public:
 	// int wxTextAttrDimensionConverter::m_ppi()
 	static int _bind_getPpi(lua_State *L) {
 		if (!_lg_typecheck_getPpi(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTextAttrDimensionConverter::m_ppi() function, expected prototype:\nint wxTextAttrDimensionConverter::m_ppi()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxTextAttrDimensionConverter::m_ppi() function, expected prototype:\nint wxTextAttrDimensionConverter::m_ppi()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrDimensionConverter* self=(Luna< wxTextAttrDimensionConverter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::m_ppi(). Got : '%s'",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxTextAttrDimensionConverter::m_ppi(). Got : '%s'\n%s",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_ppi;
 		lua_pushnumber(L,lret);
@@ -367,15 +351,13 @@ public:
 	// double wxTextAttrDimensionConverter::m_scale()
 	static int _bind_getScale(lua_State *L) {
 		if (!_lg_typecheck_getScale(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxTextAttrDimensionConverter::m_scale() function, expected prototype:\ndouble wxTextAttrDimensionConverter::m_scale()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxTextAttrDimensionConverter::m_scale() function, expected prototype:\ndouble wxTextAttrDimensionConverter::m_scale()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrDimensionConverter* self=(Luna< wxTextAttrDimensionConverter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxTextAttrDimensionConverter::m_scale(). Got : '%s'",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxTextAttrDimensionConverter::m_scale(). Got : '%s'\n%s",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->m_scale;
 		lua_pushnumber(L,lret);
@@ -386,15 +368,13 @@ public:
 	// wxSize wxTextAttrDimensionConverter::m_parentSize()
 	static int _bind_getParentSize(lua_State *L) {
 		if (!_lg_typecheck_getParentSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxTextAttrDimensionConverter::m_parentSize() function, expected prototype:\nwxSize wxTextAttrDimensionConverter::m_parentSize()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxTextAttrDimensionConverter::m_parentSize() function, expected prototype:\nwxSize wxTextAttrDimensionConverter::m_parentSize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTextAttrDimensionConverter* self=(Luna< wxTextAttrDimensionConverter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxTextAttrDimensionConverter::m_parentSize(). Got : '%s'",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxTextAttrDimensionConverter::m_parentSize(). Got : '%s'\n%s",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSize* lret = &self->m_parentSize;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -407,16 +387,14 @@ public:
 	// void wxTextAttrDimensionConverter::m_ppi(int value)
 	static int _bind_setPpi(lua_State *L) {
 		if (!_lg_typecheck_setPpi(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrDimensionConverter::m_ppi(int value) function, expected prototype:\nvoid wxTextAttrDimensionConverter::m_ppi(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrDimensionConverter::m_ppi(int value) function, expected prototype:\nvoid wxTextAttrDimensionConverter::m_ppi(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		wxTextAttrDimensionConverter* self=(Luna< wxTextAttrDimensionConverter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrDimensionConverter::m_ppi(int). Got : '%s'",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrDimensionConverter::m_ppi(int). Got : '%s'\n%s",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_ppi = value;
 
@@ -426,16 +404,14 @@ public:
 	// void wxTextAttrDimensionConverter::m_scale(double value)
 	static int _bind_setScale(lua_State *L) {
 		if (!_lg_typecheck_setScale(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrDimensionConverter::m_scale(double value) function, expected prototype:\nvoid wxTextAttrDimensionConverter::m_scale(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrDimensionConverter::m_scale(double value) function, expected prototype:\nvoid wxTextAttrDimensionConverter::m_scale(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		wxTextAttrDimensionConverter* self=(Luna< wxTextAttrDimensionConverter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrDimensionConverter::m_scale(double). Got : '%s'",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrDimensionConverter::m_scale(double). Got : '%s'\n%s",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_scale = value;
 
@@ -445,8 +421,7 @@ public:
 	// void wxTextAttrDimensionConverter::m_parentSize(wxSize value)
 	static int _bind_setParentSize(lua_State *L) {
 		if (!_lg_typecheck_setParentSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxTextAttrDimensionConverter::m_parentSize(wxSize value) function, expected prototype:\nvoid wxTextAttrDimensionConverter::m_parentSize(wxSize value)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxTextAttrDimensionConverter::m_parentSize(wxSize value) function, expected prototype:\nvoid wxTextAttrDimensionConverter::m_parentSize(wxSize value)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxSize* value_ptr=(Luna< wxSize >::check(L,2));
@@ -457,8 +432,7 @@ public:
 
 		wxTextAttrDimensionConverter* self=(Luna< wxTextAttrDimensionConverter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxTextAttrDimensionConverter::m_parentSize(wxSize). Got : '%s'",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxTextAttrDimensionConverter::m_parentSize(wxSize). Got : '%s'\n%s",typeid(Luna< wxTextAttrDimensionConverter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_parentSize = value;
 

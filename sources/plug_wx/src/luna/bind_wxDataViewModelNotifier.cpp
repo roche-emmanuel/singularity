@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDataViewModelNotifier*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDataViewModelNotifier*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataViewModelNotifier* rhs =(Luna< wxDataViewModelNotifier >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataViewModelNotifier* self= (wxDataViewModelNotifier*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDataViewModelNotifier >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -245,8 +240,7 @@ public:
 	// wxDataViewModelNotifier::wxDataViewModelNotifier(lua_Table * data)
 	static wxDataViewModelNotifier* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewModelNotifier::wxDataViewModelNotifier(lua_Table * data) function, expected prototype:\nwxDataViewModelNotifier::wxDataViewModelNotifier(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewModelNotifier::wxDataViewModelNotifier(lua_Table * data) function, expected prototype:\nwxDataViewModelNotifier::wxDataViewModelNotifier(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -258,15 +252,13 @@ public:
 	// bool wxDataViewModelNotifier::Cleared()
 	static int _bind_Cleared(lua_State *L) {
 		if (!_lg_typecheck_Cleared(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::Cleared() function, expected prototype:\nbool wxDataViewModelNotifier::Cleared()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::Cleared() function, expected prototype:\nbool wxDataViewModelNotifier::Cleared()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::Cleared(). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::Cleared(). Got : '%s'\n%s",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Cleared();
 		lua_pushboolean(L,lret?1:0);
@@ -277,15 +269,13 @@ public:
 	// wxDataViewModel * wxDataViewModelNotifier::GetOwner() const
 	static int _bind_GetOwner(lua_State *L) {
 		if (!_lg_typecheck_GetOwner(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewModel * wxDataViewModelNotifier::GetOwner() const function, expected prototype:\nwxDataViewModel * wxDataViewModelNotifier::GetOwner() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewModel * wxDataViewModelNotifier::GetOwner() const function, expected prototype:\nwxDataViewModel * wxDataViewModelNotifier::GetOwner() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewModel * wxDataViewModelNotifier::GetOwner() const. Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDataViewModel * wxDataViewModelNotifier::GetOwner() const. Got : '%s'\n%s",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDataViewModel * lret = self->GetOwner();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -298,8 +288,7 @@ public:
 	// bool wxDataViewModelNotifier::ItemAdded(const wxDataViewItem & parent, const wxDataViewItem & item)
 	static int _bind_ItemAdded(lua_State *L) {
 		if (!_lg_typecheck_ItemAdded(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::ItemAdded(const wxDataViewItem & parent, const wxDataViewItem & item) function, expected prototype:\nbool wxDataViewModelNotifier::ItemAdded(const wxDataViewItem & parent, const wxDataViewItem & item)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::ItemAdded(const wxDataViewItem & parent, const wxDataViewItem & item) function, expected prototype:\nbool wxDataViewModelNotifier::ItemAdded(const wxDataViewItem & parent, const wxDataViewItem & item)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* parent_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -315,8 +304,7 @@ public:
 
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemAdded(const wxDataViewItem &, const wxDataViewItem &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemAdded(const wxDataViewItem &, const wxDataViewItem &). Got : '%s'\n%s",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ItemAdded(parent, item);
 		lua_pushboolean(L,lret?1:0);
@@ -327,8 +315,7 @@ public:
 	// bool wxDataViewModelNotifier::ItemChanged(const wxDataViewItem & item)
 	static int _bind_ItemChanged(lua_State *L) {
 		if (!_lg_typecheck_ItemChanged(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::ItemChanged(const wxDataViewItem & item) function, expected prototype:\nbool wxDataViewModelNotifier::ItemChanged(const wxDataViewItem & item)\nClass arguments details:\narg 1 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::ItemChanged(const wxDataViewItem & item) function, expected prototype:\nbool wxDataViewModelNotifier::ItemChanged(const wxDataViewItem & item)\nClass arguments details:\narg 1 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -339,8 +326,7 @@ public:
 
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemChanged(const wxDataViewItem &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemChanged(const wxDataViewItem &). Got : '%s'\n%s",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ItemChanged(item);
 		lua_pushboolean(L,lret?1:0);
@@ -351,8 +337,7 @@ public:
 	// bool wxDataViewModelNotifier::ItemDeleted(const wxDataViewItem & parent, const wxDataViewItem & item)
 	static int _bind_ItemDeleted(lua_State *L) {
 		if (!_lg_typecheck_ItemDeleted(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::ItemDeleted(const wxDataViewItem & parent, const wxDataViewItem & item) function, expected prototype:\nbool wxDataViewModelNotifier::ItemDeleted(const wxDataViewItem & parent, const wxDataViewItem & item)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::ItemDeleted(const wxDataViewItem & parent, const wxDataViewItem & item) function, expected prototype:\nbool wxDataViewModelNotifier::ItemDeleted(const wxDataViewItem & parent, const wxDataViewItem & item)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* parent_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -368,8 +353,7 @@ public:
 
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemDeleted(const wxDataViewItem &, const wxDataViewItem &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemDeleted(const wxDataViewItem &, const wxDataViewItem &). Got : '%s'\n%s",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ItemDeleted(parent, item);
 		lua_pushboolean(L,lret?1:0);
@@ -380,8 +364,7 @@ public:
 	// bool wxDataViewModelNotifier::ItemsAdded(const wxDataViewItem & parent, const wxDataViewItemArray & items)
 	static int _bind_ItemsAdded(lua_State *L) {
 		if (!_lg_typecheck_ItemsAdded(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::ItemsAdded(const wxDataViewItem & parent, const wxDataViewItemArray & items) function, expected prototype:\nbool wxDataViewModelNotifier::ItemsAdded(const wxDataViewItem & parent, const wxDataViewItemArray & items)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 60705462\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::ItemsAdded(const wxDataViewItem & parent, const wxDataViewItemArray & items) function, expected prototype:\nbool wxDataViewModelNotifier::ItemsAdded(const wxDataViewItem & parent, const wxDataViewItemArray & items)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 60705462\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* parent_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -397,8 +380,7 @@ public:
 
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemsAdded(const wxDataViewItem &, const wxDataViewItemArray &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemsAdded(const wxDataViewItem &, const wxDataViewItemArray &). Got : '%s'\n%s",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ItemsAdded(parent, items);
 		lua_pushboolean(L,lret?1:0);
@@ -409,8 +391,7 @@ public:
 	// bool wxDataViewModelNotifier::ItemsChanged(const wxDataViewItemArray & items)
 	static int _bind_ItemsChanged(lua_State *L) {
 		if (!_lg_typecheck_ItemsChanged(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::ItemsChanged(const wxDataViewItemArray & items) function, expected prototype:\nbool wxDataViewModelNotifier::ItemsChanged(const wxDataViewItemArray & items)\nClass arguments details:\narg 1 ID = 60705462\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::ItemsChanged(const wxDataViewItemArray & items) function, expected prototype:\nbool wxDataViewModelNotifier::ItemsChanged(const wxDataViewItemArray & items)\nClass arguments details:\narg 1 ID = 60705462\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItemArray* items_ptr=(Luna< wxDataViewItemArray >::check(L,2));
@@ -421,8 +402,7 @@ public:
 
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemsChanged(const wxDataViewItemArray &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemsChanged(const wxDataViewItemArray &). Got : '%s'\n%s",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ItemsChanged(items);
 		lua_pushboolean(L,lret?1:0);
@@ -433,8 +413,7 @@ public:
 	// bool wxDataViewModelNotifier::ItemsDeleted(const wxDataViewItem & parent, const wxDataViewItemArray & items)
 	static int _bind_ItemsDeleted(lua_State *L) {
 		if (!_lg_typecheck_ItemsDeleted(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::ItemsDeleted(const wxDataViewItem & parent, const wxDataViewItemArray & items) function, expected prototype:\nbool wxDataViewModelNotifier::ItemsDeleted(const wxDataViewItem & parent, const wxDataViewItemArray & items)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 60705462\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::ItemsDeleted(const wxDataViewItem & parent, const wxDataViewItemArray & items) function, expected prototype:\nbool wxDataViewModelNotifier::ItemsDeleted(const wxDataViewItem & parent, const wxDataViewItemArray & items)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 60705462\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* parent_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -450,8 +429,7 @@ public:
 
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemsDeleted(const wxDataViewItem &, const wxDataViewItemArray &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ItemsDeleted(const wxDataViewItem &, const wxDataViewItemArray &). Got : '%s'\n%s",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ItemsDeleted(parent, items);
 		lua_pushboolean(L,lret?1:0);
@@ -462,15 +440,13 @@ public:
 	// void wxDataViewModelNotifier::Resort()
 	static int _bind_Resort(lua_State *L) {
 		if (!_lg_typecheck_Resort(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewModelNotifier::Resort() function, expected prototype:\nvoid wxDataViewModelNotifier::Resort()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewModelNotifier::Resort() function, expected prototype:\nvoid wxDataViewModelNotifier::Resort()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewModelNotifier::Resort(). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewModelNotifier::Resort(). Got : '%s'\n%s",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Resort();
 
@@ -480,16 +456,14 @@ public:
 	// void wxDataViewModelNotifier::SetOwner(wxDataViewModel * owner)
 	static int _bind_SetOwner(lua_State *L) {
 		if (!_lg_typecheck_SetOwner(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewModelNotifier::SetOwner(wxDataViewModel * owner) function, expected prototype:\nvoid wxDataViewModelNotifier::SetOwner(wxDataViewModel * owner)\nClass arguments details:\narg 1 ID = 66533182\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewModelNotifier::SetOwner(wxDataViewModel * owner) function, expected prototype:\nvoid wxDataViewModelNotifier::SetOwner(wxDataViewModel * owner)\nClass arguments details:\narg 1 ID = 66533182\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataViewModel* owner=(Luna< wxDataViewModel >::check(L,2));
 
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewModelNotifier::SetOwner(wxDataViewModel *). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewModelNotifier::SetOwner(wxDataViewModel *). Got : '%s'\n%s",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetOwner(owner);
 
@@ -499,8 +473,7 @@ public:
 	// bool wxDataViewModelNotifier::ValueChanged(const wxDataViewItem & item, unsigned int col)
 	static int _bind_ValueChanged(lua_State *L) {
 		if (!_lg_typecheck_ValueChanged(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::ValueChanged(const wxDataViewItem & item, unsigned int col) function, expected prototype:\nbool wxDataViewModelNotifier::ValueChanged(const wxDataViewItem & item, unsigned int col)\nClass arguments details:\narg 1 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::ValueChanged(const wxDataViewItem & item, unsigned int col) function, expected prototype:\nbool wxDataViewModelNotifier::ValueChanged(const wxDataViewItem & item, unsigned int col)\nClass arguments details:\narg 1 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -512,8 +485,7 @@ public:
 
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ValueChanged(const wxDataViewItem &, unsigned int). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::ValueChanged(const wxDataViewItem &, unsigned int). Got : '%s'\n%s",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ValueChanged(item, col);
 		lua_pushboolean(L,lret?1:0);
@@ -524,8 +496,7 @@ public:
 	// bool wxDataViewModelNotifier::base_ItemsAdded(const wxDataViewItem & parent, const wxDataViewItemArray & items)
 	static int _bind_base_ItemsAdded(lua_State *L) {
 		if (!_lg_typecheck_base_ItemsAdded(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::base_ItemsAdded(const wxDataViewItem & parent, const wxDataViewItemArray & items) function, expected prototype:\nbool wxDataViewModelNotifier::base_ItemsAdded(const wxDataViewItem & parent, const wxDataViewItemArray & items)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 60705462\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::base_ItemsAdded(const wxDataViewItem & parent, const wxDataViewItemArray & items) function, expected prototype:\nbool wxDataViewModelNotifier::base_ItemsAdded(const wxDataViewItem & parent, const wxDataViewItemArray & items)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 60705462\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* parent_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -541,8 +512,7 @@ public:
 
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::base_ItemsAdded(const wxDataViewItem &, const wxDataViewItemArray &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::base_ItemsAdded(const wxDataViewItem &, const wxDataViewItemArray &). Got : '%s'\n%s",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataViewModelNotifier::ItemsAdded(parent, items);
 		lua_pushboolean(L,lret?1:0);
@@ -553,8 +523,7 @@ public:
 	// bool wxDataViewModelNotifier::base_ItemsChanged(const wxDataViewItemArray & items)
 	static int _bind_base_ItemsChanged(lua_State *L) {
 		if (!_lg_typecheck_base_ItemsChanged(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::base_ItemsChanged(const wxDataViewItemArray & items) function, expected prototype:\nbool wxDataViewModelNotifier::base_ItemsChanged(const wxDataViewItemArray & items)\nClass arguments details:\narg 1 ID = 60705462\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::base_ItemsChanged(const wxDataViewItemArray & items) function, expected prototype:\nbool wxDataViewModelNotifier::base_ItemsChanged(const wxDataViewItemArray & items)\nClass arguments details:\narg 1 ID = 60705462\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItemArray* items_ptr=(Luna< wxDataViewItemArray >::check(L,2));
@@ -565,8 +534,7 @@ public:
 
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::base_ItemsChanged(const wxDataViewItemArray &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::base_ItemsChanged(const wxDataViewItemArray &). Got : '%s'\n%s",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataViewModelNotifier::ItemsChanged(items);
 		lua_pushboolean(L,lret?1:0);
@@ -577,8 +545,7 @@ public:
 	// bool wxDataViewModelNotifier::base_ItemsDeleted(const wxDataViewItem & parent, const wxDataViewItemArray & items)
 	static int _bind_base_ItemsDeleted(lua_State *L) {
 		if (!_lg_typecheck_base_ItemsDeleted(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::base_ItemsDeleted(const wxDataViewItem & parent, const wxDataViewItemArray & items) function, expected prototype:\nbool wxDataViewModelNotifier::base_ItemsDeleted(const wxDataViewItem & parent, const wxDataViewItemArray & items)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 60705462\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewModelNotifier::base_ItemsDeleted(const wxDataViewItem & parent, const wxDataViewItemArray & items) function, expected prototype:\nbool wxDataViewModelNotifier::base_ItemsDeleted(const wxDataViewItem & parent, const wxDataViewItemArray & items)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 60705462\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* parent_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -594,8 +561,7 @@ public:
 
 		wxDataViewModelNotifier* self=(Luna< wxDataViewModelNotifier >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::base_ItemsDeleted(const wxDataViewItem &, const wxDataViewItemArray &). Got : '%s'",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewModelNotifier::base_ItemsDeleted(const wxDataViewItem &, const wxDataViewItemArray &). Got : '%s'\n%s",typeid(Luna< wxDataViewModelNotifier >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataViewModelNotifier::ItemsDeleted(parent, items);
 		lua_pushboolean(L,lret?1:0);

@@ -90,4 +90,73 @@ man:addSuite("utils.path tests",function()
 		assert.equals(path.join("C:","modules","path\\lua"),"C:/modules/path/lua")
 	end)
 	
+	Test("path.toWin",function()
+		assert.equals(path.toWin("C:/lua/modules/"),"c:\\lua\\modules")
+		assert.equals(path.toWin("lua/modules/file.LUA"),"lua\\modules\\file.lua")
+	end)
+	
+	Test("path.relPath",function()
+		assert.equals(path.relPath(root_path.."lua/modules/"),"lua/modules")
+		assert.equals(path.relPath(root_path.."../lua/modules/"),"../lua/modules")
+		assert.equals(path.relPath(root_path,"W:"),path.normcase(root_path:sub(4)))
+		assert.equals(path.relPath("C:\\my\\sub/path","C:\\disc"),"../my/sub/path")
+		assert.equals(path.relPath("C:\\my\\sub/path","C:\\disc\\path"),"../../my/sub/path")
+	end)
+	
+	Test("path.expandUser",function()
+		assert.equals(path.expandUser("~/"),"c:/users/kenshin")
+		assert.equals(path.expandUser("~/my/path"),"c:/users/kenshin/my/path")
+	end)
+	
+	Test("path.tmpName",function()
+		local fname1 = path.tmpName()
+		local fname2 = path.tmpName()
+		log.info("Temp file names are: f1=",fname1,", f2=",fname2)
+		assert.notEqual(fname1,fname2)
+	end)
+	
+	Test("path.splitExt",function()
+		local file,ext = path.splitExt(root_path.."lua/modules/config.lua")
+		
+		assert.equals(file,root_path.."lua/modules/config")
+		assert.equals(ext,".lua")
+
+		local file,ext = path.splitExt(root_path.."lua/modules.no/config")
+		assert.equals(file,root_path.."lua/modules.no/config")
+		assert.equals(ext,"")
+	end)
+	
+	Test("path.dirName",function()
+		assert.equals(path.dirName("lua/modules/config/"),"lua/modules")
+		assert.equals(path.dirName("lua/modules/config"),"lua/modules")
+	end)	
+
+	Test("path.baseName",function()
+		assert.equals(path.baseName("lua/modules/config/"),"config")
+		assert.equals(path.baseName("lua/modules/config.lua"),"config.lua")
+	end)	
+	
+	Test("path.extension",function()
+		assert.equals(path.extension("lua/modules/config/"),"")
+		assert.equals(path.extension("lua/modules/config"),"")
+		assert.equals(path.extension("lua/modules/config.lua"),".lua")
+	end)	
+	
+	Test("path.commonPrefix",function()
+		local p1 = root_path.."lua/modules/config.lua"
+		local p2 = root_path.."lua/scripts/test.lua"
+		local p3 = "w:\\lua/scripts/test.lua"
+		local p4 = "C:\\lua/scripts/test.lua"
+		
+		assert.equals(path.commonPrefix(p1,p2),path.normcase(root_path.."lua").."/")
+		assert.equals(path.commonPrefix(p1,p3),"w:/")
+		assert.equals(path.commonPrefix(p1,p4),"")
+	end)	
+	
+	Test("path.packagePath",function()
+		assert.equals(path.packagePath("utils.base"),root_path.."lua/modules/utils/base.lua")
+		assert.equals(path.packagePath("core"),root_path.."bin/win32/modules/core.sgp")
+		assert.hasError(function() path.packagePath("stupid_dummy_module") end)
+	end)
+	
 end)

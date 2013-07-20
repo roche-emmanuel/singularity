@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEncodingConverter* self= (wxEncodingConverter*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -159,8 +156,7 @@ public:
 	// wxEncodingConverter::wxEncodingConverter()
 	static wxEncodingConverter* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEncodingConverter::wxEncodingConverter() function, expected prototype:\nwxEncodingConverter::wxEncodingConverter()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEncodingConverter::wxEncodingConverter() function, expected prototype:\nwxEncodingConverter::wxEncodingConverter()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -170,8 +166,7 @@ public:
 	// wxEncodingConverter::wxEncodingConverter(lua_Table * data)
 	static wxEncodingConverter* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEncodingConverter::wxEncodingConverter(lua_Table * data) function, expected prototype:\nwxEncodingConverter::wxEncodingConverter(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEncodingConverter::wxEncodingConverter(lua_Table * data) function, expected prototype:\nwxEncodingConverter::wxEncodingConverter(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -192,16 +187,14 @@ public:
 	// wxString wxEncodingConverter::Convert(const wxString & input) const
 	static int _bind_Convert(lua_State *L) {
 		if (!_lg_typecheck_Convert(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxEncodingConverter::Convert(const wxString & input) const function, expected prototype:\nwxString wxEncodingConverter::Convert(const wxString & input) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxEncodingConverter::Convert(const wxString & input) const function, expected prototype:\nwxString wxEncodingConverter::Convert(const wxString & input) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString input(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxEncodingConverter* self=Luna< wxObject >::checkSubType< wxEncodingConverter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxEncodingConverter::Convert(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxEncodingConverter::Convert(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->Convert(input);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -212,8 +205,7 @@ public:
 	// bool wxEncodingConverter::Init(wxFontEncoding input_enc, wxFontEncoding output_enc, int method = ::wxCONVERT_STRICT)
 	static int _bind_Init(lua_State *L) {
 		if (!_lg_typecheck_Init(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxEncodingConverter::Init(wxFontEncoding input_enc, wxFontEncoding output_enc, int method = ::wxCONVERT_STRICT) function, expected prototype:\nbool wxEncodingConverter::Init(wxFontEncoding input_enc, wxFontEncoding output_enc, int method = ::wxCONVERT_STRICT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxEncodingConverter::Init(wxFontEncoding input_enc, wxFontEncoding output_enc, int method = ::wxCONVERT_STRICT) function, expected prototype:\nbool wxEncodingConverter::Init(wxFontEncoding input_enc, wxFontEncoding output_enc, int method = ::wxCONVERT_STRICT)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -224,8 +216,7 @@ public:
 
 		wxEncodingConverter* self=Luna< wxObject >::checkSubType< wxEncodingConverter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxEncodingConverter::Init(wxFontEncoding, wxFontEncoding, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxEncodingConverter::Init(wxFontEncoding, wxFontEncoding, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Init(input_enc, output_enc, method);
 		lua_pushboolean(L,lret?1:0);
@@ -236,8 +227,7 @@ public:
 	// static wxFontEncodingArray wxEncodingConverter::GetAllEquivalents(wxFontEncoding enc)
 	static int _bind_GetAllEquivalents(lua_State *L) {
 		if (!_lg_typecheck_GetAllEquivalents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxFontEncodingArray wxEncodingConverter::GetAllEquivalents(wxFontEncoding enc) function, expected prototype:\nstatic wxFontEncodingArray wxEncodingConverter::GetAllEquivalents(wxFontEncoding enc)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxFontEncodingArray wxEncodingConverter::GetAllEquivalents(wxFontEncoding enc) function, expected prototype:\nstatic wxFontEncodingArray wxEncodingConverter::GetAllEquivalents(wxFontEncoding enc)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFontEncoding enc=(wxFontEncoding)lua_tointeger(L,1);
@@ -254,8 +244,7 @@ public:
 	// static wxFontEncodingArray wxEncodingConverter::GetPlatformEquivalents(wxFontEncoding enc, int platform = ::wxPLATFORM_CURRENT)
 	static int _bind_GetPlatformEquivalents(lua_State *L) {
 		if (!_lg_typecheck_GetPlatformEquivalents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxFontEncodingArray wxEncodingConverter::GetPlatformEquivalents(wxFontEncoding enc, int platform = ::wxPLATFORM_CURRENT) function, expected prototype:\nstatic wxFontEncodingArray wxEncodingConverter::GetPlatformEquivalents(wxFontEncoding enc, int platform = ::wxPLATFORM_CURRENT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxFontEncodingArray wxEncodingConverter::GetPlatformEquivalents(wxFontEncoding enc, int platform = ::wxPLATFORM_CURRENT) function, expected prototype:\nstatic wxFontEncodingArray wxEncodingConverter::GetPlatformEquivalents(wxFontEncoding enc, int platform = ::wxPLATFORM_CURRENT)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -275,8 +264,7 @@ public:
 	// static bool wxEncodingConverter::CanConvert(wxFontEncoding encIn, wxFontEncoding encOut)
 	static int _bind_CanConvert(lua_State *L) {
 		if (!_lg_typecheck_CanConvert(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxEncodingConverter::CanConvert(wxFontEncoding encIn, wxFontEncoding encOut) function, expected prototype:\nstatic bool wxEncodingConverter::CanConvert(wxFontEncoding encIn, wxFontEncoding encOut)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool wxEncodingConverter::CanConvert(wxFontEncoding encIn, wxFontEncoding encOut) function, expected prototype:\nstatic bool wxEncodingConverter::CanConvert(wxFontEncoding encIn, wxFontEncoding encOut)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFontEncoding encIn=(wxFontEncoding)lua_tointeger(L,1);
@@ -291,15 +279,13 @@ public:
 	// wxClassInfo * wxEncodingConverter::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxEncodingConverter::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxEncodingConverter::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxEncodingConverter::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxEncodingConverter::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxEncodingConverter* self=Luna< wxObject >::checkSubType< wxEncodingConverter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxEncodingConverter::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxEncodingConverter::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxEncodingConverter::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

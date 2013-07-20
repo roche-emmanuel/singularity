@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxBookCtrlEvent* self= (wxBookCtrlEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -166,8 +163,7 @@ public:
 	// wxBookCtrlEvent::wxBookCtrlEvent(int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND)
 	static wxBookCtrlEvent* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBookCtrlEvent::wxBookCtrlEvent(int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND) function, expected prototype:\nwxBookCtrlEvent::wxBookCtrlEvent(int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBookCtrlEvent::wxBookCtrlEvent(int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND) function, expected prototype:\nwxBookCtrlEvent::wxBookCtrlEvent(int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -183,8 +179,7 @@ public:
 	// wxBookCtrlEvent::wxBookCtrlEvent(lua_Table * data, int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND)
 	static wxBookCtrlEvent* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBookCtrlEvent::wxBookCtrlEvent(lua_Table * data, int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND) function, expected prototype:\nwxBookCtrlEvent::wxBookCtrlEvent(lua_Table * data, int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBookCtrlEvent::wxBookCtrlEvent(lua_Table * data, int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND) function, expected prototype:\nwxBookCtrlEvent::wxBookCtrlEvent(lua_Table * data, int eventType = wxEVT_NULL, int id = 0, int sel = wxNOT_FOUND, int oldSel = wxNOT_FOUND)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -211,15 +206,13 @@ public:
 	// int wxBookCtrlEvent::GetOldSelection() const
 	static int _bind_GetOldSelection(lua_State *L) {
 		if (!_lg_typecheck_GetOldSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxBookCtrlEvent::GetOldSelection() const function, expected prototype:\nint wxBookCtrlEvent::GetOldSelection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxBookCtrlEvent::GetOldSelection() const function, expected prototype:\nint wxBookCtrlEvent::GetOldSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBookCtrlEvent* self=Luna< wxObject >::checkSubType< wxBookCtrlEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBookCtrlEvent::GetOldSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxBookCtrlEvent::GetOldSelection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetOldSelection();
 		lua_pushnumber(L,lret);
@@ -230,15 +223,13 @@ public:
 	// int wxBookCtrlEvent::GetSelection() const
 	static int _bind_GetSelection(lua_State *L) {
 		if (!_lg_typecheck_GetSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxBookCtrlEvent::GetSelection() const function, expected prototype:\nint wxBookCtrlEvent::GetSelection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxBookCtrlEvent::GetSelection() const function, expected prototype:\nint wxBookCtrlEvent::GetSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBookCtrlEvent* self=Luna< wxObject >::checkSubType< wxBookCtrlEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBookCtrlEvent::GetSelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxBookCtrlEvent::GetSelection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSelection();
 		lua_pushnumber(L,lret);
@@ -249,16 +240,14 @@ public:
 	// void wxBookCtrlEvent::SetOldSelection(int page)
 	static int _bind_SetOldSelection(lua_State *L) {
 		if (!_lg_typecheck_SetOldSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxBookCtrlEvent::SetOldSelection(int page) function, expected prototype:\nvoid wxBookCtrlEvent::SetOldSelection(int page)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxBookCtrlEvent::SetOldSelection(int page) function, expected prototype:\nvoid wxBookCtrlEvent::SetOldSelection(int page)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int page=(int)lua_tointeger(L,2);
 
 		wxBookCtrlEvent* self=Luna< wxObject >::checkSubType< wxBookCtrlEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBookCtrlEvent::SetOldSelection(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxBookCtrlEvent::SetOldSelection(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetOldSelection(page);
 
@@ -268,16 +257,14 @@ public:
 	// void wxBookCtrlEvent::SetSelection(int page)
 	static int _bind_SetSelection(lua_State *L) {
 		if (!_lg_typecheck_SetSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxBookCtrlEvent::SetSelection(int page) function, expected prototype:\nvoid wxBookCtrlEvent::SetSelection(int page)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxBookCtrlEvent::SetSelection(int page) function, expected prototype:\nvoid wxBookCtrlEvent::SetSelection(int page)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int page=(int)lua_tointeger(L,2);
 
 		wxBookCtrlEvent* self=Luna< wxObject >::checkSubType< wxBookCtrlEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBookCtrlEvent::SetSelection(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxBookCtrlEvent::SetSelection(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSelection(page);
 
@@ -287,15 +274,13 @@ public:
 	// wxClassInfo * wxBookCtrlEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxBookCtrlEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxBookCtrlEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxBookCtrlEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxBookCtrlEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBookCtrlEvent* self=Luna< wxObject >::checkSubType< wxBookCtrlEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxBookCtrlEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxBookCtrlEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxBookCtrlEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -308,15 +293,13 @@ public:
 	// wxEventCategory wxBookCtrlEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxBookCtrlEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxBookCtrlEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxBookCtrlEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxBookCtrlEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBookCtrlEvent* self=Luna< wxObject >::checkSubType< wxBookCtrlEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxBookCtrlEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxBookCtrlEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxBookCtrlEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
@@ -327,15 +310,13 @@ public:
 	// wxEvent * wxBookCtrlEvent::base_Clone() const
 	static int _bind_base_Clone(lua_State *L) {
 		if (!_lg_typecheck_base_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvent * wxBookCtrlEvent::base_Clone() const function, expected prototype:\nwxEvent * wxBookCtrlEvent::base_Clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvent * wxBookCtrlEvent::base_Clone() const function, expected prototype:\nwxEvent * wxBookCtrlEvent::base_Clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBookCtrlEvent* self=Luna< wxObject >::checkSubType< wxBookCtrlEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvent * wxBookCtrlEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEvent * wxBookCtrlEvent::base_Clone() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEvent * lret = self->wxBookCtrlEvent::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.

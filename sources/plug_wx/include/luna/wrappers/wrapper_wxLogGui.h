@@ -123,15 +123,13 @@ public:
 	// wxString wxLogGui::public_GetTitle() const
 	static int _bind_public_GetTitle(lua_State *L) {
 		if (!_lg_typecheck_public_GetTitle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxLogGui::public_GetTitle() const function, expected prototype:\nwxString wxLogGui::public_GetTitle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxLogGui::public_GetTitle() const function, expected prototype:\nwxString wxLogGui::public_GetTitle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_wxLogGui* self=Luna< wxLog >::checkSubType< wrapper_wxLogGui >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxLogGui::public_GetTitle() const. Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxLogGui::public_GetTitle() const. Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->public_GetTitle();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -142,15 +140,13 @@ public:
 	// int wxLogGui::public_GetSeverityIcon() const
 	static int _bind_public_GetSeverityIcon(lua_State *L) {
 		if (!_lg_typecheck_public_GetSeverityIcon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxLogGui::public_GetSeverityIcon() const function, expected prototype:\nint wxLogGui::public_GetSeverityIcon() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxLogGui::public_GetSeverityIcon() const function, expected prototype:\nint wxLogGui::public_GetSeverityIcon() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_wxLogGui* self=Luna< wxLog >::checkSubType< wrapper_wxLogGui >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxLogGui::public_GetSeverityIcon() const. Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxLogGui::public_GetSeverityIcon() const. Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->public_GetSeverityIcon();
 		lua_pushnumber(L,lret);
@@ -161,15 +157,13 @@ public:
 	// void wxLogGui::public_Clear()
 	static int _bind_public_Clear(lua_State *L) {
 		if (!_lg_typecheck_public_Clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLogGui::public_Clear() function, expected prototype:\nvoid wxLogGui::public_Clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxLogGui::public_Clear() function, expected prototype:\nvoid wxLogGui::public_Clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_wxLogGui* self=Luna< wxLog >::checkSubType< wrapper_wxLogGui >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogGui::public_Clear(). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLogGui::public_Clear(). Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_Clear();
 

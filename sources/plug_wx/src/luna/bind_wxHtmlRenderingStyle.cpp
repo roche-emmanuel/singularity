@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlRenderingStyle* self=(Luna< wxHtmlRenderingStyle >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxHtmlRenderingStyle*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxHtmlRenderingStyle*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlRenderingStyle* rhs =(Luna< wxHtmlRenderingStyle >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlRenderingStyle* self= (wxHtmlRenderingStyle*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxHtmlRenderingStyle >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -152,8 +147,7 @@ public:
 	// wxColour wxHtmlRenderingStyle::GetSelectedTextColour(const wxColour & clr)
 	static int _bind_GetSelectedTextColour(lua_State *L) {
 		if (!_lg_typecheck_GetSelectedTextColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxHtmlRenderingStyle::GetSelectedTextColour(const wxColour & clr) function, expected prototype:\nwxColour wxHtmlRenderingStyle::GetSelectedTextColour(const wxColour & clr)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxHtmlRenderingStyle::GetSelectedTextColour(const wxColour & clr) function, expected prototype:\nwxColour wxHtmlRenderingStyle::GetSelectedTextColour(const wxColour & clr)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* clr_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -164,8 +158,7 @@ public:
 
 		wxHtmlRenderingStyle* self=(Luna< wxHtmlRenderingStyle >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxHtmlRenderingStyle::GetSelectedTextColour(const wxColour &). Got : '%s'",typeid(Luna< wxHtmlRenderingStyle >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxHtmlRenderingStyle::GetSelectedTextColour(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxHtmlRenderingStyle >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxColour stack_lret = self->GetSelectedTextColour(clr);
 		wxColour* lret = new wxColour(stack_lret);
@@ -179,8 +172,7 @@ public:
 	// wxColour wxHtmlRenderingStyle::GetSelectedTextBgColour(const wxColour & clr)
 	static int _bind_GetSelectedTextBgColour(lua_State *L) {
 		if (!_lg_typecheck_GetSelectedTextBgColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxHtmlRenderingStyle::GetSelectedTextBgColour(const wxColour & clr) function, expected prototype:\nwxColour wxHtmlRenderingStyle::GetSelectedTextBgColour(const wxColour & clr)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxHtmlRenderingStyle::GetSelectedTextBgColour(const wxColour & clr) function, expected prototype:\nwxColour wxHtmlRenderingStyle::GetSelectedTextBgColour(const wxColour & clr)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* clr_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -191,8 +183,7 @@ public:
 
 		wxHtmlRenderingStyle* self=(Luna< wxHtmlRenderingStyle >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxHtmlRenderingStyle::GetSelectedTextBgColour(const wxColour &). Got : '%s'",typeid(Luna< wxHtmlRenderingStyle >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxHtmlRenderingStyle::GetSelectedTextBgColour(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxHtmlRenderingStyle >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxColour stack_lret = self->GetSelectedTextBgColour(clr);
 		wxColour* lret = new wxColour(stack_lret);

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxCmdLineEntryDesc*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxCmdLineEntryDesc*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCmdLineEntryDesc* rhs =(Luna< wxCmdLineEntryDesc >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCmdLineEntryDesc* self= (wxCmdLineEntryDesc*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxCmdLineEntryDesc >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -169,15 +165,13 @@ public:
 	// wxCmdLineEntryType wxCmdLineEntryDesc::kind()
 	static int _bind_getKind(lua_State *L) {
 		if (!_lg_typecheck_getKind(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCmdLineEntryType wxCmdLineEntryDesc::kind() function, expected prototype:\nwxCmdLineEntryType wxCmdLineEntryDesc::kind()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxCmdLineEntryType wxCmdLineEntryDesc::kind() function, expected prototype:\nwxCmdLineEntryType wxCmdLineEntryDesc::kind()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCmdLineEntryDesc* self=(Luna< wxCmdLineEntryDesc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxCmdLineEntryType wxCmdLineEntryDesc::kind(). Got : '%s'",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxCmdLineEntryType wxCmdLineEntryDesc::kind(). Got : '%s'\n%s",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxCmdLineEntryType lret = self->kind;
 		lua_pushnumber(L,lret);
@@ -188,15 +182,13 @@ public:
 	// const char * wxCmdLineEntryDesc::shortName()
 	static int _bind_getShortName(lua_State *L) {
 		if (!_lg_typecheck_getShortName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * wxCmdLineEntryDesc::shortName() function, expected prototype:\nconst char * wxCmdLineEntryDesc::shortName()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * wxCmdLineEntryDesc::shortName() function, expected prototype:\nconst char * wxCmdLineEntryDesc::shortName()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCmdLineEntryDesc* self=(Luna< wxCmdLineEntryDesc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * wxCmdLineEntryDesc::shortName(). Got : '%s'",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * wxCmdLineEntryDesc::shortName(). Got : '%s'\n%s",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->shortName;
 		lua_pushstring(L,lret);
@@ -207,15 +199,13 @@ public:
 	// const char * wxCmdLineEntryDesc::longName()
 	static int _bind_getLongName(lua_State *L) {
 		if (!_lg_typecheck_getLongName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * wxCmdLineEntryDesc::longName() function, expected prototype:\nconst char * wxCmdLineEntryDesc::longName()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * wxCmdLineEntryDesc::longName() function, expected prototype:\nconst char * wxCmdLineEntryDesc::longName()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCmdLineEntryDesc* self=(Luna< wxCmdLineEntryDesc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * wxCmdLineEntryDesc::longName(). Got : '%s'",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * wxCmdLineEntryDesc::longName(). Got : '%s'\n%s",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->longName;
 		lua_pushstring(L,lret);
@@ -226,15 +216,13 @@ public:
 	// const char * wxCmdLineEntryDesc::description()
 	static int _bind_getDescription(lua_State *L) {
 		if (!_lg_typecheck_getDescription(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * wxCmdLineEntryDesc::description() function, expected prototype:\nconst char * wxCmdLineEntryDesc::description()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * wxCmdLineEntryDesc::description() function, expected prototype:\nconst char * wxCmdLineEntryDesc::description()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCmdLineEntryDesc* self=(Luna< wxCmdLineEntryDesc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * wxCmdLineEntryDesc::description(). Got : '%s'",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * wxCmdLineEntryDesc::description(). Got : '%s'\n%s",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->description;
 		lua_pushstring(L,lret);
@@ -245,15 +233,13 @@ public:
 	// wxCmdLineParamType wxCmdLineEntryDesc::type()
 	static int _bind_getType(lua_State *L) {
 		if (!_lg_typecheck_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCmdLineParamType wxCmdLineEntryDesc::type() function, expected prototype:\nwxCmdLineParamType wxCmdLineEntryDesc::type()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxCmdLineParamType wxCmdLineEntryDesc::type() function, expected prototype:\nwxCmdLineParamType wxCmdLineEntryDesc::type()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCmdLineEntryDesc* self=(Luna< wxCmdLineEntryDesc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxCmdLineParamType wxCmdLineEntryDesc::type(). Got : '%s'",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxCmdLineParamType wxCmdLineEntryDesc::type(). Got : '%s'\n%s",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxCmdLineParamType lret = self->type;
 		lua_pushnumber(L,lret);
@@ -264,15 +250,13 @@ public:
 	// int wxCmdLineEntryDesc::flags()
 	static int _bind_getFlags(lua_State *L) {
 		if (!_lg_typecheck_getFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxCmdLineEntryDesc::flags() function, expected prototype:\nint wxCmdLineEntryDesc::flags()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxCmdLineEntryDesc::flags() function, expected prototype:\nint wxCmdLineEntryDesc::flags()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCmdLineEntryDesc* self=(Luna< wxCmdLineEntryDesc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxCmdLineEntryDesc::flags(). Got : '%s'",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxCmdLineEntryDesc::flags(). Got : '%s'\n%s",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->flags;
 		lua_pushnumber(L,lret);
@@ -283,16 +267,14 @@ public:
 	// void wxCmdLineEntryDesc::kind(wxCmdLineEntryType value)
 	static int _bind_setKind(lua_State *L) {
 		if (!_lg_typecheck_setKind(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCmdLineEntryDesc::kind(wxCmdLineEntryType value) function, expected prototype:\nvoid wxCmdLineEntryDesc::kind(wxCmdLineEntryType value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCmdLineEntryDesc::kind(wxCmdLineEntryType value) function, expected prototype:\nvoid wxCmdLineEntryDesc::kind(wxCmdLineEntryType value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCmdLineEntryType value=(wxCmdLineEntryType)lua_tointeger(L,2);
 
 		wxCmdLineEntryDesc* self=(Luna< wxCmdLineEntryDesc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCmdLineEntryDesc::kind(wxCmdLineEntryType). Got : '%s'",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCmdLineEntryDesc::kind(wxCmdLineEntryType). Got : '%s'\n%s",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->kind = value;
 
@@ -302,16 +284,14 @@ public:
 	// void wxCmdLineEntryDesc::type(wxCmdLineParamType value)
 	static int _bind_setType(lua_State *L) {
 		if (!_lg_typecheck_setType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCmdLineEntryDesc::type(wxCmdLineParamType value) function, expected prototype:\nvoid wxCmdLineEntryDesc::type(wxCmdLineParamType value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCmdLineEntryDesc::type(wxCmdLineParamType value) function, expected prototype:\nvoid wxCmdLineEntryDesc::type(wxCmdLineParamType value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCmdLineParamType value=(wxCmdLineParamType)lua_tointeger(L,2);
 
 		wxCmdLineEntryDesc* self=(Luna< wxCmdLineEntryDesc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCmdLineEntryDesc::type(wxCmdLineParamType). Got : '%s'",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCmdLineEntryDesc::type(wxCmdLineParamType). Got : '%s'\n%s",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->type = value;
 
@@ -321,16 +301,14 @@ public:
 	// void wxCmdLineEntryDesc::flags(int value)
 	static int _bind_setFlags(lua_State *L) {
 		if (!_lg_typecheck_setFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCmdLineEntryDesc::flags(int value) function, expected prototype:\nvoid wxCmdLineEntryDesc::flags(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCmdLineEntryDesc::flags(int value) function, expected prototype:\nvoid wxCmdLineEntryDesc::flags(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		wxCmdLineEntryDesc* self=(Luna< wxCmdLineEntryDesc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCmdLineEntryDesc::flags(int). Got : '%s'",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCmdLineEntryDesc::flags(int). Got : '%s'\n%s",typeid(Luna< wxCmdLineEntryDesc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->flags = value;
 

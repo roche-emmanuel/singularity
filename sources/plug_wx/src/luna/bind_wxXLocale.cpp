@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXLocale* self= (wxXLocale*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxXLocale >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -125,8 +122,7 @@ public:
 	// wxXLocale::wxXLocale()
 	static wxXLocale* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXLocale::wxXLocale() function, expected prototype:\nwxXLocale::wxXLocale()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxXLocale::wxXLocale() function, expected prototype:\nwxXLocale::wxXLocale()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -136,8 +132,7 @@ public:
 	// wxXLocale::wxXLocale(wxLanguage lang)
 	static wxXLocale* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXLocale::wxXLocale(wxLanguage lang) function, expected prototype:\nwxXLocale::wxXLocale(wxLanguage lang)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxXLocale::wxXLocale(wxLanguage lang) function, expected prototype:\nwxXLocale::wxXLocale(wxLanguage lang)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLanguage lang=(wxLanguage)lua_tointeger(L,1);
@@ -148,8 +143,7 @@ public:
 	// wxXLocale::wxXLocale(const char * loc)
 	static wxXLocale* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXLocale::wxXLocale(const char * loc) function, expected prototype:\nwxXLocale::wxXLocale(const char * loc)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxXLocale::wxXLocale(const char * loc) function, expected prototype:\nwxXLocale::wxXLocale(const char * loc)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * loc=(const char *)lua_tostring(L,1);
@@ -172,15 +166,13 @@ public:
 	// bool wxXLocale::IsOk() const
 	static int _bind_IsOk(lua_State *L) {
 		if (!_lg_typecheck_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxXLocale::IsOk() const function, expected prototype:\nbool wxXLocale::IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxXLocale::IsOk() const function, expected prototype:\nbool wxXLocale::IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxXLocale* self=(Luna< wxXLocale >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXLocale::IsOk() const. Got : '%s'",typeid(Luna< wxXLocale >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxXLocale::IsOk() const. Got : '%s'\n%s",typeid(Luna< wxXLocale >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -191,8 +183,7 @@ public:
 	// static wxXLocale & wxXLocale::GetCLocale()
 	static int _bind_GetCLocale(lua_State *L) {
 		if (!_lg_typecheck_GetCLocale(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxXLocale & wxXLocale::GetCLocale() function, expected prototype:\nstatic wxXLocale & wxXLocale::GetCLocale()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxXLocale & wxXLocale::GetCLocale() function, expected prototype:\nstatic wxXLocale & wxXLocale::GetCLocale()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -209,8 +200,7 @@ public:
 	// bool wxXLocale::operator==(const wxXLocale & loc) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxXLocale::operator==(const wxXLocale & loc) const function, expected prototype:\nbool wxXLocale::operator==(const wxXLocale & loc) const\nClass arguments details:\narg 1 ID = 23469565\n");
+			luaL_error(L, "luna typecheck failed in bool wxXLocale::operator==(const wxXLocale & loc) const function, expected prototype:\nbool wxXLocale::operator==(const wxXLocale & loc) const\nClass arguments details:\narg 1 ID = 23469565\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxXLocale* loc_ptr=(Luna< wxXLocale >::check(L,2));
@@ -221,8 +211,7 @@ public:
 
 		wxXLocale* self=(Luna< wxXLocale >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXLocale::operator==(const wxXLocale &) const. Got : '%s'",typeid(Luna< wxXLocale >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxXLocale::operator==(const wxXLocale &) const. Got : '%s'\n%s",typeid(Luna< wxXLocale >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(loc);
 		lua_pushboolean(L,lret?1:0);

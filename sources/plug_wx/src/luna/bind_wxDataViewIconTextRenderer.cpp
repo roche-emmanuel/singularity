@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataViewIconTextRenderer* self= (wxDataViewIconTextRenderer*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -135,8 +132,7 @@ public:
 	// wxDataViewIconTextRenderer::wxDataViewIconTextRenderer(lua_Table * data, const wxString & varianttype = "wxDataViewIconText", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1)
 	static wxDataViewIconTextRenderer* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewIconTextRenderer::wxDataViewIconTextRenderer(lua_Table * data, const wxString & varianttype = \"wxDataViewIconText\", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1) function, expected prototype:\nwxDataViewIconTextRenderer::wxDataViewIconTextRenderer(lua_Table * data, const wxString & varianttype = \"wxDataViewIconText\", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewIconTextRenderer::wxDataViewIconTextRenderer(lua_Table * data, const wxString & varianttype = \"wxDataViewIconText\", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1) function, expected prototype:\nwxDataViewIconTextRenderer::wxDataViewIconTextRenderer(lua_Table * data, const wxString & varianttype = \"wxDataViewIconText\", wxDataViewCellMode mode = ::wxDATAVIEW_CELL_INERT, int align = -1)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -153,15 +149,13 @@ public:
 	// wxClassInfo * wxDataViewIconTextRenderer::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxDataViewIconTextRenderer::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxDataViewIconTextRenderer::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxDataViewIconTextRenderer::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxDataViewIconTextRenderer::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewIconTextRenderer* self=Luna< wxObject >::checkSubType< wxDataViewIconTextRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewIconTextRenderer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxDataViewIconTextRenderer::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxDataViewIconTextRenderer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -174,15 +168,13 @@ public:
 	// int wxDataViewIconTextRenderer::base_GetAlignment() const
 	static int _bind_base_GetAlignment(lua_State *L) {
 		if (!_lg_typecheck_base_GetAlignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxDataViewIconTextRenderer::base_GetAlignment() const function, expected prototype:\nint wxDataViewIconTextRenderer::base_GetAlignment() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxDataViewIconTextRenderer::base_GetAlignment() const function, expected prototype:\nint wxDataViewIconTextRenderer::base_GetAlignment() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewIconTextRenderer* self=Luna< wxObject >::checkSubType< wxDataViewIconTextRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewIconTextRenderer::base_GetAlignment() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxDataViewIconTextRenderer::base_GetAlignment() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxDataViewIconTextRenderer::GetAlignment();
 		lua_pushnumber(L,lret);
@@ -193,15 +185,13 @@ public:
 	// wxDataViewCellMode wxDataViewIconTextRenderer::base_GetMode() const
 	static int _bind_base_GetMode(lua_State *L) {
 		if (!_lg_typecheck_base_GetMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewCellMode wxDataViewIconTextRenderer::base_GetMode() const function, expected prototype:\nwxDataViewCellMode wxDataViewIconTextRenderer::base_GetMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewCellMode wxDataViewIconTextRenderer::base_GetMode() const function, expected prototype:\nwxDataViewCellMode wxDataViewIconTextRenderer::base_GetMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewIconTextRenderer* self=Luna< wxObject >::checkSubType< wxDataViewIconTextRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewIconTextRenderer::base_GetMode() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDataViewCellMode wxDataViewIconTextRenderer::base_GetMode() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDataViewCellMode lret = self->wxDataViewIconTextRenderer::GetMode();
 		lua_pushnumber(L,lret);
@@ -212,16 +202,14 @@ public:
 	// void wxDataViewIconTextRenderer::base_SetAlignment(int align)
 	static int _bind_base_SetAlignment(lua_State *L) {
 		if (!_lg_typecheck_base_SetAlignment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewIconTextRenderer::base_SetAlignment(int align) function, expected prototype:\nvoid wxDataViewIconTextRenderer::base_SetAlignment(int align)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewIconTextRenderer::base_SetAlignment(int align) function, expected prototype:\nvoid wxDataViewIconTextRenderer::base_SetAlignment(int align)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int align=(int)lua_tointeger(L,2);
 
 		wxDataViewIconTextRenderer* self=Luna< wxObject >::checkSubType< wxDataViewIconTextRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewIconTextRenderer::base_SetAlignment(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewIconTextRenderer::base_SetAlignment(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxDataViewIconTextRenderer::SetAlignment(align);
 

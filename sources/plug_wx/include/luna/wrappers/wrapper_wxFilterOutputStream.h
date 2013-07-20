@@ -212,17 +212,15 @@ public:
 	// size_t wxOutputStream::public_OnSysWrite(const void * buffer, size_t bufsize)
 	static int _bind_public_OnSysWrite(lua_State *L) {
 		if (!_lg_typecheck_public_OnSysWrite(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxOutputStream::public_OnSysWrite(const void * buffer, size_t bufsize) function, expected prototype:\nsize_t wxOutputStream::public_OnSysWrite(const void * buffer, size_t bufsize)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxOutputStream::public_OnSysWrite(const void * buffer, size_t bufsize) function, expected prototype:\nsize_t wxOutputStream::public_OnSysWrite(const void * buffer, size_t bufsize)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		void* buffer=(Luna< void >::check(L,2));
+		const void* buffer=(Luna< void >::check(L,2));
 		size_t bufsize=(size_t)lua_tointeger(L,3);
 
 		wrapper_wxFilterOutputStream* self=Luna< wxObject >::checkSubType< wrapper_wxFilterOutputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxOutputStream::public_OnSysWrite(const void *, size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxOutputStream::public_OnSysWrite(const void *, size_t). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->public_OnSysWrite(buffer, bufsize);
 		lua_pushnumber(L,lret);

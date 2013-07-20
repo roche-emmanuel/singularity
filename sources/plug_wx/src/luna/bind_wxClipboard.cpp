@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxClipboard* self= (wxClipboard*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -256,8 +253,7 @@ public:
 	// wxClipboard::wxClipboard()
 	static wxClipboard* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClipboard::wxClipboard() function, expected prototype:\nwxClipboard::wxClipboard()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClipboard::wxClipboard() function, expected prototype:\nwxClipboard::wxClipboard()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -267,8 +263,7 @@ public:
 	// wxClipboard::wxClipboard(lua_Table * data)
 	static wxClipboard* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClipboard::wxClipboard(lua_Table * data) function, expected prototype:\nwxClipboard::wxClipboard(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClipboard::wxClipboard(lua_Table * data) function, expected prototype:\nwxClipboard::wxClipboard(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -289,16 +284,14 @@ public:
 	// bool wxClipboard::AddData(wxDataObject * data)
 	static int _bind_AddData(lua_State *L) {
 		if (!_lg_typecheck_AddData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxClipboard::AddData(wxDataObject * data) function, expected prototype:\nbool wxClipboard::AddData(wxDataObject * data)\nClass arguments details:\narg 1 ID = 55398761\n");
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::AddData(wxDataObject * data) function, expected prototype:\nbool wxClipboard::AddData(wxDataObject * data)\nClass arguments details:\narg 1 ID = 55398761\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataObject* data=(Luna< wxDataObject >::check(L,2));
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClipboard::AddData(wxDataObject *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxClipboard::AddData(wxDataObject *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AddData(data);
 		lua_pushboolean(L,lret?1:0);
@@ -309,15 +302,13 @@ public:
 	// void wxClipboard::Clear()
 	static int _bind_Clear(lua_State *L) {
 		if (!_lg_typecheck_Clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxClipboard::Clear() function, expected prototype:\nvoid wxClipboard::Clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxClipboard::Clear() function, expected prototype:\nvoid wxClipboard::Clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxClipboard::Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxClipboard::Clear(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Clear();
 
@@ -327,15 +318,13 @@ public:
 	// void wxClipboard::Close()
 	static int _bind_Close(lua_State *L) {
 		if (!_lg_typecheck_Close(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxClipboard::Close() function, expected prototype:\nvoid wxClipboard::Close()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxClipboard::Close() function, expected prototype:\nvoid wxClipboard::Close()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxClipboard::Close(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxClipboard::Close(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Close();
 
@@ -345,15 +334,13 @@ public:
 	// bool wxClipboard::Flush()
 	static int _bind_Flush(lua_State *L) {
 		if (!_lg_typecheck_Flush(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxClipboard::Flush() function, expected prototype:\nbool wxClipboard::Flush()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::Flush() function, expected prototype:\nbool wxClipboard::Flush()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClipboard::Flush(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxClipboard::Flush(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Flush();
 		lua_pushboolean(L,lret?1:0);
@@ -364,8 +351,7 @@ public:
 	// bool wxClipboard::GetData(wxDataObject & data)
 	static int _bind_GetData(lua_State *L) {
 		if (!_lg_typecheck_GetData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxClipboard::GetData(wxDataObject & data) function, expected prototype:\nbool wxClipboard::GetData(wxDataObject & data)\nClass arguments details:\narg 1 ID = 55398761\n");
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::GetData(wxDataObject & data) function, expected prototype:\nbool wxClipboard::GetData(wxDataObject & data)\nClass arguments details:\narg 1 ID = 55398761\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataObject* data_ptr=(Luna< wxDataObject >::check(L,2));
@@ -376,8 +362,7 @@ public:
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClipboard::GetData(wxDataObject &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxClipboard::GetData(wxDataObject &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetData(data);
 		lua_pushboolean(L,lret?1:0);
@@ -388,15 +373,13 @@ public:
 	// bool wxClipboard::IsOpened() const
 	static int _bind_IsOpened(lua_State *L) {
 		if (!_lg_typecheck_IsOpened(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxClipboard::IsOpened() const function, expected prototype:\nbool wxClipboard::IsOpened() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::IsOpened() const function, expected prototype:\nbool wxClipboard::IsOpened() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClipboard::IsOpened() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxClipboard::IsOpened() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOpened();
 		lua_pushboolean(L,lret?1:0);
@@ -407,8 +390,7 @@ public:
 	// bool wxClipboard::IsSupported(const wxDataFormat & format)
 	static int _bind_IsSupported(lua_State *L) {
 		if (!_lg_typecheck_IsSupported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxClipboard::IsSupported(const wxDataFormat & format) function, expected prototype:\nbool wxClipboard::IsSupported(const wxDataFormat & format)\nClass arguments details:\narg 1 ID = 9988153\n");
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::IsSupported(const wxDataFormat & format) function, expected prototype:\nbool wxClipboard::IsSupported(const wxDataFormat & format)\nClass arguments details:\narg 1 ID = 9988153\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataFormat* format_ptr=(Luna< wxDataFormat >::check(L,2));
@@ -419,8 +401,7 @@ public:
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClipboard::IsSupported(const wxDataFormat &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxClipboard::IsSupported(const wxDataFormat &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsSupported(format);
 		lua_pushboolean(L,lret?1:0);
@@ -431,15 +412,13 @@ public:
 	// bool wxClipboard::IsUsingPrimarySelection() const
 	static int _bind_IsUsingPrimarySelection(lua_State *L) {
 		if (!_lg_typecheck_IsUsingPrimarySelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxClipboard::IsUsingPrimarySelection() const function, expected prototype:\nbool wxClipboard::IsUsingPrimarySelection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::IsUsingPrimarySelection() const function, expected prototype:\nbool wxClipboard::IsUsingPrimarySelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClipboard::IsUsingPrimarySelection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxClipboard::IsUsingPrimarySelection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsUsingPrimarySelection();
 		lua_pushboolean(L,lret?1:0);
@@ -450,15 +429,13 @@ public:
 	// bool wxClipboard::Open()
 	static int _bind_Open(lua_State *L) {
 		if (!_lg_typecheck_Open(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxClipboard::Open() function, expected prototype:\nbool wxClipboard::Open()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::Open() function, expected prototype:\nbool wxClipboard::Open()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClipboard::Open(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxClipboard::Open(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Open();
 		lua_pushboolean(L,lret?1:0);
@@ -469,16 +446,14 @@ public:
 	// bool wxClipboard::SetData(wxDataObject * data)
 	static int _bind_SetData(lua_State *L) {
 		if (!_lg_typecheck_SetData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxClipboard::SetData(wxDataObject * data) function, expected prototype:\nbool wxClipboard::SetData(wxDataObject * data)\nClass arguments details:\narg 1 ID = 55398761\n");
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::SetData(wxDataObject * data) function, expected prototype:\nbool wxClipboard::SetData(wxDataObject * data)\nClass arguments details:\narg 1 ID = 55398761\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataObject* data=(Luna< wxDataObject >::check(L,2));
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClipboard::SetData(wxDataObject *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxClipboard::SetData(wxDataObject *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SetData(data);
 		lua_pushboolean(L,lret?1:0);
@@ -489,8 +464,7 @@ public:
 	// void wxClipboard::UsePrimarySelection(bool primary = false)
 	static int _bind_UsePrimarySelection(lua_State *L) {
 		if (!_lg_typecheck_UsePrimarySelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxClipboard::UsePrimarySelection(bool primary = false) function, expected prototype:\nvoid wxClipboard::UsePrimarySelection(bool primary = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxClipboard::UsePrimarySelection(bool primary = false) function, expected prototype:\nvoid wxClipboard::UsePrimarySelection(bool primary = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -499,8 +473,7 @@ public:
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxClipboard::UsePrimarySelection(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxClipboard::UsePrimarySelection(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->UsePrimarySelection(primary);
 
@@ -510,15 +483,13 @@ public:
 	// wxClassInfo * wxClipboard::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxClipboard::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxClipboard::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxClipboard::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxClipboard::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxClipboard::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxClipboard::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxClipboard::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -531,16 +502,14 @@ public:
 	// bool wxClipboard::base_AddData(wxDataObject * data)
 	static int _bind_base_AddData(lua_State *L) {
 		if (!_lg_typecheck_base_AddData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_AddData(wxDataObject * data) function, expected prototype:\nbool wxClipboard::base_AddData(wxDataObject * data)\nClass arguments details:\narg 1 ID = 55398761\n");
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_AddData(wxDataObject * data) function, expected prototype:\nbool wxClipboard::base_AddData(wxDataObject * data)\nClass arguments details:\narg 1 ID = 55398761\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataObject* data=(Luna< wxDataObject >::check(L,2));
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClipboard::base_AddData(wxDataObject *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxClipboard::base_AddData(wxDataObject *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxClipboard::AddData(data);
 		lua_pushboolean(L,lret?1:0);
@@ -551,15 +520,13 @@ public:
 	// void wxClipboard::base_Clear()
 	static int _bind_base_Clear(lua_State *L) {
 		if (!_lg_typecheck_base_Clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxClipboard::base_Clear() function, expected prototype:\nvoid wxClipboard::base_Clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxClipboard::base_Clear() function, expected prototype:\nvoid wxClipboard::base_Clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxClipboard::base_Clear(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxClipboard::base_Clear(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxClipboard::Clear();
 
@@ -569,15 +536,13 @@ public:
 	// void wxClipboard::base_Close()
 	static int _bind_base_Close(lua_State *L) {
 		if (!_lg_typecheck_base_Close(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxClipboard::base_Close() function, expected prototype:\nvoid wxClipboard::base_Close()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxClipboard::base_Close() function, expected prototype:\nvoid wxClipboard::base_Close()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxClipboard::base_Close(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxClipboard::base_Close(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxClipboard::Close();
 
@@ -587,15 +552,13 @@ public:
 	// bool wxClipboard::base_Flush()
 	static int _bind_base_Flush(lua_State *L) {
 		if (!_lg_typecheck_base_Flush(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_Flush() function, expected prototype:\nbool wxClipboard::base_Flush()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_Flush() function, expected prototype:\nbool wxClipboard::base_Flush()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClipboard::base_Flush(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxClipboard::base_Flush(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxClipboard::Flush();
 		lua_pushboolean(L,lret?1:0);
@@ -606,8 +569,7 @@ public:
 	// bool wxClipboard::base_GetData(wxDataObject & data)
 	static int _bind_base_GetData(lua_State *L) {
 		if (!_lg_typecheck_base_GetData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_GetData(wxDataObject & data) function, expected prototype:\nbool wxClipboard::base_GetData(wxDataObject & data)\nClass arguments details:\narg 1 ID = 55398761\n");
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_GetData(wxDataObject & data) function, expected prototype:\nbool wxClipboard::base_GetData(wxDataObject & data)\nClass arguments details:\narg 1 ID = 55398761\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataObject* data_ptr=(Luna< wxDataObject >::check(L,2));
@@ -618,8 +580,7 @@ public:
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClipboard::base_GetData(wxDataObject &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxClipboard::base_GetData(wxDataObject &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxClipboard::GetData(data);
 		lua_pushboolean(L,lret?1:0);
@@ -630,15 +591,13 @@ public:
 	// bool wxClipboard::base_IsOpened() const
 	static int _bind_base_IsOpened(lua_State *L) {
 		if (!_lg_typecheck_base_IsOpened(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_IsOpened() const function, expected prototype:\nbool wxClipboard::base_IsOpened() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_IsOpened() const function, expected prototype:\nbool wxClipboard::base_IsOpened() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClipboard::base_IsOpened() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxClipboard::base_IsOpened() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxClipboard::IsOpened();
 		lua_pushboolean(L,lret?1:0);
@@ -649,8 +608,7 @@ public:
 	// bool wxClipboard::base_IsSupported(const wxDataFormat & format)
 	static int _bind_base_IsSupported(lua_State *L) {
 		if (!_lg_typecheck_base_IsSupported(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_IsSupported(const wxDataFormat & format) function, expected prototype:\nbool wxClipboard::base_IsSupported(const wxDataFormat & format)\nClass arguments details:\narg 1 ID = 9988153\n");
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_IsSupported(const wxDataFormat & format) function, expected prototype:\nbool wxClipboard::base_IsSupported(const wxDataFormat & format)\nClass arguments details:\narg 1 ID = 9988153\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataFormat* format_ptr=(Luna< wxDataFormat >::check(L,2));
@@ -661,8 +619,7 @@ public:
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClipboard::base_IsSupported(const wxDataFormat &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxClipboard::base_IsSupported(const wxDataFormat &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxClipboard::IsSupported(format);
 		lua_pushboolean(L,lret?1:0);
@@ -673,15 +630,13 @@ public:
 	// bool wxClipboard::base_Open()
 	static int _bind_base_Open(lua_State *L) {
 		if (!_lg_typecheck_base_Open(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_Open() function, expected prototype:\nbool wxClipboard::base_Open()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_Open() function, expected prototype:\nbool wxClipboard::base_Open()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClipboard::base_Open(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxClipboard::base_Open(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxClipboard::Open();
 		lua_pushboolean(L,lret?1:0);
@@ -692,16 +647,14 @@ public:
 	// bool wxClipboard::base_SetData(wxDataObject * data)
 	static int _bind_base_SetData(lua_State *L) {
 		if (!_lg_typecheck_base_SetData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_SetData(wxDataObject * data) function, expected prototype:\nbool wxClipboard::base_SetData(wxDataObject * data)\nClass arguments details:\narg 1 ID = 55398761\n");
+			luaL_error(L, "luna typecheck failed in bool wxClipboard::base_SetData(wxDataObject * data) function, expected prototype:\nbool wxClipboard::base_SetData(wxDataObject * data)\nClass arguments details:\narg 1 ID = 55398761\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataObject* data=(Luna< wxDataObject >::check(L,2));
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxClipboard::base_SetData(wxDataObject *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxClipboard::base_SetData(wxDataObject *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxClipboard::SetData(data);
 		lua_pushboolean(L,lret?1:0);
@@ -712,8 +665,7 @@ public:
 	// void wxClipboard::base_UsePrimarySelection(bool primary = false)
 	static int _bind_base_UsePrimarySelection(lua_State *L) {
 		if (!_lg_typecheck_base_UsePrimarySelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxClipboard::base_UsePrimarySelection(bool primary = false) function, expected prototype:\nvoid wxClipboard::base_UsePrimarySelection(bool primary = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxClipboard::base_UsePrimarySelection(bool primary = false) function, expected prototype:\nvoid wxClipboard::base_UsePrimarySelection(bool primary = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -722,8 +674,7 @@ public:
 
 		wxClipboard* self=Luna< wxObject >::checkSubType< wxClipboard >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxClipboard::base_UsePrimarySelection(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxClipboard::base_UsePrimarySelection(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxClipboard::UsePrimarySelection(primary);
 

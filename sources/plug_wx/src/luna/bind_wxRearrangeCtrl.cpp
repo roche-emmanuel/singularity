@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxRearrangeCtrl*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxRearrangeCtrl*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRearrangeCtrl* rhs =(Luna< wxRearrangeCtrl >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRearrangeCtrl* self= (wxRearrangeCtrl*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxRearrangeCtrl >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -121,7 +117,7 @@ public:
 		if( (!(Luna< wxArrayInt >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,59507769) ) return false;
 		if( (!(Luna< wxArrayString >::check(L,6))) ) return false;
-		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( luatop>6 && lua_isnumber(L,7)==0 ) return false;
 		if( luatop>7 && !Luna<void>::has_uniqueid(L,8,56813631) ) return false;
 		if( luatop>7 && (!(Luna< wxObject >::checkSubType< wxValidator >(L,8))) ) return false;
 		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
@@ -140,7 +136,7 @@ public:
 		if( !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,47342076) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,59507769) ) return false;
-		if( luatop>7 && (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( luatop>7 && lua_isnumber(L,8)==0 ) return false;
 		if( luatop>8 && !Luna<void>::has_uniqueid(L,9,56813631) ) return false;
 		if( luatop>9 && lua_isstring(L,10)==0 ) return false;
 		return true;
@@ -160,8 +156,7 @@ public:
 	// wxRearrangeCtrl::wxRearrangeCtrl()
 	static wxRearrangeCtrl* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRearrangeCtrl::wxRearrangeCtrl() function, expected prototype:\nwxRearrangeCtrl::wxRearrangeCtrl()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRearrangeCtrl::wxRearrangeCtrl() function, expected prototype:\nwxRearrangeCtrl::wxRearrangeCtrl()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -171,8 +166,7 @@ public:
 	// wxRearrangeCtrl::wxRearrangeCtrl(wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayInt & order, const wxArrayString & items, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRearrangeListNameStr)
 	static wxRearrangeCtrl* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRearrangeCtrl::wxRearrangeCtrl(wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayInt & order, const wxArrayString & items, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRearrangeListNameStr) function, expected prototype:\nwxRearrangeCtrl::wxRearrangeCtrl(wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayInt & order, const wxArrayString & items, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRearrangeListNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 5 ID = 47342076\narg 6 ID = 59507769\narg 8 ID = 56813631\narg 9 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxRearrangeCtrl::wxRearrangeCtrl(wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayInt & order, const wxArrayString & items, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRearrangeListNameStr) function, expected prototype:\nwxRearrangeCtrl::wxRearrangeCtrl(wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayInt & order, const wxArrayString & items, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRearrangeListNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 5 ID = 47342076\narg 6 ID = 59507769\narg 8 ID = 56813631\narg 9 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -199,7 +193,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg items in wxRearrangeCtrl::wxRearrangeCtrl function");
 		}
 		const wxArrayString & items=*items_ptr;
-		long style=luatop>6 ? (long)lua_tointeger(L,7) : (long)0;
+		long style=luatop>6 ? (long)lua_tonumber(L,7) : (long)0;
 		const wxValidator* validator_ptr=luatop>7 ? (Luna< wxObject >::checkSubType< wxValidator >(L,8)) : NULL;
 		if( luatop>7 && !validator_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxRearrangeCtrl::wxRearrangeCtrl function");
@@ -224,8 +218,7 @@ public:
 	// bool wxRearrangeCtrl::Create(wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayInt & order, const wxArrayString & items, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRearrangeListNameStr)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRearrangeCtrl::Create(wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayInt & order, const wxArrayString & items, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRearrangeListNameStr) function, expected prototype:\nbool wxRearrangeCtrl::Create(wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayInt & order, const wxArrayString & items, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRearrangeListNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 5 ID = 47342076\narg 6 ID = 59507769\narg 8 ID = 56813631\narg 9 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxRearrangeCtrl::Create(wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayInt & order, const wxArrayString & items, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRearrangeListNameStr) function, expected prototype:\nbool wxRearrangeCtrl::Create(wxWindow * parent, int id, const wxPoint & pos, const wxSize & size, const wxArrayInt & order, const wxArrayString & items, long style = 0, const wxValidator & validator = wxDefaultValidator, const wxString & name = wxRearrangeListNameStr)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 5 ID = 47342076\narg 6 ID = 59507769\narg 8 ID = 56813631\narg 9 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -252,7 +245,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg items in wxRearrangeCtrl::Create function");
 		}
 		const wxArrayString & items=*items_ptr;
-		long style=luatop>7 ? (long)lua_tointeger(L,8) : (long)0;
+		long style=luatop>7 ? (long)lua_tonumber(L,8) : (long)0;
 		const wxValidator* validator_ptr=luatop>8 ? (Luna< wxObject >::checkSubType< wxValidator >(L,9)) : NULL;
 		if( luatop>8 && !validator_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg validator in wxRearrangeCtrl::Create function");
@@ -262,8 +255,7 @@ public:
 
 		wxRearrangeCtrl* self=(Luna< wxRearrangeCtrl >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRearrangeCtrl::Create(wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayInt &, const wxArrayString &, long, const wxValidator &, const wxString &). Got : '%s'",typeid(Luna< wxRearrangeCtrl >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRearrangeCtrl::Create(wxWindow *, int, const wxPoint &, const wxSize &, const wxArrayInt &, const wxArrayString &, long, const wxValidator &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxRearrangeCtrl >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Create(parent, id, pos, size, order, items, style, validator, name);
 		lua_pushboolean(L,lret?1:0);
@@ -274,15 +266,13 @@ public:
 	// wxRearrangeList * wxRearrangeCtrl::GetList() const
 	static int _bind_GetList(lua_State *L) {
 		if (!_lg_typecheck_GetList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRearrangeList * wxRearrangeCtrl::GetList() const function, expected prototype:\nwxRearrangeList * wxRearrangeCtrl::GetList() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRearrangeList * wxRearrangeCtrl::GetList() const function, expected prototype:\nwxRearrangeList * wxRearrangeCtrl::GetList() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRearrangeCtrl* self=(Luna< wxRearrangeCtrl >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxRearrangeList * wxRearrangeCtrl::GetList() const. Got : '%s'",typeid(Luna< wxRearrangeCtrl >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxRearrangeList * wxRearrangeCtrl::GetList() const. Got : '%s'\n%s",typeid(Luna< wxRearrangeCtrl >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxRearrangeList * lret = self->GetList();
 		if(!lret) return 0; // Do not write NULL pointers.

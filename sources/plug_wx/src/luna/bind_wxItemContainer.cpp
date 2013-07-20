@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxItemContainerImmutable* self=(Luna< wxItemContainerImmutable >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxItemContainer* self= (wxItemContainer*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxItemContainerImmutable >::check(L,1));
@@ -253,16 +250,14 @@ public:
 	// int wxItemContainer::Append(const wxString & item)
 	static int _bind_Append_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Append_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxItemContainer::Append(const wxString & item) function, expected prototype:\nint wxItemContainer::Append(const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxItemContainer::Append(const wxString & item) function, expected prototype:\nint wxItemContainer::Append(const wxString & item)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxItemContainer::Append(const wxString &). Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxItemContainer::Append(const wxString &). Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Append(item);
 		lua_pushnumber(L,lret);
@@ -273,8 +268,7 @@ public:
 	// int wxItemContainer::Append(const wxString & item, void * clientData)
 	static int _bind_Append_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Append_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxItemContainer::Append(const wxString & item, void * clientData) function, expected prototype:\nint wxItemContainer::Append(const wxString & item, void * clientData)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxItemContainer::Append(const wxString & item, void * clientData) function, expected prototype:\nint wxItemContainer::Append(const wxString & item, void * clientData)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
@@ -282,8 +276,7 @@ public:
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxItemContainer::Append(const wxString &, void *). Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxItemContainer::Append(const wxString &, void *). Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Append(item, clientData);
 		lua_pushnumber(L,lret);
@@ -294,8 +287,7 @@ public:
 	// int wxItemContainer::Append(const wxString & item, wxClientData * clientData)
 	static int _bind_Append_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Append_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxItemContainer::Append(const wxString & item, wxClientData * clientData) function, expected prototype:\nint wxItemContainer::Append(const wxString & item, wxClientData * clientData)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 50457573\n");
+			luaL_error(L, "luna typecheck failed in int wxItemContainer::Append(const wxString & item, wxClientData * clientData) function, expected prototype:\nint wxItemContainer::Append(const wxString & item, wxClientData * clientData)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 50457573\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
@@ -303,8 +295,7 @@ public:
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxItemContainer::Append(const wxString &, wxClientData *). Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxItemContainer::Append(const wxString &, wxClientData *). Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Append(item, clientData);
 		lua_pushnumber(L,lret);
@@ -315,8 +306,7 @@ public:
 	// int wxItemContainer::Append(const wxArrayString & items)
 	static int _bind_Append_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Append_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxItemContainer::Append(const wxArrayString & items) function, expected prototype:\nint wxItemContainer::Append(const wxArrayString & items)\nClass arguments details:\narg 1 ID = 59507769\n");
+			luaL_error(L, "luna typecheck failed in int wxItemContainer::Append(const wxArrayString & items) function, expected prototype:\nint wxItemContainer::Append(const wxArrayString & items)\nClass arguments details:\narg 1 ID = 59507769\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxArrayString* items_ptr=(Luna< wxArrayString >::check(L,2));
@@ -327,8 +317,7 @@ public:
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxItemContainer::Append(const wxArrayString &). Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxItemContainer::Append(const wxArrayString &). Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Append(items);
 		lua_pushnumber(L,lret);
@@ -339,8 +328,7 @@ public:
 	// int wxItemContainer::Append(unsigned int n, const wxString * items)
 	static int _bind_Append_overload_5(lua_State *L) {
 		if (!_lg_typecheck_Append_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxItemContainer::Append(unsigned int n, const wxString * items) function, expected prototype:\nint wxItemContainer::Append(unsigned int n, const wxString * items)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxItemContainer::Append(unsigned int n, const wxString * items) function, expected prototype:\nint wxItemContainer::Append(unsigned int n, const wxString * items)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int n=(unsigned int)lua_tointeger(L,2);
@@ -348,8 +336,7 @@ public:
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxItemContainer::Append(unsigned int, const wxString *). Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxItemContainer::Append(unsigned int, const wxString *). Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Append(n, &items);
 		lua_pushnumber(L,lret);
@@ -372,15 +359,13 @@ public:
 	// void wxItemContainer::Clear()
 	static int _bind_Clear(lua_State *L) {
 		if (!_lg_typecheck_Clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxItemContainer::Clear() function, expected prototype:\nvoid wxItemContainer::Clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxItemContainer::Clear() function, expected prototype:\nvoid wxItemContainer::Clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxItemContainer::Clear(). Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxItemContainer::Clear(). Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Clear();
 
@@ -390,16 +375,14 @@ public:
 	// void wxItemContainer::Delete(unsigned int n)
 	static int _bind_Delete(lua_State *L) {
 		if (!_lg_typecheck_Delete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxItemContainer::Delete(unsigned int n) function, expected prototype:\nvoid wxItemContainer::Delete(unsigned int n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxItemContainer::Delete(unsigned int n) function, expected prototype:\nvoid wxItemContainer::Delete(unsigned int n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int n=(unsigned int)lua_tointeger(L,2);
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxItemContainer::Delete(unsigned int). Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxItemContainer::Delete(unsigned int). Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Delete(n);
 
@@ -409,16 +392,14 @@ public:
 	// wxClientData * wxItemContainer::DetachClientObject(unsigned int n)
 	static int _bind_DetachClientObject(lua_State *L) {
 		if (!_lg_typecheck_DetachClientObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClientData * wxItemContainer::DetachClientObject(unsigned int n) function, expected prototype:\nwxClientData * wxItemContainer::DetachClientObject(unsigned int n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClientData * wxItemContainer::DetachClientObject(unsigned int n) function, expected prototype:\nwxClientData * wxItemContainer::DetachClientObject(unsigned int n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int n=(unsigned int)lua_tointeger(L,2);
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClientData * wxItemContainer::DetachClientObject(unsigned int). Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClientData * wxItemContainer::DetachClientObject(unsigned int). Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClientData * lret = self->DetachClientObject(n);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -431,15 +412,13 @@ public:
 	// bool wxItemContainer::HasClientData() const
 	static int _bind_HasClientData(lua_State *L) {
 		if (!_lg_typecheck_HasClientData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxItemContainer::HasClientData() const function, expected prototype:\nbool wxItemContainer::HasClientData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxItemContainer::HasClientData() const function, expected prototype:\nbool wxItemContainer::HasClientData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxItemContainer::HasClientData() const. Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxItemContainer::HasClientData() const. Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasClientData();
 		lua_pushboolean(L,lret?1:0);
@@ -450,15 +429,13 @@ public:
 	// bool wxItemContainer::HasClientObjectData() const
 	static int _bind_HasClientObjectData(lua_State *L) {
 		if (!_lg_typecheck_HasClientObjectData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxItemContainer::HasClientObjectData() const function, expected prototype:\nbool wxItemContainer::HasClientObjectData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxItemContainer::HasClientObjectData() const function, expected prototype:\nbool wxItemContainer::HasClientObjectData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxItemContainer::HasClientObjectData() const. Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxItemContainer::HasClientObjectData() const. Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasClientObjectData();
 		lua_pushboolean(L,lret?1:0);
@@ -469,15 +446,13 @@ public:
 	// bool wxItemContainer::HasClientUntypedData() const
 	static int _bind_HasClientUntypedData(lua_State *L) {
 		if (!_lg_typecheck_HasClientUntypedData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxItemContainer::HasClientUntypedData() const function, expected prototype:\nbool wxItemContainer::HasClientUntypedData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxItemContainer::HasClientUntypedData() const function, expected prototype:\nbool wxItemContainer::HasClientUntypedData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxItemContainer::HasClientUntypedData() const. Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxItemContainer::HasClientUntypedData() const. Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasClientUntypedData();
 		lua_pushboolean(L,lret?1:0);
@@ -488,16 +463,14 @@ public:
 	// void * wxItemContainer::GetClientData(unsigned int n) const
 	static int _bind_GetClientData(lua_State *L) {
 		if (!_lg_typecheck_GetClientData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * wxItemContainer::GetClientData(unsigned int n) const function, expected prototype:\nvoid * wxItemContainer::GetClientData(unsigned int n) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * wxItemContainer::GetClientData(unsigned int n) const function, expected prototype:\nvoid * wxItemContainer::GetClientData(unsigned int n) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int n=(unsigned int)lua_tointeger(L,2);
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * wxItemContainer::GetClientData(unsigned int) const. Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * wxItemContainer::GetClientData(unsigned int) const. Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->GetClientData(n);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -510,16 +483,14 @@ public:
 	// wxClientData * wxItemContainer::GetClientObject(unsigned int n) const
 	static int _bind_GetClientObject(lua_State *L) {
 		if (!_lg_typecheck_GetClientObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClientData * wxItemContainer::GetClientObject(unsigned int n) const function, expected prototype:\nwxClientData * wxItemContainer::GetClientObject(unsigned int n) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClientData * wxItemContainer::GetClientObject(unsigned int n) const function, expected prototype:\nwxClientData * wxItemContainer::GetClientObject(unsigned int n) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int n=(unsigned int)lua_tointeger(L,2);
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClientData * wxItemContainer::GetClientObject(unsigned int) const. Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClientData * wxItemContainer::GetClientObject(unsigned int) const. Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClientData * lret = self->GetClientObject(n);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -532,8 +503,7 @@ public:
 	// int wxItemContainer::Insert(const wxString & item, unsigned int pos)
 	static int _bind_Insert_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Insert_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxItemContainer::Insert(const wxString & item, unsigned int pos) function, expected prototype:\nint wxItemContainer::Insert(const wxString & item, unsigned int pos)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxItemContainer::Insert(const wxString & item, unsigned int pos) function, expected prototype:\nint wxItemContainer::Insert(const wxString & item, unsigned int pos)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
@@ -541,8 +511,7 @@ public:
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxItemContainer::Insert(const wxString &, unsigned int). Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxItemContainer::Insert(const wxString &, unsigned int). Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Insert(item, pos);
 		lua_pushnumber(L,lret);
@@ -553,8 +522,7 @@ public:
 	// int wxItemContainer::Insert(const wxString & item, unsigned int pos, void * clientData)
 	static int _bind_Insert_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Insert_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxItemContainer::Insert(const wxString & item, unsigned int pos, void * clientData) function, expected prototype:\nint wxItemContainer::Insert(const wxString & item, unsigned int pos, void * clientData)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxItemContainer::Insert(const wxString & item, unsigned int pos, void * clientData) function, expected prototype:\nint wxItemContainer::Insert(const wxString & item, unsigned int pos, void * clientData)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
@@ -563,8 +531,7 @@ public:
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxItemContainer::Insert(const wxString &, unsigned int, void *). Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxItemContainer::Insert(const wxString &, unsigned int, void *). Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Insert(item, pos, clientData);
 		lua_pushnumber(L,lret);
@@ -575,8 +542,7 @@ public:
 	// int wxItemContainer::Insert(const wxString & item, unsigned int pos, wxClientData * clientData)
 	static int _bind_Insert_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Insert_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxItemContainer::Insert(const wxString & item, unsigned int pos, wxClientData * clientData) function, expected prototype:\nint wxItemContainer::Insert(const wxString & item, unsigned int pos, wxClientData * clientData)\nClass arguments details:\narg 1 ID = 88196105\narg 3 ID = 50457573\n");
+			luaL_error(L, "luna typecheck failed in int wxItemContainer::Insert(const wxString & item, unsigned int pos, wxClientData * clientData) function, expected prototype:\nint wxItemContainer::Insert(const wxString & item, unsigned int pos, wxClientData * clientData)\nClass arguments details:\narg 1 ID = 88196105\narg 3 ID = 50457573\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString item(lua_tostring(L,2),lua_objlen(L,2));
@@ -585,8 +551,7 @@ public:
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxItemContainer::Insert(const wxString &, unsigned int, wxClientData *). Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxItemContainer::Insert(const wxString &, unsigned int, wxClientData *). Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Insert(item, pos, clientData);
 		lua_pushnumber(L,lret);
@@ -597,8 +562,7 @@ public:
 	// int wxItemContainer::Insert(const wxArrayString & items, unsigned int pos)
 	static int _bind_Insert_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Insert_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxItemContainer::Insert(const wxArrayString & items, unsigned int pos) function, expected prototype:\nint wxItemContainer::Insert(const wxArrayString & items, unsigned int pos)\nClass arguments details:\narg 1 ID = 59507769\n");
+			luaL_error(L, "luna typecheck failed in int wxItemContainer::Insert(const wxArrayString & items, unsigned int pos) function, expected prototype:\nint wxItemContainer::Insert(const wxArrayString & items, unsigned int pos)\nClass arguments details:\narg 1 ID = 59507769\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxArrayString* items_ptr=(Luna< wxArrayString >::check(L,2));
@@ -610,8 +574,7 @@ public:
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxItemContainer::Insert(const wxArrayString &, unsigned int). Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxItemContainer::Insert(const wxArrayString &, unsigned int). Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Insert(items, pos);
 		lua_pushnumber(L,lret);
@@ -622,8 +585,7 @@ public:
 	// int wxItemContainer::Insert(unsigned int n, const wxString * items, unsigned int pos)
 	static int _bind_Insert_overload_5(lua_State *L) {
 		if (!_lg_typecheck_Insert_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxItemContainer::Insert(unsigned int n, const wxString * items, unsigned int pos) function, expected prototype:\nint wxItemContainer::Insert(unsigned int n, const wxString * items, unsigned int pos)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxItemContainer::Insert(unsigned int n, const wxString * items, unsigned int pos) function, expected prototype:\nint wxItemContainer::Insert(unsigned int n, const wxString * items, unsigned int pos)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int n=(unsigned int)lua_tointeger(L,2);
@@ -632,8 +594,7 @@ public:
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxItemContainer::Insert(unsigned int, const wxString *, unsigned int). Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxItemContainer::Insert(unsigned int, const wxString *, unsigned int). Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Insert(n, &items, pos);
 		lua_pushnumber(L,lret);
@@ -656,8 +617,7 @@ public:
 	// int wxItemContainer::base_FindString(const wxString & string, bool caseSensitive = false) const
 	static int _bind_base_FindString(lua_State *L) {
 		if (!_lg_typecheck_base_FindString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxItemContainer::base_FindString(const wxString & string, bool caseSensitive = false) const function, expected prototype:\nint wxItemContainer::base_FindString(const wxString & string, bool caseSensitive = false) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxItemContainer::base_FindString(const wxString & string, bool caseSensitive = false) const function, expected prototype:\nint wxItemContainer::base_FindString(const wxString & string, bool caseSensitive = false) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -667,8 +627,7 @@ public:
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxItemContainer::base_FindString(const wxString &, bool) const. Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxItemContainer::base_FindString(const wxString &, bool) const. Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxItemContainer::FindString(string, caseSensitive);
 		lua_pushnumber(L,lret);
@@ -679,15 +638,13 @@ public:
 	// wxString wxItemContainer::base_GetStringSelection() const
 	static int _bind_base_GetStringSelection(lua_State *L) {
 		if (!_lg_typecheck_base_GetStringSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxItemContainer::base_GetStringSelection() const function, expected prototype:\nwxString wxItemContainer::base_GetStringSelection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxItemContainer::base_GetStringSelection() const function, expected prototype:\nwxString wxItemContainer::base_GetStringSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxItemContainer* self=Luna< wxItemContainerImmutable >::checkSubType< wxItemContainer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxItemContainer::base_GetStringSelection() const. Got : '%s'",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxItemContainer::base_GetStringSelection() const. Got : '%s'\n%s",typeid(Luna< wxItemContainerImmutable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxItemContainer::GetStringSelection();
 		lua_pushlstring(L,lret.data(),lret.size());

@@ -74,6 +74,7 @@ function Class:stop()
 
 	-- cleanup:
 	self:info("Cleaning up.")
+	wx.wxEntryCleanup()
 	collectgarbage('collect')
 	
 	prof:finish()

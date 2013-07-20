@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCollapsiblePaneEvent* self= (wxCollapsiblePaneEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -151,8 +148,7 @@ public:
 	// wxCollapsiblePaneEvent::wxCollapsiblePaneEvent(wxObject * generator, int id, bool collapsed)
 	static wxCollapsiblePaneEvent* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCollapsiblePaneEvent::wxCollapsiblePaneEvent(wxObject * generator, int id, bool collapsed) function, expected prototype:\nwxCollapsiblePaneEvent::wxCollapsiblePaneEvent(wxObject * generator, int id, bool collapsed)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxCollapsiblePaneEvent::wxCollapsiblePaneEvent(wxObject * generator, int id, bool collapsed) function, expected prototype:\nwxCollapsiblePaneEvent::wxCollapsiblePaneEvent(wxObject * generator, int id, bool collapsed)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* generator=(Luna< wxObject >::check(L,1));
@@ -165,8 +161,7 @@ public:
 	// wxCollapsiblePaneEvent::wxCollapsiblePaneEvent(lua_Table * data, wxObject * generator, int id, bool collapsed)
 	static wxCollapsiblePaneEvent* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCollapsiblePaneEvent::wxCollapsiblePaneEvent(lua_Table * data, wxObject * generator, int id, bool collapsed) function, expected prototype:\nwxCollapsiblePaneEvent::wxCollapsiblePaneEvent(lua_Table * data, wxObject * generator, int id, bool collapsed)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxCollapsiblePaneEvent::wxCollapsiblePaneEvent(lua_Table * data, wxObject * generator, int id, bool collapsed) function, expected prototype:\nwxCollapsiblePaneEvent::wxCollapsiblePaneEvent(lua_Table * data, wxObject * generator, int id, bool collapsed)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* generator=(Luna< wxObject >::check(L,2));
@@ -190,15 +185,13 @@ public:
 	// bool wxCollapsiblePaneEvent::GetCollapsed() const
 	static int _bind_GetCollapsed(lua_State *L) {
 		if (!_lg_typecheck_GetCollapsed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCollapsiblePaneEvent::GetCollapsed() const function, expected prototype:\nbool wxCollapsiblePaneEvent::GetCollapsed() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCollapsiblePaneEvent::GetCollapsed() const function, expected prototype:\nbool wxCollapsiblePaneEvent::GetCollapsed() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCollapsiblePaneEvent* self=Luna< wxObject >::checkSubType< wxCollapsiblePaneEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCollapsiblePaneEvent::GetCollapsed() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCollapsiblePaneEvent::GetCollapsed() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetCollapsed();
 		lua_pushboolean(L,lret?1:0);
@@ -209,16 +202,14 @@ public:
 	// void wxCollapsiblePaneEvent::SetCollapsed(bool collapsed)
 	static int _bind_SetCollapsed(lua_State *L) {
 		if (!_lg_typecheck_SetCollapsed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCollapsiblePaneEvent::SetCollapsed(bool collapsed) function, expected prototype:\nvoid wxCollapsiblePaneEvent::SetCollapsed(bool collapsed)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCollapsiblePaneEvent::SetCollapsed(bool collapsed) function, expected prototype:\nvoid wxCollapsiblePaneEvent::SetCollapsed(bool collapsed)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool collapsed=(bool)(lua_toboolean(L,2)==1);
 
 		wxCollapsiblePaneEvent* self=Luna< wxObject >::checkSubType< wxCollapsiblePaneEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCollapsiblePaneEvent::SetCollapsed(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCollapsiblePaneEvent::SetCollapsed(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCollapsed(collapsed);
 
@@ -228,15 +219,13 @@ public:
 	// wxClassInfo * wxCollapsiblePaneEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxCollapsiblePaneEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxCollapsiblePaneEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxCollapsiblePaneEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxCollapsiblePaneEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCollapsiblePaneEvent* self=Luna< wxObject >::checkSubType< wxCollapsiblePaneEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxCollapsiblePaneEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxCollapsiblePaneEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxCollapsiblePaneEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -249,15 +238,13 @@ public:
 	// wxEventCategory wxCollapsiblePaneEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxCollapsiblePaneEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxCollapsiblePaneEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxCollapsiblePaneEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxCollapsiblePaneEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCollapsiblePaneEvent* self=Luna< wxObject >::checkSubType< wxCollapsiblePaneEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxCollapsiblePaneEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxCollapsiblePaneEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxCollapsiblePaneEvent::GetEventCategory();
 		lua_pushnumber(L,lret);
@@ -268,15 +255,13 @@ public:
 	// wxEvent * wxCollapsiblePaneEvent::base_Clone() const
 	static int _bind_base_Clone(lua_State *L) {
 		if (!_lg_typecheck_base_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEvent * wxCollapsiblePaneEvent::base_Clone() const function, expected prototype:\nwxEvent * wxCollapsiblePaneEvent::base_Clone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEvent * wxCollapsiblePaneEvent::base_Clone() const function, expected prototype:\nwxEvent * wxCollapsiblePaneEvent::base_Clone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCollapsiblePaneEvent* self=Luna< wxObject >::checkSubType< wxCollapsiblePaneEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEvent * wxCollapsiblePaneEvent::base_Clone() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEvent * wxCollapsiblePaneEvent::base_Clone() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEvent * lret = self->wxCollapsiblePaneEvent::Clone();
 		if(!lret) return 0; // Do not write NULL pointers.

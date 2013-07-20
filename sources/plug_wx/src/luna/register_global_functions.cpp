@@ -347,7 +347,7 @@ inline static bool _lg_typecheck_wxDirSelector(lua_State *L) {
 
 	if( luatop>0 && lua_isstring(L,1)==0 ) return false;
 	if( luatop>1 && lua_isstring(L,2)==0 ) return false;
-	if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
 	if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
 	if( luatop>4 && (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,56813631)) ) return false;
 	return true;
@@ -696,9 +696,9 @@ inline static bool _lg_typecheck_wxGetNumberFromUser(lua_State *L) {
 	if( lua_isstring(L,1)==0 ) return false;
 	if( lua_isstring(L,2)==0 ) return false;
 	if( lua_isstring(L,3)==0 ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( lua_isnumber(L,4)==0 ) return false;
+	if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
+	if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
 	if( luatop>6 && (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,56813631)) ) return false;
 	if( luatop>7 && !Luna<void>::has_uniqueid(L,8,25723480) ) return false;
 	return true;
@@ -726,7 +726,7 @@ inline static bool _lg_typecheck_wxGetStockLabel(lua_State *L) {
 	if( luatop<1 || luatop>2 ) return false;
 
 	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
 	return true;
 }
 
@@ -983,7 +983,7 @@ inline static bool _lg_typecheck_wxNewId(lua_State *L) {
 inline static bool _lg_typecheck_wxRegisterId(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_isnumber(L,1)==0 ) return false;
 	return true;
 }
 
@@ -1142,14 +1142,14 @@ inline static bool _lg_typecheck_wxShutdown(lua_State *L) {
 inline static bool _lg_typecheck_wxMicroSleep(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_isnumber(L,1)==0 ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxMilliSleep(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_isnumber(L,1)==0 ) return false;
 	return true;
 }
 
@@ -1169,7 +1169,7 @@ inline static bool _lg_typecheck_wxSleep(lua_State *L) {
 inline static bool _lg_typecheck_wxUsleep(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_isnumber(L,1)==0 ) return false;
 	return true;
 }
 
@@ -1267,8 +1267,7 @@ inline static bool _lg_typecheck_wxStrrchr_overload_4(lua_State *L) {
 // void wxAboutBox(const wxAboutDialogInfo & info, wxWindow * parent = NULL)
 static int _bind_wxAboutBox(lua_State *L) {
 	if (!_lg_typecheck_wxAboutBox(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxAboutBox(const wxAboutDialogInfo & info, wxWindow * parent = NULL) function, expected prototype:\nvoid wxAboutBox(const wxAboutDialogInfo & info, wxWindow * parent = NULL)\nClass arguments details:\narg 1 ID = 34636380\narg 2 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in void wxAboutBox(const wxAboutDialogInfo & info, wxWindow * parent = NULL) function, expected prototype:\nvoid wxAboutBox(const wxAboutDialogInfo & info, wxWindow * parent = NULL)\nClass arguments details:\narg 1 ID = 34636380\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -1288,8 +1287,7 @@ static int _bind_wxAboutBox(lua_State *L) {
 // bool wxHandleFatalExceptions(bool doIt = true)
 static int _bind_wxHandleFatalExceptions(lua_State *L) {
 	if (!_lg_typecheck_wxHandleFatalExceptions(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxHandleFatalExceptions(bool doIt = true) function, expected prototype:\nbool wxHandleFatalExceptions(bool doIt = true)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool wxHandleFatalExceptions(bool doIt = true) function, expected prototype:\nbool wxHandleFatalExceptions(bool doIt = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -1305,8 +1303,7 @@ static int _bind_wxHandleFatalExceptions(lua_State *L) {
 // bool wxInitialize()
 static int _bind_wxInitialize(lua_State *L) {
 	if (!_lg_typecheck_wxInitialize(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxInitialize() function, expected prototype:\nbool wxInitialize()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool wxInitialize() function, expected prototype:\nbool wxInitialize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -1319,8 +1316,7 @@ static int _bind_wxInitialize(lua_State *L) {
 // void wxUninitialize()
 static int _bind_wxUninitialize_overload_1(lua_State *L) {
 	if (!_lg_typecheck_wxUninitialize_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxUninitialize() function, expected prototype:\nvoid wxUninitialize()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxUninitialize() function, expected prototype:\nvoid wxUninitialize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -1332,8 +1328,7 @@ static int _bind_wxUninitialize_overload_1(lua_State *L) {
 // void wxUninitialize()
 static int _bind_wxUninitialize_overload_2(lua_State *L) {
 	if (!_lg_typecheck_wxUninitialize_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxUninitialize() function, expected prototype:\nvoid wxUninitialize()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxUninitialize() function, expected prototype:\nvoid wxUninitialize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -1354,8 +1349,7 @@ static int _bind_wxUninitialize(lua_State *L) {
 // void wxWakeUpIdle()
 static int _bind_wxWakeUpIdle(lua_State *L) {
 	if (!_lg_typecheck_wxWakeUpIdle(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxWakeUpIdle() function, expected prototype:\nvoid wxWakeUpIdle()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxWakeUpIdle() function, expected prototype:\nvoid wxWakeUpIdle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -1367,8 +1361,7 @@ static int _bind_wxWakeUpIdle(lua_State *L) {
 // bool wxYield()
 static int _bind_wxYield(lua_State *L) {
 	if (!_lg_typecheck_wxYield(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxYield() function, expected prototype:\nbool wxYield()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool wxYield() function, expected prototype:\nbool wxYield()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -1381,8 +1374,7 @@ static int _bind_wxYield(lua_State *L) {
 // bool wxSafeYield(wxWindow * win = NULL, bool onlyIfNeeded = false)
 static int _bind_wxSafeYield(lua_State *L) {
 	if (!_lg_typecheck_wxSafeYield(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxSafeYield(wxWindow * win = NULL, bool onlyIfNeeded = false) function, expected prototype:\nbool wxSafeYield(wxWindow * win = NULL, bool onlyIfNeeded = false)\nClass arguments details:\narg 1 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in bool wxSafeYield(wxWindow * win = NULL, bool onlyIfNeeded = false) function, expected prototype:\nbool wxSafeYield(wxWindow * win = NULL, bool onlyIfNeeded = false)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -1399,8 +1391,7 @@ static int _bind_wxSafeYield(lua_State *L) {
 // void wxExit()
 static int _bind_wxExit(lua_State *L) {
 	if (!_lg_typecheck_wxExit(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxExit() function, expected prototype:\nvoid wxExit()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxExit() function, expected prototype:\nvoid wxExit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -1412,13 +1403,12 @@ static int _bind_wxExit(lua_State *L) {
 // size_t wxBase64Encode(char * dst, size_t dstLen, const void * src, size_t srcLen)
 static int _bind_wxBase64Encode_overload_1(lua_State *L) {
 	if (!_lg_typecheck_wxBase64Encode_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in size_t wxBase64Encode(char * dst, size_t dstLen, const void * src, size_t srcLen) function, expected prototype:\nsize_t wxBase64Encode(char * dst, size_t dstLen, const void * src, size_t srcLen)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in size_t wxBase64Encode(char * dst, size_t dstLen, const void * src, size_t srcLen) function, expected prototype:\nsize_t wxBase64Encode(char * dst, size_t dstLen, const void * src, size_t srcLen)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	char* dst=(char*)Luna< void >::check(L,1);
 	size_t dstLen=(size_t)lua_tointeger(L,2);
-	void* src=(Luna< void >::check(L,3));
+	const void* src=(Luna< void >::check(L,3));
 	size_t srcLen=(size_t)lua_tointeger(L,4);
 
 	size_t lret = ::wxBase64Encode(dst, dstLen, src, srcLen);
@@ -1430,11 +1420,10 @@ static int _bind_wxBase64Encode_overload_1(lua_State *L) {
 // wxString wxBase64Encode(const void * src, size_t srcLen)
 static int _bind_wxBase64Encode_overload_2(lua_State *L) {
 	if (!_lg_typecheck_wxBase64Encode_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxBase64Encode(const void * src, size_t srcLen) function, expected prototype:\nwxString wxBase64Encode(const void * src, size_t srcLen)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxString wxBase64Encode(const void * src, size_t srcLen) function, expected prototype:\nwxString wxBase64Encode(const void * src, size_t srcLen)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
-	void* src=(Luna< void >::check(L,1));
+	const void* src=(Luna< void >::check(L,1));
 	size_t srcLen=(size_t)lua_tointeger(L,2);
 
 	wxString lret = ::wxBase64Encode(src, srcLen);
@@ -1455,8 +1444,7 @@ static int _bind_wxBase64Encode(lua_State *L) {
 // size_t wxBase64EncodedSize(size_t len)
 static int _bind_wxBase64EncodedSize(lua_State *L) {
 	if (!_lg_typecheck_wxBase64EncodedSize(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in size_t wxBase64EncodedSize(size_t len) function, expected prototype:\nsize_t wxBase64EncodedSize(size_t len)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in size_t wxBase64EncodedSize(size_t len) function, expected prototype:\nsize_t wxBase64EncodedSize(size_t len)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	size_t len=(size_t)lua_tointeger(L,1);
@@ -1470,8 +1458,7 @@ static int _bind_wxBase64EncodedSize(lua_State *L) {
 // wxPersistentObject * wxCreatePersistentObject(wxBookCtrlBase * book)
 static int _bind_wxCreatePersistentObject_overload_1(lua_State *L) {
 	if (!_lg_typecheck_wxCreatePersistentObject_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxPersistentObject * wxCreatePersistentObject(wxBookCtrlBase * book) function, expected prototype:\nwxPersistentObject * wxCreatePersistentObject(wxBookCtrlBase * book)\nClass arguments details:\narg 1 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxPersistentObject * wxCreatePersistentObject(wxBookCtrlBase * book) function, expected prototype:\nwxPersistentObject * wxCreatePersistentObject(wxBookCtrlBase * book)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxBookCtrlBase* book=(Luna< wxObject >::checkSubType< wxBookCtrlBase >(L,1));
@@ -1487,8 +1474,7 @@ static int _bind_wxCreatePersistentObject_overload_1(lua_State *L) {
 // wxPersistentObject * wxCreatePersistentObject(wxTopLevelWindow * book)
 static int _bind_wxCreatePersistentObject_overload_2(lua_State *L) {
 	if (!_lg_typecheck_wxCreatePersistentObject_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxPersistentObject * wxCreatePersistentObject(wxTopLevelWindow * book) function, expected prototype:\nwxPersistentObject * wxCreatePersistentObject(wxTopLevelWindow * book)\nClass arguments details:\narg 1 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxPersistentObject * wxCreatePersistentObject(wxTopLevelWindow * book) function, expected prototype:\nwxPersistentObject * wxCreatePersistentObject(wxTopLevelWindow * book)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxTopLevelWindow* book=(Luna< wxObject >::checkSubType< wxTopLevelWindow >(L,1));
@@ -1504,8 +1490,7 @@ static int _bind_wxCreatePersistentObject_overload_2(lua_State *L) {
 // wxPersistentObject * wxCreatePersistentObject(wxTreebook * book)
 static int _bind_wxCreatePersistentObject_overload_3(lua_State *L) {
 	if (!_lg_typecheck_wxCreatePersistentObject_overload_3(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxPersistentObject * wxCreatePersistentObject(wxTreebook * book) function, expected prototype:\nwxPersistentObject * wxCreatePersistentObject(wxTreebook * book)\nClass arguments details:\narg 1 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxPersistentObject * wxCreatePersistentObject(wxTreebook * book) function, expected prototype:\nwxPersistentObject * wxCreatePersistentObject(wxTreebook * book)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxTreebook* book=(Luna< wxObject >::checkSubType< wxTreebook >(L,1));
@@ -1531,8 +1516,7 @@ static int _bind_wxCreatePersistentObject(lua_State *L) {
 // int wxGetSingleChoiceIndex(const wxString & message, const wxString & caption, const wxArrayString & aChoices, wxWindow * parent = NULL, int x = -1, int y = -1, bool centre = true, int width = 150, int height = 200, int initialSelection = 0)
 static int _bind_wxGetSingleChoiceIndex_overload_1(lua_State *L) {
 	if (!_lg_typecheck_wxGetSingleChoiceIndex_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int wxGetSingleChoiceIndex(const wxString & message, const wxString & caption, const wxArrayString & aChoices, wxWindow * parent = NULL, int x = -1, int y = -1, bool centre = true, int width = 150, int height = 200, int initialSelection = 0) function, expected prototype:\nint wxGetSingleChoiceIndex(const wxString & message, const wxString & caption, const wxArrayString & aChoices, wxWindow * parent = NULL, int x = -1, int y = -1, bool centre = true, int width = 150, int height = 200, int initialSelection = 0)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 59507769\narg 4 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in int wxGetSingleChoiceIndex(const wxString & message, const wxString & caption, const wxArrayString & aChoices, wxWindow * parent = NULL, int x = -1, int y = -1, bool centre = true, int width = 150, int height = 200, int initialSelection = 0) function, expected prototype:\nint wxGetSingleChoiceIndex(const wxString & message, const wxString & caption, const wxArrayString & aChoices, wxWindow * parent = NULL, int x = -1, int y = -1, bool centre = true, int width = 150, int height = 200, int initialSelection = 0)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 59507769\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -1561,8 +1545,7 @@ static int _bind_wxGetSingleChoiceIndex_overload_1(lua_State *L) {
 // int wxGetSingleChoiceIndex(const wxString & message, const wxString & caption, const wxArrayString & choices, int initialSelection, wxWindow * parent = NULL)
 static int _bind_wxGetSingleChoiceIndex_overload_2(lua_State *L) {
 	if (!_lg_typecheck_wxGetSingleChoiceIndex_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int wxGetSingleChoiceIndex(const wxString & message, const wxString & caption, const wxArrayString & choices, int initialSelection, wxWindow * parent = NULL) function, expected prototype:\nint wxGetSingleChoiceIndex(const wxString & message, const wxString & caption, const wxArrayString & choices, int initialSelection, wxWindow * parent = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 59507769\narg 5 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in int wxGetSingleChoiceIndex(const wxString & message, const wxString & caption, const wxArrayString & choices, int initialSelection, wxWindow * parent = NULL) function, expected prototype:\nint wxGetSingleChoiceIndex(const wxString & message, const wxString & caption, const wxArrayString & choices, int initialSelection, wxWindow * parent = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 59507769\narg 5 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -1586,8 +1569,7 @@ static int _bind_wxGetSingleChoiceIndex_overload_2(lua_State *L) {
 // int wxGetSingleChoiceIndex(const wxString & message, const wxString & caption, int n, const wxString * choices, int initialSelection, wxWindow * parent = NULL)
 static int _bind_wxGetSingleChoiceIndex_overload_3(lua_State *L) {
 	if (!_lg_typecheck_wxGetSingleChoiceIndex_overload_3(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int wxGetSingleChoiceIndex(const wxString & message, const wxString & caption, int n, const wxString * choices, int initialSelection, wxWindow * parent = NULL) function, expected prototype:\nint wxGetSingleChoiceIndex(const wxString & message, const wxString & caption, int n, const wxString * choices, int initialSelection, wxWindow * parent = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 88196105\narg 6 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in int wxGetSingleChoiceIndex(const wxString & message, const wxString & caption, int n, const wxString * choices, int initialSelection, wxWindow * parent = NULL) function, expected prototype:\nint wxGetSingleChoiceIndex(const wxString & message, const wxString & caption, int n, const wxString * choices, int initialSelection, wxWindow * parent = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 88196105\narg 6 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -1618,8 +1600,7 @@ static int _bind_wxGetSingleChoiceIndex(lua_State *L) {
 // wxString wxGetSingleChoice(const wxString & message, const wxString & caption, const wxArrayString & aChoices, wxWindow * parent = NULL, int x = -1, int y = -1, bool centre = true, int width = 150, int height = 200, int initialSelection = 0)
 static int _bind_wxGetSingleChoice_overload_1(lua_State *L) {
 	if (!_lg_typecheck_wxGetSingleChoice_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxGetSingleChoice(const wxString & message, const wxString & caption, const wxArrayString & aChoices, wxWindow * parent = NULL, int x = -1, int y = -1, bool centre = true, int width = 150, int height = 200, int initialSelection = 0) function, expected prototype:\nwxString wxGetSingleChoice(const wxString & message, const wxString & caption, const wxArrayString & aChoices, wxWindow * parent = NULL, int x = -1, int y = -1, bool centre = true, int width = 150, int height = 200, int initialSelection = 0)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 59507769\narg 4 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxString wxGetSingleChoice(const wxString & message, const wxString & caption, const wxArrayString & aChoices, wxWindow * parent = NULL, int x = -1, int y = -1, bool centre = true, int width = 150, int height = 200, int initialSelection = 0) function, expected prototype:\nwxString wxGetSingleChoice(const wxString & message, const wxString & caption, const wxArrayString & aChoices, wxWindow * parent = NULL, int x = -1, int y = -1, bool centre = true, int width = 150, int height = 200, int initialSelection = 0)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 59507769\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -1648,8 +1629,7 @@ static int _bind_wxGetSingleChoice_overload_1(lua_State *L) {
 // wxString wxGetSingleChoice(const wxString & message, const wxString & caption, const wxArrayString & choices, int initialSelection, wxWindow * parent = NULL)
 static int _bind_wxGetSingleChoice_overload_2(lua_State *L) {
 	if (!_lg_typecheck_wxGetSingleChoice_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxGetSingleChoice(const wxString & message, const wxString & caption, const wxArrayString & choices, int initialSelection, wxWindow * parent = NULL) function, expected prototype:\nwxString wxGetSingleChoice(const wxString & message, const wxString & caption, const wxArrayString & choices, int initialSelection, wxWindow * parent = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 59507769\narg 5 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxString wxGetSingleChoice(const wxString & message, const wxString & caption, const wxArrayString & choices, int initialSelection, wxWindow * parent = NULL) function, expected prototype:\nwxString wxGetSingleChoice(const wxString & message, const wxString & caption, const wxArrayString & choices, int initialSelection, wxWindow * parent = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 59507769\narg 5 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -1673,8 +1653,7 @@ static int _bind_wxGetSingleChoice_overload_2(lua_State *L) {
 // wxString wxGetSingleChoice(const wxString & message, const wxString & caption, int n, const wxString * choices, int initialSelection, wxWindow * parent = NULL)
 static int _bind_wxGetSingleChoice_overload_3(lua_State *L) {
 	if (!_lg_typecheck_wxGetSingleChoice_overload_3(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxGetSingleChoice(const wxString & message, const wxString & caption, int n, const wxString * choices, int initialSelection, wxWindow * parent = NULL) function, expected prototype:\nwxString wxGetSingleChoice(const wxString & message, const wxString & caption, int n, const wxString * choices, int initialSelection, wxWindow * parent = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 88196105\narg 6 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxString wxGetSingleChoice(const wxString & message, const wxString & caption, int n, const wxString * choices, int initialSelection, wxWindow * parent = NULL) function, expected prototype:\nwxString wxGetSingleChoice(const wxString & message, const wxString & caption, int n, const wxString * choices, int initialSelection, wxWindow * parent = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 88196105\narg 6 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -1705,8 +1684,7 @@ static int _bind_wxGetSingleChoice(lua_State *L) {
 // int wxGetSelectedChoices(wxArrayInt & selections, const wxString & message, const wxString & caption, const wxArrayString & aChoices, wxWindow * parent = NULL, int x = -1, int y = -1, bool centre = true, int width = 150, int height = 200)
 static int _bind_wxGetSelectedChoices(lua_State *L) {
 	if (!_lg_typecheck_wxGetSelectedChoices(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int wxGetSelectedChoices(wxArrayInt & selections, const wxString & message, const wxString & caption, const wxArrayString & aChoices, wxWindow * parent = NULL, int x = -1, int y = -1, bool centre = true, int width = 150, int height = 200) function, expected prototype:\nint wxGetSelectedChoices(wxArrayInt & selections, const wxString & message, const wxString & caption, const wxArrayString & aChoices, wxWindow * parent = NULL, int x = -1, int y = -1, bool centre = true, int width = 150, int height = 200)\nClass arguments details:\narg 1 ID = 47342076\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 59507769\narg 5 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in int wxGetSelectedChoices(wxArrayInt & selections, const wxString & message, const wxString & caption, const wxArrayString & aChoices, wxWindow * parent = NULL, int x = -1, int y = -1, bool centre = true, int width = 150, int height = 200) function, expected prototype:\nint wxGetSelectedChoices(wxArrayInt & selections, const wxString & message, const wxString & caption, const wxArrayString & aChoices, wxWindow * parent = NULL, int x = -1, int y = -1, bool centre = true, int width = 150, int height = 200)\nClass arguments details:\narg 1 ID = 47342076\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 59507769\narg 5 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -1739,8 +1717,7 @@ static int _bind_wxGetSelectedChoices(lua_State *L) {
 // wxColour wxGetColourFromUser(wxWindow * parent, const wxColour & colInit, const wxString & caption = wxEmptyString, wxColourData * data = NULL)
 static int _bind_wxGetColourFromUser(lua_State *L) {
 	if (!_lg_typecheck_wxGetColourFromUser(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxColour wxGetColourFromUser(wxWindow * parent, const wxColour & colInit, const wxString & caption = wxEmptyString, wxColourData * data = NULL) function, expected prototype:\nwxColour wxGetColourFromUser(wxWindow * parent, const wxColour & colInit, const wxString & caption = wxEmptyString, wxColourData * data = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxColour wxGetColourFromUser(wxWindow * parent, const wxColour & colInit, const wxString & caption = wxEmptyString, wxColourData * data = NULL) function, expected prototype:\nwxColour wxGetColourFromUser(wxWindow * parent, const wxColour & colInit, const wxString & caption = wxEmptyString, wxColourData * data = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -1766,8 +1743,7 @@ static int _bind_wxGetColourFromUser(lua_State *L) {
 // bool wxFromString(const wxString & string, wxColour * colour)
 static int _bind_wxFromString_overload_1(lua_State *L) {
 	if (!_lg_typecheck_wxFromString_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxFromString(const wxString & string, wxColour * colour) function, expected prototype:\nbool wxFromString(const wxString & string, wxColour * colour)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in bool wxFromString(const wxString & string, wxColour * colour) function, expected prototype:\nbool wxFromString(const wxString & string, wxColour * colour)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString string(lua_tostring(L,1),lua_objlen(L,1));
@@ -1782,8 +1758,7 @@ static int _bind_wxFromString_overload_1(lua_State *L) {
 // bool wxFromString(const wxString & string, wxFont * font)
 static int _bind_wxFromString_overload_2(lua_State *L) {
 	if (!_lg_typecheck_wxFromString_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxFromString(const wxString & string, wxFont * font) function, expected prototype:\nbool wxFromString(const wxString & string, wxFont * font)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in bool wxFromString(const wxString & string, wxFont * font) function, expected prototype:\nbool wxFromString(const wxString & string, wxFont * font)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString string(lua_tostring(L,1),lua_objlen(L,1));
@@ -1807,8 +1782,7 @@ static int _bind_wxFromString(lua_State *L) {
 // wxString wxToString(const wxColour & colour)
 static int _bind_wxToString_overload_1(lua_State *L) {
 	if (!_lg_typecheck_wxToString_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxToString(const wxColour & colour) function, expected prototype:\nwxString wxToString(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxString wxToString(const wxColour & colour) function, expected prototype:\nwxString wxToString(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,1));
@@ -1826,8 +1800,7 @@ static int _bind_wxToString_overload_1(lua_State *L) {
 // wxString wxToString(const wxFont & font)
 static int _bind_wxToString_overload_2(lua_State *L) {
 	if (!_lg_typecheck_wxToString_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxToString(const wxFont & font) function, expected prototype:\nwxString wxToString(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxString wxToString(const wxFont & font) function, expected prototype:\nwxString wxToString(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,1));
@@ -1854,8 +1827,7 @@ static int _bind_wxToString(lua_State *L) {
 // void wxDDECleanUp()
 static int _bind_wxDDECleanUp(lua_State *L) {
 	if (!_lg_typecheck_wxDDECleanUp(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxDDECleanUp() function, expected prototype:\nvoid wxDDECleanUp()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxDDECleanUp() function, expected prototype:\nvoid wxDDECleanUp()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -1867,8 +1839,7 @@ static int _bind_wxDDECleanUp(lua_State *L) {
 // void wxDDEInitialize()
 static int _bind_wxDDEInitialize(lua_State *L) {
 	if (!_lg_typecheck_wxDDEInitialize(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxDDEInitialize() function, expected prototype:\nvoid wxDDEInitialize()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxDDEInitialize() function, expected prototype:\nvoid wxDDEInitialize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -1880,8 +1851,7 @@ static int _bind_wxDDEInitialize(lua_State *L) {
 // void wxDisableAsserts()
 static int _bind_wxDisableAsserts(lua_State *L) {
 	if (!_lg_typecheck_wxDisableAsserts(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxDisableAsserts() function, expected prototype:\nvoid wxDisableAsserts()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxDisableAsserts() function, expected prototype:\nvoid wxDisableAsserts()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -1893,8 +1863,7 @@ static int _bind_wxDisableAsserts(lua_State *L) {
 // bool wxIsDebuggerRunning()
 static int _bind_wxIsDebuggerRunning(lua_State *L) {
 	if (!_lg_typecheck_wxIsDebuggerRunning(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxIsDebuggerRunning() function, expected prototype:\nbool wxIsDebuggerRunning()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool wxIsDebuggerRunning() function, expected prototype:\nbool wxIsDebuggerRunning()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -1907,8 +1876,7 @@ static int _bind_wxIsDebuggerRunning(lua_State *L) {
 // void wxSetDefaultAssertHandler()
 static int _bind_wxSetDefaultAssertHandler(lua_State *L) {
 	if (!_lg_typecheck_wxSetDefaultAssertHandler(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxSetDefaultAssertHandler() function, expected prototype:\nvoid wxSetDefaultAssertHandler()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxSetDefaultAssertHandler() function, expected prototype:\nvoid wxSetDefaultAssertHandler()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -1920,8 +1888,7 @@ static int _bind_wxSetDefaultAssertHandler(lua_State *L) {
 // void wxTrap()
 static int _bind_wxTrap(lua_State *L) {
 	if (!_lg_typecheck_wxTrap(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxTrap() function, expected prototype:\nvoid wxTrap()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxTrap() function, expected prototype:\nvoid wxTrap()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -1933,15 +1900,14 @@ static int _bind_wxTrap(lua_State *L) {
 // wxString wxDirSelector(const wxString & message = wxDirSelectorPromptStr, const wxString & default_path = wxEmptyString, long style = 0, const wxPoint & pos = wxDefaultPosition, wxWindow * parent = NULL)
 static int _bind_wxDirSelector(lua_State *L) {
 	if (!_lg_typecheck_wxDirSelector(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxDirSelector(const wxString & message = wxDirSelectorPromptStr, const wxString & default_path = wxEmptyString, long style = 0, const wxPoint & pos = wxDefaultPosition, wxWindow * parent = NULL) function, expected prototype:\nwxString wxDirSelector(const wxString & message = wxDirSelectorPromptStr, const wxString & default_path = wxEmptyString, long style = 0, const wxPoint & pos = wxDefaultPosition, wxWindow * parent = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 25723480\narg 5 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxString wxDirSelector(const wxString & message = wxDirSelectorPromptStr, const wxString & default_path = wxEmptyString, long style = 0, const wxPoint & pos = wxDefaultPosition, wxWindow * parent = NULL) function, expected prototype:\nwxString wxDirSelector(const wxString & message = wxDirSelectorPromptStr, const wxString & default_path = wxEmptyString, long style = 0, const wxPoint & pos = wxDefaultPosition, wxWindow * parent = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 25723480\narg 5 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
 
 	wxString message(lua_tostring(L,1),lua_objlen(L,1));
 	wxString default_path(lua_tostring(L,2),lua_objlen(L,2));
-	long style=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
+	long style=luatop>2 ? (long)lua_tonumber(L,3) : (long)0;
 	const wxPoint* pos_ptr=luatop>3 ? (Luna< wxPoint >::check(L,4)) : NULL;
 	if( luatop>3 && !pos_ptr ) {
 		luaL_error(L, "Dereferencing NULL pointer for arg pos in wxDirSelector function");
@@ -1958,8 +1924,7 @@ static int _bind_wxDirSelector(lua_State *L) {
 // int wxNewEventType()
 static int _bind_wxNewEventType(lua_State *L) {
 	if (!_lg_typecheck_wxNewEventType(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int wxNewEventType() function, expected prototype:\nint wxNewEventType()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int wxNewEventType() function, expected prototype:\nint wxNewEventType()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -1972,8 +1937,7 @@ static int _bind_wxNewEventType(lua_State *L) {
 // void wxPostEvent(wxEvtHandler * dest, const wxEvent & event)
 static int _bind_wxPostEvent(lua_State *L) {
 	if (!_lg_typecheck_wxPostEvent(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxPostEvent(wxEvtHandler * dest, const wxEvent & event) function, expected prototype:\nvoid wxPostEvent(wxEvtHandler * dest, const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in void wxPostEvent(wxEvtHandler * dest, const wxEvent & event) function, expected prototype:\nvoid wxPostEvent(wxEvtHandler * dest, const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxEvtHandler* dest=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1));
@@ -1991,8 +1955,7 @@ static int _bind_wxPostEvent(lua_State *L) {
 // void wxQueueEvent(wxEvtHandler * dest, wxEvent * event)
 static int _bind_wxQueueEvent(lua_State *L) {
 	if (!_lg_typecheck_wxQueueEvent(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxQueueEvent(wxEvtHandler * dest, wxEvent * event) function, expected prototype:\nvoid wxQueueEvent(wxEvtHandler * dest, wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in void wxQueueEvent(wxEvtHandler * dest, wxEvent * event) function, expected prototype:\nvoid wxQueueEvent(wxEvtHandler * dest, wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxEvtHandler* dest=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1));
@@ -2006,8 +1969,7 @@ static int _bind_wxQueueEvent(lua_State *L) {
 // wxString wxFileSelector(const wxString & message, const wxString & default_path = wxEmptyString, const wxString & default_filename = wxEmptyString, const wxString & default_extension = wxEmptyString, const wxString & wildcard = ".", int flags = 0, wxWindow * parent = NULL, int x = -1, int y = -1)
 static int _bind_wxFileSelector(lua_State *L) {
 	if (!_lg_typecheck_wxFileSelector(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxFileSelector(const wxString & message, const wxString & default_path = wxEmptyString, const wxString & default_filename = wxEmptyString, const wxString & default_extension = wxEmptyString, const wxString & wildcard = \".\", int flags = 0, wxWindow * parent = NULL, int x = -1, int y = -1) function, expected prototype:\nwxString wxFileSelector(const wxString & message, const wxString & default_path = wxEmptyString, const wxString & default_filename = wxEmptyString, const wxString & default_extension = wxEmptyString, const wxString & wildcard = \".\", int flags = 0, wxWindow * parent = NULL, int x = -1, int y = -1)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 88196105\narg 7 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxString wxFileSelector(const wxString & message, const wxString & default_path = wxEmptyString, const wxString & default_filename = wxEmptyString, const wxString & default_extension = wxEmptyString, const wxString & wildcard = \".\", int flags = 0, wxWindow * parent = NULL, int x = -1, int y = -1) function, expected prototype:\nwxString wxFileSelector(const wxString & message, const wxString & default_path = wxEmptyString, const wxString & default_filename = wxEmptyString, const wxString & default_extension = wxEmptyString, const wxString & wildcard = \".\", int flags = 0, wxWindow * parent = NULL, int x = -1, int y = -1)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 88196105\narg 7 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2031,8 +1993,7 @@ static int _bind_wxFileSelector(lua_State *L) {
 // wxString wxGetOSDirectory()
 static int _bind_wxGetOSDirectory(lua_State *L) {
 	if (!_lg_typecheck_wxGetOSDirectory(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxGetOSDirectory() function, expected prototype:\nwxString wxGetOSDirectory()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxString wxGetOSDirectory() function, expected prototype:\nwxString wxGetOSDirectory()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2045,8 +2006,7 @@ static int _bind_wxGetOSDirectory(lua_State *L) {
 // int wxParseCommonDialogsFilter(const wxString & wildCard, wxArrayString & descriptions, wxArrayString & filters)
 static int _bind_wxParseCommonDialogsFilter(lua_State *L) {
 	if (!_lg_typecheck_wxParseCommonDialogsFilter(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int wxParseCommonDialogsFilter(const wxString & wildCard, wxArrayString & descriptions, wxArrayString & filters) function, expected prototype:\nint wxParseCommonDialogsFilter(const wxString & wildCard, wxArrayString & descriptions, wxArrayString & filters)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 59507769\narg 3 ID = 59507769\n");
+		luaL_error(L, "luna typecheck failed in int wxParseCommonDialogsFilter(const wxString & wildCard, wxArrayString & descriptions, wxArrayString & filters) function, expected prototype:\nint wxParseCommonDialogsFilter(const wxString & wildCard, wxArrayString & descriptions, wxArrayString & filters)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 59507769\narg 3 ID = 59507769\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString wildCard(lua_tostring(L,1),lua_objlen(L,1));
@@ -2070,8 +2030,7 @@ static int _bind_wxParseCommonDialogsFilter(lua_State *L) {
 // void wxDos2UnixFilename(wxChar * s)
 static int _bind_wxDos2UnixFilename(lua_State *L) {
 	if (!_lg_typecheck_wxDos2UnixFilename(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxDos2UnixFilename(wxChar * s) function, expected prototype:\nvoid wxDos2UnixFilename(wxChar * s)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxDos2UnixFilename(wxChar * s) function, expected prototype:\nvoid wxDos2UnixFilename(wxChar * s)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxChar * s=(wxChar *)lua_tostring(L,1);
@@ -2084,8 +2043,7 @@ static int _bind_wxDos2UnixFilename(lua_State *L) {
 // void wxUnix2DosFilename(wxChar * s)
 static int _bind_wxUnix2DosFilename(lua_State *L) {
 	if (!_lg_typecheck_wxUnix2DosFilename(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxUnix2DosFilename(wxChar * s) function, expected prototype:\nvoid wxUnix2DosFilename(wxChar * s)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxUnix2DosFilename(wxChar * s) function, expected prototype:\nvoid wxUnix2DosFilename(wxChar * s)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxChar * s=(wxChar *)lua_tostring(L,1);
@@ -2098,8 +2056,7 @@ static int _bind_wxUnix2DosFilename(lua_State *L) {
 // bool wxDirExists(const wxString & dirname)
 static int _bind_wxDirExists(lua_State *L) {
 	if (!_lg_typecheck_wxDirExists(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxDirExists(const wxString & dirname) function, expected prototype:\nbool wxDirExists(const wxString & dirname)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxDirExists(const wxString & dirname) function, expected prototype:\nbool wxDirExists(const wxString & dirname)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString dirname(lua_tostring(L,1),lua_objlen(L,1));
@@ -2113,8 +2070,7 @@ static int _bind_wxDirExists(lua_State *L) {
 // bool wxCopyFile(const wxString & file1, const wxString & file2, bool overwrite = true)
 static int _bind_wxCopyFile(lua_State *L) {
 	if (!_lg_typecheck_wxCopyFile(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxCopyFile(const wxString & file1, const wxString & file2, bool overwrite = true) function, expected prototype:\nbool wxCopyFile(const wxString & file1, const wxString & file2, bool overwrite = true)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxCopyFile(const wxString & file1, const wxString & file2, bool overwrite = true) function, expected prototype:\nbool wxCopyFile(const wxString & file1, const wxString & file2, bool overwrite = true)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2132,8 +2088,7 @@ static int _bind_wxCopyFile(lua_State *L) {
 // bool wxFileExists(const wxString & filename)
 static int _bind_wxFileExists(lua_State *L) {
 	if (!_lg_typecheck_wxFileExists(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxFileExists(const wxString & filename) function, expected prototype:\nbool wxFileExists(const wxString & filename)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxFileExists(const wxString & filename) function, expected prototype:\nbool wxFileExists(const wxString & filename)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -2147,8 +2102,7 @@ static int _bind_wxFileExists(lua_State *L) {
 // bool wxMatchWild(const wxString & pattern, const wxString & text, bool dot_special)
 static int _bind_wxMatchWild(lua_State *L) {
 	if (!_lg_typecheck_wxMatchWild(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxMatchWild(const wxString & pattern, const wxString & text, bool dot_special) function, expected prototype:\nbool wxMatchWild(const wxString & pattern, const wxString & text, bool dot_special)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxMatchWild(const wxString & pattern, const wxString & text, bool dot_special) function, expected prototype:\nbool wxMatchWild(const wxString & pattern, const wxString & text, bool dot_special)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString pattern(lua_tostring(L,1),lua_objlen(L,1));
@@ -2164,8 +2118,7 @@ static int _bind_wxMatchWild(lua_State *L) {
 // wxString wxPathOnly(const wxString & path)
 static int _bind_wxPathOnly(lua_State *L) {
 	if (!_lg_typecheck_wxPathOnly(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxPathOnly(const wxString & path) function, expected prototype:\nwxString wxPathOnly(const wxString & path)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in wxString wxPathOnly(const wxString & path) function, expected prototype:\nwxString wxPathOnly(const wxString & path)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString path(lua_tostring(L,1),lua_objlen(L,1));
@@ -2179,8 +2132,7 @@ static int _bind_wxPathOnly(lua_State *L) {
 // bool wxIsWild(const wxString & pattern)
 static int _bind_wxIsWild(lua_State *L) {
 	if (!_lg_typecheck_wxIsWild(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxIsWild(const wxString & pattern) function, expected prototype:\nbool wxIsWild(const wxString & pattern)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxIsWild(const wxString & pattern) function, expected prototype:\nbool wxIsWild(const wxString & pattern)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString pattern(lua_tostring(L,1),lua_objlen(L,1));
@@ -2194,8 +2146,7 @@ static int _bind_wxIsWild(lua_State *L) {
 // bool wxIsAbsolutePath(const wxString & filename)
 static int _bind_wxIsAbsolutePath(lua_State *L) {
 	if (!_lg_typecheck_wxIsAbsolutePath(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxIsAbsolutePath(const wxString & filename) function, expected prototype:\nbool wxIsAbsolutePath(const wxString & filename)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxIsAbsolutePath(const wxString & filename) function, expected prototype:\nbool wxIsAbsolutePath(const wxString & filename)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -2209,8 +2160,7 @@ static int _bind_wxIsAbsolutePath(lua_State *L) {
 // wxString wxGetCwd()
 static int _bind_wxGetCwd(lua_State *L) {
 	if (!_lg_typecheck_wxGetCwd(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxGetCwd() function, expected prototype:\nwxString wxGetCwd()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxString wxGetCwd() function, expected prototype:\nwxString wxGetCwd()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2223,8 +2173,7 @@ static int _bind_wxGetCwd(lua_State *L) {
 // bool wxSetWorkingDirectory(const wxString & dir)
 static int _bind_wxSetWorkingDirectory(lua_State *L) {
 	if (!_lg_typecheck_wxSetWorkingDirectory(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxSetWorkingDirectory(const wxString & dir) function, expected prototype:\nbool wxSetWorkingDirectory(const wxString & dir)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxSetWorkingDirectory(const wxString & dir) function, expected prototype:\nbool wxSetWorkingDirectory(const wxString & dir)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString dir(lua_tostring(L,1),lua_objlen(L,1));
@@ -2238,8 +2187,7 @@ static int _bind_wxSetWorkingDirectory(lua_State *L) {
 // bool wxConcatFiles(const wxString & file1, const wxString & file2, const wxString & file3)
 static int _bind_wxConcatFiles(lua_State *L) {
 	if (!_lg_typecheck_wxConcatFiles(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxConcatFiles(const wxString & file1, const wxString & file2, const wxString & file3) function, expected prototype:\nbool wxConcatFiles(const wxString & file1, const wxString & file2, const wxString & file3)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxConcatFiles(const wxString & file1, const wxString & file2, const wxString & file3) function, expected prototype:\nbool wxConcatFiles(const wxString & file1, const wxString & file2, const wxString & file3)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString file1(lua_tostring(L,1),lua_objlen(L,1));
@@ -2255,8 +2203,7 @@ static int _bind_wxConcatFiles(lua_State *L) {
 // bool wxMkdir(const wxString & dir, int perm = ::wxS_DIR_DEFAULT)
 static int _bind_wxMkdir(lua_State *L) {
 	if (!_lg_typecheck_wxMkdir(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxMkdir(const wxString & dir, int perm = ::wxS_DIR_DEFAULT) function, expected prototype:\nbool wxMkdir(const wxString & dir, int perm = ::wxS_DIR_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxMkdir(const wxString & dir, int perm = ::wxS_DIR_DEFAULT) function, expected prototype:\nbool wxMkdir(const wxString & dir, int perm = ::wxS_DIR_DEFAULT)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2273,8 +2220,7 @@ static int _bind_wxMkdir(lua_State *L) {
 // bool wxRmdir(const wxString & dir, int flags = 0)
 static int _bind_wxRmdir(lua_State *L) {
 	if (!_lg_typecheck_wxRmdir(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxRmdir(const wxString & dir, int flags = 0) function, expected prototype:\nbool wxRmdir(const wxString & dir, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxRmdir(const wxString & dir, int flags = 0) function, expected prototype:\nbool wxRmdir(const wxString & dir, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2291,8 +2237,7 @@ static int _bind_wxRmdir(lua_State *L) {
 // wxString wxFindNextFile()
 static int _bind_wxFindNextFile(lua_State *L) {
 	if (!_lg_typecheck_wxFindNextFile(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxFindNextFile() function, expected prototype:\nwxString wxFindNextFile()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxString wxFindNextFile() function, expected prototype:\nwxString wxFindNextFile()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2305,8 +2250,7 @@ static int _bind_wxFindNextFile(lua_State *L) {
 // wxString wxFindFirstFile(const wxString & spec, int flags = 0)
 static int _bind_wxFindFirstFile(lua_State *L) {
 	if (!_lg_typecheck_wxFindFirstFile(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxFindFirstFile(const wxString & spec, int flags = 0) function, expected prototype:\nwxString wxFindFirstFile(const wxString & spec, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in wxString wxFindFirstFile(const wxString & spec, int flags = 0) function, expected prototype:\nwxString wxFindFirstFile(const wxString & spec, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2323,8 +2267,7 @@ static int _bind_wxFindFirstFile(lua_State *L) {
 // wxFileKind wxGetFileKind(int fd)
 static int _bind_wxGetFileKind(lua_State *L) {
 	if (!_lg_typecheck_wxGetFileKind(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxFileKind wxGetFileKind(int fd) function, expected prototype:\nwxFileKind wxGetFileKind(int fd)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxFileKind wxGetFileKind(int fd) function, expected prototype:\nwxFileKind wxGetFileKind(int fd)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int fd=(int)lua_tointeger(L,1);
@@ -2338,8 +2281,7 @@ static int _bind_wxGetFileKind(lua_State *L) {
 // wxFont wxGetFontFromUser(wxWindow * parent, const wxFont & fontInit, const wxString & caption = wxEmptyString)
 static int _bind_wxGetFontFromUser(lua_State *L) {
 	if (!_lg_typecheck_wxGetFontFromUser(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxFont wxGetFontFromUser(wxWindow * parent, const wxFont & fontInit, const wxString & caption = wxEmptyString) function, expected prototype:\nwxFont wxGetFontFromUser(wxWindow * parent, const wxFont & fontInit, const wxString & caption = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in wxFont wxGetFontFromUser(wxWindow * parent, const wxFont & fontInit, const wxString & caption = wxEmptyString) function, expected prototype:\nwxFont wxGetFontFromUser(wxWindow * parent, const wxFont & fontInit, const wxString & caption = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2364,8 +2306,7 @@ static int _bind_wxGetFontFromUser(lua_State *L) {
 // bool wxColourDisplay()
 static int _bind_wxColourDisplay(lua_State *L) {
 	if (!_lg_typecheck_wxColourDisplay(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxColourDisplay() function, expected prototype:\nbool wxColourDisplay()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool wxColourDisplay() function, expected prototype:\nbool wxColourDisplay()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2378,8 +2319,7 @@ static int _bind_wxColourDisplay(lua_State *L) {
 // int wxDisplayDepth()
 static int _bind_wxDisplayDepth(lua_State *L) {
 	if (!_lg_typecheck_wxDisplayDepth(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int wxDisplayDepth() function, expected prototype:\nint wxDisplayDepth()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int wxDisplayDepth() function, expected prototype:\nint wxDisplayDepth()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2392,8 +2332,7 @@ static int _bind_wxDisplayDepth(lua_State *L) {
 // void wxSetCursor(const wxCursor & cursor)
 static int _bind_wxSetCursor(lua_State *L) {
 	if (!_lg_typecheck_wxSetCursor(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxSetCursor(const wxCursor & cursor) function, expected prototype:\nvoid wxSetCursor(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in void wxSetCursor(const wxCursor & cursor) function, expected prototype:\nvoid wxSetCursor(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const wxCursor* cursor_ptr=(Luna< wxObject >::checkSubType< wxCursor >(L,1));
@@ -2410,8 +2349,7 @@ static int _bind_wxSetCursor(lua_State *L) {
 // void wxClientDisplayRect(int * x, int * y, int * width, int * height)
 static int _bind_wxClientDisplayRect(lua_State *L) {
 	if (!_lg_typecheck_wxClientDisplayRect(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxClientDisplayRect(int * x, int * y, int * width, int * height) function, expected prototype:\nvoid wxClientDisplayRect(int * x, int * y, int * width, int * height)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxClientDisplayRect(int * x, int * y, int * width, int * height) function, expected prototype:\nvoid wxClientDisplayRect(int * x, int * y, int * width, int * height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int* x=(int*)Luna< void >::check(L,1);
@@ -2427,8 +2365,7 @@ static int _bind_wxClientDisplayRect(lua_State *L) {
 // wxRect wxGetClientDisplayRect()
 static int _bind_wxGetClientDisplayRect(lua_State *L) {
 	if (!_lg_typecheck_wxGetClientDisplayRect(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxRect wxGetClientDisplayRect() function, expected prototype:\nwxRect wxGetClientDisplayRect()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxRect wxGetClientDisplayRect() function, expected prototype:\nwxRect wxGetClientDisplayRect()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2444,8 +2381,7 @@ static int _bind_wxGetClientDisplayRect(lua_State *L) {
 // wxSize wxGetDisplayPPI()
 static int _bind_wxGetDisplayPPI(lua_State *L) {
 	if (!_lg_typecheck_wxGetDisplayPPI(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxSize wxGetDisplayPPI() function, expected prototype:\nwxSize wxGetDisplayPPI()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxSize wxGetDisplayPPI() function, expected prototype:\nwxSize wxGetDisplayPPI()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2461,8 +2397,7 @@ static int _bind_wxGetDisplayPPI(lua_State *L) {
 // void wxDisplaySize(int * width, int * height)
 static int _bind_wxDisplaySize(lua_State *L) {
 	if (!_lg_typecheck_wxDisplaySize(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxDisplaySize(int * width, int * height) function, expected prototype:\nvoid wxDisplaySize(int * width, int * height)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxDisplaySize(int * width, int * height) function, expected prototype:\nvoid wxDisplaySize(int * width, int * height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int* width=(int*)Luna< void >::check(L,1);
@@ -2476,8 +2411,7 @@ static int _bind_wxDisplaySize(lua_State *L) {
 // wxSize wxGetDisplaySize()
 static int _bind_wxGetDisplaySize(lua_State *L) {
 	if (!_lg_typecheck_wxGetDisplaySize(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxSize wxGetDisplaySize() function, expected prototype:\nwxSize wxGetDisplaySize()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxSize wxGetDisplaySize() function, expected prototype:\nwxSize wxGetDisplaySize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2493,8 +2427,7 @@ static int _bind_wxGetDisplaySize(lua_State *L) {
 // void wxDisplaySizeMM(int * width, int * height)
 static int _bind_wxDisplaySizeMM(lua_State *L) {
 	if (!_lg_typecheck_wxDisplaySizeMM(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxDisplaySizeMM(int * width, int * height) function, expected prototype:\nvoid wxDisplaySizeMM(int * width, int * height)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxDisplaySizeMM(int * width, int * height) function, expected prototype:\nvoid wxDisplaySizeMM(int * width, int * height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int* width=(int*)Luna< void >::check(L,1);
@@ -2508,8 +2441,7 @@ static int _bind_wxDisplaySizeMM(lua_State *L) {
 // wxSize wxGetDisplaySizeMM()
 static int _bind_wxGetDisplaySizeMM(lua_State *L) {
 	if (!_lg_typecheck_wxGetDisplaySizeMM(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxSize wxGetDisplaySizeMM() function, expected prototype:\nwxSize wxGetDisplaySizeMM()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxSize wxGetDisplaySizeMM() function, expected prototype:\nwxSize wxGetDisplaySizeMM()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2525,8 +2457,7 @@ static int _bind_wxGetDisplaySizeMM(lua_State *L) {
 // sgtApp & wxGetApp()
 static int _bind_wxGetApp(lua_State *L) {
 	if (!_lg_typecheck_wxGetApp(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in sgtApp & wxGetApp() function, expected prototype:\nsgtApp & wxGetApp()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in sgtApp & wxGetApp() function, expected prototype:\nsgtApp & wxGetApp()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2541,8 +2472,7 @@ static int _bind_wxGetApp(lua_State *L) {
 // void wxInitAllImageHandlers()
 static int _bind_wxInitAllImageHandlers(lua_State *L) {
 	if (!_lg_typecheck_wxInitAllImageHandlers(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxInitAllImageHandlers() function, expected prototype:\nvoid wxInitAllImageHandlers()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxInitAllImageHandlers() function, expected prototype:\nvoid wxInitAllImageHandlers()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2554,8 +2484,7 @@ static int _bind_wxInitAllImageHandlers(lua_State *L) {
 // void wxEntryCleanup()
 static int _bind_wxEntryCleanup(lua_State *L) {
 	if (!_lg_typecheck_wxEntryCleanup(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxEntryCleanup() function, expected prototype:\nvoid wxEntryCleanup()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxEntryCleanup() function, expected prototype:\nvoid wxEntryCleanup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2567,8 +2496,7 @@ static int _bind_wxEntryCleanup(lua_State *L) {
 // void wxSafeShowMessage(const wxString & title, const wxString & text)
 static int _bind_wxSafeShowMessage(lua_State *L) {
 	if (!_lg_typecheck_wxSafeShowMessage(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxSafeShowMessage(const wxString & title, const wxString & text) function, expected prototype:\nvoid wxSafeShowMessage(const wxString & title, const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in void wxSafeShowMessage(const wxString & title, const wxString & text) function, expected prototype:\nvoid wxSafeShowMessage(const wxString & title, const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString title(lua_tostring(L,1),lua_objlen(L,1));
@@ -2582,8 +2510,7 @@ static int _bind_wxSafeShowMessage(lua_State *L) {
 // unsigned long wxSysErrorCode()
 static int _bind_wxSysErrorCode(lua_State *L) {
 	if (!_lg_typecheck_wxSysErrorCode(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned long wxSysErrorCode() function, expected prototype:\nunsigned long wxSysErrorCode()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned long wxSysErrorCode() function, expected prototype:\nunsigned long wxSysErrorCode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2596,8 +2523,7 @@ static int _bind_wxSysErrorCode(lua_State *L) {
 // int wxFinite(double x)
 static int _bind_wxFinite(lua_State *L) {
 	if (!_lg_typecheck_wxFinite(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int wxFinite(double x) function, expected prototype:\nint wxFinite(double x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int wxFinite(double x) function, expected prototype:\nint wxFinite(double x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	double x=(double)lua_tonumber(L,1);
@@ -2611,8 +2537,7 @@ static int _bind_wxFinite(lua_State *L) {
 // bool wxIsNaN(double x)
 static int _bind_wxIsNaN(lua_State *L) {
 	if (!_lg_typecheck_wxIsNaN(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxIsNaN(double x) function, expected prototype:\nbool wxIsNaN(double x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool wxIsNaN(double x) function, expected prototype:\nbool wxIsNaN(double x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	double x=(double)lua_tonumber(L,1);
@@ -2626,8 +2551,7 @@ static int _bind_wxIsNaN(lua_State *L) {
 // bool wxIsSameDouble(double x, double y)
 static int _bind_wxIsSameDouble(lua_State *L) {
 	if (!_lg_typecheck_wxIsSameDouble(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxIsSameDouble(double x, double y) function, expected prototype:\nbool wxIsSameDouble(double x, double y)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool wxIsSameDouble(double x, double y) function, expected prototype:\nbool wxIsSameDouble(double x, double y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	double x=(double)lua_tonumber(L,1);
@@ -2642,8 +2566,7 @@ static int _bind_wxIsSameDouble(lua_State *L) {
 // bool wxIsNullDouble(double x)
 static int _bind_wxIsNullDouble(lua_State *L) {
 	if (!_lg_typecheck_wxIsNullDouble(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxIsNullDouble(double x) function, expected prototype:\nbool wxIsNullDouble(double x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool wxIsNullDouble(double x) function, expected prototype:\nbool wxIsNullDouble(double x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	double x=(double)lua_tonumber(L,1);
@@ -2657,8 +2580,7 @@ static int _bind_wxIsNullDouble(lua_State *L) {
 // int wxMessageBox(const wxString & message, const wxString & caption = "Message", int style = wxOK, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord)
 static int _bind_wxMessageBox(lua_State *L) {
 	if (!_lg_typecheck_wxMessageBox(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int wxMessageBox(const wxString & message, const wxString & caption = \"Message\", int style = wxOK, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord) function, expected prototype:\nint wxMessageBox(const wxString & message, const wxString & caption = \"Message\", int style = wxOK, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in int wxMessageBox(const wxString & message, const wxString & caption = \"Message\", int style = wxOK, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord) function, expected prototype:\nint wxMessageBox(const wxString & message, const wxString & caption = \"Message\", int style = wxOK, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2679,8 +2601,7 @@ static int _bind_wxMessageBox(lua_State *L) {
 // long wxGetNumberFromUser(const wxString & message, const wxString & prompt, const wxString & caption, long value, long min = 0, long max = 100, wxWindow * parent = NULL, const wxPoint & pos = wxDefaultPosition)
 static int _bind_wxGetNumberFromUser(lua_State *L) {
 	if (!_lg_typecheck_wxGetNumberFromUser(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in long wxGetNumberFromUser(const wxString & message, const wxString & prompt, const wxString & caption, long value, long min = 0, long max = 100, wxWindow * parent = NULL, const wxPoint & pos = wxDefaultPosition) function, expected prototype:\nlong wxGetNumberFromUser(const wxString & message, const wxString & prompt, const wxString & caption, long value, long min = 0, long max = 100, wxWindow * parent = NULL, const wxPoint & pos = wxDefaultPosition)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 7 ID = 56813631\narg 8 ID = 25723480\n");
+		luaL_error(L, "luna typecheck failed in long wxGetNumberFromUser(const wxString & message, const wxString & prompt, const wxString & caption, long value, long min = 0, long max = 100, wxWindow * parent = NULL, const wxPoint & pos = wxDefaultPosition) function, expected prototype:\nlong wxGetNumberFromUser(const wxString & message, const wxString & prompt, const wxString & caption, long value, long min = 0, long max = 100, wxWindow * parent = NULL, const wxPoint & pos = wxDefaultPosition)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 7 ID = 56813631\narg 8 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2688,9 +2609,9 @@ static int _bind_wxGetNumberFromUser(lua_State *L) {
 	wxString message(lua_tostring(L,1),lua_objlen(L,1));
 	wxString prompt(lua_tostring(L,2),lua_objlen(L,2));
 	wxString caption(lua_tostring(L,3),lua_objlen(L,3));
-	long value=(long)lua_tointeger(L,4);
-	long min=luatop>4 ? (long)lua_tointeger(L,5) : (long)0;
-	long max=luatop>5 ? (long)lua_tointeger(L,6) : (long)100;
+	long value=(long)lua_tonumber(L,4);
+	long min=luatop>4 ? (long)lua_tonumber(L,5) : (long)0;
+	long max=luatop>5 ? (long)lua_tonumber(L,6) : (long)100;
 	wxWindow* parent=luatop>6 ? (Luna< wxObject >::checkSubType< wxWindow >(L,7)) : (wxWindow*)NULL;
 	const wxPoint* pos_ptr=luatop>7 ? (Luna< wxPoint >::check(L,8)) : NULL;
 	if( luatop>7 && !pos_ptr ) {
@@ -2707,8 +2628,7 @@ static int _bind_wxGetNumberFromUser(lua_State *L) {
 // wxObject * wxCreateDynamicObject(const wxString & className)
 static int _bind_wxCreateDynamicObject(lua_State *L) {
 	if (!_lg_typecheck_wxCreateDynamicObject(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxObject * wxCreateDynamicObject(const wxString & className) function, expected prototype:\nwxObject * wxCreateDynamicObject(const wxString & className)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in wxObject * wxCreateDynamicObject(const wxString & className) function, expected prototype:\nwxObject * wxCreateDynamicObject(const wxString & className)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString className(lua_tostring(L,1),lua_objlen(L,1));
@@ -2724,8 +2644,7 @@ static int _bind_wxCreateDynamicObject(lua_State *L) {
 // void wxTextAttrCollectCommonAttributes(wxTextAttr & currentStyle, const wxTextAttr & attr, wxTextAttr & clashingAttr, wxTextAttr & absentAttr)
 static int _bind_wxTextAttrCollectCommonAttributes(lua_State *L) {
 	if (!_lg_typecheck_wxTextAttrCollectCommonAttributes(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxTextAttrCollectCommonAttributes(wxTextAttr & currentStyle, const wxTextAttr & attr, wxTextAttr & clashingAttr, wxTextAttr & absentAttr) function, expected prototype:\nvoid wxTextAttrCollectCommonAttributes(wxTextAttr & currentStyle, const wxTextAttr & attr, wxTextAttr & clashingAttr, wxTextAttr & absentAttr)\nClass arguments details:\narg 1 ID = 37117058\narg 2 ID = 37117058\narg 3 ID = 37117058\narg 4 ID = 37117058\n");
+		luaL_error(L, "luna typecheck failed in void wxTextAttrCollectCommonAttributes(wxTextAttr & currentStyle, const wxTextAttr & attr, wxTextAttr & clashingAttr, wxTextAttr & absentAttr) function, expected prototype:\nvoid wxTextAttrCollectCommonAttributes(wxTextAttr & currentStyle, const wxTextAttr & attr, wxTextAttr & clashingAttr, wxTextAttr & absentAttr)\nClass arguments details:\narg 1 ID = 37117058\narg 2 ID = 37117058\narg 3 ID = 37117058\narg 4 ID = 37117058\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxTextAttr* currentStyle_ptr=(Luna< wxTextAttr >::check(L,1));
@@ -2757,14 +2676,13 @@ static int _bind_wxTextAttrCollectCommonAttributes(lua_State *L) {
 // wxString wxGetStockLabel(int id, long flags = ::wxSTOCK_WITH_MNEMONIC)
 static int _bind_wxGetStockLabel(lua_State *L) {
 	if (!_lg_typecheck_wxGetStockLabel(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxGetStockLabel(int id, long flags = ::wxSTOCK_WITH_MNEMONIC) function, expected prototype:\nwxString wxGetStockLabel(int id, long flags = ::wxSTOCK_WITH_MNEMONIC)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxString wxGetStockLabel(int id, long flags = ::wxSTOCK_WITH_MNEMONIC) function, expected prototype:\nwxString wxGetStockLabel(int id, long flags = ::wxSTOCK_WITH_MNEMONIC)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
 
 	int id=(int)lua_tointeger(L,1);
-	long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxSTOCK_WITH_MNEMONIC;
+	long flags=luatop>1 ? (long)lua_tonumber(L,2) : (long)::wxSTOCK_WITH_MNEMONIC;
 
 	wxString lret = ::wxGetStockLabel(id, flags);
 	lua_pushlstring(L,lret.data(),lret.size());
@@ -2775,8 +2693,7 @@ static int _bind_wxGetStockLabel(lua_State *L) {
 // wxString wxGetTextFromUser(const wxString & message, const wxString & caption = "Input text", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord, bool centre = true)
 static int _bind_wxGetTextFromUser(lua_State *L) {
 	if (!_lg_typecheck_wxGetTextFromUser(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxGetTextFromUser(const wxString & message, const wxString & caption = \"Input text\", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord, bool centre = true) function, expected prototype:\nwxString wxGetTextFromUser(const wxString & message, const wxString & caption = \"Input text\", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord, bool centre = true)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxString wxGetTextFromUser(const wxString & message, const wxString & caption = \"Input text\", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord, bool centre = true) function, expected prototype:\nwxString wxGetTextFromUser(const wxString & message, const wxString & caption = \"Input text\", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord, bool centre = true)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2798,8 +2715,7 @@ static int _bind_wxGetTextFromUser(lua_State *L) {
 // wxString wxGetPasswordFromUser(const wxString & message, const wxString & caption = "Input text", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord, bool centre = true)
 static int _bind_wxGetPasswordFromUser(lua_State *L) {
 	if (!_lg_typecheck_wxGetPasswordFromUser(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxGetPasswordFromUser(const wxString & message, const wxString & caption = \"Input text\", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord, bool centre = true) function, expected prototype:\nwxString wxGetPasswordFromUser(const wxString & message, const wxString & caption = \"Input text\", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord, bool centre = true)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxString wxGetPasswordFromUser(const wxString & message, const wxString & caption = \"Input text\", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord, bool centre = true) function, expected prototype:\nwxString wxGetPasswordFromUser(const wxString & message, const wxString & caption = \"Input text\", const wxString & default_value = wxEmptyString, wxWindow * parent = NULL, int x = ::wxDefaultCoord, int y = ::wxDefaultCoord, bool centre = true)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 88196105\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2821,8 +2737,7 @@ static int _bind_wxGetPasswordFromUser(lua_State *L) {
 // bool wxIsMainThread()
 static int _bind_wxIsMainThread(lua_State *L) {
 	if (!_lg_typecheck_wxIsMainThread(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxIsMainThread() function, expected prototype:\nbool wxIsMainThread()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool wxIsMainThread() function, expected prototype:\nbool wxIsMainThread()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2835,8 +2750,7 @@ static int _bind_wxIsMainThread(lua_State *L) {
 // int wxGetTimeZone()
 static int _bind_wxGetTimeZone(lua_State *L) {
 	if (!_lg_typecheck_wxGetTimeZone(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int wxGetTimeZone() function, expected prototype:\nint wxGetTimeZone()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int wxGetTimeZone() function, expected prototype:\nint wxGetTimeZone()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2849,8 +2763,7 @@ static int _bind_wxGetTimeZone(lua_State *L) {
 // long wxGetLocalTime()
 static int _bind_wxGetLocalTime(lua_State *L) {
 	if (!_lg_typecheck_wxGetLocalTime(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in long wxGetLocalTime() function, expected prototype:\nlong wxGetLocalTime()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in long wxGetLocalTime() function, expected prototype:\nlong wxGetLocalTime()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2863,8 +2776,7 @@ static int _bind_wxGetLocalTime(lua_State *L) {
 // wxLongLong wxGetLocalTimeMillis()
 static int _bind_wxGetLocalTimeMillis(lua_State *L) {
 	if (!_lg_typecheck_wxGetLocalTimeMillis(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxLongLong wxGetLocalTimeMillis() function, expected prototype:\nwxLongLong wxGetLocalTimeMillis()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxLongLong wxGetLocalTimeMillis() function, expected prototype:\nwxLongLong wxGetLocalTimeMillis()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2880,8 +2792,7 @@ static int _bind_wxGetLocalTimeMillis(lua_State *L) {
 // long wxGetUTCTime()
 static int _bind_wxGetUTCTime(lua_State *L) {
 	if (!_lg_typecheck_wxGetUTCTime(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in long wxGetUTCTime() function, expected prototype:\nlong wxGetUTCTime()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in long wxGetUTCTime() function, expected prototype:\nlong wxGetUTCTime()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2894,8 +2805,7 @@ static int _bind_wxGetUTCTime(lua_State *L) {
 // wxLongLong wxGetUTCTimeMillis()
 static int _bind_wxGetUTCTimeMillis(lua_State *L) {
 	if (!_lg_typecheck_wxGetUTCTimeMillis(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxLongLong wxGetUTCTimeMillis() function, expected prototype:\nwxLongLong wxGetUTCTimeMillis()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxLongLong wxGetUTCTimeMillis() function, expected prototype:\nwxLongLong wxGetUTCTimeMillis()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2911,8 +2821,7 @@ static int _bind_wxGetUTCTimeMillis(lua_State *L) {
 // wxLongLong wxGetUTCTimeUSec()
 static int _bind_wxGetUTCTimeUSec(lua_State *L) {
 	if (!_lg_typecheck_wxGetUTCTimeUSec(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxLongLong wxGetUTCTimeUSec() function, expected prototype:\nwxLongLong wxGetUTCTimeUSec()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxLongLong wxGetUTCTimeUSec() function, expected prototype:\nwxLongLong wxGetUTCTimeUSec()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2928,8 +2837,7 @@ static int _bind_wxGetUTCTimeUSec(lua_State *L) {
 // wxTipProvider * wxCreateFileTipProvider(const wxString & filename, size_t currentTip)
 static int _bind_wxCreateFileTipProvider(lua_State *L) {
 	if (!_lg_typecheck_wxCreateFileTipProvider(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxTipProvider * wxCreateFileTipProvider(const wxString & filename, size_t currentTip) function, expected prototype:\nwxTipProvider * wxCreateFileTipProvider(const wxString & filename, size_t currentTip)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in wxTipProvider * wxCreateFileTipProvider(const wxString & filename, size_t currentTip) function, expected prototype:\nwxTipProvider * wxCreateFileTipProvider(const wxString & filename, size_t currentTip)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString filename(lua_tostring(L,1),lua_objlen(L,1));
@@ -2946,8 +2854,7 @@ static int _bind_wxCreateFileTipProvider(lua_State *L) {
 // bool wxShowTip(wxWindow * parent, wxTipProvider * tipProvider, bool showAtStartup = true)
 static int _bind_wxShowTip(lua_State *L) {
 	if (!_lg_typecheck_wxShowTip(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxShowTip(wxWindow * parent, wxTipProvider * tipProvider, bool showAtStartup = true) function, expected prototype:\nbool wxShowTip(wxWindow * parent, wxTipProvider * tipProvider, bool showAtStartup = true)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 98652564\n");
+		luaL_error(L, "luna typecheck failed in bool wxShowTip(wxWindow * parent, wxTipProvider * tipProvider, bool showAtStartup = true) function, expected prototype:\nbool wxShowTip(wxWindow * parent, wxTipProvider * tipProvider, bool showAtStartup = true)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 98652564\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2965,8 +2872,7 @@ static int _bind_wxShowTip(lua_State *L) {
 // const wxString & wxGetTranslation(const wxString & string, const wxString & domain = wxEmptyString)
 static int _bind_wxGetTranslation_overload_1(lua_State *L) {
 	if (!_lg_typecheck_wxGetTranslation_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const wxString & wxGetTranslation(const wxString & string, const wxString & domain = wxEmptyString) function, expected prototype:\nconst wxString & wxGetTranslation(const wxString & string, const wxString & domain = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in const wxString & wxGetTranslation(const wxString & string, const wxString & domain = wxEmptyString) function, expected prototype:\nconst wxString & wxGetTranslation(const wxString & string, const wxString & domain = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -2983,8 +2889,7 @@ static int _bind_wxGetTranslation_overload_1(lua_State *L) {
 // const wxString & wxGetTranslation(const wxString & string, const wxString & plural, unsigned int n, const wxString & domain = wxEmptyString)
 static int _bind_wxGetTranslation_overload_2(lua_State *L) {
 	if (!_lg_typecheck_wxGetTranslation_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const wxString & wxGetTranslation(const wxString & string, const wxString & plural, unsigned int n, const wxString & domain = wxEmptyString) function, expected prototype:\nconst wxString & wxGetTranslation(const wxString & string, const wxString & plural, unsigned int n, const wxString & domain = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in const wxString & wxGetTranslation(const wxString & string, const wxString & plural, unsigned int n, const wxString & domain = wxEmptyString) function, expected prototype:\nconst wxString & wxGetTranslation(const wxString & string, const wxString & plural, unsigned int n, const wxString & domain = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 4 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -3012,8 +2917,7 @@ static int _bind_wxGetTranslation(lua_State *L) {
 // const wxString & _(const wxString & string)
 static int _bind__(lua_State *L) {
 	if (!_lg_typecheck__(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const wxString & _(const wxString & string) function, expected prototype:\nconst wxString & _(const wxString & string)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in const wxString & _(const wxString & string) function, expected prototype:\nconst wxString & _(const wxString & string)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString string(lua_tostring(L,1),lua_objlen(L,1));
@@ -3027,8 +2931,7 @@ static int _bind__(lua_State *L) {
 // void wxBeginBusyCursor(const wxCursor * cursor = wxHOURGLASS_CURSOR)
 static int _bind_wxBeginBusyCursor(lua_State *L) {
 	if (!_lg_typecheck_wxBeginBusyCursor(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxBeginBusyCursor(const wxCursor * cursor = wxHOURGLASS_CURSOR) function, expected prototype:\nvoid wxBeginBusyCursor(const wxCursor * cursor = wxHOURGLASS_CURSOR)\nClass arguments details:\narg 1 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in void wxBeginBusyCursor(const wxCursor * cursor = wxHOURGLASS_CURSOR) function, expected prototype:\nvoid wxBeginBusyCursor(const wxCursor * cursor = wxHOURGLASS_CURSOR)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -3043,8 +2946,7 @@ static int _bind_wxBeginBusyCursor(lua_State *L) {
 // void wxEndBusyCursor()
 static int _bind_wxEndBusyCursor(lua_State *L) {
 	if (!_lg_typecheck_wxEndBusyCursor(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxEndBusyCursor() function, expected prototype:\nvoid wxEndBusyCursor()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxEndBusyCursor() function, expected prototype:\nvoid wxEndBusyCursor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -3056,8 +2958,7 @@ static int _bind_wxEndBusyCursor(lua_State *L) {
 // bool wxIsBusy()
 static int _bind_wxIsBusy(lua_State *L) {
 	if (!_lg_typecheck_wxIsBusy(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxIsBusy() function, expected prototype:\nbool wxIsBusy()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool wxIsBusy() function, expected prototype:\nbool wxIsBusy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -3070,8 +2971,7 @@ static int _bind_wxIsBusy(lua_State *L) {
 // void wxBell()
 static int _bind_wxBell(lua_State *L) {
 	if (!_lg_typecheck_wxBell(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxBell() function, expected prototype:\nvoid wxBell()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxBell() function, expected prototype:\nvoid wxBell()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -3083,8 +2983,7 @@ static int _bind_wxBell(lua_State *L) {
 // void wxInfoMessageBox(wxWindow * parent)
 static int _bind_wxInfoMessageBox(lua_State *L) {
 	if (!_lg_typecheck_wxInfoMessageBox(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxInfoMessageBox(wxWindow * parent) function, expected prototype:\nvoid wxInfoMessageBox(wxWindow * parent)\nClass arguments details:\narg 1 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in void wxInfoMessageBox(wxWindow * parent) function, expected prototype:\nvoid wxInfoMessageBox(wxWindow * parent)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
@@ -3097,8 +2996,7 @@ static int _bind_wxInfoMessageBox(lua_State *L) {
 // bool wxGetEnv(const wxString & var, wxString * value)
 static int _bind_wxGetEnv(lua_State *L) {
 	if (!_lg_typecheck_wxGetEnv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxGetEnv(const wxString & var, wxString * value) function, expected prototype:\nbool wxGetEnv(const wxString & var, wxString * value)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxGetEnv(const wxString & var, wxString * value) function, expected prototype:\nbool wxGetEnv(const wxString & var, wxString * value)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString var(lua_tostring(L,1),lua_objlen(L,1));
@@ -3113,8 +3011,7 @@ static int _bind_wxGetEnv(lua_State *L) {
 // bool wxSetEnv(const wxString & var, const wxString & value)
 static int _bind_wxSetEnv(lua_State *L) {
 	if (!_lg_typecheck_wxSetEnv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxSetEnv(const wxString & var, const wxString & value) function, expected prototype:\nbool wxSetEnv(const wxString & var, const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxSetEnv(const wxString & var, const wxString & value) function, expected prototype:\nbool wxSetEnv(const wxString & var, const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString var(lua_tostring(L,1),lua_objlen(L,1));
@@ -3129,8 +3026,7 @@ static int _bind_wxSetEnv(lua_State *L) {
 // bool wxUnsetEnv(const wxString & var)
 static int _bind_wxUnsetEnv(lua_State *L) {
 	if (!_lg_typecheck_wxUnsetEnv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxUnsetEnv(const wxString & var) function, expected prototype:\nbool wxUnsetEnv(const wxString & var)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxUnsetEnv(const wxString & var) function, expected prototype:\nbool wxUnsetEnv(const wxString & var)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString var(lua_tostring(L,1),lua_objlen(L,1));
@@ -3144,8 +3040,7 @@ static int _bind_wxUnsetEnv(lua_State *L) {
 // wxBatteryState wxGetBatteryState()
 static int _bind_wxGetBatteryState(lua_State *L) {
 	if (!_lg_typecheck_wxGetBatteryState(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxBatteryState wxGetBatteryState() function, expected prototype:\nwxBatteryState wxGetBatteryState()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxBatteryState wxGetBatteryState() function, expected prototype:\nwxBatteryState wxGetBatteryState()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -3158,8 +3053,7 @@ static int _bind_wxGetBatteryState(lua_State *L) {
 // wxPowerType wxGetPowerType()
 static int _bind_wxGetPowerType(lua_State *L) {
 	if (!_lg_typecheck_wxGetPowerType(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxPowerType wxGetPowerType() function, expected prototype:\nwxPowerType wxGetPowerType()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxPowerType wxGetPowerType() function, expected prototype:\nwxPowerType wxGetPowerType()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -3172,8 +3066,7 @@ static int _bind_wxGetPowerType(lua_State *L) {
 // bool wxGetKeyState(wxKeyCode key)
 static int _bind_wxGetKeyState(lua_State *L) {
 	if (!_lg_typecheck_wxGetKeyState(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxGetKeyState(wxKeyCode key) function, expected prototype:\nbool wxGetKeyState(wxKeyCode key)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool wxGetKeyState(wxKeyCode key) function, expected prototype:\nbool wxGetKeyState(wxKeyCode key)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxKeyCode key=(wxKeyCode)lua_tointeger(L,1);
@@ -3187,8 +3080,7 @@ static int _bind_wxGetKeyState(lua_State *L) {
 // wxPoint wxGetMousePosition()
 static int _bind_wxGetMousePosition(lua_State *L) {
 	if (!_lg_typecheck_wxGetMousePosition(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxPoint wxGetMousePosition() function, expected prototype:\nwxPoint wxGetMousePosition()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxPoint wxGetMousePosition() function, expected prototype:\nwxPoint wxGetMousePosition()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -3204,8 +3096,7 @@ static int _bind_wxGetMousePosition(lua_State *L) {
 // wxMouseState wxGetMouseState()
 static int _bind_wxGetMouseState(lua_State *L) {
 	if (!_lg_typecheck_wxGetMouseState(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxMouseState wxGetMouseState() function, expected prototype:\nwxMouseState wxGetMouseState()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxMouseState wxGetMouseState() function, expected prototype:\nwxMouseState wxGetMouseState()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -3221,8 +3112,7 @@ static int _bind_wxGetMouseState(lua_State *L) {
 // void wxEnableTopLevelWindows(bool enable = true)
 static int _bind_wxEnableTopLevelWindows(lua_State *L) {
 	if (!_lg_typecheck_wxEnableTopLevelWindows(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxEnableTopLevelWindows(bool enable = true) function, expected prototype:\nvoid wxEnableTopLevelWindows(bool enable = true)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxEnableTopLevelWindows(bool enable = true) function, expected prototype:\nvoid wxEnableTopLevelWindows(bool enable = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -3237,8 +3127,7 @@ static int _bind_wxEnableTopLevelWindows(lua_State *L) {
 // wxWindow * wxFindWindowAtPoint(const wxPoint & pt)
 static int _bind_wxFindWindowAtPoint(lua_State *L) {
 	if (!_lg_typecheck_wxFindWindowAtPoint(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxWindow * wxFindWindowAtPoint(const wxPoint & pt) function, expected prototype:\nwxWindow * wxFindWindowAtPoint(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n");
+		luaL_error(L, "luna typecheck failed in wxWindow * wxFindWindowAtPoint(const wxPoint & pt) function, expected prototype:\nwxWindow * wxFindWindowAtPoint(const wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const wxPoint* pt_ptr=(Luna< wxPoint >::check(L,1));
@@ -3258,8 +3147,7 @@ static int _bind_wxFindWindowAtPoint(lua_State *L) {
 // wxWindow * wxFindWindowByLabel(const wxString & label, wxWindow * parent = NULL)
 static int _bind_wxFindWindowByLabel(lua_State *L) {
 	if (!_lg_typecheck_wxFindWindowByLabel(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxWindow * wxFindWindowByLabel(const wxString & label, wxWindow * parent = NULL) function, expected prototype:\nwxWindow * wxFindWindowByLabel(const wxString & label, wxWindow * parent = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxWindow * wxFindWindowByLabel(const wxString & label, wxWindow * parent = NULL) function, expected prototype:\nwxWindow * wxFindWindowByLabel(const wxString & label, wxWindow * parent = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -3278,8 +3166,7 @@ static int _bind_wxFindWindowByLabel(lua_State *L) {
 // wxWindow * wxFindWindowByName(const wxString & name, wxWindow * parent = NULL)
 static int _bind_wxFindWindowByName(lua_State *L) {
 	if (!_lg_typecheck_wxFindWindowByName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxWindow * wxFindWindowByName(const wxString & name, wxWindow * parent = NULL) function, expected prototype:\nwxWindow * wxFindWindowByName(const wxString & name, wxWindow * parent = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxWindow * wxFindWindowByName(const wxString & name, wxWindow * parent = NULL) function, expected prototype:\nwxWindow * wxFindWindowByName(const wxString & name, wxWindow * parent = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -3298,8 +3185,7 @@ static int _bind_wxFindWindowByName(lua_State *L) {
 // int wxFindMenuItemId(wxFrame * frame, const wxString & menuString, const wxString & itemString)
 static int _bind_wxFindMenuItemId(lua_State *L) {
 	if (!_lg_typecheck_wxFindMenuItemId(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int wxFindMenuItemId(wxFrame * frame, const wxString & menuString, const wxString & itemString) function, expected prototype:\nint wxFindMenuItemId(wxFrame * frame, const wxString & menuString, const wxString & itemString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in int wxFindMenuItemId(wxFrame * frame, const wxString & menuString, const wxString & itemString) function, expected prototype:\nint wxFindMenuItemId(wxFrame * frame, const wxString & menuString, const wxString & itemString)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxFrame* frame=(Luna< wxObject >::checkSubType< wxFrame >(L,1));
@@ -3315,8 +3201,7 @@ static int _bind_wxFindMenuItemId(lua_State *L) {
 // long wxNewId()
 static int _bind_wxNewId(lua_State *L) {
 	if (!_lg_typecheck_wxNewId(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in long wxNewId() function, expected prototype:\nlong wxNewId()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in long wxNewId() function, expected prototype:\nlong wxNewId()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -3329,11 +3214,10 @@ static int _bind_wxNewId(lua_State *L) {
 // void wxRegisterId(long id)
 static int _bind_wxRegisterId(lua_State *L) {
 	if (!_lg_typecheck_wxRegisterId(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxRegisterId(long id) function, expected prototype:\nvoid wxRegisterId(long id)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxRegisterId(long id) function, expected prototype:\nvoid wxRegisterId(long id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
-	long id=(long)lua_tointeger(L,1);
+	long id=(long)lua_tonumber(L,1);
 
 	::wxRegisterId(id);
 
@@ -3343,8 +3227,7 @@ static int _bind_wxRegisterId(lua_State *L) {
 // bool wxLaunchDefaultApplication(const wxString & document, int flags = 0)
 static int _bind_wxLaunchDefaultApplication(lua_State *L) {
 	if (!_lg_typecheck_wxLaunchDefaultApplication(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxLaunchDefaultApplication(const wxString & document, int flags = 0) function, expected prototype:\nbool wxLaunchDefaultApplication(const wxString & document, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxLaunchDefaultApplication(const wxString & document, int flags = 0) function, expected prototype:\nbool wxLaunchDefaultApplication(const wxString & document, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -3361,8 +3244,7 @@ static int _bind_wxLaunchDefaultApplication(lua_State *L) {
 // bool wxLaunchDefaultBrowser(const wxString & url, int flags = 0)
 static int _bind_wxLaunchDefaultBrowser(lua_State *L) {
 	if (!_lg_typecheck_wxLaunchDefaultBrowser(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxLaunchDefaultBrowser(const wxString & url, int flags = 0) function, expected prototype:\nbool wxLaunchDefaultBrowser(const wxString & url, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxLaunchDefaultBrowser(const wxString & url, int flags = 0) function, expected prototype:\nbool wxLaunchDefaultBrowser(const wxString & url, int flags = 0)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -3379,8 +3261,7 @@ static int _bind_wxLaunchDefaultBrowser(lua_State *L) {
 // wxString wxLoadUserResource(const wxString & resourceName, const wxString & resourceType = "TEXT")
 static int _bind_wxLoadUserResource(lua_State *L) {
 	if (!_lg_typecheck_wxLoadUserResource(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxLoadUserResource(const wxString & resourceName, const wxString & resourceType = \"TEXT\") function, expected prototype:\nwxString wxLoadUserResource(const wxString & resourceName, const wxString & resourceType = \"TEXT\")\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in wxString wxLoadUserResource(const wxString & resourceName, const wxString & resourceType = \"TEXT\") function, expected prototype:\nwxString wxLoadUserResource(const wxString & resourceName, const wxString & resourceType = \"TEXT\")\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -3397,8 +3278,7 @@ static int _bind_wxLoadUserResource(lua_State *L) {
 // wxString wxStripMenuCodes(const wxString & str, int flags = ::wxStrip_All)
 static int _bind_wxStripMenuCodes(lua_State *L) {
 	if (!_lg_typecheck_wxStripMenuCodes(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxStripMenuCodes(const wxString & str, int flags = ::wxStrip_All) function, expected prototype:\nwxString wxStripMenuCodes(const wxString & str, int flags = ::wxStrip_All)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in wxString wxStripMenuCodes(const wxString & str, int flags = ::wxStrip_All) function, expected prototype:\nwxString wxStripMenuCodes(const wxString & str, int flags = ::wxStrip_All)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -3415,8 +3295,7 @@ static int _bind_wxStripMenuCodes(lua_State *L) {
 // wxLongLong wxGetFreeMemory()
 static int _bind_wxGetFreeMemory(lua_State *L) {
 	if (!_lg_typecheck_wxGetFreeMemory(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxLongLong wxGetFreeMemory() function, expected prototype:\nwxLongLong wxGetFreeMemory()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxLongLong wxGetFreeMemory() function, expected prototype:\nwxLongLong wxGetFreeMemory()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -3432,8 +3311,7 @@ static int _bind_wxGetFreeMemory(lua_State *L) {
 // wxString wxGetHomeDir()
 static int _bind_wxGetHomeDir(lua_State *L) {
 	if (!_lg_typecheck_wxGetHomeDir(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxGetHomeDir() function, expected prototype:\nwxString wxGetHomeDir()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxString wxGetHomeDir() function, expected prototype:\nwxString wxGetHomeDir()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -3446,8 +3324,7 @@ static int _bind_wxGetHomeDir(lua_State *L) {
 // wxString wxGetFullHostName()
 static int _bind_wxGetFullHostName(lua_State *L) {
 	if (!_lg_typecheck_wxGetFullHostName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxGetFullHostName() function, expected prototype:\nwxString wxGetFullHostName()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxString wxGetFullHostName() function, expected prototype:\nwxString wxGetFullHostName()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -3460,8 +3337,7 @@ static int _bind_wxGetFullHostName(lua_State *L) {
 // wxString wxGetUserHome(const wxString & user = wxEmptyString)
 static int _bind_wxGetUserHome(lua_State *L) {
 	if (!_lg_typecheck_wxGetUserHome(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxGetUserHome(const wxString & user = wxEmptyString) function, expected prototype:\nwxString wxGetUserHome(const wxString & user = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in wxString wxGetUserHome(const wxString & user = wxEmptyString) function, expected prototype:\nwxString wxGetUserHome(const wxString & user = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -3477,8 +3353,7 @@ static int _bind_wxGetUserHome(lua_State *L) {
 // wxString wxGetOsDescription()
 static int _bind_wxGetOsDescription(lua_State *L) {
 	if (!_lg_typecheck_wxGetOsDescription(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxGetOsDescription() function, expected prototype:\nwxString wxGetOsDescription()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxString wxGetOsDescription() function, expected prototype:\nwxString wxGetOsDescription()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -3491,8 +3366,7 @@ static int _bind_wxGetOsDescription(lua_State *L) {
 // wxOperatingSystemId wxGetOsVersion(int * major = NULL, int * minor = NULL)
 static int _bind_wxGetOsVersion(lua_State *L) {
 	if (!_lg_typecheck_wxGetOsVersion(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxOperatingSystemId wxGetOsVersion(int * major = NULL, int * minor = NULL) function, expected prototype:\nwxOperatingSystemId wxGetOsVersion(int * major = NULL, int * minor = NULL)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxOperatingSystemId wxGetOsVersion(int * major = NULL, int * minor = NULL) function, expected prototype:\nwxOperatingSystemId wxGetOsVersion(int * major = NULL, int * minor = NULL)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -3509,8 +3383,7 @@ static int _bind_wxGetOsVersion(lua_State *L) {
 // bool wxIsPlatform64Bit()
 static int _bind_wxIsPlatform64Bit(lua_State *L) {
 	if (!_lg_typecheck_wxIsPlatform64Bit(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxIsPlatform64Bit() function, expected prototype:\nbool wxIsPlatform64Bit()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool wxIsPlatform64Bit() function, expected prototype:\nbool wxIsPlatform64Bit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -3523,8 +3396,7 @@ static int _bind_wxIsPlatform64Bit(lua_State *L) {
 // bool wxIsPlatformLittleEndian()
 static int _bind_wxIsPlatformLittleEndian(lua_State *L) {
 	if (!_lg_typecheck_wxIsPlatformLittleEndian(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxIsPlatformLittleEndian() function, expected prototype:\nbool wxIsPlatformLittleEndian()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool wxIsPlatformLittleEndian() function, expected prototype:\nbool wxIsPlatformLittleEndian()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -3537,8 +3409,7 @@ static int _bind_wxIsPlatformLittleEndian(lua_State *L) {
 // long wxExecute(const wxString & command, int flags = ::wxEXEC_ASYNC, wxProcess * callback = NULL, const wxExecuteEnv * env = NULL)
 static int _bind_wxExecute_overload_1(lua_State *L) {
 	if (!_lg_typecheck_wxExecute_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in long wxExecute(const wxString & command, int flags = ::wxEXEC_ASYNC, wxProcess * callback = NULL, const wxExecuteEnv * env = NULL) function, expected prototype:\nlong wxExecute(const wxString & command, int flags = ::wxEXEC_ASYNC, wxProcess * callback = NULL, const wxExecuteEnv * env = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 57480074\n");
+		luaL_error(L, "luna typecheck failed in long wxExecute(const wxString & command, int flags = ::wxEXEC_ASYNC, wxProcess * callback = NULL, const wxExecuteEnv * env = NULL) function, expected prototype:\nlong wxExecute(const wxString & command, int flags = ::wxEXEC_ASYNC, wxProcess * callback = NULL, const wxExecuteEnv * env = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 57480074\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -3557,8 +3428,7 @@ static int _bind_wxExecute_overload_1(lua_State *L) {
 // long wxExecute(const wxString & command, wxArrayString & output, int flags = 0, const wxExecuteEnv * env = NULL)
 static int _bind_wxExecute_overload_2(lua_State *L) {
 	if (!_lg_typecheck_wxExecute_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in long wxExecute(const wxString & command, wxArrayString & output, int flags = 0, const wxExecuteEnv * env = NULL) function, expected prototype:\nlong wxExecute(const wxString & command, wxArrayString & output, int flags = 0, const wxExecuteEnv * env = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 59507769\narg 4 ID = 57480074\n");
+		luaL_error(L, "luna typecheck failed in long wxExecute(const wxString & command, wxArrayString & output, int flags = 0, const wxExecuteEnv * env = NULL) function, expected prototype:\nlong wxExecute(const wxString & command, wxArrayString & output, int flags = 0, const wxExecuteEnv * env = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 59507769\narg 4 ID = 57480074\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -3581,8 +3451,7 @@ static int _bind_wxExecute_overload_2(lua_State *L) {
 // long wxExecute(const wxString & command, wxArrayString & output, wxArrayString & errors, int flags = 0, const wxExecuteEnv * env = NULL)
 static int _bind_wxExecute_overload_3(lua_State *L) {
 	if (!_lg_typecheck_wxExecute_overload_3(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in long wxExecute(const wxString & command, wxArrayString & output, wxArrayString & errors, int flags = 0, const wxExecuteEnv * env = NULL) function, expected prototype:\nlong wxExecute(const wxString & command, wxArrayString & output, wxArrayString & errors, int flags = 0, const wxExecuteEnv * env = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 59507769\narg 3 ID = 59507769\narg 5 ID = 57480074\n");
+		luaL_error(L, "luna typecheck failed in long wxExecute(const wxString & command, wxArrayString & output, wxArrayString & errors, int flags = 0, const wxExecuteEnv * env = NULL) function, expected prototype:\nlong wxExecute(const wxString & command, wxArrayString & output, wxArrayString & errors, int flags = 0, const wxExecuteEnv * env = NULL)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 59507769\narg 3 ID = 59507769\narg 5 ID = 57480074\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -3620,8 +3489,7 @@ static int _bind_wxExecute(lua_State *L) {
 // unsigned long wxGetProcessId()
 static int _bind_wxGetProcessId(lua_State *L) {
 	if (!_lg_typecheck_wxGetProcessId(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned long wxGetProcessId() function, expected prototype:\nunsigned long wxGetProcessId()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned long wxGetProcessId() function, expected prototype:\nunsigned long wxGetProcessId()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -3634,8 +3502,7 @@ static int _bind_wxGetProcessId(lua_State *L) {
 // bool wxShell(const wxString & command = wxEmptyString)
 static int _bind_wxShell(lua_State *L) {
 	if (!_lg_typecheck_wxShell(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxShell(const wxString & command = wxEmptyString) function, expected prototype:\nbool wxShell(const wxString & command = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxShell(const wxString & command = wxEmptyString) function, expected prototype:\nbool wxShell(const wxString & command = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -3651,8 +3518,7 @@ static int _bind_wxShell(lua_State *L) {
 // bool wxShutdown(int flags = ::wxSHUTDOWN_POWEROFF)
 static int _bind_wxShutdown(lua_State *L) {
 	if (!_lg_typecheck_wxShutdown(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxShutdown(int flags = ::wxSHUTDOWN_POWEROFF) function, expected prototype:\nbool wxShutdown(int flags = ::wxSHUTDOWN_POWEROFF)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool wxShutdown(int flags = ::wxSHUTDOWN_POWEROFF) function, expected prototype:\nbool wxShutdown(int flags = ::wxSHUTDOWN_POWEROFF)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -3668,11 +3534,10 @@ static int _bind_wxShutdown(lua_State *L) {
 // void wxMicroSleep(unsigned long microseconds)
 static int _bind_wxMicroSleep(lua_State *L) {
 	if (!_lg_typecheck_wxMicroSleep(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxMicroSleep(unsigned long microseconds) function, expected prototype:\nvoid wxMicroSleep(unsigned long microseconds)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxMicroSleep(unsigned long microseconds) function, expected prototype:\nvoid wxMicroSleep(unsigned long microseconds)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
-	unsigned long microseconds=(unsigned long)lua_tointeger(L,1);
+	unsigned long microseconds=(unsigned long)lua_tonumber(L,1);
 
 	::wxMicroSleep(microseconds);
 
@@ -3682,11 +3547,10 @@ static int _bind_wxMicroSleep(lua_State *L) {
 // void wxMilliSleep(unsigned long milliseconds)
 static int _bind_wxMilliSleep(lua_State *L) {
 	if (!_lg_typecheck_wxMilliSleep(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxMilliSleep(unsigned long milliseconds) function, expected prototype:\nvoid wxMilliSleep(unsigned long milliseconds)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxMilliSleep(unsigned long milliseconds) function, expected prototype:\nvoid wxMilliSleep(unsigned long milliseconds)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
-	unsigned long milliseconds=(unsigned long)lua_tointeger(L,1);
+	unsigned long milliseconds=(unsigned long)lua_tonumber(L,1);
 
 	::wxMilliSleep(milliseconds);
 
@@ -3696,8 +3560,7 @@ static int _bind_wxMilliSleep(lua_State *L) {
 // wxString wxNow()
 static int _bind_wxNow(lua_State *L) {
 	if (!_lg_typecheck_wxNow(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxString wxNow() function, expected prototype:\nwxString wxNow()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxString wxNow() function, expected prototype:\nwxString wxNow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -3710,8 +3573,7 @@ static int _bind_wxNow(lua_State *L) {
 // void wxSleep(int secs)
 static int _bind_wxSleep(lua_State *L) {
 	if (!_lg_typecheck_wxSleep(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxSleep(int secs) function, expected prototype:\nvoid wxSleep(int secs)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxSleep(int secs) function, expected prototype:\nvoid wxSleep(int secs)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int secs=(int)lua_tointeger(L,1);
@@ -3724,11 +3586,10 @@ static int _bind_wxSleep(lua_State *L) {
 // void wxUsleep(unsigned long milliseconds)
 static int _bind_wxUsleep(lua_State *L) {
 	if (!_lg_typecheck_wxUsleep(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void wxUsleep(unsigned long milliseconds) function, expected prototype:\nvoid wxUsleep(unsigned long milliseconds)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void wxUsleep(unsigned long milliseconds) function, expected prototype:\nvoid wxUsleep(unsigned long milliseconds)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
-	unsigned long milliseconds=(unsigned long)lua_tointeger(L,1);
+	unsigned long milliseconds=(unsigned long)lua_tonumber(L,1);
 
 	::wxUsleep(milliseconds);
 
@@ -3738,8 +3599,7 @@ static int _bind_wxUsleep(lua_State *L) {
 // wxWindow * wxFindWindowAtPointer(wxPoint & pt)
 static int _bind_wxFindWindowAtPointer(lua_State *L) {
 	if (!_lg_typecheck_wxFindWindowAtPointer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxWindow * wxFindWindowAtPointer(wxPoint & pt) function, expected prototype:\nwxWindow * wxFindWindowAtPointer(wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n");
+		luaL_error(L, "luna typecheck failed in wxWindow * wxFindWindowAtPointer(wxPoint & pt) function, expected prototype:\nwxWindow * wxFindWindowAtPointer(wxPoint & pt)\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxPoint* pt_ptr=(Luna< wxPoint >::check(L,1));
@@ -3759,8 +3619,7 @@ static int _bind_wxFindWindowAtPointer(lua_State *L) {
 // wxWindow * wxGetActiveWindow()
 static int _bind_wxGetActiveWindow(lua_State *L) {
 	if (!_lg_typecheck_wxGetActiveWindow(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxWindow * wxGetActiveWindow() function, expected prototype:\nwxWindow * wxGetActiveWindow()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in wxWindow * wxGetActiveWindow() function, expected prototype:\nwxWindow * wxGetActiveWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -3775,8 +3634,7 @@ static int _bind_wxGetActiveWindow(lua_State *L) {
 // wxWindow * wxGetTopLevelParent(wxWindow * window)
 static int _bind_wxGetTopLevelParent(lua_State *L) {
 	if (!_lg_typecheck_wxGetTopLevelParent(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in wxWindow * wxGetTopLevelParent(wxWindow * window) function, expected prototype:\nwxWindow * wxGetTopLevelParent(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in wxWindow * wxGetTopLevelParent(wxWindow * window) function, expected prototype:\nwxWindow * wxGetTopLevelParent(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
@@ -3792,8 +3650,7 @@ static int _bind_wxGetTopLevelParent(lua_State *L) {
 // sgt::LogManager::LogHandler * createWxLogHandler(wxEvtHandler * handler)
 static int _bind_createWxLogHandler(lua_State *L) {
 	if (!_lg_typecheck_createWxLogHandler(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in sgt::LogManager::LogHandler * createWxLogHandler(wxEvtHandler * handler) function, expected prototype:\nsgt::LogManager::LogHandler * createWxLogHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+		luaL_error(L, "luna typecheck failed in sgt::LogManager::LogHandler * createWxLogHandler(wxEvtHandler * handler) function, expected prototype:\nsgt::LogManager::LogHandler * createWxLogHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,1));
@@ -3809,8 +3666,7 @@ static int _bind_createWxLogHandler(lua_State *L) {
 // bool wxIsEmpty(const char * s)
 static int _bind_wxIsEmpty_overload_1(lua_State *L) {
 	if (!_lg_typecheck_wxIsEmpty_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxIsEmpty(const char * s) function, expected prototype:\nbool wxIsEmpty(const char * s)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool wxIsEmpty(const char * s) function, expected prototype:\nbool wxIsEmpty(const char * s)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * s=(const char *)lua_tostring(L,1);
@@ -3824,8 +3680,7 @@ static int _bind_wxIsEmpty_overload_1(lua_State *L) {
 // bool wxIsEmpty(const wxString & s)
 static int _bind_wxIsEmpty_overload_2(lua_State *L) {
 	if (!_lg_typecheck_wxIsEmpty_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool wxIsEmpty(const wxString & s) function, expected prototype:\nbool wxIsEmpty(const wxString & s)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in bool wxIsEmpty(const wxString & s) function, expected prototype:\nbool wxIsEmpty(const wxString & s)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString s(lua_tostring(L,1),lua_objlen(L,1));
@@ -3848,8 +3703,7 @@ static int _bind_wxIsEmpty(lua_State *L) {
 // size_t wxStrlen(const wxString & s)
 static int _bind_wxStrlen(lua_State *L) {
 	if (!_lg_typecheck_wxStrlen(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in size_t wxStrlen(const wxString & s) function, expected prototype:\nsize_t wxStrlen(const wxString & s)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in size_t wxStrlen(const wxString & s) function, expected prototype:\nsize_t wxStrlen(const wxString & s)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString s(lua_tostring(L,1),lua_objlen(L,1));
@@ -3863,8 +3717,7 @@ static int _bind_wxStrlen(lua_State *L) {
 // size_t wxStrlcpy(char * dest, const char * src, size_t n)
 static int _bind_wxStrlcpy(lua_State *L) {
 	if (!_lg_typecheck_wxStrlcpy(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in size_t wxStrlcpy(char * dest, const char * src, size_t n) function, expected prototype:\nsize_t wxStrlcpy(char * dest, const char * src, size_t n)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in size_t wxStrlcpy(char * dest, const char * src, size_t n) function, expected prototype:\nsize_t wxStrlcpy(char * dest, const char * src, size_t n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	char* dest=(char*)Luna< void >::check(L,1);
@@ -3880,8 +3733,7 @@ static int _bind_wxStrlcpy(lua_State *L) {
 // const char * wxStrrchr(const char * s, char c)
 static int _bind_wxStrrchr_overload_1(lua_State *L) {
 	if (!_lg_typecheck_wxStrrchr_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * wxStrrchr(const char * s, char c) function, expected prototype:\nconst char * wxStrrchr(const char * s, char c)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * wxStrrchr(const char * s, char c) function, expected prototype:\nconst char * wxStrrchr(const char * s, char c)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * s=(const char *)lua_tostring(L,1);
@@ -3896,8 +3748,7 @@ static int _bind_wxStrrchr_overload_1(lua_State *L) {
 // const char * wxStrrchr(const wxString & s, char c)
 static int _bind_wxStrrchr_overload_2(lua_State *L) {
 	if (!_lg_typecheck_wxStrrchr_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * wxStrrchr(const wxString & s, char c) function, expected prototype:\nconst char * wxStrrchr(const wxString & s, char c)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in const char * wxStrrchr(const wxString & s, char c) function, expected prototype:\nconst char * wxStrrchr(const wxString & s, char c)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString s(lua_tostring(L,1),lua_objlen(L,1));
@@ -3912,8 +3763,7 @@ static int _bind_wxStrrchr_overload_2(lua_State *L) {
 // const char * wxStrrchr(const wxString & s, int c)
 static int _bind_wxStrrchr_overload_3(lua_State *L) {
 	if (!_lg_typecheck_wxStrrchr_overload_3(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * wxStrrchr(const wxString & s, int c) function, expected prototype:\nconst char * wxStrrchr(const wxString & s, int c)\nClass arguments details:\narg 1 ID = 88196105\n");
+		luaL_error(L, "luna typecheck failed in const char * wxStrrchr(const wxString & s, int c) function, expected prototype:\nconst char * wxStrrchr(const wxString & s, int c)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	wxString s(lua_tostring(L,1),lua_objlen(L,1));
@@ -3928,8 +3778,7 @@ static int _bind_wxStrrchr_overload_3(lua_State *L) {
 // char * wxStrrchr(char * s, char c)
 static int _bind_wxStrrchr_overload_4(lua_State *L) {
 	if (!_lg_typecheck_wxStrrchr_overload_4(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in char * wxStrrchr(char * s, char c) function, expected prototype:\nchar * wxStrrchr(char * s, char c)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in char * wxStrrchr(char * s, char c) function, expected prototype:\nchar * wxStrrchr(char * s, char c)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	char* s=(char*)Luna< void >::check(L,1);

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxFSVolume*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxFSVolume*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFSVolume* rhs =(Luna< wxFSVolume >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFSVolume* self= (wxFSVolume*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxFSVolume >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -188,8 +184,7 @@ public:
 	// wxFSVolume::wxFSVolume()
 	static wxFSVolume* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFSVolume::wxFSVolume() function, expected prototype:\nwxFSVolume::wxFSVolume()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFSVolume::wxFSVolume() function, expected prototype:\nwxFSVolume::wxFSVolume()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -199,8 +194,7 @@ public:
 	// wxFSVolume::wxFSVolume(const wxString & name)
 	static wxFSVolume* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFSVolume::wxFSVolume(const wxString & name) function, expected prototype:\nwxFSVolume::wxFSVolume(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxFSVolume::wxFSVolume(const wxString & name) function, expected prototype:\nwxFSVolume::wxFSVolume(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,1),lua_objlen(L,1));
@@ -222,16 +216,14 @@ public:
 	// bool wxFSVolume::Create(const wxString & name)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFSVolume::Create(const wxString & name) function, expected prototype:\nbool wxFSVolume::Create(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxFSVolume::Create(const wxString & name) function, expected prototype:\nbool wxFSVolume::Create(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxFSVolume* self=(Luna< wxFSVolume >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFSVolume::Create(const wxString &). Got : '%s'",typeid(Luna< wxFSVolume >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFSVolume::Create(const wxString &). Got : '%s'\n%s",typeid(Luna< wxFSVolume >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Create(name);
 		lua_pushboolean(L,lret?1:0);
@@ -242,15 +234,13 @@ public:
 	// bool wxFSVolume::IsOk() const
 	static int _bind_IsOk(lua_State *L) {
 		if (!_lg_typecheck_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFSVolume::IsOk() const function, expected prototype:\nbool wxFSVolume::IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFSVolume::IsOk() const function, expected prototype:\nbool wxFSVolume::IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFSVolume* self=(Luna< wxFSVolume >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFSVolume::IsOk() const. Got : '%s'",typeid(Luna< wxFSVolume >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFSVolume::IsOk() const. Got : '%s'\n%s",typeid(Luna< wxFSVolume >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -261,15 +251,13 @@ public:
 	// wxFSVolumeKind wxFSVolume::GetKind() const
 	static int _bind_GetKind(lua_State *L) {
 		if (!_lg_typecheck_GetKind(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFSVolumeKind wxFSVolume::GetKind() const function, expected prototype:\nwxFSVolumeKind wxFSVolume::GetKind() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFSVolumeKind wxFSVolume::GetKind() const function, expected prototype:\nwxFSVolumeKind wxFSVolume::GetKind() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFSVolume* self=(Luna< wxFSVolume >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFSVolumeKind wxFSVolume::GetKind() const. Got : '%s'",typeid(Luna< wxFSVolume >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFSVolumeKind wxFSVolume::GetKind() const. Got : '%s'\n%s",typeid(Luna< wxFSVolume >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFSVolumeKind lret = self->GetKind();
 		lua_pushnumber(L,lret);
@@ -280,15 +268,13 @@ public:
 	// int wxFSVolume::GetFlags() const
 	static int _bind_GetFlags(lua_State *L) {
 		if (!_lg_typecheck_GetFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxFSVolume::GetFlags() const function, expected prototype:\nint wxFSVolume::GetFlags() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxFSVolume::GetFlags() const function, expected prototype:\nint wxFSVolume::GetFlags() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFSVolume* self=(Luna< wxFSVolume >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFSVolume::GetFlags() const. Got : '%s'",typeid(Luna< wxFSVolume >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxFSVolume::GetFlags() const. Got : '%s'\n%s",typeid(Luna< wxFSVolume >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetFlags();
 		lua_pushnumber(L,lret);
@@ -299,15 +285,13 @@ public:
 	// bool wxFSVolume::IsWritable() const
 	static int _bind_IsWritable(lua_State *L) {
 		if (!_lg_typecheck_IsWritable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFSVolume::IsWritable() const function, expected prototype:\nbool wxFSVolume::IsWritable() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFSVolume::IsWritable() const function, expected prototype:\nbool wxFSVolume::IsWritable() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFSVolume* self=(Luna< wxFSVolume >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFSVolume::IsWritable() const. Got : '%s'",typeid(Luna< wxFSVolume >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFSVolume::IsWritable() const. Got : '%s'\n%s",typeid(Luna< wxFSVolume >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsWritable();
 		lua_pushboolean(L,lret?1:0);
@@ -318,15 +302,13 @@ public:
 	// wxString wxFSVolume::GetName() const
 	static int _bind_GetName(lua_State *L) {
 		if (!_lg_typecheck_GetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxFSVolume::GetName() const function, expected prototype:\nwxString wxFSVolume::GetName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxFSVolume::GetName() const function, expected prototype:\nwxString wxFSVolume::GetName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFSVolume* self=(Luna< wxFSVolume >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFSVolume::GetName() const. Got : '%s'",typeid(Luna< wxFSVolume >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxFSVolume::GetName() const. Got : '%s'\n%s",typeid(Luna< wxFSVolume >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -337,15 +319,13 @@ public:
 	// wxString wxFSVolume::GetDisplayName() const
 	static int _bind_GetDisplayName(lua_State *L) {
 		if (!_lg_typecheck_GetDisplayName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxFSVolume::GetDisplayName() const function, expected prototype:\nwxString wxFSVolume::GetDisplayName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxFSVolume::GetDisplayName() const function, expected prototype:\nwxString wxFSVolume::GetDisplayName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFSVolume* self=(Luna< wxFSVolume >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxFSVolume::GetDisplayName() const. Got : '%s'",typeid(Luna< wxFSVolume >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxFSVolume::GetDisplayName() const. Got : '%s'\n%s",typeid(Luna< wxFSVolume >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetDisplayName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -356,16 +336,14 @@ public:
 	// wxIcon wxFSVolume::GetIcon(wxFSIconType type) const
 	static int _bind_GetIcon(lua_State *L) {
 		if (!_lg_typecheck_GetIcon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIcon wxFSVolume::GetIcon(wxFSIconType type) const function, expected prototype:\nwxIcon wxFSVolume::GetIcon(wxFSIconType type) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxIcon wxFSVolume::GetIcon(wxFSIconType type) const function, expected prototype:\nwxIcon wxFSVolume::GetIcon(wxFSIconType type) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFSIconType type=(wxFSIconType)lua_tointeger(L,2);
 
 		wxFSVolume* self=(Luna< wxFSVolume >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxIcon wxFSVolume::GetIcon(wxFSIconType) const. Got : '%s'",typeid(Luna< wxFSVolume >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxIcon wxFSVolume::GetIcon(wxFSIconType) const. Got : '%s'\n%s",typeid(Luna< wxFSVolume >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxIcon stack_lret = self->GetIcon(type);
 		wxIcon* lret = new wxIcon(stack_lret);
@@ -379,8 +357,7 @@ public:
 	// static wxArrayString wxFSVolume::GetVolumes(int flagsSet = ::wxFS_VOL_MOUNTED, int flagsUnset = 0)
 	static int _bind_GetVolumes(lua_State *L) {
 		if (!_lg_typecheck_GetVolumes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxArrayString wxFSVolume::GetVolumes(int flagsSet = ::wxFS_VOL_MOUNTED, int flagsUnset = 0) function, expected prototype:\nstatic wxArrayString wxFSVolume::GetVolumes(int flagsSet = ::wxFS_VOL_MOUNTED, int flagsUnset = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxArrayString wxFSVolume::GetVolumes(int flagsSet = ::wxFS_VOL_MOUNTED, int flagsUnset = 0) function, expected prototype:\nstatic wxArrayString wxFSVolume::GetVolumes(int flagsSet = ::wxFS_VOL_MOUNTED, int flagsUnset = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -400,8 +377,7 @@ public:
 	// static void wxFSVolume::CancelSearch()
 	static int _bind_CancelSearch(lua_State *L) {
 		if (!_lg_typecheck_CancelSearch(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxFSVolume::CancelSearch() function, expected prototype:\nstatic void wxFSVolume::CancelSearch()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxFSVolume::CancelSearch() function, expected prototype:\nstatic void wxFSVolume::CancelSearch()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 

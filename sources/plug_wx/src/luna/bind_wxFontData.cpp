@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFontData* self= (wxFontData*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -211,8 +208,7 @@ public:
 	// wxFontData::wxFontData()
 	static wxFontData* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFontData::wxFontData() function, expected prototype:\nwxFontData::wxFontData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFontData::wxFontData() function, expected prototype:\nwxFontData::wxFontData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -222,8 +218,7 @@ public:
 	// wxFontData::wxFontData(lua_Table * data)
 	static wxFontData* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFontData::wxFontData(lua_Table * data) function, expected prototype:\nwxFontData::wxFontData(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFontData::wxFontData(lua_Table * data) function, expected prototype:\nwxFontData::wxFontData(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -244,16 +239,14 @@ public:
 	// void wxFontData::EnableEffects(bool enable)
 	static int _bind_EnableEffects(lua_State *L) {
 		if (!_lg_typecheck_EnableEffects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFontData::EnableEffects(bool enable) function, expected prototype:\nvoid wxFontData::EnableEffects(bool enable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxFontData::EnableEffects(bool enable) function, expected prototype:\nvoid wxFontData::EnableEffects(bool enable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enable=(bool)(lua_toboolean(L,2)==1);
 
 		wxFontData* self=Luna< wxObject >::checkSubType< wxFontData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontData::EnableEffects(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFontData::EnableEffects(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EnableEffects(enable);
 
@@ -263,15 +256,13 @@ public:
 	// bool wxFontData::GetAllowSymbols() const
 	static int _bind_GetAllowSymbols(lua_State *L) {
 		if (!_lg_typecheck_GetAllowSymbols(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFontData::GetAllowSymbols() const function, expected prototype:\nbool wxFontData::GetAllowSymbols() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFontData::GetAllowSymbols() const function, expected prototype:\nbool wxFontData::GetAllowSymbols() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFontData* self=Luna< wxObject >::checkSubType< wxFontData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontData::GetAllowSymbols() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFontData::GetAllowSymbols() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetAllowSymbols();
 		lua_pushboolean(L,lret?1:0);
@@ -282,15 +273,13 @@ public:
 	// wxFont wxFontData::GetChosenFont() const
 	static int _bind_GetChosenFont(lua_State *L) {
 		if (!_lg_typecheck_GetChosenFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFont wxFontData::GetChosenFont() const function, expected prototype:\nwxFont wxFontData::GetChosenFont() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFont wxFontData::GetChosenFont() const function, expected prototype:\nwxFont wxFontData::GetChosenFont() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFontData* self=Luna< wxObject >::checkSubType< wxFontData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFont wxFontData::GetChosenFont() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFont wxFontData::GetChosenFont() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFont stack_lret = self->GetChosenFont();
 		wxFont* lret = new wxFont(stack_lret);
@@ -304,15 +293,13 @@ public:
 	// const wxColour & wxFontData::GetColour() const
 	static int _bind_GetColour(lua_State *L) {
 		if (!_lg_typecheck_GetColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxColour & wxFontData::GetColour() const function, expected prototype:\nconst wxColour & wxFontData::GetColour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxColour & wxFontData::GetColour() const function, expected prototype:\nconst wxColour & wxFontData::GetColour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFontData* self=Luna< wxObject >::checkSubType< wxFontData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxFontData::GetColour() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxColour & wxFontData::GetColour() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxColour* lret = &self->GetColour();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -325,15 +312,13 @@ public:
 	// bool wxFontData::GetEnableEffects() const
 	static int _bind_GetEnableEffects(lua_State *L) {
 		if (!_lg_typecheck_GetEnableEffects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFontData::GetEnableEffects() const function, expected prototype:\nbool wxFontData::GetEnableEffects() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFontData::GetEnableEffects() const function, expected prototype:\nbool wxFontData::GetEnableEffects() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFontData* self=Luna< wxObject >::checkSubType< wxFontData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontData::GetEnableEffects() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFontData::GetEnableEffects() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetEnableEffects();
 		lua_pushboolean(L,lret?1:0);
@@ -344,15 +329,13 @@ public:
 	// wxFont wxFontData::GetInitialFont() const
 	static int _bind_GetInitialFont(lua_State *L) {
 		if (!_lg_typecheck_GetInitialFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFont wxFontData::GetInitialFont() const function, expected prototype:\nwxFont wxFontData::GetInitialFont() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFont wxFontData::GetInitialFont() const function, expected prototype:\nwxFont wxFontData::GetInitialFont() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFontData* self=Luna< wxObject >::checkSubType< wxFontData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFont wxFontData::GetInitialFont() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFont wxFontData::GetInitialFont() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFont stack_lret = self->GetInitialFont();
 		wxFont* lret = new wxFont(stack_lret);
@@ -366,15 +349,13 @@ public:
 	// bool wxFontData::GetShowHelp() const
 	static int _bind_GetShowHelp(lua_State *L) {
 		if (!_lg_typecheck_GetShowHelp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFontData::GetShowHelp() const function, expected prototype:\nbool wxFontData::GetShowHelp() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFontData::GetShowHelp() const function, expected prototype:\nbool wxFontData::GetShowHelp() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFontData* self=Luna< wxObject >::checkSubType< wxFontData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFontData::GetShowHelp() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFontData::GetShowHelp() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetShowHelp();
 		lua_pushboolean(L,lret?1:0);
@@ -385,16 +366,14 @@ public:
 	// void wxFontData::SetAllowSymbols(bool allowSymbols)
 	static int _bind_SetAllowSymbols(lua_State *L) {
 		if (!_lg_typecheck_SetAllowSymbols(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFontData::SetAllowSymbols(bool allowSymbols) function, expected prototype:\nvoid wxFontData::SetAllowSymbols(bool allowSymbols)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxFontData::SetAllowSymbols(bool allowSymbols) function, expected prototype:\nvoid wxFontData::SetAllowSymbols(bool allowSymbols)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool allowSymbols=(bool)(lua_toboolean(L,2)==1);
 
 		wxFontData* self=Luna< wxObject >::checkSubType< wxFontData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontData::SetAllowSymbols(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFontData::SetAllowSymbols(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAllowSymbols(allowSymbols);
 
@@ -404,8 +383,7 @@ public:
 	// void wxFontData::SetChosenFont(const wxFont & font)
 	static int _bind_SetChosenFont(lua_State *L) {
 		if (!_lg_typecheck_SetChosenFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFontData::SetChosenFont(const wxFont & font) function, expected prototype:\nvoid wxFontData::SetChosenFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxFontData::SetChosenFont(const wxFont & font) function, expected prototype:\nvoid wxFontData::SetChosenFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -416,8 +394,7 @@ public:
 
 		wxFontData* self=Luna< wxObject >::checkSubType< wxFontData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontData::SetChosenFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFontData::SetChosenFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetChosenFont(font);
 
@@ -427,8 +404,7 @@ public:
 	// void wxFontData::SetColour(const wxColour & colour)
 	static int _bind_SetColour(lua_State *L) {
 		if (!_lg_typecheck_SetColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFontData::SetColour(const wxColour & colour) function, expected prototype:\nvoid wxFontData::SetColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxFontData::SetColour(const wxColour & colour) function, expected prototype:\nvoid wxFontData::SetColour(const wxColour & colour)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* colour_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -439,8 +415,7 @@ public:
 
 		wxFontData* self=Luna< wxObject >::checkSubType< wxFontData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontData::SetColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFontData::SetColour(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetColour(colour);
 
@@ -450,8 +425,7 @@ public:
 	// void wxFontData::SetInitialFont(const wxFont & font)
 	static int _bind_SetInitialFont(lua_State *L) {
 		if (!_lg_typecheck_SetInitialFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFontData::SetInitialFont(const wxFont & font) function, expected prototype:\nvoid wxFontData::SetInitialFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxFontData::SetInitialFont(const wxFont & font) function, expected prototype:\nvoid wxFontData::SetInitialFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -462,8 +436,7 @@ public:
 
 		wxFontData* self=Luna< wxObject >::checkSubType< wxFontData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontData::SetInitialFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFontData::SetInitialFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetInitialFont(font);
 
@@ -473,8 +446,7 @@ public:
 	// void wxFontData::SetRange(int min, int max)
 	static int _bind_SetRange(lua_State *L) {
 		if (!_lg_typecheck_SetRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFontData::SetRange(int min, int max) function, expected prototype:\nvoid wxFontData::SetRange(int min, int max)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxFontData::SetRange(int min, int max) function, expected prototype:\nvoid wxFontData::SetRange(int min, int max)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int min=(int)lua_tointeger(L,2);
@@ -482,8 +454,7 @@ public:
 
 		wxFontData* self=Luna< wxObject >::checkSubType< wxFontData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontData::SetRange(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFontData::SetRange(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRange(min, max);
 
@@ -493,16 +464,14 @@ public:
 	// void wxFontData::SetShowHelp(bool showHelp)
 	static int _bind_SetShowHelp(lua_State *L) {
 		if (!_lg_typecheck_SetShowHelp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFontData::SetShowHelp(bool showHelp) function, expected prototype:\nvoid wxFontData::SetShowHelp(bool showHelp)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxFontData::SetShowHelp(bool showHelp) function, expected prototype:\nvoid wxFontData::SetShowHelp(bool showHelp)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool showHelp=(bool)(lua_toboolean(L,2)==1);
 
 		wxFontData* self=Luna< wxObject >::checkSubType< wxFontData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFontData::SetShowHelp(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFontData::SetShowHelp(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetShowHelp(showHelp);
 
@@ -512,15 +481,13 @@ public:
 	// wxClassInfo * wxFontData::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFontData::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFontData::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFontData::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFontData::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFontData* self=Luna< wxObject >::checkSubType< wxFontData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFontData::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFontData::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxFontData::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -535,8 +502,7 @@ public:
 	// wxFontData & wxFontData::operator=(const wxFontData & data)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFontData & wxFontData::operator=(const wxFontData & data) function, expected prototype:\nwxFontData & wxFontData::operator=(const wxFontData & data)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxFontData & wxFontData::operator=(const wxFontData & data) function, expected prototype:\nwxFontData & wxFontData::operator=(const wxFontData & data)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFontData* data_ptr=(Luna< wxObject >::checkSubType< wxFontData >(L,2));
@@ -547,8 +513,7 @@ public:
 
 		wxFontData* self=Luna< wxObject >::checkSubType< wxFontData >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFontData & wxFontData::operator=(const wxFontData &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFontData & wxFontData::operator=(const wxFontData &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxFontData* lret = &self->operator=(data);
 		if(!lret) return 0; // Do not write NULL pointers.

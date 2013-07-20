@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxIconBundle* self= (wxIconBundle*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -268,8 +265,7 @@ public:
 	// wxIconBundle::wxIconBundle()
 	static wxIconBundle* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle() function, expected prototype:\nwxIconBundle::wxIconBundle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle() function, expected prototype:\nwxIconBundle::wxIconBundle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -279,8 +275,7 @@ public:
 	// wxIconBundle::wxIconBundle(const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY)
 	static wxIconBundle* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY) function, expected prototype:\nwxIconBundle::wxIconBundle(const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY) function, expected prototype:\nwxIconBundle::wxIconBundle(const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -294,8 +289,7 @@ public:
 	// wxIconBundle::wxIconBundle(wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY)
 	static wxIconBundle* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY) function, expected prototype:\nwxIconBundle::wxIconBundle(wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY) function, expected prototype:\nwxIconBundle::wxIconBundle(wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -313,8 +307,7 @@ public:
 	// wxIconBundle::wxIconBundle(const wxIcon & icon)
 	static wxIconBundle* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(const wxIcon & icon) function, expected prototype:\nwxIconBundle::wxIconBundle(const wxIcon & icon)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(const wxIcon & icon) function, expected prototype:\nwxIconBundle::wxIconBundle(const wxIcon & icon)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxIcon* icon_ptr=(Luna< wxObject >::checkSubType< wxIcon >(L,1));
@@ -329,8 +322,7 @@ public:
 	// wxIconBundle::wxIconBundle(const wxIconBundle & ic)
 	static wxIconBundle* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(const wxIconBundle & ic) function, expected prototype:\nwxIconBundle::wxIconBundle(const wxIconBundle & ic)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(const wxIconBundle & ic) function, expected prototype:\nwxIconBundle::wxIconBundle(const wxIconBundle & ic)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxIconBundle* ic_ptr=(Luna< wxObject >::checkSubType< wxIconBundle >(L,1));
@@ -345,8 +337,7 @@ public:
 	// wxIconBundle::wxIconBundle(lua_Table * data)
 	static wxIconBundle* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(lua_Table * data) function, expected prototype:\nwxIconBundle::wxIconBundle(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(lua_Table * data) function, expected prototype:\nwxIconBundle::wxIconBundle(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -356,8 +347,7 @@ public:
 	// wxIconBundle::wxIconBundle(lua_Table * data, const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY)
 	static wxIconBundle* _bind_ctor_overload_7(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(lua_Table * data, const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY) function, expected prototype:\nwxIconBundle::wxIconBundle(lua_Table * data, const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(lua_Table * data, const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY) function, expected prototype:\nwxIconBundle::wxIconBundle(lua_Table * data, const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -371,8 +361,7 @@ public:
 	// wxIconBundle::wxIconBundle(lua_Table * data, wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY)
 	static wxIconBundle* _bind_ctor_overload_8(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(lua_Table * data, wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY) function, expected prototype:\nwxIconBundle::wxIconBundle(lua_Table * data, wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(lua_Table * data, wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY) function, expected prototype:\nwxIconBundle::wxIconBundle(lua_Table * data, wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -390,8 +379,7 @@ public:
 	// wxIconBundle::wxIconBundle(lua_Table * data, const wxIcon & icon)
 	static wxIconBundle* _bind_ctor_overload_9(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_9(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(lua_Table * data, const wxIcon & icon) function, expected prototype:\nwxIconBundle::wxIconBundle(lua_Table * data, const wxIcon & icon)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(lua_Table * data, const wxIcon & icon) function, expected prototype:\nwxIconBundle::wxIconBundle(lua_Table * data, const wxIcon & icon)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxIcon* icon_ptr=(Luna< wxObject >::checkSubType< wxIcon >(L,2));
@@ -406,8 +394,7 @@ public:
 	// wxIconBundle::wxIconBundle(lua_Table * data, const wxIconBundle & ic)
 	static wxIconBundle* _bind_ctor_overload_10(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_10(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(lua_Table * data, const wxIconBundle & ic) function, expected prototype:\nwxIconBundle::wxIconBundle(lua_Table * data, const wxIconBundle & ic)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxIconBundle::wxIconBundle(lua_Table * data, const wxIconBundle & ic) function, expected prototype:\nwxIconBundle::wxIconBundle(lua_Table * data, const wxIconBundle & ic)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxIconBundle* ic_ptr=(Luna< wxObject >::checkSubType< wxIconBundle >(L,2));
@@ -441,8 +428,7 @@ public:
 	// void wxIconBundle::AddIcon(const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY)
 	static int _bind_AddIcon_overload_1(lua_State *L) {
 		if (!_lg_typecheck_AddIcon_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIconBundle::AddIcon(const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY) function, expected prototype:\nvoid wxIconBundle::AddIcon(const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxIconBundle::AddIcon(const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY) function, expected prototype:\nvoid wxIconBundle::AddIcon(const wxString & file, wxBitmapType type = ::wxBITMAP_TYPE_ANY)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -452,8 +438,7 @@ public:
 
 		wxIconBundle* self=Luna< wxObject >::checkSubType< wxIconBundle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIconBundle::AddIcon(const wxString &, wxBitmapType). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIconBundle::AddIcon(const wxString &, wxBitmapType). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddIcon(file, type);
 
@@ -463,8 +448,7 @@ public:
 	// void wxIconBundle::AddIcon(wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY)
 	static int _bind_AddIcon_overload_2(lua_State *L) {
 		if (!_lg_typecheck_AddIcon_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIconBundle::AddIcon(wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY) function, expected prototype:\nvoid wxIconBundle::AddIcon(wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxIconBundle::AddIcon(wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY) function, expected prototype:\nvoid wxIconBundle::AddIcon(wxInputStream & stream, wxBitmapType type = ::wxBITMAP_TYPE_ANY)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -478,8 +462,7 @@ public:
 
 		wxIconBundle* self=Luna< wxObject >::checkSubType< wxIconBundle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIconBundle::AddIcon(wxInputStream &, wxBitmapType). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIconBundle::AddIcon(wxInputStream &, wxBitmapType). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddIcon(stream, type);
 
@@ -489,8 +472,7 @@ public:
 	// void wxIconBundle::AddIcon(const wxIcon & icon)
 	static int _bind_AddIcon_overload_3(lua_State *L) {
 		if (!_lg_typecheck_AddIcon_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIconBundle::AddIcon(const wxIcon & icon) function, expected prototype:\nvoid wxIconBundle::AddIcon(const wxIcon & icon)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxIconBundle::AddIcon(const wxIcon & icon) function, expected prototype:\nvoid wxIconBundle::AddIcon(const wxIcon & icon)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxIcon* icon_ptr=(Luna< wxObject >::checkSubType< wxIcon >(L,2));
@@ -501,8 +483,7 @@ public:
 
 		wxIconBundle* self=Luna< wxObject >::checkSubType< wxIconBundle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIconBundle::AddIcon(const wxIcon &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIconBundle::AddIcon(const wxIcon &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddIcon(icon);
 
@@ -522,8 +503,7 @@ public:
 	// wxIcon wxIconBundle::GetIcon(const wxSize & size) const
 	static int _bind_GetIcon_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetIcon_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIcon wxIconBundle::GetIcon(const wxSize & size) const function, expected prototype:\nwxIcon wxIconBundle::GetIcon(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxIcon wxIconBundle::GetIcon(const wxSize & size) const function, expected prototype:\nwxIcon wxIconBundle::GetIcon(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -534,8 +514,7 @@ public:
 
 		wxIconBundle* self=Luna< wxObject >::checkSubType< wxIconBundle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxIcon wxIconBundle::GetIcon(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxIcon wxIconBundle::GetIcon(const wxSize &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxIcon stack_lret = self->GetIcon(size);
 		wxIcon* lret = new wxIcon(stack_lret);
@@ -549,8 +528,7 @@ public:
 	// wxIcon wxIconBundle::GetIcon(int size = ::wxDefaultCoord) const
 	static int _bind_GetIcon_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetIcon_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIcon wxIconBundle::GetIcon(int size = ::wxDefaultCoord) const function, expected prototype:\nwxIcon wxIconBundle::GetIcon(int size = ::wxDefaultCoord) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxIcon wxIconBundle::GetIcon(int size = ::wxDefaultCoord) const function, expected prototype:\nwxIcon wxIconBundle::GetIcon(int size = ::wxDefaultCoord) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -559,8 +537,7 @@ public:
 
 		wxIconBundle* self=Luna< wxObject >::checkSubType< wxIconBundle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxIcon wxIconBundle::GetIcon(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxIcon wxIconBundle::GetIcon(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxIcon stack_lret = self->GetIcon(size);
 		wxIcon* lret = new wxIcon(stack_lret);
@@ -583,8 +560,7 @@ public:
 	// wxIcon wxIconBundle::GetIconOfExactSize(const wxSize & size) const
 	static int _bind_GetIconOfExactSize(lua_State *L) {
 		if (!_lg_typecheck_GetIconOfExactSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIcon wxIconBundle::GetIconOfExactSize(const wxSize & size) const function, expected prototype:\nwxIcon wxIconBundle::GetIconOfExactSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxIcon wxIconBundle::GetIconOfExactSize(const wxSize & size) const function, expected prototype:\nwxIcon wxIconBundle::GetIconOfExactSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -595,8 +571,7 @@ public:
 
 		wxIconBundle* self=Luna< wxObject >::checkSubType< wxIconBundle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxIcon wxIconBundle::GetIconOfExactSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxIcon wxIconBundle::GetIconOfExactSize(const wxSize &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxIcon stack_lret = self->GetIconOfExactSize(size);
 		wxIcon* lret = new wxIcon(stack_lret);
@@ -610,15 +585,13 @@ public:
 	// size_t wxIconBundle::GetIconCount() const
 	static int _bind_GetIconCount(lua_State *L) {
 		if (!_lg_typecheck_GetIconCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxIconBundle::GetIconCount() const function, expected prototype:\nsize_t wxIconBundle::GetIconCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxIconBundle::GetIconCount() const function, expected prototype:\nsize_t wxIconBundle::GetIconCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxIconBundle* self=Luna< wxObject >::checkSubType< wxIconBundle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxIconBundle::GetIconCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxIconBundle::GetIconCount() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->GetIconCount();
 		lua_pushnumber(L,lret);
@@ -629,16 +602,14 @@ public:
 	// wxIcon wxIconBundle::GetIconByIndex(size_t n) const
 	static int _bind_GetIconByIndex(lua_State *L) {
 		if (!_lg_typecheck_GetIconByIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIcon wxIconBundle::GetIconByIndex(size_t n) const function, expected prototype:\nwxIcon wxIconBundle::GetIconByIndex(size_t n) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxIcon wxIconBundle::GetIconByIndex(size_t n) const function, expected prototype:\nwxIcon wxIconBundle::GetIconByIndex(size_t n) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t n=(size_t)lua_tointeger(L,2);
 
 		wxIconBundle* self=Luna< wxObject >::checkSubType< wxIconBundle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxIcon wxIconBundle::GetIconByIndex(size_t) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxIcon wxIconBundle::GetIconByIndex(size_t) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxIcon stack_lret = self->GetIconByIndex(n);
 		wxIcon* lret = new wxIcon(stack_lret);
@@ -652,15 +623,13 @@ public:
 	// bool wxIconBundle::IsEmpty() const
 	static int _bind_IsEmpty(lua_State *L) {
 		if (!_lg_typecheck_IsEmpty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxIconBundle::IsEmpty() const function, expected prototype:\nbool wxIconBundle::IsEmpty() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxIconBundle::IsEmpty() const function, expected prototype:\nbool wxIconBundle::IsEmpty() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxIconBundle* self=Luna< wxObject >::checkSubType< wxIconBundle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIconBundle::IsEmpty() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxIconBundle::IsEmpty() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -671,15 +640,13 @@ public:
 	// wxClassInfo * wxIconBundle::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxIconBundle::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxIconBundle::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxIconBundle::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxIconBundle::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxIconBundle* self=Luna< wxObject >::checkSubType< wxIconBundle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxIconBundle::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxIconBundle::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxIconBundle::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -694,8 +661,7 @@ public:
 	// wxIconBundle & wxIconBundle::operator=(const wxIconBundle & ic)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIconBundle & wxIconBundle::operator=(const wxIconBundle & ic) function, expected prototype:\nwxIconBundle & wxIconBundle::operator=(const wxIconBundle & ic)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxIconBundle & wxIconBundle::operator=(const wxIconBundle & ic) function, expected prototype:\nwxIconBundle & wxIconBundle::operator=(const wxIconBundle & ic)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxIconBundle* ic_ptr=(Luna< wxObject >::checkSubType< wxIconBundle >(L,2));
@@ -706,8 +672,7 @@ public:
 
 		wxIconBundle* self=Luna< wxObject >::checkSubType< wxIconBundle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxIconBundle & wxIconBundle::operator=(const wxIconBundle &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxIconBundle & wxIconBundle::operator=(const wxIconBundle &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxIconBundle* lret = &self->operator=(ic);
 		if(!lret) return 0; // Do not write NULL pointers.

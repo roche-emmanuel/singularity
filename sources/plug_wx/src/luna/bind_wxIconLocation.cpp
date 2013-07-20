@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxIconLocation*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxIconLocation*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxIconLocation* rhs =(Luna< wxIconLocation >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxIconLocation* self= (wxIconLocation*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxIconLocation >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -131,15 +127,13 @@ public:
 	// bool wxIconLocation::IsOk() const
 	static int _bind_IsOk(lua_State *L) {
 		if (!_lg_typecheck_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxIconLocation::IsOk() const function, expected prototype:\nbool wxIconLocation::IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxIconLocation::IsOk() const function, expected prototype:\nbool wxIconLocation::IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxIconLocation* self=(Luna< wxIconLocation >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxIconLocation::IsOk() const. Got : '%s'",typeid(Luna< wxIconLocation >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxIconLocation::IsOk() const. Got : '%s'\n%s",typeid(Luna< wxIconLocation >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -150,16 +144,14 @@ public:
 	// void wxIconLocation::SetFileName(const wxString & filename)
 	static int _bind_SetFileName(lua_State *L) {
 		if (!_lg_typecheck_SetFileName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxIconLocation::SetFileName(const wxString & filename) function, expected prototype:\nvoid wxIconLocation::SetFileName(const wxString & filename)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxIconLocation::SetFileName(const wxString & filename) function, expected prototype:\nvoid wxIconLocation::SetFileName(const wxString & filename)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxIconLocation* self=(Luna< wxIconLocation >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxIconLocation::SetFileName(const wxString &). Got : '%s'",typeid(Luna< wxIconLocation >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxIconLocation::SetFileName(const wxString &). Got : '%s'\n%s",typeid(Luna< wxIconLocation >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFileName(filename);
 
@@ -169,15 +161,13 @@ public:
 	// const wxString & wxIconLocation::GetFileName() const
 	static int _bind_GetFileName(lua_State *L) {
 		if (!_lg_typecheck_GetFileName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxIconLocation::GetFileName() const function, expected prototype:\nconst wxString & wxIconLocation::GetFileName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxIconLocation::GetFileName() const function, expected prototype:\nconst wxString & wxIconLocation::GetFileName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxIconLocation* self=(Luna< wxIconLocation >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxIconLocation::GetFileName() const. Got : '%s'",typeid(Luna< wxIconLocation >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxString & wxIconLocation::GetFileName() const. Got : '%s'\n%s",typeid(Luna< wxIconLocation >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxString & lret = self->GetFileName();
 		lua_pushlstring(L,lret.data(),lret.size());

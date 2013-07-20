@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxXmlNode*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxXmlNode*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNode* rhs =(Luna< wxXmlNode >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNode* self= (wxXmlNode*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxXmlNode >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -478,8 +473,7 @@ public:
 	// wxXmlNode::wxXmlNode(wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1)
 	static wxXmlNode* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXmlNode::wxXmlNode(wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1) function, expected prototype:\nwxXmlNode::wxXmlNode(wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1)\nClass arguments details:\narg 1 ID = 64848530\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 23837631\narg 6 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in wxXmlNode::wxXmlNode(wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1) function, expected prototype:\nwxXmlNode::wxXmlNode(wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1)\nClass arguments details:\narg 1 ID = 64848530\narg 3 ID = 88196105\narg 4 ID = 88196105\narg 5 ID = 23837631\narg 6 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -498,8 +492,7 @@ public:
 	// wxXmlNode::wxXmlNode(wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1)
 	static wxXmlNode* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXmlNode::wxXmlNode(wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1) function, expected prototype:\nwxXmlNode::wxXmlNode(wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxXmlNode::wxXmlNode(wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1) function, expected prototype:\nwxXmlNode::wxXmlNode(wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -515,8 +508,7 @@ public:
 	// wxXmlNode::wxXmlNode(const wxXmlNode & node)
 	static wxXmlNode* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXmlNode::wxXmlNode(const wxXmlNode & node) function, expected prototype:\nwxXmlNode::wxXmlNode(const wxXmlNode & node)\nClass arguments details:\narg 1 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in wxXmlNode::wxXmlNode(const wxXmlNode & node) function, expected prototype:\nwxXmlNode::wxXmlNode(const wxXmlNode & node)\nClass arguments details:\narg 1 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxXmlNode* node_ptr=(Luna< wxXmlNode >::check(L,1));
@@ -531,8 +523,7 @@ public:
 	// wxXmlNode::wxXmlNode(lua_Table * data, wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1)
 	static wxXmlNode* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXmlNode::wxXmlNode(lua_Table * data, wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1) function, expected prototype:\nwxXmlNode::wxXmlNode(lua_Table * data, wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1)\nClass arguments details:\narg 2 ID = 64848530\narg 4 ID = 88196105\narg 5 ID = 88196105\narg 6 ID = 23837631\narg 7 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in wxXmlNode::wxXmlNode(lua_Table * data, wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1) function, expected prototype:\nwxXmlNode::wxXmlNode(lua_Table * data, wxXmlNode * parent, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, wxXmlAttribute * attrs = NULL, wxXmlNode * next = NULL, int lineNo = -1)\nClass arguments details:\narg 2 ID = 64848530\narg 4 ID = 88196105\narg 5 ID = 88196105\narg 6 ID = 23837631\narg 7 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -551,8 +542,7 @@ public:
 	// wxXmlNode::wxXmlNode(lua_Table * data, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1)
 	static wxXmlNode* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXmlNode::wxXmlNode(lua_Table * data, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1) function, expected prototype:\nwxXmlNode::wxXmlNode(lua_Table * data, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1)\nClass arguments details:\narg 3 ID = 88196105\narg 4 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxXmlNode::wxXmlNode(lua_Table * data, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1) function, expected prototype:\nwxXmlNode::wxXmlNode(lua_Table * data, wxXmlNodeType type, const wxString & name, const wxString & content = wxEmptyString, int lineNo = -1)\nClass arguments details:\narg 3 ID = 88196105\narg 4 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -568,8 +558,7 @@ public:
 	// wxXmlNode::wxXmlNode(lua_Table * data, const wxXmlNode & node)
 	static wxXmlNode* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXmlNode::wxXmlNode(lua_Table * data, const wxXmlNode & node) function, expected prototype:\nwxXmlNode::wxXmlNode(lua_Table * data, const wxXmlNode & node)\nClass arguments details:\narg 2 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in wxXmlNode::wxXmlNode(lua_Table * data, const wxXmlNode & node) function, expected prototype:\nwxXmlNode::wxXmlNode(lua_Table * data, const wxXmlNode & node)\nClass arguments details:\narg 2 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxXmlNode* node_ptr=(Luna< wxXmlNode >::check(L,2));
@@ -599,8 +588,7 @@ public:
 	// void wxXmlNode::AddAttribute(const wxString & name, const wxString & value)
 	static int _bind_AddAttribute_overload_1(lua_State *L) {
 		if (!_lg_typecheck_AddAttribute_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlNode::AddAttribute(const wxString & name, const wxString & value) function, expected prototype:\nvoid wxXmlNode::AddAttribute(const wxString & name, const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlNode::AddAttribute(const wxString & name, const wxString & value) function, expected prototype:\nvoid wxXmlNode::AddAttribute(const wxString & name, const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
@@ -608,8 +596,7 @@ public:
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlNode::AddAttribute(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlNode::AddAttribute(const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddAttribute(name, value);
 
@@ -619,16 +606,14 @@ public:
 	// void wxXmlNode::AddAttribute(wxXmlAttribute * attr)
 	static int _bind_AddAttribute_overload_2(lua_State *L) {
 		if (!_lg_typecheck_AddAttribute_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlNode::AddAttribute(wxXmlAttribute * attr) function, expected prototype:\nvoid wxXmlNode::AddAttribute(wxXmlAttribute * attr)\nClass arguments details:\narg 1 ID = 23837631\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlNode::AddAttribute(wxXmlAttribute * attr) function, expected prototype:\nvoid wxXmlNode::AddAttribute(wxXmlAttribute * attr)\nClass arguments details:\narg 1 ID = 23837631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlAttribute* attr=(Luna< wxXmlAttribute >::check(L,2));
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlNode::AddAttribute(wxXmlAttribute *). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlNode::AddAttribute(wxXmlAttribute *). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddAttribute(attr);
 
@@ -647,16 +632,14 @@ public:
 	// void wxXmlNode::AddChild(wxXmlNode * child)
 	static int _bind_AddChild(lua_State *L) {
 		if (!_lg_typecheck_AddChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlNode::AddChild(wxXmlNode * child) function, expected prototype:\nvoid wxXmlNode::AddChild(wxXmlNode * child)\nClass arguments details:\narg 1 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlNode::AddChild(wxXmlNode * child) function, expected prototype:\nvoid wxXmlNode::AddChild(wxXmlNode * child)\nClass arguments details:\narg 1 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNode* child=(Luna< wxXmlNode >::check(L,2));
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlNode::AddChild(wxXmlNode *). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlNode::AddChild(wxXmlNode *). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddChild(child);
 
@@ -666,16 +649,14 @@ public:
 	// bool wxXmlNode::DeleteAttribute(const wxString & name)
 	static int _bind_DeleteAttribute(lua_State *L) {
 		if (!_lg_typecheck_DeleteAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxXmlNode::DeleteAttribute(const wxString & name) function, expected prototype:\nbool wxXmlNode::DeleteAttribute(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxXmlNode::DeleteAttribute(const wxString & name) function, expected prototype:\nbool wxXmlNode::DeleteAttribute(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXmlNode::DeleteAttribute(const wxString &). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxXmlNode::DeleteAttribute(const wxString &). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DeleteAttribute(name);
 		lua_pushboolean(L,lret?1:0);
@@ -686,8 +667,7 @@ public:
 	// bool wxXmlNode::GetAttribute(const wxString & attrName, wxString * value) const
 	static int _bind_GetAttribute_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetAttribute_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxXmlNode::GetAttribute(const wxString & attrName, wxString * value) const function, expected prototype:\nbool wxXmlNode::GetAttribute(const wxString & attrName, wxString * value) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxXmlNode::GetAttribute(const wxString & attrName, wxString * value) const function, expected prototype:\nbool wxXmlNode::GetAttribute(const wxString & attrName, wxString * value) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString attrName(lua_tostring(L,2),lua_objlen(L,2));
@@ -695,8 +675,7 @@ public:
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXmlNode::GetAttribute(const wxString &, wxString *) const. Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxXmlNode::GetAttribute(const wxString &, wxString *) const. Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetAttribute(attrName, &value);
 		lua_pushboolean(L,lret?1:0);
@@ -707,8 +686,7 @@ public:
 	// wxString wxXmlNode::GetAttribute(const wxString & attrName, const wxString & defaultVal = wxEmptyString) const
 	static int _bind_GetAttribute_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetAttribute_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxXmlNode::GetAttribute(const wxString & attrName, const wxString & defaultVal = wxEmptyString) const function, expected prototype:\nwxString wxXmlNode::GetAttribute(const wxString & attrName, const wxString & defaultVal = wxEmptyString) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxXmlNode::GetAttribute(const wxString & attrName, const wxString & defaultVal = wxEmptyString) const function, expected prototype:\nwxString wxXmlNode::GetAttribute(const wxString & attrName, const wxString & defaultVal = wxEmptyString) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -718,8 +696,7 @@ public:
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxXmlNode::GetAttribute(const wxString &, const wxString &) const. Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxXmlNode::GetAttribute(const wxString &, const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetAttribute(attrName, defaultVal);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -739,15 +716,13 @@ public:
 	// wxXmlAttribute * wxXmlNode::GetAttributes() const
 	static int _bind_GetAttributes(lua_State *L) {
 		if (!_lg_typecheck_GetAttributes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXmlAttribute * wxXmlNode::GetAttributes() const function, expected prototype:\nwxXmlAttribute * wxXmlNode::GetAttributes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxXmlAttribute * wxXmlNode::GetAttributes() const function, expected prototype:\nwxXmlAttribute * wxXmlNode::GetAttributes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxXmlAttribute * wxXmlNode::GetAttributes() const. Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxXmlAttribute * wxXmlNode::GetAttributes() const. Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxXmlAttribute * lret = self->GetAttributes();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -760,15 +735,13 @@ public:
 	// wxXmlNode * wxXmlNode::GetChildren() const
 	static int _bind_GetChildren(lua_State *L) {
 		if (!_lg_typecheck_GetChildren(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXmlNode * wxXmlNode::GetChildren() const function, expected prototype:\nwxXmlNode * wxXmlNode::GetChildren() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxXmlNode * wxXmlNode::GetChildren() const function, expected prototype:\nwxXmlNode * wxXmlNode::GetChildren() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxXmlNode * wxXmlNode::GetChildren() const. Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxXmlNode * wxXmlNode::GetChildren() const. Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxXmlNode * lret = self->GetChildren();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -781,15 +754,13 @@ public:
 	// const wxString & wxXmlNode::GetContent() const
 	static int _bind_GetContent(lua_State *L) {
 		if (!_lg_typecheck_GetContent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxXmlNode::GetContent() const function, expected prototype:\nconst wxString & wxXmlNode::GetContent() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxXmlNode::GetContent() const function, expected prototype:\nconst wxString & wxXmlNode::GetContent() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxXmlNode::GetContent() const. Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxString & wxXmlNode::GetContent() const. Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxString & lret = self->GetContent();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -800,8 +771,7 @@ public:
 	// int wxXmlNode::GetDepth(wxXmlNode * grandparent = NULL) const
 	static int _bind_GetDepth(lua_State *L) {
 		if (!_lg_typecheck_GetDepth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxXmlNode::GetDepth(wxXmlNode * grandparent = NULL) const function, expected prototype:\nint wxXmlNode::GetDepth(wxXmlNode * grandparent = NULL) const\nClass arguments details:\narg 1 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in int wxXmlNode::GetDepth(wxXmlNode * grandparent = NULL) const function, expected prototype:\nint wxXmlNode::GetDepth(wxXmlNode * grandparent = NULL) const\nClass arguments details:\narg 1 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -810,8 +780,7 @@ public:
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxXmlNode::GetDepth(wxXmlNode *) const. Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxXmlNode::GetDepth(wxXmlNode *) const. Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetDepth(grandparent);
 		lua_pushnumber(L,lret);
@@ -822,15 +791,13 @@ public:
 	// bool wxXmlNode::GetNoConversion() const
 	static int _bind_GetNoConversion(lua_State *L) {
 		if (!_lg_typecheck_GetNoConversion(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxXmlNode::GetNoConversion() const function, expected prototype:\nbool wxXmlNode::GetNoConversion() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxXmlNode::GetNoConversion() const function, expected prototype:\nbool wxXmlNode::GetNoConversion() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXmlNode::GetNoConversion() const. Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxXmlNode::GetNoConversion() const. Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetNoConversion();
 		lua_pushboolean(L,lret?1:0);
@@ -841,15 +808,13 @@ public:
 	// int wxXmlNode::GetLineNumber() const
 	static int _bind_GetLineNumber(lua_State *L) {
 		if (!_lg_typecheck_GetLineNumber(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxXmlNode::GetLineNumber() const function, expected prototype:\nint wxXmlNode::GetLineNumber() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxXmlNode::GetLineNumber() const function, expected prototype:\nint wxXmlNode::GetLineNumber() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxXmlNode::GetLineNumber() const. Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxXmlNode::GetLineNumber() const. Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetLineNumber();
 		lua_pushnumber(L,lret);
@@ -860,15 +825,13 @@ public:
 	// const wxString & wxXmlNode::GetName() const
 	static int _bind_GetName(lua_State *L) {
 		if (!_lg_typecheck_GetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxXmlNode::GetName() const function, expected prototype:\nconst wxString & wxXmlNode::GetName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxXmlNode::GetName() const function, expected prototype:\nconst wxString & wxXmlNode::GetName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxXmlNode::GetName() const. Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxString & wxXmlNode::GetName() const. Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxString & lret = self->GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -879,15 +842,13 @@ public:
 	// wxXmlNode * wxXmlNode::GetNext() const
 	static int _bind_GetNext(lua_State *L) {
 		if (!_lg_typecheck_GetNext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXmlNode * wxXmlNode::GetNext() const function, expected prototype:\nwxXmlNode * wxXmlNode::GetNext() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxXmlNode * wxXmlNode::GetNext() const function, expected prototype:\nwxXmlNode * wxXmlNode::GetNext() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxXmlNode * wxXmlNode::GetNext() const. Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxXmlNode * wxXmlNode::GetNext() const. Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxXmlNode * lret = self->GetNext();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -900,15 +861,13 @@ public:
 	// wxString wxXmlNode::GetNodeContent() const
 	static int _bind_GetNodeContent(lua_State *L) {
 		if (!_lg_typecheck_GetNodeContent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxXmlNode::GetNodeContent() const function, expected prototype:\nwxString wxXmlNode::GetNodeContent() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxXmlNode::GetNodeContent() const function, expected prototype:\nwxString wxXmlNode::GetNodeContent() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxXmlNode::GetNodeContent() const. Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxXmlNode::GetNodeContent() const. Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetNodeContent();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -919,15 +878,13 @@ public:
 	// wxXmlNode * wxXmlNode::GetParent() const
 	static int _bind_GetParent(lua_State *L) {
 		if (!_lg_typecheck_GetParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXmlNode * wxXmlNode::GetParent() const function, expected prototype:\nwxXmlNode * wxXmlNode::GetParent() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxXmlNode * wxXmlNode::GetParent() const function, expected prototype:\nwxXmlNode * wxXmlNode::GetParent() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxXmlNode * wxXmlNode::GetParent() const. Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxXmlNode * wxXmlNode::GetParent() const. Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxXmlNode * lret = self->GetParent();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -940,15 +897,13 @@ public:
 	// wxXmlNodeType wxXmlNode::GetType() const
 	static int _bind_GetType(lua_State *L) {
 		if (!_lg_typecheck_GetType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXmlNodeType wxXmlNode::GetType() const function, expected prototype:\nwxXmlNodeType wxXmlNode::GetType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxXmlNodeType wxXmlNode::GetType() const function, expected prototype:\nwxXmlNodeType wxXmlNode::GetType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxXmlNodeType wxXmlNode::GetType() const. Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxXmlNodeType wxXmlNode::GetType() const. Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxXmlNodeType lret = self->GetType();
 		lua_pushnumber(L,lret);
@@ -959,16 +914,14 @@ public:
 	// bool wxXmlNode::HasAttribute(const wxString & attrName) const
 	static int _bind_HasAttribute(lua_State *L) {
 		if (!_lg_typecheck_HasAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxXmlNode::HasAttribute(const wxString & attrName) const function, expected prototype:\nbool wxXmlNode::HasAttribute(const wxString & attrName) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxXmlNode::HasAttribute(const wxString & attrName) const function, expected prototype:\nbool wxXmlNode::HasAttribute(const wxString & attrName) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString attrName(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXmlNode::HasAttribute(const wxString &) const. Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxXmlNode::HasAttribute(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasAttribute(attrName);
 		lua_pushboolean(L,lret?1:0);
@@ -979,8 +932,7 @@ public:
 	// bool wxXmlNode::InsertChild(wxXmlNode * child, wxXmlNode * followingNode)
 	static int _bind_InsertChild(lua_State *L) {
 		if (!_lg_typecheck_InsertChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxXmlNode::InsertChild(wxXmlNode * child, wxXmlNode * followingNode) function, expected prototype:\nbool wxXmlNode::InsertChild(wxXmlNode * child, wxXmlNode * followingNode)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in bool wxXmlNode::InsertChild(wxXmlNode * child, wxXmlNode * followingNode) function, expected prototype:\nbool wxXmlNode::InsertChild(wxXmlNode * child, wxXmlNode * followingNode)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNode* child=(Luna< wxXmlNode >::check(L,2));
@@ -988,8 +940,7 @@ public:
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXmlNode::InsertChild(wxXmlNode *, wxXmlNode *). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxXmlNode::InsertChild(wxXmlNode *, wxXmlNode *). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->InsertChild(child, followingNode);
 		lua_pushboolean(L,lret?1:0);
@@ -1000,8 +951,7 @@ public:
 	// bool wxXmlNode::InsertChildAfter(wxXmlNode * child, wxXmlNode * precedingNode)
 	static int _bind_InsertChildAfter(lua_State *L) {
 		if (!_lg_typecheck_InsertChildAfter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxXmlNode::InsertChildAfter(wxXmlNode * child, wxXmlNode * precedingNode) function, expected prototype:\nbool wxXmlNode::InsertChildAfter(wxXmlNode * child, wxXmlNode * precedingNode)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in bool wxXmlNode::InsertChildAfter(wxXmlNode * child, wxXmlNode * precedingNode) function, expected prototype:\nbool wxXmlNode::InsertChildAfter(wxXmlNode * child, wxXmlNode * precedingNode)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNode* child=(Luna< wxXmlNode >::check(L,2));
@@ -1009,8 +959,7 @@ public:
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXmlNode::InsertChildAfter(wxXmlNode *, wxXmlNode *). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxXmlNode::InsertChildAfter(wxXmlNode *, wxXmlNode *). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->InsertChildAfter(child, precedingNode);
 		lua_pushboolean(L,lret?1:0);
@@ -1021,15 +970,13 @@ public:
 	// bool wxXmlNode::IsWhitespaceOnly() const
 	static int _bind_IsWhitespaceOnly(lua_State *L) {
 		if (!_lg_typecheck_IsWhitespaceOnly(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxXmlNode::IsWhitespaceOnly() const function, expected prototype:\nbool wxXmlNode::IsWhitespaceOnly() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxXmlNode::IsWhitespaceOnly() const function, expected prototype:\nbool wxXmlNode::IsWhitespaceOnly() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXmlNode::IsWhitespaceOnly() const. Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxXmlNode::IsWhitespaceOnly() const. Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsWhitespaceOnly();
 		lua_pushboolean(L,lret?1:0);
@@ -1040,16 +987,14 @@ public:
 	// bool wxXmlNode::RemoveChild(wxXmlNode * child)
 	static int _bind_RemoveChild(lua_State *L) {
 		if (!_lg_typecheck_RemoveChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxXmlNode::RemoveChild(wxXmlNode * child) function, expected prototype:\nbool wxXmlNode::RemoveChild(wxXmlNode * child)\nClass arguments details:\narg 1 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in bool wxXmlNode::RemoveChild(wxXmlNode * child) function, expected prototype:\nbool wxXmlNode::RemoveChild(wxXmlNode * child)\nClass arguments details:\narg 1 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNode* child=(Luna< wxXmlNode >::check(L,2));
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXmlNode::RemoveChild(wxXmlNode *). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxXmlNode::RemoveChild(wxXmlNode *). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RemoveChild(child);
 		lua_pushboolean(L,lret?1:0);
@@ -1060,16 +1005,14 @@ public:
 	// void wxXmlNode::SetAttributes(wxXmlAttribute * attr)
 	static int _bind_SetAttributes(lua_State *L) {
 		if (!_lg_typecheck_SetAttributes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlNode::SetAttributes(wxXmlAttribute * attr) function, expected prototype:\nvoid wxXmlNode::SetAttributes(wxXmlAttribute * attr)\nClass arguments details:\narg 1 ID = 23837631\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlNode::SetAttributes(wxXmlAttribute * attr) function, expected prototype:\nvoid wxXmlNode::SetAttributes(wxXmlAttribute * attr)\nClass arguments details:\narg 1 ID = 23837631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlAttribute* attr=(Luna< wxXmlAttribute >::check(L,2));
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlNode::SetAttributes(wxXmlAttribute *). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlNode::SetAttributes(wxXmlAttribute *). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAttributes(attr);
 
@@ -1079,16 +1022,14 @@ public:
 	// void wxXmlNode::SetChildren(wxXmlNode * child)
 	static int _bind_SetChildren(lua_State *L) {
 		if (!_lg_typecheck_SetChildren(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlNode::SetChildren(wxXmlNode * child) function, expected prototype:\nvoid wxXmlNode::SetChildren(wxXmlNode * child)\nClass arguments details:\narg 1 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlNode::SetChildren(wxXmlNode * child) function, expected prototype:\nvoid wxXmlNode::SetChildren(wxXmlNode * child)\nClass arguments details:\narg 1 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNode* child=(Luna< wxXmlNode >::check(L,2));
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlNode::SetChildren(wxXmlNode *). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlNode::SetChildren(wxXmlNode *). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetChildren(child);
 
@@ -1098,16 +1039,14 @@ public:
 	// void wxXmlNode::SetContent(const wxString & con)
 	static int _bind_SetContent(lua_State *L) {
 		if (!_lg_typecheck_SetContent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlNode::SetContent(const wxString & con) function, expected prototype:\nvoid wxXmlNode::SetContent(const wxString & con)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlNode::SetContent(const wxString & con) function, expected prototype:\nvoid wxXmlNode::SetContent(const wxString & con)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString con(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlNode::SetContent(const wxString &). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlNode::SetContent(const wxString &). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetContent(con);
 
@@ -1117,16 +1056,14 @@ public:
 	// void wxXmlNode::SetName(const wxString & name)
 	static int _bind_SetName(lua_State *L) {
 		if (!_lg_typecheck_SetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlNode::SetName(const wxString & name) function, expected prototype:\nvoid wxXmlNode::SetName(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlNode::SetName(const wxString & name) function, expected prototype:\nvoid wxXmlNode::SetName(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlNode::SetName(const wxString &). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlNode::SetName(const wxString &). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetName(name);
 
@@ -1136,16 +1073,14 @@ public:
 	// void wxXmlNode::SetNext(wxXmlNode * next)
 	static int _bind_SetNext(lua_State *L) {
 		if (!_lg_typecheck_SetNext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlNode::SetNext(wxXmlNode * next) function, expected prototype:\nvoid wxXmlNode::SetNext(wxXmlNode * next)\nClass arguments details:\narg 1 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlNode::SetNext(wxXmlNode * next) function, expected prototype:\nvoid wxXmlNode::SetNext(wxXmlNode * next)\nClass arguments details:\narg 1 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNode* next=(Luna< wxXmlNode >::check(L,2));
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlNode::SetNext(wxXmlNode *). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlNode::SetNext(wxXmlNode *). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetNext(next);
 
@@ -1155,16 +1090,14 @@ public:
 	// void wxXmlNode::SetNoConversion(bool noconversion)
 	static int _bind_SetNoConversion(lua_State *L) {
 		if (!_lg_typecheck_SetNoConversion(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlNode::SetNoConversion(bool noconversion) function, expected prototype:\nvoid wxXmlNode::SetNoConversion(bool noconversion)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlNode::SetNoConversion(bool noconversion) function, expected prototype:\nvoid wxXmlNode::SetNoConversion(bool noconversion)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool noconversion=(bool)(lua_toboolean(L,2)==1);
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlNode::SetNoConversion(bool). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlNode::SetNoConversion(bool). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetNoConversion(noconversion);
 
@@ -1174,16 +1107,14 @@ public:
 	// void wxXmlNode::SetParent(wxXmlNode * parent)
 	static int _bind_SetParent(lua_State *L) {
 		if (!_lg_typecheck_SetParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlNode::SetParent(wxXmlNode * parent) function, expected prototype:\nvoid wxXmlNode::SetParent(wxXmlNode * parent)\nClass arguments details:\narg 1 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlNode::SetParent(wxXmlNode * parent) function, expected prototype:\nvoid wxXmlNode::SetParent(wxXmlNode * parent)\nClass arguments details:\narg 1 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNode* parent=(Luna< wxXmlNode >::check(L,2));
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlNode::SetParent(wxXmlNode *). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlNode::SetParent(wxXmlNode *). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetParent(parent);
 
@@ -1193,16 +1124,14 @@ public:
 	// void wxXmlNode::SetType(wxXmlNodeType type)
 	static int _bind_SetType(lua_State *L) {
 		if (!_lg_typecheck_SetType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlNode::SetType(wxXmlNodeType type) function, expected prototype:\nvoid wxXmlNode::SetType(wxXmlNodeType type)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlNode::SetType(wxXmlNodeType type) function, expected prototype:\nvoid wxXmlNode::SetType(wxXmlNodeType type)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNodeType type=(wxXmlNodeType)lua_tointeger(L,2);
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlNode::SetType(wxXmlNodeType). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlNode::SetType(wxXmlNodeType). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetType(type);
 
@@ -1212,8 +1141,7 @@ public:
 	// void wxXmlNode::base_AddAttribute(const wxString & name, const wxString & value)
 	static int _bind_base_AddAttribute_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_AddAttribute_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlNode::base_AddAttribute(const wxString & name, const wxString & value) function, expected prototype:\nvoid wxXmlNode::base_AddAttribute(const wxString & name, const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlNode::base_AddAttribute(const wxString & name, const wxString & value) function, expected prototype:\nvoid wxXmlNode::base_AddAttribute(const wxString & name, const wxString & value)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
@@ -1221,8 +1149,7 @@ public:
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlNode::base_AddAttribute(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlNode::base_AddAttribute(const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxXmlNode::AddAttribute(name, value);
 
@@ -1232,16 +1159,14 @@ public:
 	// void wxXmlNode::base_AddAttribute(wxXmlAttribute * attr)
 	static int _bind_base_AddAttribute_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_AddAttribute_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlNode::base_AddAttribute(wxXmlAttribute * attr) function, expected prototype:\nvoid wxXmlNode::base_AddAttribute(wxXmlAttribute * attr)\nClass arguments details:\narg 1 ID = 23837631\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlNode::base_AddAttribute(wxXmlAttribute * attr) function, expected prototype:\nvoid wxXmlNode::base_AddAttribute(wxXmlAttribute * attr)\nClass arguments details:\narg 1 ID = 23837631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlAttribute* attr=(Luna< wxXmlAttribute >::check(L,2));
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlNode::base_AddAttribute(wxXmlAttribute *). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlNode::base_AddAttribute(wxXmlAttribute *). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxXmlNode::AddAttribute(attr);
 
@@ -1260,16 +1185,14 @@ public:
 	// void wxXmlNode::base_AddChild(wxXmlNode * child)
 	static int _bind_base_AddChild(lua_State *L) {
 		if (!_lg_typecheck_base_AddChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlNode::base_AddChild(wxXmlNode * child) function, expected prototype:\nvoid wxXmlNode::base_AddChild(wxXmlNode * child)\nClass arguments details:\narg 1 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlNode::base_AddChild(wxXmlNode * child) function, expected prototype:\nvoid wxXmlNode::base_AddChild(wxXmlNode * child)\nClass arguments details:\narg 1 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNode* child=(Luna< wxXmlNode >::check(L,2));
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlNode::base_AddChild(wxXmlNode *). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlNode::base_AddChild(wxXmlNode *). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxXmlNode::AddChild(child);
 
@@ -1279,16 +1202,14 @@ public:
 	// bool wxXmlNode::base_DeleteAttribute(const wxString & name)
 	static int _bind_base_DeleteAttribute(lua_State *L) {
 		if (!_lg_typecheck_base_DeleteAttribute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxXmlNode::base_DeleteAttribute(const wxString & name) function, expected prototype:\nbool wxXmlNode::base_DeleteAttribute(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxXmlNode::base_DeleteAttribute(const wxString & name) function, expected prototype:\nbool wxXmlNode::base_DeleteAttribute(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXmlNode::base_DeleteAttribute(const wxString &). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxXmlNode::base_DeleteAttribute(const wxString &). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxXmlNode::DeleteAttribute(name);
 		lua_pushboolean(L,lret?1:0);
@@ -1299,8 +1220,7 @@ public:
 	// bool wxXmlNode::base_InsertChild(wxXmlNode * child, wxXmlNode * followingNode)
 	static int _bind_base_InsertChild(lua_State *L) {
 		if (!_lg_typecheck_base_InsertChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxXmlNode::base_InsertChild(wxXmlNode * child, wxXmlNode * followingNode) function, expected prototype:\nbool wxXmlNode::base_InsertChild(wxXmlNode * child, wxXmlNode * followingNode)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in bool wxXmlNode::base_InsertChild(wxXmlNode * child, wxXmlNode * followingNode) function, expected prototype:\nbool wxXmlNode::base_InsertChild(wxXmlNode * child, wxXmlNode * followingNode)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNode* child=(Luna< wxXmlNode >::check(L,2));
@@ -1308,8 +1228,7 @@ public:
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXmlNode::base_InsertChild(wxXmlNode *, wxXmlNode *). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxXmlNode::base_InsertChild(wxXmlNode *, wxXmlNode *). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxXmlNode::InsertChild(child, followingNode);
 		lua_pushboolean(L,lret?1:0);
@@ -1320,8 +1239,7 @@ public:
 	// bool wxXmlNode::base_InsertChildAfter(wxXmlNode * child, wxXmlNode * precedingNode)
 	static int _bind_base_InsertChildAfter(lua_State *L) {
 		if (!_lg_typecheck_base_InsertChildAfter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxXmlNode::base_InsertChildAfter(wxXmlNode * child, wxXmlNode * precedingNode) function, expected prototype:\nbool wxXmlNode::base_InsertChildAfter(wxXmlNode * child, wxXmlNode * precedingNode)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in bool wxXmlNode::base_InsertChildAfter(wxXmlNode * child, wxXmlNode * precedingNode) function, expected prototype:\nbool wxXmlNode::base_InsertChildAfter(wxXmlNode * child, wxXmlNode * precedingNode)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNode* child=(Luna< wxXmlNode >::check(L,2));
@@ -1329,8 +1247,7 @@ public:
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXmlNode::base_InsertChildAfter(wxXmlNode *, wxXmlNode *). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxXmlNode::base_InsertChildAfter(wxXmlNode *, wxXmlNode *). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxXmlNode::InsertChildAfter(child, precedingNode);
 		lua_pushboolean(L,lret?1:0);
@@ -1341,16 +1258,14 @@ public:
 	// bool wxXmlNode::base_RemoveChild(wxXmlNode * child)
 	static int _bind_base_RemoveChild(lua_State *L) {
 		if (!_lg_typecheck_base_RemoveChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxXmlNode::base_RemoveChild(wxXmlNode * child) function, expected prototype:\nbool wxXmlNode::base_RemoveChild(wxXmlNode * child)\nClass arguments details:\narg 1 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in bool wxXmlNode::base_RemoveChild(wxXmlNode * child) function, expected prototype:\nbool wxXmlNode::base_RemoveChild(wxXmlNode * child)\nClass arguments details:\narg 1 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNode* child=(Luna< wxXmlNode >::check(L,2));
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXmlNode::base_RemoveChild(wxXmlNode *). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxXmlNode::base_RemoveChild(wxXmlNode *). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxXmlNode::RemoveChild(child);
 		lua_pushboolean(L,lret?1:0);
@@ -1363,8 +1278,7 @@ public:
 	// wxXmlNode & wxXmlNode::operator=(const wxXmlNode & node)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXmlNode & wxXmlNode::operator=(const wxXmlNode & node) function, expected prototype:\nwxXmlNode & wxXmlNode::operator=(const wxXmlNode & node)\nClass arguments details:\narg 1 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in wxXmlNode & wxXmlNode::operator=(const wxXmlNode & node) function, expected prototype:\nwxXmlNode & wxXmlNode::operator=(const wxXmlNode & node)\nClass arguments details:\narg 1 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxXmlNode* node_ptr=(Luna< wxXmlNode >::check(L,2));
@@ -1375,8 +1289,7 @@ public:
 
 		wxXmlNode* self=(Luna< wxXmlNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxXmlNode & wxXmlNode::operator=(const wxXmlNode &). Got : '%s'",typeid(Luna< wxXmlNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxXmlNode & wxXmlNode::operator=(const wxXmlNode &). Got : '%s'\n%s",typeid(Luna< wxXmlNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxXmlNode* lret = &self->operator=(node);
 		if(!lret) return 0; // Do not write NULL pointers.

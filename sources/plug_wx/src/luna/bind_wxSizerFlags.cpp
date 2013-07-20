@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxSizerFlags*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxSizerFlags*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxSizerFlags* rhs =(Luna< wxSizerFlags >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxSizerFlags* self= (wxSizerFlags*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxSizerFlags >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -236,8 +232,7 @@ public:
 	// wxSizerFlags::wxSizerFlags(int proportion = 0)
 	static wxSizerFlags* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags::wxSizerFlags(int proportion = 0) function, expected prototype:\nwxSizerFlags::wxSizerFlags(int proportion = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags::wxSizerFlags(int proportion = 0) function, expected prototype:\nwxSizerFlags::wxSizerFlags(int proportion = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -252,16 +247,14 @@ public:
 	// wxSizerFlags & wxSizerFlags::Align(int alignment)
 	static int _bind_Align(lua_State *L) {
 		if (!_lg_typecheck_Align(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Align(int alignment) function, expected prototype:\nwxSizerFlags & wxSizerFlags::Align(int alignment)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Align(int alignment) function, expected prototype:\nwxSizerFlags & wxSizerFlags::Align(int alignment)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int alignment=(int)lua_tointeger(L,2);
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Align(int). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Align(int). Got : '%s'\n%s",typeid(Luna< wxSizerFlags >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSizerFlags* lret = &self->Align(alignment);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -274,8 +267,7 @@ public:
 	// wxSizerFlags & wxSizerFlags::Border(int direction, int borderinpixels)
 	static int _bind_Border_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Border_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Border(int direction, int borderinpixels) function, expected prototype:\nwxSizerFlags & wxSizerFlags::Border(int direction, int borderinpixels)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Border(int direction, int borderinpixels) function, expected prototype:\nwxSizerFlags & wxSizerFlags::Border(int direction, int borderinpixels)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int direction=(int)lua_tointeger(L,2);
@@ -283,8 +275,7 @@ public:
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Border(int, int). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Border(int, int). Got : '%s'\n%s",typeid(Luna< wxSizerFlags >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSizerFlags* lret = &self->Border(direction, borderinpixels);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -297,8 +288,7 @@ public:
 	// wxSizerFlags & wxSizerFlags::Border(int direction = ::wxALL)
 	static int _bind_Border_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Border_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Border(int direction = ::wxALL) function, expected prototype:\nwxSizerFlags & wxSizerFlags::Border(int direction = ::wxALL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Border(int direction = ::wxALL) function, expected prototype:\nwxSizerFlags & wxSizerFlags::Border(int direction = ::wxALL)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -307,8 +297,7 @@ public:
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Border(int). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Border(int). Got : '%s'\n%s",typeid(Luna< wxSizerFlags >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSizerFlags* lret = &self->Border(direction);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -330,15 +319,13 @@ public:
 	// wxSizerFlags & wxSizerFlags::Bottom()
 	static int _bind_Bottom(lua_State *L) {
 		if (!_lg_typecheck_Bottom(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Bottom() function, expected prototype:\nwxSizerFlags & wxSizerFlags::Bottom()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Bottom() function, expected prototype:\nwxSizerFlags & wxSizerFlags::Bottom()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Bottom(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Bottom(). Got : '%s'\n%s",typeid(Luna< wxSizerFlags >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSizerFlags* lret = &self->Bottom();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -351,15 +338,13 @@ public:
 	// wxSizerFlags & wxSizerFlags::Center()
 	static int _bind_Center(lua_State *L) {
 		if (!_lg_typecheck_Center(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Center() function, expected prototype:\nwxSizerFlags & wxSizerFlags::Center()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Center() function, expected prototype:\nwxSizerFlags & wxSizerFlags::Center()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Center(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Center(). Got : '%s'\n%s",typeid(Luna< wxSizerFlags >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSizerFlags* lret = &self->Center();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -372,15 +357,13 @@ public:
 	// wxSizerFlags & wxSizerFlags::Centre()
 	static int _bind_Centre(lua_State *L) {
 		if (!_lg_typecheck_Centre(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Centre() function, expected prototype:\nwxSizerFlags & wxSizerFlags::Centre()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Centre() function, expected prototype:\nwxSizerFlags & wxSizerFlags::Centre()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Centre(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Centre(). Got : '%s'\n%s",typeid(Luna< wxSizerFlags >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSizerFlags* lret = &self->Centre();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -393,8 +376,7 @@ public:
 	// wxSizerFlags & wxSizerFlags::DoubleBorder(int direction = ::wxALL)
 	static int _bind_DoubleBorder(lua_State *L) {
 		if (!_lg_typecheck_DoubleBorder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::DoubleBorder(int direction = ::wxALL) function, expected prototype:\nwxSizerFlags & wxSizerFlags::DoubleBorder(int direction = ::wxALL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::DoubleBorder(int direction = ::wxALL) function, expected prototype:\nwxSizerFlags & wxSizerFlags::DoubleBorder(int direction = ::wxALL)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -403,8 +385,7 @@ public:
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::DoubleBorder(int). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::DoubleBorder(int). Got : '%s'\n%s",typeid(Luna< wxSizerFlags >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSizerFlags* lret = &self->DoubleBorder(direction);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -417,15 +398,13 @@ public:
 	// wxSizerFlags & wxSizerFlags::DoubleHorzBorder()
 	static int _bind_DoubleHorzBorder(lua_State *L) {
 		if (!_lg_typecheck_DoubleHorzBorder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::DoubleHorzBorder() function, expected prototype:\nwxSizerFlags & wxSizerFlags::DoubleHorzBorder()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::DoubleHorzBorder() function, expected prototype:\nwxSizerFlags & wxSizerFlags::DoubleHorzBorder()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::DoubleHorzBorder(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::DoubleHorzBorder(). Got : '%s'\n%s",typeid(Luna< wxSizerFlags >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSizerFlags* lret = &self->DoubleHorzBorder();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -438,15 +417,13 @@ public:
 	// wxSizerFlags & wxSizerFlags::Expand()
 	static int _bind_Expand(lua_State *L) {
 		if (!_lg_typecheck_Expand(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Expand() function, expected prototype:\nwxSizerFlags & wxSizerFlags::Expand()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Expand() function, expected prototype:\nwxSizerFlags & wxSizerFlags::Expand()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Expand(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Expand(). Got : '%s'\n%s",typeid(Luna< wxSizerFlags >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSizerFlags* lret = &self->Expand();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -459,15 +436,13 @@ public:
 	// wxSizerFlags & wxSizerFlags::FixedMinSize()
 	static int _bind_FixedMinSize(lua_State *L) {
 		if (!_lg_typecheck_FixedMinSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::FixedMinSize() function, expected prototype:\nwxSizerFlags & wxSizerFlags::FixedMinSize()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::FixedMinSize() function, expected prototype:\nwxSizerFlags & wxSizerFlags::FixedMinSize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::FixedMinSize(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::FixedMinSize(). Got : '%s'\n%s",typeid(Luna< wxSizerFlags >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSizerFlags* lret = &self->FixedMinSize();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -480,15 +455,13 @@ public:
 	// wxSizerFlags & wxSizerFlags::ReserveSpaceEvenIfHidden()
 	static int _bind_ReserveSpaceEvenIfHidden(lua_State *L) {
 		if (!_lg_typecheck_ReserveSpaceEvenIfHidden(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::ReserveSpaceEvenIfHidden() function, expected prototype:\nwxSizerFlags & wxSizerFlags::ReserveSpaceEvenIfHidden()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::ReserveSpaceEvenIfHidden() function, expected prototype:\nwxSizerFlags & wxSizerFlags::ReserveSpaceEvenIfHidden()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::ReserveSpaceEvenIfHidden(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::ReserveSpaceEvenIfHidden(). Got : '%s'\n%s",typeid(Luna< wxSizerFlags >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSizerFlags* lret = &self->ReserveSpaceEvenIfHidden();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -501,15 +474,13 @@ public:
 	// wxSizerFlags & wxSizerFlags::Left()
 	static int _bind_Left(lua_State *L) {
 		if (!_lg_typecheck_Left(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Left() function, expected prototype:\nwxSizerFlags & wxSizerFlags::Left()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Left() function, expected prototype:\nwxSizerFlags & wxSizerFlags::Left()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Left(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Left(). Got : '%s'\n%s",typeid(Luna< wxSizerFlags >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSizerFlags* lret = &self->Left();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -522,16 +493,14 @@ public:
 	// wxSizerFlags & wxSizerFlags::Proportion(int proportion)
 	static int _bind_Proportion(lua_State *L) {
 		if (!_lg_typecheck_Proportion(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Proportion(int proportion) function, expected prototype:\nwxSizerFlags & wxSizerFlags::Proportion(int proportion)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Proportion(int proportion) function, expected prototype:\nwxSizerFlags & wxSizerFlags::Proportion(int proportion)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int proportion=(int)lua_tointeger(L,2);
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Proportion(int). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Proportion(int). Got : '%s'\n%s",typeid(Luna< wxSizerFlags >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSizerFlags* lret = &self->Proportion(proportion);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -544,15 +513,13 @@ public:
 	// wxSizerFlags & wxSizerFlags::Right()
 	static int _bind_Right(lua_State *L) {
 		if (!_lg_typecheck_Right(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Right() function, expected prototype:\nwxSizerFlags & wxSizerFlags::Right()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Right() function, expected prototype:\nwxSizerFlags & wxSizerFlags::Right()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Right(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Right(). Got : '%s'\n%s",typeid(Luna< wxSizerFlags >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSizerFlags* lret = &self->Right();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -565,15 +532,13 @@ public:
 	// wxSizerFlags & wxSizerFlags::Shaped()
 	static int _bind_Shaped(lua_State *L) {
 		if (!_lg_typecheck_Shaped(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Shaped() function, expected prototype:\nwxSizerFlags & wxSizerFlags::Shaped()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Shaped() function, expected prototype:\nwxSizerFlags & wxSizerFlags::Shaped()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Shaped(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Shaped(). Got : '%s'\n%s",typeid(Luna< wxSizerFlags >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSizerFlags* lret = &self->Shaped();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -586,15 +551,13 @@ public:
 	// wxSizerFlags & wxSizerFlags::Top()
 	static int _bind_Top(lua_State *L) {
 		if (!_lg_typecheck_Top(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Top() function, expected prototype:\nwxSizerFlags & wxSizerFlags::Top()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::Top() function, expected prototype:\nwxSizerFlags & wxSizerFlags::Top()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Top(). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::Top(). Got : '%s'\n%s",typeid(Luna< wxSizerFlags >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSizerFlags* lret = &self->Top();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -607,8 +570,7 @@ public:
 	// wxSizerFlags & wxSizerFlags::TripleBorder(int direction = ::wxALL)
 	static int _bind_TripleBorder(lua_State *L) {
 		if (!_lg_typecheck_TripleBorder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::TripleBorder(int direction = ::wxALL) function, expected prototype:\nwxSizerFlags & wxSizerFlags::TripleBorder(int direction = ::wxALL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerFlags & wxSizerFlags::TripleBorder(int direction = ::wxALL) function, expected prototype:\nwxSizerFlags & wxSizerFlags::TripleBorder(int direction = ::wxALL)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -617,8 +579,7 @@ public:
 
 		wxSizerFlags* self=(Luna< wxSizerFlags >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::TripleBorder(int). Got : '%s'",typeid(Luna< wxSizerFlags >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerFlags & wxSizerFlags::TripleBorder(int). Got : '%s'\n%s",typeid(Luna< wxSizerFlags >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxSizerFlags* lret = &self->TripleBorder(direction);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -631,8 +592,7 @@ public:
 	// static int wxSizerFlags::GetDefaultBorder()
 	static int _bind_GetDefaultBorder(lua_State *L) {
 		if (!_lg_typecheck_GetDefaultBorder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static int wxSizerFlags::GetDefaultBorder() function, expected prototype:\nstatic int wxSizerFlags::GetDefaultBorder()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static int wxSizerFlags::GetDefaultBorder() function, expected prototype:\nstatic int wxSizerFlags::GetDefaultBorder()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 

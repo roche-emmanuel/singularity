@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRibbonPage* self= (wxRibbonPage*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -105,7 +102,7 @@ public:
 		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,56813631) ) return false;
 		if( luatop>3 && (!(Luna< wxObject >::checkSubType< wxBitmap >(L,4))) ) return false;
-		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
 		return true;
 	}
 
@@ -127,7 +124,7 @@ public:
 		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
 		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,56813631) ) return false;
 		if( luatop>4 && (!(Luna< wxObject >::checkSubType< wxBitmap >(L,5))) ) return false;
-		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
 		return true;
 	}
 
@@ -141,7 +138,7 @@ public:
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
 		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,56813631) ) return false;
-		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
 		return true;
 	}
 
@@ -612,14 +609,14 @@ public:
 	inline static bool _lg_typecheck_base_SetExtraStyle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_SetWindowStyleFlag(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -877,7 +874,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -935,8 +932,7 @@ public:
 	// wxRibbonPage::wxRibbonPage()
 	static wxRibbonPage* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRibbonPage::wxRibbonPage() function, expected prototype:\nwxRibbonPage::wxRibbonPage()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRibbonPage::wxRibbonPage() function, expected prototype:\nwxRibbonPage::wxRibbonPage()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -946,8 +942,7 @@ public:
 	// wxRibbonPage::wxRibbonPage(wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)
 	static wxRibbonPage* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRibbonPage::wxRibbonPage(wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0) function, expected prototype:\nwxRibbonPage::wxRibbonPage(wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxRibbonPage::wxRibbonPage(wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0) function, expected prototype:\nwxRibbonPage::wxRibbonPage(wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -960,7 +955,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxRibbonPage::wxRibbonPage function");
 		}
 		const wxBitmap & icon=luatop>3 ? *icon_ptr : (const wxBitmap&)wxNullBitmap;
-		long style=luatop>4 ? (long)lua_tointeger(L,5) : (long)0;
+		long style=luatop>4 ? (long)lua_tonumber(L,5) : (long)0;
 
 		return new wxRibbonPage(parent, id, label, icon, style);
 	}
@@ -968,8 +963,7 @@ public:
 	// wxRibbonPage::wxRibbonPage(lua_Table * data)
 	static wxRibbonPage* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRibbonPage::wxRibbonPage(lua_Table * data) function, expected prototype:\nwxRibbonPage::wxRibbonPage(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxRibbonPage::wxRibbonPage(lua_Table * data) function, expected prototype:\nwxRibbonPage::wxRibbonPage(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -979,8 +973,7 @@ public:
 	// wxRibbonPage::wxRibbonPage(lua_Table * data, wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)
 	static wxRibbonPage* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxRibbonPage::wxRibbonPage(lua_Table * data, wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0) function, expected prototype:\nwxRibbonPage::wxRibbonPage(lua_Table * data, wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\narg 5 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxRibbonPage::wxRibbonPage(lua_Table * data, wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0) function, expected prototype:\nwxRibbonPage::wxRibbonPage(lua_Table * data, wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\narg 5 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -993,7 +986,7 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxRibbonPage::wxRibbonPage function");
 		}
 		const wxBitmap & icon=luatop>4 ? *icon_ptr : (const wxBitmap&)wxNullBitmap;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)0;
+		long style=luatop>5 ? (long)lua_tonumber(L,6) : (long)0;
 
 		return new wrapper_wxRibbonPage(L,NULL, parent, id, label, icon, style);
 	}
@@ -1014,8 +1007,7 @@ public:
 	// bool wxRibbonPage::Create(wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::Create(wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0) function, expected prototype:\nbool wxRibbonPage::Create(wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::Create(wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0) function, expected prototype:\nbool wxRibbonPage::Create(wxRibbonBar * parent, int id = ::wxID_ANY, const wxString & label = wxEmptyString, const wxBitmap & icon = wxNullBitmap, long style = 0)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1028,12 +1020,11 @@ public:
 			luaL_error(L, "Dereferencing NULL pointer for arg icon in wxRibbonPage::Create function");
 		}
 		const wxBitmap & icon=luatop>4 ? *icon_ptr : (const wxBitmap&)wxNullBitmap;
-		long style=luatop>5 ? (long)lua_tointeger(L,6) : (long)0;
+		long style=luatop>5 ? (long)lua_tonumber(L,6) : (long)0;
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::Create(wxRibbonBar *, int, const wxString &, const wxBitmap &, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::Create(wxRibbonBar *, int, const wxString &, const wxBitmap &, long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Create(parent, id, label, icon, style);
 		lua_pushboolean(L,lret?1:0);
@@ -1044,16 +1035,14 @@ public:
 	// void wxRibbonPage::SetArtProvider(wxRibbonArtProvider * art)
 	static int _bind_SetArtProvider(lua_State *L) {
 		if (!_lg_typecheck_SetArtProvider(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::SetArtProvider(wxRibbonArtProvider * art) function, expected prototype:\nvoid wxRibbonPage::SetArtProvider(wxRibbonArtProvider * art)\nClass arguments details:\narg 1 ID = 48201749\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::SetArtProvider(wxRibbonArtProvider * art) function, expected prototype:\nvoid wxRibbonPage::SetArtProvider(wxRibbonArtProvider * art)\nClass arguments details:\narg 1 ID = 48201749\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRibbonArtProvider* art=(Luna< wxRibbonArtProvider >::check(L,2));
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::SetArtProvider(wxRibbonArtProvider *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::SetArtProvider(wxRibbonArtProvider *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetArtProvider(art);
 
@@ -1063,15 +1052,13 @@ public:
 	// wxBitmap & wxRibbonPage::GetIcon()
 	static int _bind_GetIcon(lua_State *L) {
 		if (!_lg_typecheck_GetIcon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBitmap & wxRibbonPage::GetIcon() function, expected prototype:\nwxBitmap & wxRibbonPage::GetIcon()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBitmap & wxRibbonPage::GetIcon() function, expected prototype:\nwxBitmap & wxRibbonPage::GetIcon()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap & wxRibbonPage::GetIcon(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBitmap & wxRibbonPage::GetIcon(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxBitmap* lret = &self->GetIcon();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1084,8 +1071,7 @@ public:
 	// void wxRibbonPage::SetSizeWithScrollButtonAdjustment(int x, int y, int width, int height)
 	static int _bind_SetSizeWithScrollButtonAdjustment(lua_State *L) {
 		if (!_lg_typecheck_SetSizeWithScrollButtonAdjustment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::SetSizeWithScrollButtonAdjustment(int x, int y, int width, int height) function, expected prototype:\nvoid wxRibbonPage::SetSizeWithScrollButtonAdjustment(int x, int y, int width, int height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::SetSizeWithScrollButtonAdjustment(int x, int y, int width, int height) function, expected prototype:\nvoid wxRibbonPage::SetSizeWithScrollButtonAdjustment(int x, int y, int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,2);
@@ -1095,8 +1081,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::SetSizeWithScrollButtonAdjustment(int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::SetSizeWithScrollButtonAdjustment(int, int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSizeWithScrollButtonAdjustment(x, y, width, height);
 
@@ -1106,16 +1091,14 @@ public:
 	// void wxRibbonPage::AdjustRectToIncludeScrollButtons(wxRect * rect) const
 	static int _bind_AdjustRectToIncludeScrollButtons(lua_State *L) {
 		if (!_lg_typecheck_AdjustRectToIncludeScrollButtons(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::AdjustRectToIncludeScrollButtons(wxRect * rect) const function, expected prototype:\nvoid wxRibbonPage::AdjustRectToIncludeScrollButtons(wxRect * rect) const\nClass arguments details:\narg 1 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::AdjustRectToIncludeScrollButtons(wxRect * rect) const function, expected prototype:\nvoid wxRibbonPage::AdjustRectToIncludeScrollButtons(wxRect * rect) const\nClass arguments details:\narg 1 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRect* rect=(Luna< wxRect >::check(L,2));
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::AdjustRectToIncludeScrollButtons(wxRect *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::AdjustRectToIncludeScrollButtons(wxRect *) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AdjustRectToIncludeScrollButtons(rect);
 
@@ -1125,15 +1108,13 @@ public:
 	// bool wxRibbonPage::DismissExpandedPanel()
 	static int _bind_DismissExpandedPanel(lua_State *L) {
 		if (!_lg_typecheck_DismissExpandedPanel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::DismissExpandedPanel() function, expected prototype:\nbool wxRibbonPage::DismissExpandedPanel()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::DismissExpandedPanel() function, expected prototype:\nbool wxRibbonPage::DismissExpandedPanel()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::DismissExpandedPanel(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::DismissExpandedPanel(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DismissExpandedPanel();
 		lua_pushboolean(L,lret?1:0);
@@ -1144,15 +1125,13 @@ public:
 	// bool wxRibbonPage::Realize()
 	static int _bind_Realize(lua_State *L) {
 		if (!_lg_typecheck_Realize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::Realize() function, expected prototype:\nbool wxRibbonPage::Realize()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::Realize() function, expected prototype:\nbool wxRibbonPage::Realize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::Realize(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::Realize(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Realize();
 		lua_pushboolean(L,lret?1:0);
@@ -1163,16 +1142,14 @@ public:
 	// bool wxRibbonPage::ScrollLines(int lines)
 	static int _bind_ScrollLines(lua_State *L) {
 		if (!_lg_typecheck_ScrollLines(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::ScrollLines(int lines) function, expected prototype:\nbool wxRibbonPage::ScrollLines(int lines)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::ScrollLines(int lines) function, expected prototype:\nbool wxRibbonPage::ScrollLines(int lines)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int lines=(int)lua_tointeger(L,2);
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::ScrollLines(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);
@@ -1183,16 +1160,14 @@ public:
 	// bool wxRibbonPage::ScrollPixels(int pixels)
 	static int _bind_ScrollPixels(lua_State *L) {
 		if (!_lg_typecheck_ScrollPixels(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::ScrollPixels(int pixels) function, expected prototype:\nbool wxRibbonPage::ScrollPixels(int pixels)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::ScrollPixels(int pixels) function, expected prototype:\nbool wxRibbonPage::ScrollPixels(int pixels)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pixels=(int)lua_tointeger(L,2);
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::ScrollPixels(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::ScrollPixels(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ScrollPixels(pixels);
 		lua_pushboolean(L,lret?1:0);
@@ -1203,15 +1178,13 @@ public:
 	// wxOrientation wxRibbonPage::GetMajorAxis() const
 	static int _bind_GetMajorAxis(lua_State *L) {
 		if (!_lg_typecheck_GetMajorAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxOrientation wxRibbonPage::GetMajorAxis() const function, expected prototype:\nwxOrientation wxRibbonPage::GetMajorAxis() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxOrientation wxRibbonPage::GetMajorAxis() const function, expected prototype:\nwxOrientation wxRibbonPage::GetMajorAxis() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxOrientation wxRibbonPage::GetMajorAxis() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxOrientation wxRibbonPage::GetMajorAxis() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxOrientation lret = self->GetMajorAxis();
 		lua_pushnumber(L,lret);
@@ -1222,15 +1195,13 @@ public:
 	// wxClassInfo * wxRibbonPage::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxRibbonPage::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxRibbonPage::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxRibbonPage::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxRibbonPage::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxRibbonPage::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxRibbonPage::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxRibbonPage::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1243,15 +1214,13 @@ public:
 	// bool wxRibbonPage::base_AcceptsFocus() const
 	static int _bind_base_AcceptsFocus(lua_State *L) {
 		if (!_lg_typecheck_base_AcceptsFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_AcceptsFocus() const function, expected prototype:\nbool wxRibbonPage::base_AcceptsFocus() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_AcceptsFocus() const function, expected prototype:\nbool wxRibbonPage::base_AcceptsFocus() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_AcceptsFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_AcceptsFocus() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::AcceptsFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1262,15 +1231,13 @@ public:
 	// bool wxRibbonPage::base_AcceptsFocusFromKeyboard() const
 	static int _bind_base_AcceptsFocusFromKeyboard(lua_State *L) {
 		if (!_lg_typecheck_base_AcceptsFocusFromKeyboard(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_AcceptsFocusFromKeyboard() const function, expected prototype:\nbool wxRibbonPage::base_AcceptsFocusFromKeyboard() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_AcceptsFocusFromKeyboard() const function, expected prototype:\nbool wxRibbonPage::base_AcceptsFocusFromKeyboard() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_AcceptsFocusFromKeyboard() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_AcceptsFocusFromKeyboard() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::AcceptsFocusFromKeyboard();
 		lua_pushboolean(L,lret?1:0);
@@ -1281,15 +1248,13 @@ public:
 	// bool wxRibbonPage::base_AcceptsFocusRecursively() const
 	static int _bind_base_AcceptsFocusRecursively(lua_State *L) {
 		if (!_lg_typecheck_base_AcceptsFocusRecursively(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_AcceptsFocusRecursively() const function, expected prototype:\nbool wxRibbonPage::base_AcceptsFocusRecursively() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_AcceptsFocusRecursively() const function, expected prototype:\nbool wxRibbonPage::base_AcceptsFocusRecursively() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_AcceptsFocusRecursively() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_AcceptsFocusRecursively() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::AcceptsFocusRecursively();
 		lua_pushboolean(L,lret?1:0);
@@ -1300,15 +1265,13 @@ public:
 	// bool wxRibbonPage::base_HasFocus() const
 	static int _bind_base_HasFocus(lua_State *L) {
 		if (!_lg_typecheck_base_HasFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_HasFocus() const function, expected prototype:\nbool wxRibbonPage::base_HasFocus() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_HasFocus() const function, expected prototype:\nbool wxRibbonPage::base_HasFocus() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_HasFocus() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_HasFocus() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::HasFocus();
 		lua_pushboolean(L,lret?1:0);
@@ -1319,16 +1282,14 @@ public:
 	// void wxRibbonPage::base_SetCanFocus(bool canFocus)
 	static int _bind_base_SetCanFocus(lua_State *L) {
 		if (!_lg_typecheck_base_SetCanFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetCanFocus(bool canFocus) function, expected prototype:\nvoid wxRibbonPage::base_SetCanFocus(bool canFocus)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetCanFocus(bool canFocus) function, expected prototype:\nvoid wxRibbonPage::base_SetCanFocus(bool canFocus)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool canFocus=(bool)(lua_toboolean(L,2)==1);
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetCanFocus(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetCanFocus(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetCanFocus(canFocus);
 
@@ -1338,15 +1299,13 @@ public:
 	// void wxRibbonPage::base_SetFocus()
 	static int _bind_base_SetFocus(lua_State *L) {
 		if (!_lg_typecheck_base_SetFocus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetFocus() function, expected prototype:\nvoid wxRibbonPage::base_SetFocus()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetFocus() function, expected prototype:\nvoid wxRibbonPage::base_SetFocus()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetFocus(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetFocus(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetFocus();
 
@@ -1356,15 +1315,13 @@ public:
 	// void wxRibbonPage::base_SetFocusFromKbd()
 	static int _bind_base_SetFocusFromKbd(lua_State *L) {
 		if (!_lg_typecheck_base_SetFocusFromKbd(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetFocusFromKbd() function, expected prototype:\nvoid wxRibbonPage::base_SetFocusFromKbd()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetFocusFromKbd() function, expected prototype:\nvoid wxRibbonPage::base_SetFocusFromKbd()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetFocusFromKbd(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetFocusFromKbd(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetFocusFromKbd();
 
@@ -1374,16 +1331,14 @@ public:
 	// void wxRibbonPage::base_AddChild(wxWindow * child)
 	static int _bind_base_AddChild(lua_State *L) {
 		if (!_lg_typecheck_base_AddChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_AddChild(wxWindow * child) function, expected prototype:\nvoid wxRibbonPage::base_AddChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_AddChild(wxWindow * child) function, expected prototype:\nvoid wxRibbonPage::base_AddChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* child=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_AddChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_AddChild(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::AddChild(child);
 
@@ -1393,16 +1348,14 @@ public:
 	// void wxRibbonPage::base_RemoveChild(wxWindow * child)
 	static int _bind_base_RemoveChild(lua_State *L) {
 		if (!_lg_typecheck_base_RemoveChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_RemoveChild(wxWindow * child) function, expected prototype:\nvoid wxRibbonPage::base_RemoveChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_RemoveChild(wxWindow * child) function, expected prototype:\nvoid wxRibbonPage::base_RemoveChild(wxWindow * child)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* child=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_RemoveChild(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_RemoveChild(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::RemoveChild(child);
 
@@ -1412,16 +1365,14 @@ public:
 	// bool wxRibbonPage::base_Reparent(wxWindow * newParent)
 	static int _bind_base_Reparent(lua_State *L) {
 		if (!_lg_typecheck_base_Reparent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_Reparent(wxWindow * newParent) function, expected prototype:\nbool wxRibbonPage::base_Reparent(wxWindow * newParent)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_Reparent(wxWindow * newParent) function, expected prototype:\nbool wxRibbonPage::base_Reparent(wxWindow * newParent)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* newParent=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_Reparent(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_Reparent(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::Reparent(newParent);
 		lua_pushboolean(L,lret?1:0);
@@ -1432,8 +1383,7 @@ public:
 	// void wxRibbonPage::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true)
 	static int _bind_base_AlwaysShowScrollbars(lua_State *L) {
 		if (!_lg_typecheck_base_AlwaysShowScrollbars(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true) function, expected prototype:\nvoid wxRibbonPage::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true) function, expected prototype:\nvoid wxRibbonPage::base_AlwaysShowScrollbars(bool hflag = true, bool vflag = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1443,8 +1393,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_AlwaysShowScrollbars(bool, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_AlwaysShowScrollbars(bool, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::AlwaysShowScrollbars(hflag, vflag);
 
@@ -1454,16 +1403,14 @@ public:
 	// int wxRibbonPage::base_GetScrollPos(int orientation) const
 	static int _bind_base_GetScrollPos(lua_State *L) {
 		if (!_lg_typecheck_base_GetScrollPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxRibbonPage::base_GetScrollPos(int orientation) const function, expected prototype:\nint wxRibbonPage::base_GetScrollPos(int orientation) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxRibbonPage::base_GetScrollPos(int orientation) const function, expected prototype:\nint wxRibbonPage::base_GetScrollPos(int orientation) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orientation=(int)lua_tointeger(L,2);
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRibbonPage::base_GetScrollPos(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxRibbonPage::base_GetScrollPos(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxRibbonPage::GetScrollPos(orientation);
 		lua_pushnumber(L,lret);
@@ -1474,16 +1421,14 @@ public:
 	// int wxRibbonPage::base_GetScrollRange(int orientation) const
 	static int _bind_base_GetScrollRange(lua_State *L) {
 		if (!_lg_typecheck_base_GetScrollRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxRibbonPage::base_GetScrollRange(int orientation) const function, expected prototype:\nint wxRibbonPage::base_GetScrollRange(int orientation) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxRibbonPage::base_GetScrollRange(int orientation) const function, expected prototype:\nint wxRibbonPage::base_GetScrollRange(int orientation) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orientation=(int)lua_tointeger(L,2);
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRibbonPage::base_GetScrollRange(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxRibbonPage::base_GetScrollRange(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxRibbonPage::GetScrollRange(orientation);
 		lua_pushnumber(L,lret);
@@ -1494,16 +1439,14 @@ public:
 	// int wxRibbonPage::base_GetScrollThumb(int orientation) const
 	static int _bind_base_GetScrollThumb(lua_State *L) {
 		if (!_lg_typecheck_base_GetScrollThumb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxRibbonPage::base_GetScrollThumb(int orientation) const function, expected prototype:\nint wxRibbonPage::base_GetScrollThumb(int orientation) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxRibbonPage::base_GetScrollThumb(int orientation) const function, expected prototype:\nint wxRibbonPage::base_GetScrollThumb(int orientation) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orientation=(int)lua_tointeger(L,2);
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRibbonPage::base_GetScrollThumb(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxRibbonPage::base_GetScrollThumb(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxRibbonPage::GetScrollThumb(orientation);
 		lua_pushnumber(L,lret);
@@ -1514,16 +1457,14 @@ public:
 	// bool wxRibbonPage::base_IsScrollbarAlwaysShown(int orient) const
 	static int _bind_base_IsScrollbarAlwaysShown(lua_State *L) {
 		if (!_lg_typecheck_base_IsScrollbarAlwaysShown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_IsScrollbarAlwaysShown(int orient) const function, expected prototype:\nbool wxRibbonPage::base_IsScrollbarAlwaysShown(int orient) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_IsScrollbarAlwaysShown(int orient) const function, expected prototype:\nbool wxRibbonPage::base_IsScrollbarAlwaysShown(int orient) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orient=(int)lua_tointeger(L,2);
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_IsScrollbarAlwaysShown(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_IsScrollbarAlwaysShown(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::IsScrollbarAlwaysShown(orient);
 		lua_pushboolean(L,lret?1:0);
@@ -1534,16 +1475,14 @@ public:
 	// bool wxRibbonPage::base_ScrollPages(int pages)
 	static int _bind_base_ScrollPages(lua_State *L) {
 		if (!_lg_typecheck_base_ScrollPages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_ScrollPages(int pages) function, expected prototype:\nbool wxRibbonPage::base_ScrollPages(int pages)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_ScrollPages(int pages) function, expected prototype:\nbool wxRibbonPage::base_ScrollPages(int pages)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int pages=(int)lua_tointeger(L,2);
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_ScrollPages(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_ScrollPages(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::ScrollPages(pages);
 		lua_pushboolean(L,lret?1:0);
@@ -1554,8 +1493,7 @@ public:
 	// void wxRibbonPage::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL)
 	static int _bind_base_ScrollWindow(lua_State *L) {
 		if (!_lg_typecheck_base_ScrollWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL) function, expected prototype:\nvoid wxRibbonPage::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL)\nClass arguments details:\narg 3 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL) function, expected prototype:\nvoid wxRibbonPage::base_ScrollWindow(int dx, int dy, const wxRect * rect = NULL)\nClass arguments details:\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1566,8 +1504,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_ScrollWindow(int, int, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_ScrollWindow(int, int, const wxRect *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::ScrollWindow(dx, dy, rect);
 
@@ -1577,8 +1514,7 @@ public:
 	// void wxRibbonPage::base_SetScrollPos(int orientation, int pos, bool refresh = true)
 	static int _bind_base_SetScrollPos(lua_State *L) {
 		if (!_lg_typecheck_base_SetScrollPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetScrollPos(int orientation, int pos, bool refresh = true) function, expected prototype:\nvoid wxRibbonPage::base_SetScrollPos(int orientation, int pos, bool refresh = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetScrollPos(int orientation, int pos, bool refresh = true) function, expected prototype:\nvoid wxRibbonPage::base_SetScrollPos(int orientation, int pos, bool refresh = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1589,8 +1525,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetScrollPos(int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetScrollPos(int, int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetScrollPos(orientation, pos, refresh);
 
@@ -1600,8 +1535,7 @@ public:
 	// void wxRibbonPage::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)
 	static int _bind_base_SetScrollbar(lua_State *L) {
 		if (!_lg_typecheck_base_SetScrollbar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true) function, expected prototype:\nvoid wxRibbonPage::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true) function, expected prototype:\nvoid wxRibbonPage::base_SetScrollbar(int orientation, int position, int thumbSize, int range, bool refresh = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1614,8 +1548,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetScrollbar(int, int, int, int, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetScrollbar(int, int, int, int, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetScrollbar(orientation, position, thumbSize, range, refresh);
 
@@ -1625,8 +1558,7 @@ public:
 	// wxSize wxRibbonPage::base_ClientToWindowSize(const wxSize & size) const
 	static int _bind_base_ClientToWindowSize(lua_State *L) {
 		if (!_lg_typecheck_base_ClientToWindowSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_ClientToWindowSize(const wxSize & size) const function, expected prototype:\nwxSize wxRibbonPage::base_ClientToWindowSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_ClientToWindowSize(const wxSize & size) const function, expected prototype:\nwxSize wxRibbonPage::base_ClientToWindowSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -1637,8 +1569,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_ClientToWindowSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_ClientToWindowSize(const wxSize &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxRibbonPage::ClientToWindowSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1652,8 +1583,7 @@ public:
 	// wxSize wxRibbonPage::base_WindowToClientSize(const wxSize & size) const
 	static int _bind_base_WindowToClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_WindowToClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_WindowToClientSize(const wxSize & size) const function, expected prototype:\nwxSize wxRibbonPage::base_WindowToClientSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_WindowToClientSize(const wxSize & size) const function, expected prototype:\nwxSize wxRibbonPage::base_WindowToClientSize(const wxSize & size) const\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -1664,8 +1594,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_WindowToClientSize(const wxSize &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_WindowToClientSize(const wxSize &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxRibbonPage::WindowToClientSize(size);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1679,15 +1608,13 @@ public:
 	// void wxRibbonPage::base_Fit()
 	static int _bind_base_Fit(lua_State *L) {
 		if (!_lg_typecheck_base_Fit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_Fit() function, expected prototype:\nvoid wxRibbonPage::base_Fit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_Fit() function, expected prototype:\nvoid wxRibbonPage::base_Fit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_Fit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_Fit(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::Fit();
 
@@ -1697,15 +1624,13 @@ public:
 	// void wxRibbonPage::base_FitInside()
 	static int _bind_base_FitInside(lua_State *L) {
 		if (!_lg_typecheck_base_FitInside(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_FitInside() function, expected prototype:\nvoid wxRibbonPage::base_FitInside()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_FitInside() function, expected prototype:\nvoid wxRibbonPage::base_FitInside()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_FitInside(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_FitInside(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::FitInside();
 
@@ -1715,15 +1640,13 @@ public:
 	// wxSize wxRibbonPage::base_GetEffectiveMinSize() const
 	static int _bind_base_GetEffectiveMinSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetEffectiveMinSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_GetEffectiveMinSize() const function, expected prototype:\nwxSize wxRibbonPage::base_GetEffectiveMinSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_GetEffectiveMinSize() const function, expected prototype:\nwxSize wxRibbonPage::base_GetEffectiveMinSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_GetEffectiveMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_GetEffectiveMinSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxRibbonPage::GetEffectiveMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1737,15 +1660,13 @@ public:
 	// wxSize wxRibbonPage::base_GetMaxClientSize() const
 	static int _bind_base_GetMaxClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMaxClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_GetMaxClientSize() const function, expected prototype:\nwxSize wxRibbonPage::base_GetMaxClientSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_GetMaxClientSize() const function, expected prototype:\nwxSize wxRibbonPage::base_GetMaxClientSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_GetMaxClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_GetMaxClientSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxRibbonPage::GetMaxClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1759,15 +1680,13 @@ public:
 	// wxSize wxRibbonPage::base_GetMaxSize() const
 	static int _bind_base_GetMaxSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMaxSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_GetMaxSize() const function, expected prototype:\nwxSize wxRibbonPage::base_GetMaxSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_GetMaxSize() const function, expected prototype:\nwxSize wxRibbonPage::base_GetMaxSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_GetMaxSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_GetMaxSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxRibbonPage::GetMaxSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1781,15 +1700,13 @@ public:
 	// wxSize wxRibbonPage::base_GetMinClientSize() const
 	static int _bind_base_GetMinClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMinClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_GetMinClientSize() const function, expected prototype:\nwxSize wxRibbonPage::base_GetMinClientSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_GetMinClientSize() const function, expected prototype:\nwxSize wxRibbonPage::base_GetMinClientSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_GetMinClientSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_GetMinClientSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxRibbonPage::GetMinClientSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1803,15 +1720,13 @@ public:
 	// wxSize wxRibbonPage::base_GetMinSize() const
 	static int _bind_base_GetMinSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetMinSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_GetMinSize() const function, expected prototype:\nwxSize wxRibbonPage::base_GetMinSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_GetMinSize() const function, expected prototype:\nwxSize wxRibbonPage::base_GetMinSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_GetMinSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_GetMinSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxRibbonPage::GetMinSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1825,15 +1740,13 @@ public:
 	// wxSize wxRibbonPage::base_GetBestVirtualSize() const
 	static int _bind_base_GetBestVirtualSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetBestVirtualSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_GetBestVirtualSize() const function, expected prototype:\nwxSize wxRibbonPage::base_GetBestVirtualSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_GetBestVirtualSize() const function, expected prototype:\nwxSize wxRibbonPage::base_GetBestVirtualSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_GetBestVirtualSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_GetBestVirtualSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxRibbonPage::GetBestVirtualSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1847,15 +1760,13 @@ public:
 	// wxSize wxRibbonPage::base_GetWindowBorderSize() const
 	static int _bind_base_GetWindowBorderSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetWindowBorderSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_GetWindowBorderSize() const function, expected prototype:\nwxSize wxRibbonPage::base_GetWindowBorderSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxRibbonPage::base_GetWindowBorderSize() const function, expected prototype:\nwxSize wxRibbonPage::base_GetWindowBorderSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_GetWindowBorderSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxRibbonPage::base_GetWindowBorderSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxRibbonPage::GetWindowBorderSize();
 		wxSize* lret = new wxSize(stack_lret);
@@ -1869,8 +1780,7 @@ public:
 	// bool wxRibbonPage::base_InformFirstDirection(int direction, int size, int availableOtherDir)
 	static int _bind_base_InformFirstDirection(lua_State *L) {
 		if (!_lg_typecheck_base_InformFirstDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_InformFirstDirection(int direction, int size, int availableOtherDir) function, expected prototype:\nbool wxRibbonPage::base_InformFirstDirection(int direction, int size, int availableOtherDir)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_InformFirstDirection(int direction, int size, int availableOtherDir) function, expected prototype:\nbool wxRibbonPage::base_InformFirstDirection(int direction, int size, int availableOtherDir)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int direction=(int)lua_tointeger(L,2);
@@ -1879,8 +1789,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_InformFirstDirection(int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -1891,8 +1800,7 @@ public:
 	// void wxRibbonPage::base_SendSizeEvent(int flags = 0)
 	static int _bind_base_SendSizeEvent(lua_State *L) {
 		if (!_lg_typecheck_base_SendSizeEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SendSizeEvent(int flags = 0) function, expected prototype:\nvoid wxRibbonPage::base_SendSizeEvent(int flags = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SendSizeEvent(int flags = 0) function, expected prototype:\nvoid wxRibbonPage::base_SendSizeEvent(int flags = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1901,8 +1809,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SendSizeEvent(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SendSizeEvent(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SendSizeEvent(flags);
 
@@ -1912,8 +1819,7 @@ public:
 	// void wxRibbonPage::base_SetMaxClientSize(const wxSize & size)
 	static int _bind_base_SetMaxClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMaxClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetMaxClientSize(const wxSize & size) function, expected prototype:\nvoid wxRibbonPage::base_SetMaxClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetMaxClientSize(const wxSize & size) function, expected prototype:\nvoid wxRibbonPage::base_SetMaxClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -1924,8 +1830,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetMaxClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetMaxClientSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetMaxClientSize(size);
 
@@ -1935,8 +1840,7 @@ public:
 	// void wxRibbonPage::base_SetMaxSize(const wxSize & size)
 	static int _bind_base_SetMaxSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMaxSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetMaxSize(const wxSize & size) function, expected prototype:\nvoid wxRibbonPage::base_SetMaxSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetMaxSize(const wxSize & size) function, expected prototype:\nvoid wxRibbonPage::base_SetMaxSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -1947,8 +1851,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetMaxSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetMaxSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetMaxSize(size);
 
@@ -1958,8 +1861,7 @@ public:
 	// void wxRibbonPage::base_SetMinClientSize(const wxSize & size)
 	static int _bind_base_SetMinClientSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMinClientSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetMinClientSize(const wxSize & size) function, expected prototype:\nvoid wxRibbonPage::base_SetMinClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetMinClientSize(const wxSize & size) function, expected prototype:\nvoid wxRibbonPage::base_SetMinClientSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -1970,8 +1872,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetMinClientSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetMinClientSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetMinClientSize(size);
 
@@ -1981,8 +1882,7 @@ public:
 	// void wxRibbonPage::base_SetMinSize(const wxSize & size)
 	static int _bind_base_SetMinSize(lua_State *L) {
 		if (!_lg_typecheck_base_SetMinSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetMinSize(const wxSize & size) function, expected prototype:\nvoid wxRibbonPage::base_SetMinSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetMinSize(const wxSize & size) function, expected prototype:\nvoid wxRibbonPage::base_SetMinSize(const wxSize & size)\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* size_ptr=(Luna< wxSize >::check(L,2));
@@ -1993,8 +1893,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetMinSize(const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetMinSize(const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetMinSize(size);
 
@@ -2004,8 +1903,7 @@ public:
 	// void wxRibbonPage::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)
 	static int _bind_base_SetSizeHints_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_SetSizeHints_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize) function, expected prototype:\nvoid wxRibbonPage::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)\nClass arguments details:\narg 1 ID = 20268751\narg 2 ID = 20268751\narg 3 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize) function, expected prototype:\nvoid wxRibbonPage::base_SetSizeHints(const wxSize & minSize, const wxSize & maxSize = wxDefaultSize, const wxSize & incSize = wxDefaultSize)\nClass arguments details:\narg 1 ID = 20268751\narg 2 ID = 20268751\narg 3 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2028,8 +1926,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetSizeHints(const wxSize &, const wxSize &, const wxSize &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetSizeHints(minSize, maxSize, incSize);
 
@@ -2039,8 +1936,7 @@ public:
 	// void wxRibbonPage::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)
 	static int _bind_base_SetSizeHints_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_SetSizeHints_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1) function, expected prototype:\nvoid wxRibbonPage::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1) function, expected prototype:\nvoid wxRibbonPage::base_SetSizeHints(int minW, int minH, int maxW = -1, int maxH = -1, int incW = -1, int incH = -1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2054,8 +1950,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetSizeHints(int, int, int, int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetSizeHints(minW, minH, maxW, maxH, incW, incH);
 
@@ -2074,15 +1969,13 @@ public:
 	// wxPoint wxRibbonPage::base_GetClientAreaOrigin() const
 	static int _bind_base_GetClientAreaOrigin(lua_State *L) {
 		if (!_lg_typecheck_base_GetClientAreaOrigin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint wxRibbonPage::base_GetClientAreaOrigin() const function, expected prototype:\nwxPoint wxRibbonPage::base_GetClientAreaOrigin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint wxRibbonPage::base_GetClientAreaOrigin() const function, expected prototype:\nwxPoint wxRibbonPage::base_GetClientAreaOrigin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxRibbonPage::base_GetClientAreaOrigin() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint wxRibbonPage::base_GetClientAreaOrigin() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint stack_lret = self->wxRibbonPage::GetClientAreaOrigin();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -2096,15 +1989,13 @@ public:
 	// void wxRibbonPage::base_ClearBackground()
 	static int _bind_base_ClearBackground(lua_State *L) {
 		if (!_lg_typecheck_base_ClearBackground(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_ClearBackground() function, expected prototype:\nvoid wxRibbonPage::base_ClearBackground()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_ClearBackground() function, expected prototype:\nvoid wxRibbonPage::base_ClearBackground()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_ClearBackground(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_ClearBackground(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::ClearBackground();
 
@@ -2114,15 +2005,13 @@ public:
 	// wxBackgroundStyle wxRibbonPage::base_GetBackgroundStyle() const
 	static int _bind_base_GetBackgroundStyle(lua_State *L) {
 		if (!_lg_typecheck_base_GetBackgroundStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBackgroundStyle wxRibbonPage::base_GetBackgroundStyle() const function, expected prototype:\nwxBackgroundStyle wxRibbonPage::base_GetBackgroundStyle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBackgroundStyle wxRibbonPage::base_GetBackgroundStyle() const function, expected prototype:\nwxBackgroundStyle wxRibbonPage::base_GetBackgroundStyle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxRibbonPage::base_GetBackgroundStyle() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBackgroundStyle wxRibbonPage::base_GetBackgroundStyle() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxBackgroundStyle lret = self->wxRibbonPage::GetBackgroundStyle();
 		lua_pushnumber(L,lret);
@@ -2133,15 +2022,13 @@ public:
 	// int wxRibbonPage::base_GetCharHeight() const
 	static int _bind_base_GetCharHeight(lua_State *L) {
 		if (!_lg_typecheck_base_GetCharHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxRibbonPage::base_GetCharHeight() const function, expected prototype:\nint wxRibbonPage::base_GetCharHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxRibbonPage::base_GetCharHeight() const function, expected prototype:\nint wxRibbonPage::base_GetCharHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRibbonPage::base_GetCharHeight() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxRibbonPage::base_GetCharHeight() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxRibbonPage::GetCharHeight();
 		lua_pushnumber(L,lret);
@@ -2152,15 +2039,13 @@ public:
 	// int wxRibbonPage::base_GetCharWidth() const
 	static int _bind_base_GetCharWidth(lua_State *L) {
 		if (!_lg_typecheck_base_GetCharWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxRibbonPage::base_GetCharWidth() const function, expected prototype:\nint wxRibbonPage::base_GetCharWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxRibbonPage::base_GetCharWidth() const function, expected prototype:\nint wxRibbonPage::base_GetCharWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxRibbonPage::base_GetCharWidth() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxRibbonPage::base_GetCharWidth() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxRibbonPage::GetCharWidth();
 		lua_pushnumber(L,lret);
@@ -2171,15 +2056,13 @@ public:
 	// wxVisualAttributes wxRibbonPage::base_GetDefaultAttributes() const
 	static int _bind_base_GetDefaultAttributes(lua_State *L) {
 		if (!_lg_typecheck_base_GetDefaultAttributes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxVisualAttributes wxRibbonPage::base_GetDefaultAttributes() const function, expected prototype:\nwxVisualAttributes wxRibbonPage::base_GetDefaultAttributes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxVisualAttributes wxRibbonPage::base_GetDefaultAttributes() const function, expected prototype:\nwxVisualAttributes wxRibbonPage::base_GetDefaultAttributes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxVisualAttributes wxRibbonPage::base_GetDefaultAttributes() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxVisualAttributes wxRibbonPage::base_GetDefaultAttributes() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxVisualAttributes stack_lret = self->wxRibbonPage::GetDefaultAttributes();
 		wxVisualAttributes* lret = new wxVisualAttributes(stack_lret);
@@ -2193,8 +2076,7 @@ public:
 	// void wxRibbonPage::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL)
 	static int _bind_base_Refresh(lua_State *L) {
 		if (!_lg_typecheck_base_Refresh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL) function, expected prototype:\nvoid wxRibbonPage::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL)\nClass arguments details:\narg 2 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL) function, expected prototype:\nvoid wxRibbonPage::base_Refresh(bool eraseBackground = true, const wxRect * rect = NULL)\nClass arguments details:\narg 2 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2204,8 +2086,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_Refresh(bool, const wxRect *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_Refresh(bool, const wxRect *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::Refresh(eraseBackground, rect);
 
@@ -2215,15 +2096,13 @@ public:
 	// void wxRibbonPage::base_Update()
 	static int _bind_base_Update(lua_State *L) {
 		if (!_lg_typecheck_base_Update(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_Update() function, expected prototype:\nvoid wxRibbonPage::base_Update()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_Update() function, expected prototype:\nvoid wxRibbonPage::base_Update()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_Update(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::Update();
 
@@ -2233,16 +2112,14 @@ public:
 	// bool wxRibbonPage::base_SetBackgroundStyle(wxBackgroundStyle style)
 	static int _bind_base_SetBackgroundStyle(lua_State *L) {
 		if (!_lg_typecheck_base_SetBackgroundStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_SetBackgroundStyle(wxBackgroundStyle style) function, expected prototype:\nbool wxRibbonPage::base_SetBackgroundStyle(wxBackgroundStyle style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_SetBackgroundStyle(wxBackgroundStyle style) function, expected prototype:\nbool wxRibbonPage::base_SetBackgroundStyle(wxBackgroundStyle style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxBackgroundStyle style=(wxBackgroundStyle)lua_tointeger(L,2);
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_SetBackgroundStyle(wxBackgroundStyle). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::SetBackgroundStyle(style);
 		lua_pushboolean(L,lret?1:0);
@@ -2253,8 +2130,7 @@ public:
 	// bool wxRibbonPage::base_SetFont(const wxFont & font)
 	static int _bind_base_SetFont(lua_State *L) {
 		if (!_lg_typecheck_base_SetFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_SetFont(const wxFont & font) function, expected prototype:\nbool wxRibbonPage::base_SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_SetFont(const wxFont & font) function, expected prototype:\nbool wxRibbonPage::base_SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -2265,8 +2141,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_SetFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::SetFont(font);
 		lua_pushboolean(L,lret?1:0);
@@ -2277,15 +2152,13 @@ public:
 	// bool wxRibbonPage::base_ShouldInheritColours() const
 	static int _bind_base_ShouldInheritColours(lua_State *L) {
 		if (!_lg_typecheck_base_ShouldInheritColours(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_ShouldInheritColours() const function, expected prototype:\nbool wxRibbonPage::base_ShouldInheritColours() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_ShouldInheritColours() const function, expected prototype:\nbool wxRibbonPage::base_ShouldInheritColours() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_ShouldInheritColours() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_ShouldInheritColours() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::ShouldInheritColours();
 		lua_pushboolean(L,lret?1:0);
@@ -2296,16 +2169,14 @@ public:
 	// void wxRibbonPage::base_SetThemeEnabled(bool enable)
 	static int _bind_base_SetThemeEnabled(lua_State *L) {
 		if (!_lg_typecheck_base_SetThemeEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetThemeEnabled(bool enable) function, expected prototype:\nvoid wxRibbonPage::base_SetThemeEnabled(bool enable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetThemeEnabled(bool enable) function, expected prototype:\nvoid wxRibbonPage::base_SetThemeEnabled(bool enable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enable=(bool)(lua_toboolean(L,2)==1);
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetThemeEnabled(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetThemeEnabled(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetThemeEnabled(enable);
 
@@ -2315,15 +2186,13 @@ public:
 	// bool wxRibbonPage::base_GetThemeEnabled() const
 	static int _bind_base_GetThemeEnabled(lua_State *L) {
 		if (!_lg_typecheck_base_GetThemeEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_GetThemeEnabled() const function, expected prototype:\nbool wxRibbonPage::base_GetThemeEnabled() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_GetThemeEnabled() const function, expected prototype:\nbool wxRibbonPage::base_GetThemeEnabled() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_GetThemeEnabled() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_GetThemeEnabled() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::GetThemeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -2334,15 +2203,13 @@ public:
 	// bool wxRibbonPage::base_CanSetTransparent()
 	static int _bind_base_CanSetTransparent(lua_State *L) {
 		if (!_lg_typecheck_base_CanSetTransparent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_CanSetTransparent() function, expected prototype:\nbool wxRibbonPage::base_CanSetTransparent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_CanSetTransparent() function, expected prototype:\nbool wxRibbonPage::base_CanSetTransparent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_CanSetTransparent(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_CanSetTransparent(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::CanSetTransparent();
 		lua_pushboolean(L,lret?1:0);
@@ -2353,16 +2220,14 @@ public:
 	// bool wxRibbonPage::base_SetTransparent(unsigned char alpha)
 	static int _bind_base_SetTransparent(lua_State *L) {
 		if (!_lg_typecheck_base_SetTransparent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_SetTransparent(unsigned char alpha) function, expected prototype:\nbool wxRibbonPage::base_SetTransparent(unsigned char alpha)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_SetTransparent(unsigned char alpha) function, expected prototype:\nbool wxRibbonPage::base_SetTransparent(unsigned char alpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char alpha = (unsigned char)(lua_tointeger(L,2));
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_SetTransparent(unsigned char). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_SetTransparent(unsigned char). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::SetTransparent(alpha);
 		lua_pushboolean(L,lret?1:0);
@@ -2373,16 +2238,14 @@ public:
 	// void wxRibbonPage::base_SetNextHandler(wxEvtHandler * handler)
 	static int _bind_base_SetNextHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetNextHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxRibbonPage::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxRibbonPage::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetNextHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetNextHandler(handler);
 
@@ -2392,16 +2255,14 @@ public:
 	// void wxRibbonPage::base_SetPreviousHandler(wxEvtHandler * handler)
 	static int _bind_base_SetPreviousHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxRibbonPage::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxRibbonPage::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetPreviousHandler(handler);
 
@@ -2411,15 +2272,13 @@ public:
 	// long wxRibbonPage::base_GetWindowStyleFlag() const
 	static int _bind_base_GetWindowStyleFlag(lua_State *L) {
 		if (!_lg_typecheck_base_GetWindowStyleFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxRibbonPage::base_GetWindowStyleFlag() const function, expected prototype:\nlong wxRibbonPage::base_GetWindowStyleFlag() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long wxRibbonPage::base_GetWindowStyleFlag() const function, expected prototype:\nlong wxRibbonPage::base_GetWindowStyleFlag() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxRibbonPage::base_GetWindowStyleFlag() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long wxRibbonPage::base_GetWindowStyleFlag() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->wxRibbonPage::GetWindowStyleFlag();
 		lua_pushnumber(L,lret);
@@ -2430,16 +2289,14 @@ public:
 	// void wxRibbonPage::base_SetExtraStyle(long exStyle)
 	static int _bind_base_SetExtraStyle(lua_State *L) {
 		if (!_lg_typecheck_base_SetExtraStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetExtraStyle(long exStyle) function, expected prototype:\nvoid wxRibbonPage::base_SetExtraStyle(long exStyle)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetExtraStyle(long exStyle) function, expected prototype:\nvoid wxRibbonPage::base_SetExtraStyle(long exStyle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long exStyle=(long)lua_tointeger(L,2);
+		long exStyle=(long)lua_tonumber(L,2);
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetExtraStyle(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetExtraStyle(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetExtraStyle(exStyle);
 
@@ -2449,16 +2306,14 @@ public:
 	// void wxRibbonPage::base_SetWindowStyleFlag(long style)
 	static int _bind_base_SetWindowStyleFlag(lua_State *L) {
 		if (!_lg_typecheck_base_SetWindowStyleFlag(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetWindowStyleFlag(long style) function, expected prototype:\nvoid wxRibbonPage::base_SetWindowStyleFlag(long style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetWindowStyleFlag(long style) function, expected prototype:\nvoid wxRibbonPage::base_SetWindowStyleFlag(long style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long style=(long)lua_tointeger(L,2);
+		long style=(long)lua_tonumber(L,2);
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetWindowStyleFlag(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetWindowStyleFlag(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetWindowStyleFlag(style);
 
@@ -2468,15 +2323,13 @@ public:
 	// void wxRibbonPage::base_Lower()
 	static int _bind_base_Lower(lua_State *L) {
 		if (!_lg_typecheck_base_Lower(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_Lower() function, expected prototype:\nvoid wxRibbonPage::base_Lower()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_Lower() function, expected prototype:\nvoid wxRibbonPage::base_Lower()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_Lower(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_Lower(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::Lower();
 
@@ -2486,15 +2339,13 @@ public:
 	// void wxRibbonPage::base_Raise()
 	static int _bind_base_Raise(lua_State *L) {
 		if (!_lg_typecheck_base_Raise(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_Raise() function, expected prototype:\nvoid wxRibbonPage::base_Raise()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_Raise() function, expected prototype:\nvoid wxRibbonPage::base_Raise()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_Raise(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_Raise(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::Raise();
 
@@ -2504,8 +2355,7 @@ public:
 	// bool wxRibbonPage::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)
 	static int _bind_base_HideWithEffect(lua_State *L) {
 		if (!_lg_typecheck_base_HideWithEffect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxRibbonPage::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxRibbonPage::base_HideWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2515,8 +2365,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_HideWithEffect(wxShowEffect, unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::HideWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2527,15 +2376,13 @@ public:
 	// bool wxRibbonPage::base_IsShown() const
 	static int _bind_base_IsShown(lua_State *L) {
 		if (!_lg_typecheck_base_IsShown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_IsShown() const function, expected prototype:\nbool wxRibbonPage::base_IsShown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_IsShown() const function, expected prototype:\nbool wxRibbonPage::base_IsShown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_IsShown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_IsShown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::IsShown();
 		lua_pushboolean(L,lret?1:0);
@@ -2546,15 +2393,13 @@ public:
 	// bool wxRibbonPage::base_IsShownOnScreen() const
 	static int _bind_base_IsShownOnScreen(lua_State *L) {
 		if (!_lg_typecheck_base_IsShownOnScreen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_IsShownOnScreen() const function, expected prototype:\nbool wxRibbonPage::base_IsShownOnScreen() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_IsShownOnScreen() const function, expected prototype:\nbool wxRibbonPage::base_IsShownOnScreen() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_IsShownOnScreen() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_IsShownOnScreen() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::IsShownOnScreen();
 		lua_pushboolean(L,lret?1:0);
@@ -2565,8 +2410,7 @@ public:
 	// bool wxRibbonPage::base_Enable(bool enable = true)
 	static int _bind_base_Enable(lua_State *L) {
 		if (!_lg_typecheck_base_Enable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_Enable(bool enable = true) function, expected prototype:\nbool wxRibbonPage::base_Enable(bool enable = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_Enable(bool enable = true) function, expected prototype:\nbool wxRibbonPage::base_Enable(bool enable = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2575,8 +2419,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_Enable(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_Enable(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::Enable(enable);
 		lua_pushboolean(L,lret?1:0);
@@ -2587,8 +2430,7 @@ public:
 	// bool wxRibbonPage::base_Show(bool show = true)
 	static int _bind_base_Show(lua_State *L) {
 		if (!_lg_typecheck_base_Show(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_Show(bool show = true) function, expected prototype:\nbool wxRibbonPage::base_Show(bool show = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_Show(bool show = true) function, expected prototype:\nbool wxRibbonPage::base_Show(bool show = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2597,8 +2439,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_Show(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_Show(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::Show(show);
 		lua_pushboolean(L,lret?1:0);
@@ -2609,8 +2450,7 @@ public:
 	// bool wxRibbonPage::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)
 	static int _bind_base_ShowWithEffect(lua_State *L) {
 		if (!_lg_typecheck_base_ShowWithEffect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxRibbonPage::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0) function, expected prototype:\nbool wxRibbonPage::base_ShowWithEffect(wxShowEffect effect, unsigned int timeout = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2620,8 +2460,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_ShowWithEffect(wxShowEffect, unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::ShowWithEffect(effect, timeout);
 		lua_pushboolean(L,lret?1:0);
@@ -2632,8 +2471,7 @@ public:
 	// wxString wxRibbonPage::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const
 	static int _bind_base_GetHelpTextAtPoint(lua_State *L) {
 		if (!_lg_typecheck_base_GetHelpTextAtPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxRibbonPage::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const function, expected prototype:\nwxString wxRibbonPage::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const\nClass arguments details:\narg 1 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in wxString wxRibbonPage::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const function, expected prototype:\nwxString wxRibbonPage::base_GetHelpTextAtPoint(const wxPoint & point, wxHelpEvent::Origin origin) const\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPoint* point_ptr=(Luna< wxPoint >::check(L,2));
@@ -2645,8 +2483,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxRibbonPage::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxRibbonPage::base_GetHelpTextAtPoint(const wxPoint &, wxHelpEvent::Origin) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxRibbonPage::GetHelpTextAtPoint(point, origin);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2657,15 +2494,13 @@ public:
 	// wxValidator * wxRibbonPage::base_GetValidator()
 	static int _bind_base_GetValidator(lua_State *L) {
 		if (!_lg_typecheck_base_GetValidator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxValidator * wxRibbonPage::base_GetValidator() function, expected prototype:\nwxValidator * wxRibbonPage::base_GetValidator()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxValidator * wxRibbonPage::base_GetValidator() function, expected prototype:\nwxValidator * wxRibbonPage::base_GetValidator()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxValidator * wxRibbonPage::base_GetValidator(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxValidator * wxRibbonPage::base_GetValidator(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxValidator * lret = self->wxRibbonPage::GetValidator();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2678,8 +2513,7 @@ public:
 	// void wxRibbonPage::base_SetValidator(const wxValidator & validator)
 	static int _bind_base_SetValidator(lua_State *L) {
 		if (!_lg_typecheck_base_SetValidator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetValidator(const wxValidator & validator) function, expected prototype:\nvoid wxRibbonPage::base_SetValidator(const wxValidator & validator)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetValidator(const wxValidator & validator) function, expected prototype:\nvoid wxRibbonPage::base_SetValidator(const wxValidator & validator)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxValidator* validator_ptr=(Luna< wxObject >::checkSubType< wxValidator >(L,2));
@@ -2690,8 +2524,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetValidator(const wxValidator &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetValidator(const wxValidator &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetValidator(validator);
 
@@ -2701,15 +2534,13 @@ public:
 	// bool wxRibbonPage::base_TransferDataFromWindow()
 	static int _bind_base_TransferDataFromWindow(lua_State *L) {
 		if (!_lg_typecheck_base_TransferDataFromWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_TransferDataFromWindow() function, expected prototype:\nbool wxRibbonPage::base_TransferDataFromWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_TransferDataFromWindow() function, expected prototype:\nbool wxRibbonPage::base_TransferDataFromWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_TransferDataFromWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_TransferDataFromWindow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::TransferDataFromWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2720,15 +2551,13 @@ public:
 	// bool wxRibbonPage::base_TransferDataToWindow()
 	static int _bind_base_TransferDataToWindow(lua_State *L) {
 		if (!_lg_typecheck_base_TransferDataToWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_TransferDataToWindow() function, expected prototype:\nbool wxRibbonPage::base_TransferDataToWindow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_TransferDataToWindow() function, expected prototype:\nbool wxRibbonPage::base_TransferDataToWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_TransferDataToWindow(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_TransferDataToWindow(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::TransferDataToWindow();
 		lua_pushboolean(L,lret?1:0);
@@ -2739,15 +2568,13 @@ public:
 	// bool wxRibbonPage::base_Validate()
 	static int _bind_base_Validate(lua_State *L) {
 		if (!_lg_typecheck_base_Validate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_Validate() function, expected prototype:\nbool wxRibbonPage::base_Validate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_Validate() function, expected prototype:\nbool wxRibbonPage::base_Validate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_Validate(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_Validate(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::Validate();
 		lua_pushboolean(L,lret?1:0);
@@ -2758,15 +2585,13 @@ public:
 	// wxLayoutDirection wxRibbonPage::base_GetLayoutDirection() const
 	static int _bind_base_GetLayoutDirection(lua_State *L) {
 		if (!_lg_typecheck_base_GetLayoutDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxLayoutDirection wxRibbonPage::base_GetLayoutDirection() const function, expected prototype:\nwxLayoutDirection wxRibbonPage::base_GetLayoutDirection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxLayoutDirection wxRibbonPage::base_GetLayoutDirection() const function, expected prototype:\nwxLayoutDirection wxRibbonPage::base_GetLayoutDirection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxLayoutDirection wxRibbonPage::base_GetLayoutDirection() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxLayoutDirection wxRibbonPage::base_GetLayoutDirection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxLayoutDirection lret = self->wxRibbonPage::GetLayoutDirection();
 		lua_pushnumber(L,lret);
@@ -2777,15 +2602,13 @@ public:
 	// wxString wxRibbonPage::base_GetName() const
 	static int _bind_base_GetName(lua_State *L) {
 		if (!_lg_typecheck_base_GetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxRibbonPage::base_GetName() const function, expected prototype:\nwxString wxRibbonPage::base_GetName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxRibbonPage::base_GetName() const function, expected prototype:\nwxString wxRibbonPage::base_GetName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxRibbonPage::base_GetName() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxRibbonPage::base_GetName() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxRibbonPage::GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2796,16 +2619,14 @@ public:
 	// void wxRibbonPage::base_SetLayoutDirection(wxLayoutDirection dir)
 	static int _bind_base_SetLayoutDirection(lua_State *L) {
 		if (!_lg_typecheck_base_SetLayoutDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetLayoutDirection(wxLayoutDirection dir) function, expected prototype:\nvoid wxRibbonPage::base_SetLayoutDirection(wxLayoutDirection dir)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetLayoutDirection(wxLayoutDirection dir) function, expected prototype:\nvoid wxRibbonPage::base_SetLayoutDirection(wxLayoutDirection dir)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLayoutDirection dir=(wxLayoutDirection)lua_tointeger(L,2);
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetLayoutDirection(wxLayoutDirection). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetLayoutDirection(dir);
 
@@ -2815,16 +2636,14 @@ public:
 	// void wxRibbonPage::base_SetName(const wxString & name)
 	static int _bind_base_SetName(lua_State *L) {
 		if (!_lg_typecheck_base_SetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetName(const wxString & name) function, expected prototype:\nvoid wxRibbonPage::base_SetName(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetName(const wxString & name) function, expected prototype:\nvoid wxRibbonPage::base_SetName(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetName(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetName(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetName(name);
 
@@ -2834,8 +2653,7 @@ public:
 	// void wxRibbonPage::base_SetAcceleratorTable(const wxAcceleratorTable & accel)
 	static int _bind_base_SetAcceleratorTable(lua_State *L) {
 		if (!_lg_typecheck_base_SetAcceleratorTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetAcceleratorTable(const wxAcceleratorTable & accel) function, expected prototype:\nvoid wxRibbonPage::base_SetAcceleratorTable(const wxAcceleratorTable & accel)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetAcceleratorTable(const wxAcceleratorTable & accel) function, expected prototype:\nvoid wxRibbonPage::base_SetAcceleratorTable(const wxAcceleratorTable & accel)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxAcceleratorTable* accel_ptr=(Luna< wxObject >::checkSubType< wxAcceleratorTable >(L,2));
@@ -2846,8 +2664,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetAcceleratorTable(const wxAcceleratorTable &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetAcceleratorTable(accel);
 
@@ -2857,15 +2674,13 @@ public:
 	// bool wxRibbonPage::base_Destroy()
 	static int _bind_base_Destroy(lua_State *L) {
 		if (!_lg_typecheck_base_Destroy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_Destroy() function, expected prototype:\nbool wxRibbonPage::base_Destroy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_Destroy() function, expected prototype:\nbool wxRibbonPage::base_Destroy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_Destroy(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_Destroy(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::Destroy();
 		lua_pushboolean(L,lret?1:0);
@@ -2876,15 +2691,13 @@ public:
 	// wxDropTarget * wxRibbonPage::base_GetDropTarget() const
 	static int _bind_base_GetDropTarget(lua_State *L) {
 		if (!_lg_typecheck_base_GetDropTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDropTarget * wxRibbonPage::base_GetDropTarget() const function, expected prototype:\nwxDropTarget * wxRibbonPage::base_GetDropTarget() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDropTarget * wxRibbonPage::base_GetDropTarget() const function, expected prototype:\nwxDropTarget * wxRibbonPage::base_GetDropTarget() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDropTarget * wxRibbonPage::base_GetDropTarget() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDropTarget * wxRibbonPage::base_GetDropTarget() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDropTarget * lret = self->wxRibbonPage::GetDropTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2897,16 +2710,14 @@ public:
 	// void wxRibbonPage::base_SetDropTarget(wxDropTarget * target)
 	static int _bind_base_SetDropTarget(lua_State *L) {
 		if (!_lg_typecheck_base_SetDropTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetDropTarget(wxDropTarget * target) function, expected prototype:\nvoid wxRibbonPage::base_SetDropTarget(wxDropTarget * target)\nClass arguments details:\narg 1 ID = 93694316\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetDropTarget(wxDropTarget * target) function, expected prototype:\nvoid wxRibbonPage::base_SetDropTarget(wxDropTarget * target)\nClass arguments details:\narg 1 ID = 93694316\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDropTarget* target=(Luna< wxDropTarget >::check(L,2));
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetDropTarget(wxDropTarget *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetDropTarget(wxDropTarget *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetDropTarget(target);
 
@@ -2916,16 +2727,14 @@ public:
 	// void wxRibbonPage::base_DragAcceptFiles(bool accept)
 	static int _bind_base_DragAcceptFiles(lua_State *L) {
 		if (!_lg_typecheck_base_DragAcceptFiles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_DragAcceptFiles(bool accept) function, expected prototype:\nvoid wxRibbonPage::base_DragAcceptFiles(bool accept)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_DragAcceptFiles(bool accept) function, expected prototype:\nvoid wxRibbonPage::base_DragAcceptFiles(bool accept)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool accept=(bool)(lua_toboolean(L,2)==1);
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_DragAcceptFiles(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_DragAcceptFiles(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::DragAcceptFiles(accept);
 
@@ -2935,15 +2744,13 @@ public:
 	// bool wxRibbonPage::base_Layout()
 	static int _bind_base_Layout(lua_State *L) {
 		if (!_lg_typecheck_base_Layout(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_Layout() function, expected prototype:\nbool wxRibbonPage::base_Layout()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_Layout() function, expected prototype:\nbool wxRibbonPage::base_Layout()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_Layout(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::Layout();
 		lua_pushboolean(L,lret?1:0);
@@ -2954,15 +2761,13 @@ public:
 	// bool wxRibbonPage::base_HasCapture() const
 	static int _bind_base_HasCapture(lua_State *L) {
 		if (!_lg_typecheck_base_HasCapture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_HasCapture() const function, expected prototype:\nbool wxRibbonPage::base_HasCapture() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_HasCapture() const function, expected prototype:\nbool wxRibbonPage::base_HasCapture() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_HasCapture() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_HasCapture() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::HasCapture();
 		lua_pushboolean(L,lret?1:0);
@@ -2973,8 +2778,7 @@ public:
 	// bool wxRibbonPage::base_SetCursor(const wxCursor & cursor)
 	static int _bind_base_SetCursor(lua_State *L) {
 		if (!_lg_typecheck_base_SetCursor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_SetCursor(const wxCursor & cursor) function, expected prototype:\nbool wxRibbonPage::base_SetCursor(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_SetCursor(const wxCursor & cursor) function, expected prototype:\nbool wxRibbonPage::base_SetCursor(const wxCursor & cursor)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxCursor* cursor_ptr=(Luna< wxObject >::checkSubType< wxCursor >(L,2));
@@ -2985,8 +2789,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_SetCursor(const wxCursor &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_SetCursor(const wxCursor &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::SetCursor(cursor);
 		lua_pushboolean(L,lret?1:0);
@@ -2997,8 +2800,7 @@ public:
 	// void wxRibbonPage::base_WarpPointer(int x, int y)
 	static int _bind_base_WarpPointer(lua_State *L) {
 		if (!_lg_typecheck_base_WarpPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_WarpPointer(int x, int y) function, expected prototype:\nvoid wxRibbonPage::base_WarpPointer(int x, int y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_WarpPointer(int x, int y) function, expected prototype:\nvoid wxRibbonPage::base_WarpPointer(int x, int y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,2);
@@ -3006,8 +2808,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_WarpPointer(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_WarpPointer(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::WarpPointer(x, y);
 
@@ -3017,8 +2818,7 @@ public:
 	// void wxRibbonPage::base_DoUpdateWindowUI(wxUpdateUIEvent & event)
 	static int _bind_base_DoUpdateWindowUI(lua_State *L) {
 		if (!_lg_typecheck_base_DoUpdateWindowUI(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_DoUpdateWindowUI(wxUpdateUIEvent & event) function, expected prototype:\nvoid wxRibbonPage::base_DoUpdateWindowUI(wxUpdateUIEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_DoUpdateWindowUI(wxUpdateUIEvent & event) function, expected prototype:\nvoid wxRibbonPage::base_DoUpdateWindowUI(wxUpdateUIEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxUpdateUIEvent* event_ptr=(Luna< wxObject >::checkSubType< wxUpdateUIEvent >(L,2));
@@ -3029,8 +2829,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_DoUpdateWindowUI(wxUpdateUIEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::DoUpdateWindowUI(event);
 
@@ -3040,15 +2839,13 @@ public:
 	// bool wxRibbonPage::base_HasMultiplePages() const
 	static int _bind_base_HasMultiplePages(lua_State *L) {
 		if (!_lg_typecheck_base_HasMultiplePages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_HasMultiplePages() const function, expected prototype:\nbool wxRibbonPage::base_HasMultiplePages() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_HasMultiplePages() const function, expected prototype:\nbool wxRibbonPage::base_HasMultiplePages() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_HasMultiplePages() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_HasMultiplePages() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::HasMultiplePages();
 		lua_pushboolean(L,lret?1:0);
@@ -3059,15 +2856,13 @@ public:
 	// void wxRibbonPage::base_InheritAttributes()
 	static int _bind_base_InheritAttributes(lua_State *L) {
 		if (!_lg_typecheck_base_InheritAttributes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_InheritAttributes() function, expected prototype:\nvoid wxRibbonPage::base_InheritAttributes()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_InheritAttributes() function, expected prototype:\nvoid wxRibbonPage::base_InheritAttributes()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_InheritAttributes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_InheritAttributes(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::InheritAttributes();
 
@@ -3077,15 +2872,13 @@ public:
 	// void wxRibbonPage::base_InitDialog()
 	static int _bind_base_InitDialog(lua_State *L) {
 		if (!_lg_typecheck_base_InitDialog(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_InitDialog() function, expected prototype:\nvoid wxRibbonPage::base_InitDialog()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_InitDialog() function, expected prototype:\nvoid wxRibbonPage::base_InitDialog()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_InitDialog(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_InitDialog(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::InitDialog();
 
@@ -3095,15 +2888,13 @@ public:
 	// bool wxRibbonPage::base_IsRetained() const
 	static int _bind_base_IsRetained(lua_State *L) {
 		if (!_lg_typecheck_base_IsRetained(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_IsRetained() const function, expected prototype:\nbool wxRibbonPage::base_IsRetained() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_IsRetained() const function, expected prototype:\nbool wxRibbonPage::base_IsRetained() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_IsRetained() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_IsRetained() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::IsRetained();
 		lua_pushboolean(L,lret?1:0);
@@ -3114,15 +2905,13 @@ public:
 	// bool wxRibbonPage::base_IsTopLevel() const
 	static int _bind_base_IsTopLevel(lua_State *L) {
 		if (!_lg_typecheck_base_IsTopLevel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_IsTopLevel() const function, expected prototype:\nbool wxRibbonPage::base_IsTopLevel() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_IsTopLevel() const function, expected prototype:\nbool wxRibbonPage::base_IsTopLevel() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_IsTopLevel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_IsTopLevel() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::IsTopLevel();
 		lua_pushboolean(L,lret?1:0);
@@ -3133,8 +2922,7 @@ public:
 	// void wxRibbonPage::base_MakeModal(bool modal = true)
 	static int _bind_base_MakeModal(lua_State *L) {
 		if (!_lg_typecheck_base_MakeModal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_MakeModal(bool modal = true) function, expected prototype:\nvoid wxRibbonPage::base_MakeModal(bool modal = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_MakeModal(bool modal = true) function, expected prototype:\nvoid wxRibbonPage::base_MakeModal(bool modal = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3143,8 +2931,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_MakeModal(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_MakeModal(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::MakeModal(modal);
 
@@ -3154,15 +2941,13 @@ public:
 	// void wxRibbonPage::base_OnInternalIdle()
 	static int _bind_base_OnInternalIdle(lua_State *L) {
 		if (!_lg_typecheck_base_OnInternalIdle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_OnInternalIdle() function, expected prototype:\nvoid wxRibbonPage::base_OnInternalIdle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_OnInternalIdle() function, expected prototype:\nvoid wxRibbonPage::base_OnInternalIdle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_OnInternalIdle(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_OnInternalIdle(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::OnInternalIdle();
 
@@ -3172,8 +2957,7 @@ public:
 	// bool wxRibbonPage::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)
 	static int _bind_base_RegisterHotKey(lua_State *L) {
 		if (!_lg_typecheck_base_RegisterHotKey(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode) function, expected prototype:\nbool wxRibbonPage::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode) function, expected prototype:\nbool wxRibbonPage::base_RegisterHotKey(int hotkeyId, int modifiers, int virtualKeyCode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int hotkeyId=(int)lua_tointeger(L,2);
@@ -3182,8 +2966,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_RegisterHotKey(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_RegisterHotKey(int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::RegisterHotKey(hotkeyId, modifiers, virtualKeyCode);
 		lua_pushboolean(L,lret?1:0);
@@ -3194,16 +2977,14 @@ public:
 	// bool wxRibbonPage::base_UnregisterHotKey(int hotkeyId)
 	static int _bind_base_UnregisterHotKey(lua_State *L) {
 		if (!_lg_typecheck_base_UnregisterHotKey(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_UnregisterHotKey(int hotkeyId) function, expected prototype:\nbool wxRibbonPage::base_UnregisterHotKey(int hotkeyId)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_UnregisterHotKey(int hotkeyId) function, expected prototype:\nbool wxRibbonPage::base_UnregisterHotKey(int hotkeyId)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int hotkeyId=(int)lua_tointeger(L,2);
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_UnregisterHotKey(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_UnregisterHotKey(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::UnregisterHotKey(hotkeyId);
 		lua_pushboolean(L,lret?1:0);
@@ -3214,18 +2995,16 @@ public:
 	// void wxRibbonPage::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)
 	static int _bind_base_UpdateWindowUI(lua_State *L) {
 		if (!_lg_typecheck_base_UpdateWindowUI(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE) function, expected prototype:\nvoid wxRibbonPage::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE) function, expected prototype:\nvoid wxRibbonPage::base_UpdateWindowUI(long flags = ::wxUPDATE_UI_NONE)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
-		long flags=luatop>1 ? (long)lua_tointeger(L,2) : (long)::wxUPDATE_UI_NONE;
+		long flags=luatop>1 ? (long)lua_tonumber(L,2) : (long)::wxUPDATE_UI_NONE;
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_UpdateWindowUI(long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_UpdateWindowUI(long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::UpdateWindowUI(flags);
 
@@ -3235,8 +3014,7 @@ public:
 	// void wxRibbonPage::base_Command(wxCommandEvent & event)
 	static int _bind_base_Command(lua_State *L) {
 		if (!_lg_typecheck_base_Command(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_Command(wxCommandEvent & event) function, expected prototype:\nvoid wxRibbonPage::base_Command(wxCommandEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_Command(wxCommandEvent & event) function, expected prototype:\nvoid wxRibbonPage::base_Command(wxCommandEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCommandEvent* event_ptr=(Luna< wxObject >::checkSubType< wxCommandEvent >(L,2));
@@ -3247,8 +3025,7 @@ public:
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_Command(wxCommandEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_Command(wxCommandEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::Command(event);
 
@@ -3258,15 +3035,13 @@ public:
 	// wxString wxRibbonPage::base_GetLabel() const
 	static int _bind_base_GetLabel(lua_State *L) {
 		if (!_lg_typecheck_base_GetLabel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxRibbonPage::base_GetLabel() const function, expected prototype:\nwxString wxRibbonPage::base_GetLabel() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxRibbonPage::base_GetLabel() const function, expected prototype:\nwxString wxRibbonPage::base_GetLabel() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxRibbonPage::base_GetLabel() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxRibbonPage::base_GetLabel() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->wxRibbonPage::GetLabel();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -3277,16 +3052,14 @@ public:
 	// void wxRibbonPage::base_SetLabel(const wxString & label)
 	static int _bind_base_SetLabel(lua_State *L) {
 		if (!_lg_typecheck_base_SetLabel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetLabel(const wxString & label) function, expected prototype:\nvoid wxRibbonPage::base_SetLabel(const wxString & label)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetLabel(const wxString & label) function, expected prototype:\nvoid wxRibbonPage::base_SetLabel(const wxString & label)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetLabel(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetLabel(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetLabel(label);
 
@@ -3296,15 +3069,13 @@ public:
 	// bool wxRibbonPage::base_IsSizingContinuous() const
 	static int _bind_base_IsSizingContinuous(lua_State *L) {
 		if (!_lg_typecheck_base_IsSizingContinuous(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_IsSizingContinuous() const function, expected prototype:\nbool wxRibbonPage::base_IsSizingContinuous() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_IsSizingContinuous() const function, expected prototype:\nbool wxRibbonPage::base_IsSizingContinuous() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_IsSizingContinuous() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_IsSizingContinuous() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::IsSizingContinuous();
 		lua_pushboolean(L,lret?1:0);
@@ -3315,16 +3086,14 @@ public:
 	// void wxRibbonPage::base_SetArtProvider(wxRibbonArtProvider * art)
 	static int _bind_base_SetArtProvider(lua_State *L) {
 		if (!_lg_typecheck_base_SetArtProvider(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetArtProvider(wxRibbonArtProvider * art) function, expected prototype:\nvoid wxRibbonPage::base_SetArtProvider(wxRibbonArtProvider * art)\nClass arguments details:\narg 1 ID = 48201749\n");
+			luaL_error(L, "luna typecheck failed in void wxRibbonPage::base_SetArtProvider(wxRibbonArtProvider * art) function, expected prototype:\nvoid wxRibbonPage::base_SetArtProvider(wxRibbonArtProvider * art)\nClass arguments details:\narg 1 ID = 48201749\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRibbonArtProvider* art=(Luna< wxRibbonArtProvider >::check(L,2));
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetArtProvider(wxRibbonArtProvider *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxRibbonPage::base_SetArtProvider(wxRibbonArtProvider *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxRibbonPage::SetArtProvider(art);
 
@@ -3334,15 +3103,13 @@ public:
 	// bool wxRibbonPage::base_Realize()
 	static int _bind_base_Realize(lua_State *L) {
 		if (!_lg_typecheck_base_Realize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_Realize() function, expected prototype:\nbool wxRibbonPage::base_Realize()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_Realize() function, expected prototype:\nbool wxRibbonPage::base_Realize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_Realize(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_Realize(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::Realize();
 		lua_pushboolean(L,lret?1:0);
@@ -3353,16 +3120,14 @@ public:
 	// bool wxRibbonPage::base_ScrollLines(int lines)
 	static int _bind_base_ScrollLines(lua_State *L) {
 		if (!_lg_typecheck_base_ScrollLines(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_ScrollLines(int lines) function, expected prototype:\nbool wxRibbonPage::base_ScrollLines(int lines)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxRibbonPage::base_ScrollLines(int lines) function, expected prototype:\nbool wxRibbonPage::base_ScrollLines(int lines)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int lines=(int)lua_tointeger(L,2);
 
 		wxRibbonPage* self=Luna< wxObject >::checkSubType< wxRibbonPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_ScrollLines(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxRibbonPage::base_ScrollLines(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxRibbonPage::ScrollLines(lines);
 		lua_pushboolean(L,lret?1:0);

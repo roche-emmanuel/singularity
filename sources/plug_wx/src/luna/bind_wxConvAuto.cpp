@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxConvAuto*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxConvAuto*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxConvAuto* rhs =(Luna< wxConvAuto >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxConvAuto* self= (wxConvAuto*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxConvAuto >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -159,8 +155,7 @@ public:
 	// wxConvAuto::wxConvAuto(wxFontEncoding enc = ::wxFONTENCODING_DEFAULT)
 	static wxConvAuto* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxConvAuto::wxConvAuto(wxFontEncoding enc = ::wxFONTENCODING_DEFAULT) function, expected prototype:\nwxConvAuto::wxConvAuto(wxFontEncoding enc = ::wxFONTENCODING_DEFAULT)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxConvAuto::wxConvAuto(wxFontEncoding enc = ::wxFONTENCODING_DEFAULT) function, expected prototype:\nwxConvAuto::wxConvAuto(wxFontEncoding enc = ::wxFONTENCODING_DEFAULT)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -175,15 +170,13 @@ public:
 	// wxBOM wxConvAuto::GetBOM() const
 	static int _bind_GetBOM(lua_State *L) {
 		if (!_lg_typecheck_GetBOM(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBOM wxConvAuto::GetBOM() const function, expected prototype:\nwxBOM wxConvAuto::GetBOM() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBOM wxConvAuto::GetBOM() const function, expected prototype:\nwxBOM wxConvAuto::GetBOM() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxConvAuto* self=(Luna< wxConvAuto >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBOM wxConvAuto::GetBOM() const. Got : '%s'",typeid(Luna< wxConvAuto >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBOM wxConvAuto::GetBOM() const. Got : '%s'\n%s",typeid(Luna< wxConvAuto >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxBOM lret = self->GetBOM();
 		lua_pushnumber(L,lret);
@@ -194,8 +187,7 @@ public:
 	// const char * wxConvAuto::GetBOMChars(wxBOM bom, size_t * count)
 	static int _bind_GetBOMChars(lua_State *L) {
 		if (!_lg_typecheck_GetBOMChars(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * wxConvAuto::GetBOMChars(wxBOM bom, size_t * count) function, expected prototype:\nconst char * wxConvAuto::GetBOMChars(wxBOM bom, size_t * count)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * wxConvAuto::GetBOMChars(wxBOM bom, size_t * count) function, expected prototype:\nconst char * wxConvAuto::GetBOMChars(wxBOM bom, size_t * count)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxBOM bom=(wxBOM)lua_tointeger(L,2);
@@ -203,8 +195,7 @@ public:
 
 		wxConvAuto* self=(Luna< wxConvAuto >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * wxConvAuto::GetBOMChars(wxBOM, size_t *). Got : '%s'",typeid(Luna< wxConvAuto >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * wxConvAuto::GetBOMChars(wxBOM, size_t *). Got : '%s'\n%s",typeid(Luna< wxConvAuto >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->GetBOMChars(bom, count);
 		lua_pushstring(L,lret);
@@ -215,8 +206,7 @@ public:
 	// static void wxConvAuto::DisableFallbackEncoding()
 	static int _bind_DisableFallbackEncoding(lua_State *L) {
 		if (!_lg_typecheck_DisableFallbackEncoding(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxConvAuto::DisableFallbackEncoding() function, expected prototype:\nstatic void wxConvAuto::DisableFallbackEncoding()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxConvAuto::DisableFallbackEncoding() function, expected prototype:\nstatic void wxConvAuto::DisableFallbackEncoding()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -228,8 +218,7 @@ public:
 	// static wxFontEncoding wxConvAuto::GetFallbackEncoding()
 	static int _bind_GetFallbackEncoding(lua_State *L) {
 		if (!_lg_typecheck_GetFallbackEncoding(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxFontEncoding wxConvAuto::GetFallbackEncoding() function, expected prototype:\nstatic wxFontEncoding wxConvAuto::GetFallbackEncoding()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxFontEncoding wxConvAuto::GetFallbackEncoding() function, expected prototype:\nstatic wxFontEncoding wxConvAuto::GetFallbackEncoding()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -242,8 +231,7 @@ public:
 	// static void wxConvAuto::SetFallbackEncoding(wxFontEncoding enc)
 	static int _bind_SetFallbackEncoding(lua_State *L) {
 		if (!_lg_typecheck_SetFallbackEncoding(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxConvAuto::SetFallbackEncoding(wxFontEncoding enc) function, expected prototype:\nstatic void wxConvAuto::SetFallbackEncoding(wxFontEncoding enc)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxConvAuto::SetFallbackEncoding(wxFontEncoding enc) function, expected prototype:\nstatic void wxConvAuto::SetFallbackEncoding(wxFontEncoding enc)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFontEncoding enc=(wxFontEncoding)lua_tointeger(L,1);
@@ -256,8 +244,7 @@ public:
 	// static wxBOM wxConvAuto::DetectBOM(const char * src, size_t srcLen)
 	static int _bind_DetectBOM(lua_State *L) {
 		if (!_lg_typecheck_DetectBOM(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxBOM wxConvAuto::DetectBOM(const char * src, size_t srcLen) function, expected prototype:\nstatic wxBOM wxConvAuto::DetectBOM(const char * src, size_t srcLen)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxBOM wxConvAuto::DetectBOM(const char * src, size_t srcLen) function, expected prototype:\nstatic wxBOM wxConvAuto::DetectBOM(const char * src, size_t srcLen)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * src=(const char *)lua_tostring(L,1);

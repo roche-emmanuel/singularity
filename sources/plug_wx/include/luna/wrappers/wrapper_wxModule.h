@@ -101,16 +101,14 @@ public:
 	// void wxModule::public_AddDependency(wxClassInfo * dep)
 	static int _bind_public_AddDependency(lua_State *L) {
 		if (!_lg_typecheck_public_AddDependency(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxModule::public_AddDependency(wxClassInfo * dep) function, expected prototype:\nvoid wxModule::public_AddDependency(wxClassInfo * dep)\nClass arguments details:\narg 1 ID = 96106697\n");
+			luaL_error(L, "luna typecheck failed in void wxModule::public_AddDependency(wxClassInfo * dep) function, expected prototype:\nvoid wxModule::public_AddDependency(wxClassInfo * dep)\nClass arguments details:\narg 1 ID = 96106697\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxClassInfo* dep=(Luna< wxClassInfo >::check(L,2));
 
 		wrapper_wxModule* self=Luna< wxObject >::checkSubType< wrapper_wxModule >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxModule::public_AddDependency(wxClassInfo *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxModule::public_AddDependency(wxClassInfo *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_AddDependency(dep);
 

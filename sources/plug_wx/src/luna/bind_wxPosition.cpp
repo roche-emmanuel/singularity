@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPosition* self= (wxPosition*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxPosition >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -217,8 +214,7 @@ public:
 	// wxPosition::wxPosition()
 	static wxPosition* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPosition::wxPosition() function, expected prototype:\nwxPosition::wxPosition()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPosition::wxPosition() function, expected prototype:\nwxPosition::wxPosition()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -228,8 +224,7 @@ public:
 	// wxPosition::wxPosition(int row, int col)
 	static wxPosition* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPosition::wxPosition(int row, int col) function, expected prototype:\nwxPosition::wxPosition(int row, int col)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPosition::wxPosition(int row, int col) function, expected prototype:\nwxPosition::wxPosition(int row, int col)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int row=(int)lua_tointeger(L,1);
@@ -252,15 +247,13 @@ public:
 	// int wxPosition::GetCol() const
 	static int _bind_GetCol(lua_State *L) {
 		if (!_lg_typecheck_GetCol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxPosition::GetCol() const function, expected prototype:\nint wxPosition::GetCol() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxPosition::GetCol() const function, expected prototype:\nint wxPosition::GetCol() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPosition::GetCol() const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxPosition::GetCol() const. Got : '%s'\n%s",typeid(Luna< wxPosition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetCol();
 		lua_pushnumber(L,lret);
@@ -271,15 +264,13 @@ public:
 	// int wxPosition::GetColumn() const
 	static int _bind_GetColumn(lua_State *L) {
 		if (!_lg_typecheck_GetColumn(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxPosition::GetColumn() const function, expected prototype:\nint wxPosition::GetColumn() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxPosition::GetColumn() const function, expected prototype:\nint wxPosition::GetColumn() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPosition::GetColumn() const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxPosition::GetColumn() const. Got : '%s'\n%s",typeid(Luna< wxPosition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetColumn();
 		lua_pushnumber(L,lret);
@@ -290,15 +281,13 @@ public:
 	// int wxPosition::GetRow() const
 	static int _bind_GetRow(lua_State *L) {
 		if (!_lg_typecheck_GetRow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxPosition::GetRow() const function, expected prototype:\nint wxPosition::GetRow() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxPosition::GetRow() const function, expected prototype:\nint wxPosition::GetRow() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPosition::GetRow() const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxPosition::GetRow() const. Got : '%s'\n%s",typeid(Luna< wxPosition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetRow();
 		lua_pushnumber(L,lret);
@@ -309,16 +298,14 @@ public:
 	// void wxPosition::SetCol(int column)
 	static int _bind_SetCol(lua_State *L) {
 		if (!_lg_typecheck_SetCol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPosition::SetCol(int column) function, expected prototype:\nvoid wxPosition::SetCol(int column)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPosition::SetCol(int column) function, expected prototype:\nvoid wxPosition::SetCol(int column)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int column=(int)lua_tointeger(L,2);
 
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPosition::SetCol(int). Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPosition::SetCol(int). Got : '%s'\n%s",typeid(Luna< wxPosition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCol(column);
 
@@ -328,16 +315,14 @@ public:
 	// void wxPosition::SetColumn(int column)
 	static int _bind_SetColumn(lua_State *L) {
 		if (!_lg_typecheck_SetColumn(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPosition::SetColumn(int column) function, expected prototype:\nvoid wxPosition::SetColumn(int column)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPosition::SetColumn(int column) function, expected prototype:\nvoid wxPosition::SetColumn(int column)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int column=(int)lua_tointeger(L,2);
 
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPosition::SetColumn(int). Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPosition::SetColumn(int). Got : '%s'\n%s",typeid(Luna< wxPosition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetColumn(column);
 
@@ -347,16 +332,14 @@ public:
 	// void wxPosition::SetRow(int row)
 	static int _bind_SetRow(lua_State *L) {
 		if (!_lg_typecheck_SetRow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPosition::SetRow(int row) function, expected prototype:\nvoid wxPosition::SetRow(int row)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPosition::SetRow(int row) function, expected prototype:\nvoid wxPosition::SetRow(int row)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int row=(int)lua_tointeger(L,2);
 
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPosition::SetRow(int). Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPosition::SetRow(int). Got : '%s'\n%s",typeid(Luna< wxPosition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRow(row);
 
@@ -368,8 +351,7 @@ public:
 	// bool wxPosition::operator==(const wxPosition & p) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPosition::operator==(const wxPosition & p) const function, expected prototype:\nbool wxPosition::operator==(const wxPosition & p) const\nClass arguments details:\narg 1 ID = 9908765\n");
+			luaL_error(L, "luna typecheck failed in bool wxPosition::operator==(const wxPosition & p) const function, expected prototype:\nbool wxPosition::operator==(const wxPosition & p) const\nClass arguments details:\narg 1 ID = 9908765\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPosition* p_ptr=(Luna< wxPosition >::check(L,2));
@@ -380,8 +362,7 @@ public:
 
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPosition::operator==(const wxPosition &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPosition::operator==(const wxPosition &) const. Got : '%s'\n%s",typeid(Luna< wxPosition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(p);
 		lua_pushboolean(L,lret?1:0);
@@ -392,8 +373,7 @@ public:
 	// bool wxPosition::operator!=(const wxPosition & p) const
 	static int _bind_op_neq(lua_State *L) {
 		if (!_lg_typecheck_op_neq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPosition::operator!=(const wxPosition & p) const function, expected prototype:\nbool wxPosition::operator!=(const wxPosition & p) const\nClass arguments details:\narg 1 ID = 9908765\n");
+			luaL_error(L, "luna typecheck failed in bool wxPosition::operator!=(const wxPosition & p) const function, expected prototype:\nbool wxPosition::operator!=(const wxPosition & p) const\nClass arguments details:\narg 1 ID = 9908765\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPosition* p_ptr=(Luna< wxPosition >::check(L,2));
@@ -404,8 +384,7 @@ public:
 
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPosition::operator!=(const wxPosition &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPosition::operator!=(const wxPosition &) const. Got : '%s'\n%s",typeid(Luna< wxPosition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator!=(p);
 		lua_pushboolean(L,lret?1:0);
@@ -416,8 +395,7 @@ public:
 	// wxPosition & wxPosition::operator+=(const wxPosition & p) const
 	static int _bind_op_add_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_add_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPosition & wxPosition::operator+=(const wxPosition & p) const function, expected prototype:\nwxPosition & wxPosition::operator+=(const wxPosition & p) const\nClass arguments details:\narg 1 ID = 9908765\n");
+			luaL_error(L, "luna typecheck failed in wxPosition & wxPosition::operator+=(const wxPosition & p) const function, expected prototype:\nwxPosition & wxPosition::operator+=(const wxPosition & p) const\nClass arguments details:\narg 1 ID = 9908765\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPosition* p_ptr=(Luna< wxPosition >::check(L,2));
@@ -428,8 +406,7 @@ public:
 
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator+=(const wxPosition &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator+=(const wxPosition &) const. Got : '%s'\n%s",typeid(Luna< wxPosition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxPosition* lret = &self->operator+=(p);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -442,8 +419,7 @@ public:
 	// wxPosition & wxPosition::operator+=(const wxSize & s) const
 	static int _bind_op_add_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_add_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPosition & wxPosition::operator+=(const wxSize & s) const function, expected prototype:\nwxPosition & wxPosition::operator+=(const wxSize & s) const\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxPosition & wxPosition::operator+=(const wxSize & s) const function, expected prototype:\nwxPosition & wxPosition::operator+=(const wxSize & s) const\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* s_ptr=(Luna< wxSize >::check(L,2));
@@ -454,8 +430,7 @@ public:
 
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator+=(const wxSize &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator+=(const wxSize &) const. Got : '%s'\n%s",typeid(Luna< wxPosition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxPosition* lret = &self->operator+=(s);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -477,8 +452,7 @@ public:
 	// wxPosition & wxPosition::operator-=(const wxPosition & p) const
 	static int _bind_op_sub_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_sub_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPosition & wxPosition::operator-=(const wxPosition & p) const function, expected prototype:\nwxPosition & wxPosition::operator-=(const wxPosition & p) const\nClass arguments details:\narg 1 ID = 9908765\n");
+			luaL_error(L, "luna typecheck failed in wxPosition & wxPosition::operator-=(const wxPosition & p) const function, expected prototype:\nwxPosition & wxPosition::operator-=(const wxPosition & p) const\nClass arguments details:\narg 1 ID = 9908765\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPosition* p_ptr=(Luna< wxPosition >::check(L,2));
@@ -489,8 +463,7 @@ public:
 
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator-=(const wxPosition &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator-=(const wxPosition &) const. Got : '%s'\n%s",typeid(Luna< wxPosition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxPosition* lret = &self->operator-=(p);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -503,8 +476,7 @@ public:
 	// wxPosition & wxPosition::operator-=(const wxSize & s) const
 	static int _bind_op_sub_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_sub_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPosition & wxPosition::operator-=(const wxSize & s) const function, expected prototype:\nwxPosition & wxPosition::operator-=(const wxSize & s) const\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxPosition & wxPosition::operator-=(const wxSize & s) const function, expected prototype:\nwxPosition & wxPosition::operator-=(const wxSize & s) const\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* s_ptr=(Luna< wxSize >::check(L,2));
@@ -515,8 +487,7 @@ public:
 
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator-=(const wxSize &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator-=(const wxSize &) const. Got : '%s'\n%s",typeid(Luna< wxPosition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxPosition* lret = &self->operator-=(s);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -538,8 +509,7 @@ public:
 	// wxPosition & wxPosition::operator+(const wxPosition & p) const
 	static int _bind___add_overload_1(lua_State *L) {
 		if (!_lg_typecheck___add_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPosition & wxPosition::operator+(const wxPosition & p) const function, expected prototype:\nwxPosition & wxPosition::operator+(const wxPosition & p) const\nClass arguments details:\narg 1 ID = 9908765\n");
+			luaL_error(L, "luna typecheck failed in wxPosition & wxPosition::operator+(const wxPosition & p) const function, expected prototype:\nwxPosition & wxPosition::operator+(const wxPosition & p) const\nClass arguments details:\narg 1 ID = 9908765\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPosition* p_ptr=(Luna< wxPosition >::check(L,2));
@@ -550,8 +520,7 @@ public:
 
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator+(const wxPosition &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator+(const wxPosition &) const. Got : '%s'\n%s",typeid(Luna< wxPosition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxPosition* lret = &self->operator+(p);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -564,8 +533,7 @@ public:
 	// wxPosition & wxPosition::operator+(const wxSize & s) const
 	static int _bind___add_overload_2(lua_State *L) {
 		if (!_lg_typecheck___add_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPosition & wxPosition::operator+(const wxSize & s) const function, expected prototype:\nwxPosition & wxPosition::operator+(const wxSize & s) const\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxPosition & wxPosition::operator+(const wxSize & s) const function, expected prototype:\nwxPosition & wxPosition::operator+(const wxSize & s) const\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* s_ptr=(Luna< wxSize >::check(L,2));
@@ -576,8 +544,7 @@ public:
 
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator+(const wxSize &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator+(const wxSize &) const. Got : '%s'\n%s",typeid(Luna< wxPosition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxPosition* lret = &self->operator+(s);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -599,8 +566,7 @@ public:
 	// wxPosition & wxPosition::operator-(const wxPosition & p) const
 	static int _bind___sub_overload_1(lua_State *L) {
 		if (!_lg_typecheck___sub_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPosition & wxPosition::operator-(const wxPosition & p) const function, expected prototype:\nwxPosition & wxPosition::operator-(const wxPosition & p) const\nClass arguments details:\narg 1 ID = 9908765\n");
+			luaL_error(L, "luna typecheck failed in wxPosition & wxPosition::operator-(const wxPosition & p) const function, expected prototype:\nwxPosition & wxPosition::operator-(const wxPosition & p) const\nClass arguments details:\narg 1 ID = 9908765\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPosition* p_ptr=(Luna< wxPosition >::check(L,2));
@@ -611,8 +577,7 @@ public:
 
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator-(const wxPosition &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator-(const wxPosition &) const. Got : '%s'\n%s",typeid(Luna< wxPosition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxPosition* lret = &self->operator-(p);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -625,8 +590,7 @@ public:
 	// wxPosition & wxPosition::operator-(const wxSize & s) const
 	static int _bind___sub_overload_2(lua_State *L) {
 		if (!_lg_typecheck___sub_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPosition & wxPosition::operator-(const wxSize & s) const function, expected prototype:\nwxPosition & wxPosition::operator-(const wxSize & s) const\nClass arguments details:\narg 1 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxPosition & wxPosition::operator-(const wxSize & s) const function, expected prototype:\nwxPosition & wxPosition::operator-(const wxSize & s) const\nClass arguments details:\narg 1 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxSize* s_ptr=(Luna< wxSize >::check(L,2));
@@ -637,8 +601,7 @@ public:
 
 		wxPosition* self=(Luna< wxPosition >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator-(const wxSize &) const. Got : '%s'",typeid(Luna< wxPosition >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPosition & wxPosition::operator-(const wxSize &) const. Got : '%s'\n%s",typeid(Luna< wxPosition >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxPosition* lret = &self->operator-(s);
 		if(!lret) return 0; // Do not write NULL pointers.

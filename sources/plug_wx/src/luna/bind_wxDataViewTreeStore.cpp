@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataViewModel* self=(Luna< wxDataViewModel >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDataViewTreeStore* self= (wxDataViewTreeStore*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDataViewModel >::check(L,1));
@@ -324,8 +321,7 @@ public:
 	// wxDataViewTreeStore::wxDataViewTreeStore(lua_Table * data)
 	static wxDataViewTreeStore* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewTreeStore::wxDataViewTreeStore(lua_Table * data) function, expected prototype:\nwxDataViewTreeStore::wxDataViewTreeStore(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewTreeStore::wxDataViewTreeStore(lua_Table * data) function, expected prototype:\nwxDataViewTreeStore::wxDataViewTreeStore(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -337,8 +333,7 @@ public:
 	// wxDataViewItem wxDataViewTreeStore::AppendContainer(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, const wxIcon & expanded = wxNullIcon, wxClientData * data = NULL)
 	static int _bind_AppendContainer(lua_State *L) {
 		if (!_lg_typecheck_AppendContainer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewItem wxDataViewTreeStore::AppendContainer(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, const wxIcon & expanded = wxNullIcon, wxClientData * data = NULL) function, expected prototype:\nwxDataViewItem wxDataViewTreeStore::AppendContainer(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, const wxIcon & expanded = wxNullIcon, wxClientData * data = NULL)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 5 ID = 50457573\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewItem wxDataViewTreeStore::AppendContainer(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, const wxIcon & expanded = wxNullIcon, wxClientData * data = NULL) function, expected prototype:\nwxDataViewItem wxDataViewTreeStore::AppendContainer(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, const wxIcon & expanded = wxNullIcon, wxClientData * data = NULL)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 5 ID = 50457573\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -363,8 +358,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::AppendContainer(const wxDataViewItem &, const wxString &, const wxIcon &, const wxIcon &, wxClientData *). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::AppendContainer(const wxDataViewItem &, const wxString &, const wxIcon &, const wxIcon &, wxClientData *). Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDataViewItem stack_lret = self->AppendContainer(parent, text, icon, expanded, data);
 		wxDataViewItem* lret = new wxDataViewItem(stack_lret);
@@ -378,8 +372,7 @@ public:
 	// wxDataViewItem wxDataViewTreeStore::AppendItem(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, wxClientData * data = NULL)
 	static int _bind_AppendItem(lua_State *L) {
 		if (!_lg_typecheck_AppendItem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewItem wxDataViewTreeStore::AppendItem(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, wxClientData * data = NULL) function, expected prototype:\nwxDataViewItem wxDataViewTreeStore::AppendItem(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, wxClientData * data = NULL)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 50457573\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewItem wxDataViewTreeStore::AppendItem(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, wxClientData * data = NULL) function, expected prototype:\nwxDataViewItem wxDataViewTreeStore::AppendItem(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, wxClientData * data = NULL)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 50457573\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -399,8 +392,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::AppendItem(const wxDataViewItem &, const wxString &, const wxIcon &, wxClientData *). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::AppendItem(const wxDataViewItem &, const wxString &, const wxIcon &, wxClientData *). Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDataViewItem stack_lret = self->AppendItem(parent, text, icon, data);
 		wxDataViewItem* lret = new wxDataViewItem(stack_lret);
@@ -414,15 +406,13 @@ public:
 	// void wxDataViewTreeStore::DeleteAllItems()
 	static int _bind_DeleteAllItems(lua_State *L) {
 		if (!_lg_typecheck_DeleteAllItems(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewTreeStore::DeleteAllItems() function, expected prototype:\nvoid wxDataViewTreeStore::DeleteAllItems()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewTreeStore::DeleteAllItems() function, expected prototype:\nvoid wxDataViewTreeStore::DeleteAllItems()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::DeleteAllItems(). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::DeleteAllItems(). Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DeleteAllItems();
 
@@ -432,8 +422,7 @@ public:
 	// void wxDataViewTreeStore::DeleteChildren(const wxDataViewItem & item)
 	static int _bind_DeleteChildren(lua_State *L) {
 		if (!_lg_typecheck_DeleteChildren(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewTreeStore::DeleteChildren(const wxDataViewItem & item) function, expected prototype:\nvoid wxDataViewTreeStore::DeleteChildren(const wxDataViewItem & item)\nClass arguments details:\narg 1 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewTreeStore::DeleteChildren(const wxDataViewItem & item) function, expected prototype:\nvoid wxDataViewTreeStore::DeleteChildren(const wxDataViewItem & item)\nClass arguments details:\narg 1 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -444,8 +433,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::DeleteChildren(const wxDataViewItem &). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::DeleteChildren(const wxDataViewItem &). Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DeleteChildren(item);
 
@@ -455,8 +443,7 @@ public:
 	// void wxDataViewTreeStore::DeleteItem(const wxDataViewItem & item)
 	static int _bind_DeleteItem(lua_State *L) {
 		if (!_lg_typecheck_DeleteItem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewTreeStore::DeleteItem(const wxDataViewItem & item) function, expected prototype:\nvoid wxDataViewTreeStore::DeleteItem(const wxDataViewItem & item)\nClass arguments details:\narg 1 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewTreeStore::DeleteItem(const wxDataViewItem & item) function, expected prototype:\nvoid wxDataViewTreeStore::DeleteItem(const wxDataViewItem & item)\nClass arguments details:\narg 1 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -467,8 +454,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::DeleteItem(const wxDataViewItem &). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::DeleteItem(const wxDataViewItem &). Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DeleteItem(item);
 
@@ -478,8 +464,7 @@ public:
 	// int wxDataViewTreeStore::GetChildCount(const wxDataViewItem & parent) const
 	static int _bind_GetChildCount(lua_State *L) {
 		if (!_lg_typecheck_GetChildCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxDataViewTreeStore::GetChildCount(const wxDataViewItem & parent) const function, expected prototype:\nint wxDataViewTreeStore::GetChildCount(const wxDataViewItem & parent) const\nClass arguments details:\narg 1 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in int wxDataViewTreeStore::GetChildCount(const wxDataViewItem & parent) const function, expected prototype:\nint wxDataViewTreeStore::GetChildCount(const wxDataViewItem & parent) const\nClass arguments details:\narg 1 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* parent_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -490,8 +475,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewTreeStore::GetChildCount(const wxDataViewItem &) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxDataViewTreeStore::GetChildCount(const wxDataViewItem &) const. Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetChildCount(parent);
 		lua_pushnumber(L,lret);
@@ -502,8 +486,7 @@ public:
 	// wxClientData * wxDataViewTreeStore::GetItemData(const wxDataViewItem & item) const
 	static int _bind_GetItemData(lua_State *L) {
 		if (!_lg_typecheck_GetItemData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClientData * wxDataViewTreeStore::GetItemData(const wxDataViewItem & item) const function, expected prototype:\nwxClientData * wxDataViewTreeStore::GetItemData(const wxDataViewItem & item) const\nClass arguments details:\narg 1 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in wxClientData * wxDataViewTreeStore::GetItemData(const wxDataViewItem & item) const function, expected prototype:\nwxClientData * wxDataViewTreeStore::GetItemData(const wxDataViewItem & item) const\nClass arguments details:\narg 1 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -514,8 +497,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClientData * wxDataViewTreeStore::GetItemData(const wxDataViewItem &) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClientData * wxDataViewTreeStore::GetItemData(const wxDataViewItem &) const. Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClientData * lret = self->GetItemData(item);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -528,8 +510,7 @@ public:
 	// const wxIcon & wxDataViewTreeStore::GetItemExpandedIcon(const wxDataViewItem & item) const
 	static int _bind_GetItemExpandedIcon(lua_State *L) {
 		if (!_lg_typecheck_GetItemExpandedIcon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxIcon & wxDataViewTreeStore::GetItemExpandedIcon(const wxDataViewItem & item) const function, expected prototype:\nconst wxIcon & wxDataViewTreeStore::GetItemExpandedIcon(const wxDataViewItem & item) const\nClass arguments details:\narg 1 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in const wxIcon & wxDataViewTreeStore::GetItemExpandedIcon(const wxDataViewItem & item) const function, expected prototype:\nconst wxIcon & wxDataViewTreeStore::GetItemExpandedIcon(const wxDataViewItem & item) const\nClass arguments details:\narg 1 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -540,8 +521,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxIcon & wxDataViewTreeStore::GetItemExpandedIcon(const wxDataViewItem &) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxIcon & wxDataViewTreeStore::GetItemExpandedIcon(const wxDataViewItem &) const. Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxIcon* lret = &self->GetItemExpandedIcon(item);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -554,8 +534,7 @@ public:
 	// const wxIcon & wxDataViewTreeStore::GetItemIcon(const wxDataViewItem & item) const
 	static int _bind_GetItemIcon(lua_State *L) {
 		if (!_lg_typecheck_GetItemIcon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxIcon & wxDataViewTreeStore::GetItemIcon(const wxDataViewItem & item) const function, expected prototype:\nconst wxIcon & wxDataViewTreeStore::GetItemIcon(const wxDataViewItem & item) const\nClass arguments details:\narg 1 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in const wxIcon & wxDataViewTreeStore::GetItemIcon(const wxDataViewItem & item) const function, expected prototype:\nconst wxIcon & wxDataViewTreeStore::GetItemIcon(const wxDataViewItem & item) const\nClass arguments details:\narg 1 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -566,8 +545,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxIcon & wxDataViewTreeStore::GetItemIcon(const wxDataViewItem &) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxIcon & wxDataViewTreeStore::GetItemIcon(const wxDataViewItem &) const. Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxIcon* lret = &self->GetItemIcon(item);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -580,8 +558,7 @@ public:
 	// wxString wxDataViewTreeStore::GetItemText(const wxDataViewItem & item) const
 	static int _bind_GetItemText(lua_State *L) {
 		if (!_lg_typecheck_GetItemText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxDataViewTreeStore::GetItemText(const wxDataViewItem & item) const function, expected prototype:\nwxString wxDataViewTreeStore::GetItemText(const wxDataViewItem & item) const\nClass arguments details:\narg 1 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in wxString wxDataViewTreeStore::GetItemText(const wxDataViewItem & item) const function, expected prototype:\nwxString wxDataViewTreeStore::GetItemText(const wxDataViewItem & item) const\nClass arguments details:\narg 1 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -592,8 +569,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDataViewTreeStore::GetItemText(const wxDataViewItem &) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxDataViewTreeStore::GetItemText(const wxDataViewItem &) const. Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetItemText(item);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -604,8 +580,7 @@ public:
 	// wxDataViewItem wxDataViewTreeStore::GetNthChild(const wxDataViewItem & parent, unsigned int pos) const
 	static int _bind_GetNthChild(lua_State *L) {
 		if (!_lg_typecheck_GetNthChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewItem wxDataViewTreeStore::GetNthChild(const wxDataViewItem & parent, unsigned int pos) const function, expected prototype:\nwxDataViewItem wxDataViewTreeStore::GetNthChild(const wxDataViewItem & parent, unsigned int pos) const\nClass arguments details:\narg 1 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewItem wxDataViewTreeStore::GetNthChild(const wxDataViewItem & parent, unsigned int pos) const function, expected prototype:\nwxDataViewItem wxDataViewTreeStore::GetNthChild(const wxDataViewItem & parent, unsigned int pos) const\nClass arguments details:\narg 1 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* parent_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -617,8 +592,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::GetNthChild(const wxDataViewItem &, unsigned int) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::GetNthChild(const wxDataViewItem &, unsigned int) const. Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDataViewItem stack_lret = self->GetNthChild(parent, pos);
 		wxDataViewItem* lret = new wxDataViewItem(stack_lret);
@@ -632,8 +606,7 @@ public:
 	// wxDataViewItem wxDataViewTreeStore::InsertContainer(const wxDataViewItem & parent, const wxDataViewItem & previous, const wxString & text, const wxIcon & icon = wxNullIcon, const wxIcon & expanded = wxNullIcon, wxClientData * data = NULL)
 	static int _bind_InsertContainer(lua_State *L) {
 		if (!_lg_typecheck_InsertContainer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewItem wxDataViewTreeStore::InsertContainer(const wxDataViewItem & parent, const wxDataViewItem & previous, const wxString & text, const wxIcon & icon = wxNullIcon, const wxIcon & expanded = wxNullIcon, wxClientData * data = NULL) function, expected prototype:\nwxDataViewItem wxDataViewTreeStore::InsertContainer(const wxDataViewItem & parent, const wxDataViewItem & previous, const wxString & text, const wxIcon & icon = wxNullIcon, const wxIcon & expanded = wxNullIcon, wxClientData * data = NULL)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 11709329\narg 3 ID = 88196105\narg 4 ID = 56813631\narg 5 ID = 56813631\narg 6 ID = 50457573\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewItem wxDataViewTreeStore::InsertContainer(const wxDataViewItem & parent, const wxDataViewItem & previous, const wxString & text, const wxIcon & icon = wxNullIcon, const wxIcon & expanded = wxNullIcon, wxClientData * data = NULL) function, expected prototype:\nwxDataViewItem wxDataViewTreeStore::InsertContainer(const wxDataViewItem & parent, const wxDataViewItem & previous, const wxString & text, const wxIcon & icon = wxNullIcon, const wxIcon & expanded = wxNullIcon, wxClientData * data = NULL)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 11709329\narg 3 ID = 88196105\narg 4 ID = 56813631\narg 5 ID = 56813631\narg 6 ID = 50457573\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -663,8 +636,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::InsertContainer(const wxDataViewItem &, const wxDataViewItem &, const wxString &, const wxIcon &, const wxIcon &, wxClientData *). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::InsertContainer(const wxDataViewItem &, const wxDataViewItem &, const wxString &, const wxIcon &, const wxIcon &, wxClientData *). Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDataViewItem stack_lret = self->InsertContainer(parent, previous, text, icon, expanded, data);
 		wxDataViewItem* lret = new wxDataViewItem(stack_lret);
@@ -678,8 +650,7 @@ public:
 	// wxDataViewItem wxDataViewTreeStore::InsertItem(const wxDataViewItem & parent, const wxDataViewItem & previous, const wxString & text, const wxIcon & icon = wxNullIcon, wxClientData * data = NULL)
 	static int _bind_InsertItem(lua_State *L) {
 		if (!_lg_typecheck_InsertItem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewItem wxDataViewTreeStore::InsertItem(const wxDataViewItem & parent, const wxDataViewItem & previous, const wxString & text, const wxIcon & icon = wxNullIcon, wxClientData * data = NULL) function, expected prototype:\nwxDataViewItem wxDataViewTreeStore::InsertItem(const wxDataViewItem & parent, const wxDataViewItem & previous, const wxString & text, const wxIcon & icon = wxNullIcon, wxClientData * data = NULL)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 11709329\narg 3 ID = 88196105\narg 4 ID = 56813631\narg 5 ID = 50457573\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewItem wxDataViewTreeStore::InsertItem(const wxDataViewItem & parent, const wxDataViewItem & previous, const wxString & text, const wxIcon & icon = wxNullIcon, wxClientData * data = NULL) function, expected prototype:\nwxDataViewItem wxDataViewTreeStore::InsertItem(const wxDataViewItem & parent, const wxDataViewItem & previous, const wxString & text, const wxIcon & icon = wxNullIcon, wxClientData * data = NULL)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 11709329\narg 3 ID = 88196105\narg 4 ID = 56813631\narg 5 ID = 50457573\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -704,8 +675,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::InsertItem(const wxDataViewItem &, const wxDataViewItem &, const wxString &, const wxIcon &, wxClientData *). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::InsertItem(const wxDataViewItem &, const wxDataViewItem &, const wxString &, const wxIcon &, wxClientData *). Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDataViewItem stack_lret = self->InsertItem(parent, previous, text, icon, data);
 		wxDataViewItem* lret = new wxDataViewItem(stack_lret);
@@ -719,8 +689,7 @@ public:
 	// wxDataViewItem wxDataViewTreeStore::PrependContainer(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, const wxIcon & expanded = wxNullIcon, wxClientData * data = NULL)
 	static int _bind_PrependContainer(lua_State *L) {
 		if (!_lg_typecheck_PrependContainer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewItem wxDataViewTreeStore::PrependContainer(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, const wxIcon & expanded = wxNullIcon, wxClientData * data = NULL) function, expected prototype:\nwxDataViewItem wxDataViewTreeStore::PrependContainer(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, const wxIcon & expanded = wxNullIcon, wxClientData * data = NULL)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 5 ID = 50457573\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewItem wxDataViewTreeStore::PrependContainer(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, const wxIcon & expanded = wxNullIcon, wxClientData * data = NULL) function, expected prototype:\nwxDataViewItem wxDataViewTreeStore::PrependContainer(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, const wxIcon & expanded = wxNullIcon, wxClientData * data = NULL)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 5 ID = 50457573\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -745,8 +714,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::PrependContainer(const wxDataViewItem &, const wxString &, const wxIcon &, const wxIcon &, wxClientData *). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::PrependContainer(const wxDataViewItem &, const wxString &, const wxIcon &, const wxIcon &, wxClientData *). Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDataViewItem stack_lret = self->PrependContainer(parent, text, icon, expanded, data);
 		wxDataViewItem* lret = new wxDataViewItem(stack_lret);
@@ -760,8 +728,7 @@ public:
 	// wxDataViewItem wxDataViewTreeStore::PrependItem(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, wxClientData * data = NULL)
 	static int _bind_PrependItem(lua_State *L) {
 		if (!_lg_typecheck_PrependItem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDataViewItem wxDataViewTreeStore::PrependItem(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, wxClientData * data = NULL) function, expected prototype:\nwxDataViewItem wxDataViewTreeStore::PrependItem(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, wxClientData * data = NULL)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 50457573\n");
+			luaL_error(L, "luna typecheck failed in wxDataViewItem wxDataViewTreeStore::PrependItem(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, wxClientData * data = NULL) function, expected prototype:\nwxDataViewItem wxDataViewTreeStore::PrependItem(const wxDataViewItem & parent, const wxString & text, const wxIcon & icon = wxNullIcon, wxClientData * data = NULL)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 50457573\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -781,8 +748,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::PrependItem(const wxDataViewItem &, const wxString &, const wxIcon &, wxClientData *). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDataViewItem wxDataViewTreeStore::PrependItem(const wxDataViewItem &, const wxString &, const wxIcon &, wxClientData *). Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDataViewItem stack_lret = self->PrependItem(parent, text, icon, data);
 		wxDataViewItem* lret = new wxDataViewItem(stack_lret);
@@ -796,8 +762,7 @@ public:
 	// void wxDataViewTreeStore::SetItemData(const wxDataViewItem & item, wxClientData * data)
 	static int _bind_SetItemData(lua_State *L) {
 		if (!_lg_typecheck_SetItemData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewTreeStore::SetItemData(const wxDataViewItem & item, wxClientData * data) function, expected prototype:\nvoid wxDataViewTreeStore::SetItemData(const wxDataViewItem & item, wxClientData * data)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 50457573\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewTreeStore::SetItemData(const wxDataViewItem & item, wxClientData * data) function, expected prototype:\nvoid wxDataViewTreeStore::SetItemData(const wxDataViewItem & item, wxClientData * data)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 50457573\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -809,8 +774,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::SetItemData(const wxDataViewItem &, wxClientData *). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::SetItemData(const wxDataViewItem &, wxClientData *). Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetItemData(item, data);
 
@@ -820,8 +784,7 @@ public:
 	// void wxDataViewTreeStore::SetItemExpandedIcon(const wxDataViewItem & item, const wxIcon & icon)
 	static int _bind_SetItemExpandedIcon(lua_State *L) {
 		if (!_lg_typecheck_SetItemExpandedIcon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewTreeStore::SetItemExpandedIcon(const wxDataViewItem & item, const wxIcon & icon) function, expected prototype:\nvoid wxDataViewTreeStore::SetItemExpandedIcon(const wxDataViewItem & item, const wxIcon & icon)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewTreeStore::SetItemExpandedIcon(const wxDataViewItem & item, const wxIcon & icon) function, expected prototype:\nvoid wxDataViewTreeStore::SetItemExpandedIcon(const wxDataViewItem & item, const wxIcon & icon)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -837,8 +800,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::SetItemExpandedIcon(const wxDataViewItem &, const wxIcon &). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::SetItemExpandedIcon(const wxDataViewItem &, const wxIcon &). Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetItemExpandedIcon(item, icon);
 
@@ -848,8 +810,7 @@ public:
 	// void wxDataViewTreeStore::SetItemIcon(const wxDataViewItem & item, const wxIcon & icon)
 	static int _bind_SetItemIcon(lua_State *L) {
 		if (!_lg_typecheck_SetItemIcon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewTreeStore::SetItemIcon(const wxDataViewItem & item, const wxIcon & icon) function, expected prototype:\nvoid wxDataViewTreeStore::SetItemIcon(const wxDataViewItem & item, const wxIcon & icon)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewTreeStore::SetItemIcon(const wxDataViewItem & item, const wxIcon & icon) function, expected prototype:\nvoid wxDataViewTreeStore::SetItemIcon(const wxDataViewItem & item, const wxIcon & icon)\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -865,8 +826,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::SetItemIcon(const wxDataViewItem &, const wxIcon &). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::SetItemIcon(const wxDataViewItem &, const wxIcon &). Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetItemIcon(item, icon);
 
@@ -876,15 +836,13 @@ public:
 	// bool wxDataViewTreeStore::base_Cleared()
 	static int _bind_base_Cleared(lua_State *L) {
 		if (!_lg_typecheck_base_Cleared(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_Cleared() function, expected prototype:\nbool wxDataViewTreeStore::base_Cleared()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_Cleared() function, expected prototype:\nbool wxDataViewTreeStore::base_Cleared()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_Cleared(). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_Cleared(). Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataViewTreeStore::Cleared();
 		lua_pushboolean(L,lret?1:0);
@@ -895,8 +853,7 @@ public:
 	// int wxDataViewTreeStore::base_Compare(const wxDataViewItem & item1, const wxDataViewItem & item2, unsigned int column, bool ascending) const
 	static int _bind_base_Compare(lua_State *L) {
 		if (!_lg_typecheck_base_Compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxDataViewTreeStore::base_Compare(const wxDataViewItem & item1, const wxDataViewItem & item2, unsigned int column, bool ascending) const function, expected prototype:\nint wxDataViewTreeStore::base_Compare(const wxDataViewItem & item1, const wxDataViewItem & item2, unsigned int column, bool ascending) const\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in int wxDataViewTreeStore::base_Compare(const wxDataViewItem & item1, const wxDataViewItem & item2, unsigned int column, bool ascending) const function, expected prototype:\nint wxDataViewTreeStore::base_Compare(const wxDataViewItem & item1, const wxDataViewItem & item2, unsigned int column, bool ascending) const\nClass arguments details:\narg 1 ID = 11709329\narg 2 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* item1_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -914,8 +871,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDataViewTreeStore::base_Compare(const wxDataViewItem &, const wxDataViewItem &, unsigned int, bool) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxDataViewTreeStore::base_Compare(const wxDataViewItem &, const wxDataViewItem &, unsigned int, bool) const. Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->wxDataViewTreeStore::Compare(item1, item2, column, ascending);
 		lua_pushnumber(L,lret);
@@ -926,8 +882,7 @@ public:
 	// bool wxDataViewTreeStore::base_GetAttr(const wxDataViewItem & item, unsigned int col, wxDataViewItemAttr & attr) const
 	static int _bind_base_GetAttr(lua_State *L) {
 		if (!_lg_typecheck_base_GetAttr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_GetAttr(const wxDataViewItem & item, unsigned int col, wxDataViewItemAttr & attr) const function, expected prototype:\nbool wxDataViewTreeStore::base_GetAttr(const wxDataViewItem & item, unsigned int col, wxDataViewItemAttr & attr) const\nClass arguments details:\narg 1 ID = 11709329\narg 3 ID = 11637659\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_GetAttr(const wxDataViewItem & item, unsigned int col, wxDataViewItemAttr & attr) const function, expected prototype:\nbool wxDataViewTreeStore::base_GetAttr(const wxDataViewItem & item, unsigned int col, wxDataViewItemAttr & attr) const\nClass arguments details:\narg 1 ID = 11709329\narg 3 ID = 11637659\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -944,8 +899,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_GetAttr(const wxDataViewItem &, unsigned int, wxDataViewItemAttr &) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_GetAttr(const wxDataViewItem &, unsigned int, wxDataViewItemAttr &) const. Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataViewTreeStore::GetAttr(item, col, attr);
 		lua_pushboolean(L,lret?1:0);
@@ -956,8 +910,7 @@ public:
 	// bool wxDataViewTreeStore::base_IsEnabled(const wxDataViewItem & item, unsigned int col) const
 	static int _bind_base_IsEnabled(lua_State *L) {
 		if (!_lg_typecheck_base_IsEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_IsEnabled(const wxDataViewItem & item, unsigned int col) const function, expected prototype:\nbool wxDataViewTreeStore::base_IsEnabled(const wxDataViewItem & item, unsigned int col) const\nClass arguments details:\narg 1 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_IsEnabled(const wxDataViewItem & item, unsigned int col) const function, expected prototype:\nbool wxDataViewTreeStore::base_IsEnabled(const wxDataViewItem & item, unsigned int col) const\nClass arguments details:\narg 1 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -969,8 +922,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_IsEnabled(const wxDataViewItem &, unsigned int) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_IsEnabled(const wxDataViewItem &, unsigned int) const. Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataViewTreeStore::IsEnabled(item, col);
 		lua_pushboolean(L,lret?1:0);
@@ -981,8 +933,7 @@ public:
 	// bool wxDataViewTreeStore::base_HasContainerColumns(const wxDataViewItem & item) const
 	static int _bind_base_HasContainerColumns(lua_State *L) {
 		if (!_lg_typecheck_base_HasContainerColumns(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_HasContainerColumns(const wxDataViewItem & item) const function, expected prototype:\nbool wxDataViewTreeStore::base_HasContainerColumns(const wxDataViewItem & item) const\nClass arguments details:\narg 1 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_HasContainerColumns(const wxDataViewItem & item) const function, expected prototype:\nbool wxDataViewTreeStore::base_HasContainerColumns(const wxDataViewItem & item) const\nClass arguments details:\narg 1 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -993,8 +944,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_HasContainerColumns(const wxDataViewItem &) const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_HasContainerColumns(const wxDataViewItem &) const. Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataViewTreeStore::HasContainerColumns(item);
 		lua_pushboolean(L,lret?1:0);
@@ -1005,15 +955,13 @@ public:
 	// bool wxDataViewTreeStore::base_HasDefaultCompare() const
 	static int _bind_base_HasDefaultCompare(lua_State *L) {
 		if (!_lg_typecheck_base_HasDefaultCompare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_HasDefaultCompare() const function, expected prototype:\nbool wxDataViewTreeStore::base_HasDefaultCompare() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_HasDefaultCompare() const function, expected prototype:\nbool wxDataViewTreeStore::base_HasDefaultCompare() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_HasDefaultCompare() const. Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_HasDefaultCompare() const. Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataViewTreeStore::HasDefaultCompare();
 		lua_pushboolean(L,lret?1:0);
@@ -1024,15 +972,13 @@ public:
 	// void wxDataViewTreeStore::base_Resort()
 	static int _bind_base_Resort(lua_State *L) {
 		if (!_lg_typecheck_base_Resort(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxDataViewTreeStore::base_Resort() function, expected prototype:\nvoid wxDataViewTreeStore::base_Resort()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxDataViewTreeStore::base_Resort() function, expected prototype:\nvoid wxDataViewTreeStore::base_Resort()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::base_Resort(). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxDataViewTreeStore::base_Resort(). Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxDataViewTreeStore::Resort();
 
@@ -1042,8 +988,7 @@ public:
 	// bool wxDataViewTreeStore::base_ValueChanged(const wxDataViewItem & item, unsigned int col)
 	static int _bind_base_ValueChanged(lua_State *L) {
 		if (!_lg_typecheck_base_ValueChanged(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_ValueChanged(const wxDataViewItem & item, unsigned int col) function, expected prototype:\nbool wxDataViewTreeStore::base_ValueChanged(const wxDataViewItem & item, unsigned int col)\nClass arguments details:\narg 1 ID = 11709329\n");
+			luaL_error(L, "luna typecheck failed in bool wxDataViewTreeStore::base_ValueChanged(const wxDataViewItem & item, unsigned int col) function, expected prototype:\nbool wxDataViewTreeStore::base_ValueChanged(const wxDataViewItem & item, unsigned int col)\nClass arguments details:\narg 1 ID = 11709329\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDataViewItem* item_ptr=(Luna< wxDataViewItem >::check(L,2));
@@ -1055,8 +1000,7 @@ public:
 
 		wxDataViewTreeStore* self=Luna< wxDataViewModel >::checkSubType< wxDataViewTreeStore >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_ValueChanged(const wxDataViewItem &, unsigned int). Got : '%s'",typeid(Luna< wxDataViewModel >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDataViewTreeStore::base_ValueChanged(const wxDataViewItem &, unsigned int). Got : '%s'\n%s",typeid(Luna< wxDataViewModel >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxDataViewTreeStore::ValueChanged(item, col);
 		lua_pushboolean(L,lret?1:0);

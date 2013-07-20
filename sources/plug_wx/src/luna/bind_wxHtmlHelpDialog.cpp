@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlHelpDialog* self= (wxHtmlHelpDialog*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -186,8 +183,7 @@ public:
 	// wxHtmlHelpDialog::wxHtmlHelpDialog(wxHtmlHelpData * data = NULL)
 	static wxHtmlHelpDialog* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlHelpDialog::wxHtmlHelpDialog(wxHtmlHelpData * data = NULL) function, expected prototype:\nwxHtmlHelpDialog::wxHtmlHelpDialog(wxHtmlHelpData * data = NULL)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlHelpDialog::wxHtmlHelpDialog(wxHtmlHelpData * data = NULL) function, expected prototype:\nwxHtmlHelpDialog::wxHtmlHelpDialog(wxHtmlHelpData * data = NULL)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -200,8 +196,7 @@ public:
 	// wxHtmlHelpDialog::wxHtmlHelpDialog(wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL)
 	static wxHtmlHelpDialog* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlHelpDialog::wxHtmlHelpDialog(wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL) function, expected prototype:\nwxHtmlHelpDialog::wxHtmlHelpDialog(wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\narg 5 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlHelpDialog::wxHtmlHelpDialog(wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL) function, expected prototype:\nwxHtmlHelpDialog::wxHtmlHelpDialog(wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\narg 5 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -218,8 +213,7 @@ public:
 	// wxHtmlHelpDialog::wxHtmlHelpDialog(lua_Table * data, wxHtmlHelpData * data = NULL)
 	static wxHtmlHelpDialog* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlHelpDialog::wxHtmlHelpDialog(lua_Table * data, wxHtmlHelpData * data = NULL) function, expected prototype:\nwxHtmlHelpDialog::wxHtmlHelpDialog(lua_Table * data, wxHtmlHelpData * data = NULL)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlHelpDialog::wxHtmlHelpDialog(lua_Table * data, wxHtmlHelpData * data = NULL) function, expected prototype:\nwxHtmlHelpDialog::wxHtmlHelpDialog(lua_Table * data, wxHtmlHelpData * data = NULL)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -232,8 +226,7 @@ public:
 	// wxHtmlHelpDialog::wxHtmlHelpDialog(lua_Table * data, wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL)
 	static wxHtmlHelpDialog* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlHelpDialog::wxHtmlHelpDialog(lua_Table * data, wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL) function, expected prototype:\nwxHtmlHelpDialog::wxHtmlHelpDialog(lua_Table * data, wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\narg 6 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlHelpDialog::wxHtmlHelpDialog(lua_Table * data, wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL) function, expected prototype:\nwxHtmlHelpDialog::wxHtmlHelpDialog(lua_Table * data, wxWindow * parent, int wxWindowID, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE, wxHtmlHelpData * data = NULL)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 88196105\narg 6 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -263,8 +256,7 @@ public:
 	// void wxHtmlHelpDialog::AddToolbarButtons(wxToolBar * toolBar, int style)
 	static int _bind_AddToolbarButtons(lua_State *L) {
 		if (!_lg_typecheck_AddToolbarButtons(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlHelpDialog::AddToolbarButtons(wxToolBar * toolBar, int style) function, expected prototype:\nvoid wxHtmlHelpDialog::AddToolbarButtons(wxToolBar * toolBar, int style)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpDialog::AddToolbarButtons(wxToolBar * toolBar, int style) function, expected prototype:\nvoid wxHtmlHelpDialog::AddToolbarButtons(wxToolBar * toolBar, int style)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxToolBar* toolBar=(Luna< wxObject >::checkSubType< wxToolBar >(L,2));
@@ -272,8 +264,7 @@ public:
 
 		wxHtmlHelpDialog* self=Luna< wxObject >::checkSubType< wxHtmlHelpDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpDialog::AddToolbarButtons(wxToolBar *, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpDialog::AddToolbarButtons(wxToolBar *, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddToolbarButtons(toolBar, style);
 
@@ -283,8 +274,7 @@ public:
 	// bool wxHtmlHelpDialog::Create(wxWindow * parent, int id, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpDialog::Create(wxWindow * parent, int id, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE) function, expected prototype:\nbool wxHtmlHelpDialog::Create(wxWindow * parent, int id, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlHelpDialog::Create(wxWindow * parent, int id, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE) function, expected prototype:\nbool wxHtmlHelpDialog::Create(wxWindow * parent, int id, const wxString & title = wxEmptyString, int style = wxHF_DEFAULT_STYLE)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -296,8 +286,7 @@ public:
 
 		wxHtmlHelpDialog* self=Luna< wxObject >::checkSubType< wxHtmlHelpDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlHelpDialog::Create(wxWindow *, int, const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlHelpDialog::Create(wxWindow *, int, const wxString &, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Create(parent, id, title, style);
 		lua_pushboolean(L,lret?1:0);
@@ -308,15 +297,13 @@ public:
 	// wxHtmlHelpController * wxHtmlHelpDialog::GetController() const
 	static int _bind_GetController(lua_State *L) {
 		if (!_lg_typecheck_GetController(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlHelpController * wxHtmlHelpDialog::GetController() const function, expected prototype:\nwxHtmlHelpController * wxHtmlHelpDialog::GetController() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlHelpController * wxHtmlHelpDialog::GetController() const function, expected prototype:\nwxHtmlHelpController * wxHtmlHelpDialog::GetController() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlHelpDialog* self=Luna< wxObject >::checkSubType< wxHtmlHelpDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxHtmlHelpController * wxHtmlHelpDialog::GetController() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxHtmlHelpController * wxHtmlHelpDialog::GetController() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxHtmlHelpController * lret = self->GetController();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -329,16 +316,14 @@ public:
 	// void wxHtmlHelpDialog::SetController(wxHtmlHelpController * controller)
 	static int _bind_SetController(lua_State *L) {
 		if (!_lg_typecheck_SetController(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlHelpDialog::SetController(wxHtmlHelpController * controller) function, expected prototype:\nvoid wxHtmlHelpDialog::SetController(wxHtmlHelpController * controller)\nClass arguments details:\narg 1 ID = 14199711\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpDialog::SetController(wxHtmlHelpController * controller) function, expected prototype:\nvoid wxHtmlHelpDialog::SetController(wxHtmlHelpController * controller)\nClass arguments details:\narg 1 ID = 14199711\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlHelpController* controller=(Luna< wxHtmlHelpController >::check(L,2));
 
 		wxHtmlHelpDialog* self=Luna< wxObject >::checkSubType< wxHtmlHelpDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpDialog::SetController(wxHtmlHelpController *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpDialog::SetController(wxHtmlHelpController *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetController(controller);
 
@@ -348,16 +333,14 @@ public:
 	// void wxHtmlHelpDialog::SetTitleFormat(const wxString & format)
 	static int _bind_SetTitleFormat(lua_State *L) {
 		if (!_lg_typecheck_SetTitleFormat(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlHelpDialog::SetTitleFormat(const wxString & format) function, expected prototype:\nvoid wxHtmlHelpDialog::SetTitleFormat(const wxString & format)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlHelpDialog::SetTitleFormat(const wxString & format) function, expected prototype:\nvoid wxHtmlHelpDialog::SetTitleFormat(const wxString & format)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString format(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHtmlHelpDialog* self=Luna< wxObject >::checkSubType< wxHtmlHelpDialog >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlHelpDialog::SetTitleFormat(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlHelpDialog::SetTitleFormat(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTitleFormat(format);
 

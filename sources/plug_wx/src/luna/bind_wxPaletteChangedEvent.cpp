@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPaletteChangedEvent* self= (wxPaletteChangedEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -133,8 +130,7 @@ public:
 	// wxPaletteChangedEvent::wxPaletteChangedEvent(lua_Table * data, int winid = 0)
 	static wxPaletteChangedEvent* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPaletteChangedEvent::wxPaletteChangedEvent(lua_Table * data, int winid = 0) function, expected prototype:\nwxPaletteChangedEvent::wxPaletteChangedEvent(lua_Table * data, int winid = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPaletteChangedEvent::wxPaletteChangedEvent(lua_Table * data, int winid = 0) function, expected prototype:\nwxPaletteChangedEvent::wxPaletteChangedEvent(lua_Table * data, int winid = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -149,16 +145,14 @@ public:
 	// void wxPaletteChangedEvent::SetChangedWindow(wxWindow * win)
 	static int _bind_SetChangedWindow(lua_State *L) {
 		if (!_lg_typecheck_SetChangedWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPaletteChangedEvent::SetChangedWindow(wxWindow * win) function, expected prototype:\nvoid wxPaletteChangedEvent::SetChangedWindow(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPaletteChangedEvent::SetChangedWindow(wxWindow * win) function, expected prototype:\nvoid wxPaletteChangedEvent::SetChangedWindow(wxWindow * win)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* win=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxPaletteChangedEvent* self=Luna< wxObject >::checkSubType< wxPaletteChangedEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPaletteChangedEvent::SetChangedWindow(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPaletteChangedEvent::SetChangedWindow(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetChangedWindow(win);
 
@@ -168,15 +162,13 @@ public:
 	// wxWindow * wxPaletteChangedEvent::GetChangedWindow() const
 	static int _bind_GetChangedWindow(lua_State *L) {
 		if (!_lg_typecheck_GetChangedWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxWindow * wxPaletteChangedEvent::GetChangedWindow() const function, expected prototype:\nwxWindow * wxPaletteChangedEvent::GetChangedWindow() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxWindow * wxPaletteChangedEvent::GetChangedWindow() const function, expected prototype:\nwxWindow * wxPaletteChangedEvent::GetChangedWindow() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPaletteChangedEvent* self=Luna< wxObject >::checkSubType< wxPaletteChangedEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxPaletteChangedEvent::GetChangedWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxWindow * wxPaletteChangedEvent::GetChangedWindow() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxWindow * lret = self->GetChangedWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -189,15 +181,13 @@ public:
 	// wxClassInfo * wxPaletteChangedEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxPaletteChangedEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxPaletteChangedEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxPaletteChangedEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxPaletteChangedEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPaletteChangedEvent* self=Luna< wxObject >::checkSubType< wxPaletteChangedEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxPaletteChangedEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPaletteChangedEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxPaletteChangedEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -210,15 +200,13 @@ public:
 	// wxEventCategory wxPaletteChangedEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxPaletteChangedEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxPaletteChangedEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxPaletteChangedEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxPaletteChangedEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPaletteChangedEvent* self=Luna< wxObject >::checkSubType< wxPaletteChangedEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxPaletteChangedEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxPaletteChangedEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxPaletteChangedEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

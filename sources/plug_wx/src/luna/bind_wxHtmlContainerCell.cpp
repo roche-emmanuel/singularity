@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlContainerCell* self= (wxHtmlContainerCell*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -304,8 +301,7 @@ public:
 	// wxHtmlContainerCell::wxHtmlContainerCell(wxHtmlContainerCell * parent)
 	static wxHtmlContainerCell* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlContainerCell::wxHtmlContainerCell(wxHtmlContainerCell * parent) function, expected prototype:\nwxHtmlContainerCell::wxHtmlContainerCell(wxHtmlContainerCell * parent)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlContainerCell::wxHtmlContainerCell(wxHtmlContainerCell * parent) function, expected prototype:\nwxHtmlContainerCell::wxHtmlContainerCell(wxHtmlContainerCell * parent)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlContainerCell* parent=(Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1));
@@ -316,8 +312,7 @@ public:
 	// wxHtmlContainerCell::wxHtmlContainerCell(lua_Table * data, wxHtmlContainerCell * parent)
 	static wxHtmlContainerCell* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlContainerCell::wxHtmlContainerCell(lua_Table * data, wxHtmlContainerCell * parent) function, expected prototype:\nwxHtmlContainerCell::wxHtmlContainerCell(lua_Table * data, wxHtmlContainerCell * parent)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlContainerCell::wxHtmlContainerCell(lua_Table * data, wxHtmlContainerCell * parent) function, expected prototype:\nwxHtmlContainerCell::wxHtmlContainerCell(lua_Table * data, wxHtmlContainerCell * parent)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlContainerCell* parent=(Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,2));
@@ -339,15 +334,13 @@ public:
 	// int wxHtmlContainerCell::GetAlignHor() const
 	static int _bind_GetAlignHor(lua_State *L) {
 		if (!_lg_typecheck_GetAlignHor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxHtmlContainerCell::GetAlignHor() const function, expected prototype:\nint wxHtmlContainerCell::GetAlignHor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxHtmlContainerCell::GetAlignHor() const function, expected prototype:\nint wxHtmlContainerCell::GetAlignHor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlContainerCell::GetAlignHor() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxHtmlContainerCell::GetAlignHor() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetAlignHor();
 		lua_pushnumber(L,lret);
@@ -358,15 +351,13 @@ public:
 	// int wxHtmlContainerCell::GetAlignVer() const
 	static int _bind_GetAlignVer(lua_State *L) {
 		if (!_lg_typecheck_GetAlignVer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxHtmlContainerCell::GetAlignVer() const function, expected prototype:\nint wxHtmlContainerCell::GetAlignVer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxHtmlContainerCell::GetAlignVer() const function, expected prototype:\nint wxHtmlContainerCell::GetAlignVer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlContainerCell::GetAlignVer() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxHtmlContainerCell::GetAlignVer() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetAlignVer();
 		lua_pushnumber(L,lret);
@@ -377,15 +368,13 @@ public:
 	// wxColour wxHtmlContainerCell::GetBackgroundColour()
 	static int _bind_GetBackgroundColour(lua_State *L) {
 		if (!_lg_typecheck_GetBackgroundColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxHtmlContainerCell::GetBackgroundColour() function, expected prototype:\nwxColour wxHtmlContainerCell::GetBackgroundColour()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxHtmlContainerCell::GetBackgroundColour() function, expected prototype:\nwxColour wxHtmlContainerCell::GetBackgroundColour()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxHtmlContainerCell::GetBackgroundColour(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxHtmlContainerCell::GetBackgroundColour(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxColour stack_lret = self->GetBackgroundColour();
 		wxColour* lret = new wxColour(stack_lret);
@@ -399,16 +388,14 @@ public:
 	// int wxHtmlContainerCell::GetIndent(int ind) const
 	static int _bind_GetIndent(lua_State *L) {
 		if (!_lg_typecheck_GetIndent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxHtmlContainerCell::GetIndent(int ind) const function, expected prototype:\nint wxHtmlContainerCell::GetIndent(int ind) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxHtmlContainerCell::GetIndent(int ind) const function, expected prototype:\nint wxHtmlContainerCell::GetIndent(int ind) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int ind=(int)lua_tointeger(L,2);
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlContainerCell::GetIndent(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxHtmlContainerCell::GetIndent(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetIndent(ind);
 		lua_pushnumber(L,lret);
@@ -419,16 +406,14 @@ public:
 	// int wxHtmlContainerCell::GetIndentUnits(int ind) const
 	static int _bind_GetIndentUnits(lua_State *L) {
 		if (!_lg_typecheck_GetIndentUnits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxHtmlContainerCell::GetIndentUnits(int ind) const function, expected prototype:\nint wxHtmlContainerCell::GetIndentUnits(int ind) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxHtmlContainerCell::GetIndentUnits(int ind) const function, expected prototype:\nint wxHtmlContainerCell::GetIndentUnits(int ind) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int ind=(int)lua_tointeger(L,2);
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxHtmlContainerCell::GetIndentUnits(int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxHtmlContainerCell::GetIndentUnits(int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetIndentUnits(ind);
 		lua_pushnumber(L,lret);
@@ -439,16 +424,14 @@ public:
 	// void wxHtmlContainerCell::InsertCell(wxHtmlCell * cell)
 	static int _bind_InsertCell(lua_State *L) {
 		if (!_lg_typecheck_InsertCell(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::InsertCell(wxHtmlCell * cell) function, expected prototype:\nvoid wxHtmlContainerCell::InsertCell(wxHtmlCell * cell)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::InsertCell(wxHtmlCell * cell) function, expected prototype:\nvoid wxHtmlContainerCell::InsertCell(wxHtmlCell * cell)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHtmlCell* cell=(Luna< wxObject >::checkSubType< wxHtmlCell >(L,2));
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::InsertCell(wxHtmlCell *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::InsertCell(wxHtmlCell *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->InsertCell(cell);
 
@@ -458,8 +441,7 @@ public:
 	// void wxHtmlContainerCell::SetAlign(const wxHtmlTag & tag)
 	static int _bind_SetAlign(lua_State *L) {
 		if (!_lg_typecheck_SetAlign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetAlign(const wxHtmlTag & tag) function, expected prototype:\nvoid wxHtmlContainerCell::SetAlign(const wxHtmlTag & tag)\nClass arguments details:\narg 1 ID = 66986009\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetAlign(const wxHtmlTag & tag) function, expected prototype:\nvoid wxHtmlContainerCell::SetAlign(const wxHtmlTag & tag)\nClass arguments details:\narg 1 ID = 66986009\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxHtmlTag* tag_ptr=(Luna< wxHtmlTag >::check(L,2));
@@ -470,8 +452,7 @@ public:
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetAlign(const wxHtmlTag &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetAlign(const wxHtmlTag &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAlign(tag);
 
@@ -481,16 +462,14 @@ public:
 	// void wxHtmlContainerCell::SetAlignHor(int al)
 	static int _bind_SetAlignHor(lua_State *L) {
 		if (!_lg_typecheck_SetAlignHor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetAlignHor(int al) function, expected prototype:\nvoid wxHtmlContainerCell::SetAlignHor(int al)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetAlignHor(int al) function, expected prototype:\nvoid wxHtmlContainerCell::SetAlignHor(int al)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int al=(int)lua_tointeger(L,2);
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetAlignHor(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetAlignHor(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAlignHor(al);
 
@@ -500,16 +479,14 @@ public:
 	// void wxHtmlContainerCell::SetAlignVer(int al)
 	static int _bind_SetAlignVer(lua_State *L) {
 		if (!_lg_typecheck_SetAlignVer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetAlignVer(int al) function, expected prototype:\nvoid wxHtmlContainerCell::SetAlignVer(int al)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetAlignVer(int al) function, expected prototype:\nvoid wxHtmlContainerCell::SetAlignVer(int al)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int al=(int)lua_tointeger(L,2);
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetAlignVer(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetAlignVer(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAlignVer(al);
 
@@ -519,8 +496,7 @@ public:
 	// void wxHtmlContainerCell::SetBackgroundColour(const wxColour & clr)
 	static int _bind_SetBackgroundColour(lua_State *L) {
 		if (!_lg_typecheck_SetBackgroundColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetBackgroundColour(const wxColour & clr) function, expected prototype:\nvoid wxHtmlContainerCell::SetBackgroundColour(const wxColour & clr)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetBackgroundColour(const wxColour & clr) function, expected prototype:\nvoid wxHtmlContainerCell::SetBackgroundColour(const wxColour & clr)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* clr_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -531,8 +507,7 @@ public:
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetBackgroundColour(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetBackgroundColour(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetBackgroundColour(clr);
 
@@ -542,8 +517,7 @@ public:
 	// void wxHtmlContainerCell::SetBorder(const wxColour & clr1, const wxColour & clr2, int border = 1)
 	static int _bind_SetBorder(lua_State *L) {
 		if (!_lg_typecheck_SetBorder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetBorder(const wxColour & clr1, const wxColour & clr2, int border = 1) function, expected prototype:\nvoid wxHtmlContainerCell::SetBorder(const wxColour & clr1, const wxColour & clr2, int border = 1)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetBorder(const wxColour & clr1, const wxColour & clr2, int border = 1) function, expected prototype:\nvoid wxHtmlContainerCell::SetBorder(const wxColour & clr1, const wxColour & clr2, int border = 1)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -562,8 +536,7 @@ public:
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetBorder(const wxColour &, const wxColour &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetBorder(const wxColour &, const wxColour &, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetBorder(clr1, clr2, border);
 
@@ -573,8 +546,7 @@ public:
 	// void wxHtmlContainerCell::SetIndent(int i, int what, int units = wxHTML_UNITS_PIXELS)
 	static int _bind_SetIndent(lua_State *L) {
 		if (!_lg_typecheck_SetIndent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetIndent(int i, int what, int units = wxHTML_UNITS_PIXELS) function, expected prototype:\nvoid wxHtmlContainerCell::SetIndent(int i, int what, int units = wxHTML_UNITS_PIXELS)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetIndent(int i, int what, int units = wxHTML_UNITS_PIXELS) function, expected prototype:\nvoid wxHtmlContainerCell::SetIndent(int i, int what, int units = wxHTML_UNITS_PIXELS)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -585,8 +557,7 @@ public:
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetIndent(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetIndent(int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetIndent(i, what, units);
 
@@ -596,8 +567,7 @@ public:
 	// void wxHtmlContainerCell::SetMinHeight(int h, int align = wxHTML_ALIGN_TOP)
 	static int _bind_SetMinHeight(lua_State *L) {
 		if (!_lg_typecheck_SetMinHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetMinHeight(int h, int align = wxHTML_ALIGN_TOP) function, expected prototype:\nvoid wxHtmlContainerCell::SetMinHeight(int h, int align = wxHTML_ALIGN_TOP)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetMinHeight(int h, int align = wxHTML_ALIGN_TOP) function, expected prototype:\nvoid wxHtmlContainerCell::SetMinHeight(int h, int align = wxHTML_ALIGN_TOP)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -607,8 +577,7 @@ public:
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetMinHeight(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetMinHeight(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMinHeight(h, align);
 
@@ -618,8 +587,7 @@ public:
 	// void wxHtmlContainerCell::SetWidthFloat(int w, int units)
 	static int _bind_SetWidthFloat_overload_1(lua_State *L) {
 		if (!_lg_typecheck_SetWidthFloat_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetWidthFloat(int w, int units) function, expected prototype:\nvoid wxHtmlContainerCell::SetWidthFloat(int w, int units)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetWidthFloat(int w, int units) function, expected prototype:\nvoid wxHtmlContainerCell::SetWidthFloat(int w, int units)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int w=(int)lua_tointeger(L,2);
@@ -627,8 +595,7 @@ public:
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetWidthFloat(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetWidthFloat(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWidthFloat(w, units);
 
@@ -638,8 +605,7 @@ public:
 	// void wxHtmlContainerCell::SetWidthFloat(const wxHtmlTag & tag, double pixel_scale = 1.0)
 	static int _bind_SetWidthFloat_overload_2(lua_State *L) {
 		if (!_lg_typecheck_SetWidthFloat_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetWidthFloat(const wxHtmlTag & tag, double pixel_scale = 1.0) function, expected prototype:\nvoid wxHtmlContainerCell::SetWidthFloat(const wxHtmlTag & tag, double pixel_scale = 1.0)\nClass arguments details:\narg 1 ID = 66986009\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::SetWidthFloat(const wxHtmlTag & tag, double pixel_scale = 1.0) function, expected prototype:\nvoid wxHtmlContainerCell::SetWidthFloat(const wxHtmlTag & tag, double pixel_scale = 1.0)\nClass arguments details:\narg 1 ID = 66986009\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -653,8 +619,7 @@ public:
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetWidthFloat(const wxHtmlTag &, double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::SetWidthFloat(const wxHtmlTag &, double). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWidthFloat(tag, pixel_scale);
 
@@ -673,15 +638,13 @@ public:
 	// wxClassInfo * wxHtmlContainerCell::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlContainerCell::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlContainerCell::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxHtmlContainerCell::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxHtmlContainerCell::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlContainerCell::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxHtmlContainerCell::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxHtmlContainerCell::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -694,8 +657,7 @@ public:
 	// bool wxHtmlContainerCell::base_AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const
 	static int _bind_base_AdjustPagebreak(lua_State *L) {
 		if (!_lg_typecheck_base_AdjustPagebreak(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHtmlContainerCell::base_AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const function, expected prototype:\nbool wxHtmlContainerCell::base_AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const\nClass arguments details:\narg 2 ID = 47342076\n");
+			luaL_error(L, "luna typecheck failed in bool wxHtmlContainerCell::base_AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const function, expected prototype:\nbool wxHtmlContainerCell::base_AdjustPagebreak(int * pagebreak, wxArrayInt & known_pagebreaks) const\nClass arguments details:\narg 2 ID = 47342076\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int* pagebreak=(int*)Luna< void >::check(L,2);
@@ -707,8 +669,7 @@ public:
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHtmlContainerCell::base_AdjustPagebreak(int *, wxArrayInt &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHtmlContainerCell::base_AdjustPagebreak(int *, wxArrayInt &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHtmlContainerCell::AdjustPagebreak(pagebreak, known_pagebreaks);
 		lua_pushboolean(L,lret?1:0);
@@ -719,8 +680,7 @@ public:
 	// void wxHtmlContainerCell::base_Draw(wxDC & dc, int x, int y, int view_y1, int view_y2, wxHtmlRenderingInfo & info)
 	static int _bind_base_Draw(lua_State *L) {
 		if (!_lg_typecheck_base_Draw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::base_Draw(wxDC & dc, int x, int y, int view_y1, int view_y2, wxHtmlRenderingInfo & info) function, expected prototype:\nvoid wxHtmlContainerCell::base_Draw(wxDC & dc, int x, int y, int view_y1, int view_y2, wxHtmlRenderingInfo & info)\nClass arguments details:\narg 1 ID = 56813631\narg 6 ID = 10696080\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::base_Draw(wxDC & dc, int x, int y, int view_y1, int view_y2, wxHtmlRenderingInfo & info) function, expected prototype:\nvoid wxHtmlContainerCell::base_Draw(wxDC & dc, int x, int y, int view_y1, int view_y2, wxHtmlRenderingInfo & info)\nClass arguments details:\narg 1 ID = 56813631\narg 6 ID = 10696080\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
@@ -740,8 +700,7 @@ public:
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::base_Draw(wxDC &, int, int, int, int, wxHtmlRenderingInfo &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::base_Draw(wxDC &, int, int, int, int, wxHtmlRenderingInfo &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxHtmlContainerCell::Draw(dc, x, y, view_y1, view_y2, info);
 
@@ -751,8 +710,7 @@ public:
 	// void wxHtmlContainerCell::base_DrawInvisible(wxDC & dc, int x, int y, wxHtmlRenderingInfo & info)
 	static int _bind_base_DrawInvisible(lua_State *L) {
 		if (!_lg_typecheck_base_DrawInvisible(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::base_DrawInvisible(wxDC & dc, int x, int y, wxHtmlRenderingInfo & info) function, expected prototype:\nvoid wxHtmlContainerCell::base_DrawInvisible(wxDC & dc, int x, int y, wxHtmlRenderingInfo & info)\nClass arguments details:\narg 1 ID = 56813631\narg 4 ID = 10696080\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::base_DrawInvisible(wxDC & dc, int x, int y, wxHtmlRenderingInfo & info) function, expected prototype:\nvoid wxHtmlContainerCell::base_DrawInvisible(wxDC & dc, int x, int y, wxHtmlRenderingInfo & info)\nClass arguments details:\narg 1 ID = 56813631\narg 4 ID = 10696080\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDC* dc_ptr=(Luna< wxObject >::checkSubType< wxDC >(L,2));
@@ -770,8 +728,7 @@ public:
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::base_DrawInvisible(wxDC &, int, int, wxHtmlRenderingInfo &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::base_DrawInvisible(wxDC &, int, int, wxHtmlRenderingInfo &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxHtmlContainerCell::DrawInvisible(dc, x, y, info);
 
@@ -781,17 +738,15 @@ public:
 	// const wxHtmlCell * wxHtmlContainerCell::base_Find(int condition, const void * param) const
 	static int _bind_base_Find(lua_State *L) {
 		if (!_lg_typecheck_base_Find(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxHtmlCell * wxHtmlContainerCell::base_Find(int condition, const void * param) const function, expected prototype:\nconst wxHtmlCell * wxHtmlContainerCell::base_Find(int condition, const void * param) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxHtmlCell * wxHtmlContainerCell::base_Find(int condition, const void * param) const function, expected prototype:\nconst wxHtmlCell * wxHtmlContainerCell::base_Find(int condition, const void * param) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int condition=(int)lua_tointeger(L,2);
-		void* param=(Luna< void >::check(L,3));
+		const void* param=(Luna< void >::check(L,3));
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxHtmlCell * wxHtmlContainerCell::base_Find(int, const void *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxHtmlCell * wxHtmlContainerCell::base_Find(int, const void *) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxHtmlCell * lret = self->wxHtmlContainerCell::Find(condition, param);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -804,15 +759,13 @@ public:
 	// wxHtmlCell * wxHtmlContainerCell::base_GetFirstChild() const
 	static int _bind_base_GetFirstChild(lua_State *L) {
 		if (!_lg_typecheck_base_GetFirstChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlCell * wxHtmlContainerCell::base_GetFirstChild() const function, expected prototype:\nwxHtmlCell * wxHtmlContainerCell::base_GetFirstChild() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlCell * wxHtmlContainerCell::base_GetFirstChild() const function, expected prototype:\nwxHtmlCell * wxHtmlContainerCell::base_GetFirstChild() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxHtmlCell * wxHtmlContainerCell::base_GetFirstChild() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxHtmlCell * wxHtmlContainerCell::base_GetFirstChild() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxHtmlCell * lret = self->wxHtmlContainerCell::GetFirstChild();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -825,8 +778,7 @@ public:
 	// wxHtmlLinkInfo * wxHtmlContainerCell::base_GetLink(int x = 0, int y = 0) const
 	static int _bind_base_GetLink(lua_State *L) {
 		if (!_lg_typecheck_base_GetLink(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHtmlLinkInfo * wxHtmlContainerCell::base_GetLink(int x = 0, int y = 0) const function, expected prototype:\nwxHtmlLinkInfo * wxHtmlContainerCell::base_GetLink(int x = 0, int y = 0) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxHtmlLinkInfo * wxHtmlContainerCell::base_GetLink(int x = 0, int y = 0) const function, expected prototype:\nwxHtmlLinkInfo * wxHtmlContainerCell::base_GetLink(int x = 0, int y = 0) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -836,8 +788,7 @@ public:
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxHtmlLinkInfo * wxHtmlContainerCell::base_GetLink(int, int) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxHtmlLinkInfo * wxHtmlContainerCell::base_GetLink(int, int) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxHtmlLinkInfo * lret = self->wxHtmlContainerCell::GetLink(x, y);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -850,16 +801,14 @@ public:
 	// void wxHtmlContainerCell::base_Layout(int w)
 	static int _bind_base_Layout(lua_State *L) {
 		if (!_lg_typecheck_base_Layout(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::base_Layout(int w) function, expected prototype:\nvoid wxHtmlContainerCell::base_Layout(int w)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::base_Layout(int w) function, expected prototype:\nvoid wxHtmlContainerCell::base_Layout(int w)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int w=(int)lua_tointeger(L,2);
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::base_Layout(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::base_Layout(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxHtmlContainerCell::Layout(w);
 
@@ -869,8 +818,7 @@ public:
 	// void wxHtmlContainerCell::base_SetPos(int x, int y)
 	static int _bind_base_SetPos(lua_State *L) {
 		if (!_lg_typecheck_base_SetPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::base_SetPos(int x, int y) function, expected prototype:\nvoid wxHtmlContainerCell::base_SetPos(int x, int y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlContainerCell::base_SetPos(int x, int y) function, expected prototype:\nvoid wxHtmlContainerCell::base_SetPos(int x, int y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,2);
@@ -878,8 +826,7 @@ public:
 
 		wxHtmlContainerCell* self=Luna< wxObject >::checkSubType< wxHtmlContainerCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::base_SetPos(int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlContainerCell::base_SetPos(int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxHtmlContainerCell::SetPos(x, y);
 

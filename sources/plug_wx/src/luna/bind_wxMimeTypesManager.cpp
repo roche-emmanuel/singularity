@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxMimeTypesManager*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxMimeTypesManager*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxMimeTypesManager* rhs =(Luna< wxMimeTypesManager >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxMimeTypesManager* self= (wxMimeTypesManager*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxMimeTypesManager >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -145,8 +141,7 @@ public:
 	// wxMimeTypesManager::wxMimeTypesManager()
 	static wxMimeTypesManager* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMimeTypesManager::wxMimeTypesManager() function, expected prototype:\nwxMimeTypesManager::wxMimeTypesManager()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxMimeTypesManager::wxMimeTypesManager() function, expected prototype:\nwxMimeTypesManager::wxMimeTypesManager()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -158,16 +153,14 @@ public:
 	// void wxMimeTypesManager::AddFallbacks(const wxFileTypeInfo * fallbacks)
 	static int _bind_AddFallbacks(lua_State *L) {
 		if (!_lg_typecheck_AddFallbacks(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxMimeTypesManager::AddFallbacks(const wxFileTypeInfo * fallbacks) function, expected prototype:\nvoid wxMimeTypesManager::AddFallbacks(const wxFileTypeInfo * fallbacks)\nClass arguments details:\narg 1 ID = 3858360\n");
+			luaL_error(L, "luna typecheck failed in void wxMimeTypesManager::AddFallbacks(const wxFileTypeInfo * fallbacks) function, expected prototype:\nvoid wxMimeTypesManager::AddFallbacks(const wxFileTypeInfo * fallbacks)\nClass arguments details:\narg 1 ID = 3858360\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFileTypeInfo* fallbacks=(Luna< wxFileTypeInfo >::check(L,2));
 
 		wxMimeTypesManager* self=(Luna< wxMimeTypesManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMimeTypesManager::AddFallbacks(const wxFileTypeInfo *). Got : '%s'",typeid(Luna< wxMimeTypesManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxMimeTypesManager::AddFallbacks(const wxFileTypeInfo *). Got : '%s'\n%s",typeid(Luna< wxMimeTypesManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddFallbacks(fallbacks);
 
@@ -177,16 +170,14 @@ public:
 	// wxFileType * wxMimeTypesManager::GetFileTypeFromExtension(const wxString & extension)
 	static int _bind_GetFileTypeFromExtension(lua_State *L) {
 		if (!_lg_typecheck_GetFileTypeFromExtension(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFileType * wxMimeTypesManager::GetFileTypeFromExtension(const wxString & extension) function, expected prototype:\nwxFileType * wxMimeTypesManager::GetFileTypeFromExtension(const wxString & extension)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxFileType * wxMimeTypesManager::GetFileTypeFromExtension(const wxString & extension) function, expected prototype:\nwxFileType * wxMimeTypesManager::GetFileTypeFromExtension(const wxString & extension)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString extension(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxMimeTypesManager* self=(Luna< wxMimeTypesManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFileType * wxMimeTypesManager::GetFileTypeFromExtension(const wxString &). Got : '%s'",typeid(Luna< wxMimeTypesManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFileType * wxMimeTypesManager::GetFileTypeFromExtension(const wxString &). Got : '%s'\n%s",typeid(Luna< wxMimeTypesManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFileType * lret = self->GetFileTypeFromExtension(extension);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -199,16 +190,14 @@ public:
 	// wxFileType * wxMimeTypesManager::GetFileTypeFromMimeType(const wxString & mimeType)
 	static int _bind_GetFileTypeFromMimeType(lua_State *L) {
 		if (!_lg_typecheck_GetFileTypeFromMimeType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFileType * wxMimeTypesManager::GetFileTypeFromMimeType(const wxString & mimeType) function, expected prototype:\nwxFileType * wxMimeTypesManager::GetFileTypeFromMimeType(const wxString & mimeType)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxFileType * wxMimeTypesManager::GetFileTypeFromMimeType(const wxString & mimeType) function, expected prototype:\nwxFileType * wxMimeTypesManager::GetFileTypeFromMimeType(const wxString & mimeType)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString mimeType(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxMimeTypesManager* self=(Luna< wxMimeTypesManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFileType * wxMimeTypesManager::GetFileTypeFromMimeType(const wxString &). Got : '%s'",typeid(Luna< wxMimeTypesManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFileType * wxMimeTypesManager::GetFileTypeFromMimeType(const wxString &). Got : '%s'\n%s",typeid(Luna< wxMimeTypesManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFileType * lret = self->GetFileTypeFromMimeType(mimeType);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -221,8 +210,7 @@ public:
 	// static bool wxMimeTypesManager::IsOfType(const wxString & mimeType, const wxString & wildcard)
 	static int _bind_IsOfType(lua_State *L) {
 		if (!_lg_typecheck_IsOfType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxMimeTypesManager::IsOfType(const wxString & mimeType, const wxString & wildcard) function, expected prototype:\nstatic bool wxMimeTypesManager::IsOfType(const wxString & mimeType, const wxString & wildcard)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static bool wxMimeTypesManager::IsOfType(const wxString & mimeType, const wxString & wildcard) function, expected prototype:\nstatic bool wxMimeTypesManager::IsOfType(const wxString & mimeType, const wxString & wildcard)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString mimeType(lua_tostring(L,1),lua_objlen(L,1));

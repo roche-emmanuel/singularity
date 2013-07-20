@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxGridCellCoords* self= (wxGridCellCoords*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxGridCellCoords >::check(L,1));
@@ -58,8 +56,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -155,8 +152,7 @@ public:
 	// wxGridCellCoords::wxGridCellCoords()
 	static wxGridCellCoords* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridCellCoords::wxGridCellCoords() function, expected prototype:\nwxGridCellCoords::wxGridCellCoords()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGridCellCoords::wxGridCellCoords() function, expected prototype:\nwxGridCellCoords::wxGridCellCoords()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -166,8 +162,7 @@ public:
 	// wxGridCellCoords::wxGridCellCoords(int r, int c)
 	static wxGridCellCoords* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridCellCoords::wxGridCellCoords(int r, int c) function, expected prototype:\nwxGridCellCoords::wxGridCellCoords(int r, int c)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxGridCellCoords::wxGridCellCoords(int r, int c) function, expected prototype:\nwxGridCellCoords::wxGridCellCoords(int r, int c)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int r=(int)lua_tointeger(L,1);
@@ -190,15 +185,13 @@ public:
 	// int wxGridCellCoords::GetRow() const
 	static int _bind_GetRow(lua_State *L) {
 		if (!_lg_typecheck_GetRow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGridCellCoords::GetRow() const function, expected prototype:\nint wxGridCellCoords::GetRow() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGridCellCoords::GetRow() const function, expected prototype:\nint wxGridCellCoords::GetRow() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellCoords* self=(Luna< wxGridCellCoords >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridCellCoords::GetRow() const. Got : '%s'",typeid(Luna< wxGridCellCoords >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGridCellCoords::GetRow() const. Got : '%s'\n%s",typeid(Luna< wxGridCellCoords >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetRow();
 		lua_pushnumber(L,lret);
@@ -209,16 +202,14 @@ public:
 	// void wxGridCellCoords::SetRow(int n)
 	static int _bind_SetRow(lua_State *L) {
 		if (!_lg_typecheck_SetRow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellCoords::SetRow(int n) function, expected prototype:\nvoid wxGridCellCoords::SetRow(int n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellCoords::SetRow(int n) function, expected prototype:\nvoid wxGridCellCoords::SetRow(int n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int n=(int)lua_tointeger(L,2);
 
 		wxGridCellCoords* self=(Luna< wxGridCellCoords >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellCoords::SetRow(int). Got : '%s'",typeid(Luna< wxGridCellCoords >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellCoords::SetRow(int). Got : '%s'\n%s",typeid(Luna< wxGridCellCoords >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRow(n);
 
@@ -228,15 +219,13 @@ public:
 	// int wxGridCellCoords::GetCol() const
 	static int _bind_GetCol(lua_State *L) {
 		if (!_lg_typecheck_GetCol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxGridCellCoords::GetCol() const function, expected prototype:\nint wxGridCellCoords::GetCol() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxGridCellCoords::GetCol() const function, expected prototype:\nint wxGridCellCoords::GetCol() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxGridCellCoords* self=(Luna< wxGridCellCoords >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxGridCellCoords::GetCol() const. Got : '%s'",typeid(Luna< wxGridCellCoords >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxGridCellCoords::GetCol() const. Got : '%s'\n%s",typeid(Luna< wxGridCellCoords >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetCol();
 		lua_pushnumber(L,lret);
@@ -247,16 +236,14 @@ public:
 	// void wxGridCellCoords::SetCol(int n)
 	static int _bind_SetCol(lua_State *L) {
 		if (!_lg_typecheck_SetCol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellCoords::SetCol(int n) function, expected prototype:\nvoid wxGridCellCoords::SetCol(int n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellCoords::SetCol(int n) function, expected prototype:\nvoid wxGridCellCoords::SetCol(int n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int n=(int)lua_tointeger(L,2);
 
 		wxGridCellCoords* self=(Luna< wxGridCellCoords >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellCoords::SetCol(int). Got : '%s'",typeid(Luna< wxGridCellCoords >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellCoords::SetCol(int). Got : '%s'\n%s",typeid(Luna< wxGridCellCoords >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCol(n);
 
@@ -266,8 +253,7 @@ public:
 	// void wxGridCellCoords::Set(int row, int col)
 	static int _bind_Set(lua_State *L) {
 		if (!_lg_typecheck_Set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxGridCellCoords::Set(int row, int col) function, expected prototype:\nvoid wxGridCellCoords::Set(int row, int col)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxGridCellCoords::Set(int row, int col) function, expected prototype:\nvoid wxGridCellCoords::Set(int row, int col)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int row=(int)lua_tointeger(L,2);
@@ -275,8 +261,7 @@ public:
 
 		wxGridCellCoords* self=(Luna< wxGridCellCoords >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxGridCellCoords::Set(int, int). Got : '%s'",typeid(Luna< wxGridCellCoords >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxGridCellCoords::Set(int, int). Got : '%s'\n%s",typeid(Luna< wxGridCellCoords >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Set(row, col);
 
@@ -288,8 +273,7 @@ public:
 	// wxGridCellCoords & wxGridCellCoords::operator=(const wxGridCellCoords & other)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxGridCellCoords & wxGridCellCoords::operator=(const wxGridCellCoords & other) function, expected prototype:\nwxGridCellCoords & wxGridCellCoords::operator=(const wxGridCellCoords & other)\nClass arguments details:\narg 1 ID = 6476046\n");
+			luaL_error(L, "luna typecheck failed in wxGridCellCoords & wxGridCellCoords::operator=(const wxGridCellCoords & other) function, expected prototype:\nwxGridCellCoords & wxGridCellCoords::operator=(const wxGridCellCoords & other)\nClass arguments details:\narg 1 ID = 6476046\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxGridCellCoords* other_ptr=(Luna< wxGridCellCoords >::check(L,2));
@@ -300,8 +284,7 @@ public:
 
 		wxGridCellCoords* self=(Luna< wxGridCellCoords >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxGridCellCoords & wxGridCellCoords::operator=(const wxGridCellCoords &). Got : '%s'",typeid(Luna< wxGridCellCoords >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxGridCellCoords & wxGridCellCoords::operator=(const wxGridCellCoords &). Got : '%s'\n%s",typeid(Luna< wxGridCellCoords >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxGridCellCoords* lret = &self->operator=(other);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -314,8 +297,7 @@ public:
 	// bool wxGridCellCoords::operator==(const wxGridCellCoords & other) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridCellCoords::operator==(const wxGridCellCoords & other) const function, expected prototype:\nbool wxGridCellCoords::operator==(const wxGridCellCoords & other) const\nClass arguments details:\narg 1 ID = 6476046\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridCellCoords::operator==(const wxGridCellCoords & other) const function, expected prototype:\nbool wxGridCellCoords::operator==(const wxGridCellCoords & other) const\nClass arguments details:\narg 1 ID = 6476046\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxGridCellCoords* other_ptr=(Luna< wxGridCellCoords >::check(L,2));
@@ -326,8 +308,7 @@ public:
 
 		wxGridCellCoords* self=(Luna< wxGridCellCoords >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridCellCoords::operator==(const wxGridCellCoords &) const. Got : '%s'",typeid(Luna< wxGridCellCoords >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridCellCoords::operator==(const wxGridCellCoords &) const. Got : '%s'\n%s",typeid(Luna< wxGridCellCoords >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(other);
 		lua_pushboolean(L,lret?1:0);
@@ -338,8 +319,7 @@ public:
 	// bool wxGridCellCoords::operator!=(const wxGridCellCoords & other) const
 	static int _bind_op_neq(lua_State *L) {
 		if (!_lg_typecheck_op_neq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxGridCellCoords::operator!=(const wxGridCellCoords & other) const function, expected prototype:\nbool wxGridCellCoords::operator!=(const wxGridCellCoords & other) const\nClass arguments details:\narg 1 ID = 6476046\n");
+			luaL_error(L, "luna typecheck failed in bool wxGridCellCoords::operator!=(const wxGridCellCoords & other) const function, expected prototype:\nbool wxGridCellCoords::operator!=(const wxGridCellCoords & other) const\nClass arguments details:\narg 1 ID = 6476046\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxGridCellCoords* other_ptr=(Luna< wxGridCellCoords >::check(L,2));
@@ -350,8 +330,7 @@ public:
 
 		wxGridCellCoords* self=(Luna< wxGridCellCoords >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxGridCellCoords::operator!=(const wxGridCellCoords &) const. Got : '%s'",typeid(Luna< wxGridCellCoords >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxGridCellCoords::operator!=(const wxGridCellCoords &) const. Got : '%s'\n%s",typeid(Luna< wxGridCellCoords >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator!=(other);
 		lua_pushboolean(L,lret?1:0);

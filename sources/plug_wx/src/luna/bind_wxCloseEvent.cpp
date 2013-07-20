@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCloseEvent* self= (wxCloseEvent*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -155,8 +152,7 @@ public:
 	// wxCloseEvent::wxCloseEvent(lua_Table * data, int commandEventType = wxEVT_NULL, int id = 0)
 	static wxCloseEvent* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCloseEvent::wxCloseEvent(lua_Table * data, int commandEventType = wxEVT_NULL, int id = 0) function, expected prototype:\nwxCloseEvent::wxCloseEvent(lua_Table * data, int commandEventType = wxEVT_NULL, int id = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxCloseEvent::wxCloseEvent(lua_Table * data, int commandEventType = wxEVT_NULL, int id = 0) function, expected prototype:\nwxCloseEvent::wxCloseEvent(lua_Table * data, int commandEventType = wxEVT_NULL, int id = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -172,15 +168,13 @@ public:
 	// bool wxCloseEvent::CanVeto() const
 	static int _bind_CanVeto(lua_State *L) {
 		if (!_lg_typecheck_CanVeto(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCloseEvent::CanVeto() const function, expected prototype:\nbool wxCloseEvent::CanVeto() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCloseEvent::CanVeto() const function, expected prototype:\nbool wxCloseEvent::CanVeto() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCloseEvent* self=Luna< wxObject >::checkSubType< wxCloseEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCloseEvent::CanVeto() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCloseEvent::CanVeto() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CanVeto();
 		lua_pushboolean(L,lret?1:0);
@@ -191,15 +185,13 @@ public:
 	// bool wxCloseEvent::GetLoggingOff() const
 	static int _bind_GetLoggingOff(lua_State *L) {
 		if (!_lg_typecheck_GetLoggingOff(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCloseEvent::GetLoggingOff() const function, expected prototype:\nbool wxCloseEvent::GetLoggingOff() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCloseEvent::GetLoggingOff() const function, expected prototype:\nbool wxCloseEvent::GetLoggingOff() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCloseEvent* self=Luna< wxObject >::checkSubType< wxCloseEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCloseEvent::GetLoggingOff() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCloseEvent::GetLoggingOff() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetLoggingOff();
 		lua_pushboolean(L,lret?1:0);
@@ -210,16 +202,14 @@ public:
 	// void wxCloseEvent::SetCanVeto(bool canVeto)
 	static int _bind_SetCanVeto(lua_State *L) {
 		if (!_lg_typecheck_SetCanVeto(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCloseEvent::SetCanVeto(bool canVeto) function, expected prototype:\nvoid wxCloseEvent::SetCanVeto(bool canVeto)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCloseEvent::SetCanVeto(bool canVeto) function, expected prototype:\nvoid wxCloseEvent::SetCanVeto(bool canVeto)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool canVeto=(bool)(lua_toboolean(L,2)==1);
 
 		wxCloseEvent* self=Luna< wxObject >::checkSubType< wxCloseEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCloseEvent::SetCanVeto(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCloseEvent::SetCanVeto(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCanVeto(canVeto);
 
@@ -229,16 +219,14 @@ public:
 	// void wxCloseEvent::SetLoggingOff(bool loggingOff)
 	static int _bind_SetLoggingOff(lua_State *L) {
 		if (!_lg_typecheck_SetLoggingOff(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCloseEvent::SetLoggingOff(bool loggingOff) function, expected prototype:\nvoid wxCloseEvent::SetLoggingOff(bool loggingOff)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCloseEvent::SetLoggingOff(bool loggingOff) function, expected prototype:\nvoid wxCloseEvent::SetLoggingOff(bool loggingOff)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool loggingOff=(bool)(lua_toboolean(L,2)==1);
 
 		wxCloseEvent* self=Luna< wxObject >::checkSubType< wxCloseEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCloseEvent::SetLoggingOff(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCloseEvent::SetLoggingOff(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetLoggingOff(loggingOff);
 
@@ -248,8 +236,7 @@ public:
 	// void wxCloseEvent::Veto(bool veto = true)
 	static int _bind_Veto(lua_State *L) {
 		if (!_lg_typecheck_Veto(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxCloseEvent::Veto(bool veto = true) function, expected prototype:\nvoid wxCloseEvent::Veto(bool veto = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxCloseEvent::Veto(bool veto = true) function, expected prototype:\nvoid wxCloseEvent::Veto(bool veto = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -258,8 +245,7 @@ public:
 
 		wxCloseEvent* self=Luna< wxObject >::checkSubType< wxCloseEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxCloseEvent::Veto(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxCloseEvent::Veto(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Veto(veto);
 
@@ -269,15 +255,13 @@ public:
 	// wxClassInfo * wxCloseEvent::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxCloseEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxCloseEvent::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxCloseEvent::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxCloseEvent::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCloseEvent* self=Luna< wxObject >::checkSubType< wxCloseEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxCloseEvent::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxCloseEvent::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxCloseEvent::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -290,15 +274,13 @@ public:
 	// wxEventCategory wxCloseEvent::base_GetEventCategory() const
 	static int _bind_base_GetEventCategory(lua_State *L) {
 		if (!_lg_typecheck_base_GetEventCategory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxEventCategory wxCloseEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxCloseEvent::base_GetEventCategory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxEventCategory wxCloseEvent::base_GetEventCategory() const function, expected prototype:\nwxEventCategory wxCloseEvent::base_GetEventCategory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCloseEvent* self=Luna< wxObject >::checkSubType< wxCloseEvent >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxEventCategory wxCloseEvent::base_GetEventCategory() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxEventCategory wxCloseEvent::base_GetEventCategory() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxEventCategory lret = self->wxCloseEvent::GetEventCategory();
 		lua_pushnumber(L,lret);

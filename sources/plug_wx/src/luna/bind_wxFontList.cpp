@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFontList* self= (wxFontList*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxList >::check(L,1));
@@ -93,8 +91,7 @@ public:
 	// wxFontList::wxFontList()
 	static wxFontList* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFontList::wxFontList() function, expected prototype:\nwxFontList::wxFontList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFontList::wxFontList() function, expected prototype:\nwxFontList::wxFontList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -106,8 +103,7 @@ public:
 	// wxFont * wxFontList::FindOrCreateFont(int point_size, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & facename = wxEmptyString, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT)
 	static int _bind_FindOrCreateFont(lua_State *L) {
 		if (!_lg_typecheck_FindOrCreateFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFont * wxFontList::FindOrCreateFont(int point_size, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & facename = wxEmptyString, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT) function, expected prototype:\nwxFont * wxFontList::FindOrCreateFont(int point_size, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & facename = wxEmptyString, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT)\nClass arguments details:\narg 6 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxFont * wxFontList::FindOrCreateFont(int point_size, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & facename = wxEmptyString, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT) function, expected prototype:\nwxFont * wxFontList::FindOrCreateFont(int point_size, wxFontFamily family, wxFontStyle style, wxFontWeight weight, bool underline = false, const wxString & facename = wxEmptyString, wxFontEncoding encoding = ::wxFONTENCODING_DEFAULT)\nClass arguments details:\narg 6 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -122,8 +118,7 @@ public:
 
 		wxFontList* self=Luna< wxList >::checkSubType< wxFontList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFont * wxFontList::FindOrCreateFont(int, wxFontFamily, wxFontStyle, wxFontWeight, bool, const wxString &, wxFontEncoding). Got : '%s'",typeid(Luna< wxList >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFont * wxFontList::FindOrCreateFont(int, wxFontFamily, wxFontStyle, wxFontWeight, bool, const wxString &, wxFontEncoding). Got : '%s'\n%s",typeid(Luna< wxList >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFont * lret = self->FindOrCreateFont(point_size, family, style, weight, underline, facename, encoding);
 		if(!lret) return 0; // Do not write NULL pointers.

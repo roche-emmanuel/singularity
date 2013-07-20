@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFileInputStream* self= (wxFileInputStream*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -182,7 +179,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
@@ -207,8 +204,7 @@ public:
 	// wxFileInputStream::wxFileInputStream(lua_Table * data, const wxString & ifileName)
 	static wxFileInputStream* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFileInputStream::wxFileInputStream(lua_Table * data, const wxString & ifileName) function, expected prototype:\nwxFileInputStream::wxFileInputStream(lua_Table * data, const wxString & ifileName)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxFileInputStream::wxFileInputStream(lua_Table * data, const wxString & ifileName) function, expected prototype:\nwxFileInputStream::wxFileInputStream(lua_Table * data, const wxString & ifileName)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString ifileName(lua_tostring(L,2),lua_objlen(L,2));
@@ -219,8 +215,7 @@ public:
 	// wxFileInputStream::wxFileInputStream(lua_Table * data, wxFile & file)
 	static wxFileInputStream* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFileInputStream::wxFileInputStream(lua_Table * data, wxFile & file) function, expected prototype:\nwxFileInputStream::wxFileInputStream(lua_Table * data, wxFile & file)\nClass arguments details:\narg 2 ID = 19881034\n");
+			luaL_error(L, "luna typecheck failed in wxFileInputStream::wxFileInputStream(lua_Table * data, wxFile & file) function, expected prototype:\nwxFileInputStream::wxFileInputStream(lua_Table * data, wxFile & file)\nClass arguments details:\narg 2 ID = 19881034\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFile* file_ptr=(Luna< wxFile >::check(L,2));
@@ -235,8 +230,7 @@ public:
 	// wxFileInputStream::wxFileInputStream(lua_Table * data, int fd)
 	static wxFileInputStream* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFileInputStream::wxFileInputStream(lua_Table * data, int fd) function, expected prototype:\nwxFileInputStream::wxFileInputStream(lua_Table * data, int fd)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFileInputStream::wxFileInputStream(lua_Table * data, int fd) function, expected prototype:\nwxFileInputStream::wxFileInputStream(lua_Table * data, int fd)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int fd=(int)lua_tointeger(L,2);
@@ -259,15 +253,13 @@ public:
 	// bool wxFileInputStream::IsOk() const
 	static int _bind_IsOk(lua_State *L) {
 		if (!_lg_typecheck_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileInputStream::IsOk() const function, expected prototype:\nbool wxFileInputStream::IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileInputStream::IsOk() const function, expected prototype:\nbool wxFileInputStream::IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileInputStream* self=Luna< wxObject >::checkSubType< wxFileInputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileInputStream::IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileInputStream::IsOk() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);
@@ -278,15 +270,13 @@ public:
 	// wxClassInfo * wxFileInputStream::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFileInputStream::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFileInputStream::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFileInputStream::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFileInputStream::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileInputStream* self=Luna< wxObject >::checkSubType< wxFileInputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileInputStream::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileInputStream::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxFileInputStream::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -299,15 +289,13 @@ public:
 	// long long wxFileInputStream::base_GetLength() const
 	static int _bind_base_GetLength(lua_State *L) {
 		if (!_lg_typecheck_base_GetLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long long wxFileInputStream::base_GetLength() const function, expected prototype:\nlong long wxFileInputStream::base_GetLength() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxFileInputStream::base_GetLength() const function, expected prototype:\nlong long wxFileInputStream::base_GetLength() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileInputStream* self=Luna< wxObject >::checkSubType< wxFileInputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxFileInputStream::base_GetLength() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long long wxFileInputStream::base_GetLength() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long long lret = self->wxFileInputStream::GetLength();
 		lua_pushnumber(L,lret);
@@ -318,15 +306,13 @@ public:
 	// size_t wxFileInputStream::base_GetSize() const
 	static int _bind_base_GetSize(lua_State *L) {
 		if (!_lg_typecheck_base_GetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxFileInputStream::base_GetSize() const function, expected prototype:\nsize_t wxFileInputStream::base_GetSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxFileInputStream::base_GetSize() const function, expected prototype:\nsize_t wxFileInputStream::base_GetSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileInputStream* self=Luna< wxObject >::checkSubType< wxFileInputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxFileInputStream::base_GetSize() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxFileInputStream::base_GetSize() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->wxFileInputStream::GetSize();
 		lua_pushnumber(L,lret);
@@ -337,15 +323,13 @@ public:
 	// bool wxFileInputStream::base_IsSeekable() const
 	static int _bind_base_IsSeekable(lua_State *L) {
 		if (!_lg_typecheck_base_IsSeekable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileInputStream::base_IsSeekable() const function, expected prototype:\nbool wxFileInputStream::base_IsSeekable() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileInputStream::base_IsSeekable() const function, expected prototype:\nbool wxFileInputStream::base_IsSeekable() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileInputStream* self=Luna< wxObject >::checkSubType< wxFileInputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileInputStream::base_IsSeekable() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileInputStream::base_IsSeekable() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxFileInputStream::IsSeekable();
 		lua_pushboolean(L,lret?1:0);
@@ -356,15 +340,13 @@ public:
 	// bool wxFileInputStream::base_CanRead() const
 	static int _bind_base_CanRead(lua_State *L) {
 		if (!_lg_typecheck_base_CanRead(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileInputStream::base_CanRead() const function, expected prototype:\nbool wxFileInputStream::base_CanRead() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileInputStream::base_CanRead() const function, expected prototype:\nbool wxFileInputStream::base_CanRead() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileInputStream* self=Luna< wxObject >::checkSubType< wxFileInputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileInputStream::base_CanRead() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileInputStream::base_CanRead() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxFileInputStream::CanRead();
 		lua_pushboolean(L,lret?1:0);
@@ -375,15 +357,13 @@ public:
 	// bool wxFileInputStream::base_Eof() const
 	static int _bind_base_Eof(lua_State *L) {
 		if (!_lg_typecheck_base_Eof(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileInputStream::base_Eof() const function, expected prototype:\nbool wxFileInputStream::base_Eof() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileInputStream::base_Eof() const function, expected prototype:\nbool wxFileInputStream::base_Eof() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileInputStream* self=Luna< wxObject >::checkSubType< wxFileInputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileInputStream::base_Eof() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileInputStream::base_Eof() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxFileInputStream::Eof();
 		lua_pushboolean(L,lret?1:0);
@@ -394,15 +374,13 @@ public:
 	// size_t wxFileInputStream::base_LastRead() const
 	static int _bind_base_LastRead(lua_State *L) {
 		if (!_lg_typecheck_base_LastRead(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxFileInputStream::base_LastRead() const function, expected prototype:\nsize_t wxFileInputStream::base_LastRead() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxFileInputStream::base_LastRead() const function, expected prototype:\nsize_t wxFileInputStream::base_LastRead() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileInputStream* self=Luna< wxObject >::checkSubType< wxFileInputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxFileInputStream::base_LastRead() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxFileInputStream::base_LastRead() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->wxFileInputStream::LastRead();
 		lua_pushnumber(L,lret);
@@ -413,15 +391,13 @@ public:
 	// char wxFileInputStream::base_Peek()
 	static int _bind_base_Peek(lua_State *L) {
 		if (!_lg_typecheck_base_Peek(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in char wxFileInputStream::base_Peek() function, expected prototype:\nchar wxFileInputStream::base_Peek()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in char wxFileInputStream::base_Peek() function, expected prototype:\nchar wxFileInputStream::base_Peek()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileInputStream* self=Luna< wxObject >::checkSubType< wxFileInputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call char wxFileInputStream::base_Peek(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call char wxFileInputStream::base_Peek(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		char lret = self->wxFileInputStream::Peek();
 		lua_pushnumber(L,lret);
@@ -432,8 +408,7 @@ public:
 	// wxInputStream & wxFileInputStream::base_Read(void * buffer, size_t size)
 	static int _bind_base_Read(lua_State *L) {
 		if (!_lg_typecheck_base_Read(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxInputStream & wxFileInputStream::base_Read(void * buffer, size_t size) function, expected prototype:\nwxInputStream & wxFileInputStream::base_Read(void * buffer, size_t size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxInputStream & wxFileInputStream::base_Read(void * buffer, size_t size) function, expected prototype:\nwxInputStream & wxFileInputStream::base_Read(void * buffer, size_t size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* buffer=(Luna< void >::check(L,2));
@@ -441,8 +416,7 @@ public:
 
 		wxFileInputStream* self=Luna< wxObject >::checkSubType< wxFileInputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxInputStream & wxFileInputStream::base_Read(void *, size_t). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxInputStream & wxFileInputStream::base_Read(void *, size_t). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxInputStream* lret = &self->wxFileInputStream::Read(buffer, size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -455,19 +429,17 @@ public:
 	// long long wxFileInputStream::base_SeekI(long long pos, wxSeekMode mode = ::wxFromStart)
 	static int _bind_base_SeekI(lua_State *L) {
 		if (!_lg_typecheck_base_SeekI(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long long wxFileInputStream::base_SeekI(long long pos, wxSeekMode mode = ::wxFromStart) function, expected prototype:\nlong long wxFileInputStream::base_SeekI(long long pos, wxSeekMode mode = ::wxFromStart)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxFileInputStream::base_SeekI(long long pos, wxSeekMode mode = ::wxFromStart) function, expected prototype:\nlong long wxFileInputStream::base_SeekI(long long pos, wxSeekMode mode = ::wxFromStart)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
-		long long pos=(long long)lua_tointeger(L,2);
+		long long pos=(long long)lua_tonumber(L,2);
 		wxSeekMode mode=luatop>2 ? (wxSeekMode)lua_tointeger(L,3) : (wxSeekMode)::wxFromStart;
 
 		wxFileInputStream* self=Luna< wxObject >::checkSubType< wxFileInputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxFileInputStream::base_SeekI(long long, wxSeekMode). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long long wxFileInputStream::base_SeekI(long long, wxSeekMode). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long long lret = self->wxFileInputStream::SeekI(pos, mode);
 		lua_pushnumber(L,lret);
@@ -478,15 +450,13 @@ public:
 	// long long wxFileInputStream::base_TellI() const
 	static int _bind_base_TellI(lua_State *L) {
 		if (!_lg_typecheck_base_TellI(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long long wxFileInputStream::base_TellI() const function, expected prototype:\nlong long wxFileInputStream::base_TellI() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long wxFileInputStream::base_TellI() const function, expected prototype:\nlong long wxFileInputStream::base_TellI() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileInputStream* self=Luna< wxObject >::checkSubType< wxFileInputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long wxFileInputStream::base_TellI() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long long wxFileInputStream::base_TellI() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long long lret = self->wxFileInputStream::TellI();
 		lua_pushnumber(L,lret);
@@ -497,15 +467,13 @@ public:
 	// bool wxFileInputStream::base_IsOk() const
 	static int _bind_base_IsOk(lua_State *L) {
 		if (!_lg_typecheck_base_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileInputStream::base_IsOk() const function, expected prototype:\nbool wxFileInputStream::base_IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileInputStream::base_IsOk() const function, expected prototype:\nbool wxFileInputStream::base_IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileInputStream* self=Luna< wxObject >::checkSubType< wxFileInputStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileInputStream::base_IsOk() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileInputStream::base_IsOk() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxFileInputStream::IsOk();
 		lua_pushboolean(L,lret?1:0);

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDateTime*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDateTime*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDateTime* rhs =(Luna< wxDateTime >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDateTime* self= (wxDateTime*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDateTime >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -188,7 +184,7 @@ public:
 	inline static bool _lg_typecheck_SetFromDOS(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -995,8 +991,7 @@ public:
 	// wxDateTime::wxDateTime()
 	static wxDateTime* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime::wxDateTime() function, expected prototype:\nwxDateTime::wxDateTime()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime::wxDateTime() function, expected prototype:\nwxDateTime::wxDateTime()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -1006,8 +1001,7 @@ public:
 	// wxDateTime::wxDateTime(double jdn)
 	static wxDateTime* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime::wxDateTime(double jdn) function, expected prototype:\nwxDateTime::wxDateTime(double jdn)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime::wxDateTime(double jdn) function, expected prototype:\nwxDateTime::wxDateTime(double jdn)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double jdn=(double)lua_tonumber(L,1);
@@ -1018,8 +1012,7 @@ public:
 	// wxDateTime::wxDateTime(unsigned short hour, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0)
 	static wxDateTime* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime::wxDateTime(unsigned short hour, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0) function, expected prototype:\nwxDateTime::wxDateTime(unsigned short hour, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime::wxDateTime(unsigned short hour, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0) function, expected prototype:\nwxDateTime::wxDateTime(unsigned short hour, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1035,8 +1028,7 @@ public:
 	// wxDateTime::wxDateTime(unsigned short day, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year, unsigned short hour = 0, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0)
 	static wxDateTime* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime::wxDateTime(unsigned short day, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year, unsigned short hour = 0, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0) function, expected prototype:\nwxDateTime::wxDateTime(unsigned short day, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year, unsigned short hour = 0, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime::wxDateTime(unsigned short day, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year, unsigned short hour = 0, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0) function, expected prototype:\nwxDateTime::wxDateTime(unsigned short day, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year, unsigned short hour = 0, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1068,15 +1060,13 @@ public:
 	// wxDateTime & wxDateTime::ResetTime()
 	static int _bind_ResetTime(lua_State *L) {
 		if (!_lg_typecheck_ResetTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::ResetTime() function, expected prototype:\nwxDateTime & wxDateTime::ResetTime()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::ResetTime() function, expected prototype:\nwxDateTime & wxDateTime::ResetTime()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::ResetTime(). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::ResetTime(). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->ResetTime();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1089,16 +1079,14 @@ public:
 	// wxDateTime & wxDateTime::Set(double jdn)
 	static int _bind_Set_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Set_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::Set(double jdn) function, expected prototype:\nwxDateTime & wxDateTime::Set(double jdn)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::Set(double jdn) function, expected prototype:\nwxDateTime & wxDateTime::Set(double jdn)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double jdn=(double)lua_tonumber(L,2);
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Set(double). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Set(double). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->Set(jdn);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1111,8 +1099,7 @@ public:
 	// wxDateTime & wxDateTime::Set(unsigned short hour, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0)
 	static int _bind_Set_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Set_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::Set(unsigned short hour, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0) function, expected prototype:\nwxDateTime & wxDateTime::Set(unsigned short hour, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::Set(unsigned short hour, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0) function, expected prototype:\nwxDateTime & wxDateTime::Set(unsigned short hour, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1124,8 +1111,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Set(unsigned short, unsigned short, unsigned short, unsigned short). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Set(unsigned short, unsigned short, unsigned short, unsigned short). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->Set(hour, minute, second, millisec);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1138,8 +1124,7 @@ public:
 	// wxDateTime & wxDateTime::Set(unsigned short day, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year, unsigned short hour = 0, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0)
 	static int _bind_Set_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Set_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::Set(unsigned short day, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year, unsigned short hour = 0, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0) function, expected prototype:\nwxDateTime & wxDateTime::Set(unsigned short day, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year, unsigned short hour = 0, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::Set(unsigned short day, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year, unsigned short hour = 0, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0) function, expected prototype:\nwxDateTime & wxDateTime::Set(unsigned short day, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year, unsigned short hour = 0, unsigned short minute = 0, unsigned short second = 0, unsigned short millisec = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1154,8 +1139,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Set(unsigned short, wxDateTime::Month, int, unsigned short, unsigned short, unsigned short, unsigned short). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Set(unsigned short, wxDateTime::Month, int, unsigned short, unsigned short, unsigned short, unsigned short). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->Set(day, month, year, hour, minute, second, millisec);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1178,16 +1162,14 @@ public:
 	// wxDateTime & wxDateTime::SetDay(unsigned short day)
 	static int _bind_SetDay(lua_State *L) {
 		if (!_lg_typecheck_SetDay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetDay(unsigned short day) function, expected prototype:\nwxDateTime & wxDateTime::SetDay(unsigned short day)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetDay(unsigned short day) function, expected prototype:\nwxDateTime & wxDateTime::SetDay(unsigned short day)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short day=(unsigned short)lua_tointeger(L,2);
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetDay(unsigned short). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetDay(unsigned short). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->SetDay(day);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1200,16 +1182,14 @@ public:
 	// wxDateTime & wxDateTime::SetFromDOS(unsigned long ddt)
 	static int _bind_SetFromDOS(lua_State *L) {
 		if (!_lg_typecheck_SetFromDOS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetFromDOS(unsigned long ddt) function, expected prototype:\nwxDateTime & wxDateTime::SetFromDOS(unsigned long ddt)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetFromDOS(unsigned long ddt) function, expected prototype:\nwxDateTime & wxDateTime::SetFromDOS(unsigned long ddt)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long ddt=(unsigned long)lua_tointeger(L,2);
+		unsigned long ddt=(unsigned long)lua_tonumber(L,2);
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetFromDOS(unsigned long). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetFromDOS(unsigned long). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->SetFromDOS(ddt);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1222,16 +1202,14 @@ public:
 	// wxDateTime & wxDateTime::SetHour(unsigned short hour)
 	static int _bind_SetHour(lua_State *L) {
 		if (!_lg_typecheck_SetHour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetHour(unsigned short hour) function, expected prototype:\nwxDateTime & wxDateTime::SetHour(unsigned short hour)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetHour(unsigned short hour) function, expected prototype:\nwxDateTime & wxDateTime::SetHour(unsigned short hour)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short hour=(unsigned short)lua_tointeger(L,2);
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetHour(unsigned short). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetHour(unsigned short). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->SetHour(hour);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1244,16 +1222,14 @@ public:
 	// wxDateTime & wxDateTime::SetMillisecond(unsigned short millisecond)
 	static int _bind_SetMillisecond(lua_State *L) {
 		if (!_lg_typecheck_SetMillisecond(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetMillisecond(unsigned short millisecond) function, expected prototype:\nwxDateTime & wxDateTime::SetMillisecond(unsigned short millisecond)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetMillisecond(unsigned short millisecond) function, expected prototype:\nwxDateTime & wxDateTime::SetMillisecond(unsigned short millisecond)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short millisecond=(unsigned short)lua_tointeger(L,2);
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetMillisecond(unsigned short). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetMillisecond(unsigned short). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->SetMillisecond(millisecond);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1266,16 +1242,14 @@ public:
 	// wxDateTime & wxDateTime::SetMinute(unsigned short minute)
 	static int _bind_SetMinute(lua_State *L) {
 		if (!_lg_typecheck_SetMinute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetMinute(unsigned short minute) function, expected prototype:\nwxDateTime & wxDateTime::SetMinute(unsigned short minute)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetMinute(unsigned short minute) function, expected prototype:\nwxDateTime & wxDateTime::SetMinute(unsigned short minute)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short minute=(unsigned short)lua_tointeger(L,2);
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetMinute(unsigned short). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetMinute(unsigned short). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->SetMinute(minute);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1288,16 +1262,14 @@ public:
 	// wxDateTime & wxDateTime::SetMonth(wxDateTime::Month month)
 	static int _bind_SetMonth(lua_State *L) {
 		if (!_lg_typecheck_SetMonth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetMonth(wxDateTime::Month month) function, expected prototype:\nwxDateTime & wxDateTime::SetMonth(wxDateTime::Month month)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetMonth(wxDateTime::Month month) function, expected prototype:\nwxDateTime & wxDateTime::SetMonth(wxDateTime::Month month)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDateTime::Month month=(wxDateTime::Month)lua_tointeger(L,2);
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetMonth(wxDateTime::Month). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetMonth(wxDateTime::Month). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->SetMonth(month);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1310,16 +1282,14 @@ public:
 	// wxDateTime & wxDateTime::SetSecond(unsigned short second)
 	static int _bind_SetSecond(lua_State *L) {
 		if (!_lg_typecheck_SetSecond(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetSecond(unsigned short second) function, expected prototype:\nwxDateTime & wxDateTime::SetSecond(unsigned short second)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetSecond(unsigned short second) function, expected prototype:\nwxDateTime & wxDateTime::SetSecond(unsigned short second)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short second=(unsigned short)lua_tointeger(L,2);
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetSecond(unsigned short). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetSecond(unsigned short). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->SetSecond(second);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1332,15 +1302,13 @@ public:
 	// wxDateTime & wxDateTime::SetToCurrent()
 	static int _bind_SetToCurrent(lua_State *L) {
 		if (!_lg_typecheck_SetToCurrent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetToCurrent() function, expected prototype:\nwxDateTime & wxDateTime::SetToCurrent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetToCurrent() function, expected prototype:\nwxDateTime & wxDateTime::SetToCurrent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToCurrent(). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToCurrent(). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->SetToCurrent();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1353,16 +1321,14 @@ public:
 	// wxDateTime & wxDateTime::SetYear(int year)
 	static int _bind_SetYear(lua_State *L) {
 		if (!_lg_typecheck_SetYear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetYear(int year) function, expected prototype:\nwxDateTime & wxDateTime::SetYear(int year)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetYear(int year) function, expected prototype:\nwxDateTime & wxDateTime::SetYear(int year)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int year=(int)lua_tointeger(L,2);
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetYear(int). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetYear(int). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->SetYear(year);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1375,15 +1341,13 @@ public:
 	// long unsigned int wxDateTime::GetAsDOS() const
 	static int _bind_GetAsDOS(lua_State *L) {
 		if (!_lg_typecheck_GetAsDOS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long unsigned int wxDateTime::GetAsDOS() const function, expected prototype:\nlong unsigned int wxDateTime::GetAsDOS() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long unsigned int wxDateTime::GetAsDOS() const function, expected prototype:\nlong unsigned int wxDateTime::GetAsDOS() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long unsigned int wxDateTime::GetAsDOS() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long unsigned int wxDateTime::GetAsDOS() const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long unsigned int lret = self->GetAsDOS();
 		lua_pushnumber(L,lret);
@@ -1394,8 +1358,7 @@ public:
 	// int wxDateTime::GetCentury(const wxDateTime::TimeZone & tz = wxDateTime::Local) const
 	static int _bind_GetCentury_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetCentury_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxDateTime::GetCentury(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nint wxDateTime::GetCentury(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxDateTime::GetCentury(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nint wxDateTime::GetCentury(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1404,8 +1367,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDateTime::GetCentury(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxDateTime::GetCentury(const wxDateTime::TimeZone &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetCentury(tz);
 		lua_pushnumber(L,lret);
@@ -1416,8 +1378,7 @@ public:
 	// static int wxDateTime::GetCentury(int year)
 	static int _bind_GetCentury_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetCentury_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static int wxDateTime::GetCentury(int year) function, expected prototype:\nstatic int wxDateTime::GetCentury(int year)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static int wxDateTime::GetCentury(int year) function, expected prototype:\nstatic int wxDateTime::GetCentury(int year)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int year=(int)lua_tointeger(L,1);
@@ -1440,15 +1401,13 @@ public:
 	// wxDateTime wxDateTime::GetDateOnly() const
 	static int _bind_GetDateOnly(lua_State *L) {
 		if (!_lg_typecheck_GetDateOnly(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::GetDateOnly() const function, expected prototype:\nwxDateTime wxDateTime::GetDateOnly() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::GetDateOnly() const function, expected prototype:\nwxDateTime wxDateTime::GetDateOnly() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetDateOnly() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetDateOnly() const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->GetDateOnly();
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -1462,8 +1421,7 @@ public:
 	// short unsigned int wxDateTime::GetDay(const wxDateTime::TimeZone & tz = wxDateTime::Local) const
 	static int _bind_GetDay(lua_State *L) {
 		if (!_lg_typecheck_GetDay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short unsigned int wxDateTime::GetDay(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nshort unsigned int wxDateTime::GetDay(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short unsigned int wxDateTime::GetDay(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nshort unsigned int wxDateTime::GetDay(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1472,8 +1430,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetDay(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetDay(const wxDateTime::TimeZone &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short unsigned int lret = self->GetDay(tz);
 		lua_pushnumber(L,lret);
@@ -1484,8 +1441,7 @@ public:
 	// short unsigned int wxDateTime::GetDayOfYear(const wxDateTime::TimeZone & tz = wxDateTime::Local) const
 	static int _bind_GetDayOfYear(lua_State *L) {
 		if (!_lg_typecheck_GetDayOfYear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short unsigned int wxDateTime::GetDayOfYear(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nshort unsigned int wxDateTime::GetDayOfYear(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short unsigned int wxDateTime::GetDayOfYear(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nshort unsigned int wxDateTime::GetDayOfYear(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1494,8 +1450,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetDayOfYear(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetDayOfYear(const wxDateTime::TimeZone &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short unsigned int lret = self->GetDayOfYear(tz);
 		lua_pushnumber(L,lret);
@@ -1506,8 +1461,7 @@ public:
 	// short unsigned int wxDateTime::GetHour(const wxDateTime::TimeZone & tz = wxDateTime::Local) const
 	static int _bind_GetHour(lua_State *L) {
 		if (!_lg_typecheck_GetHour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short unsigned int wxDateTime::GetHour(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nshort unsigned int wxDateTime::GetHour(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short unsigned int wxDateTime::GetHour(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nshort unsigned int wxDateTime::GetHour(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1516,8 +1470,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetHour(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetHour(const wxDateTime::TimeZone &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short unsigned int lret = self->GetHour(tz);
 		lua_pushnumber(L,lret);
@@ -1528,8 +1481,7 @@ public:
 	// short unsigned int wxDateTime::GetMillisecond(const wxDateTime::TimeZone & tz = wxDateTime::Local) const
 	static int _bind_GetMillisecond(lua_State *L) {
 		if (!_lg_typecheck_GetMillisecond(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short unsigned int wxDateTime::GetMillisecond(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nshort unsigned int wxDateTime::GetMillisecond(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short unsigned int wxDateTime::GetMillisecond(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nshort unsigned int wxDateTime::GetMillisecond(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1538,8 +1490,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetMillisecond(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetMillisecond(const wxDateTime::TimeZone &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short unsigned int lret = self->GetMillisecond(tz);
 		lua_pushnumber(L,lret);
@@ -1550,8 +1501,7 @@ public:
 	// short unsigned int wxDateTime::GetMinute(const wxDateTime::TimeZone & tz = wxDateTime::Local) const
 	static int _bind_GetMinute(lua_State *L) {
 		if (!_lg_typecheck_GetMinute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short unsigned int wxDateTime::GetMinute(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nshort unsigned int wxDateTime::GetMinute(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short unsigned int wxDateTime::GetMinute(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nshort unsigned int wxDateTime::GetMinute(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1560,8 +1510,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetMinute(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetMinute(const wxDateTime::TimeZone &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short unsigned int lret = self->GetMinute(tz);
 		lua_pushnumber(L,lret);
@@ -1572,8 +1521,7 @@ public:
 	// wxDateTime::Month wxDateTime::GetMonth(const wxDateTime::TimeZone & tz = wxDateTime::Local) const
 	static int _bind_GetMonth(lua_State *L) {
 		if (!_lg_typecheck_GetMonth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime::Month wxDateTime::GetMonth(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nwxDateTime::Month wxDateTime::GetMonth(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime::Month wxDateTime::GetMonth(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nwxDateTime::Month wxDateTime::GetMonth(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1582,8 +1530,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime::Month wxDateTime::GetMonth(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime::Month wxDateTime::GetMonth(const wxDateTime::TimeZone &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime::Month lret = self->GetMonth(tz);
 		lua_pushnumber(L,lret);
@@ -1594,8 +1541,7 @@ public:
 	// short unsigned int wxDateTime::GetSecond(const wxDateTime::TimeZone & tz = wxDateTime::Local) const
 	static int _bind_GetSecond(lua_State *L) {
 		if (!_lg_typecheck_GetSecond(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short unsigned int wxDateTime::GetSecond(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nshort unsigned int wxDateTime::GetSecond(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short unsigned int wxDateTime::GetSecond(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nshort unsigned int wxDateTime::GetSecond(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1604,8 +1550,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetSecond(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short unsigned int wxDateTime::GetSecond(const wxDateTime::TimeZone &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short unsigned int lret = self->GetSecond(tz);
 		lua_pushnumber(L,lret);
@@ -1616,8 +1561,7 @@ public:
 	// wxDateTime::Tm wxDateTime::GetTm(const wxDateTime::TimeZone & tz = wxDateTime::Local) const
 	static int _bind_GetTm(lua_State *L) {
 		if (!_lg_typecheck_GetTm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime::Tm wxDateTime::GetTm(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nwxDateTime::Tm wxDateTime::GetTm(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime::Tm wxDateTime::GetTm(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nwxDateTime::Tm wxDateTime::GetTm(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1626,8 +1570,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime::Tm wxDateTime::GetTm(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime::Tm wxDateTime::GetTm(const wxDateTime::TimeZone &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime::Tm stack_lret = self->GetTm(tz);
 		wxDateTime::Tm* lret = new wxDateTime::Tm(stack_lret);
@@ -1641,8 +1584,7 @@ public:
 	// wxDateTime::WeekDay wxDateTime::GetWeekDay(const wxDateTime::TimeZone & tz = wxDateTime::Local) const
 	static int _bind_GetWeekDay_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetWeekDay_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime::WeekDay wxDateTime::GetWeekDay(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nwxDateTime::WeekDay wxDateTime::GetWeekDay(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime::WeekDay wxDateTime::GetWeekDay(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nwxDateTime::WeekDay wxDateTime::GetWeekDay(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1651,8 +1593,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime::WeekDay wxDateTime::GetWeekDay(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime::WeekDay wxDateTime::GetWeekDay(const wxDateTime::TimeZone &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime::WeekDay lret = self->GetWeekDay(tz);
 		lua_pushnumber(L,lret);
@@ -1663,8 +1604,7 @@ public:
 	// wxDateTime wxDateTime::GetWeekDay(wxDateTime::WeekDay weekday, int n = 1, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) const
 	static int _bind_GetWeekDay_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetWeekDay_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::GetWeekDay(wxDateTime::WeekDay weekday, int n = 1, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) const function, expected prototype:\nwxDateTime wxDateTime::GetWeekDay(wxDateTime::WeekDay weekday, int n = 1, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::GetWeekDay(wxDateTime::WeekDay weekday, int n = 1, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) const function, expected prototype:\nwxDateTime wxDateTime::GetWeekDay(wxDateTime::WeekDay weekday, int n = 1, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1676,8 +1616,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetWeekDay(wxDateTime::WeekDay, int, wxDateTime::Month, int) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetWeekDay(wxDateTime::WeekDay, int, wxDateTime::Month, int) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->GetWeekDay(weekday, n, month, year);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -1700,8 +1639,7 @@ public:
 	// unsigned short wxDateTime::GetWeekOfMonth(wxDateTime::WeekFlags flags = wxDateTime::Monday_First, const wxDateTime::TimeZone & tz = wxDateTime::Local) const
 	static int _bind_GetWeekOfMonth(lua_State *L) {
 		if (!_lg_typecheck_GetWeekOfMonth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned short wxDateTime::GetWeekOfMonth(wxDateTime::WeekFlags flags = wxDateTime::Monday_First, const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nunsigned short wxDateTime::GetWeekOfMonth(wxDateTime::WeekFlags flags = wxDateTime::Monday_First, const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned short wxDateTime::GetWeekOfMonth(wxDateTime::WeekFlags flags = wxDateTime::Monday_First, const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nunsigned short wxDateTime::GetWeekOfMonth(wxDateTime::WeekFlags flags = wxDateTime::Monday_First, const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1711,8 +1649,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::GetWeekOfMonth(wxDateTime::WeekFlags, const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::GetWeekOfMonth(wxDateTime::WeekFlags, const wxDateTime::TimeZone &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned short lret = self->GetWeekOfMonth(flags, tz);
 		lua_pushnumber(L,lret);
@@ -1723,8 +1660,7 @@ public:
 	// unsigned short wxDateTime::GetWeekOfYear(wxDateTime::WeekFlags flags = wxDateTime::Monday_First, const wxDateTime::TimeZone & tz = wxDateTime::Local) const
 	static int _bind_GetWeekOfYear(lua_State *L) {
 		if (!_lg_typecheck_GetWeekOfYear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned short wxDateTime::GetWeekOfYear(wxDateTime::WeekFlags flags = wxDateTime::Monday_First, const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nunsigned short wxDateTime::GetWeekOfYear(wxDateTime::WeekFlags flags = wxDateTime::Monday_First, const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned short wxDateTime::GetWeekOfYear(wxDateTime::WeekFlags flags = wxDateTime::Monday_First, const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nunsigned short wxDateTime::GetWeekOfYear(wxDateTime::WeekFlags flags = wxDateTime::Monday_First, const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1734,8 +1670,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::GetWeekOfYear(wxDateTime::WeekFlags, const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned short wxDateTime::GetWeekOfYear(wxDateTime::WeekFlags, const wxDateTime::TimeZone &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned short lret = self->GetWeekOfYear(flags, tz);
 		lua_pushnumber(L,lret);
@@ -1746,8 +1681,7 @@ public:
 	// int wxDateTime::GetYear(const wxDateTime::TimeZone & tz = wxDateTime::Local) const
 	static int _bind_GetYear(lua_State *L) {
 		if (!_lg_typecheck_GetYear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxDateTime::GetYear(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nint wxDateTime::GetYear(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxDateTime::GetYear(const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nint wxDateTime::GetYear(const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1756,8 +1690,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDateTime::GetYear(const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxDateTime::GetYear(const wxDateTime::TimeZone &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetYear(tz);
 		lua_pushnumber(L,lret);
@@ -1768,15 +1701,13 @@ public:
 	// bool wxDateTime::IsValid() const
 	static int _bind_IsValid(lua_State *L) {
 		if (!_lg_typecheck_IsValid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsValid() const function, expected prototype:\nbool wxDateTime::IsValid() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsValid() const function, expected prototype:\nbool wxDateTime::IsValid() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsValid() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsValid() const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsValid();
 		lua_pushboolean(L,lret?1:0);
@@ -1787,8 +1718,7 @@ public:
 	// bool wxDateTime::IsWorkDay(wxDateTime::Country country = wxDateTime::Country_Default) const
 	static int _bind_IsWorkDay(lua_State *L) {
 		if (!_lg_typecheck_IsWorkDay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsWorkDay(wxDateTime::Country country = wxDateTime::Country_Default) const function, expected prototype:\nbool wxDateTime::IsWorkDay(wxDateTime::Country country = wxDateTime::Country_Default) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsWorkDay(wxDateTime::Country country = wxDateTime::Country_Default) const function, expected prototype:\nbool wxDateTime::IsWorkDay(wxDateTime::Country country = wxDateTime::Country_Default) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1797,8 +1727,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsWorkDay(wxDateTime::Country) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsWorkDay(wxDateTime::Country) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsWorkDay(country);
 		lua_pushboolean(L,lret?1:0);
@@ -1809,8 +1738,7 @@ public:
 	// bool wxDateTime::IsEarlierThan(const wxDateTime & datetime) const
 	static int _bind_IsEarlierThan(lua_State *L) {
 		if (!_lg_typecheck_IsEarlierThan(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsEarlierThan(const wxDateTime & datetime) const function, expected prototype:\nbool wxDateTime::IsEarlierThan(const wxDateTime & datetime) const\nClass arguments details:\narg 1 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsEarlierThan(const wxDateTime & datetime) const function, expected prototype:\nbool wxDateTime::IsEarlierThan(const wxDateTime & datetime) const\nClass arguments details:\narg 1 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateTime* datetime_ptr=(Luna< wxDateTime >::check(L,2));
@@ -1821,8 +1749,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsEarlierThan(const wxDateTime &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsEarlierThan(const wxDateTime &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsEarlierThan(datetime);
 		lua_pushboolean(L,lret?1:0);
@@ -1833,8 +1760,7 @@ public:
 	// bool wxDateTime::IsEqualTo(const wxDateTime & datetime) const
 	static int _bind_IsEqualTo(lua_State *L) {
 		if (!_lg_typecheck_IsEqualTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsEqualTo(const wxDateTime & datetime) const function, expected prototype:\nbool wxDateTime::IsEqualTo(const wxDateTime & datetime) const\nClass arguments details:\narg 1 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsEqualTo(const wxDateTime & datetime) const function, expected prototype:\nbool wxDateTime::IsEqualTo(const wxDateTime & datetime) const\nClass arguments details:\narg 1 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateTime* datetime_ptr=(Luna< wxDateTime >::check(L,2));
@@ -1845,8 +1771,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsEqualTo(const wxDateTime &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsEqualTo(const wxDateTime &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsEqualTo(datetime);
 		lua_pushboolean(L,lret?1:0);
@@ -1857,8 +1782,7 @@ public:
 	// bool wxDateTime::IsEqualUpTo(const wxDateTime & dt, const wxTimeSpan & ts) const
 	static int _bind_IsEqualUpTo(lua_State *L) {
 		if (!_lg_typecheck_IsEqualUpTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsEqualUpTo(const wxDateTime & dt, const wxTimeSpan & ts) const function, expected prototype:\nbool wxDateTime::IsEqualUpTo(const wxDateTime & dt, const wxTimeSpan & ts) const\nClass arguments details:\narg 1 ID = 57497519\narg 2 ID = 58889849\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsEqualUpTo(const wxDateTime & dt, const wxTimeSpan & ts) const function, expected prototype:\nbool wxDateTime::IsEqualUpTo(const wxDateTime & dt, const wxTimeSpan & ts) const\nClass arguments details:\narg 1 ID = 57497519\narg 2 ID = 58889849\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateTime* dt_ptr=(Luna< wxDateTime >::check(L,2));
@@ -1874,8 +1798,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsEqualUpTo(const wxDateTime &, const wxTimeSpan &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsEqualUpTo(const wxDateTime &, const wxTimeSpan &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsEqualUpTo(dt, ts);
 		lua_pushboolean(L,lret?1:0);
@@ -1886,8 +1809,7 @@ public:
 	// bool wxDateTime::IsLaterThan(const wxDateTime & datetime) const
 	static int _bind_IsLaterThan(lua_State *L) {
 		if (!_lg_typecheck_IsLaterThan(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsLaterThan(const wxDateTime & datetime) const function, expected prototype:\nbool wxDateTime::IsLaterThan(const wxDateTime & datetime) const\nClass arguments details:\narg 1 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsLaterThan(const wxDateTime & datetime) const function, expected prototype:\nbool wxDateTime::IsLaterThan(const wxDateTime & datetime) const\nClass arguments details:\narg 1 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateTime* datetime_ptr=(Luna< wxDateTime >::check(L,2));
@@ -1898,8 +1820,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsLaterThan(const wxDateTime &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsLaterThan(const wxDateTime &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsLaterThan(datetime);
 		lua_pushboolean(L,lret?1:0);
@@ -1910,8 +1831,7 @@ public:
 	// bool wxDateTime::IsSameDate(const wxDateTime & dt) const
 	static int _bind_IsSameDate(lua_State *L) {
 		if (!_lg_typecheck_IsSameDate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsSameDate(const wxDateTime & dt) const function, expected prototype:\nbool wxDateTime::IsSameDate(const wxDateTime & dt) const\nClass arguments details:\narg 1 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsSameDate(const wxDateTime & dt) const function, expected prototype:\nbool wxDateTime::IsSameDate(const wxDateTime & dt) const\nClass arguments details:\narg 1 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateTime* dt_ptr=(Luna< wxDateTime >::check(L,2));
@@ -1922,8 +1842,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsSameDate(const wxDateTime &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsSameDate(const wxDateTime &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsSameDate(dt);
 		lua_pushboolean(L,lret?1:0);
@@ -1934,8 +1853,7 @@ public:
 	// bool wxDateTime::IsSameTime(const wxDateTime & dt) const
 	static int _bind_IsSameTime(lua_State *L) {
 		if (!_lg_typecheck_IsSameTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsSameTime(const wxDateTime & dt) const function, expected prototype:\nbool wxDateTime::IsSameTime(const wxDateTime & dt) const\nClass arguments details:\narg 1 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsSameTime(const wxDateTime & dt) const function, expected prototype:\nbool wxDateTime::IsSameTime(const wxDateTime & dt) const\nClass arguments details:\narg 1 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateTime* dt_ptr=(Luna< wxDateTime >::check(L,2));
@@ -1946,8 +1864,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsSameTime(const wxDateTime &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsSameTime(const wxDateTime &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsSameTime(dt);
 		lua_pushboolean(L,lret?1:0);
@@ -1958,8 +1875,7 @@ public:
 	// bool wxDateTime::IsStrictlyBetween(const wxDateTime & t1, const wxDateTime & t2) const
 	static int _bind_IsStrictlyBetween(lua_State *L) {
 		if (!_lg_typecheck_IsStrictlyBetween(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsStrictlyBetween(const wxDateTime & t1, const wxDateTime & t2) const function, expected prototype:\nbool wxDateTime::IsStrictlyBetween(const wxDateTime & t1, const wxDateTime & t2) const\nClass arguments details:\narg 1 ID = 57497519\narg 2 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsStrictlyBetween(const wxDateTime & t1, const wxDateTime & t2) const function, expected prototype:\nbool wxDateTime::IsStrictlyBetween(const wxDateTime & t1, const wxDateTime & t2) const\nClass arguments details:\narg 1 ID = 57497519\narg 2 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateTime* t1_ptr=(Luna< wxDateTime >::check(L,2));
@@ -1975,8 +1891,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsStrictlyBetween(const wxDateTime &, const wxDateTime &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsStrictlyBetween(const wxDateTime &, const wxDateTime &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsStrictlyBetween(t1, t2);
 		lua_pushboolean(L,lret?1:0);
@@ -1987,8 +1902,7 @@ public:
 	// bool wxDateTime::IsBetween(const wxDateTime & t1, const wxDateTime & t2) const
 	static int _bind_IsBetween(lua_State *L) {
 		if (!_lg_typecheck_IsBetween(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsBetween(const wxDateTime & t1, const wxDateTime & t2) const function, expected prototype:\nbool wxDateTime::IsBetween(const wxDateTime & t1, const wxDateTime & t2) const\nClass arguments details:\narg 1 ID = 57497519\narg 2 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateTime::IsBetween(const wxDateTime & t1, const wxDateTime & t2) const function, expected prototype:\nbool wxDateTime::IsBetween(const wxDateTime & t1, const wxDateTime & t2) const\nClass arguments details:\narg 1 ID = 57497519\narg 2 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateTime* t1_ptr=(Luna< wxDateTime >::check(L,2));
@@ -2004,8 +1918,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::IsBetween(const wxDateTime &, const wxDateTime &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDateTime::IsBetween(const wxDateTime &, const wxDateTime &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsBetween(t1, t2);
 		lua_pushboolean(L,lret?1:0);
@@ -2016,8 +1929,7 @@ public:
 	// wxDateTime wxDateTime::Add(const wxDateSpan & diff) const
 	static int _bind_Add_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Add_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::Add(const wxDateSpan & diff) const function, expected prototype:\nwxDateTime wxDateTime::Add(const wxDateSpan & diff) const\nClass arguments details:\narg 1 ID = 57474092\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::Add(const wxDateSpan & diff) const function, expected prototype:\nwxDateTime wxDateTime::Add(const wxDateSpan & diff) const\nClass arguments details:\narg 1 ID = 57474092\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateSpan* diff_ptr=(Luna< wxDateSpan >::check(L,2));
@@ -2028,8 +1940,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Add(const wxDateSpan &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Add(const wxDateSpan &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->Add(diff);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2043,8 +1954,7 @@ public:
 	// wxDateTime wxDateTime::Add(const wxDateSpan & diff)
 	static int _bind_Add_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Add_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::Add(const wxDateSpan & diff) function, expected prototype:\nwxDateTime wxDateTime::Add(const wxDateSpan & diff)\nClass arguments details:\narg 1 ID = 57474092\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::Add(const wxDateSpan & diff) function, expected prototype:\nwxDateTime wxDateTime::Add(const wxDateSpan & diff)\nClass arguments details:\narg 1 ID = 57474092\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateSpan* diff_ptr=(Luna< wxDateSpan >::check(L,2));
@@ -2055,8 +1965,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Add(const wxDateSpan &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Add(const wxDateSpan &). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->Add(diff);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2070,8 +1979,7 @@ public:
 	// wxDateTime wxDateTime::Add(const wxTimeSpan & diff) const
 	static int _bind_Add_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Add_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::Add(const wxTimeSpan & diff) const function, expected prototype:\nwxDateTime wxDateTime::Add(const wxTimeSpan & diff) const\nClass arguments details:\narg 1 ID = 58889849\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::Add(const wxTimeSpan & diff) const function, expected prototype:\nwxDateTime wxDateTime::Add(const wxTimeSpan & diff) const\nClass arguments details:\narg 1 ID = 58889849\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxTimeSpan* diff_ptr=(Luna< wxTimeSpan >::check(L,2));
@@ -2082,8 +1990,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Add(const wxTimeSpan &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Add(const wxTimeSpan &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->Add(diff);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2097,8 +2004,7 @@ public:
 	// wxDateTime & wxDateTime::Add(const wxTimeSpan & diff)
 	static int _bind_Add_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Add_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::Add(const wxTimeSpan & diff) function, expected prototype:\nwxDateTime & wxDateTime::Add(const wxTimeSpan & diff)\nClass arguments details:\narg 1 ID = 58889849\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::Add(const wxTimeSpan & diff) function, expected prototype:\nwxDateTime & wxDateTime::Add(const wxTimeSpan & diff)\nClass arguments details:\narg 1 ID = 58889849\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxTimeSpan* diff_ptr=(Luna< wxTimeSpan >::check(L,2));
@@ -2109,8 +2015,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Add(const wxTimeSpan &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Add(const wxTimeSpan &). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->Add(diff);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2134,8 +2039,7 @@ public:
 	// wxDateTime wxDateTime::Subtract(const wxTimeSpan & diff) const
 	static int _bind_Subtract_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Subtract_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::Subtract(const wxTimeSpan & diff) const function, expected prototype:\nwxDateTime wxDateTime::Subtract(const wxTimeSpan & diff) const\nClass arguments details:\narg 1 ID = 58889849\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::Subtract(const wxTimeSpan & diff) const function, expected prototype:\nwxDateTime wxDateTime::Subtract(const wxTimeSpan & diff) const\nClass arguments details:\narg 1 ID = 58889849\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxTimeSpan* diff_ptr=(Luna< wxTimeSpan >::check(L,2));
@@ -2146,8 +2050,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Subtract(const wxTimeSpan &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Subtract(const wxTimeSpan &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->Subtract(diff);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2161,8 +2064,7 @@ public:
 	// wxDateTime & wxDateTime::Subtract(const wxTimeSpan & diff)
 	static int _bind_Subtract_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Subtract_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::Subtract(const wxTimeSpan & diff) function, expected prototype:\nwxDateTime & wxDateTime::Subtract(const wxTimeSpan & diff)\nClass arguments details:\narg 1 ID = 58889849\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::Subtract(const wxTimeSpan & diff) function, expected prototype:\nwxDateTime & wxDateTime::Subtract(const wxTimeSpan & diff)\nClass arguments details:\narg 1 ID = 58889849\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxTimeSpan* diff_ptr=(Luna< wxTimeSpan >::check(L,2));
@@ -2173,8 +2075,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Subtract(const wxTimeSpan &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Subtract(const wxTimeSpan &). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->Subtract(diff);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2187,8 +2088,7 @@ public:
 	// wxDateTime wxDateTime::Subtract(const wxDateSpan & diff) const
 	static int _bind_Subtract_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Subtract_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::Subtract(const wxDateSpan & diff) const function, expected prototype:\nwxDateTime wxDateTime::Subtract(const wxDateSpan & diff) const\nClass arguments details:\narg 1 ID = 57474092\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::Subtract(const wxDateSpan & diff) const function, expected prototype:\nwxDateTime wxDateTime::Subtract(const wxDateSpan & diff) const\nClass arguments details:\narg 1 ID = 57474092\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateSpan* diff_ptr=(Luna< wxDateSpan >::check(L,2));
@@ -2199,8 +2099,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Subtract(const wxDateSpan &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::Subtract(const wxDateSpan &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->Subtract(diff);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2214,8 +2113,7 @@ public:
 	// wxDateTime & wxDateTime::Subtract(const wxDateSpan & diff)
 	static int _bind_Subtract_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Subtract_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::Subtract(const wxDateSpan & diff) function, expected prototype:\nwxDateTime & wxDateTime::Subtract(const wxDateSpan & diff)\nClass arguments details:\narg 1 ID = 57474092\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::Subtract(const wxDateSpan & diff) function, expected prototype:\nwxDateTime & wxDateTime::Subtract(const wxDateSpan & diff)\nClass arguments details:\narg 1 ID = 57474092\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateSpan* diff_ptr=(Luna< wxDateSpan >::check(L,2));
@@ -2226,8 +2124,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Subtract(const wxDateSpan &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::Subtract(const wxDateSpan &). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->Subtract(diff);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2240,8 +2137,7 @@ public:
 	// wxTimeSpan wxDateTime::Subtract(const wxDateTime & dt) const
 	static int _bind_Subtract_overload_5(lua_State *L) {
 		if (!_lg_typecheck_Subtract_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTimeSpan wxDateTime::Subtract(const wxDateTime & dt) const function, expected prototype:\nwxTimeSpan wxDateTime::Subtract(const wxDateTime & dt) const\nClass arguments details:\narg 1 ID = 57497519\n");
+			luaL_error(L, "luna typecheck failed in wxTimeSpan wxDateTime::Subtract(const wxDateTime & dt) const function, expected prototype:\nwxTimeSpan wxDateTime::Subtract(const wxDateTime & dt) const\nClass arguments details:\narg 1 ID = 57497519\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateTime* dt_ptr=(Luna< wxDateTime >::check(L,2));
@@ -2252,8 +2148,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxTimeSpan wxDateTime::Subtract(const wxDateTime &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxTimeSpan wxDateTime::Subtract(const wxDateTime &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxTimeSpan stack_lret = self->Subtract(dt);
 		wxTimeSpan* lret = new wxTimeSpan(stack_lret);
@@ -2279,8 +2174,7 @@ public:
 	// wxString wxDateTime::Format(const wxString & format = wxDefaultDateTimeFormat, const wxDateTime::TimeZone & tz = wxDateTime::Local) const
 	static int _bind_Format(lua_State *L) {
 		if (!_lg_typecheck_Format(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxDateTime::Format(const wxString & format = wxDefaultDateTimeFormat, const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nwxString wxDateTime::Format(const wxString & format = wxDefaultDateTimeFormat, const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxDateTime::Format(const wxString & format = wxDefaultDateTimeFormat, const wxDateTime::TimeZone & tz = wxDateTime::Local) const function, expected prototype:\nwxString wxDateTime::Format(const wxString & format = wxDefaultDateTimeFormat, const wxDateTime::TimeZone & tz = wxDateTime::Local) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2290,8 +2184,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDateTime::Format(const wxString &, const wxDateTime::TimeZone &) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxDateTime::Format(const wxString &, const wxDateTime::TimeZone &) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->Format(format, tz);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2302,15 +2195,13 @@ public:
 	// wxString wxDateTime::FormatDate() const
 	static int _bind_FormatDate(lua_State *L) {
 		if (!_lg_typecheck_FormatDate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxDateTime::FormatDate() const function, expected prototype:\nwxString wxDateTime::FormatDate() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxDateTime::FormatDate() const function, expected prototype:\nwxString wxDateTime::FormatDate() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatDate() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatDate() const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->FormatDate();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2321,8 +2212,7 @@ public:
 	// wxString wxDateTime::FormatISOCombined(char sep = 'T') const
 	static int _bind_FormatISOCombined(lua_State *L) {
 		if (!_lg_typecheck_FormatISOCombined(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxDateTime::FormatISOCombined(char sep = 'T') const function, expected prototype:\nwxString wxDateTime::FormatISOCombined(char sep = 'T') const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxDateTime::FormatISOCombined(char sep = 'T') const function, expected prototype:\nwxString wxDateTime::FormatISOCombined(char sep = 'T') const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2331,8 +2221,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatISOCombined(char) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatISOCombined(char) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->FormatISOCombined(sep);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2343,15 +2232,13 @@ public:
 	// wxString wxDateTime::FormatISODate() const
 	static int _bind_FormatISODate(lua_State *L) {
 		if (!_lg_typecheck_FormatISODate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxDateTime::FormatISODate() const function, expected prototype:\nwxString wxDateTime::FormatISODate() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxDateTime::FormatISODate() const function, expected prototype:\nwxString wxDateTime::FormatISODate() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatISODate() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatISODate() const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->FormatISODate();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2362,15 +2249,13 @@ public:
 	// wxString wxDateTime::FormatISOTime() const
 	static int _bind_FormatISOTime(lua_State *L) {
 		if (!_lg_typecheck_FormatISOTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxDateTime::FormatISOTime() const function, expected prototype:\nwxString wxDateTime::FormatISOTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxDateTime::FormatISOTime() const function, expected prototype:\nwxString wxDateTime::FormatISOTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatISOTime() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatISOTime() const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->FormatISOTime();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2381,15 +2266,13 @@ public:
 	// wxString wxDateTime::FormatTime() const
 	static int _bind_FormatTime(lua_State *L) {
 		if (!_lg_typecheck_FormatTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxDateTime::FormatTime() const function, expected prototype:\nwxString wxDateTime::FormatTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxDateTime::FormatTime() const function, expected prototype:\nwxString wxDateTime::FormatTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatTime() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxDateTime::FormatTime() const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->FormatTime();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -2400,8 +2283,7 @@ public:
 	// bool wxDateTime::ParseISOCombined(const wxString & date, char sep = 'T')
 	static int _bind_ParseISOCombined(lua_State *L) {
 		if (!_lg_typecheck_ParseISOCombined(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateTime::ParseISOCombined(const wxString & date, char sep = 'T') function, expected prototype:\nbool wxDateTime::ParseISOCombined(const wxString & date, char sep = 'T')\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateTime::ParseISOCombined(const wxString & date, char sep = 'T') function, expected prototype:\nbool wxDateTime::ParseISOCombined(const wxString & date, char sep = 'T')\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2411,8 +2293,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::ParseISOCombined(const wxString &, char). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDateTime::ParseISOCombined(const wxString &, char). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ParseISOCombined(date, sep);
 		lua_pushboolean(L,lret?1:0);
@@ -2423,16 +2304,14 @@ public:
 	// bool wxDateTime::ParseISODate(const wxString & date)
 	static int _bind_ParseISODate(lua_State *L) {
 		if (!_lg_typecheck_ParseISODate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateTime::ParseISODate(const wxString & date) function, expected prototype:\nbool wxDateTime::ParseISODate(const wxString & date)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateTime::ParseISODate(const wxString & date) function, expected prototype:\nbool wxDateTime::ParseISODate(const wxString & date)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString date(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::ParseISODate(const wxString &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDateTime::ParseISODate(const wxString &). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ParseISODate(date);
 		lua_pushboolean(L,lret?1:0);
@@ -2443,16 +2322,14 @@ public:
 	// bool wxDateTime::ParseISOTime(const wxString & date)
 	static int _bind_ParseISOTime(lua_State *L) {
 		if (!_lg_typecheck_ParseISOTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateTime::ParseISOTime(const wxString & date) function, expected prototype:\nbool wxDateTime::ParseISOTime(const wxString & date)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateTime::ParseISOTime(const wxString & date) function, expected prototype:\nbool wxDateTime::ParseISOTime(const wxString & date)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString date(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::ParseISOTime(const wxString &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDateTime::ParseISOTime(const wxString &). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ParseISOTime(date);
 		lua_pushboolean(L,lret?1:0);
@@ -2463,8 +2340,7 @@ public:
 	// wxDateTime wxDateTime::GetLastMonthDay(wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) const
 	static int _bind_GetLastMonthDay(lua_State *L) {
 		if (!_lg_typecheck_GetLastMonthDay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::GetLastMonthDay(wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) const function, expected prototype:\nwxDateTime wxDateTime::GetLastMonthDay(wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::GetLastMonthDay(wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) const function, expected prototype:\nwxDateTime wxDateTime::GetLastMonthDay(wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2474,8 +2350,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetLastMonthDay(wxDateTime::Month, int) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetLastMonthDay(wxDateTime::Month, int) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->GetLastMonthDay(month, year);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2489,8 +2364,7 @@ public:
 	// wxDateTime wxDateTime::GetLastWeekDay(wxDateTime::WeekDay weekday, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year)
 	static int _bind_GetLastWeekDay(lua_State *L) {
 		if (!_lg_typecheck_GetLastWeekDay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::GetLastWeekDay(wxDateTime::WeekDay weekday, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) function, expected prototype:\nwxDateTime wxDateTime::GetLastWeekDay(wxDateTime::WeekDay weekday, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::GetLastWeekDay(wxDateTime::WeekDay weekday, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) function, expected prototype:\nwxDateTime wxDateTime::GetLastWeekDay(wxDateTime::WeekDay weekday, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2501,8 +2375,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetLastWeekDay(wxDateTime::WeekDay, wxDateTime::Month, int). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetLastWeekDay(wxDateTime::WeekDay, wxDateTime::Month, int). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->GetLastWeekDay(weekday, month, year);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2516,16 +2389,14 @@ public:
 	// wxDateTime wxDateTime::GetNextWeekDay(wxDateTime::WeekDay weekday) const
 	static int _bind_GetNextWeekDay(lua_State *L) {
 		if (!_lg_typecheck_GetNextWeekDay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::GetNextWeekDay(wxDateTime::WeekDay weekday) const function, expected prototype:\nwxDateTime wxDateTime::GetNextWeekDay(wxDateTime::WeekDay weekday) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::GetNextWeekDay(wxDateTime::WeekDay weekday) const function, expected prototype:\nwxDateTime wxDateTime::GetNextWeekDay(wxDateTime::WeekDay weekday) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDateTime::WeekDay weekday=(wxDateTime::WeekDay)lua_tointeger(L,2);
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetNextWeekDay(wxDateTime::WeekDay) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetNextWeekDay(wxDateTime::WeekDay) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->GetNextWeekDay(weekday);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2539,16 +2410,14 @@ public:
 	// wxDateTime wxDateTime::GetPrevWeekDay(wxDateTime::WeekDay weekday) const
 	static int _bind_GetPrevWeekDay(lua_State *L) {
 		if (!_lg_typecheck_GetPrevWeekDay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::GetPrevWeekDay(wxDateTime::WeekDay weekday) const function, expected prototype:\nwxDateTime wxDateTime::GetPrevWeekDay(wxDateTime::WeekDay weekday) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::GetPrevWeekDay(wxDateTime::WeekDay weekday) const function, expected prototype:\nwxDateTime wxDateTime::GetPrevWeekDay(wxDateTime::WeekDay weekday) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDateTime::WeekDay weekday=(wxDateTime::WeekDay)lua_tointeger(L,2);
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetPrevWeekDay(wxDateTime::WeekDay) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetPrevWeekDay(wxDateTime::WeekDay) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->GetPrevWeekDay(weekday);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2562,8 +2431,7 @@ public:
 	// wxDateTime wxDateTime::GetWeekDayInSameWeek(wxDateTime::WeekDay weekday, wxDateTime::WeekFlags flags = wxDateTime::Monday_First) const
 	static int _bind_GetWeekDayInSameWeek(lua_State *L) {
 		if (!_lg_typecheck_GetWeekDayInSameWeek(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::GetWeekDayInSameWeek(wxDateTime::WeekDay weekday, wxDateTime::WeekFlags flags = wxDateTime::Monday_First) const function, expected prototype:\nwxDateTime wxDateTime::GetWeekDayInSameWeek(wxDateTime::WeekDay weekday, wxDateTime::WeekFlags flags = wxDateTime::Monday_First) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::GetWeekDayInSameWeek(wxDateTime::WeekDay weekday, wxDateTime::WeekFlags flags = wxDateTime::Monday_First) const function, expected prototype:\nwxDateTime wxDateTime::GetWeekDayInSameWeek(wxDateTime::WeekDay weekday, wxDateTime::WeekFlags flags = wxDateTime::Monday_First) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2573,8 +2441,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetWeekDayInSameWeek(wxDateTime::WeekDay, wxDateTime::WeekFlags) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetWeekDayInSameWeek(wxDateTime::WeekDay, wxDateTime::WeekFlags) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->GetWeekDayInSameWeek(weekday, flags);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2588,16 +2455,14 @@ public:
 	// wxDateTime wxDateTime::GetYearDay(unsigned short yday) const
 	static int _bind_GetYearDay(lua_State *L) {
 		if (!_lg_typecheck_GetYearDay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::GetYearDay(unsigned short yday) const function, expected prototype:\nwxDateTime wxDateTime::GetYearDay(unsigned short yday) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::GetYearDay(unsigned short yday) const function, expected prototype:\nwxDateTime wxDateTime::GetYearDay(unsigned short yday) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short yday=(unsigned short)lua_tointeger(L,2);
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetYearDay(unsigned short) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::GetYearDay(unsigned short) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->GetYearDay(yday);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2611,8 +2476,7 @@ public:
 	// wxDateTime & wxDateTime::SetToLastMonthDay(wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year)
 	static int _bind_SetToLastMonthDay(lua_State *L) {
 		if (!_lg_typecheck_SetToLastMonthDay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetToLastMonthDay(wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) function, expected prototype:\nwxDateTime & wxDateTime::SetToLastMonthDay(wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetToLastMonthDay(wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) function, expected prototype:\nwxDateTime & wxDateTime::SetToLastMonthDay(wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2622,8 +2486,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToLastMonthDay(wxDateTime::Month, int). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToLastMonthDay(wxDateTime::Month, int). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->SetToLastMonthDay(month, year);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2636,8 +2499,7 @@ public:
 	// bool wxDateTime::SetToLastWeekDay(wxDateTime::WeekDay weekday, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year)
 	static int _bind_SetToLastWeekDay(lua_State *L) {
 		if (!_lg_typecheck_SetToLastWeekDay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateTime::SetToLastWeekDay(wxDateTime::WeekDay weekday, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) function, expected prototype:\nbool wxDateTime::SetToLastWeekDay(wxDateTime::WeekDay weekday, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateTime::SetToLastWeekDay(wxDateTime::WeekDay weekday, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) function, expected prototype:\nbool wxDateTime::SetToLastWeekDay(wxDateTime::WeekDay weekday, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2648,8 +2510,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::SetToLastWeekDay(wxDateTime::WeekDay, wxDateTime::Month, int). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDateTime::SetToLastWeekDay(wxDateTime::WeekDay, wxDateTime::Month, int). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SetToLastWeekDay(weekday, month, year);
 		lua_pushboolean(L,lret?1:0);
@@ -2660,16 +2521,14 @@ public:
 	// wxDateTime & wxDateTime::SetToNextWeekDay(wxDateTime::WeekDay weekday)
 	static int _bind_SetToNextWeekDay(lua_State *L) {
 		if (!_lg_typecheck_SetToNextWeekDay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetToNextWeekDay(wxDateTime::WeekDay weekday) function, expected prototype:\nwxDateTime & wxDateTime::SetToNextWeekDay(wxDateTime::WeekDay weekday)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetToNextWeekDay(wxDateTime::WeekDay weekday) function, expected prototype:\nwxDateTime & wxDateTime::SetToNextWeekDay(wxDateTime::WeekDay weekday)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDateTime::WeekDay weekday=(wxDateTime::WeekDay)lua_tointeger(L,2);
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToNextWeekDay(wxDateTime::WeekDay). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToNextWeekDay(wxDateTime::WeekDay). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->SetToNextWeekDay(weekday);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2682,16 +2541,14 @@ public:
 	// wxDateTime & wxDateTime::SetToPrevWeekDay(wxDateTime::WeekDay weekday)
 	static int _bind_SetToPrevWeekDay(lua_State *L) {
 		if (!_lg_typecheck_SetToPrevWeekDay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetToPrevWeekDay(wxDateTime::WeekDay weekday) function, expected prototype:\nwxDateTime & wxDateTime::SetToPrevWeekDay(wxDateTime::WeekDay weekday)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetToPrevWeekDay(wxDateTime::WeekDay weekday) function, expected prototype:\nwxDateTime & wxDateTime::SetToPrevWeekDay(wxDateTime::WeekDay weekday)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDateTime::WeekDay weekday=(wxDateTime::WeekDay)lua_tointeger(L,2);
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToPrevWeekDay(wxDateTime::WeekDay). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToPrevWeekDay(wxDateTime::WeekDay). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->SetToPrevWeekDay(weekday);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2704,8 +2561,7 @@ public:
 	// bool wxDateTime::SetToWeekDay(wxDateTime::WeekDay weekday, int n = 1, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year)
 	static int _bind_SetToWeekDay(lua_State *L) {
 		if (!_lg_typecheck_SetToWeekDay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxDateTime::SetToWeekDay(wxDateTime::WeekDay weekday, int n = 1, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) function, expected prototype:\nbool wxDateTime::SetToWeekDay(wxDateTime::WeekDay weekday, int n = 1, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxDateTime::SetToWeekDay(wxDateTime::WeekDay weekday, int n = 1, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year) function, expected prototype:\nbool wxDateTime::SetToWeekDay(wxDateTime::WeekDay weekday, int n = 1, wxDateTime::Month month = wxDateTime::Inv_Month, int year = wxDateTime::Inv_Year)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2717,8 +2573,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxDateTime::SetToWeekDay(wxDateTime::WeekDay, int, wxDateTime::Month, int). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxDateTime::SetToWeekDay(wxDateTime::WeekDay, int, wxDateTime::Month, int). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SetToWeekDay(weekday, n, month, year);
 		lua_pushboolean(L,lret?1:0);
@@ -2729,8 +2584,7 @@ public:
 	// wxDateTime & wxDateTime::SetToWeekDayInSameWeek(wxDateTime::WeekDay weekday, wxDateTime::WeekFlags flags = wxDateTime::Monday_First)
 	static int _bind_SetToWeekDayInSameWeek(lua_State *L) {
 		if (!_lg_typecheck_SetToWeekDayInSameWeek(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetToWeekDayInSameWeek(wxDateTime::WeekDay weekday, wxDateTime::WeekFlags flags = wxDateTime::Monday_First) function, expected prototype:\nwxDateTime & wxDateTime::SetToWeekDayInSameWeek(wxDateTime::WeekDay weekday, wxDateTime::WeekFlags flags = wxDateTime::Monday_First)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetToWeekDayInSameWeek(wxDateTime::WeekDay weekday, wxDateTime::WeekFlags flags = wxDateTime::Monday_First) function, expected prototype:\nwxDateTime & wxDateTime::SetToWeekDayInSameWeek(wxDateTime::WeekDay weekday, wxDateTime::WeekFlags flags = wxDateTime::Monday_First)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2740,8 +2594,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToWeekDayInSameWeek(wxDateTime::WeekDay, wxDateTime::WeekFlags). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToWeekDayInSameWeek(wxDateTime::WeekDay, wxDateTime::WeekFlags). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->SetToWeekDayInSameWeek(weekday, flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2754,16 +2607,14 @@ public:
 	// wxDateTime & wxDateTime::SetToYearDay(unsigned short yday)
 	static int _bind_SetToYearDay(lua_State *L) {
 		if (!_lg_typecheck_SetToYearDay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetToYearDay(unsigned short yday) function, expected prototype:\nwxDateTime & wxDateTime::SetToYearDay(unsigned short yday)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::SetToYearDay(unsigned short yday) function, expected prototype:\nwxDateTime & wxDateTime::SetToYearDay(unsigned short yday)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short yday=(unsigned short)lua_tointeger(L,2);
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToYearDay(unsigned short). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::SetToYearDay(unsigned short). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->SetToYearDay(yday);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2776,15 +2627,13 @@ public:
 	// double wxDateTime::GetJDN() const
 	static int _bind_GetJDN(lua_State *L) {
 		if (!_lg_typecheck_GetJDN(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxDateTime::GetJDN() const function, expected prototype:\ndouble wxDateTime::GetJDN() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxDateTime::GetJDN() const function, expected prototype:\ndouble wxDateTime::GetJDN() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxDateTime::GetJDN() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxDateTime::GetJDN() const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->GetJDN();
 		lua_pushnumber(L,lret);
@@ -2795,15 +2644,13 @@ public:
 	// double wxDateTime::GetJulianDayNumber() const
 	static int _bind_GetJulianDayNumber(lua_State *L) {
 		if (!_lg_typecheck_GetJulianDayNumber(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxDateTime::GetJulianDayNumber() const function, expected prototype:\ndouble wxDateTime::GetJulianDayNumber() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxDateTime::GetJulianDayNumber() const function, expected prototype:\ndouble wxDateTime::GetJulianDayNumber() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxDateTime::GetJulianDayNumber() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxDateTime::GetJulianDayNumber() const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->GetJulianDayNumber();
 		lua_pushnumber(L,lret);
@@ -2814,15 +2661,13 @@ public:
 	// double wxDateTime::GetMJD() const
 	static int _bind_GetMJD(lua_State *L) {
 		if (!_lg_typecheck_GetMJD(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxDateTime::GetMJD() const function, expected prototype:\ndouble wxDateTime::GetMJD() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxDateTime::GetMJD() const function, expected prototype:\ndouble wxDateTime::GetMJD() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxDateTime::GetMJD() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxDateTime::GetMJD() const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->GetMJD();
 		lua_pushnumber(L,lret);
@@ -2833,15 +2678,13 @@ public:
 	// double wxDateTime::GetModifiedJulianDayNumber() const
 	static int _bind_GetModifiedJulianDayNumber(lua_State *L) {
 		if (!_lg_typecheck_GetModifiedJulianDayNumber(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxDateTime::GetModifiedJulianDayNumber() const function, expected prototype:\ndouble wxDateTime::GetModifiedJulianDayNumber() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxDateTime::GetModifiedJulianDayNumber() const function, expected prototype:\ndouble wxDateTime::GetModifiedJulianDayNumber() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxDateTime::GetModifiedJulianDayNumber() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxDateTime::GetModifiedJulianDayNumber() const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->GetModifiedJulianDayNumber();
 		lua_pushnumber(L,lret);
@@ -2852,15 +2695,13 @@ public:
 	// double wxDateTime::GetRataDie() const
 	static int _bind_GetRataDie(lua_State *L) {
 		if (!_lg_typecheck_GetRataDie(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxDateTime::GetRataDie() const function, expected prototype:\ndouble wxDateTime::GetRataDie() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxDateTime::GetRataDie() const function, expected prototype:\ndouble wxDateTime::GetRataDie() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxDateTime::GetRataDie() const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxDateTime::GetRataDie() const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->GetRataDie();
 		lua_pushnumber(L,lret);
@@ -2871,8 +2712,7 @@ public:
 	// wxDateTime wxDateTime::FromTimezone(const wxDateTime::TimeZone & tz, bool noDST = false) const
 	static int _bind_FromTimezone(lua_State *L) {
 		if (!_lg_typecheck_FromTimezone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::FromTimezone(const wxDateTime::TimeZone & tz, bool noDST = false) const function, expected prototype:\nwxDateTime wxDateTime::FromTimezone(const wxDateTime::TimeZone & tz, bool noDST = false) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::FromTimezone(const wxDateTime::TimeZone & tz, bool noDST = false) const function, expected prototype:\nwxDateTime wxDateTime::FromTimezone(const wxDateTime::TimeZone & tz, bool noDST = false) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2882,8 +2722,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::FromTimezone(const wxDateTime::TimeZone &, bool) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::FromTimezone(const wxDateTime::TimeZone &, bool) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->FromTimezone(tz, noDST);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -2897,8 +2736,7 @@ public:
 	// int wxDateTime::IsDST(wxDateTime::Country country = wxDateTime::Country_Default) const
 	static int _bind_IsDST(lua_State *L) {
 		if (!_lg_typecheck_IsDST(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxDateTime::IsDST(wxDateTime::Country country = wxDateTime::Country_Default) const function, expected prototype:\nint wxDateTime::IsDST(wxDateTime::Country country = wxDateTime::Country_Default) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxDateTime::IsDST(wxDateTime::Country country = wxDateTime::Country_Default) const function, expected prototype:\nint wxDateTime::IsDST(wxDateTime::Country country = wxDateTime::Country_Default) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2907,8 +2745,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxDateTime::IsDST(wxDateTime::Country) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxDateTime::IsDST(wxDateTime::Country) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->IsDST(country);
 		lua_pushnumber(L,lret);
@@ -2919,8 +2756,7 @@ public:
 	// wxDateTime & wxDateTime::MakeFromTimezone(const wxDateTime::TimeZone & tz, bool noDST = false)
 	static int _bind_MakeFromTimezone(lua_State *L) {
 		if (!_lg_typecheck_MakeFromTimezone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::MakeFromTimezone(const wxDateTime::TimeZone & tz, bool noDST = false) function, expected prototype:\nwxDateTime & wxDateTime::MakeFromTimezone(const wxDateTime::TimeZone & tz, bool noDST = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::MakeFromTimezone(const wxDateTime::TimeZone & tz, bool noDST = false) function, expected prototype:\nwxDateTime & wxDateTime::MakeFromTimezone(const wxDateTime::TimeZone & tz, bool noDST = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2930,8 +2766,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::MakeFromTimezone(const wxDateTime::TimeZone &, bool). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::MakeFromTimezone(const wxDateTime::TimeZone &, bool). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->MakeFromTimezone(tz, noDST);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2944,8 +2779,7 @@ public:
 	// wxDateTime & wxDateTime::MakeTimezone(const wxDateTime::TimeZone & tz, bool noDST = false)
 	static int _bind_MakeTimezone(lua_State *L) {
 		if (!_lg_typecheck_MakeTimezone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::MakeTimezone(const wxDateTime::TimeZone & tz, bool noDST = false) function, expected prototype:\nwxDateTime & wxDateTime::MakeTimezone(const wxDateTime::TimeZone & tz, bool noDST = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::MakeTimezone(const wxDateTime::TimeZone & tz, bool noDST = false) function, expected prototype:\nwxDateTime & wxDateTime::MakeTimezone(const wxDateTime::TimeZone & tz, bool noDST = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2955,8 +2789,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::MakeTimezone(const wxDateTime::TimeZone &, bool). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::MakeTimezone(const wxDateTime::TimeZone &, bool). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->MakeTimezone(tz, noDST);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2969,8 +2802,7 @@ public:
 	// wxDateTime & wxDateTime::MakeUTC(bool noDST = false)
 	static int _bind_MakeUTC(lua_State *L) {
 		if (!_lg_typecheck_MakeUTC(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::MakeUTC(bool noDST = false) function, expected prototype:\nwxDateTime & wxDateTime::MakeUTC(bool noDST = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::MakeUTC(bool noDST = false) function, expected prototype:\nwxDateTime & wxDateTime::MakeUTC(bool noDST = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2979,8 +2811,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::MakeUTC(bool). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::MakeUTC(bool). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->MakeUTC(noDST);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -2993,8 +2824,7 @@ public:
 	// wxDateTime wxDateTime::ToTimezone(const wxDateTime::TimeZone & tz, bool noDST = false) const
 	static int _bind_ToTimezone(lua_State *L) {
 		if (!_lg_typecheck_ToTimezone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::ToTimezone(const wxDateTime::TimeZone & tz, bool noDST = false) const function, expected prototype:\nwxDateTime wxDateTime::ToTimezone(const wxDateTime::TimeZone & tz, bool noDST = false) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::ToTimezone(const wxDateTime::TimeZone & tz, bool noDST = false) const function, expected prototype:\nwxDateTime wxDateTime::ToTimezone(const wxDateTime::TimeZone & tz, bool noDST = false) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3004,8 +2834,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::ToTimezone(const wxDateTime::TimeZone &, bool) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::ToTimezone(const wxDateTime::TimeZone &, bool) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->ToTimezone(tz, noDST);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -3019,8 +2848,7 @@ public:
 	// wxDateTime wxDateTime::ToUTC(bool noDST = false) const
 	static int _bind_ToUTC(lua_State *L) {
 		if (!_lg_typecheck_ToUTC(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::ToUTC(bool noDST = false) const function, expected prototype:\nwxDateTime wxDateTime::ToUTC(bool noDST = false) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::ToUTC(bool noDST = false) const function, expected prototype:\nwxDateTime wxDateTime::ToUTC(bool noDST = false) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3029,8 +2857,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::ToUTC(bool) const. Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::ToUTC(bool) const. Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->ToUTC(noDST);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -3044,8 +2871,7 @@ public:
 	// static int wxDateTime::ConvertYearToBC(int year)
 	static int _bind_ConvertYearToBC(lua_State *L) {
 		if (!_lg_typecheck_ConvertYearToBC(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static int wxDateTime::ConvertYearToBC(int year) function, expected prototype:\nstatic int wxDateTime::ConvertYearToBC(int year)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static int wxDateTime::ConvertYearToBC(int year) function, expected prototype:\nstatic int wxDateTime::ConvertYearToBC(int year)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int year=(int)lua_tointeger(L,1);
@@ -3059,8 +2885,7 @@ public:
 	// static void wxDateTime::GetAmPmStrings(wxString * am, wxString * pm)
 	static int _bind_GetAmPmStrings(lua_State *L) {
 		if (!_lg_typecheck_GetAmPmStrings(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxDateTime::GetAmPmStrings(wxString * am, wxString * pm) function, expected prototype:\nstatic void wxDateTime::GetAmPmStrings(wxString * am, wxString * pm)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static void wxDateTime::GetAmPmStrings(wxString * am, wxString * pm) function, expected prototype:\nstatic void wxDateTime::GetAmPmStrings(wxString * am, wxString * pm)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString am(lua_tostring(L,1),lua_objlen(L,1));
@@ -3074,8 +2899,7 @@ public:
 	// static wxDateTime wxDateTime::GetBeginDST(int year = wxDateTime::Inv_Year, wxDateTime::Country country = wxDateTime::Country_Default)
 	static int _bind_GetBeginDST(lua_State *L) {
 		if (!_lg_typecheck_GetBeginDST(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxDateTime wxDateTime::GetBeginDST(int year = wxDateTime::Inv_Year, wxDateTime::Country country = wxDateTime::Country_Default) function, expected prototype:\nstatic wxDateTime wxDateTime::GetBeginDST(int year = wxDateTime::Inv_Year, wxDateTime::Country country = wxDateTime::Country_Default)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxDateTime wxDateTime::GetBeginDST(int year = wxDateTime::Inv_Year, wxDateTime::Country country = wxDateTime::Country_Default) function, expected prototype:\nstatic wxDateTime wxDateTime::GetBeginDST(int year = wxDateTime::Inv_Year, wxDateTime::Country country = wxDateTime::Country_Default)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3095,8 +2919,7 @@ public:
 	// static wxDateTime wxDateTime::GetEndDST(int year = wxDateTime::Inv_Year, wxDateTime::Country country = wxDateTime::Country_Default)
 	static int _bind_GetEndDST(lua_State *L) {
 		if (!_lg_typecheck_GetEndDST(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxDateTime wxDateTime::GetEndDST(int year = wxDateTime::Inv_Year, wxDateTime::Country country = wxDateTime::Country_Default) function, expected prototype:\nstatic wxDateTime wxDateTime::GetEndDST(int year = wxDateTime::Inv_Year, wxDateTime::Country country = wxDateTime::Country_Default)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxDateTime wxDateTime::GetEndDST(int year = wxDateTime::Inv_Year, wxDateTime::Country country = wxDateTime::Country_Default) function, expected prototype:\nstatic wxDateTime wxDateTime::GetEndDST(int year = wxDateTime::Inv_Year, wxDateTime::Country country = wxDateTime::Country_Default)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3116,8 +2939,7 @@ public:
 	// static wxDateTime::Country wxDateTime::GetCountry()
 	static int _bind_GetCountry(lua_State *L) {
 		if (!_lg_typecheck_GetCountry(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxDateTime::Country wxDateTime::GetCountry() function, expected prototype:\nstatic wxDateTime::Country wxDateTime::GetCountry()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxDateTime::Country wxDateTime::GetCountry() function, expected prototype:\nstatic wxDateTime::Country wxDateTime::GetCountry()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -3130,8 +2952,7 @@ public:
 	// static wxDateTime::Month wxDateTime::GetCurrentMonth(wxDateTime::Calendar cal = wxDateTime::Gregorian)
 	static int _bind_GetCurrentMonth(lua_State *L) {
 		if (!_lg_typecheck_GetCurrentMonth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxDateTime::Month wxDateTime::GetCurrentMonth(wxDateTime::Calendar cal = wxDateTime::Gregorian) function, expected prototype:\nstatic wxDateTime::Month wxDateTime::GetCurrentMonth(wxDateTime::Calendar cal = wxDateTime::Gregorian)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxDateTime::Month wxDateTime::GetCurrentMonth(wxDateTime::Calendar cal = wxDateTime::Gregorian) function, expected prototype:\nstatic wxDateTime::Month wxDateTime::GetCurrentMonth(wxDateTime::Calendar cal = wxDateTime::Gregorian)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3147,8 +2968,7 @@ public:
 	// static int wxDateTime::GetCurrentYear(wxDateTime::Calendar cal = wxDateTime::Gregorian)
 	static int _bind_GetCurrentYear(lua_State *L) {
 		if (!_lg_typecheck_GetCurrentYear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static int wxDateTime::GetCurrentYear(wxDateTime::Calendar cal = wxDateTime::Gregorian) function, expected prototype:\nstatic int wxDateTime::GetCurrentYear(wxDateTime::Calendar cal = wxDateTime::Gregorian)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static int wxDateTime::GetCurrentYear(wxDateTime::Calendar cal = wxDateTime::Gregorian) function, expected prototype:\nstatic int wxDateTime::GetCurrentYear(wxDateTime::Calendar cal = wxDateTime::Gregorian)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3164,8 +2984,7 @@ public:
 	// static wxString wxDateTime::GetEnglishMonthName(wxDateTime::Month month, wxDateTime::NameFlags flags = wxDateTime::Name_Full)
 	static int _bind_GetEnglishMonthName(lua_State *L) {
 		if (!_lg_typecheck_GetEnglishMonthName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxDateTime::GetEnglishMonthName(wxDateTime::Month month, wxDateTime::NameFlags flags = wxDateTime::Name_Full) function, expected prototype:\nstatic wxString wxDateTime::GetEnglishMonthName(wxDateTime::Month month, wxDateTime::NameFlags flags = wxDateTime::Name_Full)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxDateTime::GetEnglishMonthName(wxDateTime::Month month, wxDateTime::NameFlags flags = wxDateTime::Name_Full) function, expected prototype:\nstatic wxString wxDateTime::GetEnglishMonthName(wxDateTime::Month month, wxDateTime::NameFlags flags = wxDateTime::Name_Full)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3182,8 +3001,7 @@ public:
 	// static wxString wxDateTime::GetEnglishWeekDayName(wxDateTime::WeekDay weekday, wxDateTime::NameFlags flags = wxDateTime::Name_Full)
 	static int _bind_GetEnglishWeekDayName(lua_State *L) {
 		if (!_lg_typecheck_GetEnglishWeekDayName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxDateTime::GetEnglishWeekDayName(wxDateTime::WeekDay weekday, wxDateTime::NameFlags flags = wxDateTime::Name_Full) function, expected prototype:\nstatic wxString wxDateTime::GetEnglishWeekDayName(wxDateTime::WeekDay weekday, wxDateTime::NameFlags flags = wxDateTime::Name_Full)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxDateTime::GetEnglishWeekDayName(wxDateTime::WeekDay weekday, wxDateTime::NameFlags flags = wxDateTime::Name_Full) function, expected prototype:\nstatic wxString wxDateTime::GetEnglishWeekDayName(wxDateTime::WeekDay weekday, wxDateTime::NameFlags flags = wxDateTime::Name_Full)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3200,8 +3018,7 @@ public:
 	// static wxString wxDateTime::GetMonthName(wxDateTime::Month month, wxDateTime::NameFlags flags = wxDateTime::Name_Full)
 	static int _bind_GetMonthName(lua_State *L) {
 		if (!_lg_typecheck_GetMonthName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxDateTime::GetMonthName(wxDateTime::Month month, wxDateTime::NameFlags flags = wxDateTime::Name_Full) function, expected prototype:\nstatic wxString wxDateTime::GetMonthName(wxDateTime::Month month, wxDateTime::NameFlags flags = wxDateTime::Name_Full)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxDateTime::GetMonthName(wxDateTime::Month month, wxDateTime::NameFlags flags = wxDateTime::Name_Full) function, expected prototype:\nstatic wxString wxDateTime::GetMonthName(wxDateTime::Month month, wxDateTime::NameFlags flags = wxDateTime::Name_Full)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3218,8 +3035,7 @@ public:
 	// static unsigned short wxDateTime::GetNumberOfDays(int year, wxDateTime::Calendar cal = wxDateTime::Gregorian)
 	static int _bind_GetNumberOfDays_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetNumberOfDays_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static unsigned short wxDateTime::GetNumberOfDays(int year, wxDateTime::Calendar cal = wxDateTime::Gregorian) function, expected prototype:\nstatic unsigned short wxDateTime::GetNumberOfDays(int year, wxDateTime::Calendar cal = wxDateTime::Gregorian)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static unsigned short wxDateTime::GetNumberOfDays(int year, wxDateTime::Calendar cal = wxDateTime::Gregorian) function, expected prototype:\nstatic unsigned short wxDateTime::GetNumberOfDays(int year, wxDateTime::Calendar cal = wxDateTime::Gregorian)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3236,8 +3052,7 @@ public:
 	// static unsigned short wxDateTime::GetNumberOfDays(wxDateTime::Month month, int year = wxDateTime::Inv_Year, wxDateTime::Calendar cal = wxDateTime::Gregorian)
 	static int _bind_GetNumberOfDays_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetNumberOfDays_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static unsigned short wxDateTime::GetNumberOfDays(wxDateTime::Month month, int year = wxDateTime::Inv_Year, wxDateTime::Calendar cal = wxDateTime::Gregorian) function, expected prototype:\nstatic unsigned short wxDateTime::GetNumberOfDays(wxDateTime::Month month, int year = wxDateTime::Inv_Year, wxDateTime::Calendar cal = wxDateTime::Gregorian)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static unsigned short wxDateTime::GetNumberOfDays(wxDateTime::Month month, int year = wxDateTime::Inv_Year, wxDateTime::Calendar cal = wxDateTime::Gregorian) function, expected prototype:\nstatic unsigned short wxDateTime::GetNumberOfDays(wxDateTime::Month month, int year = wxDateTime::Inv_Year, wxDateTime::Calendar cal = wxDateTime::Gregorian)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3264,8 +3079,7 @@ public:
 	// static wxString wxDateTime::GetWeekDayName(wxDateTime::WeekDay weekday, wxDateTime::NameFlags flags = wxDateTime::Name_Full)
 	static int _bind_GetWeekDayName(lua_State *L) {
 		if (!_lg_typecheck_GetWeekDayName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxString wxDateTime::GetWeekDayName(wxDateTime::WeekDay weekday, wxDateTime::NameFlags flags = wxDateTime::Name_Full) function, expected prototype:\nstatic wxString wxDateTime::GetWeekDayName(wxDateTime::WeekDay weekday, wxDateTime::NameFlags flags = wxDateTime::Name_Full)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxString wxDateTime::GetWeekDayName(wxDateTime::WeekDay weekday, wxDateTime::NameFlags flags = wxDateTime::Name_Full) function, expected prototype:\nstatic wxString wxDateTime::GetWeekDayName(wxDateTime::WeekDay weekday, wxDateTime::NameFlags flags = wxDateTime::Name_Full)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3282,8 +3096,7 @@ public:
 	// static bool wxDateTime::IsDSTApplicable(int year = wxDateTime::Inv_Year, wxDateTime::Country country = wxDateTime::Country_Default)
 	static int _bind_IsDSTApplicable(lua_State *L) {
 		if (!_lg_typecheck_IsDSTApplicable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxDateTime::IsDSTApplicable(int year = wxDateTime::Inv_Year, wxDateTime::Country country = wxDateTime::Country_Default) function, expected prototype:\nstatic bool wxDateTime::IsDSTApplicable(int year = wxDateTime::Inv_Year, wxDateTime::Country country = wxDateTime::Country_Default)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool wxDateTime::IsDSTApplicable(int year = wxDateTime::Inv_Year, wxDateTime::Country country = wxDateTime::Country_Default) function, expected prototype:\nstatic bool wxDateTime::IsDSTApplicable(int year = wxDateTime::Inv_Year, wxDateTime::Country country = wxDateTime::Country_Default)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3300,8 +3113,7 @@ public:
 	// static bool wxDateTime::IsLeapYear(int year = wxDateTime::Inv_Year, wxDateTime::Calendar cal = wxDateTime::Gregorian)
 	static int _bind_IsLeapYear(lua_State *L) {
 		if (!_lg_typecheck_IsLeapYear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxDateTime::IsLeapYear(int year = wxDateTime::Inv_Year, wxDateTime::Calendar cal = wxDateTime::Gregorian) function, expected prototype:\nstatic bool wxDateTime::IsLeapYear(int year = wxDateTime::Inv_Year, wxDateTime::Calendar cal = wxDateTime::Gregorian)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool wxDateTime::IsLeapYear(int year = wxDateTime::Inv_Year, wxDateTime::Calendar cal = wxDateTime::Gregorian) function, expected prototype:\nstatic bool wxDateTime::IsLeapYear(int year = wxDateTime::Inv_Year, wxDateTime::Calendar cal = wxDateTime::Gregorian)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3318,8 +3130,7 @@ public:
 	// static bool wxDateTime::IsWestEuropeanCountry(wxDateTime::Country country = wxDateTime::Country_Default)
 	static int _bind_IsWestEuropeanCountry(lua_State *L) {
 		if (!_lg_typecheck_IsWestEuropeanCountry(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxDateTime::IsWestEuropeanCountry(wxDateTime::Country country = wxDateTime::Country_Default) function, expected prototype:\nstatic bool wxDateTime::IsWestEuropeanCountry(wxDateTime::Country country = wxDateTime::Country_Default)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool wxDateTime::IsWestEuropeanCountry(wxDateTime::Country country = wxDateTime::Country_Default) function, expected prototype:\nstatic bool wxDateTime::IsWestEuropeanCountry(wxDateTime::Country country = wxDateTime::Country_Default)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3335,8 +3146,7 @@ public:
 	// static wxDateTime wxDateTime::Now()
 	static int _bind_Now(lua_State *L) {
 		if (!_lg_typecheck_Now(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxDateTime wxDateTime::Now() function, expected prototype:\nstatic wxDateTime wxDateTime::Now()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxDateTime wxDateTime::Now() function, expected prototype:\nstatic wxDateTime wxDateTime::Now()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -3352,8 +3162,7 @@ public:
 	// static void wxDateTime::SetCountry(wxDateTime::Country country)
 	static int _bind_SetCountry(lua_State *L) {
 		if (!_lg_typecheck_SetCountry(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxDateTime::SetCountry(wxDateTime::Country country) function, expected prototype:\nstatic void wxDateTime::SetCountry(wxDateTime::Country country)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxDateTime::SetCountry(wxDateTime::Country country) function, expected prototype:\nstatic void wxDateTime::SetCountry(wxDateTime::Country country)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDateTime::Country country=(wxDateTime::Country)lua_tointeger(L,1);
@@ -3366,8 +3175,7 @@ public:
 	// static wxDateTime wxDateTime::SetToWeekOfYear(int year, unsigned short numWeek, wxDateTime::WeekDay weekday = wxDateTime::Mon)
 	static int _bind_SetToWeekOfYear(lua_State *L) {
 		if (!_lg_typecheck_SetToWeekOfYear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxDateTime wxDateTime::SetToWeekOfYear(int year, unsigned short numWeek, wxDateTime::WeekDay weekday = wxDateTime::Mon) function, expected prototype:\nstatic wxDateTime wxDateTime::SetToWeekOfYear(int year, unsigned short numWeek, wxDateTime::WeekDay weekday = wxDateTime::Mon)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxDateTime wxDateTime::SetToWeekOfYear(int year, unsigned short numWeek, wxDateTime::WeekDay weekday = wxDateTime::Mon) function, expected prototype:\nstatic wxDateTime wxDateTime::SetToWeekOfYear(int year, unsigned short numWeek, wxDateTime::WeekDay weekday = wxDateTime::Mon)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -3388,8 +3196,7 @@ public:
 	// static wxDateTime wxDateTime::Today()
 	static int _bind_Today(lua_State *L) {
 		if (!_lg_typecheck_Today(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxDateTime wxDateTime::Today() function, expected prototype:\nstatic wxDateTime wxDateTime::Today()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxDateTime wxDateTime::Today() function, expected prototype:\nstatic wxDateTime wxDateTime::Today()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -3405,8 +3212,7 @@ public:
 	// static wxDateTime wxDateTime::UNow()
 	static int _bind_UNow(lua_State *L) {
 		if (!_lg_typecheck_UNow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxDateTime wxDateTime::UNow() function, expected prototype:\nstatic wxDateTime wxDateTime::UNow()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxDateTime wxDateTime::UNow() function, expected prototype:\nstatic wxDateTime wxDateTime::UNow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -3424,8 +3230,7 @@ public:
 	// wxDateTime wxDateTime::operator+=(const wxDateSpan & diff)
 	static int _bind_op_add_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_add_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::operator+=(const wxDateSpan & diff) function, expected prototype:\nwxDateTime wxDateTime::operator+=(const wxDateSpan & diff)\nClass arguments details:\narg 1 ID = 57474092\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime wxDateTime::operator+=(const wxDateSpan & diff) function, expected prototype:\nwxDateTime wxDateTime::operator+=(const wxDateSpan & diff)\nClass arguments details:\narg 1 ID = 57474092\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateSpan* diff_ptr=(Luna< wxDateSpan >::check(L,2));
@@ -3436,8 +3241,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::operator+=(const wxDateSpan &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime wxDateTime::operator+=(const wxDateSpan &). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDateTime stack_lret = self->operator+=(diff);
 		wxDateTime* lret = new wxDateTime(stack_lret);
@@ -3451,8 +3255,7 @@ public:
 	// wxDateTime & wxDateTime::operator+=(const wxTimeSpan & diff)
 	static int _bind_op_add_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_add_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::operator+=(const wxTimeSpan & diff) function, expected prototype:\nwxDateTime & wxDateTime::operator+=(const wxTimeSpan & diff)\nClass arguments details:\narg 1 ID = 58889849\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::operator+=(const wxTimeSpan & diff) function, expected prototype:\nwxDateTime & wxDateTime::operator+=(const wxTimeSpan & diff)\nClass arguments details:\narg 1 ID = 58889849\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxTimeSpan* diff_ptr=(Luna< wxTimeSpan >::check(L,2));
@@ -3463,8 +3266,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::operator+=(const wxTimeSpan &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::operator+=(const wxTimeSpan &). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->operator+=(diff);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3486,8 +3288,7 @@ public:
 	// wxDateTime & wxDateTime::operator-=(const wxDateSpan & diff)
 	static int _bind_op_sub_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_sub_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::operator-=(const wxDateSpan & diff) function, expected prototype:\nwxDateTime & wxDateTime::operator-=(const wxDateSpan & diff)\nClass arguments details:\narg 1 ID = 57474092\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::operator-=(const wxDateSpan & diff) function, expected prototype:\nwxDateTime & wxDateTime::operator-=(const wxDateSpan & diff)\nClass arguments details:\narg 1 ID = 57474092\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxDateSpan* diff_ptr=(Luna< wxDateSpan >::check(L,2));
@@ -3498,8 +3299,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::operator-=(const wxDateSpan &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::operator-=(const wxDateSpan &). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->operator-=(diff);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -3512,8 +3312,7 @@ public:
 	// wxDateTime & wxDateTime::operator-=(const wxTimeSpan & diff)
 	static int _bind_op_sub_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_sub_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::operator-=(const wxTimeSpan & diff) function, expected prototype:\nwxDateTime & wxDateTime::operator-=(const wxTimeSpan & diff)\nClass arguments details:\narg 1 ID = 58889849\n");
+			luaL_error(L, "luna typecheck failed in wxDateTime & wxDateTime::operator-=(const wxTimeSpan & diff) function, expected prototype:\nwxDateTime & wxDateTime::operator-=(const wxTimeSpan & diff)\nClass arguments details:\narg 1 ID = 58889849\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxTimeSpan* diff_ptr=(Luna< wxTimeSpan >::check(L,2));
@@ -3524,8 +3323,7 @@ public:
 
 		wxDateTime* self=(Luna< wxDateTime >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::operator-=(const wxTimeSpan &). Got : '%s'",typeid(Luna< wxDateTime >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDateTime & wxDateTime::operator-=(const wxTimeSpan &). Got : '%s'\n%s",typeid(Luna< wxDateTime >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxDateTime* lret = &self->operator-=(diff);
 		if(!lret) return 0; // Do not write NULL pointers.

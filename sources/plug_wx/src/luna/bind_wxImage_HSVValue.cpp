@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxImage::HSVValue*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxImage::HSVValue*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxImage::HSVValue* rhs =(Luna< wxImage::HSVValue >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxImage::HSVValue* self= (wxImage::HSVValue*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxImage::HSVValue >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -159,8 +155,7 @@ public:
 	// wxImage::HSVValue::HSVValue(double h = 0.0, double s = 0.0, double v = 0.0)
 	static wxImage::HSVValue* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxImage::HSVValue::HSVValue(double h = 0.0, double s = 0.0, double v = 0.0) function, expected prototype:\nwxImage::HSVValue::HSVValue(double h = 0.0, double s = 0.0, double v = 0.0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxImage::HSVValue::HSVValue(double h = 0.0, double s = 0.0, double v = 0.0) function, expected prototype:\nwxImage::HSVValue::HSVValue(double h = 0.0, double s = 0.0, double v = 0.0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -177,15 +172,13 @@ public:
 	// double wxImage::HSVValue::hue()
 	static int _bind_getHue(lua_State *L) {
 		if (!_lg_typecheck_getHue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxImage::HSVValue::hue() function, expected prototype:\ndouble wxImage::HSVValue::hue()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxImage::HSVValue::hue() function, expected prototype:\ndouble wxImage::HSVValue::hue()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxImage::HSVValue* self=(Luna< wxImage::HSVValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxImage::HSVValue::hue(). Got : '%s'",typeid(Luna< wxImage::HSVValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxImage::HSVValue::hue(). Got : '%s'\n%s",typeid(Luna< wxImage::HSVValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->hue;
 		lua_pushnumber(L,lret);
@@ -196,15 +189,13 @@ public:
 	// double wxImage::HSVValue::saturation()
 	static int _bind_getSaturation(lua_State *L) {
 		if (!_lg_typecheck_getSaturation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxImage::HSVValue::saturation() function, expected prototype:\ndouble wxImage::HSVValue::saturation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxImage::HSVValue::saturation() function, expected prototype:\ndouble wxImage::HSVValue::saturation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxImage::HSVValue* self=(Luna< wxImage::HSVValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxImage::HSVValue::saturation(). Got : '%s'",typeid(Luna< wxImage::HSVValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxImage::HSVValue::saturation(). Got : '%s'\n%s",typeid(Luna< wxImage::HSVValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->saturation;
 		lua_pushnumber(L,lret);
@@ -215,15 +206,13 @@ public:
 	// double wxImage::HSVValue::value()
 	static int _bind_getValue(lua_State *L) {
 		if (!_lg_typecheck_getValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double wxImage::HSVValue::value() function, expected prototype:\ndouble wxImage::HSVValue::value()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double wxImage::HSVValue::value() function, expected prototype:\ndouble wxImage::HSVValue::value()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxImage::HSVValue* self=(Luna< wxImage::HSVValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double wxImage::HSVValue::value(). Got : '%s'",typeid(Luna< wxImage::HSVValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double wxImage::HSVValue::value(). Got : '%s'\n%s",typeid(Luna< wxImage::HSVValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->value;
 		lua_pushnumber(L,lret);
@@ -234,16 +223,14 @@ public:
 	// void wxImage::HSVValue::hue(double value)
 	static int _bind_setHue(lua_State *L) {
 		if (!_lg_typecheck_setHue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxImage::HSVValue::hue(double value) function, expected prototype:\nvoid wxImage::HSVValue::hue(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxImage::HSVValue::hue(double value) function, expected prototype:\nvoid wxImage::HSVValue::hue(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		wxImage::HSVValue* self=(Luna< wxImage::HSVValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxImage::HSVValue::hue(double). Got : '%s'",typeid(Luna< wxImage::HSVValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxImage::HSVValue::hue(double). Got : '%s'\n%s",typeid(Luna< wxImage::HSVValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->hue = value;
 
@@ -253,16 +240,14 @@ public:
 	// void wxImage::HSVValue::saturation(double value)
 	static int _bind_setSaturation(lua_State *L) {
 		if (!_lg_typecheck_setSaturation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxImage::HSVValue::saturation(double value) function, expected prototype:\nvoid wxImage::HSVValue::saturation(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxImage::HSVValue::saturation(double value) function, expected prototype:\nvoid wxImage::HSVValue::saturation(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		wxImage::HSVValue* self=(Luna< wxImage::HSVValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxImage::HSVValue::saturation(double). Got : '%s'",typeid(Luna< wxImage::HSVValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxImage::HSVValue::saturation(double). Got : '%s'\n%s",typeid(Luna< wxImage::HSVValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->saturation = value;
 
@@ -272,16 +257,14 @@ public:
 	// void wxImage::HSVValue::value(double value)
 	static int _bind_setValue(lua_State *L) {
 		if (!_lg_typecheck_setValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxImage::HSVValue::value(double value) function, expected prototype:\nvoid wxImage::HSVValue::value(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxImage::HSVValue::value(double value) function, expected prototype:\nvoid wxImage::HSVValue::value(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		wxImage::HSVValue* self=(Luna< wxImage::HSVValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxImage::HSVValue::value(double). Got : '%s'",typeid(Luna< wxImage::HSVValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxImage::HSVValue::value(double). Got : '%s'\n%s",typeid(Luna< wxImage::HSVValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->value = value;
 

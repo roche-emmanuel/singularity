@@ -417,7 +417,7 @@ public:
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -526,8 +526,7 @@ public:
 	// void wxXmlResourceHandler::public_AddStyle(const wxString & name, int value)
 	static int _bind_public_AddStyle(lua_State *L) {
 		if (!_lg_typecheck_public_AddStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlResourceHandler::public_AddStyle(const wxString & name, int value) function, expected prototype:\nvoid wxXmlResourceHandler::public_AddStyle(const wxString & name, int value)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlResourceHandler::public_AddStyle(const wxString & name, int value) function, expected prototype:\nvoid wxXmlResourceHandler::public_AddStyle(const wxString & name, int value)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
@@ -535,8 +534,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::public_AddStyle(const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::public_AddStyle(const wxString &, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_AddStyle(name, value);
 
@@ -546,15 +544,13 @@ public:
 	// void wxXmlResourceHandler::public_AddWindowStyles()
 	static int _bind_public_AddWindowStyles(lua_State *L) {
 		if (!_lg_typecheck_public_AddWindowStyles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlResourceHandler::public_AddWindowStyles() function, expected prototype:\nvoid wxXmlResourceHandler::public_AddWindowStyles()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlResourceHandler::public_AddWindowStyles() function, expected prototype:\nvoid wxXmlResourceHandler::public_AddWindowStyles()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::public_AddWindowStyles(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::public_AddWindowStyles(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_AddWindowStyles();
 
@@ -564,8 +560,7 @@ public:
 	// void wxXmlResourceHandler::public_CreateChildren(wxObject * parent, bool this_hnd_only = false)
 	static int _bind_public_CreateChildren(lua_State *L) {
 		if (!_lg_typecheck_public_CreateChildren(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlResourceHandler::public_CreateChildren(wxObject * parent, bool this_hnd_only = false) function, expected prototype:\nvoid wxXmlResourceHandler::public_CreateChildren(wxObject * parent, bool this_hnd_only = false)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlResourceHandler::public_CreateChildren(wxObject * parent, bool this_hnd_only = false) function, expected prototype:\nvoid wxXmlResourceHandler::public_CreateChildren(wxObject * parent, bool this_hnd_only = false)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -575,8 +570,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::public_CreateChildren(wxObject *, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::public_CreateChildren(wxObject *, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_CreateChildren(parent, this_hnd_only);
 
@@ -586,8 +580,7 @@ public:
 	// void wxXmlResourceHandler::public_CreateChildrenPrivately(wxObject * parent, wxXmlNode * rootnode = NULL)
 	static int _bind_public_CreateChildrenPrivately(lua_State *L) {
 		if (!_lg_typecheck_public_CreateChildrenPrivately(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlResourceHandler::public_CreateChildrenPrivately(wxObject * parent, wxXmlNode * rootnode = NULL) function, expected prototype:\nvoid wxXmlResourceHandler::public_CreateChildrenPrivately(wxObject * parent, wxXmlNode * rootnode = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlResourceHandler::public_CreateChildrenPrivately(wxObject * parent, wxXmlNode * rootnode = NULL) function, expected prototype:\nvoid wxXmlResourceHandler::public_CreateChildrenPrivately(wxObject * parent, wxXmlNode * rootnode = NULL)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -597,8 +590,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::public_CreateChildrenPrivately(wxObject *, wxXmlNode *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::public_CreateChildrenPrivately(wxObject *, wxXmlNode *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_CreateChildrenPrivately(parent, rootnode);
 
@@ -608,8 +600,7 @@ public:
 	// wxObject * wxXmlResourceHandler::public_CreateResFromNode(wxXmlNode * node, wxObject * parent, wxObject * instance = NULL)
 	static int _bind_public_CreateResFromNode(lua_State *L) {
 		if (!_lg_typecheck_public_CreateResFromNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxObject * wxXmlResourceHandler::public_CreateResFromNode(wxXmlNode * node, wxObject * parent, wxObject * instance = NULL) function, expected prototype:\nwxObject * wxXmlResourceHandler::public_CreateResFromNode(wxXmlNode * node, wxObject * parent, wxObject * instance = NULL)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 56813631\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxObject * wxXmlResourceHandler::public_CreateResFromNode(wxXmlNode * node, wxObject * parent, wxObject * instance = NULL) function, expected prototype:\nwxObject * wxXmlResourceHandler::public_CreateResFromNode(wxXmlNode * node, wxObject * parent, wxObject * instance = NULL)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 56813631\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -620,8 +611,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxObject * wxXmlResourceHandler::public_CreateResFromNode(wxXmlNode *, wxObject *, wxObject *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxObject * wxXmlResourceHandler::public_CreateResFromNode(wxXmlNode *, wxObject *, wxObject *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxObject * lret = self->public_CreateResFromNode(node, parent, instance);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -634,8 +624,7 @@ public:
 	// wxAnimation wxXmlResourceHandler::public_GetAnimation(const wxString & param = "animation")
 	static int _bind_public_GetAnimation(lua_State *L) {
 		if (!_lg_typecheck_public_GetAnimation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAnimation wxXmlResourceHandler::public_GetAnimation(const wxString & param = \"animation\") function, expected prototype:\nwxAnimation wxXmlResourceHandler::public_GetAnimation(const wxString & param = \"animation\")\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxAnimation wxXmlResourceHandler::public_GetAnimation(const wxString & param = \"animation\") function, expected prototype:\nwxAnimation wxXmlResourceHandler::public_GetAnimation(const wxString & param = \"animation\")\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -644,8 +633,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAnimation wxXmlResourceHandler::public_GetAnimation(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxAnimation wxXmlResourceHandler::public_GetAnimation(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxAnimation stack_lret = self->public_GetAnimation(param);
 		wxAnimation* lret = new wxAnimation(stack_lret);
@@ -659,8 +647,7 @@ public:
 	// wxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString & param = "bitmap", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)
 	static int _bind_public_GetBitmap(lua_State *L) {
 		if (!_lg_typecheck_public_GetBitmap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString & param = \"bitmap\", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) function, expected prototype:\nwxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString & param = \"bitmap\", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString & param = \"bitmap\", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) function, expected prototype:\nwxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString & param = \"bitmap\", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -675,8 +662,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString &, const wxString &, wxSize). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxBitmap wxXmlResourceHandler::public_GetBitmap(const wxString &, const wxString &, wxSize). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxBitmap stack_lret = self->public_GetBitmap(param, defaultArtClient, size);
 		wxBitmap* lret = new wxBitmap(stack_lret);
@@ -690,8 +676,7 @@ public:
 	// bool wxXmlResourceHandler::public_GetBool(const wxString & param, bool defaultv = false)
 	static int _bind_public_GetBool(lua_State *L) {
 		if (!_lg_typecheck_public_GetBool(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxXmlResourceHandler::public_GetBool(const wxString & param, bool defaultv = false) function, expected prototype:\nbool wxXmlResourceHandler::public_GetBool(const wxString & param, bool defaultv = false)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxXmlResourceHandler::public_GetBool(const wxString & param, bool defaultv = false) function, expected prototype:\nbool wxXmlResourceHandler::public_GetBool(const wxString & param, bool defaultv = false)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -701,8 +686,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXmlResourceHandler::public_GetBool(const wxString &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxXmlResourceHandler::public_GetBool(const wxString &, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_GetBool(param, defaultv);
 		lua_pushboolean(L,lret?1:0);
@@ -713,8 +697,7 @@ public:
 	// wxColour wxXmlResourceHandler::public_GetColour(const wxString & param, const wxColour & defaultColour = wxNullColour)
 	static int _bind_public_GetColour(lua_State *L) {
 		if (!_lg_typecheck_public_GetColour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxColour wxXmlResourceHandler::public_GetColour(const wxString & param, const wxColour & defaultColour = wxNullColour) function, expected prototype:\nwxColour wxXmlResourceHandler::public_GetColour(const wxString & param, const wxColour & defaultColour = wxNullColour)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxColour wxXmlResourceHandler::public_GetColour(const wxString & param, const wxColour & defaultColour = wxNullColour) function, expected prototype:\nwxColour wxXmlResourceHandler::public_GetColour(const wxString & param, const wxColour & defaultColour = wxNullColour)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -728,8 +711,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxColour wxXmlResourceHandler::public_GetColour(const wxString &, const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxColour wxXmlResourceHandler::public_GetColour(const wxString &, const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxColour stack_lret = self->public_GetColour(param, defaultColour);
 		wxColour* lret = new wxColour(stack_lret);
@@ -743,15 +725,13 @@ public:
 	// wxFileSystem & wxXmlResourceHandler::public_GetCurFileSystem()
 	static int _bind_public_GetCurFileSystem(lua_State *L) {
 		if (!_lg_typecheck_public_GetCurFileSystem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFileSystem & wxXmlResourceHandler::public_GetCurFileSystem() function, expected prototype:\nwxFileSystem & wxXmlResourceHandler::public_GetCurFileSystem()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFileSystem & wxXmlResourceHandler::public_GetCurFileSystem() function, expected prototype:\nwxFileSystem & wxXmlResourceHandler::public_GetCurFileSystem()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFileSystem & wxXmlResourceHandler::public_GetCurFileSystem(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFileSystem & wxXmlResourceHandler::public_GetCurFileSystem(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxFileSystem* lret = &self->public_GetCurFileSystem();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -764,8 +744,7 @@ public:
 	// int wxXmlResourceHandler::public_GetDimension(const wxString & param, int defaultv = 0, wxWindow * windowToUse = 0)
 	static int _bind_public_GetDimension(lua_State *L) {
 		if (!_lg_typecheck_public_GetDimension(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxXmlResourceHandler::public_GetDimension(const wxString & param, int defaultv = 0, wxWindow * windowToUse = 0) function, expected prototype:\nint wxXmlResourceHandler::public_GetDimension(const wxString & param, int defaultv = 0, wxWindow * windowToUse = 0)\nClass arguments details:\narg 1 ID = 88196105\narg 3 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in int wxXmlResourceHandler::public_GetDimension(const wxString & param, int defaultv = 0, wxWindow * windowToUse = 0) function, expected prototype:\nint wxXmlResourceHandler::public_GetDimension(const wxString & param, int defaultv = 0, wxWindow * windowToUse = 0)\nClass arguments details:\narg 1 ID = 88196105\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -776,8 +755,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxXmlResourceHandler::public_GetDimension(const wxString &, int, wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxXmlResourceHandler::public_GetDimension(const wxString &, int, wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->public_GetDimension(param, defaultv, windowToUse);
 		lua_pushnumber(L,lret);
@@ -788,8 +766,7 @@ public:
 	// wxDirection wxXmlResourceHandler::public_GetDirection(const wxString & param, wxDirection dir = ::wxLEFT)
 	static int _bind_public_GetDirection(lua_State *L) {
 		if (!_lg_typecheck_public_GetDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDirection wxXmlResourceHandler::public_GetDirection(const wxString & param, wxDirection dir = ::wxLEFT) function, expected prototype:\nwxDirection wxXmlResourceHandler::public_GetDirection(const wxString & param, wxDirection dir = ::wxLEFT)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxDirection wxXmlResourceHandler::public_GetDirection(const wxString & param, wxDirection dir = ::wxLEFT) function, expected prototype:\nwxDirection wxXmlResourceHandler::public_GetDirection(const wxString & param, wxDirection dir = ::wxLEFT)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -799,8 +776,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDirection wxXmlResourceHandler::public_GetDirection(const wxString &, wxDirection). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDirection wxXmlResourceHandler::public_GetDirection(const wxString &, wxDirection). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDirection lret = self->public_GetDirection(param, dir);
 		lua_pushnumber(L,lret);
@@ -811,8 +787,7 @@ public:
 	// wxFont wxXmlResourceHandler::public_GetFont(const wxString & param = "font")
 	static int _bind_public_GetFont(lua_State *L) {
 		if (!_lg_typecheck_public_GetFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFont wxXmlResourceHandler::public_GetFont(const wxString & param = \"font\") function, expected prototype:\nwxFont wxXmlResourceHandler::public_GetFont(const wxString & param = \"font\")\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxFont wxXmlResourceHandler::public_GetFont(const wxString & param = \"font\") function, expected prototype:\nwxFont wxXmlResourceHandler::public_GetFont(const wxString & param = \"font\")\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -821,8 +796,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFont wxXmlResourceHandler::public_GetFont(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFont wxXmlResourceHandler::public_GetFont(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFont stack_lret = self->public_GetFont(param);
 		wxFont* lret = new wxFont(stack_lret);
@@ -836,15 +810,13 @@ public:
 	// int wxXmlResourceHandler::public_GetID()
 	static int _bind_public_GetID(lua_State *L) {
 		if (!_lg_typecheck_public_GetID(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxXmlResourceHandler::public_GetID() function, expected prototype:\nint wxXmlResourceHandler::public_GetID()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxXmlResourceHandler::public_GetID() function, expected prototype:\nint wxXmlResourceHandler::public_GetID()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxXmlResourceHandler::public_GetID(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxXmlResourceHandler::public_GetID(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->public_GetID();
 		lua_pushnumber(L,lret);
@@ -855,8 +827,7 @@ public:
 	// wxIcon wxXmlResourceHandler::public_GetIcon(const wxString & param = "icon", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)
 	static int _bind_public_GetIcon(lua_State *L) {
 		if (!_lg_typecheck_public_GetIcon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIcon wxXmlResourceHandler::public_GetIcon(const wxString & param = \"icon\", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) function, expected prototype:\nwxIcon wxXmlResourceHandler::public_GetIcon(const wxString & param = \"icon\", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in wxIcon wxXmlResourceHandler::public_GetIcon(const wxString & param = \"icon\", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize) function, expected prototype:\nwxIcon wxXmlResourceHandler::public_GetIcon(const wxString & param = \"icon\", const wxString & defaultArtClient = wxART_OTHER, wxSize size = wxDefaultSize)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -871,8 +842,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxIcon wxXmlResourceHandler::public_GetIcon(const wxString &, const wxString &, wxSize). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxIcon wxXmlResourceHandler::public_GetIcon(const wxString &, const wxString &, wxSize). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxIcon stack_lret = self->public_GetIcon(param, defaultArtClient, size);
 		wxIcon* lret = new wxIcon(stack_lret);
@@ -886,8 +856,7 @@ public:
 	// wxIconBundle wxXmlResourceHandler::public_GetIconBundle(const wxString & param, const wxString & defaultArtClient = wxART_OTHER)
 	static int _bind_public_GetIconBundle(lua_State *L) {
 		if (!_lg_typecheck_public_GetIconBundle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxIconBundle wxXmlResourceHandler::public_GetIconBundle(const wxString & param, const wxString & defaultArtClient = wxART_OTHER) function, expected prototype:\nwxIconBundle wxXmlResourceHandler::public_GetIconBundle(const wxString & param, const wxString & defaultArtClient = wxART_OTHER)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxIconBundle wxXmlResourceHandler::public_GetIconBundle(const wxString & param, const wxString & defaultArtClient = wxART_OTHER) function, expected prototype:\nwxIconBundle wxXmlResourceHandler::public_GetIconBundle(const wxString & param, const wxString & defaultArtClient = wxART_OTHER)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -897,8 +866,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxIconBundle wxXmlResourceHandler::public_GetIconBundle(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxIconBundle wxXmlResourceHandler::public_GetIconBundle(const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxIconBundle stack_lret = self->public_GetIconBundle(param, defaultArtClient);
 		wxIconBundle* lret = new wxIconBundle(stack_lret);
@@ -912,8 +880,7 @@ public:
 	// wxImageList * wxXmlResourceHandler::public_GetImageList(const wxString & param = wxT ("imagelist"))
 	static int _bind_public_GetImageList(lua_State *L) {
 		if (!_lg_typecheck_public_GetImageList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxImageList * wxXmlResourceHandler::public_GetImageList(const wxString & param = wxT (\"imagelist\")) function, expected prototype:\nwxImageList * wxXmlResourceHandler::public_GetImageList(const wxString & param = wxT (\"imagelist\"))\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxImageList * wxXmlResourceHandler::public_GetImageList(const wxString & param = wxT (\"imagelist\")) function, expected prototype:\nwxImageList * wxXmlResourceHandler::public_GetImageList(const wxString & param = wxT (\"imagelist\"))\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -922,8 +889,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxImageList * wxXmlResourceHandler::public_GetImageList(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxImageList * wxXmlResourceHandler::public_GetImageList(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxImageList * lret = self->public_GetImageList(param);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -936,19 +902,17 @@ public:
 	// long wxXmlResourceHandler::public_GetLong(const wxString & param, long defaultv = 0)
 	static int _bind_public_GetLong(lua_State *L) {
 		if (!_lg_typecheck_public_GetLong(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long wxXmlResourceHandler::public_GetLong(const wxString & param, long defaultv = 0) function, expected prototype:\nlong wxXmlResourceHandler::public_GetLong(const wxString & param, long defaultv = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in long wxXmlResourceHandler::public_GetLong(const wxString & param, long defaultv = 0) function, expected prototype:\nlong wxXmlResourceHandler::public_GetLong(const wxString & param, long defaultv = 0)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
 		wxString param(lua_tostring(L,2),lua_objlen(L,2));
-		long defaultv=luatop>2 ? (long)lua_tointeger(L,3) : (long)0;
+		long defaultv=luatop>2 ? (long)lua_tonumber(L,3) : (long)0;
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long wxXmlResourceHandler::public_GetLong(const wxString &, long). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long wxXmlResourceHandler::public_GetLong(const wxString &, long). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->public_GetLong(param, defaultv);
 		lua_pushnumber(L,lret);
@@ -959,15 +923,13 @@ public:
 	// wxString wxXmlResourceHandler::public_GetName()
 	static int _bind_public_GetName(lua_State *L) {
 		if (!_lg_typecheck_public_GetName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxXmlResourceHandler::public_GetName() function, expected prototype:\nwxString wxXmlResourceHandler::public_GetName()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxXmlResourceHandler::public_GetName() function, expected prototype:\nwxString wxXmlResourceHandler::public_GetName()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxXmlResourceHandler::public_GetName(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxXmlResourceHandler::public_GetName(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->public_GetName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -978,16 +940,14 @@ public:
 	// wxString wxXmlResourceHandler::public_GetNodeContent(wxXmlNode * node)
 	static int _bind_public_GetNodeContent(lua_State *L) {
 		if (!_lg_typecheck_public_GetNodeContent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxXmlResourceHandler::public_GetNodeContent(wxXmlNode * node) function, expected prototype:\nwxString wxXmlResourceHandler::public_GetNodeContent(wxXmlNode * node)\nClass arguments details:\narg 1 ID = 64848530\n");
+			luaL_error(L, "luna typecheck failed in wxString wxXmlResourceHandler::public_GetNodeContent(wxXmlNode * node) function, expected prototype:\nwxString wxXmlResourceHandler::public_GetNodeContent(wxXmlNode * node)\nClass arguments details:\narg 1 ID = 64848530\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNode* node=(Luna< wxXmlNode >::check(L,2));
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxXmlResourceHandler::public_GetNodeContent(wxXmlNode *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxXmlResourceHandler::public_GetNodeContent(wxXmlNode *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->public_GetNodeContent(node);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -998,16 +958,14 @@ public:
 	// wxXmlNode * wxXmlResourceHandler::public_GetParamNode(const wxString & param)
 	static int _bind_public_GetParamNode(lua_State *L) {
 		if (!_lg_typecheck_public_GetParamNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxXmlNode * wxXmlResourceHandler::public_GetParamNode(const wxString & param) function, expected prototype:\nwxXmlNode * wxXmlResourceHandler::public_GetParamNode(const wxString & param)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxXmlNode * wxXmlResourceHandler::public_GetParamNode(const wxString & param) function, expected prototype:\nwxXmlNode * wxXmlResourceHandler::public_GetParamNode(const wxString & param)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString param(lua_tostring(L,2),lua_objlen(L,2));
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxXmlNode * wxXmlResourceHandler::public_GetParamNode(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxXmlNode * wxXmlResourceHandler::public_GetParamNode(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxXmlNode * lret = self->public_GetParamNode(param);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1020,16 +978,14 @@ public:
 	// wxString wxXmlResourceHandler::public_GetParamValue(const wxString & param)
 	static int _bind_public_GetParamValue(lua_State *L) {
 		if (!_lg_typecheck_public_GetParamValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxXmlResourceHandler::public_GetParamValue(const wxString & param) function, expected prototype:\nwxString wxXmlResourceHandler::public_GetParamValue(const wxString & param)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxXmlResourceHandler::public_GetParamValue(const wxString & param) function, expected prototype:\nwxString wxXmlResourceHandler::public_GetParamValue(const wxString & param)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString param(lua_tostring(L,2),lua_objlen(L,2));
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxXmlResourceHandler::public_GetParamValue(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxXmlResourceHandler::public_GetParamValue(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->public_GetParamValue(param);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1040,8 +996,7 @@ public:
 	// wxPoint wxXmlResourceHandler::public_GetPosition(const wxString & param = "pos")
 	static int _bind_public_GetPosition(lua_State *L) {
 		if (!_lg_typecheck_public_GetPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint wxXmlResourceHandler::public_GetPosition(const wxString & param = \"pos\") function, expected prototype:\nwxPoint wxXmlResourceHandler::public_GetPosition(const wxString & param = \"pos\")\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxPoint wxXmlResourceHandler::public_GetPosition(const wxString & param = \"pos\") function, expected prototype:\nwxPoint wxXmlResourceHandler::public_GetPosition(const wxString & param = \"pos\")\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1050,8 +1005,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxXmlResourceHandler::public_GetPosition(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint wxXmlResourceHandler::public_GetPosition(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint stack_lret = self->public_GetPosition(param);
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -1065,8 +1019,7 @@ public:
 	// wxSize wxXmlResourceHandler::public_GetSize(const wxString & param = "size", wxWindow * windowToUse = 0)
 	static int _bind_public_GetSize(lua_State *L) {
 		if (!_lg_typecheck_public_GetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxXmlResourceHandler::public_GetSize(const wxString & param = \"size\", wxWindow * windowToUse = 0) function, expected prototype:\nwxSize wxXmlResourceHandler::public_GetSize(const wxString & param = \"size\", wxWindow * windowToUse = 0)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxXmlResourceHandler::public_GetSize(const wxString & param = \"size\", wxWindow * windowToUse = 0) function, expected prototype:\nwxSize wxXmlResourceHandler::public_GetSize(const wxString & param = \"size\", wxWindow * windowToUse = 0)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1076,8 +1029,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxXmlResourceHandler::public_GetSize(const wxString &, wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxXmlResourceHandler::public_GetSize(const wxString &, wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->public_GetSize(param, windowToUse);
 		wxSize* lret = new wxSize(stack_lret);
@@ -1091,8 +1043,7 @@ public:
 	// int wxXmlResourceHandler::public_GetStyle(const wxString & param = "style", int defaults = 0)
 	static int _bind_public_GetStyle(lua_State *L) {
 		if (!_lg_typecheck_public_GetStyle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxXmlResourceHandler::public_GetStyle(const wxString & param = \"style\", int defaults = 0) function, expected prototype:\nint wxXmlResourceHandler::public_GetStyle(const wxString & param = \"style\", int defaults = 0)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in int wxXmlResourceHandler::public_GetStyle(const wxString & param = \"style\", int defaults = 0) function, expected prototype:\nint wxXmlResourceHandler::public_GetStyle(const wxString & param = \"style\", int defaults = 0)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1102,8 +1053,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxXmlResourceHandler::public_GetStyle(const wxString &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxXmlResourceHandler::public_GetStyle(const wxString &, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->public_GetStyle(param, defaults);
 		lua_pushnumber(L,lret);
@@ -1114,8 +1064,7 @@ public:
 	// wxString wxXmlResourceHandler::public_GetText(const wxString & param, bool translate = true)
 	static int _bind_public_GetText(lua_State *L) {
 		if (!_lg_typecheck_public_GetText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxXmlResourceHandler::public_GetText(const wxString & param, bool translate = true) function, expected prototype:\nwxString wxXmlResourceHandler::public_GetText(const wxString & param, bool translate = true)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxString wxXmlResourceHandler::public_GetText(const wxString & param, bool translate = true) function, expected prototype:\nwxString wxXmlResourceHandler::public_GetText(const wxString & param, bool translate = true)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1125,8 +1074,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxXmlResourceHandler::public_GetText(const wxString &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxXmlResourceHandler::public_GetText(const wxString &, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->public_GetText(param, translate);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -1137,16 +1085,14 @@ public:
 	// bool wxXmlResourceHandler::public_HasParam(const wxString & param)
 	static int _bind_public_HasParam(lua_State *L) {
 		if (!_lg_typecheck_public_HasParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxXmlResourceHandler::public_HasParam(const wxString & param) function, expected prototype:\nbool wxXmlResourceHandler::public_HasParam(const wxString & param)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxXmlResourceHandler::public_HasParam(const wxString & param) function, expected prototype:\nbool wxXmlResourceHandler::public_HasParam(const wxString & param)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString param(lua_tostring(L,2),lua_objlen(L,2));
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXmlResourceHandler::public_HasParam(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxXmlResourceHandler::public_HasParam(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_HasParam(param);
 		lua_pushboolean(L,lret?1:0);
@@ -1157,8 +1103,7 @@ public:
 	// bool wxXmlResourceHandler::public_IsOfClass(wxXmlNode * node, const wxString & classname)
 	static int _bind_public_IsOfClass(lua_State *L) {
 		if (!_lg_typecheck_public_IsOfClass(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxXmlResourceHandler::public_IsOfClass(wxXmlNode * node, const wxString & classname) function, expected prototype:\nbool wxXmlResourceHandler::public_IsOfClass(wxXmlNode * node, const wxString & classname)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxXmlResourceHandler::public_IsOfClass(wxXmlNode * node, const wxString & classname) function, expected prototype:\nbool wxXmlResourceHandler::public_IsOfClass(wxXmlNode * node, const wxString & classname)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNode* node=(Luna< wxXmlNode >::check(L,2));
@@ -1166,8 +1111,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxXmlResourceHandler::public_IsOfClass(wxXmlNode *, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxXmlResourceHandler::public_IsOfClass(wxXmlNode *, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_IsOfClass(node, classname);
 		lua_pushboolean(L,lret?1:0);
@@ -1178,16 +1122,14 @@ public:
 	// void wxXmlResourceHandler::public_SetupWindow(wxWindow * wnd)
 	static int _bind_public_SetupWindow(lua_State *L) {
 		if (!_lg_typecheck_public_SetupWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlResourceHandler::public_SetupWindow(wxWindow * wnd) function, expected prototype:\nvoid wxXmlResourceHandler::public_SetupWindow(wxWindow * wnd)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlResourceHandler::public_SetupWindow(wxWindow * wnd) function, expected prototype:\nvoid wxXmlResourceHandler::public_SetupWindow(wxWindow * wnd)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::public_SetupWindow(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::public_SetupWindow(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_SetupWindow(wnd);
 
@@ -1197,8 +1139,7 @@ public:
 	// void wxXmlResourceHandler::public_ReportError(wxXmlNode * context, const wxString & message)
 	static int _bind_public_ReportError(lua_State *L) {
 		if (!_lg_typecheck_public_ReportError(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlResourceHandler::public_ReportError(wxXmlNode * context, const wxString & message) function, expected prototype:\nvoid wxXmlResourceHandler::public_ReportError(wxXmlNode * context, const wxString & message)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlResourceHandler::public_ReportError(wxXmlNode * context, const wxString & message) function, expected prototype:\nvoid wxXmlResourceHandler::public_ReportError(wxXmlNode * context, const wxString & message)\nClass arguments details:\narg 1 ID = 64848530\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxXmlNode* context=(Luna< wxXmlNode >::check(L,2));
@@ -1206,8 +1147,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::public_ReportError(wxXmlNode *, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::public_ReportError(wxXmlNode *, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_ReportError(context, message);
 
@@ -1217,8 +1157,7 @@ public:
 	// void wxXmlResourceHandler::public_ReportParamError(const wxString & param, const wxString & message)
 	static int _bind_public_ReportParamError(lua_State *L) {
 		if (!_lg_typecheck_public_ReportParamError(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxXmlResourceHandler::public_ReportParamError(const wxString & param, const wxString & message) function, expected prototype:\nvoid wxXmlResourceHandler::public_ReportParamError(const wxString & param, const wxString & message)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxXmlResourceHandler::public_ReportParamError(const wxString & param, const wxString & message) function, expected prototype:\nvoid wxXmlResourceHandler::public_ReportParamError(const wxString & param, const wxString & message)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString param(lua_tostring(L,2),lua_objlen(L,2));
@@ -1226,8 +1165,7 @@ public:
 
 		wrapper_wxSizerXmlHandler* self=Luna< wxObject >::checkSubType< wrapper_wxSizerXmlHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::public_ReportParamError(const wxString &, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxXmlResourceHandler::public_ReportParamError(const wxString &, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_ReportParamError(param, message);
 

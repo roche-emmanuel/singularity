@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxMouseState* self= (wxMouseState*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -186,8 +184,7 @@ public:
 	// wxMouseState::wxMouseState()
 	static wxMouseState* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxMouseState::wxMouseState() function, expected prototype:\nwxMouseState::wxMouseState()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxMouseState::wxMouseState() function, expected prototype:\nwxMouseState::wxMouseState()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -199,15 +196,13 @@ public:
 	// int wxMouseState::GetX() const
 	static int _bind_GetX(lua_State *L) {
 		if (!_lg_typecheck_GetX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxMouseState::GetX() const function, expected prototype:\nint wxMouseState::GetX() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxMouseState::GetX() const function, expected prototype:\nint wxMouseState::GetX() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxMouseState::GetX() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxMouseState::GetX() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetX();
 		lua_pushnumber(L,lret);
@@ -218,15 +213,13 @@ public:
 	// int wxMouseState::GetY() const
 	static int _bind_GetY(lua_State *L) {
 		if (!_lg_typecheck_GetY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxMouseState::GetY() const function, expected prototype:\nint wxMouseState::GetY() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxMouseState::GetY() const function, expected prototype:\nint wxMouseState::GetY() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxMouseState::GetY() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxMouseState::GetY() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetY();
 		lua_pushnumber(L,lret);
@@ -237,15 +230,13 @@ public:
 	// wxPoint wxMouseState::GetPosition() const
 	static int _bind_GetPosition_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetPosition_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPoint wxMouseState::GetPosition() const function, expected prototype:\nwxPoint wxMouseState::GetPosition() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPoint wxMouseState::GetPosition() const function, expected prototype:\nwxPoint wxMouseState::GetPosition() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPoint wxMouseState::GetPosition() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPoint wxMouseState::GetPosition() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPoint stack_lret = self->GetPosition();
 		wxPoint* lret = new wxPoint(stack_lret);
@@ -259,8 +250,7 @@ public:
 	// void wxMouseState::GetPosition(int * x, int * y) const
 	static int _bind_GetPosition_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetPosition_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxMouseState::GetPosition(int * x, int * y) const function, expected prototype:\nvoid wxMouseState::GetPosition(int * x, int * y) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxMouseState::GetPosition(int * x, int * y) const function, expected prototype:\nvoid wxMouseState::GetPosition(int * x, int * y) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int* x=(int*)Luna< void >::check(L,2);
@@ -268,8 +258,7 @@ public:
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::GetPosition(int *, int *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxMouseState::GetPosition(int *, int *) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetPosition(x, y);
 
@@ -288,15 +277,13 @@ public:
 	// bool wxMouseState::LeftIsDown() const
 	static int _bind_LeftIsDown(lua_State *L) {
 		if (!_lg_typecheck_LeftIsDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxMouseState::LeftIsDown() const function, expected prototype:\nbool wxMouseState::LeftIsDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxMouseState::LeftIsDown() const function, expected prototype:\nbool wxMouseState::LeftIsDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMouseState::LeftIsDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxMouseState::LeftIsDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->LeftIsDown();
 		lua_pushboolean(L,lret?1:0);
@@ -307,15 +294,13 @@ public:
 	// bool wxMouseState::MiddleIsDown() const
 	static int _bind_MiddleIsDown(lua_State *L) {
 		if (!_lg_typecheck_MiddleIsDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxMouseState::MiddleIsDown() const function, expected prototype:\nbool wxMouseState::MiddleIsDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxMouseState::MiddleIsDown() const function, expected prototype:\nbool wxMouseState::MiddleIsDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMouseState::MiddleIsDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxMouseState::MiddleIsDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->MiddleIsDown();
 		lua_pushboolean(L,lret?1:0);
@@ -326,15 +311,13 @@ public:
 	// bool wxMouseState::RightIsDown() const
 	static int _bind_RightIsDown(lua_State *L) {
 		if (!_lg_typecheck_RightIsDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxMouseState::RightIsDown() const function, expected prototype:\nbool wxMouseState::RightIsDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxMouseState::RightIsDown() const function, expected prototype:\nbool wxMouseState::RightIsDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMouseState::RightIsDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxMouseState::RightIsDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RightIsDown();
 		lua_pushboolean(L,lret?1:0);
@@ -345,15 +328,13 @@ public:
 	// bool wxMouseState::Aux1IsDown() const
 	static int _bind_Aux1IsDown(lua_State *L) {
 		if (!_lg_typecheck_Aux1IsDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxMouseState::Aux1IsDown() const function, expected prototype:\nbool wxMouseState::Aux1IsDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxMouseState::Aux1IsDown() const function, expected prototype:\nbool wxMouseState::Aux1IsDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMouseState::Aux1IsDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxMouseState::Aux1IsDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Aux1IsDown();
 		lua_pushboolean(L,lret?1:0);
@@ -364,15 +345,13 @@ public:
 	// bool wxMouseState::Aux2IsDown() const
 	static int _bind_Aux2IsDown(lua_State *L) {
 		if (!_lg_typecheck_Aux2IsDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxMouseState::Aux2IsDown() const function, expected prototype:\nbool wxMouseState::Aux2IsDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxMouseState::Aux2IsDown() const function, expected prototype:\nbool wxMouseState::Aux2IsDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxMouseState::Aux2IsDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxMouseState::Aux2IsDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Aux2IsDown();
 		lua_pushboolean(L,lret?1:0);
@@ -383,16 +362,14 @@ public:
 	// void wxMouseState::SetX(int x)
 	static int _bind_SetX(lua_State *L) {
 		if (!_lg_typecheck_SetX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxMouseState::SetX(int x) function, expected prototype:\nvoid wxMouseState::SetX(int x)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxMouseState::SetX(int x) function, expected prototype:\nvoid wxMouseState::SetX(int x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,2);
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetX(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetX(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetX(x);
 
@@ -402,16 +379,14 @@ public:
 	// void wxMouseState::SetY(int y)
 	static int _bind_SetY(lua_State *L) {
 		if (!_lg_typecheck_SetY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxMouseState::SetY(int y) function, expected prototype:\nvoid wxMouseState::SetY(int y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxMouseState::SetY(int y) function, expected prototype:\nvoid wxMouseState::SetY(int y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int y=(int)lua_tointeger(L,2);
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetY(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetY(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetY(y);
 
@@ -421,8 +396,7 @@ public:
 	// void wxMouseState::SetPosition(wxPoint pos)
 	static int _bind_SetPosition(lua_State *L) {
 		if (!_lg_typecheck_SetPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxMouseState::SetPosition(wxPoint pos) function, expected prototype:\nvoid wxMouseState::SetPosition(wxPoint pos)\nClass arguments details:\narg 1 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in void wxMouseState::SetPosition(wxPoint pos) function, expected prototype:\nvoid wxMouseState::SetPosition(wxPoint pos)\nClass arguments details:\narg 1 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPoint* pos_ptr=(Luna< wxPoint >::check(L,2));
@@ -433,8 +407,7 @@ public:
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetPosition(wxPoint). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetPosition(wxPoint). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetPosition(pos);
 
@@ -444,16 +417,14 @@ public:
 	// void wxMouseState::SetLeftDown(bool down)
 	static int _bind_SetLeftDown(lua_State *L) {
 		if (!_lg_typecheck_SetLeftDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxMouseState::SetLeftDown(bool down) function, expected prototype:\nvoid wxMouseState::SetLeftDown(bool down)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxMouseState::SetLeftDown(bool down) function, expected prototype:\nvoid wxMouseState::SetLeftDown(bool down)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool down=(bool)(lua_toboolean(L,2)==1);
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetLeftDown(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetLeftDown(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetLeftDown(down);
 
@@ -463,16 +434,14 @@ public:
 	// void wxMouseState::SetMiddleDown(bool down)
 	static int _bind_SetMiddleDown(lua_State *L) {
 		if (!_lg_typecheck_SetMiddleDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxMouseState::SetMiddleDown(bool down) function, expected prototype:\nvoid wxMouseState::SetMiddleDown(bool down)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxMouseState::SetMiddleDown(bool down) function, expected prototype:\nvoid wxMouseState::SetMiddleDown(bool down)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool down=(bool)(lua_toboolean(L,2)==1);
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetMiddleDown(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetMiddleDown(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMiddleDown(down);
 
@@ -482,16 +451,14 @@ public:
 	// void wxMouseState::SetRightDown(bool down)
 	static int _bind_SetRightDown(lua_State *L) {
 		if (!_lg_typecheck_SetRightDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxMouseState::SetRightDown(bool down) function, expected prototype:\nvoid wxMouseState::SetRightDown(bool down)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxMouseState::SetRightDown(bool down) function, expected prototype:\nvoid wxMouseState::SetRightDown(bool down)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool down=(bool)(lua_toboolean(L,2)==1);
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetRightDown(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetRightDown(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRightDown(down);
 
@@ -501,16 +468,14 @@ public:
 	// void wxMouseState::SetAux1Down(bool down)
 	static int _bind_SetAux1Down(lua_State *L) {
 		if (!_lg_typecheck_SetAux1Down(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxMouseState::SetAux1Down(bool down) function, expected prototype:\nvoid wxMouseState::SetAux1Down(bool down)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxMouseState::SetAux1Down(bool down) function, expected prototype:\nvoid wxMouseState::SetAux1Down(bool down)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool down=(bool)(lua_toboolean(L,2)==1);
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetAux1Down(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetAux1Down(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAux1Down(down);
 
@@ -520,16 +485,14 @@ public:
 	// void wxMouseState::SetAux2Down(bool down)
 	static int _bind_SetAux2Down(lua_State *L) {
 		if (!_lg_typecheck_SetAux2Down(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxMouseState::SetAux2Down(bool down) function, expected prototype:\nvoid wxMouseState::SetAux2Down(bool down)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxMouseState::SetAux2Down(bool down) function, expected prototype:\nvoid wxMouseState::SetAux2Down(bool down)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool down=(bool)(lua_toboolean(L,2)==1);
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetAux2Down(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetAux2Down(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAux2Down(down);
 
@@ -539,8 +502,7 @@ public:
 	// void wxMouseState::SetState(const wxMouseState & state)
 	static int _bind_SetState(lua_State *L) {
 		if (!_lg_typecheck_SetState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxMouseState::SetState(const wxMouseState & state) function, expected prototype:\nvoid wxMouseState::SetState(const wxMouseState & state)\nClass arguments details:\narg 1 ID = 92036952\n");
+			luaL_error(L, "luna typecheck failed in void wxMouseState::SetState(const wxMouseState & state) function, expected prototype:\nvoid wxMouseState::SetState(const wxMouseState & state)\nClass arguments details:\narg 1 ID = 92036952\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxMouseState* state_ptr=(Luna< wxObject >::checkSubType< wxMouseState >(L,2));
@@ -551,8 +513,7 @@ public:
 
 		wxMouseState* self=Luna< wxObject >::checkSubType< wxMouseState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxMouseState::SetState(const wxMouseState &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxMouseState::SetState(const wxMouseState &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetState(state);
 

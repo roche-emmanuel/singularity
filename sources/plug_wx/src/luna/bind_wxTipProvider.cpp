@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTipProvider* self=(Luna< wxTipProvider >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTipProvider*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTipProvider*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTipProvider* rhs =(Luna< wxTipProvider >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTipProvider* self= (wxTipProvider*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxTipProvider >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -156,8 +151,7 @@ public:
 	// wxTipProvider::wxTipProvider(lua_Table * data, size_t currentTip)
 	static wxTipProvider* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTipProvider::wxTipProvider(lua_Table * data, size_t currentTip) function, expected prototype:\nwxTipProvider::wxTipProvider(lua_Table * data, size_t currentTip)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxTipProvider::wxTipProvider(lua_Table * data, size_t currentTip) function, expected prototype:\nwxTipProvider::wxTipProvider(lua_Table * data, size_t currentTip)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t currentTip=(size_t)lua_tointeger(L,2);
@@ -170,15 +164,13 @@ public:
 	// size_t wxTipProvider::GetCurrentTip() const
 	static int _bind_GetCurrentTip(lua_State *L) {
 		if (!_lg_typecheck_GetCurrentTip(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t wxTipProvider::GetCurrentTip() const function, expected prototype:\nsize_t wxTipProvider::GetCurrentTip() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t wxTipProvider::GetCurrentTip() const function, expected prototype:\nsize_t wxTipProvider::GetCurrentTip() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTipProvider* self=(Luna< wxTipProvider >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t wxTipProvider::GetCurrentTip() const. Got : '%s'",typeid(Luna< wxTipProvider >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t wxTipProvider::GetCurrentTip() const. Got : '%s'\n%s",typeid(Luna< wxTipProvider >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->GetCurrentTip();
 		lua_pushnumber(L,lret);
@@ -189,15 +181,13 @@ public:
 	// wxString wxTipProvider::GetTip()
 	static int _bind_GetTip(lua_State *L) {
 		if (!_lg_typecheck_GetTip(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxTipProvider::GetTip() function, expected prototype:\nwxString wxTipProvider::GetTip()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxTipProvider::GetTip() function, expected prototype:\nwxString wxTipProvider::GetTip()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxTipProvider* self=(Luna< wxTipProvider >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxTipProvider::GetTip(). Got : '%s'",typeid(Luna< wxTipProvider >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxTipProvider::GetTip(). Got : '%s'\n%s",typeid(Luna< wxTipProvider >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetTip();
 		lua_pushlstring(L,lret.data(),lret.size());

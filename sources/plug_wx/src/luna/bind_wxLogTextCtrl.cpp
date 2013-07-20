@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLog* self=(Luna< wxLog >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLogTextCtrl* self= (wxLogTextCtrl*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxLog >::check(L,1));
@@ -122,8 +119,7 @@ public:
 	// wxLogTextCtrl::wxLogTextCtrl(wxTextCtrl * pTextCtrl)
 	static wxLogTextCtrl* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxLogTextCtrl::wxLogTextCtrl(wxTextCtrl * pTextCtrl) function, expected prototype:\nwxLogTextCtrl::wxLogTextCtrl(wxTextCtrl * pTextCtrl)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxLogTextCtrl::wxLogTextCtrl(wxTextCtrl * pTextCtrl) function, expected prototype:\nwxLogTextCtrl::wxLogTextCtrl(wxTextCtrl * pTextCtrl)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTextCtrl* pTextCtrl=(Luna< wxObject >::checkSubType< wxTextCtrl >(L,1));
@@ -134,8 +130,7 @@ public:
 	// wxLogTextCtrl::wxLogTextCtrl(lua_Table * data, wxTextCtrl * pTextCtrl)
 	static wxLogTextCtrl* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxLogTextCtrl::wxLogTextCtrl(lua_Table * data, wxTextCtrl * pTextCtrl) function, expected prototype:\nwxLogTextCtrl::wxLogTextCtrl(lua_Table * data, wxTextCtrl * pTextCtrl)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxLogTextCtrl::wxLogTextCtrl(lua_Table * data, wxTextCtrl * pTextCtrl) function, expected prototype:\nwxLogTextCtrl::wxLogTextCtrl(lua_Table * data, wxTextCtrl * pTextCtrl)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTextCtrl* pTextCtrl=(Luna< wxObject >::checkSubType< wxTextCtrl >(L,2));
@@ -157,15 +152,13 @@ public:
 	// void wxLogTextCtrl::base_Flush()
 	static int _bind_base_Flush(lua_State *L) {
 		if (!_lg_typecheck_base_Flush(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLogTextCtrl::base_Flush() function, expected prototype:\nvoid wxLogTextCtrl::base_Flush()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxLogTextCtrl::base_Flush() function, expected prototype:\nvoid wxLogTextCtrl::base_Flush()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLogTextCtrl* self=Luna< wxLog >::checkSubType< wxLogTextCtrl >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogTextCtrl::base_Flush(). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLogTextCtrl::base_Flush(). Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxLogTextCtrl::Flush();
 

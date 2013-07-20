@@ -6,7 +6,8 @@ Implementation of assertion calls.
 
 local log = require "log"
 local write = require "utils.tostring"
-local base = require "utils.base"
+
+local path
 
 local Meta = {}
 
@@ -42,6 +43,10 @@ local quote = function(arg)
 	return type(arg)=="string" and '"'..arg..'"' or arg
 end
 
+local onError0 = function(reason,...)
+	throw("Assertion failed: (=> ",reason,"): ",...)
+end
+
 local onError1 = function(val,reason,...)
 	throw("Assertion failed: [value=",quote(val),"] (=> ",reason,"): ",...)
 end
@@ -62,6 +67,13 @@ local doTest2 = function(result,val1,val2,reason,...)
 		return
 	end
 	onError2(val1,val2,reason,...)
+end
+
+local doTest0 = function(result,reason,...)
+	if result then
+		return
+	end
+	onError0(reason,...)
 end
 
 --- Meta method to handle the calls assert(val,msg,...)
@@ -94,6 +106,10 @@ function Class.isString(val,...)
 	return doTest1(type(val)=="string",val,"is not a string",...)
 end
 
+function Class.isTable(val,...)
+	return doTest1(type(val)=="table",val,"is not a table",...)
+end
+
 function Class.isFunction(val,...)
 	return doTest1(type(val)=="function",val,"is not a function",...)
 end
@@ -106,7 +122,7 @@ function Class.isNonEmptyString(val,...)
 	return doTest1(type(val)=="string" and #val>0,val,"is not a string or is the empty string",...)
 end
 
-function Class.areEquals(val1,val2,...)
+function Class.areEqual(val1,val2,...)
 	return doTest2(val1==val2,val1,val2,"are not equals",...)
 end
 
@@ -126,7 +142,7 @@ function Class.isLessOrEqualTo(val1,val2,...)
 	return doTest2(val1 and val2 and val1>=val2,val1,val2,"value2 is greater than value1",...)
 end
 
-function Class.areNotEquals(val1,val2,...)
+function Class.areNotEqual(val1,val2,...)
 	return doTest2(val1~=val2,val1,val2,"are equals",...)
 end
 
@@ -138,20 +154,53 @@ function Class.isNotNil(val,...)
 	return doTest1(val~=nil,val,"is nil",...)
 end
 
+function Class.hasError(func,...)
+	if type(func)~="function" then
+		doTest1(false,func,"is not a function",...)
+	end
+	
+	local status, msg = pcall(func)
+	doTest0(status==false,"function didn't trigger an error.",...)
+end
+
+function Class.noError(func,...)
+	if type(func)~="function" then
+		doTest1(false,func,"is not a function",...)
+	end
+	
+	local status, msg = pcall(func)
+	doTest0(status==true,"function did trigger an error.",...)
+end
+
+function Class.isFile(val,...)
+	path = path or require "utils.path"
+	return doTest1(path.isFile(val),val,"is not a file",...)	
+end
+
+function Class.isDir(val,...)
+	path = path or require "utils.path"
+	return doTest1(path.isDir(val),val,"is not a file",...)	
+end
+
 Class.True = Class.isTrue
 Class.False = Class.isFalse
 Class.Nil = Class.isNil
 Class.notNil = Class.isNotNil
 Class.String = Class.isString
+Class.Table = Class.isTable
 Class.Function = Class.isFunction
 Class.Bool = Class.isBoolean
 Class.Boolean = Class.isBoolean
+Class.File = Class.isFile
+Class.Dir = Class.isDir
 Class.gt = Class.isGreaterThan
 Class.gte = Class.isGreaterOrEqualTo
 Class.lt = Class.islessThan
 Class.lte = Class.islessOrEqualTo
-Class.equals = Class.areEquals
-Class.notEquals = Class.areNotEquals
+Class.equals = Class.areEqual
+Class.equal = Class.areEqual
+Class.notEquals = Class.areNotEqual
+Class.notEqual = Class.areNotEqual
 Class.nonEmptyString = Class.isNonEmptyString
 
 return setmetatable(Class,Meta)

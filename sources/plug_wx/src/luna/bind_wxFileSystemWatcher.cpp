@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFileSystemWatcher* self= (wxFileSystemWatcher*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -251,8 +248,7 @@ public:
 	// wxFileSystemWatcher::wxFileSystemWatcher()
 	static wxFileSystemWatcher* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFileSystemWatcher::wxFileSystemWatcher() function, expected prototype:\nwxFileSystemWatcher::wxFileSystemWatcher()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFileSystemWatcher::wxFileSystemWatcher() function, expected prototype:\nwxFileSystemWatcher::wxFileSystemWatcher()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -262,8 +258,7 @@ public:
 	// wxFileSystemWatcher::wxFileSystemWatcher(lua_Table * data)
 	static wxFileSystemWatcher* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFileSystemWatcher::wxFileSystemWatcher(lua_Table * data) function, expected prototype:\nwxFileSystemWatcher::wxFileSystemWatcher(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFileSystemWatcher::wxFileSystemWatcher(lua_Table * data) function, expected prototype:\nwxFileSystemWatcher::wxFileSystemWatcher(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -284,8 +279,7 @@ public:
 	// bool wxFileSystemWatcher::Add(const wxFileName & path, int events = ::wxFSW_EVENT_ALL)
 	static int _bind_Add(lua_State *L) {
 		if (!_lg_typecheck_Add(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::Add(const wxFileName & path, int events = ::wxFSW_EVENT_ALL) function, expected prototype:\nbool wxFileSystemWatcher::Add(const wxFileName & path, int events = ::wxFSW_EVENT_ALL)\nClass arguments details:\narg 1 ID = 53530938\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::Add(const wxFileName & path, int events = ::wxFSW_EVENT_ALL) function, expected prototype:\nbool wxFileSystemWatcher::Add(const wxFileName & path, int events = ::wxFSW_EVENT_ALL)\nClass arguments details:\narg 1 ID = 53530938\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -299,8 +293,7 @@ public:
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::Add(const wxFileName &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::Add(const wxFileName &, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Add(path, events);
 		lua_pushboolean(L,lret?1:0);
@@ -311,8 +304,7 @@ public:
 	// bool wxFileSystemWatcher::AddTree(const wxFileName & path, int events = ::wxFSW_EVENT_ALL, const wxString & filter = wxEmptyString)
 	static int _bind_AddTree(lua_State *L) {
 		if (!_lg_typecheck_AddTree(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::AddTree(const wxFileName & path, int events = ::wxFSW_EVENT_ALL, const wxString & filter = wxEmptyString) function, expected prototype:\nbool wxFileSystemWatcher::AddTree(const wxFileName & path, int events = ::wxFSW_EVENT_ALL, const wxString & filter = wxEmptyString)\nClass arguments details:\narg 1 ID = 53530938\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::AddTree(const wxFileName & path, int events = ::wxFSW_EVENT_ALL, const wxString & filter = wxEmptyString) function, expected prototype:\nbool wxFileSystemWatcher::AddTree(const wxFileName & path, int events = ::wxFSW_EVENT_ALL, const wxString & filter = wxEmptyString)\nClass arguments details:\narg 1 ID = 53530938\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -327,8 +319,7 @@ public:
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::AddTree(const wxFileName &, int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::AddTree(const wxFileName &, int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AddTree(path, events, filter);
 		lua_pushboolean(L,lret?1:0);
@@ -339,8 +330,7 @@ public:
 	// bool wxFileSystemWatcher::Remove(const wxFileName & path)
 	static int _bind_Remove(lua_State *L) {
 		if (!_lg_typecheck_Remove(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::Remove(const wxFileName & path) function, expected prototype:\nbool wxFileSystemWatcher::Remove(const wxFileName & path)\nClass arguments details:\narg 1 ID = 53530938\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::Remove(const wxFileName & path) function, expected prototype:\nbool wxFileSystemWatcher::Remove(const wxFileName & path)\nClass arguments details:\narg 1 ID = 53530938\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFileName* path_ptr=(Luna< wxFileName >::check(L,2));
@@ -351,8 +341,7 @@ public:
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::Remove(const wxFileName &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::Remove(const wxFileName &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Remove(path);
 		lua_pushboolean(L,lret?1:0);
@@ -363,8 +352,7 @@ public:
 	// bool wxFileSystemWatcher::RemoveTree(const wxFileName & path)
 	static int _bind_RemoveTree(lua_State *L) {
 		if (!_lg_typecheck_RemoveTree(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::RemoveTree(const wxFileName & path) function, expected prototype:\nbool wxFileSystemWatcher::RemoveTree(const wxFileName & path)\nClass arguments details:\narg 1 ID = 53530938\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::RemoveTree(const wxFileName & path) function, expected prototype:\nbool wxFileSystemWatcher::RemoveTree(const wxFileName & path)\nClass arguments details:\narg 1 ID = 53530938\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFileName* path_ptr=(Luna< wxFileName >::check(L,2));
@@ -375,8 +363,7 @@ public:
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::RemoveTree(const wxFileName &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::RemoveTree(const wxFileName &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RemoveTree(path);
 		lua_pushboolean(L,lret?1:0);
@@ -387,15 +374,13 @@ public:
 	// bool wxFileSystemWatcher::RemoveAll()
 	static int _bind_RemoveAll(lua_State *L) {
 		if (!_lg_typecheck_RemoveAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::RemoveAll() function, expected prototype:\nbool wxFileSystemWatcher::RemoveAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::RemoveAll() function, expected prototype:\nbool wxFileSystemWatcher::RemoveAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::RemoveAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::RemoveAll(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RemoveAll();
 		lua_pushboolean(L,lret?1:0);
@@ -406,15 +391,13 @@ public:
 	// int wxFileSystemWatcher::GetWatchedPathsCount() const
 	static int _bind_GetWatchedPathsCount(lua_State *L) {
 		if (!_lg_typecheck_GetWatchedPathsCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxFileSystemWatcher::GetWatchedPathsCount() const function, expected prototype:\nint wxFileSystemWatcher::GetWatchedPathsCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxFileSystemWatcher::GetWatchedPathsCount() const function, expected prototype:\nint wxFileSystemWatcher::GetWatchedPathsCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFileSystemWatcher::GetWatchedPathsCount() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxFileSystemWatcher::GetWatchedPathsCount() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetWatchedPathsCount();
 		lua_pushnumber(L,lret);
@@ -425,16 +408,14 @@ public:
 	// int wxFileSystemWatcher::GetWatchedPaths(wxArrayString * paths) const
 	static int _bind_GetWatchedPaths(lua_State *L) {
 		if (!_lg_typecheck_GetWatchedPaths(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxFileSystemWatcher::GetWatchedPaths(wxArrayString * paths) const function, expected prototype:\nint wxFileSystemWatcher::GetWatchedPaths(wxArrayString * paths) const\nClass arguments details:\narg 1 ID = 59507769\n");
+			luaL_error(L, "luna typecheck failed in int wxFileSystemWatcher::GetWatchedPaths(wxArrayString * paths) const function, expected prototype:\nint wxFileSystemWatcher::GetWatchedPaths(wxArrayString * paths) const\nClass arguments details:\narg 1 ID = 59507769\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxArrayString* paths=(Luna< wxArrayString >::check(L,2));
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxFileSystemWatcher::GetWatchedPaths(wxArrayString *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxFileSystemWatcher::GetWatchedPaths(wxArrayString *) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetWatchedPaths(paths);
 		lua_pushnumber(L,lret);
@@ -445,16 +426,14 @@ public:
 	// void wxFileSystemWatcher::SetOwner(wxEvtHandler * handler)
 	static int _bind_SetOwner(lua_State *L) {
 		if (!_lg_typecheck_SetOwner(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileSystemWatcher::SetOwner(wxEvtHandler * handler) function, expected prototype:\nvoid wxFileSystemWatcher::SetOwner(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxFileSystemWatcher::SetOwner(wxEvtHandler * handler) function, expected prototype:\nvoid wxFileSystemWatcher::SetOwner(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileSystemWatcher::SetOwner(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFileSystemWatcher::SetOwner(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetOwner(handler);
 
@@ -464,15 +443,13 @@ public:
 	// wxClassInfo * wxFileSystemWatcher::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFileSystemWatcher::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFileSystemWatcher::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxFileSystemWatcher::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxFileSystemWatcher::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileSystemWatcher::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxFileSystemWatcher::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxFileSystemWatcher::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -485,16 +462,14 @@ public:
 	// void wxFileSystemWatcher::base_QueueEvent(wxEvent * event)
 	static int _bind_base_QueueEvent(lua_State *L) {
 		if (!_lg_typecheck_base_QueueEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileSystemWatcher::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxFileSystemWatcher::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxFileSystemWatcher::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxFileSystemWatcher::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvent* event=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileSystemWatcher::base_QueueEvent(wxEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFileSystemWatcher::base_QueueEvent(wxEvent *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxFileSystemWatcher::QueueEvent(event);
 
@@ -504,8 +479,7 @@ public:
 	// void wxFileSystemWatcher::base_AddPendingEvent(const wxEvent & event)
 	static int _bind_base_AddPendingEvent(lua_State *L) {
 		if (!_lg_typecheck_base_AddPendingEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileSystemWatcher::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxFileSystemWatcher::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxFileSystemWatcher::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxFileSystemWatcher::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
@@ -516,8 +490,7 @@ public:
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileSystemWatcher::base_AddPendingEvent(const wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFileSystemWatcher::base_AddPendingEvent(const wxEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxFileSystemWatcher::AddPendingEvent(event);
 
@@ -527,8 +500,7 @@ public:
 	// bool wxFileSystemWatcher::base_ProcessEvent(wxEvent & event)
 	static int _bind_base_ProcessEvent(lua_State *L) {
 		if (!_lg_typecheck_base_ProcessEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxFileSystemWatcher::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxFileSystemWatcher::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
@@ -539,8 +511,7 @@ public:
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::base_ProcessEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::base_ProcessEvent(wxEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxFileSystemWatcher::ProcessEvent(event);
 		lua_pushboolean(L,lret?1:0);
@@ -551,16 +522,14 @@ public:
 	// void wxFileSystemWatcher::base_SetNextHandler(wxEvtHandler * handler)
 	static int _bind_base_SetNextHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetNextHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileSystemWatcher::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxFileSystemWatcher::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxFileSystemWatcher::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxFileSystemWatcher::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileSystemWatcher::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFileSystemWatcher::base_SetNextHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxFileSystemWatcher::SetNextHandler(handler);
 
@@ -570,16 +539,14 @@ public:
 	// void wxFileSystemWatcher::base_SetPreviousHandler(wxEvtHandler * handler)
 	static int _bind_base_SetPreviousHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxFileSystemWatcher::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxFileSystemWatcher::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxFileSystemWatcher::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxFileSystemWatcher::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxFileSystemWatcher::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxFileSystemWatcher::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxFileSystemWatcher::SetPreviousHandler(handler);
 
@@ -589,8 +556,7 @@ public:
 	// bool wxFileSystemWatcher::base_Add(const wxFileName & path, int events = ::wxFSW_EVENT_ALL)
 	static int _bind_base_Add(lua_State *L) {
 		if (!_lg_typecheck_base_Add(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::base_Add(const wxFileName & path, int events = ::wxFSW_EVENT_ALL) function, expected prototype:\nbool wxFileSystemWatcher::base_Add(const wxFileName & path, int events = ::wxFSW_EVENT_ALL)\nClass arguments details:\narg 1 ID = 53530938\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::base_Add(const wxFileName & path, int events = ::wxFSW_EVENT_ALL) function, expected prototype:\nbool wxFileSystemWatcher::base_Add(const wxFileName & path, int events = ::wxFSW_EVENT_ALL)\nClass arguments details:\narg 1 ID = 53530938\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -604,8 +570,7 @@ public:
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::base_Add(const wxFileName &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::base_Add(const wxFileName &, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxFileSystemWatcher::Add(path, events);
 		lua_pushboolean(L,lret?1:0);
@@ -616,8 +581,7 @@ public:
 	// bool wxFileSystemWatcher::base_AddTree(const wxFileName & path, int events = ::wxFSW_EVENT_ALL, const wxString & filter = wxEmptyString)
 	static int _bind_base_AddTree(lua_State *L) {
 		if (!_lg_typecheck_base_AddTree(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::base_AddTree(const wxFileName & path, int events = ::wxFSW_EVENT_ALL, const wxString & filter = wxEmptyString) function, expected prototype:\nbool wxFileSystemWatcher::base_AddTree(const wxFileName & path, int events = ::wxFSW_EVENT_ALL, const wxString & filter = wxEmptyString)\nClass arguments details:\narg 1 ID = 53530938\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::base_AddTree(const wxFileName & path, int events = ::wxFSW_EVENT_ALL, const wxString & filter = wxEmptyString) function, expected prototype:\nbool wxFileSystemWatcher::base_AddTree(const wxFileName & path, int events = ::wxFSW_EVENT_ALL, const wxString & filter = wxEmptyString)\nClass arguments details:\narg 1 ID = 53530938\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -632,8 +596,7 @@ public:
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::base_AddTree(const wxFileName &, int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::base_AddTree(const wxFileName &, int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxFileSystemWatcher::AddTree(path, events, filter);
 		lua_pushboolean(L,lret?1:0);
@@ -644,8 +607,7 @@ public:
 	// bool wxFileSystemWatcher::base_Remove(const wxFileName & path)
 	static int _bind_base_Remove(lua_State *L) {
 		if (!_lg_typecheck_base_Remove(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::base_Remove(const wxFileName & path) function, expected prototype:\nbool wxFileSystemWatcher::base_Remove(const wxFileName & path)\nClass arguments details:\narg 1 ID = 53530938\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::base_Remove(const wxFileName & path) function, expected prototype:\nbool wxFileSystemWatcher::base_Remove(const wxFileName & path)\nClass arguments details:\narg 1 ID = 53530938\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFileName* path_ptr=(Luna< wxFileName >::check(L,2));
@@ -656,8 +618,7 @@ public:
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::base_Remove(const wxFileName &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::base_Remove(const wxFileName &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxFileSystemWatcher::Remove(path);
 		lua_pushboolean(L,lret?1:0);
@@ -668,8 +629,7 @@ public:
 	// bool wxFileSystemWatcher::base_RemoveTree(const wxFileName & path)
 	static int _bind_base_RemoveTree(lua_State *L) {
 		if (!_lg_typecheck_base_RemoveTree(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::base_RemoveTree(const wxFileName & path) function, expected prototype:\nbool wxFileSystemWatcher::base_RemoveTree(const wxFileName & path)\nClass arguments details:\narg 1 ID = 53530938\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::base_RemoveTree(const wxFileName & path) function, expected prototype:\nbool wxFileSystemWatcher::base_RemoveTree(const wxFileName & path)\nClass arguments details:\narg 1 ID = 53530938\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFileName* path_ptr=(Luna< wxFileName >::check(L,2));
@@ -680,8 +640,7 @@ public:
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::base_RemoveTree(const wxFileName &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::base_RemoveTree(const wxFileName &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxFileSystemWatcher::RemoveTree(path);
 		lua_pushboolean(L,lret?1:0);
@@ -692,15 +651,13 @@ public:
 	// bool wxFileSystemWatcher::base_RemoveAll()
 	static int _bind_base_RemoveAll(lua_State *L) {
 		if (!_lg_typecheck_base_RemoveAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::base_RemoveAll() function, expected prototype:\nbool wxFileSystemWatcher::base_RemoveAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxFileSystemWatcher::base_RemoveAll() function, expected prototype:\nbool wxFileSystemWatcher::base_RemoveAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxFileSystemWatcher* self=Luna< wxObject >::checkSubType< wxFileSystemWatcher >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::base_RemoveAll(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxFileSystemWatcher::base_RemoveAll(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxFileSystemWatcher::RemoveAll();
 		lua_pushboolean(L,lret?1:0);

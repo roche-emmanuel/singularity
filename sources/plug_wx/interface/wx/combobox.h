@@ -318,5 +318,12 @@ public:
     virtual void SetString(unsigned int n, const wxString& s);
 
     virtual unsigned int GetCount() const;
+	
+protected:
+	void DoSetItemClientData(unsigned int arg1, void * arg2);
+	void* DoGetItemClientData(unsigned int arg1) const;
+	void DoClear();
+	void DoDeleteOneItem(unsigned int arg1);
+	int DoInsertItems(const wxArrayStringsAdapter & arg1, unsigned int arg2, void ** arg3, wxClientDataType arg4);
 };
 

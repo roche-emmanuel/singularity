@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxRegConfig* self= (wxRegConfig*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -114,15 +111,13 @@ public:
 	// wxClassInfo * wxRegConfig::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxRegConfig::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxRegConfig::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxRegConfig::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxRegConfig::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxRegConfig* self=Luna< wxObject >::checkSubType< wxRegConfig >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxRegConfig::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxRegConfig::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxRegConfig::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -135,16 +130,14 @@ public:
 	// wxConfigBase::EntryType wxRegConfig::base_GetEntryType(const wxString & name) const
 	static int _bind_base_GetEntryType(lua_State *L) {
 		if (!_lg_typecheck_base_GetEntryType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxConfigBase::EntryType wxRegConfig::base_GetEntryType(const wxString & name) const function, expected prototype:\nwxConfigBase::EntryType wxRegConfig::base_GetEntryType(const wxString & name) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxConfigBase::EntryType wxRegConfig::base_GetEntryType(const wxString & name) const function, expected prototype:\nwxConfigBase::EntryType wxRegConfig::base_GetEntryType(const wxString & name) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxRegConfig* self=Luna< wxObject >::checkSubType< wxRegConfig >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxConfigBase::EntryType wxRegConfig::base_GetEntryType(const wxString &) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxConfigBase::EntryType wxRegConfig::base_GetEntryType(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxConfigBase::EntryType lret = self->wxRegConfig::GetEntryType(name);
 		lua_pushnumber(L,lret);

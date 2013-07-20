@@ -113,8 +113,7 @@ public:
 	// void wxHtmlTagHandler::public_ParseInner(const wxHtmlTag & tag)
 	static int _bind_public_ParseInner(lua_State *L) {
 		if (!_lg_typecheck_public_ParseInner(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHtmlTagHandler::public_ParseInner(const wxHtmlTag & tag) function, expected prototype:\nvoid wxHtmlTagHandler::public_ParseInner(const wxHtmlTag & tag)\nClass arguments details:\narg 1 ID = 66986009\n");
+			luaL_error(L, "luna typecheck failed in void wxHtmlTagHandler::public_ParseInner(const wxHtmlTag & tag) function, expected prototype:\nvoid wxHtmlTagHandler::public_ParseInner(const wxHtmlTag & tag)\nClass arguments details:\narg 1 ID = 66986009\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxHtmlTag* tag_ptr=(Luna< wxHtmlTag >::check(L,2));
@@ -125,8 +124,7 @@ public:
 
 		wrapper_wxHtmlTagHandler* self=Luna< wxObject >::checkSubType< wrapper_wxHtmlTagHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHtmlTagHandler::public_ParseInner(const wxHtmlTag &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHtmlTagHandler::public_ParseInner(const wxHtmlTag &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_ParseInner(tag);
 

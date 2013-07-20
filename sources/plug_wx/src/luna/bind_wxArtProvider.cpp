@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxArtProvider* self= (wxArtProvider*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -199,8 +196,7 @@ public:
 	// static bool wxArtProvider::Delete(wxArtProvider * provider)
 	static int _bind_Delete(lua_State *L) {
 		if (!_lg_typecheck_Delete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxArtProvider::Delete(wxArtProvider * provider) function, expected prototype:\nstatic bool wxArtProvider::Delete(wxArtProvider * provider)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in static bool wxArtProvider::Delete(wxArtProvider * provider) function, expected prototype:\nstatic bool wxArtProvider::Delete(wxArtProvider * provider)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxArtProvider* provider=(Luna< wxObject >::checkSubType< wxArtProvider >(L,1));
@@ -214,8 +210,7 @@ public:
 	// static wxBitmap wxArtProvider::GetBitmap(const wxString & id, const wxString & client = wxART_OTHER, const wxSize & size = wxDefaultSize)
 	static int _bind_GetBitmap(lua_State *L) {
 		if (!_lg_typecheck_GetBitmap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxBitmap wxArtProvider::GetBitmap(const wxString & id, const wxString & client = wxART_OTHER, const wxSize & size = wxDefaultSize) function, expected prototype:\nstatic wxBitmap wxArtProvider::GetBitmap(const wxString & id, const wxString & client = wxART_OTHER, const wxSize & size = wxDefaultSize)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in static wxBitmap wxArtProvider::GetBitmap(const wxString & id, const wxString & client = wxART_OTHER, const wxSize & size = wxDefaultSize) function, expected prototype:\nstatic wxBitmap wxArtProvider::GetBitmap(const wxString & id, const wxString & client = wxART_OTHER, const wxSize & size = wxDefaultSize)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -240,8 +235,7 @@ public:
 	// static wxIcon wxArtProvider::GetIcon(const wxString & id, const wxString & client = wxART_OTHER, const wxSize & size = wxDefaultSize)
 	static int _bind_GetIcon(lua_State *L) {
 		if (!_lg_typecheck_GetIcon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxIcon wxArtProvider::GetIcon(const wxString & id, const wxString & client = wxART_OTHER, const wxSize & size = wxDefaultSize) function, expected prototype:\nstatic wxIcon wxArtProvider::GetIcon(const wxString & id, const wxString & client = wxART_OTHER, const wxSize & size = wxDefaultSize)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 20268751\n");
+			luaL_error(L, "luna typecheck failed in static wxIcon wxArtProvider::GetIcon(const wxString & id, const wxString & client = wxART_OTHER, const wxSize & size = wxDefaultSize) function, expected prototype:\nstatic wxIcon wxArtProvider::GetIcon(const wxString & id, const wxString & client = wxART_OTHER, const wxSize & size = wxDefaultSize)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\narg 3 ID = 20268751\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -266,8 +260,7 @@ public:
 	// static wxSize wxArtProvider::GetNativeSizeHint(const wxString & client)
 	static int _bind_GetNativeSizeHint(lua_State *L) {
 		if (!_lg_typecheck_GetNativeSizeHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxSize wxArtProvider::GetNativeSizeHint(const wxString & client) function, expected prototype:\nstatic wxSize wxArtProvider::GetNativeSizeHint(const wxString & client)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxSize wxArtProvider::GetNativeSizeHint(const wxString & client) function, expected prototype:\nstatic wxSize wxArtProvider::GetNativeSizeHint(const wxString & client)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString client(lua_tostring(L,1),lua_objlen(L,1));
@@ -284,8 +277,7 @@ public:
 	// static wxSize wxArtProvider::GetSizeHint(const wxString & client, bool platform_default = false)
 	static int _bind_GetSizeHint(lua_State *L) {
 		if (!_lg_typecheck_GetSizeHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxSize wxArtProvider::GetSizeHint(const wxString & client, bool platform_default = false) function, expected prototype:\nstatic wxSize wxArtProvider::GetSizeHint(const wxString & client, bool platform_default = false)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxSize wxArtProvider::GetSizeHint(const wxString & client, bool platform_default = false) function, expected prototype:\nstatic wxSize wxArtProvider::GetSizeHint(const wxString & client, bool platform_default = false)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -305,8 +297,7 @@ public:
 	// static wxIconBundle wxArtProvider::GetIconBundle(const wxString & id, const wxString & client = wxART_OTHER)
 	static int _bind_GetIconBundle(lua_State *L) {
 		if (!_lg_typecheck_GetIconBundle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxIconBundle wxArtProvider::GetIconBundle(const wxString & id, const wxString & client = wxART_OTHER) function, expected prototype:\nstatic wxIconBundle wxArtProvider::GetIconBundle(const wxString & id, const wxString & client = wxART_OTHER)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxIconBundle wxArtProvider::GetIconBundle(const wxString & id, const wxString & client = wxART_OTHER) function, expected prototype:\nstatic wxIconBundle wxArtProvider::GetIconBundle(const wxString & id, const wxString & client = wxART_OTHER)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -326,8 +317,7 @@ public:
 	// static bool wxArtProvider::HasNativeProvider()
 	static int _bind_HasNativeProvider(lua_State *L) {
 		if (!_lg_typecheck_HasNativeProvider(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxArtProvider::HasNativeProvider() function, expected prototype:\nstatic bool wxArtProvider::HasNativeProvider()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool wxArtProvider::HasNativeProvider() function, expected prototype:\nstatic bool wxArtProvider::HasNativeProvider()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -340,8 +330,7 @@ public:
 	// static void wxArtProvider::Insert(wxArtProvider * provider)
 	static int _bind_Insert(lua_State *L) {
 		if (!_lg_typecheck_Insert(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxArtProvider::Insert(wxArtProvider * provider) function, expected prototype:\nstatic void wxArtProvider::Insert(wxArtProvider * provider)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in static void wxArtProvider::Insert(wxArtProvider * provider) function, expected prototype:\nstatic void wxArtProvider::Insert(wxArtProvider * provider)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxArtProvider* provider=(Luna< wxObject >::checkSubType< wxArtProvider >(L,1));
@@ -354,8 +343,7 @@ public:
 	// static bool wxArtProvider::Pop()
 	static int _bind_Pop(lua_State *L) {
 		if (!_lg_typecheck_Pop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxArtProvider::Pop() function, expected prototype:\nstatic bool wxArtProvider::Pop()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool wxArtProvider::Pop() function, expected prototype:\nstatic bool wxArtProvider::Pop()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -368,8 +356,7 @@ public:
 	// static void wxArtProvider::Push(wxArtProvider * provider)
 	static int _bind_Push(lua_State *L) {
 		if (!_lg_typecheck_Push(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxArtProvider::Push(wxArtProvider * provider) function, expected prototype:\nstatic void wxArtProvider::Push(wxArtProvider * provider)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in static void wxArtProvider::Push(wxArtProvider * provider) function, expected prototype:\nstatic void wxArtProvider::Push(wxArtProvider * provider)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxArtProvider* provider=(Luna< wxObject >::checkSubType< wxArtProvider >(L,1));
@@ -382,8 +369,7 @@ public:
 	// static void wxArtProvider::PushBack(wxArtProvider * provider)
 	static int _bind_PushBack(lua_State *L) {
 		if (!_lg_typecheck_PushBack(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxArtProvider::PushBack(wxArtProvider * provider) function, expected prototype:\nstatic void wxArtProvider::PushBack(wxArtProvider * provider)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in static void wxArtProvider::PushBack(wxArtProvider * provider) function, expected prototype:\nstatic void wxArtProvider::PushBack(wxArtProvider * provider)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxArtProvider* provider=(Luna< wxObject >::checkSubType< wxArtProvider >(L,1));
@@ -396,8 +382,7 @@ public:
 	// static bool wxArtProvider::Remove(wxArtProvider * provider)
 	static int _bind_Remove(lua_State *L) {
 		if (!_lg_typecheck_Remove(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxArtProvider::Remove(wxArtProvider * provider) function, expected prototype:\nstatic bool wxArtProvider::Remove(wxArtProvider * provider)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in static bool wxArtProvider::Remove(wxArtProvider * provider) function, expected prototype:\nstatic bool wxArtProvider::Remove(wxArtProvider * provider)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxArtProvider* provider=(Luna< wxObject >::checkSubType< wxArtProvider >(L,1));
@@ -411,15 +396,13 @@ public:
 	// wxClassInfo * wxArtProvider::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxArtProvider::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxArtProvider::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxArtProvider::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxArtProvider::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxArtProvider* self=Luna< wxObject >::checkSubType< wxArtProvider >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxArtProvider::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxArtProvider::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxArtProvider::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.

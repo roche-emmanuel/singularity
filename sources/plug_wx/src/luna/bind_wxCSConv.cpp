@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxCSConv*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxCSConv*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCSConv* rhs =(Luna< wxCSConv >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxCSConv* self= (wxCSConv*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxCSConv >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -130,8 +126,7 @@ public:
 	// wxCSConv::wxCSConv(const wxString & charset)
 	static wxCSConv* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCSConv::wxCSConv(const wxString & charset) function, expected prototype:\nwxCSConv::wxCSConv(const wxString & charset)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxCSConv::wxCSConv(const wxString & charset) function, expected prototype:\nwxCSConv::wxCSConv(const wxString & charset)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString charset(lua_tostring(L,1),lua_objlen(L,1));
@@ -142,8 +137,7 @@ public:
 	// wxCSConv::wxCSConv(wxFontEncoding encoding)
 	static wxCSConv* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxCSConv::wxCSConv(wxFontEncoding encoding) function, expected prototype:\nwxCSConv::wxCSConv(wxFontEncoding encoding)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxCSConv::wxCSConv(wxFontEncoding encoding) function, expected prototype:\nwxCSConv::wxCSConv(wxFontEncoding encoding)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFontEncoding encoding=(wxFontEncoding)lua_tointeger(L,1);
@@ -165,15 +159,13 @@ public:
 	// bool wxCSConv::IsOk() const
 	static int _bind_IsOk(lua_State *L) {
 		if (!_lg_typecheck_IsOk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxCSConv::IsOk() const function, expected prototype:\nbool wxCSConv::IsOk() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxCSConv::IsOk() const function, expected prototype:\nbool wxCSConv::IsOk() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxCSConv* self=(Luna< wxCSConv >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxCSConv::IsOk() const. Got : '%s'",typeid(Luna< wxCSConv >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxCSConv::IsOk() const. Got : '%s'\n%s",typeid(Luna< wxCSConv >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsOk();
 		lua_pushboolean(L,lret?1:0);

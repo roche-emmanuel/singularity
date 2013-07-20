@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDirTraverser* self=(Luna< wxDirTraverser >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDirTraverser*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxDirTraverser*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDirTraverser* rhs =(Luna< wxDirTraverser >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxDirTraverser* self= (wxDirTraverser*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxDirTraverser >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -166,16 +161,14 @@ public:
 	// wxDirTraverseResult wxDirTraverser::OnDir(const wxString & dirname)
 	static int _bind_OnDir(lua_State *L) {
 		if (!_lg_typecheck_OnDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDirTraverseResult wxDirTraverser::OnDir(const wxString & dirname) function, expected prototype:\nwxDirTraverseResult wxDirTraverser::OnDir(const wxString & dirname)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxDirTraverseResult wxDirTraverser::OnDir(const wxString & dirname) function, expected prototype:\nwxDirTraverseResult wxDirTraverser::OnDir(const wxString & dirname)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString dirname(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxDirTraverser* self=(Luna< wxDirTraverser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDirTraverseResult wxDirTraverser::OnDir(const wxString &). Got : '%s'",typeid(Luna< wxDirTraverser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDirTraverseResult wxDirTraverser::OnDir(const wxString &). Got : '%s'\n%s",typeid(Luna< wxDirTraverser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDirTraverseResult lret = self->OnDir(dirname);
 		lua_pushnumber(L,lret);
@@ -186,16 +179,14 @@ public:
 	// wxDirTraverseResult wxDirTraverser::OnFile(const wxString & filename)
 	static int _bind_OnFile(lua_State *L) {
 		if (!_lg_typecheck_OnFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDirTraverseResult wxDirTraverser::OnFile(const wxString & filename) function, expected prototype:\nwxDirTraverseResult wxDirTraverser::OnFile(const wxString & filename)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxDirTraverseResult wxDirTraverser::OnFile(const wxString & filename) function, expected prototype:\nwxDirTraverseResult wxDirTraverser::OnFile(const wxString & filename)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString filename(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxDirTraverser* self=(Luna< wxDirTraverser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDirTraverseResult wxDirTraverser::OnFile(const wxString &). Got : '%s'",typeid(Luna< wxDirTraverser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDirTraverseResult wxDirTraverser::OnFile(const wxString &). Got : '%s'\n%s",typeid(Luna< wxDirTraverser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDirTraverseResult lret = self->OnFile(filename);
 		lua_pushnumber(L,lret);
@@ -206,16 +197,14 @@ public:
 	// wxDirTraverseResult wxDirTraverser::OnOpenError(const wxString & openerrorname)
 	static int _bind_OnOpenError(lua_State *L) {
 		if (!_lg_typecheck_OnOpenError(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDirTraverseResult wxDirTraverser::OnOpenError(const wxString & openerrorname) function, expected prototype:\nwxDirTraverseResult wxDirTraverser::OnOpenError(const wxString & openerrorname)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxDirTraverseResult wxDirTraverser::OnOpenError(const wxString & openerrorname) function, expected prototype:\nwxDirTraverseResult wxDirTraverser::OnOpenError(const wxString & openerrorname)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString openerrorname(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxDirTraverser* self=(Luna< wxDirTraverser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDirTraverseResult wxDirTraverser::OnOpenError(const wxString &). Got : '%s'",typeid(Luna< wxDirTraverser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDirTraverseResult wxDirTraverser::OnOpenError(const wxString &). Got : '%s'\n%s",typeid(Luna< wxDirTraverser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDirTraverseResult lret = self->OnOpenError(openerrorname);
 		lua_pushnumber(L,lret);
@@ -226,16 +215,14 @@ public:
 	// wxDirTraverseResult wxDirTraverser::base_OnOpenError(const wxString & openerrorname)
 	static int _bind_base_OnOpenError(lua_State *L) {
 		if (!_lg_typecheck_base_OnOpenError(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxDirTraverseResult wxDirTraverser::base_OnOpenError(const wxString & openerrorname) function, expected prototype:\nwxDirTraverseResult wxDirTraverser::base_OnOpenError(const wxString & openerrorname)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxDirTraverseResult wxDirTraverser::base_OnOpenError(const wxString & openerrorname) function, expected prototype:\nwxDirTraverseResult wxDirTraverser::base_OnOpenError(const wxString & openerrorname)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString openerrorname(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxDirTraverser* self=(Luna< wxDirTraverser >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxDirTraverseResult wxDirTraverser::base_OnOpenError(const wxString &). Got : '%s'",typeid(Luna< wxDirTraverser >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxDirTraverseResult wxDirTraverser::base_OnOpenError(const wxString &). Got : '%s'\n%s",typeid(Luna< wxDirTraverser >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxDirTraverseResult lret = self->wxDirTraverser::OnOpenError(openerrorname);
 		lua_pushnumber(L,lret);

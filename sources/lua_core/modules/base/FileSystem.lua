@@ -14,7 +14,7 @@ Class.MODE_WRITE="w"
 
 --- Perform initialization of the filesystem:
 function Class:initialize(options)
-	self._root_path = options and options.root_path or root_path
+	self._root_path = options and options.root_path or sgt_root or root_path
 	self:checkFolder(self._root_path,"Invalid root path folder")
 	self._root_path = self:formatPath(self._root_path)
 	self:debug("Initialized with root path: ",self._root_path)

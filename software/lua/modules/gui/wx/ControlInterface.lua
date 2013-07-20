@@ -212,10 +212,15 @@ end
     
 function Class:addComboBox(options)
     options = options or {}
-    local ctrl = wx.wxComboBox:new(self:getCurrentParent(),options.id or wx.wxID_ANY,options.choices and options.choices[1] or "",wx.wxDefaultPosition,options.size or wx.wxSize(-1,20),options.choices or {},options.style or wx.wxCB_DROPDOWN+wx.wxCB_READONLY);
+	local arr = wx.wxArrayString()
+	for _,v in ipairs(options.choices or {}) do
+		arr:Add(v)
+	end
+    local ctrl = wx.wxComboBox:new(self:getCurrentParent(),options.id or wx.wxID_ANY,options.defaultValue or (options.choices and options.choices[1]) or "",wx.wxDefaultPosition,options.size or wx.wxSize(-1,20),arr,options.style or bit.bor(wx.wxCB_DROPDOWN,wx.wxCB_READONLY));
     if options.handler then
         self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_COMBOBOX_SELECTED,options.handler)
     end
+	options.flags = options.flags or wx.wxALIGN_CENTER_VERTICAL
     return self:addControl(ctrl,options)
 end
     

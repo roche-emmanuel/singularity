@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxAuiManager* self= (wxAuiManager*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -362,8 +359,7 @@ public:
 	// wxAuiManager::wxAuiManager(wxWindow * managed_wnd = NULL, unsigned int flags = ::wxAUI_MGR_DEFAULT)
 	static wxAuiManager* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAuiManager::wxAuiManager(wxWindow * managed_wnd = NULL, unsigned int flags = ::wxAUI_MGR_DEFAULT) function, expected prototype:\nwxAuiManager::wxAuiManager(wxWindow * managed_wnd = NULL, unsigned int flags = ::wxAUI_MGR_DEFAULT)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxAuiManager::wxAuiManager(wxWindow * managed_wnd = NULL, unsigned int flags = ::wxAUI_MGR_DEFAULT) function, expected prototype:\nwxAuiManager::wxAuiManager(wxWindow * managed_wnd = NULL, unsigned int flags = ::wxAUI_MGR_DEFAULT)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -377,8 +373,7 @@ public:
 	// wxAuiManager::wxAuiManager(lua_Table * data, wxWindow * managed_wnd = NULL, unsigned int flags = ::wxAUI_MGR_DEFAULT)
 	static wxAuiManager* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAuiManager::wxAuiManager(lua_Table * data, wxWindow * managed_wnd = NULL, unsigned int flags = ::wxAUI_MGR_DEFAULT) function, expected prototype:\nwxAuiManager::wxAuiManager(lua_Table * data, wxWindow * managed_wnd = NULL, unsigned int flags = ::wxAUI_MGR_DEFAULT)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxAuiManager::wxAuiManager(lua_Table * data, wxWindow * managed_wnd = NULL, unsigned int flags = ::wxAUI_MGR_DEFAULT) function, expected prototype:\nwxAuiManager::wxAuiManager(lua_Table * data, wxWindow * managed_wnd = NULL, unsigned int flags = ::wxAUI_MGR_DEFAULT)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -403,8 +398,7 @@ public:
 	// bool wxAuiManager::AddPane(wxWindow * window, const wxAuiPaneInfo & pane_info)
 	static int _bind_AddPane_overload_1(lua_State *L) {
 		if (!_lg_typecheck_AddPane_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiManager::AddPane(wxWindow * window, const wxAuiPaneInfo & pane_info) function, expected prototype:\nbool wxAuiManager::AddPane(wxWindow * window, const wxAuiPaneInfo & pane_info)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 42930508\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiManager::AddPane(wxWindow * window, const wxAuiPaneInfo & pane_info) function, expected prototype:\nbool wxAuiManager::AddPane(wxWindow * window, const wxAuiPaneInfo & pane_info)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 42930508\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
@@ -416,8 +410,7 @@ public:
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiManager::AddPane(wxWindow *, const wxAuiPaneInfo &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiManager::AddPane(wxWindow *, const wxAuiPaneInfo &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AddPane(window, pane_info);
 		lua_pushboolean(L,lret?1:0);
@@ -428,8 +421,7 @@ public:
 	// bool wxAuiManager::AddPane(wxWindow * window, int direction = ::wxLEFT, const wxString & caption = wxEmptyString)
 	static int _bind_AddPane_overload_2(lua_State *L) {
 		if (!_lg_typecheck_AddPane_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiManager::AddPane(wxWindow * window, int direction = ::wxLEFT, const wxString & caption = wxEmptyString) function, expected prototype:\nbool wxAuiManager::AddPane(wxWindow * window, int direction = ::wxLEFT, const wxString & caption = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiManager::AddPane(wxWindow * window, int direction = ::wxLEFT, const wxString & caption = wxEmptyString) function, expected prototype:\nbool wxAuiManager::AddPane(wxWindow * window, int direction = ::wxLEFT, const wxString & caption = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -440,8 +432,7 @@ public:
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiManager::AddPane(wxWindow *, int, const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiManager::AddPane(wxWindow *, int, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AddPane(window, direction, caption);
 		lua_pushboolean(L,lret?1:0);
@@ -452,8 +443,7 @@ public:
 	// bool wxAuiManager::AddPane(wxWindow * window, const wxAuiPaneInfo & pane_info, const wxPoint & drop_pos)
 	static int _bind_AddPane_overload_3(lua_State *L) {
 		if (!_lg_typecheck_AddPane_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiManager::AddPane(wxWindow * window, const wxAuiPaneInfo & pane_info, const wxPoint & drop_pos) function, expected prototype:\nbool wxAuiManager::AddPane(wxWindow * window, const wxAuiPaneInfo & pane_info, const wxPoint & drop_pos)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 42930508\narg 3 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiManager::AddPane(wxWindow * window, const wxAuiPaneInfo & pane_info, const wxPoint & drop_pos) function, expected prototype:\nbool wxAuiManager::AddPane(wxWindow * window, const wxAuiPaneInfo & pane_info, const wxPoint & drop_pos)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 42930508\narg 3 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
@@ -470,8 +460,7 @@ public:
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiManager::AddPane(wxWindow *, const wxAuiPaneInfo &, const wxPoint &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiManager::AddPane(wxWindow *, const wxAuiPaneInfo &, const wxPoint &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AddPane(window, pane_info, drop_pos);
 		lua_pushboolean(L,lret?1:0);
@@ -492,16 +481,14 @@ public:
 	// bool wxAuiManager::DetachPane(wxWindow * window)
 	static int _bind_DetachPane(lua_State *L) {
 		if (!_lg_typecheck_DetachPane(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiManager::DetachPane(wxWindow * window) function, expected prototype:\nbool wxAuiManager::DetachPane(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiManager::DetachPane(wxWindow * window) function, expected prototype:\nbool wxAuiManager::DetachPane(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiManager::DetachPane(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiManager::DetachPane(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DetachPane(window);
 		lua_pushboolean(L,lret?1:0);
@@ -512,15 +499,13 @@ public:
 	// wxAuiPaneInfoArray & wxAuiManager::GetAllPanes()
 	static int _bind_GetAllPanes(lua_State *L) {
 		if (!_lg_typecheck_GetAllPanes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAuiPaneInfoArray & wxAuiManager::GetAllPanes() function, expected prototype:\nwxAuiPaneInfoArray & wxAuiManager::GetAllPanes()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxAuiPaneInfoArray & wxAuiManager::GetAllPanes() function, expected prototype:\nwxAuiPaneInfoArray & wxAuiManager::GetAllPanes()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfoArray & wxAuiManager::GetAllPanes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfoArray & wxAuiManager::GetAllPanes(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxAuiPaneInfoArray* lret = &self->GetAllPanes();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -533,15 +518,13 @@ public:
 	// wxAuiDockArt * wxAuiManager::GetArtProvider() const
 	static int _bind_GetArtProvider(lua_State *L) {
 		if (!_lg_typecheck_GetArtProvider(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAuiDockArt * wxAuiManager::GetArtProvider() const function, expected prototype:\nwxAuiDockArt * wxAuiManager::GetArtProvider() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxAuiDockArt * wxAuiManager::GetArtProvider() const function, expected prototype:\nwxAuiDockArt * wxAuiManager::GetArtProvider() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiDockArt * wxAuiManager::GetArtProvider() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxAuiDockArt * wxAuiManager::GetArtProvider() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxAuiDockArt * lret = self->GetArtProvider();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -554,8 +537,7 @@ public:
 	// void wxAuiManager::GetDockSizeConstraint(double * widthpct, double * heightpct) const
 	static int _bind_GetDockSizeConstraint(lua_State *L) {
 		if (!_lg_typecheck_GetDockSizeConstraint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiManager::GetDockSizeConstraint(double * widthpct, double * heightpct) const function, expected prototype:\nvoid wxAuiManager::GetDockSizeConstraint(double * widthpct, double * heightpct) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiManager::GetDockSizeConstraint(double * widthpct, double * heightpct) const function, expected prototype:\nvoid wxAuiManager::GetDockSizeConstraint(double * widthpct, double * heightpct) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double* widthpct=(double*)Luna< void >::check(L,2);
@@ -563,8 +545,7 @@ public:
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManager::GetDockSizeConstraint(double *, double *) const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiManager::GetDockSizeConstraint(double *, double *) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetDockSizeConstraint(widthpct, heightpct);
 
@@ -574,15 +555,13 @@ public:
 	// unsigned int wxAuiManager::GetFlags() const
 	static int _bind_GetFlags(lua_State *L) {
 		if (!_lg_typecheck_GetFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int wxAuiManager::GetFlags() const function, expected prototype:\nunsigned int wxAuiManager::GetFlags() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int wxAuiManager::GetFlags() const function, expected prototype:\nunsigned int wxAuiManager::GetFlags() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int wxAuiManager::GetFlags() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int wxAuiManager::GetFlags() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->GetFlags();
 		lua_pushnumber(L,lret);
@@ -593,15 +572,13 @@ public:
 	// wxWindow * wxAuiManager::GetManagedWindow() const
 	static int _bind_GetManagedWindow(lua_State *L) {
 		if (!_lg_typecheck_GetManagedWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxWindow * wxAuiManager::GetManagedWindow() const function, expected prototype:\nwxWindow * wxAuiManager::GetManagedWindow() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxWindow * wxAuiManager::GetManagedWindow() const function, expected prototype:\nwxWindow * wxAuiManager::GetManagedWindow() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxAuiManager::GetManagedWindow() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxWindow * wxAuiManager::GetManagedWindow() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxWindow * lret = self->GetManagedWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -614,16 +591,14 @@ public:
 	// wxAuiPaneInfo & wxAuiManager::GetPane(wxWindow * window)
 	static int _bind_GetPane_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetPane_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAuiPaneInfo & wxAuiManager::GetPane(wxWindow * window) function, expected prototype:\nwxAuiPaneInfo & wxAuiManager::GetPane(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxAuiPaneInfo & wxAuiManager::GetPane(wxWindow * window) function, expected prototype:\nwxAuiPaneInfo & wxAuiManager::GetPane(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiManager::GetPane(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiManager::GetPane(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxAuiPaneInfo* lret = &self->GetPane(window);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -636,16 +611,14 @@ public:
 	// wxAuiPaneInfo & wxAuiManager::GetPane(const wxString & name)
 	static int _bind_GetPane_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetPane_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxAuiPaneInfo & wxAuiManager::GetPane(const wxString & name) function, expected prototype:\nwxAuiPaneInfo & wxAuiManager::GetPane(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxAuiPaneInfo & wxAuiManager::GetPane(const wxString & name) function, expected prototype:\nwxAuiPaneInfo & wxAuiManager::GetPane(const wxString & name)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiManager::GetPane(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxAuiPaneInfo & wxAuiManager::GetPane(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxAuiPaneInfo* lret = &self->GetPane(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -667,15 +640,13 @@ public:
 	// void wxAuiManager::HideHint()
 	static int _bind_HideHint(lua_State *L) {
 		if (!_lg_typecheck_HideHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiManager::HideHint() function, expected prototype:\nvoid wxAuiManager::HideHint()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiManager::HideHint() function, expected prototype:\nvoid wxAuiManager::HideHint()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManager::HideHint(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiManager::HideHint(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->HideHint();
 
@@ -685,8 +656,7 @@ public:
 	// bool wxAuiManager::InsertPane(wxWindow * window, const wxAuiPaneInfo & insert_location, int insert_level = ::wxAUI_INSERT_PANE)
 	static int _bind_InsertPane(lua_State *L) {
 		if (!_lg_typecheck_InsertPane(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiManager::InsertPane(wxWindow * window, const wxAuiPaneInfo & insert_location, int insert_level = ::wxAUI_INSERT_PANE) function, expected prototype:\nbool wxAuiManager::InsertPane(wxWindow * window, const wxAuiPaneInfo & insert_location, int insert_level = ::wxAUI_INSERT_PANE)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 42930508\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiManager::InsertPane(wxWindow * window, const wxAuiPaneInfo & insert_location, int insert_level = ::wxAUI_INSERT_PANE) function, expected prototype:\nbool wxAuiManager::InsertPane(wxWindow * window, const wxAuiPaneInfo & insert_location, int insert_level = ::wxAUI_INSERT_PANE)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 42930508\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -701,8 +671,7 @@ public:
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiManager::InsertPane(wxWindow *, const wxAuiPaneInfo &, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiManager::InsertPane(wxWindow *, const wxAuiPaneInfo &, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->InsertPane(window, insert_location, insert_level);
 		lua_pushboolean(L,lret?1:0);
@@ -713,8 +682,7 @@ public:
 	// void wxAuiManager::LoadPaneInfo(wxString pane_part, wxAuiPaneInfo & pane)
 	static int _bind_LoadPaneInfo(lua_State *L) {
 		if (!_lg_typecheck_LoadPaneInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiManager::LoadPaneInfo(wxString pane_part, wxAuiPaneInfo & pane) function, expected prototype:\nvoid wxAuiManager::LoadPaneInfo(wxString pane_part, wxAuiPaneInfo & pane)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 42930508\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiManager::LoadPaneInfo(wxString pane_part, wxAuiPaneInfo & pane) function, expected prototype:\nvoid wxAuiManager::LoadPaneInfo(wxString pane_part, wxAuiPaneInfo & pane)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 42930508\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString pane_part(lua_tostring(L,2),lua_objlen(L,2));
@@ -726,8 +694,7 @@ public:
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManager::LoadPaneInfo(wxString, wxAuiPaneInfo &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiManager::LoadPaneInfo(wxString, wxAuiPaneInfo &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LoadPaneInfo(pane_part, pane);
 
@@ -737,8 +704,7 @@ public:
 	// bool wxAuiManager::LoadPerspective(const wxString & perspective, bool update = true)
 	static int _bind_LoadPerspective(lua_State *L) {
 		if (!_lg_typecheck_LoadPerspective(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiManager::LoadPerspective(const wxString & perspective, bool update = true) function, expected prototype:\nbool wxAuiManager::LoadPerspective(const wxString & perspective, bool update = true)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiManager::LoadPerspective(const wxString & perspective, bool update = true) function, expected prototype:\nbool wxAuiManager::LoadPerspective(const wxString & perspective, bool update = true)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -748,8 +714,7 @@ public:
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiManager::LoadPerspective(const wxString &, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiManager::LoadPerspective(const wxString &, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->LoadPerspective(perspective, update);
 		lua_pushboolean(L,lret?1:0);
@@ -760,8 +725,7 @@ public:
 	// wxString wxAuiManager::SavePaneInfo(wxAuiPaneInfo & pane)
 	static int _bind_SavePaneInfo(lua_State *L) {
 		if (!_lg_typecheck_SavePaneInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxAuiManager::SavePaneInfo(wxAuiPaneInfo & pane) function, expected prototype:\nwxString wxAuiManager::SavePaneInfo(wxAuiPaneInfo & pane)\nClass arguments details:\narg 1 ID = 42930508\n");
+			luaL_error(L, "luna typecheck failed in wxString wxAuiManager::SavePaneInfo(wxAuiPaneInfo & pane) function, expected prototype:\nwxString wxAuiManager::SavePaneInfo(wxAuiPaneInfo & pane)\nClass arguments details:\narg 1 ID = 42930508\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxAuiPaneInfo* pane_ptr=(Luna< wxAuiPaneInfo >::check(L,2));
@@ -772,8 +736,7 @@ public:
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAuiManager::SavePaneInfo(wxAuiPaneInfo &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxAuiManager::SavePaneInfo(wxAuiPaneInfo &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->SavePaneInfo(pane);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -784,15 +747,13 @@ public:
 	// wxString wxAuiManager::SavePerspective()
 	static int _bind_SavePerspective(lua_State *L) {
 		if (!_lg_typecheck_SavePerspective(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxAuiManager::SavePerspective() function, expected prototype:\nwxString wxAuiManager::SavePerspective()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxAuiManager::SavePerspective() function, expected prototype:\nwxString wxAuiManager::SavePerspective()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxAuiManager::SavePerspective(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxAuiManager::SavePerspective(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->SavePerspective();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -803,16 +764,14 @@ public:
 	// void wxAuiManager::SetArtProvider(wxAuiDockArt * art_provider)
 	static int _bind_SetArtProvider(lua_State *L) {
 		if (!_lg_typecheck_SetArtProvider(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiManager::SetArtProvider(wxAuiDockArt * art_provider) function, expected prototype:\nvoid wxAuiManager::SetArtProvider(wxAuiDockArt * art_provider)\nClass arguments details:\narg 1 ID = 55065598\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiManager::SetArtProvider(wxAuiDockArt * art_provider) function, expected prototype:\nvoid wxAuiManager::SetArtProvider(wxAuiDockArt * art_provider)\nClass arguments details:\narg 1 ID = 55065598\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxAuiDockArt* art_provider=(Luna< wxAuiDockArt >::check(L,2));
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManager::SetArtProvider(wxAuiDockArt *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiManager::SetArtProvider(wxAuiDockArt *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetArtProvider(art_provider);
 
@@ -822,8 +781,7 @@ public:
 	// void wxAuiManager::SetDockSizeConstraint(double widthpct, double heightpct)
 	static int _bind_SetDockSizeConstraint(lua_State *L) {
 		if (!_lg_typecheck_SetDockSizeConstraint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiManager::SetDockSizeConstraint(double widthpct, double heightpct) function, expected prototype:\nvoid wxAuiManager::SetDockSizeConstraint(double widthpct, double heightpct)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiManager::SetDockSizeConstraint(double widthpct, double heightpct) function, expected prototype:\nvoid wxAuiManager::SetDockSizeConstraint(double widthpct, double heightpct)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double widthpct=(double)lua_tonumber(L,2);
@@ -831,8 +789,7 @@ public:
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManager::SetDockSizeConstraint(double, double). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiManager::SetDockSizeConstraint(double, double). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetDockSizeConstraint(widthpct, heightpct);
 
@@ -842,16 +799,14 @@ public:
 	// void wxAuiManager::SetFlags(unsigned int flags)
 	static int _bind_SetFlags(lua_State *L) {
 		if (!_lg_typecheck_SetFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiManager::SetFlags(unsigned int flags) function, expected prototype:\nvoid wxAuiManager::SetFlags(unsigned int flags)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiManager::SetFlags(unsigned int flags) function, expected prototype:\nvoid wxAuiManager::SetFlags(unsigned int flags)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int flags=(unsigned int)lua_tointeger(L,2);
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManager::SetFlags(unsigned int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiManager::SetFlags(unsigned int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFlags(flags);
 
@@ -861,16 +816,14 @@ public:
 	// void wxAuiManager::SetManagedWindow(wxWindow * managed_wnd)
 	static int _bind_SetManagedWindow(lua_State *L) {
 		if (!_lg_typecheck_SetManagedWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiManager::SetManagedWindow(wxWindow * managed_wnd) function, expected prototype:\nvoid wxAuiManager::SetManagedWindow(wxWindow * managed_wnd)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiManager::SetManagedWindow(wxWindow * managed_wnd) function, expected prototype:\nvoid wxAuiManager::SetManagedWindow(wxWindow * managed_wnd)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* managed_wnd=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManager::SetManagedWindow(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiManager::SetManagedWindow(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetManagedWindow(managed_wnd);
 
@@ -880,8 +833,7 @@ public:
 	// void wxAuiManager::ShowHint(const wxRect & rect)
 	static int _bind_ShowHint(lua_State *L) {
 		if (!_lg_typecheck_ShowHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiManager::ShowHint(const wxRect & rect) function, expected prototype:\nvoid wxAuiManager::ShowHint(const wxRect & rect)\nClass arguments details:\narg 1 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiManager::ShowHint(const wxRect & rect) function, expected prototype:\nvoid wxAuiManager::ShowHint(const wxRect & rect)\nClass arguments details:\narg 1 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,2));
@@ -892,8 +844,7 @@ public:
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManager::ShowHint(const wxRect &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiManager::ShowHint(const wxRect &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ShowHint(rect);
 
@@ -903,15 +854,13 @@ public:
 	// void wxAuiManager::UnInit()
 	static int _bind_UnInit(lua_State *L) {
 		if (!_lg_typecheck_UnInit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiManager::UnInit() function, expected prototype:\nvoid wxAuiManager::UnInit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiManager::UnInit() function, expected prototype:\nvoid wxAuiManager::UnInit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManager::UnInit(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiManager::UnInit(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->UnInit();
 
@@ -921,15 +870,13 @@ public:
 	// void wxAuiManager::Update()
 	static int _bind_Update(lua_State *L) {
 		if (!_lg_typecheck_Update(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiManager::Update() function, expected prototype:\nvoid wxAuiManager::Update()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiManager::Update() function, expected prototype:\nvoid wxAuiManager::Update()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManager::Update(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiManager::Update(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Update();
 
@@ -939,8 +886,7 @@ public:
 	// static wxAuiManager * wxAuiManager::GetManager(wxWindow * window)
 	static int _bind_GetManager(lua_State *L) {
 		if (!_lg_typecheck_GetManager(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxAuiManager * wxAuiManager::GetManager(wxWindow * window) function, expected prototype:\nstatic wxAuiManager * wxAuiManager::GetManager(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in static wxAuiManager * wxAuiManager::GetManager(wxWindow * window) function, expected prototype:\nstatic wxAuiManager * wxAuiManager::GetManager(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
@@ -956,15 +902,13 @@ public:
 	// wxClassInfo * wxAuiManager::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxAuiManager::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxAuiManager::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxAuiManager::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxAuiManager::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxAuiManager::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxAuiManager::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxAuiManager::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -977,16 +921,14 @@ public:
 	// void wxAuiManager::base_QueueEvent(wxEvent * event)
 	static int _bind_base_QueueEvent(lua_State *L) {
 		if (!_lg_typecheck_base_QueueEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiManager::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxAuiManager::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiManager::base_QueueEvent(wxEvent * event) function, expected prototype:\nvoid wxAuiManager::base_QueueEvent(wxEvent * event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvent* event=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManager::base_QueueEvent(wxEvent *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiManager::base_QueueEvent(wxEvent *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiManager::QueueEvent(event);
 
@@ -996,8 +938,7 @@ public:
 	// void wxAuiManager::base_AddPendingEvent(const wxEvent & event)
 	static int _bind_base_AddPendingEvent(lua_State *L) {
 		if (!_lg_typecheck_base_AddPendingEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiManager::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxAuiManager::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiManager::base_AddPendingEvent(const wxEvent & event) function, expected prototype:\nvoid wxAuiManager::base_AddPendingEvent(const wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
@@ -1008,8 +949,7 @@ public:
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManager::base_AddPendingEvent(const wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiManager::base_AddPendingEvent(const wxEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiManager::AddPendingEvent(event);
 
@@ -1019,8 +959,7 @@ public:
 	// bool wxAuiManager::base_ProcessEvent(wxEvent & event)
 	static int _bind_base_ProcessEvent(lua_State *L) {
 		if (!_lg_typecheck_base_ProcessEvent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxAuiManager::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxAuiManager::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxAuiManager::base_ProcessEvent(wxEvent & event) function, expected prototype:\nbool wxAuiManager::base_ProcessEvent(wxEvent & event)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvent* event_ptr=(Luna< wxObject >::checkSubType< wxEvent >(L,2));
@@ -1031,8 +970,7 @@ public:
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxAuiManager::base_ProcessEvent(wxEvent &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxAuiManager::base_ProcessEvent(wxEvent &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxAuiManager::ProcessEvent(event);
 		lua_pushboolean(L,lret?1:0);
@@ -1043,16 +981,14 @@ public:
 	// void wxAuiManager::base_SetNextHandler(wxEvtHandler * handler)
 	static int _bind_base_SetNextHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetNextHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiManager::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxAuiManager::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiManager::base_SetNextHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxAuiManager::base_SetNextHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManager::base_SetNextHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiManager::base_SetNextHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiManager::SetNextHandler(handler);
 
@@ -1062,16 +998,14 @@ public:
 	// void wxAuiManager::base_SetPreviousHandler(wxEvtHandler * handler)
 	static int _bind_base_SetPreviousHandler(lua_State *L) {
 		if (!_lg_typecheck_base_SetPreviousHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiManager::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxAuiManager::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiManager::base_SetPreviousHandler(wxEvtHandler * handler) function, expected prototype:\nvoid wxAuiManager::base_SetPreviousHandler(wxEvtHandler * handler)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxEvtHandler* handler=(Luna< wxObject >::checkSubType< wxEvtHandler >(L,2));
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManager::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiManager::base_SetPreviousHandler(wxEvtHandler *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiManager::SetPreviousHandler(handler);
 
@@ -1081,15 +1015,13 @@ public:
 	// void wxAuiManager::base_HideHint()
 	static int _bind_base_HideHint(lua_State *L) {
 		if (!_lg_typecheck_base_HideHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiManager::base_HideHint() function, expected prototype:\nvoid wxAuiManager::base_HideHint()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiManager::base_HideHint() function, expected prototype:\nvoid wxAuiManager::base_HideHint()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManager::base_HideHint(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiManager::base_HideHint(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiManager::HideHint();
 
@@ -1099,8 +1031,7 @@ public:
 	// void wxAuiManager::base_ShowHint(const wxRect & rect)
 	static int _bind_base_ShowHint(lua_State *L) {
 		if (!_lg_typecheck_base_ShowHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxAuiManager::base_ShowHint(const wxRect & rect) function, expected prototype:\nvoid wxAuiManager::base_ShowHint(const wxRect & rect)\nClass arguments details:\narg 1 ID = 20234418\n");
+			luaL_error(L, "luna typecheck failed in void wxAuiManager::base_ShowHint(const wxRect & rect) function, expected prototype:\nvoid wxAuiManager::base_ShowHint(const wxRect & rect)\nClass arguments details:\narg 1 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxRect* rect_ptr=(Luna< wxRect >::check(L,2));
@@ -1111,8 +1042,7 @@ public:
 
 		wxAuiManager* self=Luna< wxObject >::checkSubType< wxAuiManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxAuiManager::base_ShowHint(const wxRect &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxAuiManager::base_ShowHint(const wxRect &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxAuiManager::ShowHint(rect);
 

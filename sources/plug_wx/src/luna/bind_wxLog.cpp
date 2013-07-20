@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLog* self=(Luna< wxLog >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxLog*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxLog*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLog* rhs =(Luna< wxLog >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLog* self= (wxLog*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxLog >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -214,7 +209,7 @@ public:
 	inline static bool _lg_typecheck_IsLevelEnabled(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( lua_isnumber(L,1)==0 ) return false;
 		if( lua_isstring(L,2)==0 ) return false;
 		return true;
 	}
@@ -223,14 +218,14 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_isstring(L,1)==0 ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetLogLevel(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( lua_isnumber(L,1)==0 ) return false;
 		return true;
 	}
 
@@ -304,7 +299,7 @@ public:
 	inline static bool _lg_typecheck_LogRecord(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		if( lua_isstring(L,3)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,82105951) ) return false;
 		return true;
@@ -326,8 +321,7 @@ public:
 	// static void wxLog::AddTraceMask(const wxString & mask)
 	static int _bind_AddTraceMask(lua_State *L) {
 		if (!_lg_typecheck_AddTraceMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxLog::AddTraceMask(const wxString & mask) function, expected prototype:\nstatic void wxLog::AddTraceMask(const wxString & mask)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static void wxLog::AddTraceMask(const wxString & mask) function, expected prototype:\nstatic void wxLog::AddTraceMask(const wxString & mask)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString mask(lua_tostring(L,1),lua_objlen(L,1));
@@ -340,8 +334,7 @@ public:
 	// static void wxLog::ClearTraceMasks()
 	static int _bind_ClearTraceMasks(lua_State *L) {
 		if (!_lg_typecheck_ClearTraceMasks(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxLog::ClearTraceMasks() function, expected prototype:\nstatic void wxLog::ClearTraceMasks()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxLog::ClearTraceMasks() function, expected prototype:\nstatic void wxLog::ClearTraceMasks()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -353,8 +346,7 @@ public:
 	// static const wxArrayString & wxLog::GetTraceMasks()
 	static int _bind_GetTraceMasks(lua_State *L) {
 		if (!_lg_typecheck_GetTraceMasks(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static const wxArrayString & wxLog::GetTraceMasks() function, expected prototype:\nstatic const wxArrayString & wxLog::GetTraceMasks()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static const wxArrayString & wxLog::GetTraceMasks() function, expected prototype:\nstatic const wxArrayString & wxLog::GetTraceMasks()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -369,8 +361,7 @@ public:
 	// static bool wxLog::IsAllowedTraceMask(const wxString & mask)
 	static int _bind_IsAllowedTraceMask(lua_State *L) {
 		if (!_lg_typecheck_IsAllowedTraceMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxLog::IsAllowedTraceMask(const wxString & mask) function, expected prototype:\nstatic bool wxLog::IsAllowedTraceMask(const wxString & mask)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static bool wxLog::IsAllowedTraceMask(const wxString & mask) function, expected prototype:\nstatic bool wxLog::IsAllowedTraceMask(const wxString & mask)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString mask(lua_tostring(L,1),lua_objlen(L,1));
@@ -384,8 +375,7 @@ public:
 	// static void wxLog::RemoveTraceMask(const wxString & mask)
 	static int _bind_RemoveTraceMask(lua_State *L) {
 		if (!_lg_typecheck_RemoveTraceMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxLog::RemoveTraceMask(const wxString & mask) function, expected prototype:\nstatic void wxLog::RemoveTraceMask(const wxString & mask)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static void wxLog::RemoveTraceMask(const wxString & mask) function, expected prototype:\nstatic void wxLog::RemoveTraceMask(const wxString & mask)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString mask(lua_tostring(L,1),lua_objlen(L,1));
@@ -398,8 +388,7 @@ public:
 	// static void wxLog::DontCreateOnDemand()
 	static int _bind_DontCreateOnDemand(lua_State *L) {
 		if (!_lg_typecheck_DontCreateOnDemand(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxLog::DontCreateOnDemand() function, expected prototype:\nstatic void wxLog::DontCreateOnDemand()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxLog::DontCreateOnDemand() function, expected prototype:\nstatic void wxLog::DontCreateOnDemand()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -411,8 +400,7 @@ public:
 	// static wxLog * wxLog::GetActiveTarget()
 	static int _bind_GetActiveTarget(lua_State *L) {
 		if (!_lg_typecheck_GetActiveTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxLog * wxLog::GetActiveTarget() function, expected prototype:\nstatic wxLog * wxLog::GetActiveTarget()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxLog * wxLog::GetActiveTarget() function, expected prototype:\nstatic wxLog * wxLog::GetActiveTarget()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -427,8 +415,7 @@ public:
 	// static wxLog * wxLog::SetActiveTarget(wxLog * logtarget)
 	static int _bind_SetActiveTarget(lua_State *L) {
 		if (!_lg_typecheck_SetActiveTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxLog * wxLog::SetActiveTarget(wxLog * logtarget) function, expected prototype:\nstatic wxLog * wxLog::SetActiveTarget(wxLog * logtarget)\nClass arguments details:\narg 1 ID = 13550494\n");
+			luaL_error(L, "luna typecheck failed in static wxLog * wxLog::SetActiveTarget(wxLog * logtarget) function, expected prototype:\nstatic wxLog * wxLog::SetActiveTarget(wxLog * logtarget)\nClass arguments details:\narg 1 ID = 13550494\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLog* logtarget=(Luna< wxLog >::check(L,1));
@@ -444,8 +431,7 @@ public:
 	// static wxLog * wxLog::SetThreadActiveTarget(wxLog * logger)
 	static int _bind_SetThreadActiveTarget(lua_State *L) {
 		if (!_lg_typecheck_SetThreadActiveTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxLog * wxLog::SetThreadActiveTarget(wxLog * logger) function, expected prototype:\nstatic wxLog * wxLog::SetThreadActiveTarget(wxLog * logger)\nClass arguments details:\narg 1 ID = 13550494\n");
+			luaL_error(L, "luna typecheck failed in static wxLog * wxLog::SetThreadActiveTarget(wxLog * logger) function, expected prototype:\nstatic wxLog * wxLog::SetThreadActiveTarget(wxLog * logger)\nClass arguments details:\narg 1 ID = 13550494\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLog* logger=(Luna< wxLog >::check(L,1));
@@ -461,8 +447,7 @@ public:
 	// static void wxLog::FlushActive()
 	static int _bind_FlushActive(lua_State *L) {
 		if (!_lg_typecheck_FlushActive(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxLog::FlushActive() function, expected prototype:\nstatic void wxLog::FlushActive()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxLog::FlushActive() function, expected prototype:\nstatic void wxLog::FlushActive()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -474,8 +459,7 @@ public:
 	// static void wxLog::Resume()
 	static int _bind_Resume(lua_State *L) {
 		if (!_lg_typecheck_Resume(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxLog::Resume() function, expected prototype:\nstatic void wxLog::Resume()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxLog::Resume() function, expected prototype:\nstatic void wxLog::Resume()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -487,8 +471,7 @@ public:
 	// static void wxLog::Suspend()
 	static int _bind_Suspend(lua_State *L) {
 		if (!_lg_typecheck_Suspend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxLog::Suspend() function, expected prototype:\nstatic void wxLog::Suspend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxLog::Suspend() function, expected prototype:\nstatic void wxLog::Suspend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -500,8 +483,7 @@ public:
 	// static unsigned long wxLog::GetLogLevel()
 	static int _bind_GetLogLevel(lua_State *L) {
 		if (!_lg_typecheck_GetLogLevel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static unsigned long wxLog::GetLogLevel() function, expected prototype:\nstatic unsigned long wxLog::GetLogLevel()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static unsigned long wxLog::GetLogLevel() function, expected prototype:\nstatic unsigned long wxLog::GetLogLevel()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -514,11 +496,10 @@ public:
 	// static bool wxLog::IsLevelEnabled(unsigned long level, wxString component)
 	static int _bind_IsLevelEnabled(lua_State *L) {
 		if (!_lg_typecheck_IsLevelEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxLog::IsLevelEnabled(unsigned long level, wxString component) function, expected prototype:\nstatic bool wxLog::IsLevelEnabled(unsigned long level, wxString component)\nClass arguments details:\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static bool wxLog::IsLevelEnabled(unsigned long level, wxString component) function, expected prototype:\nstatic bool wxLog::IsLevelEnabled(unsigned long level, wxString component)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long level=(unsigned long)lua_tointeger(L,1);
+		unsigned long level=(unsigned long)lua_tonumber(L,1);
 		wxString component(lua_tostring(L,2),lua_objlen(L,2));
 
 		bool lret = wxLog::IsLevelEnabled(level, component);
@@ -530,12 +511,11 @@ public:
 	// static void wxLog::SetComponentLevel(const wxString & component, unsigned long level)
 	static int _bind_SetComponentLevel(lua_State *L) {
 		if (!_lg_typecheck_SetComponentLevel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxLog::SetComponentLevel(const wxString & component, unsigned long level) function, expected prototype:\nstatic void wxLog::SetComponentLevel(const wxString & component, unsigned long level)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static void wxLog::SetComponentLevel(const wxString & component, unsigned long level) function, expected prototype:\nstatic void wxLog::SetComponentLevel(const wxString & component, unsigned long level)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString component(lua_tostring(L,1),lua_objlen(L,1));
-		unsigned long level=(unsigned long)lua_tointeger(L,2);
+		unsigned long level=(unsigned long)lua_tonumber(L,2);
 
 		wxLog::SetComponentLevel(component, level);
 
@@ -545,11 +525,10 @@ public:
 	// static void wxLog::SetLogLevel(unsigned long logLevel)
 	static int _bind_SetLogLevel(lua_State *L) {
 		if (!_lg_typecheck_SetLogLevel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxLog::SetLogLevel(unsigned long logLevel) function, expected prototype:\nstatic void wxLog::SetLogLevel(unsigned long logLevel)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxLog::SetLogLevel(unsigned long logLevel) function, expected prototype:\nstatic void wxLog::SetLogLevel(unsigned long logLevel)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long logLevel=(unsigned long)lua_tointeger(L,1);
+		unsigned long logLevel=(unsigned long)lua_tonumber(L,1);
 
 		wxLog::SetLogLevel(logLevel);
 
@@ -559,8 +538,7 @@ public:
 	// static bool wxLog::EnableLogging(bool enable = true)
 	static int _bind_EnableLogging(lua_State *L) {
 		if (!_lg_typecheck_EnableLogging(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxLog::EnableLogging(bool enable = true) function, expected prototype:\nstatic bool wxLog::EnableLogging(bool enable = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool wxLog::EnableLogging(bool enable = true) function, expected prototype:\nstatic bool wxLog::EnableLogging(bool enable = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -576,8 +554,7 @@ public:
 	// static bool wxLog::IsEnabled()
 	static int _bind_IsEnabled(lua_State *L) {
 		if (!_lg_typecheck_IsEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxLog::IsEnabled() function, expected prototype:\nstatic bool wxLog::IsEnabled()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool wxLog::IsEnabled() function, expected prototype:\nstatic bool wxLog::IsEnabled()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -590,8 +567,7 @@ public:
 	// static bool wxLog::GetRepetitionCounting()
 	static int _bind_GetRepetitionCounting(lua_State *L) {
 		if (!_lg_typecheck_GetRepetitionCounting(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxLog::GetRepetitionCounting() function, expected prototype:\nstatic bool wxLog::GetRepetitionCounting()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool wxLog::GetRepetitionCounting() function, expected prototype:\nstatic bool wxLog::GetRepetitionCounting()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -604,8 +580,7 @@ public:
 	// static void wxLog::SetRepetitionCounting(bool repetCounting = true)
 	static int _bind_SetRepetitionCounting(lua_State *L) {
 		if (!_lg_typecheck_SetRepetitionCounting(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxLog::SetRepetitionCounting(bool repetCounting = true) function, expected prototype:\nstatic void wxLog::SetRepetitionCounting(bool repetCounting = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxLog::SetRepetitionCounting(bool repetCounting = true) function, expected prototype:\nstatic void wxLog::SetRepetitionCounting(bool repetCounting = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -620,8 +595,7 @@ public:
 	// static const wxString & wxLog::GetTimestamp()
 	static int _bind_GetTimestamp(lua_State *L) {
 		if (!_lg_typecheck_GetTimestamp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static const wxString & wxLog::GetTimestamp() function, expected prototype:\nstatic const wxString & wxLog::GetTimestamp()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static const wxString & wxLog::GetTimestamp() function, expected prototype:\nstatic const wxString & wxLog::GetTimestamp()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -634,8 +608,7 @@ public:
 	// static void wxLog::SetTimestamp(const wxString & format)
 	static int _bind_SetTimestamp(lua_State *L) {
 		if (!_lg_typecheck_SetTimestamp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxLog::SetTimestamp(const wxString & format) function, expected prototype:\nstatic void wxLog::SetTimestamp(const wxString & format)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static void wxLog::SetTimestamp(const wxString & format) function, expected prototype:\nstatic void wxLog::SetTimestamp(const wxString & format)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString format(lua_tostring(L,1),lua_objlen(L,1));
@@ -648,8 +621,7 @@ public:
 	// static void wxLog::DisableTimestamp()
 	static int _bind_DisableTimestamp(lua_State *L) {
 		if (!_lg_typecheck_DisableTimestamp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxLog::DisableTimestamp() function, expected prototype:\nstatic void wxLog::DisableTimestamp()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxLog::DisableTimestamp() function, expected prototype:\nstatic void wxLog::DisableTimestamp()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -661,8 +633,7 @@ public:
 	// static bool wxLog::GetVerbose()
 	static int _bind_GetVerbose(lua_State *L) {
 		if (!_lg_typecheck_GetVerbose(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool wxLog::GetVerbose() function, expected prototype:\nstatic bool wxLog::GetVerbose()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool wxLog::GetVerbose() function, expected prototype:\nstatic bool wxLog::GetVerbose()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -675,8 +646,7 @@ public:
 	// static void wxLog::SetVerbose(bool verbose = true)
 	static int _bind_SetVerbose(lua_State *L) {
 		if (!_lg_typecheck_SetVerbose(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxLog::SetVerbose(bool verbose = true) function, expected prototype:\nstatic void wxLog::SetVerbose(bool verbose = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxLog::SetVerbose(bool verbose = true) function, expected prototype:\nstatic void wxLog::SetVerbose(bool verbose = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -691,15 +661,13 @@ public:
 	// void wxLog::Flush()
 	static int _bind_Flush(lua_State *L) {
 		if (!_lg_typecheck_Flush(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLog::Flush() function, expected prototype:\nvoid wxLog::Flush()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxLog::Flush() function, expected prototype:\nvoid wxLog::Flush()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLog* self=(Luna< wxLog >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLog::Flush(). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLog::Flush(). Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Flush();
 
@@ -709,11 +677,10 @@ public:
 	// void wxLog::LogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info)
 	static int _bind_LogRecord(lua_State *L) {
 		if (!_lg_typecheck_LogRecord(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLog::LogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info) function, expected prototype:\nvoid wxLog::LogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 82105951\n");
+			luaL_error(L, "luna typecheck failed in void wxLog::LogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info) function, expected prototype:\nvoid wxLog::LogRecord(unsigned long level, const wxString & msg, const wxLogRecordInfo & info)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 82105951\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long level=(unsigned long)lua_tointeger(L,2);
+		unsigned long level=(unsigned long)lua_tonumber(L,2);
 		wxString msg(lua_tostring(L,3),lua_objlen(L,3));
 		const wxLogRecordInfo* info_ptr=(Luna< wxLogRecordInfo >::check(L,4));
 		if( !info_ptr ) {
@@ -723,8 +690,7 @@ public:
 
 		wxLog* self=(Luna< wxLog >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLog::LogRecord(unsigned long, const wxString &, const wxLogRecordInfo &). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLog::LogRecord(unsigned long, const wxString &, const wxLogRecordInfo &). Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LogRecord(level, msg, info);
 
@@ -734,15 +700,13 @@ public:
 	// void wxLog::base_Flush()
 	static int _bind_base_Flush(lua_State *L) {
 		if (!_lg_typecheck_base_Flush(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLog::base_Flush() function, expected prototype:\nvoid wxLog::base_Flush()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxLog::base_Flush() function, expected prototype:\nvoid wxLog::base_Flush()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLog* self=(Luna< wxLog >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLog::base_Flush(). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLog::base_Flush(). Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxLog::Flush();
 

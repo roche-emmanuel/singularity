@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxPropertyGridInterface*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxPropertyGridInterface*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPropertyGridInterface* rhs =(Luna< wxPropertyGridInterface >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPropertyGridInterface* self= (wxPropertyGridInterface*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxPropertyGridInterface >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -309,16 +304,14 @@ public:
 	// wxPGProperty * wxPropertyGridInterface::Append(wxPGProperty * property)
 	static int _bind_Append(lua_State *L) {
 		if (!_lg_typecheck_Append(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::Append(wxPGProperty * property) function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::Append(wxPGProperty * property)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::Append(wxPGProperty * property) function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::Append(wxPGProperty * property)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::Append(wxPGProperty *). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::Append(wxPGProperty *). Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPGProperty * lret = self->Append(property);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -331,15 +324,13 @@ public:
 	// void wxPropertyGridInterface::Clear()
 	static int _bind_Clear(lua_State *L) {
 		if (!_lg_typecheck_Clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPropertyGridInterface::Clear() function, expected prototype:\nvoid wxPropertyGridInterface::Clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPropertyGridInterface::Clear() function, expected prototype:\nvoid wxPropertyGridInterface::Clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridInterface::Clear(). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPropertyGridInterface::Clear(). Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Clear();
 
@@ -349,8 +340,7 @@ public:
 	// bool wxPropertyGridInterface::ClearSelection(bool validation = false)
 	static int _bind_ClearSelection(lua_State *L) {
 		if (!_lg_typecheck_ClearSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPropertyGridInterface::ClearSelection(bool validation = false) function, expected prototype:\nbool wxPropertyGridInterface::ClearSelection(bool validation = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPropertyGridInterface::ClearSelection(bool validation = false) function, expected prototype:\nbool wxPropertyGridInterface::ClearSelection(bool validation = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -359,8 +349,7 @@ public:
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::ClearSelection(bool). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::ClearSelection(bool). Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ClearSelection(validation);
 		lua_pushboolean(L,lret?1:0);
@@ -371,15 +360,13 @@ public:
 	// void wxPropertyGridInterface::ClearModifiedStatus()
 	static int _bind_ClearModifiedStatus(lua_State *L) {
 		if (!_lg_typecheck_ClearModifiedStatus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPropertyGridInterface::ClearModifiedStatus() function, expected prototype:\nvoid wxPropertyGridInterface::ClearModifiedStatus()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPropertyGridInterface::ClearModifiedStatus() function, expected prototype:\nvoid wxPropertyGridInterface::ClearModifiedStatus()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridInterface::ClearModifiedStatus(). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPropertyGridInterface::ClearModifiedStatus(). Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClearModifiedStatus();
 
@@ -389,15 +376,13 @@ public:
 	// bool wxPropertyGridInterface::CollapseAll()
 	static int _bind_CollapseAll(lua_State *L) {
 		if (!_lg_typecheck_CollapseAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPropertyGridInterface::CollapseAll() function, expected prototype:\nbool wxPropertyGridInterface::CollapseAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPropertyGridInterface::CollapseAll() function, expected prototype:\nbool wxPropertyGridInterface::CollapseAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::CollapseAll(). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::CollapseAll(). Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CollapseAll();
 		lua_pushboolean(L,lret?1:0);
@@ -408,15 +393,13 @@ public:
 	// bool wxPropertyGridInterface::EditorValidate()
 	static int _bind_EditorValidate(lua_State *L) {
 		if (!_lg_typecheck_EditorValidate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPropertyGridInterface::EditorValidate() function, expected prototype:\nbool wxPropertyGridInterface::EditorValidate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPropertyGridInterface::EditorValidate() function, expected prototype:\nbool wxPropertyGridInterface::EditorValidate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::EditorValidate(). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::EditorValidate(). Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->EditorValidate();
 		lua_pushboolean(L,lret?1:0);
@@ -427,8 +410,7 @@ public:
 	// bool wxPropertyGridInterface::ExpandAll(bool expand = true)
 	static int _bind_ExpandAll(lua_State *L) {
 		if (!_lg_typecheck_ExpandAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPropertyGridInterface::ExpandAll(bool expand = true) function, expected prototype:\nbool wxPropertyGridInterface::ExpandAll(bool expand = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPropertyGridInterface::ExpandAll(bool expand = true) function, expected prototype:\nbool wxPropertyGridInterface::ExpandAll(bool expand = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -437,8 +419,7 @@ public:
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::ExpandAll(bool). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::ExpandAll(bool). Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ExpandAll(expand);
 		lua_pushboolean(L,lret?1:0);
@@ -449,16 +430,14 @@ public:
 	// int wxPropertyGridInterface::GetColumnProportion(unsigned int column) const
 	static int _bind_GetColumnProportion(lua_State *L) {
 		if (!_lg_typecheck_GetColumnProportion(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxPropertyGridInterface::GetColumnProportion(unsigned int column) const function, expected prototype:\nint wxPropertyGridInterface::GetColumnProportion(unsigned int column) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxPropertyGridInterface::GetColumnProportion(unsigned int column) const function, expected prototype:\nint wxPropertyGridInterface::GetColumnProportion(unsigned int column) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int column=(unsigned int)lua_tointeger(L,2);
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxPropertyGridInterface::GetColumnProportion(unsigned int) const. Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxPropertyGridInterface::GetColumnProportion(unsigned int) const. Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetColumnProportion(column);
 		lua_pushnumber(L,lret);
@@ -469,8 +448,7 @@ public:
 	// wxPGProperty * wxPropertyGridInterface::GetFirst(int flags = ::wxPG_ITERATE_ALL)
 	static int _bind_GetFirst(lua_State *L) {
 		if (!_lg_typecheck_GetFirst(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::GetFirst(int flags = ::wxPG_ITERATE_ALL) function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::GetFirst(int flags = ::wxPG_ITERATE_ALL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::GetFirst(int flags = ::wxPG_ITERATE_ALL) function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::GetFirst(int flags = ::wxPG_ITERATE_ALL)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -479,8 +457,7 @@ public:
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetFirst(int). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetFirst(int). Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPGProperty * lret = self->GetFirst(flags);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -493,16 +470,14 @@ public:
 	// wxPGProperty * wxPropertyGridInterface::GetProperty(const wxString & name) const
 	static int _bind_GetProperty(lua_State *L) {
 		if (!_lg_typecheck_GetProperty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::GetProperty(const wxString & name) const function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::GetProperty(const wxString & name) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::GetProperty(const wxString & name) const function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::GetProperty(const wxString & name) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetProperty(const wxString &) const. Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetProperty(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPGProperty * lret = self->GetProperty(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -515,16 +490,14 @@ public:
 	// wxPGProperty * wxPropertyGridInterface::GetPropertyByLabel(const wxString & label) const
 	static int _bind_GetPropertyByLabel(lua_State *L) {
 		if (!_lg_typecheck_GetPropertyByLabel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::GetPropertyByLabel(const wxString & label) const function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::GetPropertyByLabel(const wxString & label) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::GetPropertyByLabel(const wxString & label) const function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::GetPropertyByLabel(const wxString & label) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString label(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetPropertyByLabel(const wxString &) const. Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetPropertyByLabel(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPGProperty * lret = self->GetPropertyByLabel(label);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -537,16 +510,14 @@ public:
 	// wxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString & name) const
 	static int _bind_GetPropertyByName_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetPropertyByName_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString & name) const function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString & name) const\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString & name) const function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString & name) const\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString &) const. Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPGProperty * lret = self->GetPropertyByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -559,8 +530,7 @@ public:
 	// wxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString & name, const wxString & subname) const
 	static int _bind_GetPropertyByName_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetPropertyByName_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString & name, const wxString & subname) const function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString & name, const wxString & subname) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString & name, const wxString & subname) const function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString & name, const wxString & subname) const\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString name(lua_tostring(L,2),lua_objlen(L,2));
@@ -568,8 +538,7 @@ public:
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString &, const wxString &) const. Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetPropertyByName(const wxString &, const wxString &) const. Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPGProperty * lret = self->GetPropertyByName(name, subname);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -591,16 +560,14 @@ public:
 	// wxString wxPropertyGridInterface::GetPropertyName(wxPGProperty * property)
 	static int _bind_GetPropertyName(lua_State *L) {
 		if (!_lg_typecheck_GetPropertyName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxPropertyGridInterface::GetPropertyName(wxPGProperty * property) function, expected prototype:\nwxString wxPropertyGridInterface::GetPropertyName(wxPGProperty * property)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxString wxPropertyGridInterface::GetPropertyName(wxPGProperty * property) function, expected prototype:\nwxString wxPropertyGridInterface::GetPropertyName(wxPGProperty * property)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPGProperty* property=(Luna< wxObject >::checkSubType< wxPGProperty >(L,2));
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPropertyGridInterface::GetPropertyName(wxPGProperty *). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxPropertyGridInterface::GetPropertyName(wxPGProperty *). Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->GetPropertyName(property);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -611,15 +578,13 @@ public:
 	// wxPGProperty * wxPropertyGridInterface::GetSelection() const
 	static int _bind_GetSelection(lua_State *L) {
 		if (!_lg_typecheck_GetSelection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::GetSelection() const function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::GetSelection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPGProperty * wxPropertyGridInterface::GetSelection() const function, expected prototype:\nwxPGProperty * wxPropertyGridInterface::GetSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetSelection() const. Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPGProperty * wxPropertyGridInterface::GetSelection() const. Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPGProperty * lret = self->GetSelection();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -632,8 +597,7 @@ public:
 	// bool wxPropertyGridInterface::RestoreEditableState(const wxString & src, int restoreStates = wxPropertyGridInterface::AllStates)
 	static int _bind_RestoreEditableState(lua_State *L) {
 		if (!_lg_typecheck_RestoreEditableState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPropertyGridInterface::RestoreEditableState(const wxString & src, int restoreStates = wxPropertyGridInterface::AllStates) function, expected prototype:\nbool wxPropertyGridInterface::RestoreEditableState(const wxString & src, int restoreStates = wxPropertyGridInterface::AllStates)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxPropertyGridInterface::RestoreEditableState(const wxString & src, int restoreStates = wxPropertyGridInterface::AllStates) function, expected prototype:\nbool wxPropertyGridInterface::RestoreEditableState(const wxString & src, int restoreStates = wxPropertyGridInterface::AllStates)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -643,8 +607,7 @@ public:
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::RestoreEditableState(const wxString &, int). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::RestoreEditableState(const wxString &, int). Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RestoreEditableState(src, restoreStates);
 		lua_pushboolean(L,lret?1:0);
@@ -655,8 +618,7 @@ public:
 	// wxString wxPropertyGridInterface::SaveEditableState(int includedStates = wxPropertyGridInterface::AllStates) const
 	static int _bind_SaveEditableState(lua_State *L) {
 		if (!_lg_typecheck_SaveEditableState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxString wxPropertyGridInterface::SaveEditableState(int includedStates = wxPropertyGridInterface::AllStates) const function, expected prototype:\nwxString wxPropertyGridInterface::SaveEditableState(int includedStates = wxPropertyGridInterface::AllStates) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxString wxPropertyGridInterface::SaveEditableState(int includedStates = wxPropertyGridInterface::AllStates) const function, expected prototype:\nwxString wxPropertyGridInterface::SaveEditableState(int includedStates = wxPropertyGridInterface::AllStates) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -665,8 +627,7 @@ public:
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxString wxPropertyGridInterface::SaveEditableState(int) const. Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxString wxPropertyGridInterface::SaveEditableState(int) const. Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxString lret = self->SaveEditableState(includedStates);
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -677,8 +638,7 @@ public:
 	// bool wxPropertyGridInterface::SetColumnProportion(unsigned int column, int proportion)
 	static int _bind_SetColumnProportion(lua_State *L) {
 		if (!_lg_typecheck_SetColumnProportion(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPropertyGridInterface::SetColumnProportion(unsigned int column, int proportion) function, expected prototype:\nbool wxPropertyGridInterface::SetColumnProportion(unsigned int column, int proportion)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPropertyGridInterface::SetColumnProportion(unsigned int column, int proportion) function, expected prototype:\nbool wxPropertyGridInterface::SetColumnProportion(unsigned int column, int proportion)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int column=(unsigned int)lua_tointeger(L,2);
@@ -686,8 +646,7 @@ public:
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::SetColumnProportion(unsigned int, int). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPropertyGridInterface::SetColumnProportion(unsigned int, int). Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SetColumnProportion(column, proportion);
 		lua_pushboolean(L,lret?1:0);
@@ -698,16 +657,14 @@ public:
 	// void wxPropertyGridInterface::SetValidationFailureBehavior(int vfbFlags)
 	static int _bind_SetValidationFailureBehavior(lua_State *L) {
 		if (!_lg_typecheck_SetValidationFailureBehavior(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPropertyGridInterface::SetValidationFailureBehavior(int vfbFlags) function, expected prototype:\nvoid wxPropertyGridInterface::SetValidationFailureBehavior(int vfbFlags)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPropertyGridInterface::SetValidationFailureBehavior(int vfbFlags) function, expected prototype:\nvoid wxPropertyGridInterface::SetValidationFailureBehavior(int vfbFlags)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int vfbFlags=(int)lua_tointeger(L,2);
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridInterface::SetValidationFailureBehavior(int). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPropertyGridInterface::SetValidationFailureBehavior(int). Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetValidationFailureBehavior(vfbFlags);
 
@@ -717,8 +674,7 @@ public:
 	// void wxPropertyGridInterface::Sort(int flags = 0)
 	static int _bind_Sort(lua_State *L) {
 		if (!_lg_typecheck_Sort(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPropertyGridInterface::Sort(int flags = 0) function, expected prototype:\nvoid wxPropertyGridInterface::Sort(int flags = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPropertyGridInterface::Sort(int flags = 0) function, expected prototype:\nvoid wxPropertyGridInterface::Sort(int flags = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -727,8 +683,7 @@ public:
 
 		wxPropertyGridInterface* self=(Luna< wxPropertyGridInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPropertyGridInterface::Sort(int). Got : '%s'",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPropertyGridInterface::Sort(int). Got : '%s'\n%s",typeid(Luna< wxPropertyGridInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Sort(flags);
 
@@ -738,8 +693,7 @@ public:
 	// static void wxPropertyGridInterface::InitAllTypeHandlers()
 	static int _bind_InitAllTypeHandlers(lua_State *L) {
 		if (!_lg_typecheck_InitAllTypeHandlers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxPropertyGridInterface::InitAllTypeHandlers() function, expected prototype:\nstatic void wxPropertyGridInterface::InitAllTypeHandlers()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxPropertyGridInterface::InitAllTypeHandlers() function, expected prototype:\nstatic void wxPropertyGridInterface::InitAllTypeHandlers()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -751,8 +705,7 @@ public:
 	// static void wxPropertyGridInterface::RegisterAdditionalEditors()
 	static int _bind_RegisterAdditionalEditors(lua_State *L) {
 		if (!_lg_typecheck_RegisterAdditionalEditors(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxPropertyGridInterface::RegisterAdditionalEditors() function, expected prototype:\nstatic void wxPropertyGridInterface::RegisterAdditionalEditors()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void wxPropertyGridInterface::RegisterAdditionalEditors() function, expected prototype:\nstatic void wxPropertyGridInterface::RegisterAdditionalEditors()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -764,8 +717,7 @@ public:
 	// static void wxPropertyGridInterface::SetBoolChoices(const wxString & trueChoice, const wxString & falseChoice)
 	static int _bind_SetBoolChoices(lua_State *L) {
 		if (!_lg_typecheck_SetBoolChoices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxPropertyGridInterface::SetBoolChoices(const wxString & trueChoice, const wxString & falseChoice) function, expected prototype:\nstatic void wxPropertyGridInterface::SetBoolChoices(const wxString & trueChoice, const wxString & falseChoice)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static void wxPropertyGridInterface::SetBoolChoices(const wxString & trueChoice, const wxString & falseChoice) function, expected prototype:\nstatic void wxPropertyGridInterface::SetBoolChoices(const wxString & trueChoice, const wxString & falseChoice)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString trueChoice(lua_tostring(L,1),lua_objlen(L,1));
@@ -779,8 +731,7 @@ public:
 	// static wxPGEditor * wxPropertyGridInterface::GetEditorByName(const wxString & editorName)
 	static int _bind_GetEditorByName(lua_State *L) {
 		if (!_lg_typecheck_GetEditorByName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxPGEditor * wxPropertyGridInterface::GetEditorByName(const wxString & editorName) function, expected prototype:\nstatic wxPGEditor * wxPropertyGridInterface::GetEditorByName(const wxString & editorName)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in static wxPGEditor * wxPropertyGridInterface::GetEditorByName(const wxString & editorName) function, expected prototype:\nstatic wxPGEditor * wxPropertyGridInterface::GetEditorByName(const wxString & editorName)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString editorName(lua_tostring(L,1),lua_objlen(L,1));

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxObject*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxObject*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* rhs =(Luna< wxObject >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxKeyboardState* self= (wxKeyboardState*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -204,8 +200,7 @@ public:
 	// wxKeyboardState::wxKeyboardState(bool controlDown = false, bool shiftDown = false, bool altDown = false, bool metaDown = false)
 	static wxKeyboardState* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxKeyboardState::wxKeyboardState(bool controlDown = false, bool shiftDown = false, bool altDown = false, bool metaDown = false) function, expected prototype:\nwxKeyboardState::wxKeyboardState(bool controlDown = false, bool shiftDown = false, bool altDown = false, bool metaDown = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxKeyboardState::wxKeyboardState(bool controlDown = false, bool shiftDown = false, bool altDown = false, bool metaDown = false) function, expected prototype:\nwxKeyboardState::wxKeyboardState(bool controlDown = false, bool shiftDown = false, bool altDown = false, bool metaDown = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -223,15 +218,13 @@ public:
 	// int wxKeyboardState::GetModifiers() const
 	static int _bind_GetModifiers(lua_State *L) {
 		if (!_lg_typecheck_GetModifiers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxKeyboardState::GetModifiers() const function, expected prototype:\nint wxKeyboardState::GetModifiers() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxKeyboardState::GetModifiers() const function, expected prototype:\nint wxKeyboardState::GetModifiers() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxKeyboardState* self=Luna< wxObject >::checkSubType< wxKeyboardState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxKeyboardState::GetModifiers() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxKeyboardState::GetModifiers() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetModifiers();
 		lua_pushnumber(L,lret);
@@ -242,15 +235,13 @@ public:
 	// bool wxKeyboardState::HasModifiers() const
 	static int _bind_HasModifiers(lua_State *L) {
 		if (!_lg_typecheck_HasModifiers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxKeyboardState::HasModifiers() const function, expected prototype:\nbool wxKeyboardState::HasModifiers() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxKeyboardState::HasModifiers() const function, expected prototype:\nbool wxKeyboardState::HasModifiers() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxKeyboardState* self=Luna< wxObject >::checkSubType< wxKeyboardState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxKeyboardState::HasModifiers() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxKeyboardState::HasModifiers() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasModifiers();
 		lua_pushboolean(L,lret?1:0);
@@ -261,15 +252,13 @@ public:
 	// bool wxKeyboardState::ControlDown() const
 	static int _bind_ControlDown(lua_State *L) {
 		if (!_lg_typecheck_ControlDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxKeyboardState::ControlDown() const function, expected prototype:\nbool wxKeyboardState::ControlDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxKeyboardState::ControlDown() const function, expected prototype:\nbool wxKeyboardState::ControlDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxKeyboardState* self=Luna< wxObject >::checkSubType< wxKeyboardState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxKeyboardState::ControlDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxKeyboardState::ControlDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ControlDown();
 		lua_pushboolean(L,lret?1:0);
@@ -280,15 +269,13 @@ public:
 	// bool wxKeyboardState::RawControlDown() const
 	static int _bind_RawControlDown(lua_State *L) {
 		if (!_lg_typecheck_RawControlDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxKeyboardState::RawControlDown() const function, expected prototype:\nbool wxKeyboardState::RawControlDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxKeyboardState::RawControlDown() const function, expected prototype:\nbool wxKeyboardState::RawControlDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxKeyboardState* self=Luna< wxObject >::checkSubType< wxKeyboardState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxKeyboardState::RawControlDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxKeyboardState::RawControlDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RawControlDown();
 		lua_pushboolean(L,lret?1:0);
@@ -299,15 +286,13 @@ public:
 	// bool wxKeyboardState::ShiftDown() const
 	static int _bind_ShiftDown(lua_State *L) {
 		if (!_lg_typecheck_ShiftDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxKeyboardState::ShiftDown() const function, expected prototype:\nbool wxKeyboardState::ShiftDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxKeyboardState::ShiftDown() const function, expected prototype:\nbool wxKeyboardState::ShiftDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxKeyboardState* self=Luna< wxObject >::checkSubType< wxKeyboardState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxKeyboardState::ShiftDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxKeyboardState::ShiftDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ShiftDown();
 		lua_pushboolean(L,lret?1:0);
@@ -318,15 +303,13 @@ public:
 	// bool wxKeyboardState::MetaDown() const
 	static int _bind_MetaDown(lua_State *L) {
 		if (!_lg_typecheck_MetaDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxKeyboardState::MetaDown() const function, expected prototype:\nbool wxKeyboardState::MetaDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxKeyboardState::MetaDown() const function, expected prototype:\nbool wxKeyboardState::MetaDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxKeyboardState* self=Luna< wxObject >::checkSubType< wxKeyboardState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxKeyboardState::MetaDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxKeyboardState::MetaDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->MetaDown();
 		lua_pushboolean(L,lret?1:0);
@@ -337,15 +320,13 @@ public:
 	// bool wxKeyboardState::AltDown() const
 	static int _bind_AltDown(lua_State *L) {
 		if (!_lg_typecheck_AltDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxKeyboardState::AltDown() const function, expected prototype:\nbool wxKeyboardState::AltDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxKeyboardState::AltDown() const function, expected prototype:\nbool wxKeyboardState::AltDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxKeyboardState* self=Luna< wxObject >::checkSubType< wxKeyboardState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxKeyboardState::AltDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxKeyboardState::AltDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AltDown();
 		lua_pushboolean(L,lret?1:0);
@@ -356,15 +337,13 @@ public:
 	// bool wxKeyboardState::CmdDown() const
 	static int _bind_CmdDown(lua_State *L) {
 		if (!_lg_typecheck_CmdDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxKeyboardState::CmdDown() const function, expected prototype:\nbool wxKeyboardState::CmdDown() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxKeyboardState::CmdDown() const function, expected prototype:\nbool wxKeyboardState::CmdDown() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxKeyboardState* self=Luna< wxObject >::checkSubType< wxKeyboardState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxKeyboardState::CmdDown() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxKeyboardState::CmdDown() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CmdDown();
 		lua_pushboolean(L,lret?1:0);
@@ -375,16 +354,14 @@ public:
 	// void wxKeyboardState::SetControlDown(bool down)
 	static int _bind_SetControlDown(lua_State *L) {
 		if (!_lg_typecheck_SetControlDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxKeyboardState::SetControlDown(bool down) function, expected prototype:\nvoid wxKeyboardState::SetControlDown(bool down)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxKeyboardState::SetControlDown(bool down) function, expected prototype:\nvoid wxKeyboardState::SetControlDown(bool down)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool down=(bool)(lua_toboolean(L,2)==1);
 
 		wxKeyboardState* self=Luna< wxObject >::checkSubType< wxKeyboardState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxKeyboardState::SetControlDown(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxKeyboardState::SetControlDown(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetControlDown(down);
 
@@ -394,16 +371,14 @@ public:
 	// void wxKeyboardState::SetRawControlDown(bool down)
 	static int _bind_SetRawControlDown(lua_State *L) {
 		if (!_lg_typecheck_SetRawControlDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxKeyboardState::SetRawControlDown(bool down) function, expected prototype:\nvoid wxKeyboardState::SetRawControlDown(bool down)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxKeyboardState::SetRawControlDown(bool down) function, expected prototype:\nvoid wxKeyboardState::SetRawControlDown(bool down)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool down=(bool)(lua_toboolean(L,2)==1);
 
 		wxKeyboardState* self=Luna< wxObject >::checkSubType< wxKeyboardState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxKeyboardState::SetRawControlDown(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxKeyboardState::SetRawControlDown(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRawControlDown(down);
 
@@ -413,16 +388,14 @@ public:
 	// void wxKeyboardState::SetShiftDown(bool down)
 	static int _bind_SetShiftDown(lua_State *L) {
 		if (!_lg_typecheck_SetShiftDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxKeyboardState::SetShiftDown(bool down) function, expected prototype:\nvoid wxKeyboardState::SetShiftDown(bool down)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxKeyboardState::SetShiftDown(bool down) function, expected prototype:\nvoid wxKeyboardState::SetShiftDown(bool down)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool down=(bool)(lua_toboolean(L,2)==1);
 
 		wxKeyboardState* self=Luna< wxObject >::checkSubType< wxKeyboardState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxKeyboardState::SetShiftDown(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxKeyboardState::SetShiftDown(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetShiftDown(down);
 
@@ -432,16 +405,14 @@ public:
 	// void wxKeyboardState::SetAltDown(bool down)
 	static int _bind_SetAltDown(lua_State *L) {
 		if (!_lg_typecheck_SetAltDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxKeyboardState::SetAltDown(bool down) function, expected prototype:\nvoid wxKeyboardState::SetAltDown(bool down)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxKeyboardState::SetAltDown(bool down) function, expected prototype:\nvoid wxKeyboardState::SetAltDown(bool down)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool down=(bool)(lua_toboolean(L,2)==1);
 
 		wxKeyboardState* self=Luna< wxObject >::checkSubType< wxKeyboardState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxKeyboardState::SetAltDown(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxKeyboardState::SetAltDown(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAltDown(down);
 
@@ -451,16 +422,14 @@ public:
 	// void wxKeyboardState::SetMetaDown(bool down)
 	static int _bind_SetMetaDown(lua_State *L) {
 		if (!_lg_typecheck_SetMetaDown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxKeyboardState::SetMetaDown(bool down) function, expected prototype:\nvoid wxKeyboardState::SetMetaDown(bool down)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxKeyboardState::SetMetaDown(bool down) function, expected prototype:\nvoid wxKeyboardState::SetMetaDown(bool down)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool down=(bool)(lua_toboolean(L,2)==1);
 
 		wxKeyboardState* self=Luna< wxObject >::checkSubType< wxKeyboardState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxKeyboardState::SetMetaDown(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxKeyboardState::SetMetaDown(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMetaDown(down);
 

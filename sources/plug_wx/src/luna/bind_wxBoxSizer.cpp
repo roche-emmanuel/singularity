@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxBoxSizer* self= (wxBoxSizer*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -258,8 +255,7 @@ public:
 	// wxBoxSizer::wxBoxSizer(int orient)
 	static wxBoxSizer* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBoxSizer::wxBoxSizer(int orient) function, expected prototype:\nwxBoxSizer::wxBoxSizer(int orient)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBoxSizer::wxBoxSizer(int orient) function, expected prototype:\nwxBoxSizer::wxBoxSizer(int orient)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orient=(int)lua_tointeger(L,1);
@@ -270,8 +266,7 @@ public:
 	// wxBoxSizer::wxBoxSizer(lua_Table * data, int orient)
 	static wxBoxSizer* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxBoxSizer::wxBoxSizer(lua_Table * data, int orient) function, expected prototype:\nwxBoxSizer::wxBoxSizer(lua_Table * data, int orient)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxBoxSizer::wxBoxSizer(lua_Table * data, int orient) function, expected prototype:\nwxBoxSizer::wxBoxSizer(lua_Table * data, int orient)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int orient=(int)lua_tointeger(L,2);
@@ -293,16 +288,14 @@ public:
 	// wxSizerItem * wxBoxSizer::AddSpacer(int size)
 	static int _bind_AddSpacer(lua_State *L) {
 		if (!_lg_typecheck_AddSpacer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerItem * wxBoxSizer::AddSpacer(int size) function, expected prototype:\nwxSizerItem * wxBoxSizer::AddSpacer(int size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerItem * wxBoxSizer::AddSpacer(int size) function, expected prototype:\nwxSizerItem * wxBoxSizer::AddSpacer(int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int size=(int)lua_tointeger(L,2);
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerItem * wxBoxSizer::AddSpacer(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerItem * wxBoxSizer::AddSpacer(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSizerItem * lret = self->AddSpacer(size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -315,15 +308,13 @@ public:
 	// wxSize wxBoxSizer::CalcMin()
 	static int _bind_CalcMin(lua_State *L) {
 		if (!_lg_typecheck_CalcMin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxBoxSizer::CalcMin() function, expected prototype:\nwxSize wxBoxSizer::CalcMin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxBoxSizer::CalcMin() function, expected prototype:\nwxSize wxBoxSizer::CalcMin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBoxSizer::CalcMin(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxBoxSizer::CalcMin(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->CalcMin();
 		wxSize* lret = new wxSize(stack_lret);
@@ -337,15 +328,13 @@ public:
 	// int wxBoxSizer::GetOrientation() const
 	static int _bind_GetOrientation(lua_State *L) {
 		if (!_lg_typecheck_GetOrientation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxBoxSizer::GetOrientation() const function, expected prototype:\nint wxBoxSizer::GetOrientation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int wxBoxSizer::GetOrientation() const function, expected prototype:\nint wxBoxSizer::GetOrientation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxBoxSizer::GetOrientation() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxBoxSizer::GetOrientation() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetOrientation();
 		lua_pushnumber(L,lret);
@@ -356,15 +345,13 @@ public:
 	// void wxBoxSizer::RecalcSizes()
 	static int _bind_RecalcSizes(lua_State *L) {
 		if (!_lg_typecheck_RecalcSizes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxBoxSizer::RecalcSizes() function, expected prototype:\nvoid wxBoxSizer::RecalcSizes()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxBoxSizer::RecalcSizes() function, expected prototype:\nvoid wxBoxSizer::RecalcSizes()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBoxSizer::RecalcSizes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxBoxSizer::RecalcSizes(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RecalcSizes();
 
@@ -374,15 +361,13 @@ public:
 	// wxClassInfo * wxBoxSizer::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxBoxSizer::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxBoxSizer::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxBoxSizer::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxBoxSizer::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxBoxSizer::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxBoxSizer::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxBoxSizer::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -395,8 +380,7 @@ public:
 	// void wxBoxSizer::base_Clear(bool delete_windows = false)
 	static int _bind_base_Clear(lua_State *L) {
 		if (!_lg_typecheck_base_Clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxBoxSizer::base_Clear(bool delete_windows = false) function, expected prototype:\nvoid wxBoxSizer::base_Clear(bool delete_windows = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxBoxSizer::base_Clear(bool delete_windows = false) function, expected prototype:\nvoid wxBoxSizer::base_Clear(bool delete_windows = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -405,8 +389,7 @@ public:
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBoxSizer::base_Clear(bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxBoxSizer::base_Clear(bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxBoxSizer::Clear(delete_windows);
 
@@ -416,16 +399,14 @@ public:
 	// bool wxBoxSizer::base_Detach(wxWindow * window)
 	static int _bind_base_Detach_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_Detach_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_Detach(wxWindow * window) function, expected prototype:\nbool wxBoxSizer::base_Detach(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_Detach(wxWindow * window) function, expected prototype:\nbool wxBoxSizer::base_Detach(wxWindow * window)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* window=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_Detach(wxWindow *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_Detach(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxBoxSizer::Detach(window);
 		lua_pushboolean(L,lret?1:0);
@@ -436,16 +417,14 @@ public:
 	// bool wxBoxSizer::base_Detach(wxSizer * sizer)
 	static int _bind_base_Detach_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_Detach_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_Detach(wxSizer * sizer) function, expected prototype:\nbool wxBoxSizer::base_Detach(wxSizer * sizer)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_Detach(wxSizer * sizer) function, expected prototype:\nbool wxBoxSizer::base_Detach(wxSizer * sizer)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_Detach(wxSizer *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_Detach(wxSizer *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxBoxSizer::Detach(sizer);
 		lua_pushboolean(L,lret?1:0);
@@ -456,16 +435,14 @@ public:
 	// bool wxBoxSizer::base_Detach(int index)
 	static int _bind_base_Detach_overload_3(lua_State *L) {
 		if (!_lg_typecheck_base_Detach_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_Detach(int index) function, expected prototype:\nbool wxBoxSizer::base_Detach(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_Detach(int index) function, expected prototype:\nbool wxBoxSizer::base_Detach(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_Detach(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_Detach(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxBoxSizer::Detach(index);
 		lua_pushboolean(L,lret?1:0);
@@ -486,8 +463,7 @@ public:
 	// bool wxBoxSizer::base_InformFirstDirection(int direction, int size, int availableOtherDir)
 	static int _bind_base_InformFirstDirection(lua_State *L) {
 		if (!_lg_typecheck_base_InformFirstDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_InformFirstDirection(int direction, int size, int availableOtherDir) function, expected prototype:\nbool wxBoxSizer::base_InformFirstDirection(int direction, int size, int availableOtherDir)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_InformFirstDirection(int direction, int size, int availableOtherDir) function, expected prototype:\nbool wxBoxSizer::base_InformFirstDirection(int direction, int size, int availableOtherDir)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int direction=(int)lua_tointeger(L,2);
@@ -496,8 +472,7 @@ public:
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_InformFirstDirection(int, int, int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_InformFirstDirection(int, int, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxBoxSizer::InformFirstDirection(direction, size, availableOtherDir);
 		lua_pushboolean(L,lret?1:0);
@@ -508,15 +483,13 @@ public:
 	// void wxBoxSizer::base_Layout()
 	static int _bind_base_Layout(lua_State *L) {
 		if (!_lg_typecheck_base_Layout(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxBoxSizer::base_Layout() function, expected prototype:\nvoid wxBoxSizer::base_Layout()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxBoxSizer::base_Layout() function, expected prototype:\nvoid wxBoxSizer::base_Layout()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBoxSizer::base_Layout(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxBoxSizer::base_Layout(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxBoxSizer::Layout();
 
@@ -526,16 +499,14 @@ public:
 	// bool wxBoxSizer::base_Remove(wxSizer * sizer)
 	static int _bind_base_Remove_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_Remove_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_Remove(wxSizer * sizer) function, expected prototype:\nbool wxBoxSizer::base_Remove(wxSizer * sizer)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_Remove(wxSizer * sizer) function, expected prototype:\nbool wxBoxSizer::base_Remove(wxSizer * sizer)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxSizer* sizer=(Luna< wxObject >::checkSubType< wxSizer >(L,2));
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_Remove(wxSizer *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_Remove(wxSizer *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxBoxSizer::Remove(sizer);
 		lua_pushboolean(L,lret?1:0);
@@ -546,16 +517,14 @@ public:
 	// bool wxBoxSizer::base_Remove(int index)
 	static int _bind_base_Remove_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_Remove_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_Remove(int index) function, expected prototype:\nbool wxBoxSizer::base_Remove(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_Remove(int index) function, expected prototype:\nbool wxBoxSizer::base_Remove(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_Remove(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_Remove(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxBoxSizer::Remove(index);
 		lua_pushboolean(L,lret?1:0);
@@ -575,8 +544,7 @@ public:
 	// bool wxBoxSizer::base_Replace(wxWindow * oldwin, wxWindow * newwin, bool recursive = false)
 	static int _bind_base_Replace_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_Replace_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_Replace(wxWindow * oldwin, wxWindow * newwin, bool recursive = false) function, expected prototype:\nbool wxBoxSizer::base_Replace(wxWindow * oldwin, wxWindow * newwin, bool recursive = false)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_Replace(wxWindow * oldwin, wxWindow * newwin, bool recursive = false) function, expected prototype:\nbool wxBoxSizer::base_Replace(wxWindow * oldwin, wxWindow * newwin, bool recursive = false)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -587,8 +555,7 @@ public:
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_Replace(wxWindow *, wxWindow *, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_Replace(wxWindow *, wxWindow *, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxBoxSizer::Replace(oldwin, newwin, recursive);
 		lua_pushboolean(L,lret?1:0);
@@ -599,8 +566,7 @@ public:
 	// bool wxBoxSizer::base_Replace(wxSizer * oldsz, wxSizer * newsz, bool recursive = false)
 	static int _bind_base_Replace_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_Replace_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_Replace(wxSizer * oldsz, wxSizer * newsz, bool recursive = false) function, expected prototype:\nbool wxBoxSizer::base_Replace(wxSizer * oldsz, wxSizer * newsz, bool recursive = false)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_Replace(wxSizer * oldsz, wxSizer * newsz, bool recursive = false) function, expected prototype:\nbool wxBoxSizer::base_Replace(wxSizer * oldsz, wxSizer * newsz, bool recursive = false)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -611,8 +577,7 @@ public:
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_Replace(wxSizer *, wxSizer *, bool). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_Replace(wxSizer *, wxSizer *, bool). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxBoxSizer::Replace(oldsz, newsz, recursive);
 		lua_pushboolean(L,lret?1:0);
@@ -623,8 +588,7 @@ public:
 	// bool wxBoxSizer::base_Replace(size_t index, wxSizerItem * newitem)
 	static int _bind_base_Replace_overload_3(lua_State *L) {
 		if (!_lg_typecheck_base_Replace_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_Replace(size_t index, wxSizerItem * newitem) function, expected prototype:\nbool wxBoxSizer::base_Replace(size_t index, wxSizerItem * newitem)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxBoxSizer::base_Replace(size_t index, wxSizerItem * newitem) function, expected prototype:\nbool wxBoxSizer::base_Replace(size_t index, wxSizerItem * newitem)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t index=(size_t)lua_tointeger(L,2);
@@ -632,8 +596,7 @@ public:
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_Replace(size_t, wxSizerItem *). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxBoxSizer::base_Replace(size_t, wxSizerItem *). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxBoxSizer::Replace(index, newitem);
 		lua_pushboolean(L,lret?1:0);
@@ -654,16 +617,14 @@ public:
 	// wxSizerItem * wxBoxSizer::base_AddSpacer(int size)
 	static int _bind_base_AddSpacer(lua_State *L) {
 		if (!_lg_typecheck_base_AddSpacer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSizerItem * wxBoxSizer::base_AddSpacer(int size) function, expected prototype:\nwxSizerItem * wxBoxSizer::base_AddSpacer(int size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSizerItem * wxBoxSizer::base_AddSpacer(int size) function, expected prototype:\nwxSizerItem * wxBoxSizer::base_AddSpacer(int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int size=(int)lua_tointeger(L,2);
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSizerItem * wxBoxSizer::base_AddSpacer(int). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSizerItem * wxBoxSizer::base_AddSpacer(int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSizerItem * lret = self->wxBoxSizer::AddSpacer(size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -676,15 +637,13 @@ public:
 	// wxSize wxBoxSizer::base_CalcMin()
 	static int _bind_base_CalcMin(lua_State *L) {
 		if (!_lg_typecheck_base_CalcMin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxSize wxBoxSizer::base_CalcMin() function, expected prototype:\nwxSize wxBoxSizer::base_CalcMin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxSize wxBoxSizer::base_CalcMin() function, expected prototype:\nwxSize wxBoxSizer::base_CalcMin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxSize wxBoxSizer::base_CalcMin(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxSize wxBoxSizer::base_CalcMin(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxSize stack_lret = self->wxBoxSizer::CalcMin();
 		wxSize* lret = new wxSize(stack_lret);
@@ -698,15 +657,13 @@ public:
 	// void wxBoxSizer::base_RecalcSizes()
 	static int _bind_base_RecalcSizes(lua_State *L) {
 		if (!_lg_typecheck_base_RecalcSizes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxBoxSizer::base_RecalcSizes() function, expected prototype:\nvoid wxBoxSizer::base_RecalcSizes()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxBoxSizer::base_RecalcSizes() function, expected prototype:\nvoid wxBoxSizer::base_RecalcSizes()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxBoxSizer* self=Luna< wxObject >::checkSubType< wxBoxSizer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxBoxSizer::base_RecalcSizes(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxBoxSizer::base_RecalcSizes(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxBoxSizer::RecalcSizes();
 

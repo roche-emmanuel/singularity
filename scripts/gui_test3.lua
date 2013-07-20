@@ -35,7 +35,10 @@ function main()
 	intf:addColorEntry{name="my_color",caption="My color"}
 	intf:addIntegerEntry{name="my_int",caption="My integer"}
 	intf:addVec3dEntry{name="my_data.my_vec3d",caption="My vec3d"}
-
+	intf:addSingleChoiceEntry{name="mission",caption="Mission",
+		choices={"TestTurret","TestTurret2","TestTurret3","TestTurret4"},
+		defaultValue="TestTurret4"}
+		
 	--intf:addStaticBitmap{bitmap=im:getBitmap("folder@add")}
 	intf:popParent(true)
 

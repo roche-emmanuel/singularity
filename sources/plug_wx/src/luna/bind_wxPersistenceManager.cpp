@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxPersistenceManager*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxPersistenceManager*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPersistenceManager* rhs =(Luna< wxPersistenceManager >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPersistenceManager* self= (wxPersistenceManager*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxPersistenceManager >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -214,8 +209,7 @@ public:
 	// static void wxPersistenceManager::Set(wxPersistenceManager & manager)
 	static int _bind_Set(lua_State *L) {
 		if (!_lg_typecheck_Set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void wxPersistenceManager::Set(wxPersistenceManager & manager) function, expected prototype:\nstatic void wxPersistenceManager::Set(wxPersistenceManager & manager)\nClass arguments details:\narg 1 ID = 61208595\n");
+			luaL_error(L, "luna typecheck failed in static void wxPersistenceManager::Set(wxPersistenceManager & manager) function, expected prototype:\nstatic void wxPersistenceManager::Set(wxPersistenceManager & manager)\nClass arguments details:\narg 1 ID = 61208595\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPersistenceManager* manager_ptr=(Luna< wxPersistenceManager >::check(L,1));
@@ -232,8 +226,7 @@ public:
 	// static wxPersistenceManager & wxPersistenceManager::Get()
 	static int _bind_Get(lua_State *L) {
 		if (!_lg_typecheck_Get(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static wxPersistenceManager & wxPersistenceManager::Get() function, expected prototype:\nstatic wxPersistenceManager & wxPersistenceManager::Get()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static wxPersistenceManager & wxPersistenceManager::Get() function, expected prototype:\nstatic wxPersistenceManager & wxPersistenceManager::Get()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -248,15 +241,13 @@ public:
 	// void wxPersistenceManager::DisableSaving()
 	static int _bind_DisableSaving(lua_State *L) {
 		if (!_lg_typecheck_DisableSaving(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPersistenceManager::DisableSaving() function, expected prototype:\nvoid wxPersistenceManager::DisableSaving()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPersistenceManager::DisableSaving() function, expected prototype:\nvoid wxPersistenceManager::DisableSaving()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPersistenceManager::DisableSaving(). Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPersistenceManager::DisableSaving(). Got : '%s'\n%s",typeid(Luna< wxPersistenceManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DisableSaving();
 
@@ -266,15 +257,13 @@ public:
 	// void wxPersistenceManager::DisableRestoring()
 	static int _bind_DisableRestoring(lua_State *L) {
 		if (!_lg_typecheck_DisableRestoring(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPersistenceManager::DisableRestoring() function, expected prototype:\nvoid wxPersistenceManager::DisableRestoring()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPersistenceManager::DisableRestoring() function, expected prototype:\nvoid wxPersistenceManager::DisableRestoring()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPersistenceManager::DisableRestoring(). Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPersistenceManager::DisableRestoring(). Got : '%s'\n%s",typeid(Luna< wxPersistenceManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DisableRestoring();
 
@@ -284,8 +273,7 @@ public:
 	// wxPersistentObject * wxPersistenceManager::Register(void * obj, wxPersistentObject * po)
 	static int _bind_Register(lua_State *L) {
 		if (!_lg_typecheck_Register(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPersistentObject * wxPersistenceManager::Register(void * obj, wxPersistentObject * po) function, expected prototype:\nwxPersistentObject * wxPersistenceManager::Register(void * obj, wxPersistentObject * po)\nClass arguments details:\narg 2 ID = 84824132\n");
+			luaL_error(L, "luna typecheck failed in wxPersistentObject * wxPersistenceManager::Register(void * obj, wxPersistentObject * po) function, expected prototype:\nwxPersistentObject * wxPersistenceManager::Register(void * obj, wxPersistentObject * po)\nClass arguments details:\narg 2 ID = 84824132\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* obj=(Luna< void >::check(L,2));
@@ -293,8 +281,7 @@ public:
 
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPersistentObject * wxPersistenceManager::Register(void *, wxPersistentObject *). Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPersistentObject * wxPersistenceManager::Register(void *, wxPersistentObject *). Got : '%s'\n%s",typeid(Luna< wxPersistenceManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPersistentObject * lret = self->Register(obj, po);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -307,16 +294,14 @@ public:
 	// wxPersistentObject * wxPersistenceManager::Find(void * obj) const
 	static int _bind_Find(lua_State *L) {
 		if (!_lg_typecheck_Find(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPersistentObject * wxPersistenceManager::Find(void * obj) const function, expected prototype:\nwxPersistentObject * wxPersistenceManager::Find(void * obj) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPersistentObject * wxPersistenceManager::Find(void * obj) const function, expected prototype:\nwxPersistentObject * wxPersistenceManager::Find(void * obj) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* obj=(Luna< void >::check(L,2));
 
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPersistentObject * wxPersistenceManager::Find(void *) const. Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPersistentObject * wxPersistenceManager::Find(void *) const. Got : '%s'\n%s",typeid(Luna< wxPersistenceManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPersistentObject * lret = self->Find(obj);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -329,16 +314,14 @@ public:
 	// void wxPersistenceManager::Unregister(void * obj)
 	static int _bind_Unregister(lua_State *L) {
 		if (!_lg_typecheck_Unregister(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPersistenceManager::Unregister(void * obj) function, expected prototype:\nvoid wxPersistenceManager::Unregister(void * obj)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPersistenceManager::Unregister(void * obj) function, expected prototype:\nvoid wxPersistenceManager::Unregister(void * obj)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* obj=(Luna< void >::check(L,2));
 
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPersistenceManager::Unregister(void *). Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPersistenceManager::Unregister(void *). Got : '%s'\n%s",typeid(Luna< wxPersistenceManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Unregister(obj);
 
@@ -348,16 +331,14 @@ public:
 	// void wxPersistenceManager::Save(void * obj)
 	static int _bind_Save(lua_State *L) {
 		if (!_lg_typecheck_Save(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPersistenceManager::Save(void * obj) function, expected prototype:\nvoid wxPersistenceManager::Save(void * obj)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPersistenceManager::Save(void * obj) function, expected prototype:\nvoid wxPersistenceManager::Save(void * obj)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* obj=(Luna< void >::check(L,2));
 
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPersistenceManager::Save(void *). Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPersistenceManager::Save(void *). Got : '%s'\n%s",typeid(Luna< wxPersistenceManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Save(obj);
 
@@ -367,16 +348,14 @@ public:
 	// bool wxPersistenceManager::Restore(void * obj)
 	static int _bind_Restore(lua_State *L) {
 		if (!_lg_typecheck_Restore(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPersistenceManager::Restore(void * obj) function, expected prototype:\nbool wxPersistenceManager::Restore(void * obj)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPersistenceManager::Restore(void * obj) function, expected prototype:\nbool wxPersistenceManager::Restore(void * obj)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* obj=(Luna< void >::check(L,2));
 
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPersistenceManager::Restore(void *). Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPersistenceManager::Restore(void *). Got : '%s'\n%s",typeid(Luna< wxPersistenceManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Restore(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -387,16 +366,14 @@ public:
 	// void wxPersistenceManager::SaveAndUnregister(void * obj)
 	static int _bind_SaveAndUnregister(lua_State *L) {
 		if (!_lg_typecheck_SaveAndUnregister(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPersistenceManager::SaveAndUnregister(void * obj) function, expected prototype:\nvoid wxPersistenceManager::SaveAndUnregister(void * obj)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPersistenceManager::SaveAndUnregister(void * obj) function, expected prototype:\nvoid wxPersistenceManager::SaveAndUnregister(void * obj)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* obj=(Luna< void >::check(L,2));
 
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPersistenceManager::SaveAndUnregister(void *). Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPersistenceManager::SaveAndUnregister(void *). Got : '%s'\n%s",typeid(Luna< wxPersistenceManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SaveAndUnregister(obj);
 
@@ -406,8 +383,7 @@ public:
 	// bool wxPersistenceManager::RegisterAndRestore(void * obj, wxPersistentObject * po)
 	static int _bind_RegisterAndRestore(lua_State *L) {
 		if (!_lg_typecheck_RegisterAndRestore(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPersistenceManager::RegisterAndRestore(void * obj, wxPersistentObject * po) function, expected prototype:\nbool wxPersistenceManager::RegisterAndRestore(void * obj, wxPersistentObject * po)\nClass arguments details:\narg 2 ID = 84824132\n");
+			luaL_error(L, "luna typecheck failed in bool wxPersistenceManager::RegisterAndRestore(void * obj, wxPersistentObject * po) function, expected prototype:\nbool wxPersistenceManager::RegisterAndRestore(void * obj, wxPersistentObject * po)\nClass arguments details:\narg 2 ID = 84824132\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* obj=(Luna< void >::check(L,2));
@@ -415,8 +391,7 @@ public:
 
 		wxPersistenceManager* self=(Luna< wxPersistenceManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPersistenceManager::RegisterAndRestore(void *, wxPersistentObject *). Got : '%s'",typeid(Luna< wxPersistenceManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPersistenceManager::RegisterAndRestore(void *, wxPersistentObject *). Got : '%s'\n%s",typeid(Luna< wxPersistenceManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RegisterAndRestore(obj, po);
 		lua_pushboolean(L,lret?1:0);

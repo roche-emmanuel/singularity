@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxObject* self=(Luna< wxObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxPGCell* self= (wxPGCell*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxObject >::check(L,1));
@@ -273,8 +270,7 @@ public:
 	// wxPGCell::wxPGCell()
 	static wxPGCell* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGCell::wxPGCell() function, expected prototype:\nwxPGCell::wxPGCell()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPGCell::wxPGCell() function, expected prototype:\nwxPGCell::wxPGCell()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -284,8 +280,7 @@ public:
 	// wxPGCell::wxPGCell(const wxPGCell & other)
 	static wxPGCell* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGCell::wxPGCell(const wxPGCell & other) function, expected prototype:\nwxPGCell::wxPGCell(const wxPGCell & other)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxPGCell::wxPGCell(const wxPGCell & other) function, expected prototype:\nwxPGCell::wxPGCell(const wxPGCell & other)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPGCell* other_ptr=(Luna< wxObject >::checkSubType< wxPGCell >(L,1));
@@ -300,8 +295,7 @@ public:
 	// wxPGCell::wxPGCell(const wxString & text, const wxBitmap & bitmap = wxNullBitmap, const wxColour & fgCol = wxNullColour, const wxColour & bgCol = wxNullColour)
 	static wxPGCell* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGCell::wxPGCell(const wxString & text, const wxBitmap & bitmap = wxNullBitmap, const wxColour & fgCol = wxNullColour, const wxColour & bgCol = wxNullColour) function, expected prototype:\nwxPGCell::wxPGCell(const wxString & text, const wxBitmap & bitmap = wxNullBitmap, const wxColour & fgCol = wxNullColour, const wxColour & bgCol = wxNullColour)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxPGCell::wxPGCell(const wxString & text, const wxBitmap & bitmap = wxNullBitmap, const wxColour & fgCol = wxNullColour, const wxColour & bgCol = wxNullColour) function, expected prototype:\nwxPGCell::wxPGCell(const wxString & text, const wxBitmap & bitmap = wxNullBitmap, const wxColour & fgCol = wxNullColour, const wxColour & bgCol = wxNullColour)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 56813631\narg 3 ID = 56813631\narg 4 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -329,8 +323,7 @@ public:
 	// wxPGCell::wxPGCell(lua_Table * data)
 	static wxPGCell* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGCell::wxPGCell(lua_Table * data) function, expected prototype:\nwxPGCell::wxPGCell(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPGCell::wxPGCell(lua_Table * data) function, expected prototype:\nwxPGCell::wxPGCell(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -340,8 +333,7 @@ public:
 	// wxPGCell::wxPGCell(lua_Table * data, const wxPGCell & other)
 	static wxPGCell* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGCell::wxPGCell(lua_Table * data, const wxPGCell & other) function, expected prototype:\nwxPGCell::wxPGCell(lua_Table * data, const wxPGCell & other)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxPGCell::wxPGCell(lua_Table * data, const wxPGCell & other) function, expected prototype:\nwxPGCell::wxPGCell(lua_Table * data, const wxPGCell & other)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPGCell* other_ptr=(Luna< wxObject >::checkSubType< wxPGCell >(L,2));
@@ -356,8 +348,7 @@ public:
 	// wxPGCell::wxPGCell(lua_Table * data, const wxString & text, const wxBitmap & bitmap = wxNullBitmap, const wxColour & fgCol = wxNullColour, const wxColour & bgCol = wxNullColour)
 	static wxPGCell* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGCell::wxPGCell(lua_Table * data, const wxString & text, const wxBitmap & bitmap = wxNullBitmap, const wxColour & fgCol = wxNullColour, const wxColour & bgCol = wxNullColour) function, expected prototype:\nwxPGCell::wxPGCell(lua_Table * data, const wxString & text, const wxBitmap & bitmap = wxNullBitmap, const wxColour & fgCol = wxNullColour, const wxColour & bgCol = wxNullColour)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 5 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxPGCell::wxPGCell(lua_Table * data, const wxString & text, const wxBitmap & bitmap = wxNullBitmap, const wxColour & fgCol = wxNullColour, const wxColour & bgCol = wxNullColour) function, expected prototype:\nwxPGCell::wxPGCell(lua_Table * data, const wxString & text, const wxBitmap & bitmap = wxNullBitmap, const wxColour & fgCol = wxNullColour, const wxColour & bgCol = wxNullColour)\nClass arguments details:\narg 2 ID = 88196105\narg 3 ID = 56813631\narg 4 ID = 56813631\narg 5 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -400,15 +391,13 @@ public:
 	// const wxPGCellData * wxPGCell::GetData() const
 	static int _bind_GetData_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetData_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxPGCellData * wxPGCell::GetData() const function, expected prototype:\nconst wxPGCellData * wxPGCell::GetData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxPGCellData * wxPGCell::GetData() const function, expected prototype:\nconst wxPGCellData * wxPGCell::GetData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxPGCellData * wxPGCell::GetData() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxPGCellData * wxPGCell::GetData() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxPGCellData * lret = self->GetData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -421,15 +410,13 @@ public:
 	// wxPGCellData * wxPGCell::GetData()
 	static int _bind_GetData_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetData_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGCellData * wxPGCell::GetData() function, expected prototype:\nwxPGCellData * wxPGCell::GetData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxPGCellData * wxPGCell::GetData() function, expected prototype:\nwxPGCellData * wxPGCell::GetData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGCellData * wxPGCell::GetData(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPGCellData * wxPGCell::GetData(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxPGCellData * lret = self->GetData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -451,15 +438,13 @@ public:
 	// bool wxPGCell::HasText() const
 	static int _bind_HasText(lua_State *L) {
 		if (!_lg_typecheck_HasText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPGCell::HasText() const function, expected prototype:\nbool wxPGCell::HasText() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPGCell::HasText() const function, expected prototype:\nbool wxPGCell::HasText() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPGCell::HasText() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPGCell::HasText() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->HasText();
 		lua_pushboolean(L,lret?1:0);
@@ -470,8 +455,7 @@ public:
 	// void wxPGCell::MergeFrom(const wxPGCell & srcCell)
 	static int _bind_MergeFrom(lua_State *L) {
 		if (!_lg_typecheck_MergeFrom(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPGCell::MergeFrom(const wxPGCell & srcCell) function, expected prototype:\nvoid wxPGCell::MergeFrom(const wxPGCell & srcCell)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPGCell::MergeFrom(const wxPGCell & srcCell) function, expected prototype:\nvoid wxPGCell::MergeFrom(const wxPGCell & srcCell)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPGCell* srcCell_ptr=(Luna< wxObject >::checkSubType< wxPGCell >(L,2));
@@ -482,8 +466,7 @@ public:
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGCell::MergeFrom(const wxPGCell &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPGCell::MergeFrom(const wxPGCell &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MergeFrom(srcCell);
 
@@ -493,16 +476,14 @@ public:
 	// void wxPGCell::SetText(const wxString & text)
 	static int _bind_SetText(lua_State *L) {
 		if (!_lg_typecheck_SetText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPGCell::SetText(const wxString & text) function, expected prototype:\nvoid wxPGCell::SetText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxPGCell::SetText(const wxString & text) function, expected prototype:\nvoid wxPGCell::SetText(const wxString & text)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGCell::SetText(const wxString &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPGCell::SetText(const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetText(text);
 
@@ -512,8 +493,7 @@ public:
 	// void wxPGCell::SetBitmap(const wxBitmap & bitmap)
 	static int _bind_SetBitmap(lua_State *L) {
 		if (!_lg_typecheck_SetBitmap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPGCell::SetBitmap(const wxBitmap & bitmap) function, expected prototype:\nvoid wxPGCell::SetBitmap(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPGCell::SetBitmap(const wxBitmap & bitmap) function, expected prototype:\nvoid wxPGCell::SetBitmap(const wxBitmap & bitmap)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxBitmap* bitmap_ptr=(Luna< wxObject >::checkSubType< wxBitmap >(L,2));
@@ -524,8 +504,7 @@ public:
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGCell::SetBitmap(const wxBitmap &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPGCell::SetBitmap(const wxBitmap &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetBitmap(bitmap);
 
@@ -535,8 +514,7 @@ public:
 	// void wxPGCell::SetFgCol(const wxColour & col)
 	static int _bind_SetFgCol(lua_State *L) {
 		if (!_lg_typecheck_SetFgCol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPGCell::SetFgCol(const wxColour & col) function, expected prototype:\nvoid wxPGCell::SetFgCol(const wxColour & col)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPGCell::SetFgCol(const wxColour & col) function, expected prototype:\nvoid wxPGCell::SetFgCol(const wxColour & col)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* col_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -547,8 +525,7 @@ public:
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGCell::SetFgCol(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPGCell::SetFgCol(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFgCol(col);
 
@@ -558,8 +535,7 @@ public:
 	// void wxPGCell::SetFont(const wxFont & font)
 	static int _bind_SetFont(lua_State *L) {
 		if (!_lg_typecheck_SetFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPGCell::SetFont(const wxFont & font) function, expected prototype:\nvoid wxPGCell::SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPGCell::SetFont(const wxFont & font) function, expected prototype:\nvoid wxPGCell::SetFont(const wxFont & font)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxFont* font_ptr=(Luna< wxObject >::checkSubType< wxFont >(L,2));
@@ -570,8 +546,7 @@ public:
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGCell::SetFont(const wxFont &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPGCell::SetFont(const wxFont &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFont(font);
 
@@ -581,8 +556,7 @@ public:
 	// void wxPGCell::SetBgCol(const wxColour & col)
 	static int _bind_SetBgCol(lua_State *L) {
 		if (!_lg_typecheck_SetBgCol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPGCell::SetBgCol(const wxColour & col) function, expected prototype:\nvoid wxPGCell::SetBgCol(const wxColour & col)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxPGCell::SetBgCol(const wxColour & col) function, expected prototype:\nvoid wxPGCell::SetBgCol(const wxColour & col)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxColour* col_ptr=(Luna< wxObject >::checkSubType< wxColour >(L,2));
@@ -593,8 +567,7 @@ public:
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGCell::SetBgCol(const wxColour &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPGCell::SetBgCol(const wxColour &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetBgCol(col);
 
@@ -604,15 +577,13 @@ public:
 	// const wxString & wxPGCell::GetText() const
 	static int _bind_GetText(lua_State *L) {
 		if (!_lg_typecheck_GetText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxString & wxPGCell::GetText() const function, expected prototype:\nconst wxString & wxPGCell::GetText() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxString & wxPGCell::GetText() const function, expected prototype:\nconst wxString & wxPGCell::GetText() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxString & wxPGCell::GetText() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxString & wxPGCell::GetText() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxString & lret = self->GetText();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -623,15 +594,13 @@ public:
 	// const wxBitmap & wxPGCell::GetBitmap() const
 	static int _bind_GetBitmap(lua_State *L) {
 		if (!_lg_typecheck_GetBitmap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxBitmap & wxPGCell::GetBitmap() const function, expected prototype:\nconst wxBitmap & wxPGCell::GetBitmap() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxBitmap & wxPGCell::GetBitmap() const function, expected prototype:\nconst wxBitmap & wxPGCell::GetBitmap() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxBitmap & wxPGCell::GetBitmap() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxBitmap & wxPGCell::GetBitmap() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxBitmap* lret = &self->GetBitmap();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -644,15 +613,13 @@ public:
 	// const wxColour & wxPGCell::GetFgCol() const
 	static int _bind_GetFgCol(lua_State *L) {
 		if (!_lg_typecheck_GetFgCol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxColour & wxPGCell::GetFgCol() const function, expected prototype:\nconst wxColour & wxPGCell::GetFgCol() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxColour & wxPGCell::GetFgCol() const function, expected prototype:\nconst wxColour & wxPGCell::GetFgCol() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxPGCell::GetFgCol() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxColour & wxPGCell::GetFgCol() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxColour* lret = &self->GetFgCol();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -665,15 +632,13 @@ public:
 	// const wxFont & wxPGCell::GetFont() const
 	static int _bind_GetFont(lua_State *L) {
 		if (!_lg_typecheck_GetFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxFont & wxPGCell::GetFont() const function, expected prototype:\nconst wxFont & wxPGCell::GetFont() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxFont & wxPGCell::GetFont() const function, expected prototype:\nconst wxFont & wxPGCell::GetFont() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxFont & wxPGCell::GetFont() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxFont & wxPGCell::GetFont() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxFont* lret = &self->GetFont();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -686,15 +651,13 @@ public:
 	// const wxColour & wxPGCell::GetBgCol() const
 	static int _bind_GetBgCol(lua_State *L) {
 		if (!_lg_typecheck_GetBgCol(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const wxColour & wxPGCell::GetBgCol() const function, expected prototype:\nconst wxColour & wxPGCell::GetBgCol() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const wxColour & wxPGCell::GetBgCol() const function, expected prototype:\nconst wxColour & wxPGCell::GetBgCol() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const wxColour & wxPGCell::GetBgCol() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const wxColour & wxPGCell::GetBgCol() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxColour* lret = &self->GetBgCol();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -707,15 +670,13 @@ public:
 	// void wxPGCell::SetEmptyData()
 	static int _bind_SetEmptyData(lua_State *L) {
 		if (!_lg_typecheck_SetEmptyData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxPGCell::SetEmptyData() function, expected prototype:\nvoid wxPGCell::SetEmptyData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxPGCell::SetEmptyData() function, expected prototype:\nvoid wxPGCell::SetEmptyData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxPGCell::SetEmptyData(). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxPGCell::SetEmptyData(). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetEmptyData();
 
@@ -725,15 +686,13 @@ public:
 	// bool wxPGCell::IsInvalid() const
 	static int _bind_IsInvalid(lua_State *L) {
 		if (!_lg_typecheck_IsInvalid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxPGCell::IsInvalid() const function, expected prototype:\nbool wxPGCell::IsInvalid() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxPGCell::IsInvalid() const function, expected prototype:\nbool wxPGCell::IsInvalid() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxPGCell::IsInvalid() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxPGCell::IsInvalid() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsInvalid();
 		lua_pushboolean(L,lret?1:0);
@@ -744,15 +703,13 @@ public:
 	// wxClassInfo * wxPGCell::base_GetClassInfo() const
 	static int _bind_base_GetClassInfo(lua_State *L) {
 		if (!_lg_typecheck_base_GetClassInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxClassInfo * wxPGCell::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxPGCell::base_GetClassInfo() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxClassInfo * wxPGCell::base_GetClassInfo() const function, expected prototype:\nwxClassInfo * wxPGCell::base_GetClassInfo() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxClassInfo * wxPGCell::base_GetClassInfo() const. Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxClassInfo * wxPGCell::base_GetClassInfo() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxClassInfo * lret = self->wxPGCell::GetClassInfo();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -767,8 +724,7 @@ public:
 	// wxPGCell & wxPGCell::operator=(const wxPGCell & other)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxPGCell & wxPGCell::operator=(const wxPGCell & other) function, expected prototype:\nwxPGCell & wxPGCell::operator=(const wxPGCell & other)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxPGCell & wxPGCell::operator=(const wxPGCell & other) function, expected prototype:\nwxPGCell & wxPGCell::operator=(const wxPGCell & other)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const wxPGCell* other_ptr=(Luna< wxObject >::checkSubType< wxPGCell >(L,2));
@@ -779,8 +735,7 @@ public:
 
 		wxPGCell* self=Luna< wxObject >::checkSubType< wxPGCell >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxPGCell & wxPGCell::operator=(const wxPGCell &). Got : '%s'",typeid(Luna< wxObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxPGCell & wxPGCell::operator=(const wxPGCell &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const wxPGCell* lret = &self->operator=(other);
 		if(!lret) return 0; // Do not write NULL pointers.

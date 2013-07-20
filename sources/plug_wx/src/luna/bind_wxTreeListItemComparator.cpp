@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTreeListItemComparator* self=(Luna< wxTreeListItemComparator >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTreeListItemComparator*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxTreeListItemComparator*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTreeListItemComparator* rhs =(Luna< wxTreeListItemComparator >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTreeListItemComparator* self= (wxTreeListItemComparator*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxTreeListItemComparator >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -153,8 +148,7 @@ public:
 	// wxTreeListItemComparator::wxTreeListItemComparator(lua_Table * data)
 	static wxTreeListItemComparator* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxTreeListItemComparator::wxTreeListItemComparator(lua_Table * data) function, expected prototype:\nwxTreeListItemComparator::wxTreeListItemComparator(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxTreeListItemComparator::wxTreeListItemComparator(lua_Table * data) function, expected prototype:\nwxTreeListItemComparator::wxTreeListItemComparator(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -166,8 +160,7 @@ public:
 	// int wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned int column, wxTreeListItem first, wxTreeListItem second)
 	static int _bind_Compare(lua_State *L) {
 		if (!_lg_typecheck_Compare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned int column, wxTreeListItem first, wxTreeListItem second) function, expected prototype:\nint wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned int column, wxTreeListItem first, wxTreeListItem second)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 75268455\narg 4 ID = 75268455\n");
+			luaL_error(L, "luna typecheck failed in int wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned int column, wxTreeListItem first, wxTreeListItem second) function, expected prototype:\nint wxTreeListItemComparator::Compare(wxTreeListCtrl * treelist, unsigned int column, wxTreeListItem first, wxTreeListItem second)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 75268455\narg 4 ID = 75268455\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxTreeListCtrl* treelist=(Luna< wxObject >::checkSubType< wxTreeListCtrl >(L,2));
@@ -185,8 +178,7 @@ public:
 
 		wxTreeListItemComparator* self=(Luna< wxTreeListItemComparator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int wxTreeListItemComparator::Compare(wxTreeListCtrl *, unsigned int, wxTreeListItem, wxTreeListItem). Got : '%s'",typeid(Luna< wxTreeListItemComparator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int wxTreeListItemComparator::Compare(wxTreeListCtrl *, unsigned int, wxTreeListItem, wxTreeListItem). Got : '%s'\n%s",typeid(Luna< wxTreeListItemComparator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Compare(treelist, column, first, second);
 		lua_pushnumber(L,lret);

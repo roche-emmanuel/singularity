@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLog* self=(Luna< wxLog >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxLogWindow* self= (wxLogWindow*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxLog >::check(L,1));
@@ -186,8 +183,7 @@ public:
 	// wxLogWindow::wxLogWindow(wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true)
 	static wxLogWindow* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxLogWindow::wxLogWindow(wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true) function, expected prototype:\nwxLogWindow::wxLogWindow(wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxLogWindow::wxLogWindow(wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true) function, expected prototype:\nwxLogWindow::wxLogWindow(wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -203,8 +199,7 @@ public:
 	// wxLogWindow::wxLogWindow(lua_Table * data, wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true)
 	static wxLogWindow* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxLogWindow::wxLogWindow(lua_Table * data, wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true) function, expected prototype:\nwxLogWindow::wxLogWindow(lua_Table * data, wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in wxLogWindow::wxLogWindow(lua_Table * data, wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true) function, expected prototype:\nwxLogWindow::wxLogWindow(lua_Table * data, wxWindow * pParent, const wxString & szTitle, bool show = true, bool passToOld = true)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -231,15 +226,13 @@ public:
 	// wxFrame * wxLogWindow::GetFrame() const
 	static int _bind_GetFrame(lua_State *L) {
 		if (!_lg_typecheck_GetFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFrame * wxLogWindow::GetFrame() const function, expected prototype:\nwxFrame * wxLogWindow::GetFrame() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxFrame * wxLogWindow::GetFrame() const function, expected prototype:\nwxFrame * wxLogWindow::GetFrame() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFrame * wxLogWindow::GetFrame() const. Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFrame * wxLogWindow::GetFrame() const. Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFrame * lret = self->GetFrame();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -252,16 +245,14 @@ public:
 	// bool wxLogWindow::OnFrameClose(wxFrame * frame)
 	static int _bind_OnFrameClose(lua_State *L) {
 		if (!_lg_typecheck_OnFrameClose(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxLogWindow::OnFrameClose(wxFrame * frame) function, expected prototype:\nbool wxLogWindow::OnFrameClose(wxFrame * frame)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxLogWindow::OnFrameClose(wxFrame * frame) function, expected prototype:\nbool wxLogWindow::OnFrameClose(wxFrame * frame)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFrame* frame=(Luna< wxObject >::checkSubType< wxFrame >(L,2));
 
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLogWindow::OnFrameClose(wxFrame *). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxLogWindow::OnFrameClose(wxFrame *). Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->OnFrameClose(frame);
 		lua_pushboolean(L,lret?1:0);
@@ -272,16 +263,14 @@ public:
 	// void wxLogWindow::OnFrameCreate(wxFrame * frame)
 	static int _bind_OnFrameCreate(lua_State *L) {
 		if (!_lg_typecheck_OnFrameCreate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLogWindow::OnFrameCreate(wxFrame * frame) function, expected prototype:\nvoid wxLogWindow::OnFrameCreate(wxFrame * frame)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxLogWindow::OnFrameCreate(wxFrame * frame) function, expected prototype:\nvoid wxLogWindow::OnFrameCreate(wxFrame * frame)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFrame* frame=(Luna< wxObject >::checkSubType< wxFrame >(L,2));
 
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogWindow::OnFrameCreate(wxFrame *). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLogWindow::OnFrameCreate(wxFrame *). Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnFrameCreate(frame);
 
@@ -291,16 +280,14 @@ public:
 	// void wxLogWindow::OnFrameDelete(wxFrame * frame)
 	static int _bind_OnFrameDelete(lua_State *L) {
 		if (!_lg_typecheck_OnFrameDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLogWindow::OnFrameDelete(wxFrame * frame) function, expected prototype:\nvoid wxLogWindow::OnFrameDelete(wxFrame * frame)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxLogWindow::OnFrameDelete(wxFrame * frame) function, expected prototype:\nvoid wxLogWindow::OnFrameDelete(wxFrame * frame)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFrame* frame=(Luna< wxObject >::checkSubType< wxFrame >(L,2));
 
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogWindow::OnFrameDelete(wxFrame *). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLogWindow::OnFrameDelete(wxFrame *). Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnFrameDelete(frame);
 
@@ -310,8 +297,7 @@ public:
 	// void wxLogWindow::Show(bool show = true)
 	static int _bind_Show(lua_State *L) {
 		if (!_lg_typecheck_Show(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLogWindow::Show(bool show = true) function, expected prototype:\nvoid wxLogWindow::Show(bool show = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxLogWindow::Show(bool show = true) function, expected prototype:\nvoid wxLogWindow::Show(bool show = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -320,8 +306,7 @@ public:
 
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogWindow::Show(bool). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLogWindow::Show(bool). Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Show(show);
 
@@ -331,15 +316,13 @@ public:
 	// void wxLogWindow::base_Flush()
 	static int _bind_base_Flush(lua_State *L) {
 		if (!_lg_typecheck_base_Flush(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLogWindow::base_Flush() function, expected prototype:\nvoid wxLogWindow::base_Flush()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void wxLogWindow::base_Flush() function, expected prototype:\nvoid wxLogWindow::base_Flush()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogWindow::base_Flush(). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLogWindow::base_Flush(). Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxLogWindow::Flush();
 
@@ -349,16 +332,14 @@ public:
 	// bool wxLogWindow::base_OnFrameClose(wxFrame * frame)
 	static int _bind_base_OnFrameClose(lua_State *L) {
 		if (!_lg_typecheck_base_OnFrameClose(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxLogWindow::base_OnFrameClose(wxFrame * frame) function, expected prototype:\nbool wxLogWindow::base_OnFrameClose(wxFrame * frame)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in bool wxLogWindow::base_OnFrameClose(wxFrame * frame) function, expected prototype:\nbool wxLogWindow::base_OnFrameClose(wxFrame * frame)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFrame* frame=(Luna< wxObject >::checkSubType< wxFrame >(L,2));
 
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxLogWindow::base_OnFrameClose(wxFrame *). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxLogWindow::base_OnFrameClose(wxFrame *). Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxLogWindow::OnFrameClose(frame);
 		lua_pushboolean(L,lret?1:0);
@@ -369,16 +350,14 @@ public:
 	// void wxLogWindow::base_OnFrameCreate(wxFrame * frame)
 	static int _bind_base_OnFrameCreate(lua_State *L) {
 		if (!_lg_typecheck_base_OnFrameCreate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLogWindow::base_OnFrameCreate(wxFrame * frame) function, expected prototype:\nvoid wxLogWindow::base_OnFrameCreate(wxFrame * frame)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxLogWindow::base_OnFrameCreate(wxFrame * frame) function, expected prototype:\nvoid wxLogWindow::base_OnFrameCreate(wxFrame * frame)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFrame* frame=(Luna< wxObject >::checkSubType< wxFrame >(L,2));
 
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogWindow::base_OnFrameCreate(wxFrame *). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLogWindow::base_OnFrameCreate(wxFrame *). Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxLogWindow::OnFrameCreate(frame);
 
@@ -388,16 +367,14 @@ public:
 	// void wxLogWindow::base_OnFrameDelete(wxFrame * frame)
 	static int _bind_base_OnFrameDelete(lua_State *L) {
 		if (!_lg_typecheck_base_OnFrameDelete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxLogWindow::base_OnFrameDelete(wxFrame * frame) function, expected prototype:\nvoid wxLogWindow::base_OnFrameDelete(wxFrame * frame)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxLogWindow::base_OnFrameDelete(wxFrame * frame) function, expected prototype:\nvoid wxLogWindow::base_OnFrameDelete(wxFrame * frame)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxFrame* frame=(Luna< wxObject >::checkSubType< wxFrame >(L,2));
 
 		wxLogWindow* self=Luna< wxLog >::checkSubType< wxLogWindow >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxLogWindow::base_OnFrameDelete(wxFrame *). Got : '%s'",typeid(Luna< wxLog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxLogWindow::base_OnFrameDelete(wxFrame *). Got : '%s'\n%s",typeid(Luna< wxLog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxLogWindow::OnFrameDelete(frame);
 

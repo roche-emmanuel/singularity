@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxHelpController*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(wxHelpController*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHelpController* rhs =(Luna< wxHelpController >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxHelpController* self= (wxHelpController*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< wxHelpController >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -150,7 +145,7 @@ public:
 	inline static bool _lg_typecheck_DisplayBlock(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -265,14 +260,14 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_DisplayBlock(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -387,7 +382,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( lua_isstring(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		return true;
 	}
 
@@ -399,8 +394,7 @@ public:
 	// wxHelpController::wxHelpController(wxWindow * parentWindow = NULL)
 	static wxHelpController* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHelpController::wxHelpController(wxWindow * parentWindow = NULL) function, expected prototype:\nwxHelpController::wxHelpController(wxWindow * parentWindow = NULL)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxHelpController::wxHelpController(wxWindow * parentWindow = NULL) function, expected prototype:\nwxHelpController::wxHelpController(wxWindow * parentWindow = NULL)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -413,8 +407,7 @@ public:
 	// wxHelpController::wxHelpController(lua_Table * data, wxWindow * parentWindow = NULL)
 	static wxHelpController* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxHelpController::wxHelpController(lua_Table * data, wxWindow * parentWindow = NULL) function, expected prototype:\nwxHelpController::wxHelpController(lua_Table * data, wxWindow * parentWindow = NULL)\nClass arguments details:\narg 2 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in wxHelpController::wxHelpController(lua_Table * data, wxWindow * parentWindow = NULL) function, expected prototype:\nwxHelpController::wxHelpController(lua_Table * data, wxWindow * parentWindow = NULL)\nClass arguments details:\narg 2 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -438,16 +431,14 @@ public:
 	// bool wxHelpController::DisplayBlock(long blockNo)
 	static int _bind_DisplayBlock(lua_State *L) {
 		if (!_lg_typecheck_DisplayBlock(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::DisplayBlock(long blockNo) function, expected prototype:\nbool wxHelpController::DisplayBlock(long blockNo)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::DisplayBlock(long blockNo) function, expected prototype:\nbool wxHelpController::DisplayBlock(long blockNo)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long blockNo=(long)lua_tointeger(L,2);
+		long blockNo=(long)lua_tonumber(L,2);
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplayBlock(long). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplayBlock(long). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DisplayBlock(blockNo);
 		lua_pushboolean(L,lret?1:0);
@@ -458,15 +449,13 @@ public:
 	// bool wxHelpController::DisplayContents()
 	static int _bind_DisplayContents(lua_State *L) {
 		if (!_lg_typecheck_DisplayContents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::DisplayContents() function, expected prototype:\nbool wxHelpController::DisplayContents()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::DisplayContents() function, expected prototype:\nbool wxHelpController::DisplayContents()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplayContents(). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplayContents(). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DisplayContents();
 		lua_pushboolean(L,lret?1:0);
@@ -477,16 +466,14 @@ public:
 	// bool wxHelpController::DisplayContextPopup(int contextId)
 	static int _bind_DisplayContextPopup(lua_State *L) {
 		if (!_lg_typecheck_DisplayContextPopup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::DisplayContextPopup(int contextId) function, expected prototype:\nbool wxHelpController::DisplayContextPopup(int contextId)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::DisplayContextPopup(int contextId) function, expected prototype:\nbool wxHelpController::DisplayContextPopup(int contextId)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int contextId=(int)lua_tointeger(L,2);
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplayContextPopup(int). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplayContextPopup(int). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DisplayContextPopup(contextId);
 		lua_pushboolean(L,lret?1:0);
@@ -497,16 +484,14 @@ public:
 	// bool wxHelpController::DisplaySection(const wxString & section)
 	static int _bind_DisplaySection_overload_1(lua_State *L) {
 		if (!_lg_typecheck_DisplaySection_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::DisplaySection(const wxString & section) function, expected prototype:\nbool wxHelpController::DisplaySection(const wxString & section)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::DisplaySection(const wxString & section) function, expected prototype:\nbool wxHelpController::DisplaySection(const wxString & section)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString section(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplaySection(const wxString &). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplaySection(const wxString &). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DisplaySection(section);
 		lua_pushboolean(L,lret?1:0);
@@ -517,16 +502,14 @@ public:
 	// bool wxHelpController::DisplaySection(int sectionNo)
 	static int _bind_DisplaySection_overload_2(lua_State *L) {
 		if (!_lg_typecheck_DisplaySection_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::DisplaySection(int sectionNo) function, expected prototype:\nbool wxHelpController::DisplaySection(int sectionNo)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::DisplaySection(int sectionNo) function, expected prototype:\nbool wxHelpController::DisplaySection(int sectionNo)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int sectionNo=(int)lua_tointeger(L,2);
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplaySection(int). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplaySection(int). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DisplaySection(sectionNo);
 		lua_pushboolean(L,lret?1:0);
@@ -546,8 +529,7 @@ public:
 	// bool wxHelpController::DisplayTextPopup(const wxString & text, const wxPoint & pos)
 	static int _bind_DisplayTextPopup(lua_State *L) {
 		if (!_lg_typecheck_DisplayTextPopup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::DisplayTextPopup(const wxString & text, const wxPoint & pos) function, expected prototype:\nbool wxHelpController::DisplayTextPopup(const wxString & text, const wxPoint & pos)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::DisplayTextPopup(const wxString & text, const wxPoint & pos) function, expected prototype:\nbool wxHelpController::DisplayTextPopup(const wxString & text, const wxPoint & pos)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
@@ -559,8 +541,7 @@ public:
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplayTextPopup(const wxString &, const wxPoint &). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::DisplayTextPopup(const wxString &, const wxPoint &). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->DisplayTextPopup(text, pos);
 		lua_pushboolean(L,lret?1:0);
@@ -571,8 +552,7 @@ public:
 	// wxFrame * wxHelpController::GetFrameParameters(wxSize * size = NULL, wxPoint * pos = NULL, bool * newFrameEachTime = NULL)
 	static int _bind_GetFrameParameters(lua_State *L) {
 		if (!_lg_typecheck_GetFrameParameters(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFrame * wxHelpController::GetFrameParameters(wxSize * size = NULL, wxPoint * pos = NULL, bool * newFrameEachTime = NULL) function, expected prototype:\nwxFrame * wxHelpController::GetFrameParameters(wxSize * size = NULL, wxPoint * pos = NULL, bool * newFrameEachTime = NULL)\nClass arguments details:\narg 1 ID = 20268751\narg 2 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in wxFrame * wxHelpController::GetFrameParameters(wxSize * size = NULL, wxPoint * pos = NULL, bool * newFrameEachTime = NULL) function, expected prototype:\nwxFrame * wxHelpController::GetFrameParameters(wxSize * size = NULL, wxPoint * pos = NULL, bool * newFrameEachTime = NULL)\nClass arguments details:\narg 1 ID = 20268751\narg 2 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -583,8 +563,7 @@ public:
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFrame * wxHelpController::GetFrameParameters(wxSize *, wxPoint *, bool *). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFrame * wxHelpController::GetFrameParameters(wxSize *, wxPoint *, bool *). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFrame * lret = self->GetFrameParameters(size, pos, newFrameEachTime);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -597,15 +576,13 @@ public:
 	// wxWindow * wxHelpController::GetParentWindow() const
 	static int _bind_GetParentWindow(lua_State *L) {
 		if (!_lg_typecheck_GetParentWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxWindow * wxHelpController::GetParentWindow() const function, expected prototype:\nwxWindow * wxHelpController::GetParentWindow() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxWindow * wxHelpController::GetParentWindow() const function, expected prototype:\nwxWindow * wxHelpController::GetParentWindow() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxHelpController::GetParentWindow() const. Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxWindow * wxHelpController::GetParentWindow() const. Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxWindow * lret = self->GetParentWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -618,16 +595,14 @@ public:
 	// bool wxHelpController::Initialize(const wxString & file)
 	static int _bind_Initialize_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Initialize_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::Initialize(const wxString & file) function, expected prototype:\nbool wxHelpController::Initialize(const wxString & file)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::Initialize(const wxString & file) function, expected prototype:\nbool wxHelpController::Initialize(const wxString & file)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString file(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::Initialize(const wxString &). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::Initialize(const wxString &). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Initialize(file);
 		lua_pushboolean(L,lret?1:0);
@@ -638,8 +613,7 @@ public:
 	// bool wxHelpController::Initialize(const wxString & file, int server)
 	static int _bind_Initialize_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Initialize_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::Initialize(const wxString & file, int server) function, expected prototype:\nbool wxHelpController::Initialize(const wxString & file, int server)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::Initialize(const wxString & file, int server) function, expected prototype:\nbool wxHelpController::Initialize(const wxString & file, int server)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString file(lua_tostring(L,2),lua_objlen(L,2));
@@ -647,8 +621,7 @@ public:
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::Initialize(const wxString &, int). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::Initialize(const wxString &, int). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Initialize(file, server);
 		lua_pushboolean(L,lret?1:0);
@@ -668,8 +641,7 @@ public:
 	// bool wxHelpController::KeywordSearch(const wxString & keyWord, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)
 	static int _bind_KeywordSearch(lua_State *L) {
 		if (!_lg_typecheck_KeywordSearch(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::KeywordSearch(const wxString & keyWord, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL) function, expected prototype:\nbool wxHelpController::KeywordSearch(const wxString & keyWord, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::KeywordSearch(const wxString & keyWord, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL) function, expected prototype:\nbool wxHelpController::KeywordSearch(const wxString & keyWord, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -679,8 +651,7 @@ public:
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::KeywordSearch(const wxString &, wxHelpSearchMode). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::KeywordSearch(const wxString &, wxHelpSearchMode). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->KeywordSearch(keyWord, mode);
 		lua_pushboolean(L,lret?1:0);
@@ -691,8 +662,7 @@ public:
 	// bool wxHelpController::LoadFile(const wxString & file = wxEmptyString)
 	static int _bind_LoadFile(lua_State *L) {
 		if (!_lg_typecheck_LoadFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::LoadFile(const wxString & file = wxEmptyString) function, expected prototype:\nbool wxHelpController::LoadFile(const wxString & file = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::LoadFile(const wxString & file = wxEmptyString) function, expected prototype:\nbool wxHelpController::LoadFile(const wxString & file = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -701,8 +671,7 @@ public:
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::LoadFile(const wxString &). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::LoadFile(const wxString &). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->LoadFile(file);
 		lua_pushboolean(L,lret?1:0);
@@ -713,15 +682,13 @@ public:
 	// bool wxHelpController::Quit()
 	static int _bind_Quit(lua_State *L) {
 		if (!_lg_typecheck_Quit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::Quit() function, expected prototype:\nbool wxHelpController::Quit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::Quit() function, expected prototype:\nbool wxHelpController::Quit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::Quit(). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::Quit(). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Quit();
 		lua_pushboolean(L,lret?1:0);
@@ -732,8 +699,7 @@ public:
 	// void wxHelpController::SetFrameParameters(const wxString & title, const wxSize & size, const wxPoint & pos = wxDefaultPosition, bool newFrameEachTime = false)
 	static int _bind_SetFrameParameters(lua_State *L) {
 		if (!_lg_typecheck_SetFrameParameters(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHelpController::SetFrameParameters(const wxString & title, const wxSize & size, const wxPoint & pos = wxDefaultPosition, bool newFrameEachTime = false) function, expected prototype:\nvoid wxHelpController::SetFrameParameters(const wxString & title, const wxSize & size, const wxPoint & pos = wxDefaultPosition, bool newFrameEachTime = false)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 20268751\narg 3 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in void wxHelpController::SetFrameParameters(const wxString & title, const wxSize & size, const wxPoint & pos = wxDefaultPosition, bool newFrameEachTime = false) function, expected prototype:\nvoid wxHelpController::SetFrameParameters(const wxString & title, const wxSize & size, const wxPoint & pos = wxDefaultPosition, bool newFrameEachTime = false)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 20268751\narg 3 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -753,8 +719,7 @@ public:
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpController::SetFrameParameters(const wxString &, const wxSize &, const wxPoint &, bool). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHelpController::SetFrameParameters(const wxString &, const wxSize &, const wxPoint &, bool). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFrameParameters(title, size, pos, newFrameEachTime);
 
@@ -764,16 +729,14 @@ public:
 	// void wxHelpController::SetParentWindow(wxWindow * parentWindow)
 	static int _bind_SetParentWindow(lua_State *L) {
 		if (!_lg_typecheck_SetParentWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHelpController::SetParentWindow(wxWindow * parentWindow) function, expected prototype:\nvoid wxHelpController::SetParentWindow(wxWindow * parentWindow)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxHelpController::SetParentWindow(wxWindow * parentWindow) function, expected prototype:\nvoid wxHelpController::SetParentWindow(wxWindow * parentWindow)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* parentWindow=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpController::SetParentWindow(wxWindow *). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHelpController::SetParentWindow(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetParentWindow(parentWindow);
 
@@ -783,17 +746,15 @@ public:
 	// void wxHelpController::SetViewer(const wxString & viewer, long flags)
 	static int _bind_SetViewer(lua_State *L) {
 		if (!_lg_typecheck_SetViewer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHelpController::SetViewer(const wxString & viewer, long flags) function, expected prototype:\nvoid wxHelpController::SetViewer(const wxString & viewer, long flags)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHelpController::SetViewer(const wxString & viewer, long flags) function, expected prototype:\nvoid wxHelpController::SetViewer(const wxString & viewer, long flags)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString viewer(lua_tostring(L,2),lua_objlen(L,2));
-		long flags=(long)lua_tointeger(L,3);
+		long flags=(long)lua_tonumber(L,3);
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpController::SetViewer(const wxString &, long). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHelpController::SetViewer(const wxString &, long). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetViewer(viewer, flags);
 
@@ -803,16 +764,14 @@ public:
 	// bool wxHelpController::base_DisplayBlock(long blockNo)
 	static int _bind_base_DisplayBlock(lua_State *L) {
 		if (!_lg_typecheck_base_DisplayBlock(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_DisplayBlock(long blockNo) function, expected prototype:\nbool wxHelpController::base_DisplayBlock(long blockNo)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_DisplayBlock(long blockNo) function, expected prototype:\nbool wxHelpController::base_DisplayBlock(long blockNo)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long blockNo=(long)lua_tointeger(L,2);
+		long blockNo=(long)lua_tonumber(L,2);
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplayBlock(long). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplayBlock(long). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHelpController::DisplayBlock(blockNo);
 		lua_pushboolean(L,lret?1:0);
@@ -823,15 +782,13 @@ public:
 	// bool wxHelpController::base_DisplayContents()
 	static int _bind_base_DisplayContents(lua_State *L) {
 		if (!_lg_typecheck_base_DisplayContents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_DisplayContents() function, expected prototype:\nbool wxHelpController::base_DisplayContents()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_DisplayContents() function, expected prototype:\nbool wxHelpController::base_DisplayContents()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplayContents(). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplayContents(). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHelpController::DisplayContents();
 		lua_pushboolean(L,lret?1:0);
@@ -842,16 +799,14 @@ public:
 	// bool wxHelpController::base_DisplayContextPopup(int contextId)
 	static int _bind_base_DisplayContextPopup(lua_State *L) {
 		if (!_lg_typecheck_base_DisplayContextPopup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_DisplayContextPopup(int contextId) function, expected prototype:\nbool wxHelpController::base_DisplayContextPopup(int contextId)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_DisplayContextPopup(int contextId) function, expected prototype:\nbool wxHelpController::base_DisplayContextPopup(int contextId)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int contextId=(int)lua_tointeger(L,2);
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplayContextPopup(int). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplayContextPopup(int). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHelpController::DisplayContextPopup(contextId);
 		lua_pushboolean(L,lret?1:0);
@@ -862,16 +817,14 @@ public:
 	// bool wxHelpController::base_DisplaySection(const wxString & section)
 	static int _bind_base_DisplaySection_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_DisplaySection_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_DisplaySection(const wxString & section) function, expected prototype:\nbool wxHelpController::base_DisplaySection(const wxString & section)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_DisplaySection(const wxString & section) function, expected prototype:\nbool wxHelpController::base_DisplaySection(const wxString & section)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString section(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplaySection(const wxString &). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplaySection(const wxString &). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHelpController::DisplaySection(section);
 		lua_pushboolean(L,lret?1:0);
@@ -882,16 +835,14 @@ public:
 	// bool wxHelpController::base_DisplaySection(int sectionNo)
 	static int _bind_base_DisplaySection_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_DisplaySection_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_DisplaySection(int sectionNo) function, expected prototype:\nbool wxHelpController::base_DisplaySection(int sectionNo)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_DisplaySection(int sectionNo) function, expected prototype:\nbool wxHelpController::base_DisplaySection(int sectionNo)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int sectionNo=(int)lua_tointeger(L,2);
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplaySection(int). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplaySection(int). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHelpController::DisplaySection(sectionNo);
 		lua_pushboolean(L,lret?1:0);
@@ -911,8 +862,7 @@ public:
 	// bool wxHelpController::base_DisplayTextPopup(const wxString & text, const wxPoint & pos)
 	static int _bind_base_DisplayTextPopup(lua_State *L) {
 		if (!_lg_typecheck_base_DisplayTextPopup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_DisplayTextPopup(const wxString & text, const wxPoint & pos) function, expected prototype:\nbool wxHelpController::base_DisplayTextPopup(const wxString & text, const wxPoint & pos)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_DisplayTextPopup(const wxString & text, const wxPoint & pos) function, expected prototype:\nbool wxHelpController::base_DisplayTextPopup(const wxString & text, const wxPoint & pos)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString text(lua_tostring(L,2),lua_objlen(L,2));
@@ -924,8 +874,7 @@ public:
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplayTextPopup(const wxString &, const wxPoint &). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_DisplayTextPopup(const wxString &, const wxPoint &). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHelpController::DisplayTextPopup(text, pos);
 		lua_pushboolean(L,lret?1:0);
@@ -936,8 +885,7 @@ public:
 	// wxFrame * wxHelpController::base_GetFrameParameters(wxSize * size = NULL, wxPoint * pos = NULL, bool * newFrameEachTime = NULL)
 	static int _bind_base_GetFrameParameters(lua_State *L) {
 		if (!_lg_typecheck_base_GetFrameParameters(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxFrame * wxHelpController::base_GetFrameParameters(wxSize * size = NULL, wxPoint * pos = NULL, bool * newFrameEachTime = NULL) function, expected prototype:\nwxFrame * wxHelpController::base_GetFrameParameters(wxSize * size = NULL, wxPoint * pos = NULL, bool * newFrameEachTime = NULL)\nClass arguments details:\narg 1 ID = 20268751\narg 2 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in wxFrame * wxHelpController::base_GetFrameParameters(wxSize * size = NULL, wxPoint * pos = NULL, bool * newFrameEachTime = NULL) function, expected prototype:\nwxFrame * wxHelpController::base_GetFrameParameters(wxSize * size = NULL, wxPoint * pos = NULL, bool * newFrameEachTime = NULL)\nClass arguments details:\narg 1 ID = 20268751\narg 2 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -948,8 +896,7 @@ public:
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxFrame * wxHelpController::base_GetFrameParameters(wxSize *, wxPoint *, bool *). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxFrame * wxHelpController::base_GetFrameParameters(wxSize *, wxPoint *, bool *). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxFrame * lret = self->wxHelpController::GetFrameParameters(size, pos, newFrameEachTime);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -962,15 +909,13 @@ public:
 	// wxWindow * wxHelpController::base_GetParentWindow() const
 	static int _bind_base_GetParentWindow(lua_State *L) {
 		if (!_lg_typecheck_base_GetParentWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in wxWindow * wxHelpController::base_GetParentWindow() const function, expected prototype:\nwxWindow * wxHelpController::base_GetParentWindow() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in wxWindow * wxHelpController::base_GetParentWindow() const function, expected prototype:\nwxWindow * wxHelpController::base_GetParentWindow() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call wxWindow * wxHelpController::base_GetParentWindow() const. Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call wxWindow * wxHelpController::base_GetParentWindow() const. Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		wxWindow * lret = self->wxHelpController::GetParentWindow();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -983,16 +928,14 @@ public:
 	// bool wxHelpController::base_Initialize(const wxString & file)
 	static int _bind_base_Initialize_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_Initialize_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_Initialize(const wxString & file) function, expected prototype:\nbool wxHelpController::base_Initialize(const wxString & file)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_Initialize(const wxString & file) function, expected prototype:\nbool wxHelpController::base_Initialize(const wxString & file)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString file(lua_tostring(L,2),lua_objlen(L,2));
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_Initialize(const wxString &). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_Initialize(const wxString &). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHelpController::Initialize(file);
 		lua_pushboolean(L,lret?1:0);
@@ -1003,8 +946,7 @@ public:
 	// bool wxHelpController::base_Initialize(const wxString & file, int server)
 	static int _bind_base_Initialize_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_Initialize_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_Initialize(const wxString & file, int server) function, expected prototype:\nbool wxHelpController::base_Initialize(const wxString & file, int server)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_Initialize(const wxString & file, int server) function, expected prototype:\nbool wxHelpController::base_Initialize(const wxString & file, int server)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString file(lua_tostring(L,2),lua_objlen(L,2));
@@ -1012,8 +954,7 @@ public:
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_Initialize(const wxString &, int). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_Initialize(const wxString &, int). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHelpController::Initialize(file, server);
 		lua_pushboolean(L,lret?1:0);
@@ -1033,8 +974,7 @@ public:
 	// bool wxHelpController::base_KeywordSearch(const wxString & keyWord, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)
 	static int _bind_base_KeywordSearch(lua_State *L) {
 		if (!_lg_typecheck_base_KeywordSearch(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_KeywordSearch(const wxString & keyWord, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL) function, expected prototype:\nbool wxHelpController::base_KeywordSearch(const wxString & keyWord, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_KeywordSearch(const wxString & keyWord, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL) function, expected prototype:\nbool wxHelpController::base_KeywordSearch(const wxString & keyWord, wxHelpSearchMode mode = ::wxHELP_SEARCH_ALL)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1044,8 +984,7 @@ public:
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_KeywordSearch(const wxString &, wxHelpSearchMode). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_KeywordSearch(const wxString &, wxHelpSearchMode). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHelpController::KeywordSearch(keyWord, mode);
 		lua_pushboolean(L,lret?1:0);
@@ -1056,8 +995,7 @@ public:
 	// bool wxHelpController::base_LoadFile(const wxString & file = wxEmptyString)
 	static int _bind_base_LoadFile(lua_State *L) {
 		if (!_lg_typecheck_base_LoadFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_LoadFile(const wxString & file = wxEmptyString) function, expected prototype:\nbool wxHelpController::base_LoadFile(const wxString & file = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_LoadFile(const wxString & file = wxEmptyString) function, expected prototype:\nbool wxHelpController::base_LoadFile(const wxString & file = wxEmptyString)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1066,8 +1004,7 @@ public:
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_LoadFile(const wxString &). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_LoadFile(const wxString &). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHelpController::LoadFile(file);
 		lua_pushboolean(L,lret?1:0);
@@ -1078,15 +1015,13 @@ public:
 	// bool wxHelpController::base_Quit()
 	static int _bind_base_Quit(lua_State *L) {
 		if (!_lg_typecheck_base_Quit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_Quit() function, expected prototype:\nbool wxHelpController::base_Quit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool wxHelpController::base_Quit() function, expected prototype:\nbool wxHelpController::base_Quit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool wxHelpController::base_Quit(). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool wxHelpController::base_Quit(). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->wxHelpController::Quit();
 		lua_pushboolean(L,lret?1:0);
@@ -1097,8 +1032,7 @@ public:
 	// void wxHelpController::base_SetFrameParameters(const wxString & title, const wxSize & size, const wxPoint & pos = wxDefaultPosition, bool newFrameEachTime = false)
 	static int _bind_base_SetFrameParameters(lua_State *L) {
 		if (!_lg_typecheck_base_SetFrameParameters(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHelpController::base_SetFrameParameters(const wxString & title, const wxSize & size, const wxPoint & pos = wxDefaultPosition, bool newFrameEachTime = false) function, expected prototype:\nvoid wxHelpController::base_SetFrameParameters(const wxString & title, const wxSize & size, const wxPoint & pos = wxDefaultPosition, bool newFrameEachTime = false)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 20268751\narg 3 ID = 25723480\n");
+			luaL_error(L, "luna typecheck failed in void wxHelpController::base_SetFrameParameters(const wxString & title, const wxSize & size, const wxPoint & pos = wxDefaultPosition, bool newFrameEachTime = false) function, expected prototype:\nvoid wxHelpController::base_SetFrameParameters(const wxString & title, const wxSize & size, const wxPoint & pos = wxDefaultPosition, bool newFrameEachTime = false)\nClass arguments details:\narg 1 ID = 88196105\narg 2 ID = 20268751\narg 3 ID = 25723480\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1118,8 +1052,7 @@ public:
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpController::base_SetFrameParameters(const wxString &, const wxSize &, const wxPoint &, bool). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHelpController::base_SetFrameParameters(const wxString &, const wxSize &, const wxPoint &, bool). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxHelpController::SetFrameParameters(title, size, pos, newFrameEachTime);
 
@@ -1129,16 +1062,14 @@ public:
 	// void wxHelpController::base_SetParentWindow(wxWindow * parentWindow)
 	static int _bind_base_SetParentWindow(lua_State *L) {
 		if (!_lg_typecheck_base_SetParentWindow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHelpController::base_SetParentWindow(wxWindow * parentWindow) function, expected prototype:\nvoid wxHelpController::base_SetParentWindow(wxWindow * parentWindow)\nClass arguments details:\narg 1 ID = 56813631\n");
+			luaL_error(L, "luna typecheck failed in void wxHelpController::base_SetParentWindow(wxWindow * parentWindow) function, expected prototype:\nvoid wxHelpController::base_SetParentWindow(wxWindow * parentWindow)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxWindow* parentWindow=(Luna< wxObject >::checkSubType< wxWindow >(L,2));
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpController::base_SetParentWindow(wxWindow *). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHelpController::base_SetParentWindow(wxWindow *). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxHelpController::SetParentWindow(parentWindow);
 
@@ -1148,17 +1079,15 @@ public:
 	// void wxHelpController::base_SetViewer(const wxString & viewer, long flags)
 	static int _bind_base_SetViewer(lua_State *L) {
 		if (!_lg_typecheck_base_SetViewer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void wxHelpController::base_SetViewer(const wxString & viewer, long flags) function, expected prototype:\nvoid wxHelpController::base_SetViewer(const wxString & viewer, long flags)\nClass arguments details:\narg 1 ID = 88196105\n");
+			luaL_error(L, "luna typecheck failed in void wxHelpController::base_SetViewer(const wxString & viewer, long flags) function, expected prototype:\nvoid wxHelpController::base_SetViewer(const wxString & viewer, long flags)\nClass arguments details:\narg 1 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		wxString viewer(lua_tostring(L,2),lua_objlen(L,2));
-		long flags=(long)lua_tointeger(L,3);
+		long flags=(long)lua_tonumber(L,3);
 
 		wxHelpController* self=(Luna< wxHelpController >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void wxHelpController::base_SetViewer(const wxString &, long). Got : '%s'",typeid(Luna< wxHelpController >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void wxHelpController::base_SetViewer(const wxString &, long). Got : '%s'\n%s",typeid(Luna< wxHelpController >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->wxHelpController::SetViewer(viewer, flags);
 
