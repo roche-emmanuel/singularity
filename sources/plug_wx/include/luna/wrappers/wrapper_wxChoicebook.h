@@ -149,12 +149,15 @@ protected:
 		return wxChoicebook::AddPendingEvent(event);
 	};
 
-	// wxWindow * wxBookCtrlBase::DoRemovePage(size_t arg1)
+	// wxWindow * wxChoicebook::DoRemovePage(size_t arg1)
 	wxWindow * DoRemovePage(size_t arg1) {
-		THROW_IF(!_obj.pushFunction("DoRemovePage"),"No implementation for abstract function wxBookCtrlBase::DoRemovePage");
-		_obj.pushArg((wxChoicebook*)this);
-		_obj.pushArg(arg1);
-		return (_obj.callFunction<wxWindow*>());
+		if(_obj.pushFunction("DoRemovePage")) {
+			_obj.pushArg((wxChoicebook*)this);
+			_obj.pushArg(arg1);
+			return (_obj.callFunction<wxWindow*>());
+		}
+
+		return wxChoicebook::DoRemovePage(arg1);
 	};
 
 public:
@@ -1258,63 +1261,6 @@ public:
 		return wxChoicebook::SetImageList(imageList);
 	};
 
-	// int wxBookCtrlBase::GetPageImage(size_t nPage) const
-	int GetPageImage(size_t nPage) const {
-		THROW_IF(!_obj.pushFunction("GetPageImage"),"No implementation for abstract function wxBookCtrlBase::GetPageImage");
-		_obj.pushArg((wxChoicebook*)this);
-		_obj.pushArg(nPage);
-		return (_obj.callFunction<int>());
-	};
-
-	// bool wxBookCtrlBase::SetPageImage(size_t page, int image)
-	bool SetPageImage(size_t page, int image) {
-		THROW_IF(!_obj.pushFunction("SetPageImage"),"No implementation for abstract function wxBookCtrlBase::SetPageImage");
-		_obj.pushArg((wxChoicebook*)this);
-		_obj.pushArg(page);
-		_obj.pushArg(image);
-		return (_obj.callFunction<bool>());
-	};
-
-	// wxString wxBookCtrlBase::GetPageText(size_t nPage) const
-	wxString GetPageText(size_t nPage) const {
-		THROW_IF(!_obj.pushFunction("GetPageText"),"No implementation for abstract function wxBookCtrlBase::GetPageText");
-		_obj.pushArg((wxChoicebook*)this);
-		_obj.pushArg(nPage);
-		return *(_obj.callFunction<wxString*>());
-	};
-
-	// bool wxBookCtrlBase::SetPageText(size_t page, const wxString & text)
-	bool SetPageText(size_t page, const wxString & text) {
-		THROW_IF(!_obj.pushFunction("SetPageText"),"No implementation for abstract function wxBookCtrlBase::SetPageText");
-		_obj.pushArg((wxChoicebook*)this);
-		_obj.pushArg(page);
-		_obj.pushArg(text);
-		return (_obj.callFunction<bool>());
-	};
-
-	// int wxBookCtrlBase::GetSelection() const
-	int GetSelection() const {
-		THROW_IF(!_obj.pushFunction("GetSelection"),"No implementation for abstract function wxBookCtrlBase::GetSelection");
-		_obj.pushArg((wxChoicebook*)this);
-		return (_obj.callFunction<int>());
-	};
-
-	// int wxBookCtrlBase::SetSelection(size_t page)
-	int SetSelection(size_t page) {
-		THROW_IF(!_obj.pushFunction("SetSelection"),"No implementation for abstract function wxBookCtrlBase::SetSelection");
-		_obj.pushArg((wxChoicebook*)this);
-		_obj.pushArg(page);
-		return (_obj.callFunction<int>());
-	};
-
-	// int wxBookCtrlBase::ChangeSelection(size_t page)
-	int ChangeSelection(size_t page) {
-		THROW_IF(!_obj.pushFunction("ChangeSelection"),"No implementation for abstract function wxBookCtrlBase::ChangeSelection");
-		_obj.pushArg((wxChoicebook*)this);
-		_obj.pushArg(page);
-		return (_obj.callFunction<int>());
-	};
-
 	// void wxBookCtrlBase::SetPageSize(const wxSize & size)
 	void SetPageSize(const wxSize & size) {
 		if(_obj.pushFunction("SetPageSize")) {
@@ -1373,18 +1319,6 @@ public:
 		return wxChoicebook::DeletePage(page);
 	};
 
-	// bool wxBookCtrlBase::InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE)
-	bool InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE) {
-		THROW_IF(!_obj.pushFunction("InsertPage"),"No implementation for abstract function wxBookCtrlBase::InsertPage");
-		_obj.pushArg((wxChoicebook*)this);
-		_obj.pushArg(index);
-		_obj.pushArg(page);
-		_obj.pushArg(text);
-		_obj.pushArg(select);
-		_obj.pushArg(imageId);
-		return (_obj.callFunction<bool>());
-	};
-
 	// bool wxBookCtrlBase::RemovePage(size_t page)
 	bool RemovePage(size_t page) {
 		if(_obj.pushFunction("RemovePage")) {
@@ -1404,6 +1338,99 @@ public:
 		}
 
 		return wxChoicebook::GetPageCount();
+	};
+
+	// int wxChoicebook::GetPageImage(size_t nPage) const
+	int GetPageImage(size_t nPage) const {
+		if(_obj.pushFunction("GetPageImage")) {
+			_obj.pushArg((wxChoicebook*)this);
+			_obj.pushArg(nPage);
+			return (_obj.callFunction<int>());
+		}
+
+		return wxChoicebook::GetPageImage(nPage);
+	};
+
+	// bool wxChoicebook::SetPageImage(size_t page, int image)
+	bool SetPageImage(size_t page, int image) {
+		if(_obj.pushFunction("SetPageImage")) {
+			_obj.pushArg((wxChoicebook*)this);
+			_obj.pushArg(page);
+			_obj.pushArg(image);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxChoicebook::SetPageImage(page, image);
+	};
+
+	// wxString wxChoicebook::GetPageText(size_t nPage) const
+	wxString GetPageText(size_t nPage) const {
+		if(_obj.pushFunction("GetPageText")) {
+			_obj.pushArg((wxChoicebook*)this);
+			_obj.pushArg(nPage);
+			return *(_obj.callFunction<wxString*>());
+		}
+
+		return wxChoicebook::GetPageText(nPage);
+	};
+
+	// bool wxChoicebook::SetPageText(size_t page, const wxString & text)
+	bool SetPageText(size_t page, const wxString & text) {
+		if(_obj.pushFunction("SetPageText")) {
+			_obj.pushArg((wxChoicebook*)this);
+			_obj.pushArg(page);
+			_obj.pushArg(text);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxChoicebook::SetPageText(page, text);
+	};
+
+	// int wxChoicebook::GetSelection() const
+	int GetSelection() const {
+		if(_obj.pushFunction("GetSelection")) {
+			_obj.pushArg((wxChoicebook*)this);
+			return (_obj.callFunction<int>());
+		}
+
+		return wxChoicebook::GetSelection();
+	};
+
+	// int wxChoicebook::SetSelection(size_t page)
+	int SetSelection(size_t page) {
+		if(_obj.pushFunction("SetSelection")) {
+			_obj.pushArg((wxChoicebook*)this);
+			_obj.pushArg(page);
+			return (_obj.callFunction<int>());
+		}
+
+		return wxChoicebook::SetSelection(page);
+	};
+
+	// int wxChoicebook::ChangeSelection(size_t page)
+	int ChangeSelection(size_t page) {
+		if(_obj.pushFunction("ChangeSelection")) {
+			_obj.pushArg((wxChoicebook*)this);
+			_obj.pushArg(page);
+			return (_obj.callFunction<int>());
+		}
+
+		return wxChoicebook::ChangeSelection(page);
+	};
+
+	// bool wxChoicebook::InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE)
+	bool InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE) {
+		if(_obj.pushFunction("InsertPage")) {
+			_obj.pushArg((wxChoicebook*)this);
+			_obj.pushArg(index);
+			_obj.pushArg(page);
+			_obj.pushArg(text);
+			_obj.pushArg(select);
+			_obj.pushArg(imageId);
+			return (_obj.callFunction<bool>());
+		}
+
+		return wxChoicebook::InsertPage(index, page, text, select, imageId);
 	};
 
 

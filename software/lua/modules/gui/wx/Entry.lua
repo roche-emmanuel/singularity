@@ -1,8 +1,24 @@
-local Class = require("classBuilder"){name="Entry",bases="base.Object"};
+local Class = createClass{name="Entry",bases="core.Object"};
 
 local utils = require "utils"
 local Set = require "std.Set"
 
+--[[
+Class: wx.Entry
+
+Simple representation of an interface Entry..
+
+This class inherits from <core.Object>.
+]]
+
+--[=[
+--[[
+Constructor: Entry
+
+Create a new instance of the class.
+]]
+function Entry(options)
+]=]
 function Class:initialize(options)
 	self:check(options and options.intf,"A valid interface is needed to build an entry options=",options)
 	self:check(options and options.name,"A valid name is needed to build an entry options=",options)
@@ -29,6 +45,17 @@ function Class:initialize(options)
 	self._enabled = true
 	self._controls = {}
 	self._classes = {} -- classes for the controls.
+	
+	-- convert the handler to a function is required:
+	if type(self._handler)=="string" then
+		local obj = self._intf:getHandler()
+		self:check(obj,"Invalid handler class for interface, cannot setup handler: ", self._handler)
+		local func = obj[self._handler]
+		self:check(func,"Invalid handler real handler function with name: ", self._handler)
+		
+		-- update the handler:
+		self._handler = function(data) func(obj,data) end
+	end
 	
 	if self._parent then
 		self._parent:addChild(self)

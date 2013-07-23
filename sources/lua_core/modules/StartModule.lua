@@ -99,6 +99,8 @@ sgt.doLog(level,("Starting Singularity v%d.%d.%d build %d - %s"):format(v.major,
 
 require "extensions.core" -- this one should be loaded manually.
 
+require "utils.buildclass" -- load the new class builder system.
+
 _G.log = require "logger"
 
 _G.fs = require "base.FileSystem"

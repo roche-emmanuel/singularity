@@ -18,6 +18,9 @@ local remove = os.remove
 local append = table.insert
 local wrap = coroutine.wrap
 local yield = coroutine.yield
+local throw = base.throw
+local assert = require "utils.assert"
+local log = require "log"
 
 local Vector = require "std.Vector"
 
@@ -43,6 +46,8 @@ Returns:
 function dir.fnmatch(file,pattern)
     assert.String(file)
     assert.String(pattern)
+	pattern = path.normcase(pattern)
+	-- log.debug("Cheking file=",file,", against pattern=",pattern)
     return path.normcase(file):find(filemask(pattern)) ~= nil
 end
 
@@ -309,19 +314,22 @@ local function _walker(root,bottom_up,attrib)
     if bottom_up then yield(root,dirs,files) end
 end
 
---- return an iterator which walks through a directory tree starting at root.
--- The iterator returns (root,dirs,files)
--- Note that dirs and files are lists of names (i.e. you must say path.join(root,d)
--- to get the actual full path)
--- If bottom_up is false (or not present), then the entries at the current level are returned
--- before we go deeper. This means that you can modify the returned list of directories before
--- continuing.
--- This is a clone of os.walk from the Python libraries.
--- @param root A starting directory
--- @param bottom_up False if we start listing entries immediately.
--- @param follow_links follow symbolic links
--- @return an iterator returning root,dirs,files
--- @raise root must be a string
+--[[
+Function: walk
+
+Return an iterator which walks through a directory tree starting at root.
+The iterator returns (root,dirs,files).
+Note that dirs and files are lists of names (i.e. you must say path.join(root,d)
+to get the actual full path). 
+If bottom_up is false (or not present), then the entries at the current level are returned
+before we go deeper. This means that you can modify the returned list of directories before
+continuing. This is a clone of os.walk from the Python libraries.
+
+Parameters:
+	root - A starting directory
+	bottom_up - (optional) False if we start listing entries immediately. Default is false.
+	follow_links - (optional) follow symbolic links. False by default. Not applicable on windows.
+]]
 function dir.walk(root,bottom_up,follow_links)
     assert.Dir(root)
     local attrib
@@ -333,14 +341,20 @@ function dir.walk(root,bottom_up,follow_links)
     return wrap(function () _walker(root,bottom_up,attrib) end)
 end
 
---- remove a whole directory tree.
--- @param fullpath A directory path
--- @return true or nil
--- @return error if failed
--- @raise fullpath must be a string
-function dir.rmtree(fullpath)
-    assert_dir(1,fullpath)
-    if path.islink(fullpath) then return false,'will not follow symlink' end
+--[[
+Function: rmTree
+
+Remove a whole directory tree.
+
+Parameters:
+	fullpath - A directory path
+  
+Returns:
+	true or nil then error if failed
+]]
+function dir.rmTree(fullpath)
+    assert.Dir(1,fullpath)
+    if path.isLink(fullpath) then return false,'will not follow symlink' end
     for root,dirs,files in dir.walk(fullpath,true) do
         for i,f in ipairs(files) do
             remove(path.join(root,f))
@@ -350,80 +364,89 @@ function dir.rmtree(fullpath)
     return true
 end
 
-local dirpat
-if path.is_windows then
-    dirpat = '(.+)\\[^\\]+$'
-else
-    dirpat = '(.+)/[^/]+$'
-end
+local dirpat = '(.+)/[^/]+$'
 
 local _makepath
 function _makepath(p)
-    -- windows root drive case
-    if p:find '^%a:[\\]*$' then
-        return true
-    end
-   if not path.isdir(p) then
-    local subp = p:match(dirpat)
-    local ok, err = _makepath(subp)
-    if not ok then return nil, err end
-    return mkdir(p)
+	-- windows root drive case
+	if p:find '^%a:[/]*$' then
+		return true
+	end
+	if not path.isDir(p) then
+		local subp = p:match(dirpat)
+		local ok, err = _makepath(subp)
+		if not ok then return nil, err end
+		return mkdir(p)
    else
-    return true
+		return true
    end
 end
 
---- create a directory path.
--- This will create subdirectories as necessary!
--- @param p A directory path
--- @return true on success, nil + errormsg on failure
--- @raise failure to create
-function dir.makepath (p)
-    assert_string(1,p)
-    return _makepath(path.normcase(path.abspath(p)))
+--[[
+Function: makePath
+
+Create a directory path.
+This will create subdirectories as necessary!
+
+Parameters:
+	p - A directory path
+  
+Returns:
+	true on success, nil + errormsg on failure
+]]
+function dir.makePath(p)
+    assert.String(p)
+    return _makepath(path.normcase(path.absPath(p)))
 end
 
 
---- clone a directory tree. Will always try to create a new directory structure
--- if necessary.
--- @param path1 the base path of the source tree
--- @param path2 the new base path for the destination
--- @param file_fun an optional function to apply on all files
--- @param verbose an optional boolean to control the verbosity of the output.
---  It can also be a logging function that behaves like print()
--- @return true, or nil
--- @return error message, or list of failed directory creations
--- @return list of failed file operations
--- @raise path1 and path2 must be strings
--- @usage clonetree('.','../backup',copyfile)
-function dir.clonetree (path1,path2,file_fun,verbose)
-    assert_string(1,path1)
-    assert_string(2,path2)
-    if verbose == true then verbose = print end
-    local abspath,normcase,isdir,join = path.abspath,path.normcase,path.isdir,path.join
+--[[
+Function: cloneTree
+
+Clone a directory tree. Will always try to create a new directory structure
+if necessary.
+
+Parameters:
+	path1 - The base path of the source tree
+	path2 - The new base path for the destination
+	file_fun - (optional) an optional function to apply on all files
+	verbose - (optional) boolean to control the verbosity of the output. false by default.
+	
+Returns:
+	true or nil, then error message, or list of failed directory creations, list of failed file operations.
+	
+Usage example:
+(start example)
+	dir.cloneTree('.','../backup',copyfile)
+(end example)
+]]
+function dir.cloneTree (path1,path2,file_fun,verbose)
+    assert.String(path1)
+    assert.String(path2)
+    local abspath,normcase,isdir,join = path.absPath,path.normcase,path.isDir,path.join
     local faildirs,failfiles = {},{}
-    if not isdir(path1) then return raise 'source is not a valid directory' end
+    if not isdir(path1) then return throw 'source is not a valid directory' end
     path1 = abspath(normcase(path1))
     path2 = abspath(normcase(path2))
-    if verbose then verbose('normalized:',path1,path2) end
+    if verbose then log.info_t('dir.cloneTree','normalized:',path1,path2) end
     -- particularly NB that the new path isn't fully contained in the old path
-    if path1 == path2 then return raise "paths are the same" end
+    if path1 == path2 then return throw "paths are the same" end
     local i1,i2 = path2:find(path1,1,true)
     if i2 == #path1 and path2:sub(i2+1,i2+1) == path.sep then
-        return raise 'destination is a subdirectory of the source'
+        return throw 'destination is a subdirectory of the source'
     end
-    local cp = path.common_prefix (path1,path2)
+    local cp = path.commonPrefix (path1,path2)
     local idx = #cp
     if idx == 0 then -- no common path, but watch out for Windows paths!
         if path1:sub(2,2) == ':' then idx = 3 end
     end
     for root,dirs,files in dir.walk(path1) do
         local opath = path2..root:sub(idx)
-        if verbose then verbose('paths:',opath,root) end
+        if verbose then log.info_t('dir.cloneTree','paths:',opath,root) end
         if not isdir(opath) then
-            local ret = dir.makepath(opath)
+            local ret = dir.makePath(opath)
             if not ret then append(faildirs,opath) end
-            if verbose then verbose('creating:',opath,ret) end
+            if verbose then log.info_t('dir.cloneTree','creating:',opath,ret) end
         end
         if file_fun then
             for i,f in ipairs(files) do
@@ -432,7 +455,7 @@ function dir.clonetree (path1,path2,file_fun,verbose)
                 local ret = file_fun(p1,p2)
                 if not ret then append(failfiles,p2) end
                 if verbose then
-                    verbose('files:',p1,p2,ret)
+                    log.info_t('dir.cloneTree','files:',p1,p2,ret)
                 end
             end
         end
@@ -440,13 +463,20 @@ function dir.clonetree (path1,path2,file_fun,verbose)
     return true,faildirs,failfiles
 end
 
---- return an iterator over all entries in a directory tree
--- @param d a directory
--- @return an iterator giving pathname and mode (true for dir, false otherwise)
--- @raise d must be a non-empty string
-function dir.dirtree( d )
-    assert( d and d ~= "", "directory parameter is missing or empty" )
-    local exists, isdir = path.exists, path.isdir
+--[[
+Function: dirTree
+
+Return an iterator over all entries in a directory tree
+
+Parameters:
+	d - a directory
+  
+Returns:
+	an iterator giving pathname and mode (true for dir, false otherwise)
+]]
+function dir.dirTree( d )
+    assert.nonEmptyString(d, "directory parameter is missing or empty" )
+    local exists, isdir = path.exists, path.isDir
     local sep = path.sep
 
     local last = sub ( d, -1 )
@@ -472,24 +502,30 @@ function dir.dirtree( d )
     return wrap( function() yieldtree( d ) end )
 end
 
+--[[
+Function: getAllFiles
 
----	Recursively returns all the file starting at <i>path</i>. It can optionally take a shell pattern and
---	only returns files that match <i>pattern</i>. If a pattern is given it will do a case insensitive search.
---	@param start_path {string} A directory. If not given, all files in current directory are returned.
---	@param pattern {string} A shell pattern. If not given, all files are returned.
---	@return Table containing all the files found recursively starting at <i>path</i> and filtered by <i>pattern</i>.
---  @raise start_path must be a string
-function dir.getallfiles( start_path, pattern )
-    assert_dir(1,start_path)
+Recursively returns all the file starting at *path*. It can optionally take a shell pattern and
+only returns files that match *pattern*. If a pattern is given it will do a case insensitive search.
+
+Parameters:
+	start_path - {string} A directory.
+	pattern - {string} A shell pattern. If not given, all files are returned.
+	
+Returns:
+	<std.Vector> containing all the files found recursively starting at *start_path* and filtered by *pattern*.
+]]
+function dir.getAllFiles( start_path, pattern )
+    assert.Dir(start_path)
     pattern = pattern or ""
 
-    local files = {}
+    local files = Vector()
     local normcase = path.normcase
-    for filename, mode in dir.dirtree( start_path ) do
+    for filename, mode in dir.dirTree( start_path ) do
         if not mode then
             local mask = filemask( pattern )
             if normcase(filename):find( mask ) then
-                files[#files + 1] = filename
+                files:push_back(filename)
             end
         end
     end

@@ -19,7 +19,7 @@ Variable: sep
 
 The separator used for path formating internally. This separator is "/" by default.
 ]]
-path.sep = sep
+Class.sep = sep
 
 
 --[[
@@ -27,7 +27,7 @@ Variable: root_dir
 
 The root path of the application.
 ]]
-path.root_dir = root_path
+Class.root_dir = root_path
 
 
 local attrib = function(file,aname)

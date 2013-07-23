@@ -15,13 +15,15 @@ end
 function Class:create()
     -- prepare the handlers we will need here:
     function cbHandler(intf,event)            
-        local val = options.choiceCtrl:GetStringSelection()                            
+        -- local val =  self._choiceCtrl:dynCast("wxChoice"):base_GetStringSelection()                            
+        -- local val =  self._choiceCtrl:dynCast("wxControlWithItems"):dynCast("wxItemContainer"):GetStringSelection()                            
+        local val =  self._choiceCtrl:aswxItemContainerImmutable():dynCast("wxItemContainer"):GetStringSelection()                            
         -- update the new value sending this to the provider:
         self:setValue(val);
     end
     
     -- connect this event handler:
-    self._intf:connectHandler(options.choiceBook,wx.wxEVT_COMMAND_CHOICEBOOK_PAGE_CHANGING,cbHandler);
+    self._intf:connectHandler(self._choiceBook,wx.wxEVT_COMMAND_CHOICEBOOK_PAGE_CHANGING,cbHandler);
     
     -- keep a link to this control:
     self._controls[1]  = self._choiceBook;

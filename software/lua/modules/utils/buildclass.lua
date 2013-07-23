@@ -105,8 +105,8 @@ local createClass = function(options)
 end
 
 -- also register the global function:
-_G.createClass = function(name,...)
-	return createClass{name=name,bases={...}}
+_G.createClass = function(options)
+	return createClass(options)
 end
 
 return createClass

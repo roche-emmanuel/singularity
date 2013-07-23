@@ -67,6 +67,15 @@ Group: utils  {
 File: test.Manager  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/test/Manager.lua)
 File: test.Suite  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/test/Suite.lua)
 
+Group: Gui  {
+
+   File: gui.wx.BasicInterface  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/BasicInterface.lua)
+   File: gui.wx.ControlInterface  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/ControlInterface.lua)
+   File: gui.wx.HandlerConnector  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/HandlerConnector.lua)
+   File: gui.wx.ImageManager  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/ImageManager.lua)
+   File: wx.Entry  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/Entry.lua)
+   }  # Group: Gui
+
 Group: Index  {
 
    Index: Everything

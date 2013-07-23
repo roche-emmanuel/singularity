@@ -4,6 +4,7 @@
 REM %THIS_PATH%..\software\bin\win32\sgtLauncher gui_test1.lua --log gui_test1.log
 @REM @%THIS_PATH%..\software\bin\win32\sgtLauncher gui_test1b.lua --log gui_test1.log
 @REM %THIS_PATH%..\software\bin\win32\sgtLauncher gui_test2.lua --log gui_test2.log
-%THIS_PATH%..\software\bin\win32\sgtLauncher gui_test3.lua --log gui_test3.log
+@REM %THIS_PATH%..\software\bin\win32\sgtLauncher gui_test3.lua --log gui_test3.log
+%THIS_PATH%..\software\bin\win32\sgtLauncher gui_test4.lua --log gui_test4.log
 @echo Test done.
 REM @pause

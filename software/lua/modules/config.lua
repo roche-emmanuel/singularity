@@ -50,4 +50,7 @@ cfg.gc_pause = 80
 -- to disable, set this value to 0 or comment the line
 cfg.awesomium_debug_port = 1337
 
+-- specify if the caption of the notbook tabs should be hidden (leaving only the bitmap if available).
+cfg.hide_tab_captions = false
+
 return cfg

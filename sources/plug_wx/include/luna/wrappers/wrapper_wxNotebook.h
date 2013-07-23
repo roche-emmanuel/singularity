@@ -149,12 +149,15 @@ protected:
 		return wxNotebook::AddPendingEvent(event);
 	};
 
-	// wxWindow * wxBookCtrlBase::DoRemovePage(size_t arg1)
+	// wxWindow * wxNotebook::DoRemovePage(size_t arg1)
 	wxWindow * DoRemovePage(size_t arg1) {
-		THROW_IF(!_obj.pushFunction("DoRemovePage"),"No implementation for abstract function wxBookCtrlBase::DoRemovePage");
-		_obj.pushArg((wxNotebook*)this);
-		_obj.pushArg(arg1);
-		return (_obj.callFunction<wxWindow*>());
+		if(_obj.pushFunction("DoRemovePage")) {
+			_obj.pushArg((wxNotebook*)this);
+			_obj.pushArg(arg1);
+			return (_obj.callFunction<wxWindow*>());
+		}
+
+		return wxNotebook::DoRemovePage(arg1);
 	};
 
 public:

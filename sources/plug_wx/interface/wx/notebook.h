@@ -197,6 +197,7 @@ public:
     virtual int ChangeSelection(size_t page);
     virtual bool InsertPage(size_t index, wxWindow * page, const wxString & text,
                             bool select = false, int imageId = NO_IMAGE);
-
+protected:
+	virtual wxWindow* DoRemovePage(size_t arg1);
 };
 

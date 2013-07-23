@@ -353,6 +353,7 @@ end
 Function: readLines
 
 Return the contents of a file as a list of lines.
+Note that this method will not count any final empty line as a valid line.
 
 Parameters:
 	filename - The file path

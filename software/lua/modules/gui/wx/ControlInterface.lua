@@ -1,16 +1,24 @@
 local Class = require("classBuilder"){name="ControlInterface",bases="gui.wx.BasicInterface"};
 
+--[[
+Class: gui.wx.ControlInterface
+
+GUI interface used to manage wx controls.
+
+This class inherits from <gui.wx.BasicInterface>.
+]]
 local im = require "gui.wx.ImageManager"
 local utils = require "utils"
 local wx = require "wx"
 require "extensions.wx"
 
+local assert = require "utils.assert"
 local winman = require "gui.wx.WindowManager"
 
 -- This class provides functions to add wx controls.
 function Class:initialize(options)
 	self:info("Executing initialize for ControlInterface...")
-
+	self._controls = {}
 end
 
 function Class:close()
@@ -44,7 +52,7 @@ function Class:addControl(ctrl,options)
     end
     
     if options.name then
-        self.controls[options.name] = ctrl
+        self._controls[options.name] = ctrl
     end
     
     if options.minsize then
@@ -216,7 +224,7 @@ function Class:addComboBox(options)
 	for _,v in ipairs(options.choices or {}) do
 		arr:Add(v)
 	end
-    local ctrl = wx.wxComboBox:new(self:getCurrentParent(),options.id or wx.wxID_ANY,options.defaultValue or (options.choices and options.choices[1]) or "",wx.wxDefaultPosition,options.size or wx.wxSize(-1,20),arr,options.style or bit.bor(wx.wxCB_DROPDOWN,wx.wxCB_READONLY));
+    local ctrl = wx.wxComboBox:new(self:getCurrentParent(),options.id or wx.wxID_ANY,options.defaultValue or (options.choices and options.choices[1]) or "",wx.wxDefaultPosition,options.size or wx.wxSize(-1,-1),arr,options.style or bit.bor(wx.wxCB_DROPDOWN,wx.wxCB_READONLY));
     if options.handler then
         self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_COMBOBOX_SELECTED,options.handler)
     end
@@ -516,6 +524,160 @@ function Class:addBitmapButton(options)
 		options.tip = options.tip or options.caption or options.name or options.src
 		return self:addControl(ctrl,options)
 	end        
+end
+
+--[[
+Function: pushNotebook
+
+Add a notebook container.
+
+Parameters:
+	options - Notebook construction options.
+]]
+function Class:pushNotebook(options)
+	local book = nil;
+	if options.type == "aui" then
+		book = wx.wxAuiNotebook:new(self:getCurrentParent(),options.id or wx.wxID_ANY,wx.wxDefaultPosition,wx.wxDefaultSize,options.style or wx.wxAUI_NB_SCROLL_BUTTONS +wx.wxAUI_NB_TOP);
+	else
+		book = wx.wxNotebook:new(self:getCurrentParent(),options.id or wx.wxID_ANY,wx.wxDefaultPosition,wx.wxDefaultSize,options.style or wx.wxNB_TOP);
+	end
+	
+	self:addControl(book,options)
+	self:pushParent(book)
+	
+	if options.images then
+		local butsize = options and options.butsize or 16
+	
+		local imglist = wx.wxImageList:new(butsize,butsize,true);
+		for k,v in ipairs(options.images) do
+			imglist:Add(im:getBitmap(v,butsize))
+		end
+		book:AssignImageList(imglist);
+	end
+	return book
+end
+
+--[[
+Function: pushChoicebook
+
+Added a choicebook container on the current container.
+
+Parameters:
+	options.name - If this is provided, a choice entry will be created for this
+choice.
+]]
+function Class:pushChoicebook(options)
+	local book = wx.wxChoicebook:new(self:getCurrentParent(),
+									 options.id or wx.wxID_ANY,
+									 wx.wxDefaultPosition,
+									 options.size or wx.wxDefaultSize,
+									 options.style or wx.wxBK_DEFAULT);
+	self:addControl(book,options)
+	self:pushParent(book)
+	
+	-- if we have a valid name, then build a choice entry from the underlying choice control:
+	if(options.name) then
+		-- note here that we assume this interface will be an entry interface.
+		options.choiceBook = book
+		self:addChoiceEntry(options)
+	end
+	return book
+end
+
+--[[
+Function: pushBookPage
+
+Add a book page to the current parent book container.
+
+Parameters:
+	options.caption - The caption used for the tab of this book page.
+	options.selected - {bool} (optional) Specify if this tab should be selected by default or not. Default value is false.
+	options.imageId - {int} (optional) The id to use to retrieve the image for this tab from the image list
+assigned to the parent book container (if available)
+	options.butsize - {int} (optional) The size of the image for this tab if any. Default value is 16 pixels.
+	options.src - {string} (optional) The name of the image to use if it is not registered in the image list yet.
+]]
+function Class:pushBookPage(options)
+	assert(options and options.caption,"A valid 'caption' entry is needed to build a book page.")
+	
+	local selected = options.selected or false
+	local imageId = options.imageId or -1;
+	local butsize = options.butsize or 16
+	local bmpname = options.src
+	local caption = options.caption
+	
+	-- Check if this is an aui notebook or not:
+	local isaui = self:getCurrentParent():GetClassInfo():GetClassName() == "wxAuiNotebook"
+
+	local panel = (isaui and wx.wxScrolledWindow or wx.wxPanel):new(self:getCurrentParent(),options.id or wx.wxID_ANY);
+	if isaui then
+		self:no_impl() -- this path is not validated yet.
+		self:addScrolledWindow(panel);
+		panel:SetScrollbars(self.noHScroll and 0 or 20, 20, self.noHScroll and 0 or 50, 50,0,0,false);
+	end
+	
+	local bmp=wx.wxNullBitmap; 
+	
+	if bmpname then
+		if self.cfg.hide_tab_captions then
+			caption = "";
+		end
+		
+		if isaui then
+			bmp  = im:getBitmap{name=bmpname,size=butsize};
+		else
+			local imglist = self:getCurrentParent():GetImageList() -- the parent is a book.
+			if not imglist then
+				imglist = wx.wxImageList:new(butsize,butsize,true,0)
+				self:getCurrentParent():AssignImageList(imglist)
+			end
+			
+			-- add the new image:
+			local bmp = im:getBitmap{name=bmpname,size=butsize};
+			imglist:Add(bmp,bmp);
+			imageId = imglist:GetImageCount()-1;
+			--wx.wxLogMessage("Using image ID: ".. imageId)
+			--self:getCurrentParent():SetPadding(wx.wxSize(-1,-1));
+		end
+	end
+	
+	
+	-- Assume the current parent is a proper book:
+	if options.subPage then
+		self:getCurrentParent():AddSubPage(panel,options.caption,selected,isaui and bmp or imageId)
+	else
+		self:getCurrentParent():AddPage(panel,options.caption,selected,isaui and bmp or imageId)
+	end
+	
+	--[[
+	if options.tip then
+		local page = self:getCurrentParent():GetPage(self:getCurrentParent():GetPageCount()-1)
+		page:SetToolTip(options.tip)
+		wx.wxLogMessage("Added page tip ".. options.tip)
+	end
+	]]
+	
+	-- Always save the page in the page list with the needed details to toggle the license if there is a license right associated:
+	if options.right then            
+		-- keep the panel for later reference is needed:
+		table.insert(self.licensedBookPages,{page=panel,
+											 index=self:getCurrentParent():GetPageCount()-1,
+										     book=self:getCurrentParent(),
+										     isSub=options.subPage,
+										     right=options.right,
+										     caption=options.caption,
+										     visible=true,
+										     selected=selected,
+										     img=isaui and bmp or imageId}) -- this page is visible by default.
+	end
+
+	-- assign a sizer to this panel:
+	local sizer = wx.wxBoxSizer:new(wx.wxVERTICAL)
+	panel:SetSizer(sizer)
+	self:pushParent(panel,sizer)
+	
+	
+	return panel
 end
 
 return Class

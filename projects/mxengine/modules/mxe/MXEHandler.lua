@@ -43,36 +43,12 @@ function Class:onLoad()
 
 	-- local App = require "gui.wx.SimpleApp"
 	local App = require "mxe.App"
-	local Interface = require "gui.wx.EntryInterface"
-	local im = require "gui.wx.ImageManager"
+	local MainFrame = require "mxe.MainFrame"
 
 	local app = App()
-
-	local parent = app:getFrame()
-
-	local intf = Interface{root=app:getFrame()}
-
-	intf:pushPanel{prop=1,flags=wx.wxEXPAND}
-	-- intf:addStringEntry{name="my_string",caption="My string"}
-	intf:addSingleChoiceEntry{name="mission",caption="Current Mission",
-		choices={"TestTurret","TestTurret2","TestTurret3","TestTurret4"},
-		defaultValue=self.cfg.default_mission,
-		handler=function(data)
-			local val = data.value
-			self:info("Setting current mission class to ",val)
-			self:getMissionManager():setMissionClass(val)
-		end}
-		
-	-- intf:addBoolEntry{name="my_bool",caption="My bool"}
-	-- intf:addDoubleEntry{name="my_double",caption="My double"}
-	-- intf:addColorEntry{name="my_color",caption="My color"}
-	-- intf:addIntegerEntry{name="my_int",caption="My integer"}
-	-- intf:addVec3dEntry{name="my_data.my_vec3d",caption="My vec3d"}
-	intf:addOutputPanel{}
-	intf:popParent(true)
-
-	parent:Layout()
-
+	
+	MainFrame{app=app} -- build the main frame on it.
+	
 	self._app = app
 end
 
