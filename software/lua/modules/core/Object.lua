@@ -2,6 +2,7 @@
 local oo = require "loop.cached"
 
 local log = require "log"
+local assert = require "utils.assert"
 
 --[[
 Class: core.Object
@@ -37,7 +38,7 @@ Variable: assert
 
 Global access to the <utils.assert> library.
 ]]
-Object.assert = require "utils.assert"
+Object.assert = assert
 
 
 --[[
@@ -106,6 +107,19 @@ end
 
 function Object:doInitialize()
 	-- default implementation.
+end
+
+--[[
+Function: check
+
+This method is an alias for the <assert> member
+
+Parameters:
+	val - Value to check
+	... - (optional) message to output.
+]]
+function Object:check(val,...)
+	return assert(val,...)
 end
 
 return Object

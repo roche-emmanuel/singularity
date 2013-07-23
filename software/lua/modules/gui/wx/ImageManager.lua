@@ -1,4 +1,4 @@
-local Class = require("classBuilder"){name="ImageManager",bases="base.Object"};
+local Class = createClass{name="ImageManager",bases="core.Object"};
 
 local wx = require "wx"
 
@@ -8,6 +8,13 @@ local evtman = require "base.EventManager"
 
 local Event = require "base.Event"
 
+--[[
+Class: gui.wx.ImageManager
+
+Singleton class used to manage the list of images used in the software.
+
+This class inherits from <core.Object>.
+]]
 function Class:initialize(options)
 	-- The images are saved locally in a map.
 	self._images = Map();
@@ -38,6 +45,21 @@ bitmapType.png = wx.wxBITMAP_TYPE_PNG
 bitmapType.cur = wx.wxBITMAP_TYPE_CUR
 bitmapType.gif = wx.wxBITMAP_TYPE_GIF
 
+--[[
+Function: createImager
+
+Create a new wxImage when required:
+
+Parameters:
+	options.name - image name
+	options.size - (optional) image size
+	options.path - (optional) path where to look for the image file
+	options.ext - (optional) extension of the image file. 
+	options.quality - (optional) quality of the wx image.
+	
+Returns:
+	The newly created wxImage.
+]]
 function Class:createImage(options)
 	options = type(options)=="string" and {name=options} or options
 	
@@ -82,13 +104,15 @@ function Class:createImage(options)
     return img;
 end
 
--- main method to retrieve an image or create it if it doesn't exist yet.
--- the options contain:
--- .name = image name
--- .size = [optional] image size
--- .path = [optional] path where to look for the image file
--- .ext = [optional] extension of the image file. 
--- .quality = [optional] quality of the wx image.
+--[[
+Function: getImage
+
+Main method to retrieve an image or create it if it doesn't exist yet.
+Calling <createImage> internally if required.
+  
+Returns:
+	The wxImage object.
+]]
 function Class:getImage(options)
 	options = type(options)=="string" and {name=options} or options
 	self:check(options and options.name,"Invalid image name.")
@@ -102,6 +126,18 @@ function Class:getImage(options)
 	return img	
 end
 
+--[[
+Function: getBitmap
+
+Retrieve a bitmap. Internally call <getImage> then convert this
+image to a bitmap.
+
+Parameters:
+	options - <getImage> options
+  
+Returns:
+	The created wxBitmap() object.
+]]
 function Class:getBitmap(options)
     local img = self:getImage(options);
     return wx.wxBitmap(img,-1);

@@ -46,6 +46,8 @@ end
 
 wx.wxNullCursor = wx.wxCursor();
 
+wx.wxNullBitmap = wx.wxBitmap();
+
 local iman = require "gui.wx.ImageManager"
 wx.wxCURSOR_DEFAULT = wx.wxNullCursor
 

@@ -70,5 +70,18 @@ public:
         Returns the wxChoice associated with the control.
     */
     wxChoice * GetChoiceCtrl() const;
+
+	// implementation of pure virtuals:
+	virtual int GetPageImage(size_t nPage) const;
+	virtual bool SetPageImage(size_t page, int image);
+	virtual wxString GetPageText(size_t nPage) const;
+	virtual bool SetPageText(size_t page, const wxString & text);
+	virtual int GetSelection() const;
+	virtual int SetSelection(size_t page);
+	virtual int ChangeSelection(size_t page);
+	virtual bool InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE);
+	
+protected:
+	virtual wxWindow* DoRemovePage(size_t arg1);
 };
 

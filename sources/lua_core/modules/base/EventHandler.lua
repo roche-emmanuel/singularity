@@ -1,10 +1,17 @@
-local Class = require("classBuilder"){name="EventHandler",bases="base.Object"};
+local Class = createClass{name="EventHandler",bases="core.Object"};
 
 local Map = require "std.Map"
 local Set = require "std.Set"
 local Vector = require "std.Vector"
 local EventCallback = require "base.EventCallback"
 
+--[[
+Class: base.EventHandler
+
+Base event handler class. This class is used to fire events and register listeners.
+
+This class inherits from <core.Object>.
+]]
 function Class:initialize(options)
 	-- The listeners are saved in a Map of vectors per category.
 	self._listeners = Map();

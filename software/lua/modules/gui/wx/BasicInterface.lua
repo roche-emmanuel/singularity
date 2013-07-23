@@ -1,4 +1,4 @@
-local Class = require("classBuilder"){name="BasicInterface", bases={"base.EventHandler","gui.wx.HandlerConnector"}};
+local Class = createClass{name="BasicInterface", bases={"base.EventHandler","gui.wx.HandlerConnector"}};
 
 local wx = require "wx"
 
@@ -9,6 +9,13 @@ local Vector = require "std.Vector"
 local LicensedItem = require "gui.wx.LicensedItem"
 local prof = require "debugging.Profiler"
 
+--[[
+Class: gui.wx.BasicInterface
+
+Basic interface manipulation class..
+
+This class inherits from <base.EventHandler> and <gui.wx.HandlerConnector>.
+]]
 -- This class provides functions to add wx controls.
 function Class:initialize(options)
 	self:info("Executing initialize for BasicInterface...")
@@ -18,6 +25,7 @@ function Class:initialize(options)
 	self._licensedObjects = Vector() 
 	self._root =  options.root
 	self._isToolbar = false;
+	self._handler = options.handler
 	
 	if self._root then
 		local sizer = self._root:GetSizer()
@@ -31,6 +39,14 @@ function Class:initialize(options)
 	
 	self._closingCb = evtman:addListener{event="AppClosing",object=self}
 	self._licenseCb = evtman:addListener{event="LicenseChanged",object=self}
+end
+
+function Class:setHandler(hd)
+	self._handler = hd
+end
+
+function Class:getHandler()
+	return self._handler
 end
 
 function Class:uninitialize()

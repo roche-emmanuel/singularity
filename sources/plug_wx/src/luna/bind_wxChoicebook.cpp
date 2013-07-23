@@ -99,13 +99,35 @@ public:
 
 	// Constructor checkers:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<2 || luatop>6 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,1)) ) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,25723480) ) return false;
+		if( luatop>2 && (!(Luna< wxPoint >::check(L,3))) ) return false;
+		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
+		if( luatop>3 && (!(Luna< wxSize >::check(L,4))) ) return false;
+		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
+		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
 		return true;
 	}
 
-	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
+	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>7 ) return false;
 
@@ -127,6 +149,68 @@ public:
 	inline static bool _lg_typecheck_GetChoiceCtrl(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetPageImage(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_SetPageImage(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetPageText(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_SetPageText(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_GetSelection(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_SetSelection(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_ChangeSelection(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_InsertPage(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>6 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		if( luatop>4 && lua_isboolean(L,5)==0 ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		return true;
 	}
 
@@ -891,14 +975,112 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetPageImage(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetPageImage(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetPageText(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetPageText(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isstring(L,3)==0 ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_GetSelection(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_SetSelection(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_ChangeSelection(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_base_InsertPage(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<4 || luatop>6 ) return false;
+
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
+		if( lua_isstring(L,4)==0 ) return false;
+		if( luatop>4 && lua_isboolean(L,5)==0 ) return false;
+		if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
 
 	// Constructor binds:
-	// wxChoicebook::wxChoicebook(lua_Table * data)
+	// wxChoicebook::wxChoicebook()
 	static wxChoicebook* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
+			luaL_error(L, "luna typecheck failed in wxChoicebook::wxChoicebook() function, expected prototype:\nwxChoicebook::wxChoicebook()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+
+		return new wxChoicebook();
+	}
+
+	// wxChoicebook::wxChoicebook(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxEmptyString)
+	static wxChoicebook* _bind_ctor_overload_2(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_2(L)) {
+			luaL_error(L, "luna typecheck failed in wxChoicebook::wxChoicebook(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxEmptyString) function, expected prototype:\nwxChoicebook::wxChoicebook(wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxEmptyString)\nClass arguments details:\narg 1 ID = 56813631\narg 3 ID = 25723480\narg 4 ID = 20268751\narg 6 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		int luatop = lua_gettop(L);
+
+		wxWindow* parent=(Luna< wxObject >::checkSubType< wxWindow >(L,1));
+		int id=(int)lua_tointeger(L,2);
+		const wxPoint* pos_ptr=luatop>2 ? (Luna< wxPoint >::check(L,3)) : NULL;
+		if( luatop>2 && !pos_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg pos in wxChoicebook::wxChoicebook function");
+		}
+		const wxPoint & pos=luatop>2 ? *pos_ptr : (const wxPoint&)wxDefaultPosition;
+		const wxSize* size_ptr=luatop>3 ? (Luna< wxSize >::check(L,4)) : NULL;
+		if( luatop>3 && !size_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg size in wxChoicebook::wxChoicebook function");
+		}
+		const wxSize & size=luatop>3 ? *size_ptr : (const wxSize&)wxDefaultSize;
+		long style=luatop>4 ? (long)lua_tonumber(L,5) : (long)0;
+		wxString name(lua_tostring(L,6),lua_objlen(L,6));
+
+		return new wxChoicebook(parent, id, pos, size, style, name);
+	}
+
+	// wxChoicebook::wxChoicebook(lua_Table * data)
+	static wxChoicebook* _bind_ctor_overload_3(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_3(L)) {
 			luaL_error(L, "luna typecheck failed in wxChoicebook::wxChoicebook(lua_Table * data) function, expected prototype:\nwxChoicebook::wxChoicebook(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
@@ -907,8 +1089,8 @@ public:
 	}
 
 	// wxChoicebook::wxChoicebook(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxEmptyString)
-	static wxChoicebook* _bind_ctor_overload_2(lua_State *L) {
-		if (!_lg_typecheck_ctor_overload_2(L)) {
+	static wxChoicebook* _bind_ctor_overload_4(lua_State *L) {
+		if (!_lg_typecheck_ctor_overload_4(L)) {
 			luaL_error(L, "luna typecheck failed in wxChoicebook::wxChoicebook(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxEmptyString) function, expected prototype:\nwxChoicebook::wxChoicebook(lua_Table * data, wxWindow * parent, int id, const wxPoint & pos = wxDefaultPosition, const wxSize & size = wxDefaultSize, long style = 0, const wxString & name = wxEmptyString)\nClass arguments details:\narg 2 ID = 56813631\narg 4 ID = 25723480\narg 5 ID = 20268751\narg 7 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
@@ -936,8 +1118,10 @@ public:
 	static wxChoicebook* _bind_ctor(lua_State *L) {
 		if (_lg_typecheck_ctor_overload_1(L)) return _bind_ctor_overload_1(L);
 		if (_lg_typecheck_ctor_overload_2(L)) return _bind_ctor_overload_2(L);
+		if (_lg_typecheck_ctor_overload_3(L)) return _bind_ctor_overload_3(L);
+		if (_lg_typecheck_ctor_overload_4(L)) return _bind_ctor_overload_4(L);
 
-		luaL_error(L, "error in function wxChoicebook, cannot match any of the overloads for function wxChoicebook:\n  wxChoicebook(lua_Table *)\n  wxChoicebook(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &)\n");
+		luaL_error(L, "error in function wxChoicebook, cannot match any of the overloads for function wxChoicebook:\n  wxChoicebook()\n  wxChoicebook(wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &)\n  wxChoicebook(lua_Table *)\n  wxChoicebook(lua_Table *, wxWindow *, int, const wxPoint &, const wxSize &, long, const wxString &)\n");
 		return NULL;
 	}
 
@@ -958,6 +1142,157 @@ public:
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< wxChoice >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// int wxChoicebook::GetPageImage(size_t nPage) const
+	static int _bind_GetPageImage(lua_State *L) {
+		if (!_lg_typecheck_GetPageImage(L)) {
+			luaL_error(L, "luna typecheck failed in int wxChoicebook::GetPageImage(size_t nPage) const function, expected prototype:\nint wxChoicebook::GetPageImage(size_t nPage) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		size_t nPage=(size_t)lua_tointeger(L,2);
+
+		wxChoicebook* self=Luna< wxObject >::checkSubType< wxChoicebook >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call int wxChoicebook::GetPageImage(size_t) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		int lret = self->GetPageImage(nPage);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxChoicebook::SetPageImage(size_t page, int image)
+	static int _bind_SetPageImage(lua_State *L) {
+		if (!_lg_typecheck_SetPageImage(L)) {
+			luaL_error(L, "luna typecheck failed in bool wxChoicebook::SetPageImage(size_t page, int image) function, expected prototype:\nbool wxChoicebook::SetPageImage(size_t page, int image)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		size_t page=(size_t)lua_tointeger(L,2);
+		int image=(int)lua_tointeger(L,3);
+
+		wxChoicebook* self=Luna< wxObject >::checkSubType< wxChoicebook >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call bool wxChoicebook::SetPageImage(size_t, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		bool lret = self->SetPageImage(page, image);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxString wxChoicebook::GetPageText(size_t nPage) const
+	static int _bind_GetPageText(lua_State *L) {
+		if (!_lg_typecheck_GetPageText(L)) {
+			luaL_error(L, "luna typecheck failed in wxString wxChoicebook::GetPageText(size_t nPage) const function, expected prototype:\nwxString wxChoicebook::GetPageText(size_t nPage) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		size_t nPage=(size_t)lua_tointeger(L,2);
+
+		wxChoicebook* self=Luna< wxObject >::checkSubType< wxChoicebook >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call wxString wxChoicebook::GetPageText(size_t) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		wxString lret = self->GetPageText(nPage);
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// bool wxChoicebook::SetPageText(size_t page, const wxString & text)
+	static int _bind_SetPageText(lua_State *L) {
+		if (!_lg_typecheck_SetPageText(L)) {
+			luaL_error(L, "luna typecheck failed in bool wxChoicebook::SetPageText(size_t page, const wxString & text) function, expected prototype:\nbool wxChoicebook::SetPageText(size_t page, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		size_t page=(size_t)lua_tointeger(L,2);
+		wxString text(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxChoicebook* self=Luna< wxObject >::checkSubType< wxChoicebook >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call bool wxChoicebook::SetPageText(size_t, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		bool lret = self->SetPageText(page, text);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// int wxChoicebook::GetSelection() const
+	static int _bind_GetSelection(lua_State *L) {
+		if (!_lg_typecheck_GetSelection(L)) {
+			luaL_error(L, "luna typecheck failed in int wxChoicebook::GetSelection() const function, expected prototype:\nint wxChoicebook::GetSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+
+		wxChoicebook* self=Luna< wxObject >::checkSubType< wxChoicebook >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call int wxChoicebook::GetSelection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		int lret = self->GetSelection();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxChoicebook::SetSelection(size_t page)
+	static int _bind_SetSelection(lua_State *L) {
+		if (!_lg_typecheck_SetSelection(L)) {
+			luaL_error(L, "luna typecheck failed in int wxChoicebook::SetSelection(size_t page) function, expected prototype:\nint wxChoicebook::SetSelection(size_t page)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		size_t page=(size_t)lua_tointeger(L,2);
+
+		wxChoicebook* self=Luna< wxObject >::checkSubType< wxChoicebook >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call int wxChoicebook::SetSelection(size_t). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		int lret = self->SetSelection(page);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxChoicebook::ChangeSelection(size_t page)
+	static int _bind_ChangeSelection(lua_State *L) {
+		if (!_lg_typecheck_ChangeSelection(L)) {
+			luaL_error(L, "luna typecheck failed in int wxChoicebook::ChangeSelection(size_t page) function, expected prototype:\nint wxChoicebook::ChangeSelection(size_t page)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		size_t page=(size_t)lua_tointeger(L,2);
+
+		wxChoicebook* self=Luna< wxObject >::checkSubType< wxChoicebook >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call int wxChoicebook::ChangeSelection(size_t). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		int lret = self->ChangeSelection(page);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxChoicebook::InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE)
+	static int _bind_InsertPage(lua_State *L) {
+		if (!_lg_typecheck_InsertPage(L)) {
+			luaL_error(L, "luna typecheck failed in bool wxChoicebook::InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE) function, expected prototype:\nbool wxChoicebook::InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		int luatop = lua_gettop(L);
+
+		size_t index=(size_t)lua_tointeger(L,2);
+		wxWindow* page=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
+		wxString text(lua_tostring(L,4),lua_objlen(L,4));
+		bool select=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
+		int imageId=luatop>5 ? (int)lua_tointeger(L,6) : (int)wxBookCtrlBase::NO_IMAGE;
+
+		wxChoicebook* self=Luna< wxObject >::checkSubType< wxChoicebook >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call bool wxChoicebook::InsertPage(size_t, wxWindow *, const wxString &, bool, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		bool lret = self->InsertPage(index, page, text, select, imageId);
+		lua_pushboolean(L,lret?1:0);
 
 		return 1;
 	}
@@ -3010,6 +3345,157 @@ public:
 		return 1;
 	}
 
+	// int wxChoicebook::base_GetPageImage(size_t nPage) const
+	static int _bind_base_GetPageImage(lua_State *L) {
+		if (!_lg_typecheck_base_GetPageImage(L)) {
+			luaL_error(L, "luna typecheck failed in int wxChoicebook::base_GetPageImage(size_t nPage) const function, expected prototype:\nint wxChoicebook::base_GetPageImage(size_t nPage) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		size_t nPage=(size_t)lua_tointeger(L,2);
+
+		wxChoicebook* self=Luna< wxObject >::checkSubType< wxChoicebook >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call int wxChoicebook::base_GetPageImage(size_t) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		int lret = self->wxChoicebook::GetPageImage(nPage);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxChoicebook::base_SetPageImage(size_t page, int image)
+	static int _bind_base_SetPageImage(lua_State *L) {
+		if (!_lg_typecheck_base_SetPageImage(L)) {
+			luaL_error(L, "luna typecheck failed in bool wxChoicebook::base_SetPageImage(size_t page, int image) function, expected prototype:\nbool wxChoicebook::base_SetPageImage(size_t page, int image)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		size_t page=(size_t)lua_tointeger(L,2);
+		int image=(int)lua_tointeger(L,3);
+
+		wxChoicebook* self=Luna< wxObject >::checkSubType< wxChoicebook >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call bool wxChoicebook::base_SetPageImage(size_t, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		bool lret = self->wxChoicebook::SetPageImage(page, image);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// wxString wxChoicebook::base_GetPageText(size_t nPage) const
+	static int _bind_base_GetPageText(lua_State *L) {
+		if (!_lg_typecheck_base_GetPageText(L)) {
+			luaL_error(L, "luna typecheck failed in wxString wxChoicebook::base_GetPageText(size_t nPage) const function, expected prototype:\nwxString wxChoicebook::base_GetPageText(size_t nPage) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		size_t nPage=(size_t)lua_tointeger(L,2);
+
+		wxChoicebook* self=Luna< wxObject >::checkSubType< wxChoicebook >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call wxString wxChoicebook::base_GetPageText(size_t) const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		wxString lret = self->wxChoicebook::GetPageText(nPage);
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
+	// bool wxChoicebook::base_SetPageText(size_t page, const wxString & text)
+	static int _bind_base_SetPageText(lua_State *L) {
+		if (!_lg_typecheck_base_SetPageText(L)) {
+			luaL_error(L, "luna typecheck failed in bool wxChoicebook::base_SetPageText(size_t page, const wxString & text) function, expected prototype:\nbool wxChoicebook::base_SetPageText(size_t page, const wxString & text)\nClass arguments details:\narg 2 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		size_t page=(size_t)lua_tointeger(L,2);
+		wxString text(lua_tostring(L,3),lua_objlen(L,3));
+
+		wxChoicebook* self=Luna< wxObject >::checkSubType< wxChoicebook >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call bool wxChoicebook::base_SetPageText(size_t, const wxString &). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		bool lret = self->wxChoicebook::SetPageText(page, text);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
+	// int wxChoicebook::base_GetSelection() const
+	static int _bind_base_GetSelection(lua_State *L) {
+		if (!_lg_typecheck_base_GetSelection(L)) {
+			luaL_error(L, "luna typecheck failed in int wxChoicebook::base_GetSelection() const function, expected prototype:\nint wxChoicebook::base_GetSelection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+
+		wxChoicebook* self=Luna< wxObject >::checkSubType< wxChoicebook >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call int wxChoicebook::base_GetSelection() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		int lret = self->wxChoicebook::GetSelection();
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxChoicebook::base_SetSelection(size_t page)
+	static int _bind_base_SetSelection(lua_State *L) {
+		if (!_lg_typecheck_base_SetSelection(L)) {
+			luaL_error(L, "luna typecheck failed in int wxChoicebook::base_SetSelection(size_t page) function, expected prototype:\nint wxChoicebook::base_SetSelection(size_t page)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		size_t page=(size_t)lua_tointeger(L,2);
+
+		wxChoicebook* self=Luna< wxObject >::checkSubType< wxChoicebook >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call int wxChoicebook::base_SetSelection(size_t). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		int lret = self->wxChoicebook::SetSelection(page);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// int wxChoicebook::base_ChangeSelection(size_t page)
+	static int _bind_base_ChangeSelection(lua_State *L) {
+		if (!_lg_typecheck_base_ChangeSelection(L)) {
+			luaL_error(L, "luna typecheck failed in int wxChoicebook::base_ChangeSelection(size_t page) function, expected prototype:\nint wxChoicebook::base_ChangeSelection(size_t page)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		size_t page=(size_t)lua_tointeger(L,2);
+
+		wxChoicebook* self=Luna< wxObject >::checkSubType< wxChoicebook >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call int wxChoicebook::base_ChangeSelection(size_t). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		int lret = self->wxChoicebook::ChangeSelection(page);
+		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// bool wxChoicebook::base_InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE)
+	static int _bind_base_InsertPage(lua_State *L) {
+		if (!_lg_typecheck_base_InsertPage(L)) {
+			luaL_error(L, "luna typecheck failed in bool wxChoicebook::base_InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE) function, expected prototype:\nbool wxChoicebook::base_InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE)\nClass arguments details:\narg 2 ID = 56813631\narg 3 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		int luatop = lua_gettop(L);
+
+		size_t index=(size_t)lua_tointeger(L,2);
+		wxWindow* page=(Luna< wxObject >::checkSubType< wxWindow >(L,3));
+		wxString text(lua_tostring(L,4),lua_objlen(L,4));
+		bool select=luatop>4 ? (bool)(lua_toboolean(L,5)==1) : (bool)false;
+		int imageId=luatop>5 ? (int)lua_tointeger(L,6) : (int)wxBookCtrlBase::NO_IMAGE;
+
+		wxChoicebook* self=Luna< wxObject >::checkSubType< wxChoicebook >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call bool wxChoicebook::base_InsertPage(size_t, wxWindow *, const wxString &, bool, int). Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		bool lret = self->wxChoicebook::InsertPage(index, page, text, select, imageId);
+		lua_pushboolean(L,lret?1:0);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 
@@ -3017,17 +3503,6 @@ public:
 
 wxChoicebook* LunaTraits< wxChoicebook >::_bind_ctor(lua_State *L) {
 	return luna_wrapper_wxChoicebook::_bind_ctor(L);
-	// Note that this class is abstract (only lua wrappers can be created).
-	// Abstract methods:
-	// int wxBookCtrlBase::GetPageImage(size_t nPage) const
-	// bool wxBookCtrlBase::SetPageImage(size_t page, int image)
-	// wxString wxBookCtrlBase::GetPageText(size_t nPage) const
-	// bool wxBookCtrlBase::SetPageText(size_t page, const wxString & text)
-	// int wxBookCtrlBase::GetSelection() const
-	// int wxBookCtrlBase::SetSelection(size_t page)
-	// int wxBookCtrlBase::ChangeSelection(size_t page)
-	// bool wxBookCtrlBase::InsertPage(size_t index, wxWindow * page, const wxString & text, bool select = false, int imageId = wxBookCtrlBase::NO_IMAGE)
-	// wxWindow * wxBookCtrlBase::DoRemovePage(size_t arg1)
 }
 
 void LunaTraits< wxChoicebook >::_bind_dtor(wxChoicebook* obj) {
@@ -3043,6 +3518,14 @@ const int LunaTraits< wxChoicebook >::uniqueIDs[] = {56813631, 53506535, 1418771
 
 luna_RegType LunaTraits< wxChoicebook >::methods[] = {
 	{"GetChoiceCtrl", &luna_wrapper_wxChoicebook::_bind_GetChoiceCtrl},
+	{"GetPageImage", &luna_wrapper_wxChoicebook::_bind_GetPageImage},
+	{"SetPageImage", &luna_wrapper_wxChoicebook::_bind_SetPageImage},
+	{"GetPageText", &luna_wrapper_wxChoicebook::_bind_GetPageText},
+	{"SetPageText", &luna_wrapper_wxChoicebook::_bind_SetPageText},
+	{"GetSelection", &luna_wrapper_wxChoicebook::_bind_GetSelection},
+	{"SetSelection", &luna_wrapper_wxChoicebook::_bind_SetSelection},
+	{"ChangeSelection", &luna_wrapper_wxChoicebook::_bind_ChangeSelection},
+	{"InsertPage", &luna_wrapper_wxChoicebook::_bind_InsertPage},
 	{"base_GetClassInfo", &luna_wrapper_wxChoicebook::_bind_base_GetClassInfo},
 	{"base_AcceptsFocus", &luna_wrapper_wxChoicebook::_bind_base_AcceptsFocus},
 	{"base_AcceptsFocusFromKeyboard", &luna_wrapper_wxChoicebook::_bind_base_AcceptsFocusFromKeyboard},
@@ -3151,6 +3634,14 @@ luna_RegType LunaTraits< wxChoicebook >::methods[] = {
 	{"base_DeletePage", &luna_wrapper_wxChoicebook::_bind_base_DeletePage},
 	{"base_RemovePage", &luna_wrapper_wxChoicebook::_bind_base_RemovePage},
 	{"base_GetPageCount", &luna_wrapper_wxChoicebook::_bind_base_GetPageCount},
+	{"base_GetPageImage", &luna_wrapper_wxChoicebook::_bind_base_GetPageImage},
+	{"base_SetPageImage", &luna_wrapper_wxChoicebook::_bind_base_SetPageImage},
+	{"base_GetPageText", &luna_wrapper_wxChoicebook::_bind_base_GetPageText},
+	{"base_SetPageText", &luna_wrapper_wxChoicebook::_bind_base_SetPageText},
+	{"base_GetSelection", &luna_wrapper_wxChoicebook::_bind_base_GetSelection},
+	{"base_SetSelection", &luna_wrapper_wxChoicebook::_bind_base_SetSelection},
+	{"base_ChangeSelection", &luna_wrapper_wxChoicebook::_bind_base_ChangeSelection},
+	{"base_InsertPage", &luna_wrapper_wxChoicebook::_bind_base_InsertPage},
 	{"fromVoid", &luna_wrapper_wxChoicebook::_bind_fromVoid},
 	{"asVoid", &luna_wrapper_wxChoicebook::_bind_asVoid},
 	{"getTable", &luna_wrapper_wxChoicebook::_bind_getTable},

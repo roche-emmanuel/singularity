@@ -99,7 +99,7 @@ function Class.isTrue(val,...)
 end
 
 function Class.isFalse(val,...)
-	return doTest1(val==false,val,"is not true",...)
+	return doTest1(val==false,val,"is not false",...)
 end
 
 function Class.isString(val,...)

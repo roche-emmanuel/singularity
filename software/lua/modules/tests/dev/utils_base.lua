@@ -3,6 +3,7 @@ local man = require("test.Manager")
 man:addSuite("utils.base tests",function()
 	
 	local base = require "utils.base"
+	local path = require "utils.path"
 	
 	Test("base.getOSName",function()
 		log.info("Current OS name is: ", base.getOSName())
@@ -41,12 +42,12 @@ man:addSuite("utils.base tests",function()
 	end)
 	
 	Test("base.readLines",function()
-		local str = "line 1\nline 2\nline 3\n"
+		local str = "line 1\nline 2\n\nline 3\n"
 		local fname = path.tmpName()
 		assert.True((base.writeFile(fname,str)))
 
 		local lines = base.readLines(fname)
 		assert.equals(4,#lines)
-		assert.equals(lines[4],"")
+		assert.equals(lines[4],"line 3")
 	end)
 end)

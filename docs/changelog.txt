@@ -62,6 +62,7 @@
 - Implementing path support.
 - Added path.join/isAbs/absPath
 - Adding mxengine extension project.
+- Added support for single turret mission in mxengine project.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

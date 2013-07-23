@@ -28,6 +28,7 @@
 #include "wx_extensions.h"
 #include <wx/ribbon/art.h>
 #include <wx/ribbon/buttonbar.h>
+#include <wx/ctrlsub.h>
 
 #include "sgtCommon.h"
 
@@ -58,6 +59,8 @@ struct luna_caster<wxTextAttr,dstType> {
 		return static_cast<dstType*>(ptr);
 	};
 };
+
+LUNA_DEFINE_DIRECT_CAST(wxItemContainer);
 
 namespace sgt {
 

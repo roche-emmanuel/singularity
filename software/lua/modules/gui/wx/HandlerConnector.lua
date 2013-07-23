@@ -1,10 +1,17 @@
-local Class = require("classBuilder"){name="HandlerConnector", bases={"base.EventHandler"}};
+local Class = createClass{name="HandlerConnector", bases={"base.EventHandler"}};
 
 local wx = require "wx"
 
 local Vector = require "std.Vector"
 local prof = require "debugging.Profiler"
 
+--[[
+Class: gui.wx.HandlerConnector
+
+Class used to connect event handlers.
+
+This class inherits from <base.EventHandler>.
+]]
 -- This class provides functions to add wx controls.
 function Class:initialize(options)
 	self:info("Executing initialize for BasicInterface...")
@@ -14,7 +21,7 @@ end
 
 function Class:disconnectHandlers()
 	for _,connection in self._connectedHandlers:sequence() do
-		self:debug3("Disconnecting handler with id=",connection.id," eventType=",connection.eventType)
+		self:info("Disconnecting handler with id=",connection.id," eventType=",connection.eventType)
 		connection.ctrl:disconnect(connection.id,connection.id,connection.eventType)
 	end
 end
