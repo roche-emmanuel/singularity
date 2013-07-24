@@ -76,7 +76,14 @@ function Class:initialize(options)
 		intf:pushBookPage{caption="Network"}
 		intf:popParent(true) -- Network page
 	intf:popParent()
-	
+	intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxALIGN_RIGHT}
+		intf:addBitmapButton{src="check",tip="Perform mission level unit tests",
+							 -- flags=wx.wxALIGN_RIGHT,
+							 handler="performMissionUnitTests"}
+		intf:addBitmapButton{src="check@earth",tip="Perform global level unit tests",
+							 -- flags=wx.wxALIGN_RIGHT,
+							 handler="performGlobalUnitTests"}
+	intf:popSizer()
 	intf:addOutputPanel{}
 	intf:popParent(true)
 	
@@ -110,6 +117,21 @@ function Class:onNetworkModelChanged(data)
 	self:info("Updating network model to: ",data.value)
 	local mobj = self:getMissionManager():getMissionObject()
 	mobj:setNetworkModel(data.value)	
+end
+
+function Class:performMissionUnitTests()
+	if not self:isMissionRunning() then
+		self:error("Cannot perform mission tests when no mission is running.")
+		return
+	end
+	
+	local tester = require "utils.MissionUnitTests"
+	tester:run()
+end
+
+function Class:performGlobalUnitTests()
+	local tester = require "utils.GlobalUnitTests"
+	tester:run()
 end
 
 return Class -- return class instance.

@@ -31,6 +31,16 @@ function Class:connectHandler(ctrl,eventType,func,id,data)
     self:check(eventType,"Invalid event type in connectHandler")
     self:check(func,"Invalid event handler in connectHandler")
     
+	if type(func)=="string" then
+		local obj = self._handler
+		self:check(obj,"Invalid handler class for interface, cannot setup handler: ", func)
+		local realfunc = obj[func]
+		self:check(realfunc,"Invalid handler real handler function with name: ", func)
+		
+		-- update the handler:
+		func = function(intf,event,data) realfunc(obj,intf,event,data) end
+	end
+	
     --self:warn("Connecting event handler...")
     
     ctrl:connect(id or wx.wxID_ANY,eventType,function(event) 

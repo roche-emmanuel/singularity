@@ -21,7 +21,7 @@ function Class:initialize(options)
                 wx.wxID_ANY,          -- don't need a wxWindow ID
                 "MXEngine control",-- caption on the frame
                 wx.wxPoint(-1,-1), -- let system place the frame
-                wx.wxSize(450, 450),  -- set the size of the frame
+                wx.wxSize(800, 350),  -- set the size of the frame
                 wx.wxDEFAULT_FRAME_STYLE ) -- use default frame styles
                 
 	-- Display mainframe:

@@ -48,6 +48,18 @@ function Class:addControl(ctrl,options)
     end
     
     if options.tip then
+		-- Test of advanced tool tip:
+		-- local desc = type(options.tip)=="table" and options.tip or {options.name or "Description",options.tip}
+		-- local tip = wx.wxRichToolTip(desc[1],desc[2]);
+		-- tip:SetIcon(wx.wxICON_INFORMATION);
+		-- tip:ShowFor(ctrl);
+		
+		-- Setup the tool tip system:
+		-- wx.wxToolTip.Enable(true)
+		-- wx.wxToolTip.SetDelay(10)
+		-- wx.wxToolTip.SetAutoPop(6000)
+		-- wx.wxToolTip.SetReshow(10)
+		
         ctrl:SetToolTip(options.tip)
     end
     
