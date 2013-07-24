@@ -94,6 +94,16 @@ function main()
 		intf:pushBookPage{caption="Network"}
 		intf:popParent(true) -- Network page
 	intf:popParent()
+	intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxALIGN_RIGHT}
+		intf:addBitmapButton{src="check",tip="Perform mission level unit tests",
+							 -- flags=wx.wxALIGN_RIGHT,
+							 -- handler="performMissionUnitTests"
+							 }
+		intf:addBitmapButton{src="check@earth",tip="Perform global level unit tests",
+							 -- flags=wx.wxALIGN_RIGHT,
+							 -- handler="performGlobalUnitTests"
+							 }
+	intf:popSizer()
 	
 	intf:addOutputPanel{}
 	intf:popParent(true)
