@@ -145,7 +145,11 @@ Parameters:
 ]]
 function Class:set(key,value)
 	local cont, last = self:getSubContainer(key)
-	cont[last] = value
+	if cont[last] ~= value then
+		cont[last] = value
+		return true;
+	end
+	return false -- value was not changed.
 end
 
 --[[

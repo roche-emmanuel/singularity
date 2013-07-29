@@ -86,6 +86,8 @@ addLuaPath(mxe_root.."?.lua")
 
 local dxColorf = osg.Vec4f.toDXColor
 local dxColord = osg.Vec4d.toDXColor
+local fromYPR = osg.Quat.fromYPR
+local toYPR = osg.Quat.toYPR
 
 -- reload the extensions from MX project:
 require "osg"
@@ -94,6 +96,9 @@ require "extensions"
 
 osg.Vec4f.toDXColor = dxColorf
 osg.Vec4d.toDXColor = dxColord
+
+osg.Quat.fromYPR = fromYPR
+osg.Quat.toYPR = toYPR
 
 require "mxe.MXEHandler"
 

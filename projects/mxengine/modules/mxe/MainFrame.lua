@@ -19,12 +19,11 @@ function Class:initialize(options)
 		intf:pushBookPage{caption="Mission"}
 			intf:pushChoicebook{prop=1,flags=wx.wxALL+wx.wxEXPAND,
 								name="mission_type",
-								defaultValue="TestTurret4",
+								defaultValue="SingleTurret",
 								handler="onMissionChanged"}
-			
-			intf:pushBookPage{caption="UnitTest"}
-				intf:addStaticText{text="This type of mission has no parameter."}
-			intf:popParent(true)
+			-- intf:pushBookPage{caption="UnitTest"}
+				-- intf:addStaticText{text="This type of mission has no parameter."}
+			-- intf:popParent(true)
 			
 			intf:pushBookPage{caption="TestTurret"}
 				intf:addStaticText{text="This type of mission has no parameter."}
@@ -96,13 +95,15 @@ function Class:initialize(options)
 	
 	intf:updateEntries() -- force updating the content of the data map.
 	
-	-- local data = intf:getDefaultProvider():getDataHolder()
-	-- self:warn("Datamap content: ",data)
+	local data = intf:getDefaultProvider():getDataHolder()
+	self:warn("Datamap content: ",data)
 	
 	-- Add an event listener on the mission manager:
 	local mman = self:getMissionManager()
 	mman:addListener{mman.EVT_STARTING_MISSION,function()
 		local data = intf:getDefaultProvider():getDataHolder()
+		self:getMissionManager():setMissionClass(data.mission_type)
+		
 		if data.mission_type == "SingleTurret" then
 			-- we are jsut starting the mission:
 			-- self:warn("Setting up mission before start...")
