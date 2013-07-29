@@ -177,7 +177,7 @@ function Class:updateDisplay()
     -- iterate on the entry controls, and update each of them:
     for _, ctrl in ipairs(self._controls) do
         -- fix the TimeCtrl issue (cannot use Enable() on those objects);
-        local className = self.classes[ctrl]
+        local className = self._classes[ctrl]
         local win = ctrl;
         className = className or ctrl:GetClassInfo():GetClassName()
         
@@ -196,9 +196,12 @@ function Class:updateDisplay()
             else
                 win:Enable(activated)
             end
-            self:setControlValue(ctrl,self.classes[ctrl])
+            self:setControlValue(ctrl,self._classes[ctrl])
         end
     end
+	
+	-- update the display of the children too:
+	self:updateChildrenDisplay()
 end
 
 function Class:setControlValue(ctrl,className)

@@ -1,4 +1,4 @@
-local Class = require("buildclass"){name="Exception",bases="core.Object"}
+local Class = createClass{name="Exception",bases="core.Object"}
 
 --[[
 Class: base.Exception

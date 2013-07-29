@@ -47,7 +47,7 @@ function Class:create(options)
 	end
 	
 	local intf = self._intf
-	intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxALL+wx.wxEXPAND}
+	intf:pushSizer{orient=wx.wxHORIZONTAL,prop=options.prop or 0,flags=wx.wxALL+wx.wxEXPAND}
 	self._controls[1] = intf:addStaticText{text=options.caption..": "};
 	self._controls[2] = intf:addComboBox{prop=1,
 										 handler=cbHandler,

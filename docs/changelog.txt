@@ -64,6 +64,7 @@
 - Adding mxengine extension project.
 - Added support for single turret mission in mxengine project.
 - Added support for string handlers for controls. Updated MXEngine extension to support unit tests.
+- replaced gui.Container with core.DataMap implementation.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

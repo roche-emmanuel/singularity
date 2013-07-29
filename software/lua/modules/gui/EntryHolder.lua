@@ -58,7 +58,7 @@ end
 function Class:updateEntries(name)
 	self:fireEvent("EntriesUpdating")
     for _,entry in self._entries:sequence() do
-        entry:update(name)
+        entry:updateDisplay()
     end	
 	self:fireEvent("EntriesUpdated")
 end
