@@ -43,22 +43,27 @@ function Class:initialize(options)
 			intf:popParent(true)
 			
 			intf:pushBookPage{caption="SingleTurret"}
-				intf:addSingleChoiceEntry{name="t0_turret_model",caption="Turret model",
-					choices={"basic_turret"},
-					defaultValue="basic_turret",
-					handler="onTurretModelChanged"}
-				intf:addSingleChoiceEntry{name="t0_platform_model",caption="Platform model",
-					choices={"basic_platform","basic_platform_2","basic_platform_offset1"},
-					defaultValue="basic_platform",
-					handler="onPlatformModelChanged"}
-				intf:addSingleChoiceEntry{name="t0_output_model",caption="Output model",
-					choices={"debug_sources","debug_streams","debug_outputs"},
-					defaultValue="debug_outputs",
-					handler="onOutputModelChanged"}
-				intf:addSingleChoiceEntry{name="t0_network_model",caption="Network model",
-					choices={"no_network"},
-					defaultValue="no_network",
-					handler="onNetworkModelChanged"}
+				intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxALL+wx.wxEXPAND}
+					intf:addSingleChoiceEntry{name="single_turret.turret_model",prop=1,caption="Turret model",
+						choices={"basic_turret"},
+						defaultValue="basic_turret",
+						handler="onTurretModelChanged"}
+					intf:addSingleChoiceEntry{name="single_turret.platform_model",prop=1,caption="Platform model",
+						choices={"basic_platform","basic_platform_2","basic_platform_offset1"},
+						defaultValue="basic_platform",
+						handler="onPlatformModelChanged"}
+				intf:popSizer()
+				
+				intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxALL+wx.wxEXPAND}
+					intf:addSingleChoiceEntry{name="single_turret.output_model",prop=1,caption="Output model",
+						choices={"std_outputs","debug_sources","debug_streams","debug_outputs"},
+						defaultValue="std_outputs",
+						handler="onOutputModelChanged"}
+					intf:addSingleChoiceEntry{name="single_turret.network_model",prop=1,caption="Network model",
+						choices={"no_network"},
+						defaultValue="no_network",
+						handler="onNetworkModelChanged"}
+				intf:popSizer()
 			intf:popParent(true)
 			
 			intf:popParent() -- choicebook.
@@ -88,6 +93,27 @@ function Class:initialize(options)
 	intf:popParent(true)
 	
 	parent:Layout()	
+	
+	intf:updateEntries() -- force updating the content of the data map.
+	
+	-- local data = intf:getDefaultProvider():getDataHolder()
+	-- self:warn("Datamap content: ",data)
+	
+	-- Add an event listener on the mission manager:
+	local mman = self:getMissionManager()
+	mman:addListener{mman.EVT_STARTING_MISSION,function()
+		local data = intf:getDefaultProvider():getDataHolder()
+		if data.mission_type == "SingleTurret" then
+			-- we are jsut starting the mission:
+			-- self:warn("Setting up mission before start...")
+			data = data.single_turret
+			local mobj = self:getMissionManager():getMissionObject()
+			mobj:setTurretModel(data.turret_model)
+			mobj:setPlatformModel(data.platform_model)
+			mobj:setOutputModel(data.output_model)
+			mobj:setNetworkModel(data.network_model)
+		end		
+	end}
 end
 
 function Class:onMissionChanged(data)
