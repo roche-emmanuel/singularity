@@ -1,7 +1,7 @@
 local Class = require("classBuilder"){name="ProviderHolder",bases="base.Object"};
 
 local Vector = require "std.Vector"
-local SelectorProvider = require "gui.wx.SelectorProvider"
+local SelectorProvider = require "gui.SelectorProvider"
 local Provider = require "gui.Provider"
 
 function Class:initialize(options)
@@ -41,9 +41,9 @@ function Class:addProvider(prov)
 	end
 end
 
-function Class:updateProviders(name)
-    for _,prov in self._providers:sequence() do
-        prov:update(name)
+function Class:updateProviders(name)	
+    for k,prov in self._providers:sequence() do
+		prov:update(name)
     end	
 end
 

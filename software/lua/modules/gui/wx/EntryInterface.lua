@@ -6,7 +6,22 @@ local utils = require "utils"
 local wx = require "wx"
 local winman = require "gui.wx.WindowManager"
 
--- This class provides functions to add wx controls.
+--[[
+Class: gui.wx.EntryInterface
+
+Interface specialization supporting entry handling
+
+This class inherits from <gui.wx.ControlInterface>, <gui.ProviderHolder> and <gui.EntryHolder>.
+]]
+
+--[=[
+--[[
+Constructor: EntryInterface
+
+Create a new instance of the class.
+]]
+function EntryInterface(options)
+]=]
 function Class:initialize(options)
 end
 
@@ -16,29 +31,49 @@ function Class:close()
 	require("gui.wx.ControlInterface").close(self)
 end
 
+--[[
+Function: addComboBoxSelector
+
+Create a new comboBox control and specify it as a selector for the new default provider.
+
+Parameters:
+	options.caption - (optional) {string} The caption to display in front of the selector.
+	options.choices - (optional) {table} The default options available in the combobox choices.
+	options.tip - (optional) {string} The tip for the combobox.
+	options.noProvider - (optional) {bool} If set to true the newly created provider will not be set as current 
+default provider for this interface.
+	options.actionHandler - (optional) {function} Function used to handle any action on the selector.
+	options.actions - (optional) {table} List of actions to be assigned to this selector.
+	options.cont - (optional) {table} data holder to use for the SelectorProvider container.
+	options.contName - (optional) {string} The name of the data holder to use for the SelectorProvider 
+container in case this is in a dynamic parent provider.
+  
+Returns:
+	The wxComboBox control.
+]]
 function Class:addComboBoxSelector(options)
-    self:check(options and (options.cont or options.contname),"A valid 'cont' or 'contname' entry is needed to build a ComboBox selector.");
+    options = options or {}
+	-- self:check(options and (options.cont or options.contName),"A valid 'cont' or 'contname' entry is needed to build a ComboBox selector.");
       
     self:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxEXPAND}
-    if options.text then
-        self:addStaticText{text=(options.text=="") and "Show details for: " or options.text}
+    if options.caption then
+        self:addStaticText{text=(options.caption=="") and "Show details for: " or options.caption}
     end
         
     local cb = self:addComboBox{prop=1, flags=wx.wxALL, choices=options.choices or {},tip=options.tip,size=options.cbsize}
 
- 	options.selector = cb
+ 	options.selector = require "gui.wx.ComboBoxSelector" {ctrl=cb}
+	
     local prov = self:createProvider(options)
     
     local selectHandler = function(self,event)
         -- if this provider has children then we should also update them ad this point:
         --prov:updateChildren()
-        
+        -- self:info("Updating entries...")
         self:updateEntries();
     end
     
     self:connectHandler(cb,wx.wxEVT_COMMAND_COMBOBOX_SELECTED,selectHandler)
-    
-
     
     if not options.noProvider then 
         self:setDefaultProvider(prov) -- use this combobox as the entries provider
@@ -124,5 +159,9 @@ end
 function Class:addVec3dEntry(options)
     return self:addEntry(require"gui.wx.entries.NumericalEntry",options,{type="vec3d"});        
 end
-       
+ 
+function Class:addActionButtonEntry(options)
+    return self:addEntry(require"gui.wx.entries.ActionButtonEntry",options);        
+end
+ 
 return Class

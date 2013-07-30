@@ -247,6 +247,26 @@ function Class:getSubMap(key)
 	return Class{data=data}
 end
 
+--[[
+Function: fetch
+
+Fecth a key value from the datamap.
+This method is similar to the get method except that it will ensure there
+is a value to read and trigger an error otherwise. Thus the default value is 
+not needed here.
+
+Parameters:
+	key - THe key to read from.
+  
+Returns:
+	The value read under the given key.
+]]
+function Class:fetch(key)
+	local val = self:get(key)
+	self:check(val~=nil,"Could not fetch value for key: ", key)
+	return val
+end
+
 return Class
 
 

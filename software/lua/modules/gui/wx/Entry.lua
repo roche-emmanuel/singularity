@@ -41,7 +41,7 @@ function Class:initialize(options)
 	self._handler = options.handler
 	self._actionHandler = options.actionHandler
 	self._actions = options.actions
-	
+	self._numFormat = "%.6f"
 	self._enabled = true
 	self._controls = {}
 	self._classes = {} -- classes for the controls.
@@ -96,6 +96,8 @@ function Class:updateValue()
     end
     
     self._value = self._provider:get(self) -- retrieve the current value for that entry.
+	-- self:info("Updating entry ",self._name," value to: ",self._value)
+	
     if self._states then
         -- if this entry is a state entry, then also update the currentState member:
         self._currentState = nil -- invalid the current state.
@@ -175,7 +177,7 @@ function Class:updateDisplay()
     local activated = self:isEnabled()
  
     -- iterate on the entry controls, and update each of them:
-    for _, ctrl in ipairs(self._controls) do
+    for _, ctrl in pairs(self._controls) do
         -- fix the TimeCtrl issue (cannot use Enable() on those objects);
         local className = self._classes[ctrl]
         local win = ctrl;
@@ -214,6 +216,8 @@ function Class:setControlValue(ctrl,className)
     end
     
     local class = className or ctrl:GetClassInfo():GetClassName()
+	-- self:info("Updating control of class: ",class)
+	
     if class == "wxSlider" then
         if type == "color" then
             val = val:a() -- retrieve the alpha value of the color.
@@ -221,20 +225,20 @@ function Class:setControlValue(ctrl,className)
         if type == "vec3d" then
             val = val[ctrl:GetId()]
         end
-        ctrl:SetValue((val-range[1])/(range[2]-range[1])*10000);
+        ctrl:SetValue(math.floor(0.5 + (val-range[1])/(range[2]-range[1])*10000));
     elseif class == "wxControl" or class == "wxPanel" then
         ctrl:Refresh()
     elseif class == "wxTextCtrl" then
         local unit = (self.unit or "")
         if type == "color" then
-            ctrl:ChangeValue(string.format(self.numFormat,val:a()*100.0) .. unit);
+            ctrl:ChangeValue(string.format(self._numFormat,val:a()*100.0) .. unit);
         elseif type == "string" then
             ctrl:ChangeValue(val);
         elseif type == "vec3d" then
-            ctrl:ChangeValue(string.format(self.numFormat,val[ctrl:GetId()]) .. unit);
+            ctrl:ChangeValue(string.format(self._numFormat,val[ctrl:GetId()]) .. unit);
         else
-            --wx.wxLogMessage("Setting text value to ".. val)
-            ctrl:ChangeValue(string.format(self.numFormat,val) .. unit);
+            -- self:info("Setting text value to ", val)
+            ctrl:ChangeValue(string.format(self._numFormat,val) .. unit);
         end
     elseif class == "wxDatePickerCtrl" then
         if type == "datetime" then
