@@ -1,4 +1,4 @@
-local Class = require("classBuilder"){name="MainFrame",bases="base.Object"};
+local Class = require("classBuilder"){name="MainFrame",bases="mxe.TurretController"};
 
 function Class:initialize(options)
 	-- build the main frame on the app frame:
@@ -69,6 +69,7 @@ function Class:initialize(options)
 		intf:popParent(true) -- mission page
 		
 		intf:pushBookPage{caption="Controls"}
+			self:buildControlPanel(intf)
 		intf:popParent(true) -- controls page
 		
 		intf:pushBookPage{caption="Turrets"}
@@ -93,6 +94,7 @@ function Class:initialize(options)
 	
 	parent:Layout()	
 	
+	intf:updateProviders()
 	intf:updateEntries() -- force updating the content of the data map.
 	
 	local data = intf:getDefaultProvider():getDataHolder()

@@ -3,6 +3,7 @@ local oo = require "loop.cached"
 
 local log = require "log"
 local assert = require "utils.assert"
+local base = require "utils.base"
 
 --[[
 Class: core.Object
@@ -40,13 +41,20 @@ Global access to the <utils.assert> library.
 ]]
 Object.assert = assert
 
+--[[
+Variable: throw
+
+Global access to the <utils.base.throw> function
+]]
+Object.throw = base.throw
+
 
 --[[
 Variable: deprecated
 
 Global access to the <utils.deprecated> library.
 ]]
--- Object.deprecated = require "utils.deprecated"
+Object.deprecated = base.deprecated
 
 --[=[
 --[[

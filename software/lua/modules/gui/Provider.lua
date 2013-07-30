@@ -1,15 +1,29 @@
-local Class = require("classBuilder"){name="Provider",bases="base.Object"};
+local Class = createClass{name="Provider",bases="core.Object"};
 
 local cfg = require "config"
 local utils = require "utils"
 local Set = require "std.Set"
 local Container = require "gui.Container"
 
--- AppConfigProvider can be created using a simple provider 
--- on a table container.
+--[[
+Class: gui.Provider
 
+Basic implementation of gui provider concept.
 
---- Initialize the mainframe display:
+This class inherits from <core.Object>.
+]]
+
+--[=[
+--[[
+Constructor: Provider
+
+Create a new instance of the class.
+
+Parameters:
+	options.parent - (optional) Another <gui.Provider> object used as parent for this provider.
+]]
+function Provider(options)
+]=]
 function Class:initialize(options)
 	self._container = Container();
 	self._children = Set(); -- list of sub providers.
@@ -77,6 +91,8 @@ end
 
 function Class:update(name)
  	-- doing nothing if there is no selector.
+	-- just update the children:
+	self:updateChildren()
 end
         
 return Class
