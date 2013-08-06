@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::Rect*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::Rect*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::Rect* rhs =(Luna< Awesomium::Rect >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::Rect* self= (Awesomium::Rect*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::Rect >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -184,8 +180,7 @@ public:
 	// Awesomium::Rect::Rect()
 	static Awesomium::Rect* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::Rect::Rect() function, expected prototype:\nAwesomium::Rect::Rect()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::Rect::Rect() function, expected prototype:\nAwesomium::Rect::Rect()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -195,8 +190,7 @@ public:
 	// Awesomium::Rect::Rect(int x, int y, int width, int height)
 	static Awesomium::Rect* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::Rect::Rect(int x, int y, int width, int height) function, expected prototype:\nAwesomium::Rect::Rect(int x, int y, int width, int height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::Rect::Rect(int x, int y, int width, int height) function, expected prototype:\nAwesomium::Rect::Rect(int x, int y, int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,1);
@@ -221,15 +215,13 @@ public:
 	// bool Awesomium::Rect::IsEmpty() const
 	static int _bind_IsEmpty(lua_State *L) {
 		if (!_lg_typecheck_IsEmpty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::Rect::IsEmpty() const function, expected prototype:\nbool Awesomium::Rect::IsEmpty() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::Rect::IsEmpty() const function, expected prototype:\nbool Awesomium::Rect::IsEmpty() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::Rect* self=(Luna< Awesomium::Rect >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::Rect::IsEmpty() const. Got : '%s'",typeid(Luna< Awesomium::Rect >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::Rect::IsEmpty() const. Got : '%s'\n%s",typeid(Luna< Awesomium::Rect >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsEmpty();
 		lua_pushboolean(L,lret?1:0);
@@ -240,15 +232,13 @@ public:
 	// int Awesomium::Rect::x()
 	static int _bind_getX(lua_State *L) {
 		if (!_lg_typecheck_getX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::Rect::x() function, expected prototype:\nint Awesomium::Rect::x()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::Rect::x() function, expected prototype:\nint Awesomium::Rect::x()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::Rect* self=(Luna< Awesomium::Rect >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::Rect::x(). Got : '%s'",typeid(Luna< Awesomium::Rect >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::Rect::x(). Got : '%s'\n%s",typeid(Luna< Awesomium::Rect >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->x;
 		lua_pushnumber(L,lret);
@@ -259,15 +249,13 @@ public:
 	// int Awesomium::Rect::y()
 	static int _bind_getY(lua_State *L) {
 		if (!_lg_typecheck_getY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::Rect::y() function, expected prototype:\nint Awesomium::Rect::y()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::Rect::y() function, expected prototype:\nint Awesomium::Rect::y()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::Rect* self=(Luna< Awesomium::Rect >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::Rect::y(). Got : '%s'",typeid(Luna< Awesomium::Rect >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::Rect::y(). Got : '%s'\n%s",typeid(Luna< Awesomium::Rect >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->y;
 		lua_pushnumber(L,lret);
@@ -278,15 +266,13 @@ public:
 	// int Awesomium::Rect::width()
 	static int _bind_getWidth(lua_State *L) {
 		if (!_lg_typecheck_getWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::Rect::width() function, expected prototype:\nint Awesomium::Rect::width()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::Rect::width() function, expected prototype:\nint Awesomium::Rect::width()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::Rect* self=(Luna< Awesomium::Rect >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::Rect::width(). Got : '%s'",typeid(Luna< Awesomium::Rect >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::Rect::width(). Got : '%s'\n%s",typeid(Luna< Awesomium::Rect >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->width;
 		lua_pushnumber(L,lret);
@@ -297,15 +283,13 @@ public:
 	// int Awesomium::Rect::height()
 	static int _bind_getHeight(lua_State *L) {
 		if (!_lg_typecheck_getHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::Rect::height() function, expected prototype:\nint Awesomium::Rect::height()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::Rect::height() function, expected prototype:\nint Awesomium::Rect::height()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::Rect* self=(Luna< Awesomium::Rect >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::Rect::height(). Got : '%s'",typeid(Luna< Awesomium::Rect >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::Rect::height(). Got : '%s'\n%s",typeid(Luna< Awesomium::Rect >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->height;
 		lua_pushnumber(L,lret);
@@ -316,16 +300,14 @@ public:
 	// void Awesomium::Rect::x(int value)
 	static int _bind_setX(lua_State *L) {
 		if (!_lg_typecheck_setX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::Rect::x(int value) function, expected prototype:\nvoid Awesomium::Rect::x(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::Rect::x(int value) function, expected prototype:\nvoid Awesomium::Rect::x(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::Rect* self=(Luna< Awesomium::Rect >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::Rect::x(int). Got : '%s'",typeid(Luna< Awesomium::Rect >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::Rect::x(int). Got : '%s'\n%s",typeid(Luna< Awesomium::Rect >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->x = value;
 
@@ -335,16 +317,14 @@ public:
 	// void Awesomium::Rect::y(int value)
 	static int _bind_setY(lua_State *L) {
 		if (!_lg_typecheck_setY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::Rect::y(int value) function, expected prototype:\nvoid Awesomium::Rect::y(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::Rect::y(int value) function, expected prototype:\nvoid Awesomium::Rect::y(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::Rect* self=(Luna< Awesomium::Rect >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::Rect::y(int). Got : '%s'",typeid(Luna< Awesomium::Rect >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::Rect::y(int). Got : '%s'\n%s",typeid(Luna< Awesomium::Rect >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->y = value;
 
@@ -354,16 +334,14 @@ public:
 	// void Awesomium::Rect::width(int value)
 	static int _bind_setWidth(lua_State *L) {
 		if (!_lg_typecheck_setWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::Rect::width(int value) function, expected prototype:\nvoid Awesomium::Rect::width(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::Rect::width(int value) function, expected prototype:\nvoid Awesomium::Rect::width(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::Rect* self=(Luna< Awesomium::Rect >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::Rect::width(int). Got : '%s'",typeid(Luna< Awesomium::Rect >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::Rect::width(int). Got : '%s'\n%s",typeid(Luna< Awesomium::Rect >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->width = value;
 
@@ -373,16 +351,14 @@ public:
 	// void Awesomium::Rect::height(int value)
 	static int _bind_setHeight(lua_State *L) {
 		if (!_lg_typecheck_setHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::Rect::height(int value) function, expected prototype:\nvoid Awesomium::Rect::height(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::Rect::height(int value) function, expected prototype:\nvoid Awesomium::Rect::height(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::Rect* self=(Luna< Awesomium::Rect >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::Rect::height(int). Got : '%s'",typeid(Luna< Awesomium::Rect >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::Rect::height(int). Got : '%s'\n%s",typeid(Luna< Awesomium::Rect >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->height = value;
 

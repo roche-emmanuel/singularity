@@ -6,6 +6,7 @@ Implementation of assertion calls.
 
 local log = require "log"
 local write = require "utils.tostring"
+local oo = require "loop.cached"
 
 local path
 
@@ -182,6 +183,12 @@ function Class.isDir(val,...)
 	return doTest1(path.isDir(val),val,"is not a file",...)	
 end
 
+function Class.isInstanceOf(class,obj,...)
+	local obj_class = oo.classof(obj)
+	local res = obj~=nil and (obj_class==class or oo.subclassof(obj_class,class))	
+	return doTest1(res,obj,"is not an instance of ".. class._CLASSNAME_,...)
+end
+
 Class.True = Class.isTrue
 Class.False = Class.isFalse
 Class.Nil = Class.isNil
@@ -193,6 +200,7 @@ Class.Bool = Class.isBoolean
 Class.Boolean = Class.isBoolean
 Class.File = Class.isFile
 Class.Dir = Class.isDir
+Class.InstanceOf = Class.isInstanceOf
 Class.gt = Class.isGreaterThan
 Class.gte = Class.isGreaterOrEqualTo
 Class.lt = Class.islessThan

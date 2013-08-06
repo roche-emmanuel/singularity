@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebViewListener::Download* self=(Luna< Awesomium::WebViewListener::Download >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebViewListener::Download*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebViewListener::Download*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebViewListener::Download* rhs =(Luna< Awesomium::WebViewListener::Download >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebViewListener::Download* self= (Awesomium::WebViewListener::Download*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::WebViewListener::Download >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -151,9 +146,9 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,613205)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_isnumber(L,6)==0 ) return false;
 		return true;
 	}
 
@@ -175,8 +170,7 @@ public:
 	// Awesomium::WebViewListener::Download::Download(lua_Table * data)
 	static Awesomium::WebViewListener::Download* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebViewListener::Download::Download(lua_Table * data) function, expected prototype:\nAwesomium::WebViewListener::Download::Download(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebViewListener::Download::Download(lua_Table * data) function, expected prototype:\nAwesomium::WebViewListener::Download::Download(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -188,8 +182,7 @@ public:
 	// void Awesomium::WebViewListener::Download::OnRequestDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & suggested_filename, const Awesomium::WebString & mime_type)
 	static int _bind_OnRequestDownload(lua_State *L) {
 		if (!_lg_typecheck_OnRequestDownload(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Download::OnRequestDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & suggested_filename, const Awesomium::WebString & mime_type) function, expected prototype:\nvoid Awesomium::WebViewListener::Download::OnRequestDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & suggested_filename, const Awesomium::WebString & mime_type)\nClass arguments details:\narg 1 ID = 613205\narg 3 ID = 3243885\narg 4 ID = 13938525\narg 5 ID = 13938525\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Download::OnRequestDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & suggested_filename, const Awesomium::WebString & mime_type) function, expected prototype:\nvoid Awesomium::WebViewListener::Download::OnRequestDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & suggested_filename, const Awesomium::WebString & mime_type)\nClass arguments details:\narg 1 ID = 613205\narg 3 ID = 3243885\narg 4 ID = 13938525\narg 5 ID = 13938525\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebView* caller=(Luna< Awesomium::WebView >::check(L,2));
@@ -206,8 +199,7 @@ public:
 
 		Awesomium::WebViewListener::Download* self=(Luna< Awesomium::WebViewListener::Download >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Download::OnRequestDownload(Awesomium::WebView *, int, const Awesomium::WebURL &, const Awesomium::WebString &, const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::WebViewListener::Download >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Download::OnRequestDownload(Awesomium::WebView *, int, const Awesomium::WebURL &, const Awesomium::WebString &, const Awesomium::WebString &). Got : '%s'\n%s",typeid(Luna< Awesomium::WebViewListener::Download >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnRequestDownload(caller, download_id, url, suggested_filename, mime_type);
 
@@ -217,20 +209,18 @@ public:
 	// void Awesomium::WebViewListener::Download::OnUpdateDownload(Awesomium::WebView * caller, int download_id, long long total_bytes, long long received_bytes, long long current_speed)
 	static int _bind_OnUpdateDownload(lua_State *L) {
 		if (!_lg_typecheck_OnUpdateDownload(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Download::OnUpdateDownload(Awesomium::WebView * caller, int download_id, long long total_bytes, long long received_bytes, long long current_speed) function, expected prototype:\nvoid Awesomium::WebViewListener::Download::OnUpdateDownload(Awesomium::WebView * caller, int download_id, long long total_bytes, long long received_bytes, long long current_speed)\nClass arguments details:\narg 1 ID = 613205\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Download::OnUpdateDownload(Awesomium::WebView * caller, int download_id, long long total_bytes, long long received_bytes, long long current_speed) function, expected prototype:\nvoid Awesomium::WebViewListener::Download::OnUpdateDownload(Awesomium::WebView * caller, int download_id, long long total_bytes, long long received_bytes, long long current_speed)\nClass arguments details:\narg 1 ID = 613205\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebView* caller=(Luna< Awesomium::WebView >::check(L,2));
 		int download_id=(int)lua_tointeger(L,3);
-		long long total_bytes=(long long)lua_tointeger(L,4);
-		long long received_bytes=(long long)lua_tointeger(L,5);
-		long long current_speed=(long long)lua_tointeger(L,6);
+		long long total_bytes=(long long)lua_tonumber(L,4);
+		long long received_bytes=(long long)lua_tonumber(L,5);
+		long long current_speed=(long long)lua_tonumber(L,6);
 
 		Awesomium::WebViewListener::Download* self=(Luna< Awesomium::WebViewListener::Download >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Download::OnUpdateDownload(Awesomium::WebView *, int, long long, long long, long long). Got : '%s'",typeid(Luna< Awesomium::WebViewListener::Download >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Download::OnUpdateDownload(Awesomium::WebView *, int, long long, long long, long long). Got : '%s'\n%s",typeid(Luna< Awesomium::WebViewListener::Download >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnUpdateDownload(caller, download_id, total_bytes, received_bytes, current_speed);
 
@@ -240,8 +230,7 @@ public:
 	// void Awesomium::WebViewListener::Download::OnFinishDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & saved_path)
 	static int _bind_OnFinishDownload(lua_State *L) {
 		if (!_lg_typecheck_OnFinishDownload(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Download::OnFinishDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & saved_path) function, expected prototype:\nvoid Awesomium::WebViewListener::Download::OnFinishDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & saved_path)\nClass arguments details:\narg 1 ID = 613205\narg 3 ID = 3243885\narg 4 ID = 13938525\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Download::OnFinishDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & saved_path) function, expected prototype:\nvoid Awesomium::WebViewListener::Download::OnFinishDownload(Awesomium::WebView * caller, int download_id, const Awesomium::WebURL & url, const Awesomium::WebString & saved_path)\nClass arguments details:\narg 1 ID = 613205\narg 3 ID = 3243885\narg 4 ID = 13938525\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebView* caller=(Luna< Awesomium::WebView >::check(L,2));
@@ -256,8 +245,7 @@ public:
 
 		Awesomium::WebViewListener::Download* self=(Luna< Awesomium::WebViewListener::Download >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Download::OnFinishDownload(Awesomium::WebView *, int, const Awesomium::WebURL &, const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::WebViewListener::Download >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Download::OnFinishDownload(Awesomium::WebView *, int, const Awesomium::WebURL &, const Awesomium::WebString &). Got : '%s'\n%s",typeid(Luna< Awesomium::WebViewListener::Download >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnFinishDownload(caller, download_id, url, saved_path);
 

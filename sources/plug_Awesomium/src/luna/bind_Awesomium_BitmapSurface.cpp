@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::Surface* self=(Luna< Awesomium::Surface >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::BitmapSurface* self= (Awesomium::BitmapSurface*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::Surface >::check(L,1));
@@ -239,8 +236,7 @@ public:
 	// Awesomium::BitmapSurface::BitmapSurface(int width, int height)
 	static Awesomium::BitmapSurface* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::BitmapSurface::BitmapSurface(int width, int height) function, expected prototype:\nAwesomium::BitmapSurface::BitmapSurface(int width, int height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::BitmapSurface::BitmapSurface(int width, int height) function, expected prototype:\nAwesomium::BitmapSurface::BitmapSurface(int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int width=(int)lua_tointeger(L,1);
@@ -252,8 +248,7 @@ public:
 	// Awesomium::BitmapSurface::BitmapSurface(lua_Table * data, int width, int height)
 	static Awesomium::BitmapSurface* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::BitmapSurface::BitmapSurface(lua_Table * data, int width, int height) function, expected prototype:\nAwesomium::BitmapSurface::BitmapSurface(lua_Table * data, int width, int height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::BitmapSurface::BitmapSurface(lua_Table * data, int width, int height) function, expected prototype:\nAwesomium::BitmapSurface::BitmapSurface(lua_Table * data, int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int width=(int)lua_tointeger(L,2);
@@ -276,15 +271,13 @@ public:
 	// const unsigned char * Awesomium::BitmapSurface::buffer() const
 	static int _bind_buffer(lua_State *L) {
 		if (!_lg_typecheck_buffer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const unsigned char * Awesomium::BitmapSurface::buffer() const function, expected prototype:\nconst unsigned char * Awesomium::BitmapSurface::buffer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const unsigned char * Awesomium::BitmapSurface::buffer() const function, expected prototype:\nconst unsigned char * Awesomium::BitmapSurface::buffer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const unsigned char * Awesomium::BitmapSurface::buffer() const. Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const unsigned char * Awesomium::BitmapSurface::buffer() const. Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const unsigned char * lret = self->buffer();
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
@@ -295,15 +288,13 @@ public:
 	// int Awesomium::BitmapSurface::width() const
 	static int _bind_width(lua_State *L) {
 		if (!_lg_typecheck_width(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::BitmapSurface::width() const function, expected prototype:\nint Awesomium::BitmapSurface::width() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::BitmapSurface::width() const function, expected prototype:\nint Awesomium::BitmapSurface::width() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::BitmapSurface::width() const. Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::BitmapSurface::width() const. Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->width();
 		lua_pushnumber(L,lret);
@@ -314,15 +305,13 @@ public:
 	// int Awesomium::BitmapSurface::height() const
 	static int _bind_height(lua_State *L) {
 		if (!_lg_typecheck_height(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::BitmapSurface::height() const function, expected prototype:\nint Awesomium::BitmapSurface::height() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::BitmapSurface::height() const function, expected prototype:\nint Awesomium::BitmapSurface::height() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::BitmapSurface::height() const. Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::BitmapSurface::height() const. Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->height();
 		lua_pushnumber(L,lret);
@@ -333,15 +322,13 @@ public:
 	// int Awesomium::BitmapSurface::row_span() const
 	static int _bind_row_span(lua_State *L) {
 		if (!_lg_typecheck_row_span(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::BitmapSurface::row_span() const function, expected prototype:\nint Awesomium::BitmapSurface::row_span() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::BitmapSurface::row_span() const function, expected prototype:\nint Awesomium::BitmapSurface::row_span() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::BitmapSurface::row_span() const. Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::BitmapSurface::row_span() const. Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->row_span();
 		lua_pushnumber(L,lret);
@@ -352,16 +339,14 @@ public:
 	// void Awesomium::BitmapSurface::set_is_dirty(bool is_dirty)
 	static int _bind_set_is_dirty(lua_State *L) {
 		if (!_lg_typecheck_set_is_dirty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::BitmapSurface::set_is_dirty(bool is_dirty) function, expected prototype:\nvoid Awesomium::BitmapSurface::set_is_dirty(bool is_dirty)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::BitmapSurface::set_is_dirty(bool is_dirty) function, expected prototype:\nvoid Awesomium::BitmapSurface::set_is_dirty(bool is_dirty)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool is_dirty=(bool)(lua_toboolean(L,2)==1);
 
 		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::set_is_dirty(bool). Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::set_is_dirty(bool). Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set_is_dirty(is_dirty);
 
@@ -371,15 +356,13 @@ public:
 	// bool Awesomium::BitmapSurface::is_dirty() const
 	static int _bind_is_dirty(lua_State *L) {
 		if (!_lg_typecheck_is_dirty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::BitmapSurface::is_dirty() const function, expected prototype:\nbool Awesomium::BitmapSurface::is_dirty() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::BitmapSurface::is_dirty() const function, expected prototype:\nbool Awesomium::BitmapSurface::is_dirty() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::BitmapSurface::is_dirty() const. Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::BitmapSurface::is_dirty() const. Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->is_dirty();
 		lua_pushboolean(L,lret?1:0);
@@ -390,8 +373,7 @@ public:
 	// void Awesomium::BitmapSurface::CopyTo(unsigned char * dest_buffer, int dest_row_span, int dest_depth, bool convert_to_rgba, bool flip_y) const
 	static int _bind_CopyTo(lua_State *L) {
 		if (!_lg_typecheck_CopyTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::BitmapSurface::CopyTo(unsigned char * dest_buffer, int dest_row_span, int dest_depth, bool convert_to_rgba, bool flip_y) const function, expected prototype:\nvoid Awesomium::BitmapSurface::CopyTo(unsigned char * dest_buffer, int dest_row_span, int dest_depth, bool convert_to_rgba, bool flip_y) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::BitmapSurface::CopyTo(unsigned char * dest_buffer, int dest_row_span, int dest_depth, bool convert_to_rgba, bool flip_y) const function, expected prototype:\nvoid Awesomium::BitmapSurface::CopyTo(unsigned char * dest_buffer, int dest_row_span, int dest_depth, bool convert_to_rgba, bool flip_y) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char dest_buffer = (unsigned char)(lua_tointeger(L,2));
@@ -402,8 +384,7 @@ public:
 
 		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::CopyTo(unsigned char *, int, int, bool, bool) const. Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::CopyTo(unsigned char *, int, int, bool, bool) const. Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CopyTo(&dest_buffer, dest_row_span, dest_depth, convert_to_rgba, flip_y);
 
@@ -413,8 +394,7 @@ public:
 	// bool Awesomium::BitmapSurface::SaveToPNG(const Awesomium::WebString & file_path, bool preserve_transparency = false) const
 	static int _bind_SaveToPNG(lua_State *L) {
 		if (!_lg_typecheck_SaveToPNG(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::BitmapSurface::SaveToPNG(const Awesomium::WebString & file_path, bool preserve_transparency = false) const function, expected prototype:\nbool Awesomium::BitmapSurface::SaveToPNG(const Awesomium::WebString & file_path, bool preserve_transparency = false) const\nClass arguments details:\narg 1 ID = 13938525\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::BitmapSurface::SaveToPNG(const Awesomium::WebString & file_path, bool preserve_transparency = false) const function, expected prototype:\nbool Awesomium::BitmapSurface::SaveToPNG(const Awesomium::WebString & file_path, bool preserve_transparency = false) const\nClass arguments details:\narg 1 ID = 13938525\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -425,8 +405,7 @@ public:
 
 		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::BitmapSurface::SaveToPNG(const Awesomium::WebString &, bool) const. Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::BitmapSurface::SaveToPNG(const Awesomium::WebString &, bool) const. Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SaveToPNG(file_path, preserve_transparency);
 		lua_pushboolean(L,lret?1:0);
@@ -437,8 +416,7 @@ public:
 	// bool Awesomium::BitmapSurface::SaveToJPEG(const Awesomium::WebString & file_path, int quality = 90) const
 	static int _bind_SaveToJPEG(lua_State *L) {
 		if (!_lg_typecheck_SaveToJPEG(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::BitmapSurface::SaveToJPEG(const Awesomium::WebString & file_path, int quality = 90) const function, expected prototype:\nbool Awesomium::BitmapSurface::SaveToJPEG(const Awesomium::WebString & file_path, int quality = 90) const\nClass arguments details:\narg 1 ID = 13938525\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::BitmapSurface::SaveToJPEG(const Awesomium::WebString & file_path, int quality = 90) const function, expected prototype:\nbool Awesomium::BitmapSurface::SaveToJPEG(const Awesomium::WebString & file_path, int quality = 90) const\nClass arguments details:\narg 1 ID = 13938525\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -449,8 +427,7 @@ public:
 
 		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::BitmapSurface::SaveToJPEG(const Awesomium::WebString &, int) const. Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::BitmapSurface::SaveToJPEG(const Awesomium::WebString &, int) const. Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SaveToJPEG(file_path, quality);
 		lua_pushboolean(L,lret?1:0);
@@ -461,8 +438,7 @@ public:
 	// unsigned char Awesomium::BitmapSurface::GetAlphaAtPoint(int x, int y) const
 	static int _bind_GetAlphaAtPoint(lua_State *L) {
 		if (!_lg_typecheck_GetAlphaAtPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char Awesomium::BitmapSurface::GetAlphaAtPoint(int x, int y) const function, expected prototype:\nunsigned char Awesomium::BitmapSurface::GetAlphaAtPoint(int x, int y) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char Awesomium::BitmapSurface::GetAlphaAtPoint(int x, int y) const function, expected prototype:\nunsigned char Awesomium::BitmapSurface::GetAlphaAtPoint(int x, int y) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,2);
@@ -470,8 +446,7 @@ public:
 
 		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char Awesomium::BitmapSurface::GetAlphaAtPoint(int, int) const. Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char Awesomium::BitmapSurface::GetAlphaAtPoint(int, int) const. Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char lret = self->GetAlphaAtPoint(x, y);
 		lua_pushnumber(L,(int)lret);
@@ -482,8 +457,7 @@ public:
 	// void Awesomium::BitmapSurface::Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect)
 	static int _bind_Paint(lua_State *L) {
 		if (!_lg_typecheck_Paint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::BitmapSurface::Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect) function, expected prototype:\nvoid Awesomium::BitmapSurface::Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect)\nClass arguments details:\narg 3 ID = 8907551\narg 4 ID = 8907551\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::BitmapSurface::Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect) function, expected prototype:\nvoid Awesomium::BitmapSurface::Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect)\nClass arguments details:\narg 3 ID = 8907551\narg 4 ID = 8907551\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char src_buffer = (unsigned char)(lua_tointeger(L,2));
@@ -501,8 +475,7 @@ public:
 
 		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::Paint(unsigned char *, int, const Awesomium::Rect &, const Awesomium::Rect &). Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::Paint(unsigned char *, int, const Awesomium::Rect &, const Awesomium::Rect &). Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Paint(&src_buffer, src_row_span, src_rect, dest_rect);
 
@@ -512,8 +485,7 @@ public:
 	// void Awesomium::BitmapSurface::Scroll(int dx, int dy, const Awesomium::Rect & clip_rect)
 	static int _bind_Scroll(lua_State *L) {
 		if (!_lg_typecheck_Scroll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::BitmapSurface::Scroll(int dx, int dy, const Awesomium::Rect & clip_rect) function, expected prototype:\nvoid Awesomium::BitmapSurface::Scroll(int dx, int dy, const Awesomium::Rect & clip_rect)\nClass arguments details:\narg 3 ID = 8907551\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::BitmapSurface::Scroll(int dx, int dy, const Awesomium::Rect & clip_rect) function, expected prototype:\nvoid Awesomium::BitmapSurface::Scroll(int dx, int dy, const Awesomium::Rect & clip_rect)\nClass arguments details:\narg 3 ID = 8907551\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int dx=(int)lua_tointeger(L,2);
@@ -526,8 +498,7 @@ public:
 
 		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::Scroll(int, int, const Awesomium::Rect &). Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::Scroll(int, int, const Awesomium::Rect &). Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Scroll(dx, dy, clip_rect);
 
@@ -537,8 +508,7 @@ public:
 	// void Awesomium::BitmapSurface::copyTo(Awesomium::BitmapSurface * surface, osg::Image * img, bool to_rgba = true, bool flip_y = true)
 	static int _bind_copyTo(lua_State *L) {
 		if (!_lg_typecheck_copyTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::BitmapSurface::copyTo(Awesomium::BitmapSurface * surface, osg::Image * img, bool to_rgba = true, bool flip_y = true) function, expected prototype:\nvoid Awesomium::BitmapSurface::copyTo(Awesomium::BitmapSurface * surface, osg::Image * img, bool to_rgba = true, bool flip_y = true)\nClass arguments details:\narg 1 ID = 23910648\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::BitmapSurface::copyTo(Awesomium::BitmapSurface * surface, osg::Image * img, bool to_rgba = true, bool flip_y = true) function, expected prototype:\nvoid Awesomium::BitmapSurface::copyTo(Awesomium::BitmapSurface * surface, osg::Image * img, bool to_rgba = true, bool flip_y = true)\nClass arguments details:\narg 1 ID = 23910648\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -556,8 +526,7 @@ public:
 	// void Awesomium::BitmapSurface::base_Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect)
 	static int _bind_base_Paint(lua_State *L) {
 		if (!_lg_typecheck_base_Paint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::BitmapSurface::base_Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect) function, expected prototype:\nvoid Awesomium::BitmapSurface::base_Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect)\nClass arguments details:\narg 3 ID = 8907551\narg 4 ID = 8907551\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::BitmapSurface::base_Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect) function, expected prototype:\nvoid Awesomium::BitmapSurface::base_Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect)\nClass arguments details:\narg 3 ID = 8907551\narg 4 ID = 8907551\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char src_buffer = (unsigned char)(lua_tointeger(L,2));
@@ -575,8 +544,7 @@ public:
 
 		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::base_Paint(unsigned char *, int, const Awesomium::Rect &, const Awesomium::Rect &). Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::base_Paint(unsigned char *, int, const Awesomium::Rect &, const Awesomium::Rect &). Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BitmapSurface::Paint(&src_buffer, src_row_span, src_rect, dest_rect);
 
@@ -586,8 +554,7 @@ public:
 	// void Awesomium::BitmapSurface::base_Scroll(int dx, int dy, const Awesomium::Rect & clip_rect)
 	static int _bind_base_Scroll(lua_State *L) {
 		if (!_lg_typecheck_base_Scroll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::BitmapSurface::base_Scroll(int dx, int dy, const Awesomium::Rect & clip_rect) function, expected prototype:\nvoid Awesomium::BitmapSurface::base_Scroll(int dx, int dy, const Awesomium::Rect & clip_rect)\nClass arguments details:\narg 3 ID = 8907551\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::BitmapSurface::base_Scroll(int dx, int dy, const Awesomium::Rect & clip_rect) function, expected prototype:\nvoid Awesomium::BitmapSurface::base_Scroll(int dx, int dy, const Awesomium::Rect & clip_rect)\nClass arguments details:\narg 3 ID = 8907551\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int dx=(int)lua_tointeger(L,2);
@@ -600,8 +567,7 @@ public:
 
 		Awesomium::BitmapSurface* self=Luna< Awesomium::Surface >::checkSubType< Awesomium::BitmapSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::base_Scroll(int, int, const Awesomium::Rect &). Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::BitmapSurface::base_Scroll(int, int, const Awesomium::Rect &). Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BitmapSurface::Scroll(dx, dy, clip_rect);
 

@@ -66,8 +66,7 @@ public:
 	// void Awesomium::DataSource::public_set_session(Awesomium::WebSession * session, int data_source_id)
 	static int _bind_public_set_session(lua_State *L) {
 		if (!_lg_typecheck_public_set_session(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::DataSource::public_set_session(Awesomium::WebSession * session, int data_source_id) function, expected prototype:\nvoid Awesomium::DataSource::public_set_session(Awesomium::WebSession * session, int data_source_id)\nClass arguments details:\narg 1 ID = 3873994\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::DataSource::public_set_session(Awesomium::WebSession * session, int data_source_id) function, expected prototype:\nvoid Awesomium::DataSource::public_set_session(Awesomium::WebSession * session, int data_source_id)\nClass arguments details:\narg 1 ID = 3873994\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebSession* session=(Luna< Awesomium::WebSession >::check(L,2));
@@ -75,8 +74,7 @@ public:
 
 		wrapper_Awesomium_DataSource* self=Luna< Awesomium::DataSource >::checkSubType< wrapper_Awesomium_DataSource >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::DataSource::public_set_session(Awesomium::WebSession *, int). Got : '%s'",typeid(Luna< Awesomium::DataSource >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::DataSource::public_set_session(Awesomium::WebSession *, int). Got : '%s'\n%s",typeid(Luna< Awesomium::DataSource >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_set_session(session, data_source_id);
 

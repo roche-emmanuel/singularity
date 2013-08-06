@@ -46,6 +46,34 @@ public:
 		return ResourceInterceptor::OnRequest(request);
 	};
 
+	// bool Awesomium::ResourceInterceptor::OnFilterNavigation(int origin_process_id, int origin_routing_id, const Awesomium::WebString & method, const Awesomium::WebURL & url, bool is_main_frame)
+	bool OnFilterNavigation(int origin_process_id, int origin_routing_id, const Awesomium::WebString & method, const Awesomium::WebURL & url, bool is_main_frame) {
+		if(_obj.pushFunction("OnFilterNavigation")) {
+			_obj.pushArg((Awesomium::ResourceInterceptor*)this);
+			_obj.pushArg(origin_process_id);
+			_obj.pushArg(origin_routing_id);
+			_obj.pushArg(&method);
+			_obj.pushArg(&url);
+			_obj.pushArg(is_main_frame);
+			return (_obj.callFunction<bool>());
+		}
+
+		return ResourceInterceptor::OnFilterNavigation(origin_process_id, origin_routing_id, method, url, is_main_frame);
+	};
+
+	// void Awesomium::ResourceInterceptor::OnWillDownload(int origin_process_id, int origin_routing_id, const Awesomium::WebURL & url)
+	void OnWillDownload(int origin_process_id, int origin_routing_id, const Awesomium::WebURL & url) {
+		if(_obj.pushFunction("OnWillDownload")) {
+			_obj.pushArg((Awesomium::ResourceInterceptor*)this);
+			_obj.pushArg(origin_process_id);
+			_obj.pushArg(origin_routing_id);
+			_obj.pushArg(&url);
+			return (_obj.callFunction<void>());
+		}
+
+		return ResourceInterceptor::OnWillDownload(origin_process_id, origin_routing_id, url);
+	};
+
 
 	// Protected non-virtual methods:
 

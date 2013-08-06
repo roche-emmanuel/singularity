@@ -55,15 +55,13 @@ public:
 	// bool SurfaceSubloadCallback::public_copySurface() const
 	static int _bind_public_copySurface(lua_State *L) {
 		if (!_lg_typecheck_public_copySurface(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SurfaceSubloadCallback::public_copySurface() const function, expected prototype:\nbool SurfaceSubloadCallback::public_copySurface() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool SurfaceSubloadCallback::public_copySurface() const function, expected prototype:\nbool SurfaceSubloadCallback::public_copySurface() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SurfaceSubloadCallback* self=Luna< SurfaceSubloadCallback >::checkSubType< wrapper_SurfaceSubloadCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SurfaceSubloadCallback::public_copySurface() const. Got : '%s'",typeid(Luna< SurfaceSubloadCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SurfaceSubloadCallback::public_copySurface() const. Got : '%s'\n%s",typeid(Luna< SurfaceSubloadCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_copySurface();
 		lua_pushboolean(L,lret?1:0);

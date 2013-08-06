@@ -371,6 +371,67 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,Awesomium::kCan_SelectAll); lua_setfield(L,-2,"kCan_SelectAll");
 
 
+	lua_newtable(L); // enum CertError
+
+	lua_pushnumber(L,Awesomium::kCertError_None); lua_setfield(L,-2,"kCertError_None");
+	lua_pushnumber(L,Awesomium::kCertError_CommonNameInvalid); lua_setfield(L,-2,"kCertError_CommonNameInvalid");
+	lua_pushnumber(L,Awesomium::kCertError_DateInvalid); lua_setfield(L,-2,"kCertError_DateInvalid");
+	lua_pushnumber(L,Awesomium::kCertError_AuthorityInvalid); lua_setfield(L,-2,"kCertError_AuthorityInvalid");
+	lua_pushnumber(L,Awesomium::kCertError_ContainsErrors); lua_setfield(L,-2,"kCertError_ContainsErrors");
+	lua_pushnumber(L,Awesomium::kCertError_NoRevocationMechanism); lua_setfield(L,-2,"kCertError_NoRevocationMechanism");
+	lua_pushnumber(L,Awesomium::kCertError_UnableToCheckRevocation); lua_setfield(L,-2,"kCertError_UnableToCheckRevocation");
+	lua_pushnumber(L,Awesomium::kCertError_Revoked); lua_setfield(L,-2,"kCertError_Revoked");
+	lua_pushnumber(L,Awesomium::kCertError_Invalid); lua_setfield(L,-2,"kCertError_Invalid");
+	lua_pushnumber(L,Awesomium::kCertError_WeakSignatureAlgorithm); lua_setfield(L,-2,"kCertError_WeakSignatureAlgorithm");
+	lua_pushnumber(L,Awesomium::kCertError_WeakKey); lua_setfield(L,-2,"kCertError_WeakKey");
+	lua_pushnumber(L,Awesomium::kCertError_NotInDNS); lua_setfield(L,-2,"kCertError_NotInDNS");
+	lua_pushnumber(L,Awesomium::kCertError_Unknown); lua_setfield(L,-2,"kCertError_Unknown");
+
+	lua_setfield(L,-2,"CertError");
+
+	lua_pushnumber(L,Awesomium::kCertError_None); lua_setfield(L,-2,"kCertError_None");
+	lua_pushnumber(L,Awesomium::kCertError_CommonNameInvalid); lua_setfield(L,-2,"kCertError_CommonNameInvalid");
+	lua_pushnumber(L,Awesomium::kCertError_DateInvalid); lua_setfield(L,-2,"kCertError_DateInvalid");
+	lua_pushnumber(L,Awesomium::kCertError_AuthorityInvalid); lua_setfield(L,-2,"kCertError_AuthorityInvalid");
+	lua_pushnumber(L,Awesomium::kCertError_ContainsErrors); lua_setfield(L,-2,"kCertError_ContainsErrors");
+	lua_pushnumber(L,Awesomium::kCertError_NoRevocationMechanism); lua_setfield(L,-2,"kCertError_NoRevocationMechanism");
+	lua_pushnumber(L,Awesomium::kCertError_UnableToCheckRevocation); lua_setfield(L,-2,"kCertError_UnableToCheckRevocation");
+	lua_pushnumber(L,Awesomium::kCertError_Revoked); lua_setfield(L,-2,"kCertError_Revoked");
+	lua_pushnumber(L,Awesomium::kCertError_Invalid); lua_setfield(L,-2,"kCertError_Invalid");
+	lua_pushnumber(L,Awesomium::kCertError_WeakSignatureAlgorithm); lua_setfield(L,-2,"kCertError_WeakSignatureAlgorithm");
+	lua_pushnumber(L,Awesomium::kCertError_WeakKey); lua_setfield(L,-2,"kCertError_WeakKey");
+	lua_pushnumber(L,Awesomium::kCertError_NotInDNS); lua_setfield(L,-2,"kCertError_NotInDNS");
+	lua_pushnumber(L,Awesomium::kCertError_Unknown); lua_setfield(L,-2,"kCertError_Unknown");
+
+
+	lua_newtable(L); // enum SecurityStatus
+
+	lua_pushnumber(L,Awesomium::kSecurityStatus_Unknown); lua_setfield(L,-2,"kSecurityStatus_Unknown");
+	lua_pushnumber(L,Awesomium::kSecurityStatus_Unauthenticated); lua_setfield(L,-2,"kSecurityStatus_Unauthenticated");
+	lua_pushnumber(L,Awesomium::kSecurityStatus_AuthenticationBroken); lua_setfield(L,-2,"kSecurityStatus_AuthenticationBroken");
+	lua_pushnumber(L,Awesomium::kSecurityStatus_Authenticated); lua_setfield(L,-2,"kSecurityStatus_Authenticated");
+
+	lua_setfield(L,-2,"SecurityStatus");
+
+	lua_pushnumber(L,Awesomium::kSecurityStatus_Unknown); lua_setfield(L,-2,"kSecurityStatus_Unknown");
+	lua_pushnumber(L,Awesomium::kSecurityStatus_Unauthenticated); lua_setfield(L,-2,"kSecurityStatus_Unauthenticated");
+	lua_pushnumber(L,Awesomium::kSecurityStatus_AuthenticationBroken); lua_setfield(L,-2,"kSecurityStatus_AuthenticationBroken");
+	lua_pushnumber(L,Awesomium::kSecurityStatus_Authenticated); lua_setfield(L,-2,"kSecurityStatus_Authenticated");
+
+
+	lua_newtable(L); // enum ContentStatusFlags
+
+	lua_pushnumber(L,Awesomium::kContentStatusFlags_Normal); lua_setfield(L,-2,"kContentStatusFlags_Normal");
+	lua_pushnumber(L,Awesomium::kContentStatusFlags_DisplayedInsecureContent); lua_setfield(L,-2,"kContentStatusFlags_DisplayedInsecureContent");
+	lua_pushnumber(L,Awesomium::kContentStatusFlags_RanInsecureContent); lua_setfield(L,-2,"kContentStatusFlags_RanInsecureContent");
+
+	lua_setfield(L,-2,"ContentStatusFlags");
+
+	lua_pushnumber(L,Awesomium::kContentStatusFlags_Normal); lua_setfield(L,-2,"kContentStatusFlags_Normal");
+	lua_pushnumber(L,Awesomium::kContentStatusFlags_DisplayedInsecureContent); lua_setfield(L,-2,"kContentStatusFlags_DisplayedInsecureContent");
+	lua_pushnumber(L,Awesomium::kContentStatusFlags_RanInsecureContent); lua_setfield(L,-2,"kContentStatusFlags_RanInsecureContent");
+
+
 	lua_newtable(L); // enum KeyCodes
 
 	lua_pushnumber(L,KeyCodes::AK_BACK); lua_setfield(L,-2,"AK_BACK");

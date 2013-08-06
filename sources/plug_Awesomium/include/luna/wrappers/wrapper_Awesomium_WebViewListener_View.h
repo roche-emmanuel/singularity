@@ -89,6 +89,17 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
+	// void Awesomium::WebViewListener::View::OnAddConsoleMessage(Awesomium::WebView * caller, const Awesomium::WebString & message, int line_number, const Awesomium::WebString & source)
+	void OnAddConsoleMessage(Awesomium::WebView * caller, const Awesomium::WebString & message, int line_number, const Awesomium::WebString & source) {
+		THROW_IF(!_obj.pushFunction("OnAddConsoleMessage"),"No implementation for abstract function Awesomium::WebViewListener::View::OnAddConsoleMessage");
+		_obj.pushArg((Awesomium::WebViewListener::View*)this);
+		_obj.pushArg(caller);
+		_obj.pushArg(&message);
+		_obj.pushArg(line_number);
+		_obj.pushArg(&source);
+		return (_obj.callFunction<void>());
+	};
+
 	// void Awesomium::WebViewListener::View::OnShowCreatedWebView(Awesomium::WebView * caller, Awesomium::WebView * new_view, const Awesomium::WebURL & opener_url, const Awesomium::WebURL & target_url, const Awesomium::Rect & initial_pos, bool is_popup)
 	void OnShowCreatedWebView(Awesomium::WebView * caller, Awesomium::WebView * new_view, const Awesomium::WebURL & opener_url, const Awesomium::WebURL & target_url, const Awesomium::Rect & initial_pos, bool is_popup) {
 		THROW_IF(!_obj.pushFunction("OnShowCreatedWebView"),"No implementation for abstract function Awesomium::WebViewListener::View::OnShowCreatedWebView");

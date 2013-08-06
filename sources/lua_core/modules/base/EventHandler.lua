@@ -4,6 +4,7 @@ local Map = require "std.Map"
 local Set = require "std.Set"
 local Vector = require "std.Vector"
 local EventCallback = require "base.EventCallback"
+local assert = require "utils.assert"
 
 --[[
 Class: base.EventHandler
@@ -42,7 +43,7 @@ end
 
 function Class:removeListener(cb)
 	self:check(cb,"Invalid callback object.")
-	self:checkType(cb,EventCallback)
+	assert.InstanceOf(EventCallback,cb)
 	
 	if self._currentEvent == cb._event then
 		-- we should not remove a callback from the callback event process itself.

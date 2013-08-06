@@ -49,9 +49,6 @@ SubTitle: version 0.3.0
 # --------------------------------------------------------------------------
 
 
-File: base.Exception  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/core/Exception.lua)
-File: core.Object  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/core/Object.lua)
-
 Group: utils  {
 
    File: assert  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/assert.lua)
@@ -64,16 +61,36 @@ Group: utils  {
    File: tostring  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/tostring.lua)
    }  # Group: utils
 
-File: test.Manager  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/test/Manager.lua)
-File: test.Suite  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/test/Suite.lua)
+File: Manager  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/test/Manager.lua)
+File: Suite  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/test/Suite.lua)
+
+Group: Core  {
+
+   File: base.Exception  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/core/Exception.lua)
+   File: core.DataMap  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/core/DataMap.lua)
+   File: core.Object  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/core/Object.lua)
+   }  # Group: Core
 
 Group: Gui  {
 
-   File: gui.wx.BasicInterface  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/BasicInterface.lua)
-   File: gui.wx.ControlInterface  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/ControlInterface.lua)
-   File: gui.wx.HandlerConnector  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/HandlerConnector.lua)
-   File: gui.wx.ImageManager  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/ImageManager.lua)
-   File: wx.Entry  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/Entry.lua)
+   File: Container  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/Container.lua)
+   File: ITemContainer  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/ItemContainer.lua)
+   File: Provider  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/Provider.lua)
+   File: Selector  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/Selector.lua)
+   File: SelectorProvider  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/SelectorProvider.lua)
+
+   Group: wx  {
+
+      File: gui...entries.ActionButtonEntry  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/entries/ActionButtonEntry.lua)
+      File: gui.wx.BasicInterface  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/BasicInterface.lua)
+      File: gui.wx.ComboBoxSelector  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/ComboBoxSelector.lua)
+      File: gui.wx.ControlInterface  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/ControlInterface.lua)
+      File: gui.wx.EntryInterface  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/EntryInterface.lua)
+      File: gui.wx.HandlerConnector  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/HandlerConnector.lua)
+      File: gui.wx.ImageManager  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/ImageManager.lua)
+      File: wx.Entry  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/Entry.lua)
+      }  # Group: wx
+
    }  # Group: Gui
 
 Group: Index  {

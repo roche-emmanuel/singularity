@@ -179,6 +179,20 @@ struct luna_caster<Awesomium::WebLoginDialogInfo,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<Awesomium::WebPageInfo,dstType> {
+	static inline dstType* cast(Awesomium::WebPageInfo* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<Awesomium::NativeWindow,dstType> {
+	static inline dstType* cast(Awesomium::NativeWindow* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<osg::Image,dstType> {
 	static inline dstType* cast(osg::Image* ptr) {
 		return static_cast<dstType*>(ptr);

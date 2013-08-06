@@ -50,7 +50,7 @@ function Class:create()
 	
 	self._styles = {}
 	self._styles[sgt.LogManager.INFO] = wx.wxTextAttr(wx.wxBLUE, wx.wxWHITE)
-	self._styles[sgt.LogManager.NOTICE] = wx.wxTextAttr(wx.wxDARK_GREEN, wx.wxWHITE)
+	self._styles[sgt.LogManager.NOTICE] = wx.wxTextAttr(wx.wxColour(0,127,0), wx.wxWHITE)
 	self._styles[sgt.LogManager.WARNING] = wx.wxTextAttr(wx.wxORANGE, wx.wxWHITE)
 	self._styles[sgt.LogManager.ERROR] = wx.wxTextAttr(wx.wxRED, wx.wxWHITE)
 	self._styles[sgt.LogManager.FATAL] = wx.wxTextAttr(wx.wxPURPLE, wx.wxWHITE)

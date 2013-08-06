@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebMenuItemArray*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebMenuItemArray*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebMenuItemArray* rhs =(Luna< Awesomium::WebMenuItemArray >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebMenuItemArray* self= (Awesomium::WebMenuItemArray*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::WebMenuItemArray >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -179,8 +175,7 @@ public:
 	// Awesomium::WebMenuItemArray::WebMenuItemArray()
 	static Awesomium::WebMenuItemArray* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebMenuItemArray::WebMenuItemArray() function, expected prototype:\nAwesomium::WebMenuItemArray::WebMenuItemArray()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebMenuItemArray::WebMenuItemArray() function, expected prototype:\nAwesomium::WebMenuItemArray::WebMenuItemArray()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -190,8 +185,7 @@ public:
 	// Awesomium::WebMenuItemArray::WebMenuItemArray(unsigned int n)
 	static Awesomium::WebMenuItemArray* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebMenuItemArray::WebMenuItemArray(unsigned int n) function, expected prototype:\nAwesomium::WebMenuItemArray::WebMenuItemArray(unsigned int n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebMenuItemArray::WebMenuItemArray(unsigned int n) function, expected prototype:\nAwesomium::WebMenuItemArray::WebMenuItemArray(unsigned int n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int n=(unsigned int)lua_tointeger(L,1);
@@ -202,8 +196,7 @@ public:
 	// Awesomium::WebMenuItemArray::WebMenuItemArray(const Awesomium::WebMenuItemArray & rhs)
 	static Awesomium::WebMenuItemArray* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebMenuItemArray::WebMenuItemArray(const Awesomium::WebMenuItemArray & rhs) function, expected prototype:\nAwesomium::WebMenuItemArray::WebMenuItemArray(const Awesomium::WebMenuItemArray & rhs)\nClass arguments details:\narg 1 ID = 62259121\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebMenuItemArray::WebMenuItemArray(const Awesomium::WebMenuItemArray & rhs) function, expected prototype:\nAwesomium::WebMenuItemArray::WebMenuItemArray(const Awesomium::WebMenuItemArray & rhs)\nClass arguments details:\narg 1 ID = 62259121\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const Awesomium::WebMenuItemArray* rhs_ptr=(Luna< Awesomium::WebMenuItemArray >::check(L,1));
@@ -230,15 +223,13 @@ public:
 	// unsigned int Awesomium::WebMenuItemArray::size() const
 	static int _bind_size(lua_State *L) {
 		if (!_lg_typecheck_size(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int Awesomium::WebMenuItemArray::size() const function, expected prototype:\nunsigned int Awesomium::WebMenuItemArray::size() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int Awesomium::WebMenuItemArray::size() const function, expected prototype:\nunsigned int Awesomium::WebMenuItemArray::size() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebMenuItemArray* self=(Luna< Awesomium::WebMenuItemArray >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int Awesomium::WebMenuItemArray::size() const. Got : '%s'",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int Awesomium::WebMenuItemArray::size() const. Got : '%s'\n%s",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->size();
 		lua_pushnumber(L,lret);
@@ -249,16 +240,14 @@ public:
 	// Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int idx)
 	static int _bind_At_overload_1(lua_State *L) {
 		if (!_lg_typecheck_At_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int idx) function, expected prototype:\nAwesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int idx)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int idx) function, expected prototype:\nAwesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int idx)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int idx=(unsigned int)lua_tointeger(L,2);
 
 		Awesomium::WebMenuItemArray* self=(Luna< Awesomium::WebMenuItemArray >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int). Got : '%s'",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const Awesomium::WebMenuItem* lret = &self->At(idx);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -271,16 +260,14 @@ public:
 	// const Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int idx) const
 	static int _bind_At_overload_2(lua_State *L) {
 		if (!_lg_typecheck_At_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int idx) const function, expected prototype:\nconst Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int idx) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int idx) const function, expected prototype:\nconst Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int idx) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int idx=(unsigned int)lua_tointeger(L,2);
 
 		Awesomium::WebMenuItemArray* self=(Luna< Awesomium::WebMenuItemArray >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int) const. Got : '%s'",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::At(unsigned int) const. Got : '%s'\n%s",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const Awesomium::WebMenuItem* lret = &self->At(idx);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -302,8 +289,7 @@ public:
 	// void Awesomium::WebMenuItemArray::Push(const Awesomium::WebMenuItem & item)
 	static int _bind_Push(lua_State *L) {
 		if (!_lg_typecheck_Push(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebMenuItemArray::Push(const Awesomium::WebMenuItem & item) function, expected prototype:\nvoid Awesomium::WebMenuItemArray::Push(const Awesomium::WebMenuItem & item)\nClass arguments details:\narg 1 ID = 2194484\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebMenuItemArray::Push(const Awesomium::WebMenuItem & item) function, expected prototype:\nvoid Awesomium::WebMenuItemArray::Push(const Awesomium::WebMenuItem & item)\nClass arguments details:\narg 1 ID = 2194484\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const Awesomium::WebMenuItem* item_ptr=(Luna< Awesomium::WebMenuItem >::check(L,2));
@@ -314,8 +300,7 @@ public:
 
 		Awesomium::WebMenuItemArray* self=(Luna< Awesomium::WebMenuItemArray >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebMenuItemArray::Push(const Awesomium::WebMenuItem &). Got : '%s'",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebMenuItemArray::Push(const Awesomium::WebMenuItem &). Got : '%s'\n%s",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Push(item);
 
@@ -327,8 +312,7 @@ public:
 	// Awesomium::WebMenuItemArray & Awesomium::WebMenuItemArray::operator=(const Awesomium::WebMenuItemArray & rhs)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebMenuItemArray & Awesomium::WebMenuItemArray::operator=(const Awesomium::WebMenuItemArray & rhs) function, expected prototype:\nAwesomium::WebMenuItemArray & Awesomium::WebMenuItemArray::operator=(const Awesomium::WebMenuItemArray & rhs)\nClass arguments details:\narg 1 ID = 62259121\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebMenuItemArray & Awesomium::WebMenuItemArray::operator=(const Awesomium::WebMenuItemArray & rhs) function, expected prototype:\nAwesomium::WebMenuItemArray & Awesomium::WebMenuItemArray::operator=(const Awesomium::WebMenuItemArray & rhs)\nClass arguments details:\narg 1 ID = 62259121\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const Awesomium::WebMenuItemArray* rhs_ptr=(Luna< Awesomium::WebMenuItemArray >::check(L,2));
@@ -339,8 +323,7 @@ public:
 
 		Awesomium::WebMenuItemArray* self=(Luna< Awesomium::WebMenuItemArray >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebMenuItemArray & Awesomium::WebMenuItemArray::operator=(const Awesomium::WebMenuItemArray &). Got : '%s'",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebMenuItemArray & Awesomium::WebMenuItemArray::operator=(const Awesomium::WebMenuItemArray &). Got : '%s'\n%s",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const Awesomium::WebMenuItemArray* lret = &self->operator=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -353,16 +336,14 @@ public:
 	// Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int idx)
 	static int _bind_op_index_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_index_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int idx) function, expected prototype:\nAwesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int idx)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int idx) function, expected prototype:\nAwesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int idx)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int idx=(unsigned int)lua_tointeger(L,2);
 
 		Awesomium::WebMenuItemArray* self=(Luna< Awesomium::WebMenuItemArray >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int). Got : '%s'",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const Awesomium::WebMenuItem* lret = &self->operator[](idx);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -375,16 +356,14 @@ public:
 	// const Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int idx) const
 	static int _bind_op_index_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_index_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int idx) const function, expected prototype:\nconst Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int idx) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int idx) const function, expected prototype:\nconst Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int idx) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int idx=(unsigned int)lua_tointeger(L,2);
 
 		Awesomium::WebMenuItemArray* self=(Luna< Awesomium::WebMenuItemArray >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int) const. Got : '%s'",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const Awesomium::WebMenuItem & Awesomium::WebMenuItemArray::operator[](unsigned int) const. Got : '%s'\n%s",typeid(Luna< Awesomium::WebMenuItemArray >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const Awesomium::WebMenuItem* lret = &self->operator[](idx);
 		if(!lret) return 0; // Do not write NULL pointers.

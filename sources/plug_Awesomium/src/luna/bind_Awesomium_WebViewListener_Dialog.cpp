@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebViewListener::Dialog* self=(Luna< Awesomium::WebViewListener::Dialog >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebViewListener::Dialog*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebViewListener::Dialog*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebViewListener::Dialog* rhs =(Luna< Awesomium::WebViewListener::Dialog >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebViewListener::Dialog* self= (Awesomium::WebViewListener::Dialog*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::WebViewListener::Dialog >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -151,6 +146,24 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_OnShowCertificateErrorDialog(lua_State *L) {
+		if( lua_gettop(L)!=5 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,613205)) ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		if( !Luna<void>::has_uniqueid(L,4,3243885) ) return false;
+		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_OnShowPageInfoDialog(lua_State *L) {
+		if( lua_gettop(L)!=3 ) return false;
+
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,613205)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,74820420) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -159,8 +172,7 @@ public:
 	// Awesomium::WebViewListener::Dialog::Dialog(lua_Table * data)
 	static Awesomium::WebViewListener::Dialog* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebViewListener::Dialog::Dialog(lua_Table * data) function, expected prototype:\nAwesomium::WebViewListener::Dialog::Dialog(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebViewListener::Dialog::Dialog(lua_Table * data) function, expected prototype:\nAwesomium::WebViewListener::Dialog::Dialog(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -172,8 +184,7 @@ public:
 	// void Awesomium::WebViewListener::Dialog::OnShowFileChooser(Awesomium::WebView * caller, const Awesomium::WebFileChooserInfo & chooser_info)
 	static int _bind_OnShowFileChooser(lua_State *L) {
 		if (!_lg_typecheck_OnShowFileChooser(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Dialog::OnShowFileChooser(Awesomium::WebView * caller, const Awesomium::WebFileChooserInfo & chooser_info) function, expected prototype:\nvoid Awesomium::WebViewListener::Dialog::OnShowFileChooser(Awesomium::WebView * caller, const Awesomium::WebFileChooserInfo & chooser_info)\nClass arguments details:\narg 1 ID = 613205\narg 2 ID = 95946160\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Dialog::OnShowFileChooser(Awesomium::WebView * caller, const Awesomium::WebFileChooserInfo & chooser_info) function, expected prototype:\nvoid Awesomium::WebViewListener::Dialog::OnShowFileChooser(Awesomium::WebView * caller, const Awesomium::WebFileChooserInfo & chooser_info)\nClass arguments details:\narg 1 ID = 613205\narg 2 ID = 95946160\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebView* caller=(Luna< Awesomium::WebView >::check(L,2));
@@ -185,8 +196,7 @@ public:
 
 		Awesomium::WebViewListener::Dialog* self=(Luna< Awesomium::WebViewListener::Dialog >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Dialog::OnShowFileChooser(Awesomium::WebView *, const Awesomium::WebFileChooserInfo &). Got : '%s'",typeid(Luna< Awesomium::WebViewListener::Dialog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Dialog::OnShowFileChooser(Awesomium::WebView *, const Awesomium::WebFileChooserInfo &). Got : '%s'\n%s",typeid(Luna< Awesomium::WebViewListener::Dialog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnShowFileChooser(caller, chooser_info);
 
@@ -196,8 +206,7 @@ public:
 	// void Awesomium::WebViewListener::Dialog::OnShowLoginDialog(Awesomium::WebView * caller, const Awesomium::WebLoginDialogInfo & dialog_info)
 	static int _bind_OnShowLoginDialog(lua_State *L) {
 		if (!_lg_typecheck_OnShowLoginDialog(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Dialog::OnShowLoginDialog(Awesomium::WebView * caller, const Awesomium::WebLoginDialogInfo & dialog_info) function, expected prototype:\nvoid Awesomium::WebViewListener::Dialog::OnShowLoginDialog(Awesomium::WebView * caller, const Awesomium::WebLoginDialogInfo & dialog_info)\nClass arguments details:\narg 1 ID = 613205\narg 2 ID = 90938304\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Dialog::OnShowLoginDialog(Awesomium::WebView * caller, const Awesomium::WebLoginDialogInfo & dialog_info) function, expected prototype:\nvoid Awesomium::WebViewListener::Dialog::OnShowLoginDialog(Awesomium::WebView * caller, const Awesomium::WebLoginDialogInfo & dialog_info)\nClass arguments details:\narg 1 ID = 613205\narg 2 ID = 90938304\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebView* caller=(Luna< Awesomium::WebView >::check(L,2));
@@ -209,10 +218,55 @@ public:
 
 		Awesomium::WebViewListener::Dialog* self=(Luna< Awesomium::WebViewListener::Dialog >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Dialog::OnShowLoginDialog(Awesomium::WebView *, const Awesomium::WebLoginDialogInfo &). Got : '%s'",typeid(Luna< Awesomium::WebViewListener::Dialog >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Dialog::OnShowLoginDialog(Awesomium::WebView *, const Awesomium::WebLoginDialogInfo &). Got : '%s'\n%s",typeid(Luna< Awesomium::WebViewListener::Dialog >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnShowLoginDialog(caller, dialog_info);
+
+		return 0;
+	}
+
+	// void Awesomium::WebViewListener::Dialog::OnShowCertificateErrorDialog(Awesomium::WebView * caller, bool is_overridable, const Awesomium::WebURL & url, Awesomium::CertError error)
+	static int _bind_OnShowCertificateErrorDialog(lua_State *L) {
+		if (!_lg_typecheck_OnShowCertificateErrorDialog(L)) {
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Dialog::OnShowCertificateErrorDialog(Awesomium::WebView * caller, bool is_overridable, const Awesomium::WebURL & url, Awesomium::CertError error) function, expected prototype:\nvoid Awesomium::WebViewListener::Dialog::OnShowCertificateErrorDialog(Awesomium::WebView * caller, bool is_overridable, const Awesomium::WebURL & url, Awesomium::CertError error)\nClass arguments details:\narg 1 ID = 613205\narg 3 ID = 3243885\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		Awesomium::WebView* caller=(Luna< Awesomium::WebView >::check(L,2));
+		bool is_overridable=(bool)(lua_toboolean(L,3)==1);
+		const Awesomium::WebURL* url_ptr=(Luna< Awesomium::WebURL >::check(L,4));
+		if( !url_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg url in Awesomium::WebViewListener::Dialog::OnShowCertificateErrorDialog function");
+		}
+		const Awesomium::WebURL & url=*url_ptr;
+		Awesomium::CertError error=(Awesomium::CertError)lua_tointeger(L,5);
+
+		Awesomium::WebViewListener::Dialog* self=(Luna< Awesomium::WebViewListener::Dialog >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Dialog::OnShowCertificateErrorDialog(Awesomium::WebView *, bool, const Awesomium::WebURL &, Awesomium::CertError). Got : '%s'\n%s",typeid(Luna< Awesomium::WebViewListener::Dialog >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		self->OnShowCertificateErrorDialog(caller, is_overridable, url, error);
+
+		return 0;
+	}
+
+	// void Awesomium::WebViewListener::Dialog::OnShowPageInfoDialog(Awesomium::WebView * caller, const Awesomium::WebPageInfo & page_info)
+	static int _bind_OnShowPageInfoDialog(lua_State *L) {
+		if (!_lg_typecheck_OnShowPageInfoDialog(L)) {
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Dialog::OnShowPageInfoDialog(Awesomium::WebView * caller, const Awesomium::WebPageInfo & page_info) function, expected prototype:\nvoid Awesomium::WebViewListener::Dialog::OnShowPageInfoDialog(Awesomium::WebView * caller, const Awesomium::WebPageInfo & page_info)\nClass arguments details:\narg 1 ID = 613205\narg 2 ID = 74820420\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		Awesomium::WebView* caller=(Luna< Awesomium::WebView >::check(L,2));
+		const Awesomium::WebPageInfo* page_info_ptr=(Luna< Awesomium::WebPageInfo >::check(L,3));
+		if( !page_info_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg page_info in Awesomium::WebViewListener::Dialog::OnShowPageInfoDialog function");
+		}
+		const Awesomium::WebPageInfo & page_info=*page_info_ptr;
+
+		Awesomium::WebViewListener::Dialog* self=(Luna< Awesomium::WebViewListener::Dialog >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Dialog::OnShowPageInfoDialog(Awesomium::WebView *, const Awesomium::WebPageInfo &). Got : '%s'\n%s",typeid(Luna< Awesomium::WebViewListener::Dialog >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		self->OnShowPageInfoDialog(caller, page_info);
 
 		return 0;
 	}
@@ -228,6 +282,8 @@ Awesomium::WebViewListener::Dialog* LunaTraits< Awesomium::WebViewListener::Dial
 	// Abstract methods:
 	// void Awesomium::WebViewListener::Dialog::OnShowFileChooser(Awesomium::WebView * caller, const Awesomium::WebFileChooserInfo & chooser_info)
 	// void Awesomium::WebViewListener::Dialog::OnShowLoginDialog(Awesomium::WebView * caller, const Awesomium::WebLoginDialogInfo & dialog_info)
+	// void Awesomium::WebViewListener::Dialog::OnShowCertificateErrorDialog(Awesomium::WebView * caller, bool is_overridable, const Awesomium::WebURL & url, Awesomium::CertError error)
+	// void Awesomium::WebViewListener::Dialog::OnShowPageInfoDialog(Awesomium::WebView * caller, const Awesomium::WebPageInfo & page_info)
 }
 
 void LunaTraits< Awesomium::WebViewListener::Dialog >::_bind_dtor(Awesomium::WebViewListener::Dialog* obj) {
@@ -244,6 +300,8 @@ const int LunaTraits< Awesomium::WebViewListener::Dialog >::uniqueIDs[] = {72828
 luna_RegType LunaTraits< Awesomium::WebViewListener::Dialog >::methods[] = {
 	{"OnShowFileChooser", &luna_wrapper_Awesomium_WebViewListener_Dialog::_bind_OnShowFileChooser},
 	{"OnShowLoginDialog", &luna_wrapper_Awesomium_WebViewListener_Dialog::_bind_OnShowLoginDialog},
+	{"OnShowCertificateErrorDialog", &luna_wrapper_Awesomium_WebViewListener_Dialog::_bind_OnShowCertificateErrorDialog},
+	{"OnShowPageInfoDialog", &luna_wrapper_Awesomium_WebViewListener_Dialog::_bind_OnShowPageInfoDialog},
 	{"dynCast", &luna_wrapper_Awesomium_WebViewListener_Dialog::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_WebViewListener_Dialog::_bind___eq},
 	{"fromVoid", &luna_wrapper_Awesomium_WebViewListener_Dialog::_bind_fromVoid},

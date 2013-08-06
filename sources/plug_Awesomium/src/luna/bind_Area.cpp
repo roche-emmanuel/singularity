@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Area* self= (Area*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -155,8 +153,7 @@ public:
 	// Area::Area()
 	static Area* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Area::Area() function, expected prototype:\nArea::Area()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Area::Area() function, expected prototype:\nArea::Area()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -166,8 +163,7 @@ public:
 	// Area::Area(int xx, int yy, int ww, int hh, unsigned char * ptr)
 	static Area* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Area::Area(int xx, int yy, int ww, int hh, unsigned char * ptr) function, expected prototype:\nArea::Area(int xx, int yy, int ww, int hh, unsigned char * ptr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Area::Area(int xx, int yy, int ww, int hh, unsigned char * ptr) function, expected prototype:\nArea::Area(int xx, int yy, int ww, int hh, unsigned char * ptr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int xx=(int)lua_tointeger(L,1);
@@ -193,15 +189,13 @@ public:
 	// int Area::x()
 	static int _bind_getX(lua_State *L) {
 		if (!_lg_typecheck_getX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Area::x() function, expected prototype:\nint Area::x()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Area::x() function, expected prototype:\nint Area::x()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Area* self=Luna< osg::Referenced >::checkSubType< Area >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Area::x(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Area::x(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->x;
 		lua_pushnumber(L,lret);
@@ -212,15 +206,13 @@ public:
 	// int Area::y()
 	static int _bind_getY(lua_State *L) {
 		if (!_lg_typecheck_getY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Area::y() function, expected prototype:\nint Area::y()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Area::y() function, expected prototype:\nint Area::y()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Area* self=Luna< osg::Referenced >::checkSubType< Area >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Area::y(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Area::y(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->y;
 		lua_pushnumber(L,lret);
@@ -231,15 +223,13 @@ public:
 	// int Area::width()
 	static int _bind_getWidth(lua_State *L) {
 		if (!_lg_typecheck_getWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Area::width() function, expected prototype:\nint Area::width()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Area::width() function, expected prototype:\nint Area::width()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Area* self=Luna< osg::Referenced >::checkSubType< Area >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Area::width(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Area::width(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->width;
 		lua_pushnumber(L,lret);
@@ -250,15 +240,13 @@ public:
 	// int Area::height()
 	static int _bind_getHeight(lua_State *L) {
 		if (!_lg_typecheck_getHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Area::height() function, expected prototype:\nint Area::height()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Area::height() function, expected prototype:\nint Area::height()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Area* self=Luna< osg::Referenced >::checkSubType< Area >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Area::height(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Area::height(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->height;
 		lua_pushnumber(L,lret);
@@ -269,15 +257,13 @@ public:
 	// unsigned char * Area::data()
 	static int _bind_getData(lua_State *L) {
 		if (!_lg_typecheck_getData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char * Area::data() function, expected prototype:\nunsigned char * Area::data()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char * Area::data() function, expected prototype:\nunsigned char * Area::data()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Area* self=Luna< osg::Referenced >::checkSubType< Area >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char * Area::data(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char * Area::data(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char * lret = self->data;
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
@@ -288,16 +274,14 @@ public:
 	// void Area::x(int value)
 	static int _bind_setX(lua_State *L) {
 		if (!_lg_typecheck_setX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Area::x(int value) function, expected prototype:\nvoid Area::x(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Area::x(int value) function, expected prototype:\nvoid Area::x(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Area* self=Luna< osg::Referenced >::checkSubType< Area >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Area::x(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Area::x(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->x = value;
 
@@ -307,16 +291,14 @@ public:
 	// void Area::y(int value)
 	static int _bind_setY(lua_State *L) {
 		if (!_lg_typecheck_setY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Area::y(int value) function, expected prototype:\nvoid Area::y(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Area::y(int value) function, expected prototype:\nvoid Area::y(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Area* self=Luna< osg::Referenced >::checkSubType< Area >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Area::y(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Area::y(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->y = value;
 
@@ -326,16 +308,14 @@ public:
 	// void Area::width(int value)
 	static int _bind_setWidth(lua_State *L) {
 		if (!_lg_typecheck_setWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Area::width(int value) function, expected prototype:\nvoid Area::width(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Area::width(int value) function, expected prototype:\nvoid Area::width(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Area* self=Luna< osg::Referenced >::checkSubType< Area >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Area::width(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Area::width(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->width = value;
 
@@ -345,16 +325,14 @@ public:
 	// void Area::height(int value)
 	static int _bind_setHeight(lua_State *L) {
 		if (!_lg_typecheck_setHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Area::height(int value) function, expected prototype:\nvoid Area::height(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Area::height(int value) function, expected prototype:\nvoid Area::height(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Area* self=Luna< osg::Referenced >::checkSubType< Area >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Area::height(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Area::height(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->height = value;
 
@@ -364,16 +342,14 @@ public:
 	// void Area::data(unsigned char * value)
 	static int _bind_setData(lua_State *L) {
 		if (!_lg_typecheck_setData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Area::data(unsigned char * value) function, expected prototype:\nvoid Area::data(unsigned char * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Area::data(unsigned char * value) function, expected prototype:\nvoid Area::data(unsigned char * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char value = (unsigned char)(lua_tointeger(L,2));
 
 		Area* self=Luna< osg::Referenced >::checkSubType< Area >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Area::data(unsigned char *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Area::data(unsigned char *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->data = &value;
 

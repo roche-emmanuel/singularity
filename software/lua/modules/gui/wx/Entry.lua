@@ -141,7 +141,8 @@ end
 function Class:setValue(val)
     self._value = val;
     if val~=nil and self._provider:set(self,val) then
-        self:handle(val);
+        -- self:info("Updating entry ",self._name," to value: ",val)
+		self:handle(val);
         
         -- update the children if any:
 		self:updateChildrenDisplay()               

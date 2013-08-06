@@ -56,8 +56,7 @@ inline static bool _lg_typecheck_WSLit(lua_State *L) {
 // void Awesomium::CopyBuffers(int width, int height, unsigned char * src, int src_row_span, unsigned char * dest, int dest_row_span, int dest_depth, bool convert_to_rgba, bool flip_y)
 static int _bind_CopyBuffers(lua_State *L) {
 	if (!_lg_typecheck_CopyBuffers(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void Awesomium::CopyBuffers(int width, int height, unsigned char * src, int src_row_span, unsigned char * dest, int dest_row_span, int dest_depth, bool convert_to_rgba, bool flip_y) function, expected prototype:\nvoid Awesomium::CopyBuffers(int width, int height, unsigned char * src, int src_row_span, unsigned char * dest, int dest_row_span, int dest_depth, bool convert_to_rgba, bool flip_y)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void Awesomium::CopyBuffers(int width, int height, unsigned char * src, int src_row_span, unsigned char * dest, int dest_row_span, int dest_depth, bool convert_to_rgba, bool flip_y) function, expected prototype:\nvoid Awesomium::CopyBuffers(int width, int height, unsigned char * src, int src_row_span, unsigned char * dest, int dest_row_span, int dest_depth, bool convert_to_rgba, bool flip_y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int width=(int)lua_tointeger(L,1);
@@ -78,8 +77,7 @@ static int _bind_CopyBuffers(lua_State *L) {
 // bool Awesomium::WriteDataPak(const Awesomium::WebString & out_file, const Awesomium::WebString & in_dir, const Awesomium::WebString & ignore_ext, unsigned short & num_files_written)
 static int _bind_WriteDataPak(lua_State *L) {
 	if (!_lg_typecheck_WriteDataPak(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool Awesomium::WriteDataPak(const Awesomium::WebString & out_file, const Awesomium::WebString & in_dir, const Awesomium::WebString & ignore_ext, unsigned short & num_files_written) function, expected prototype:\nbool Awesomium::WriteDataPak(const Awesomium::WebString & out_file, const Awesomium::WebString & in_dir, const Awesomium::WebString & ignore_ext, unsigned short & num_files_written)\nClass arguments details:\narg 1 ID = 13938525\narg 2 ID = 13938525\narg 3 ID = 13938525\n");
+		luaL_error(L, "luna typecheck failed in bool Awesomium::WriteDataPak(const Awesomium::WebString & out_file, const Awesomium::WebString & in_dir, const Awesomium::WebString & ignore_ext, unsigned short & num_files_written) function, expected prototype:\nbool Awesomium::WriteDataPak(const Awesomium::WebString & out_file, const Awesomium::WebString & in_dir, const Awesomium::WebString & ignore_ext, unsigned short & num_files_written)\nClass arguments details:\narg 1 ID = 13938525\narg 2 ID = 13938525\narg 3 ID = 13938525\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string out_file_str(lua_tostring(L,1),lua_objlen(L,1));
@@ -93,14 +91,14 @@ static int _bind_WriteDataPak(lua_State *L) {
 	bool lret = Awesomium::WriteDataPak(out_file, in_dir, ignore_ext, num_files_written);
 	lua_pushboolean(L,lret?1:0);
 
-	return 1;
+	lua_pushnumber(L,num_files_written);
+	return 2;
 }
 
 // std::string Awesomium::ToString(const Awesomium::WebString & str)
 static int _bind_ToString(lua_State *L) {
 	if (!_lg_typecheck_ToString(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in std::string Awesomium::ToString(const Awesomium::WebString & str) function, expected prototype:\nstd::string Awesomium::ToString(const Awesomium::WebString & str)\nClass arguments details:\narg 1 ID = 13938525\n");
+		luaL_error(L, "luna typecheck failed in std::string Awesomium::ToString(const Awesomium::WebString & str) function, expected prototype:\nstd::string Awesomium::ToString(const Awesomium::WebString & str)\nClass arguments details:\narg 1 ID = 13938525\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string str_str(lua_tostring(L,1),lua_objlen(L,1));
@@ -115,8 +113,7 @@ static int _bind_ToString(lua_State *L) {
 // Awesomium::WebString Awesomium::ToWebString(const std::string & str)
 static int _bind_ToWebString(lua_State *L) {
 	if (!_lg_typecheck_ToWebString(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::ToWebString(const std::string & str) function, expected prototype:\nAwesomium::WebString Awesomium::ToWebString(const std::string & str)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::ToWebString(const std::string & str) function, expected prototype:\nAwesomium::WebString Awesomium::ToWebString(const std::string & str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	std::string str(lua_tostring(L,1),lua_objlen(L,1));
@@ -131,8 +128,7 @@ static int _bind_ToWebString(lua_State *L) {
 // Awesomium::WebString Awesomium::WSLit(const char * string_literal)
 static int _bind_WSLit(lua_State *L) {
 	if (!_lg_typecheck_WSLit(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WSLit(const char * string_literal) function, expected prototype:\nAwesomium::WebString Awesomium::WSLit(const char * string_literal)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WSLit(const char * string_literal) function, expected prototype:\nAwesomium::WebString Awesomium::WSLit(const char * string_literal)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * string_literal=(const char *)lua_tostring(L,1);

@@ -51,7 +51,10 @@ function Class:connectHandler(ctrl,eventType,func,id,data)
 		event = event:dynCast(className)
 		--prof:stop()
     	self:check(event,"Invalid event after cast to ",className)
-    	func(self,event,data) 
+    	local status, msg = pcall(func,self,event,data)
+		if not status then
+			self:error("Error occured in event handler: ", msg)
+		end
 		--prof:stop()
 	end)
 	

@@ -49,6 +49,13 @@ public:
 		return (_obj.callFunction<int>());
 	};
 
+	// int Awesomium::ResourceRequest::origin_routing_id()
+	int origin_routing_id() {
+		THROW_IF(!_obj.pushFunction("origin_routing_id"),"No implementation for abstract function Awesomium::ResourceRequest::origin_routing_id");
+		_obj.pushArg((Awesomium::ResourceRequest*)this);
+		return (_obj.callFunction<int>());
+	};
+
 	// Awesomium::WebURL Awesomium::ResourceRequest::url()
 	Awesomium::WebURL url() {
 		THROW_IF(!_obj.pushFunction("url"),"No implementation for abstract function Awesomium::ResourceRequest::url");

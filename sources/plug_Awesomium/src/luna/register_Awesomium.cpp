@@ -54,6 +54,8 @@ int PLUG_EXPORT luaopen_Awesomium(lua_State* L) {
 	Luna< Awesomium::WebPopupMenuInfo >::Register(L);
 	Luna< Awesomium::WebContextMenuInfo >::Register(L);
 	Luna< Awesomium::WebLoginDialogInfo >::Register(L);
+	Luna< Awesomium::WebPageInfo >::Register(L);
+	Luna< Awesomium::NativeWindow >::Register(L);
 	Luna< Awesomium::WebViewListener::View >::Register(L);
 	Luna< Awesomium::WebViewListener::Load >::Register(L);
 	Luna< Awesomium::WebViewListener::Process >::Register(L);

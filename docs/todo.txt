@@ -1,3 +1,7 @@
+raphaeljs
+tabulous.js
+
+
 in XMLResourceLoader.cpp (for mapping to "renderbuffer-X-Y" resources)
 
 TiXmlElement *XMLResourceLoader::buildTextureDescriptor(const string &name)

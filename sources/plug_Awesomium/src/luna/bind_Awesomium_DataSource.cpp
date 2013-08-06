@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::DataSource* self=(Luna< Awesomium::DataSource >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::DataSource*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::DataSource*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::DataSource* rhs =(Luna< Awesomium::DataSource >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::DataSource* self= (Awesomium::DataSource*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::DataSource >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -156,8 +151,7 @@ public:
 	// void Awesomium::DataSource::OnRequest(int request_id, const Awesomium::WebString & path)
 	static int _bind_OnRequest(lua_State *L) {
 		if (!_lg_typecheck_OnRequest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::DataSource::OnRequest(int request_id, const Awesomium::WebString & path) function, expected prototype:\nvoid Awesomium::DataSource::OnRequest(int request_id, const Awesomium::WebString & path)\nClass arguments details:\narg 2 ID = 13938525\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::DataSource::OnRequest(int request_id, const Awesomium::WebString & path) function, expected prototype:\nvoid Awesomium::DataSource::OnRequest(int request_id, const Awesomium::WebString & path)\nClass arguments details:\narg 2 ID = 13938525\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int request_id=(int)lua_tointeger(L,2);
@@ -166,8 +160,7 @@ public:
 
 		Awesomium::DataSource* self=(Luna< Awesomium::DataSource >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::DataSource::OnRequest(int, const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::DataSource >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::DataSource::OnRequest(int, const Awesomium::WebString &). Got : '%s'\n%s",typeid(Luna< Awesomium::DataSource >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnRequest(request_id, path);
 
@@ -177,8 +170,7 @@ public:
 	// void Awesomium::DataSource::SendResponse(int request_id, unsigned int buffer_size, unsigned char * buffer, const Awesomium::WebString & mime_type)
 	static int _bind_SendResponse(lua_State *L) {
 		if (!_lg_typecheck_SendResponse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::DataSource::SendResponse(int request_id, unsigned int buffer_size, unsigned char * buffer, const Awesomium::WebString & mime_type) function, expected prototype:\nvoid Awesomium::DataSource::SendResponse(int request_id, unsigned int buffer_size, unsigned char * buffer, const Awesomium::WebString & mime_type)\nClass arguments details:\narg 4 ID = 13938525\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::DataSource::SendResponse(int request_id, unsigned int buffer_size, unsigned char * buffer, const Awesomium::WebString & mime_type) function, expected prototype:\nvoid Awesomium::DataSource::SendResponse(int request_id, unsigned int buffer_size, unsigned char * buffer, const Awesomium::WebString & mime_type)\nClass arguments details:\narg 4 ID = 13938525\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int request_id=(int)lua_tointeger(L,2);
@@ -189,8 +181,7 @@ public:
 
 		Awesomium::DataSource* self=(Luna< Awesomium::DataSource >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::DataSource::SendResponse(int, unsigned int, unsigned char *, const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::DataSource >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::DataSource::SendResponse(int, unsigned int, unsigned char *, const Awesomium::WebString &). Got : '%s'\n%s",typeid(Luna< Awesomium::DataSource >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SendResponse(request_id, buffer_size, &buffer, mime_type);
 

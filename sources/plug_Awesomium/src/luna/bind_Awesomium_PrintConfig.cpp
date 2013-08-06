@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::PrintConfig*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::PrintConfig*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::PrintConfig* rhs =(Luna< Awesomium::PrintConfig >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::PrintConfig* self= (Awesomium::PrintConfig*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::PrintConfig >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -168,8 +164,7 @@ public:
 	// Awesomium::PrintConfig::PrintConfig()
 	static Awesomium::PrintConfig* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::PrintConfig::PrintConfig() function, expected prototype:\nAwesomium::PrintConfig::PrintConfig()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::PrintConfig::PrintConfig() function, expected prototype:\nAwesomium::PrintConfig::PrintConfig()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -181,15 +176,13 @@ public:
 	// Awesomium::Rect Awesomium::PrintConfig::page_size()
 	static int _bind_get_page_size(lua_State *L) {
 		if (!_lg_typecheck_get_page_size(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::Rect Awesomium::PrintConfig::page_size() function, expected prototype:\nAwesomium::Rect Awesomium::PrintConfig::page_size()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::Rect Awesomium::PrintConfig::page_size() function, expected prototype:\nAwesomium::Rect Awesomium::PrintConfig::page_size()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::PrintConfig* self=(Luna< Awesomium::PrintConfig >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::Rect Awesomium::PrintConfig::page_size(). Got : '%s'",typeid(Luna< Awesomium::PrintConfig >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::Rect Awesomium::PrintConfig::page_size(). Got : '%s'\n%s",typeid(Luna< Awesomium::PrintConfig >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const Awesomium::Rect* lret = &self->page_size;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -202,15 +195,13 @@ public:
 	// double Awesomium::PrintConfig::dpi()
 	static int _bind_getDpi(lua_State *L) {
 		if (!_lg_typecheck_getDpi(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double Awesomium::PrintConfig::dpi() function, expected prototype:\ndouble Awesomium::PrintConfig::dpi()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double Awesomium::PrintConfig::dpi() function, expected prototype:\ndouble Awesomium::PrintConfig::dpi()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::PrintConfig* self=(Luna< Awesomium::PrintConfig >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double Awesomium::PrintConfig::dpi(). Got : '%s'",typeid(Luna< Awesomium::PrintConfig >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double Awesomium::PrintConfig::dpi(). Got : '%s'\n%s",typeid(Luna< Awesomium::PrintConfig >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->dpi;
 		lua_pushnumber(L,lret);
@@ -221,15 +212,13 @@ public:
 	// bool Awesomium::PrintConfig::split_pages_into_multiple_files()
 	static int _bind_get_split_pages_into_multiple_files(lua_State *L) {
 		if (!_lg_typecheck_get_split_pages_into_multiple_files(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::PrintConfig::split_pages_into_multiple_files() function, expected prototype:\nbool Awesomium::PrintConfig::split_pages_into_multiple_files()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::PrintConfig::split_pages_into_multiple_files() function, expected prototype:\nbool Awesomium::PrintConfig::split_pages_into_multiple_files()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::PrintConfig* self=(Luna< Awesomium::PrintConfig >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::PrintConfig::split_pages_into_multiple_files(). Got : '%s'",typeid(Luna< Awesomium::PrintConfig >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::PrintConfig::split_pages_into_multiple_files(). Got : '%s'\n%s",typeid(Luna< Awesomium::PrintConfig >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->split_pages_into_multiple_files;
 		lua_pushboolean(L,lret?1:0);
@@ -240,15 +229,13 @@ public:
 	// bool Awesomium::PrintConfig::print_selection_only()
 	static int _bind_get_print_selection_only(lua_State *L) {
 		if (!_lg_typecheck_get_print_selection_only(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::PrintConfig::print_selection_only() function, expected prototype:\nbool Awesomium::PrintConfig::print_selection_only()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::PrintConfig::print_selection_only() function, expected prototype:\nbool Awesomium::PrintConfig::print_selection_only()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::PrintConfig* self=(Luna< Awesomium::PrintConfig >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::PrintConfig::print_selection_only(). Got : '%s'",typeid(Luna< Awesomium::PrintConfig >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::PrintConfig::print_selection_only(). Got : '%s'\n%s",typeid(Luna< Awesomium::PrintConfig >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->print_selection_only;
 		lua_pushboolean(L,lret?1:0);
@@ -259,8 +246,7 @@ public:
 	// void Awesomium::PrintConfig::page_size(Awesomium::Rect value)
 	static int _bind_set_page_size(lua_State *L) {
 		if (!_lg_typecheck_set_page_size(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::PrintConfig::page_size(Awesomium::Rect value) function, expected prototype:\nvoid Awesomium::PrintConfig::page_size(Awesomium::Rect value)\nClass arguments details:\narg 1 ID = 8907551\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::PrintConfig::page_size(Awesomium::Rect value) function, expected prototype:\nvoid Awesomium::PrintConfig::page_size(Awesomium::Rect value)\nClass arguments details:\narg 1 ID = 8907551\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::Rect* value_ptr=(Luna< Awesomium::Rect >::check(L,2));
@@ -271,8 +257,7 @@ public:
 
 		Awesomium::PrintConfig* self=(Luna< Awesomium::PrintConfig >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::PrintConfig::page_size(Awesomium::Rect). Got : '%s'",typeid(Luna< Awesomium::PrintConfig >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::PrintConfig::page_size(Awesomium::Rect). Got : '%s'\n%s",typeid(Luna< Awesomium::PrintConfig >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->page_size = value;
 
@@ -282,16 +267,14 @@ public:
 	// void Awesomium::PrintConfig::dpi(double value)
 	static int _bind_setDpi(lua_State *L) {
 		if (!_lg_typecheck_setDpi(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::PrintConfig::dpi(double value) function, expected prototype:\nvoid Awesomium::PrintConfig::dpi(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::PrintConfig::dpi(double value) function, expected prototype:\nvoid Awesomium::PrintConfig::dpi(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		Awesomium::PrintConfig* self=(Luna< Awesomium::PrintConfig >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::PrintConfig::dpi(double). Got : '%s'",typeid(Luna< Awesomium::PrintConfig >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::PrintConfig::dpi(double). Got : '%s'\n%s",typeid(Luna< Awesomium::PrintConfig >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->dpi = value;
 
@@ -301,16 +284,14 @@ public:
 	// void Awesomium::PrintConfig::split_pages_into_multiple_files(bool value)
 	static int _bind_set_split_pages_into_multiple_files(lua_State *L) {
 		if (!_lg_typecheck_set_split_pages_into_multiple_files(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::PrintConfig::split_pages_into_multiple_files(bool value) function, expected prototype:\nvoid Awesomium::PrintConfig::split_pages_into_multiple_files(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::PrintConfig::split_pages_into_multiple_files(bool value) function, expected prototype:\nvoid Awesomium::PrintConfig::split_pages_into_multiple_files(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		Awesomium::PrintConfig* self=(Luna< Awesomium::PrintConfig >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::PrintConfig::split_pages_into_multiple_files(bool). Got : '%s'",typeid(Luna< Awesomium::PrintConfig >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::PrintConfig::split_pages_into_multiple_files(bool). Got : '%s'\n%s",typeid(Luna< Awesomium::PrintConfig >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->split_pages_into_multiple_files = value;
 
@@ -320,16 +301,14 @@ public:
 	// void Awesomium::PrintConfig::print_selection_only(bool value)
 	static int _bind_set_print_selection_only(lua_State *L) {
 		if (!_lg_typecheck_set_print_selection_only(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::PrintConfig::print_selection_only(bool value) function, expected prototype:\nvoid Awesomium::PrintConfig::print_selection_only(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::PrintConfig::print_selection_only(bool value) function, expected prototype:\nvoid Awesomium::PrintConfig::print_selection_only(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		Awesomium::PrintConfig* self=(Luna< Awesomium::PrintConfig >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::PrintConfig::print_selection_only(bool). Got : '%s'",typeid(Luna< Awesomium::PrintConfig >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::PrintConfig::print_selection_only(bool). Got : '%s'\n%s",typeid(Luna< Awesomium::PrintConfig >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->print_selection_only = value;
 

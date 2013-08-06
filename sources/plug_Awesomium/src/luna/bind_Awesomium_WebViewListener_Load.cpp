@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebViewListener::Load* self=(Luna< Awesomium::WebViewListener::Load >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebViewListener::Load*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebViewListener::Load*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebViewListener::Load* rhs =(Luna< Awesomium::WebViewListener::Load >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebViewListener::Load* self= (Awesomium::WebViewListener::Load*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::WebViewListener::Load >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -139,7 +134,7 @@ public:
 		if( lua_gettop(L)!=6 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,613205)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isboolean(L,4)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,3243885) ) return false;
 		if( lua_isboolean(L,6)==0 ) return false;
@@ -150,7 +145,7 @@ public:
 		if( lua_gettop(L)!=7 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,613205)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isboolean(L,4)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,3243885) ) return false;
 		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
@@ -162,7 +157,7 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,613205)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_isnumber(L,3)==0 ) return false;
 		if( lua_isboolean(L,4)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,3243885) ) return false;
 		return true;
@@ -184,8 +179,7 @@ public:
 	// Awesomium::WebViewListener::Load::Load(lua_Table * data)
 	static Awesomium::WebViewListener::Load* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebViewListener::Load::Load(lua_Table * data) function, expected prototype:\nAwesomium::WebViewListener::Load::Load(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebViewListener::Load::Load(lua_Table * data) function, expected prototype:\nAwesomium::WebViewListener::Load::Load(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -197,12 +191,11 @@ public:
 	// void Awesomium::WebViewListener::Load::OnBeginLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, bool is_error_page)
 	static int _bind_OnBeginLoadingFrame(lua_State *L) {
 		if (!_lg_typecheck_OnBeginLoadingFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Load::OnBeginLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, bool is_error_page) function, expected prototype:\nvoid Awesomium::WebViewListener::Load::OnBeginLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, bool is_error_page)\nClass arguments details:\narg 1 ID = 613205\narg 4 ID = 3243885\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Load::OnBeginLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, bool is_error_page) function, expected prototype:\nvoid Awesomium::WebViewListener::Load::OnBeginLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, bool is_error_page)\nClass arguments details:\narg 1 ID = 613205\narg 4 ID = 3243885\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebView* caller=(Luna< Awesomium::WebView >::check(L,2));
-		long long frame_id=(long long)lua_tointeger(L,3);
+		long long frame_id=(long long)lua_tonumber(L,3);
 		bool is_main_frame=(bool)(lua_toboolean(L,4)==1);
 		const Awesomium::WebURL* url_ptr=(Luna< Awesomium::WebURL >::check(L,5));
 		if( !url_ptr ) {
@@ -213,8 +206,7 @@ public:
 
 		Awesomium::WebViewListener::Load* self=(Luna< Awesomium::WebViewListener::Load >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Load::OnBeginLoadingFrame(Awesomium::WebView *, long long, bool, const Awesomium::WebURL &, bool). Got : '%s'",typeid(Luna< Awesomium::WebViewListener::Load >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Load::OnBeginLoadingFrame(Awesomium::WebView *, long long, bool, const Awesomium::WebURL &, bool). Got : '%s'\n%s",typeid(Luna< Awesomium::WebViewListener::Load >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnBeginLoadingFrame(caller, frame_id, is_main_frame, url, is_error_page);
 
@@ -224,12 +216,11 @@ public:
 	// void Awesomium::WebViewListener::Load::OnFailLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, int error_code, const Awesomium::WebString & error_desc)
 	static int _bind_OnFailLoadingFrame(lua_State *L) {
 		if (!_lg_typecheck_OnFailLoadingFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Load::OnFailLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, int error_code, const Awesomium::WebString & error_desc) function, expected prototype:\nvoid Awesomium::WebViewListener::Load::OnFailLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, int error_code, const Awesomium::WebString & error_desc)\nClass arguments details:\narg 1 ID = 613205\narg 4 ID = 3243885\narg 6 ID = 13938525\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Load::OnFailLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, int error_code, const Awesomium::WebString & error_desc) function, expected prototype:\nvoid Awesomium::WebViewListener::Load::OnFailLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url, int error_code, const Awesomium::WebString & error_desc)\nClass arguments details:\narg 1 ID = 613205\narg 4 ID = 3243885\narg 6 ID = 13938525\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebView* caller=(Luna< Awesomium::WebView >::check(L,2));
-		long long frame_id=(long long)lua_tointeger(L,3);
+		long long frame_id=(long long)lua_tonumber(L,3);
 		bool is_main_frame=(bool)(lua_toboolean(L,4)==1);
 		const Awesomium::WebURL* url_ptr=(Luna< Awesomium::WebURL >::check(L,5));
 		if( !url_ptr ) {
@@ -242,8 +233,7 @@ public:
 
 		Awesomium::WebViewListener::Load* self=(Luna< Awesomium::WebViewListener::Load >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Load::OnFailLoadingFrame(Awesomium::WebView *, long long, bool, const Awesomium::WebURL &, int, const Awesomium::WebString &). Got : '%s'",typeid(Luna< Awesomium::WebViewListener::Load >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Load::OnFailLoadingFrame(Awesomium::WebView *, long long, bool, const Awesomium::WebURL &, int, const Awesomium::WebString &). Got : '%s'\n%s",typeid(Luna< Awesomium::WebViewListener::Load >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnFailLoadingFrame(caller, frame_id, is_main_frame, url, error_code, error_desc);
 
@@ -253,12 +243,11 @@ public:
 	// void Awesomium::WebViewListener::Load::OnFinishLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url)
 	static int _bind_OnFinishLoadingFrame(lua_State *L) {
 		if (!_lg_typecheck_OnFinishLoadingFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Load::OnFinishLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url) function, expected prototype:\nvoid Awesomium::WebViewListener::Load::OnFinishLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url)\nClass arguments details:\narg 1 ID = 613205\narg 4 ID = 3243885\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Load::OnFinishLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url) function, expected prototype:\nvoid Awesomium::WebViewListener::Load::OnFinishLoadingFrame(Awesomium::WebView * caller, long long frame_id, bool is_main_frame, const Awesomium::WebURL & url)\nClass arguments details:\narg 1 ID = 613205\narg 4 ID = 3243885\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebView* caller=(Luna< Awesomium::WebView >::check(L,2));
-		long long frame_id=(long long)lua_tointeger(L,3);
+		long long frame_id=(long long)lua_tonumber(L,3);
 		bool is_main_frame=(bool)(lua_toboolean(L,4)==1);
 		const Awesomium::WebURL* url_ptr=(Luna< Awesomium::WebURL >::check(L,5));
 		if( !url_ptr ) {
@@ -268,8 +257,7 @@ public:
 
 		Awesomium::WebViewListener::Load* self=(Luna< Awesomium::WebViewListener::Load >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Load::OnFinishLoadingFrame(Awesomium::WebView *, long long, bool, const Awesomium::WebURL &). Got : '%s'",typeid(Luna< Awesomium::WebViewListener::Load >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Load::OnFinishLoadingFrame(Awesomium::WebView *, long long, bool, const Awesomium::WebURL &). Got : '%s'\n%s",typeid(Luna< Awesomium::WebViewListener::Load >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnFinishLoadingFrame(caller, frame_id, is_main_frame, url);
 
@@ -279,8 +267,7 @@ public:
 	// void Awesomium::WebViewListener::Load::OnDocumentReady(Awesomium::WebView * caller, const Awesomium::WebURL & url)
 	static int _bind_OnDocumentReady(lua_State *L) {
 		if (!_lg_typecheck_OnDocumentReady(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Load::OnDocumentReady(Awesomium::WebView * caller, const Awesomium::WebURL & url) function, expected prototype:\nvoid Awesomium::WebViewListener::Load::OnDocumentReady(Awesomium::WebView * caller, const Awesomium::WebURL & url)\nClass arguments details:\narg 1 ID = 613205\narg 2 ID = 3243885\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::Load::OnDocumentReady(Awesomium::WebView * caller, const Awesomium::WebURL & url) function, expected prototype:\nvoid Awesomium::WebViewListener::Load::OnDocumentReady(Awesomium::WebView * caller, const Awesomium::WebURL & url)\nClass arguments details:\narg 1 ID = 613205\narg 2 ID = 3243885\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebView* caller=(Luna< Awesomium::WebView >::check(L,2));
@@ -292,8 +279,7 @@ public:
 
 		Awesomium::WebViewListener::Load* self=(Luna< Awesomium::WebViewListener::Load >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Load::OnDocumentReady(Awesomium::WebView *, const Awesomium::WebURL &). Got : '%s'",typeid(Luna< Awesomium::WebViewListener::Load >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::Load::OnDocumentReady(Awesomium::WebView *, const Awesomium::WebURL &). Got : '%s'\n%s",typeid(Luna< Awesomium::WebViewListener::Load >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnDocumentReady(caller, url);
 

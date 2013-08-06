@@ -90,6 +90,14 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
+	// int Awesomium::WebSession::GetZoomForURL(const Awesomium::WebURL & url)
+	int GetZoomForURL(const Awesomium::WebURL & url) {
+		THROW_IF(!_obj.pushFunction("GetZoomForURL"),"No implementation for abstract function Awesomium::WebSession::GetZoomForURL");
+		_obj.pushArg((Awesomium::WebSession*)this);
+		_obj.pushArg(&url);
+		return (_obj.callFunction<int>());
+	};
+
 
 	// Protected non-virtual methods:
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebContextMenuInfo*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebContextMenuInfo*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebContextMenuInfo* rhs =(Luna< Awesomium::WebContextMenuInfo >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebContextMenuInfo* self= (Awesomium::WebContextMenuInfo*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -233,7 +229,7 @@ public:
 	inline static bool _lg_typecheck_set_frame_id(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isnumber(L,2)==0 ) return false;
 		return true;
 	}
 
@@ -268,15 +264,13 @@ public:
 	// int Awesomium::WebContextMenuInfo::pos_x()
 	static int _bind_get_pos_x(lua_State *L) {
 		if (!_lg_typecheck_get_pos_x(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::WebContextMenuInfo::pos_x() function, expected prototype:\nint Awesomium::WebContextMenuInfo::pos_x()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebContextMenuInfo::pos_x() function, expected prototype:\nint Awesomium::WebContextMenuInfo::pos_x()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::WebContextMenuInfo::pos_x(). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::WebContextMenuInfo::pos_x(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->pos_x;
 		lua_pushnumber(L,lret);
@@ -287,15 +281,13 @@ public:
 	// int Awesomium::WebContextMenuInfo::pos_y()
 	static int _bind_get_pos_y(lua_State *L) {
 		if (!_lg_typecheck_get_pos_y(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::WebContextMenuInfo::pos_y() function, expected prototype:\nint Awesomium::WebContextMenuInfo::pos_y()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebContextMenuInfo::pos_y() function, expected prototype:\nint Awesomium::WebContextMenuInfo::pos_y()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::WebContextMenuInfo::pos_y(). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::WebContextMenuInfo::pos_y(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->pos_y;
 		lua_pushnumber(L,lret);
@@ -306,15 +298,13 @@ public:
 	// Awesomium::MediaType Awesomium::WebContextMenuInfo::media_type()
 	static int _bind_get_media_type(lua_State *L) {
 		if (!_lg_typecheck_get_media_type(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::MediaType Awesomium::WebContextMenuInfo::media_type() function, expected prototype:\nAwesomium::MediaType Awesomium::WebContextMenuInfo::media_type()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::MediaType Awesomium::WebContextMenuInfo::media_type() function, expected prototype:\nAwesomium::MediaType Awesomium::WebContextMenuInfo::media_type()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::MediaType Awesomium::WebContextMenuInfo::media_type(). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::MediaType Awesomium::WebContextMenuInfo::media_type(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		Awesomium::MediaType lret = self->media_type;
 		lua_pushnumber(L,lret);
@@ -325,15 +315,13 @@ public:
 	// int Awesomium::WebContextMenuInfo::media_state()
 	static int _bind_get_media_state(lua_State *L) {
 		if (!_lg_typecheck_get_media_state(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::WebContextMenuInfo::media_state() function, expected prototype:\nint Awesomium::WebContextMenuInfo::media_state()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebContextMenuInfo::media_state() function, expected prototype:\nint Awesomium::WebContextMenuInfo::media_state()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::WebContextMenuInfo::media_state(). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::WebContextMenuInfo::media_state(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->media_state;
 		lua_pushnumber(L,lret);
@@ -344,15 +332,13 @@ public:
 	// Awesomium::WebURL Awesomium::WebContextMenuInfo::link_url()
 	static int _bind_get_link_url(lua_State *L) {
 		if (!_lg_typecheck_get_link_url(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebURL Awesomium::WebContextMenuInfo::link_url() function, expected prototype:\nAwesomium::WebURL Awesomium::WebContextMenuInfo::link_url()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebURL Awesomium::WebContextMenuInfo::link_url() function, expected prototype:\nAwesomium::WebURL Awesomium::WebContextMenuInfo::link_url()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebURL Awesomium::WebContextMenuInfo::link_url(). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebURL Awesomium::WebContextMenuInfo::link_url(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const Awesomium::WebURL* lret = &self->link_url;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -365,15 +351,13 @@ public:
 	// Awesomium::WebURL Awesomium::WebContextMenuInfo::src_url()
 	static int _bind_get_src_url(lua_State *L) {
 		if (!_lg_typecheck_get_src_url(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebURL Awesomium::WebContextMenuInfo::src_url() function, expected prototype:\nAwesomium::WebURL Awesomium::WebContextMenuInfo::src_url()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebURL Awesomium::WebContextMenuInfo::src_url() function, expected prototype:\nAwesomium::WebURL Awesomium::WebContextMenuInfo::src_url()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebURL Awesomium::WebContextMenuInfo::src_url(). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebURL Awesomium::WebContextMenuInfo::src_url(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const Awesomium::WebURL* lret = &self->src_url;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -386,15 +370,13 @@ public:
 	// Awesomium::WebURL Awesomium::WebContextMenuInfo::page_url()
 	static int _bind_get_page_url(lua_State *L) {
 		if (!_lg_typecheck_get_page_url(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebURL Awesomium::WebContextMenuInfo::page_url() function, expected prototype:\nAwesomium::WebURL Awesomium::WebContextMenuInfo::page_url()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebURL Awesomium::WebContextMenuInfo::page_url() function, expected prototype:\nAwesomium::WebURL Awesomium::WebContextMenuInfo::page_url()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebURL Awesomium::WebContextMenuInfo::page_url(). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebURL Awesomium::WebContextMenuInfo::page_url(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const Awesomium::WebURL* lret = &self->page_url;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -407,15 +389,13 @@ public:
 	// Awesomium::WebURL Awesomium::WebContextMenuInfo::frame_url()
 	static int _bind_get_frame_url(lua_State *L) {
 		if (!_lg_typecheck_get_frame_url(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebURL Awesomium::WebContextMenuInfo::frame_url() function, expected prototype:\nAwesomium::WebURL Awesomium::WebContextMenuInfo::frame_url()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebURL Awesomium::WebContextMenuInfo::frame_url() function, expected prototype:\nAwesomium::WebURL Awesomium::WebContextMenuInfo::frame_url()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebURL Awesomium::WebContextMenuInfo::frame_url(). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebURL Awesomium::WebContextMenuInfo::frame_url(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const Awesomium::WebURL* lret = &self->frame_url;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -428,15 +408,13 @@ public:
 	// long long Awesomium::WebContextMenuInfo::frame_id()
 	static int _bind_get_frame_id(lua_State *L) {
 		if (!_lg_typecheck_get_frame_id(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long long Awesomium::WebContextMenuInfo::frame_id() function, expected prototype:\nlong long Awesomium::WebContextMenuInfo::frame_id()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long long Awesomium::WebContextMenuInfo::frame_id() function, expected prototype:\nlong long Awesomium::WebContextMenuInfo::frame_id()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long long Awesomium::WebContextMenuInfo::frame_id(). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long long Awesomium::WebContextMenuInfo::frame_id(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long long lret = self->frame_id;
 		lua_pushnumber(L,lret);
@@ -447,15 +425,13 @@ public:
 	// Awesomium::WebString Awesomium::WebContextMenuInfo::selection_text()
 	static int _bind_get_selection_text(lua_State *L) {
 		if (!_lg_typecheck_get_selection_text(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WebContextMenuInfo::selection_text() function, expected prototype:\nAwesomium::WebString Awesomium::WebContextMenuInfo::selection_text()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WebContextMenuInfo::selection_text() function, expected prototype:\nAwesomium::WebString Awesomium::WebContextMenuInfo::selection_text()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebContextMenuInfo::selection_text(). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebContextMenuInfo::selection_text(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		Awesomium::WebString lret = self->selection_text;
 		std::string lret_str = Awesomium::ToString(lret);
@@ -467,15 +443,13 @@ public:
 	// bool Awesomium::WebContextMenuInfo::is_editable()
 	static int _bind_get_is_editable(lua_State *L) {
 		if (!_lg_typecheck_get_is_editable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::WebContextMenuInfo::is_editable() function, expected prototype:\nbool Awesomium::WebContextMenuInfo::is_editable()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::WebContextMenuInfo::is_editable() function, expected prototype:\nbool Awesomium::WebContextMenuInfo::is_editable()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::WebContextMenuInfo::is_editable(). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::WebContextMenuInfo::is_editable(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->is_editable;
 		lua_pushboolean(L,lret?1:0);
@@ -486,15 +460,13 @@ public:
 	// int Awesomium::WebContextMenuInfo::edit_flags()
 	static int _bind_get_edit_flags(lua_State *L) {
 		if (!_lg_typecheck_get_edit_flags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::WebContextMenuInfo::edit_flags() function, expected prototype:\nint Awesomium::WebContextMenuInfo::edit_flags()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebContextMenuInfo::edit_flags() function, expected prototype:\nint Awesomium::WebContextMenuInfo::edit_flags()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::WebContextMenuInfo::edit_flags(). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::WebContextMenuInfo::edit_flags(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->edit_flags;
 		lua_pushnumber(L,lret);
@@ -505,16 +477,14 @@ public:
 	// void Awesomium::WebContextMenuInfo::pos_x(int value)
 	static int _bind_set_pos_x(lua_State *L) {
 		if (!_lg_typecheck_set_pos_x(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::pos_x(int value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::pos_x(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::pos_x(int value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::pos_x(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::pos_x(int). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::pos_x(int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pos_x = value;
 
@@ -524,16 +494,14 @@ public:
 	// void Awesomium::WebContextMenuInfo::pos_y(int value)
 	static int _bind_set_pos_y(lua_State *L) {
 		if (!_lg_typecheck_set_pos_y(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::pos_y(int value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::pos_y(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::pos_y(int value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::pos_y(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::pos_y(int). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::pos_y(int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pos_y = value;
 
@@ -543,16 +511,14 @@ public:
 	// void Awesomium::WebContextMenuInfo::media_type(Awesomium::MediaType value)
 	static int _bind_set_media_type(lua_State *L) {
 		if (!_lg_typecheck_set_media_type(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::media_type(Awesomium::MediaType value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::media_type(Awesomium::MediaType value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::media_type(Awesomium::MediaType value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::media_type(Awesomium::MediaType value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::MediaType value=(Awesomium::MediaType)lua_tointeger(L,2);
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::media_type(Awesomium::MediaType). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::media_type(Awesomium::MediaType). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->media_type = value;
 
@@ -562,16 +528,14 @@ public:
 	// void Awesomium::WebContextMenuInfo::media_state(int value)
 	static int _bind_set_media_state(lua_State *L) {
 		if (!_lg_typecheck_set_media_state(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::media_state(int value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::media_state(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::media_state(int value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::media_state(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::media_state(int). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::media_state(int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->media_state = value;
 
@@ -581,8 +545,7 @@ public:
 	// void Awesomium::WebContextMenuInfo::link_url(Awesomium::WebURL value)
 	static int _bind_set_link_url(lua_State *L) {
 		if (!_lg_typecheck_set_link_url(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::link_url(Awesomium::WebURL value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::link_url(Awesomium::WebURL value)\nClass arguments details:\narg 1 ID = 3243885\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::link_url(Awesomium::WebURL value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::link_url(Awesomium::WebURL value)\nClass arguments details:\narg 1 ID = 3243885\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebURL* value_ptr=(Luna< Awesomium::WebURL >::check(L,2));
@@ -593,8 +556,7 @@ public:
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::link_url(Awesomium::WebURL). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::link_url(Awesomium::WebURL). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->link_url = value;
 
@@ -604,8 +566,7 @@ public:
 	// void Awesomium::WebContextMenuInfo::src_url(Awesomium::WebURL value)
 	static int _bind_set_src_url(lua_State *L) {
 		if (!_lg_typecheck_set_src_url(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::src_url(Awesomium::WebURL value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::src_url(Awesomium::WebURL value)\nClass arguments details:\narg 1 ID = 3243885\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::src_url(Awesomium::WebURL value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::src_url(Awesomium::WebURL value)\nClass arguments details:\narg 1 ID = 3243885\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebURL* value_ptr=(Luna< Awesomium::WebURL >::check(L,2));
@@ -616,8 +577,7 @@ public:
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::src_url(Awesomium::WebURL). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::src_url(Awesomium::WebURL). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->src_url = value;
 
@@ -627,8 +587,7 @@ public:
 	// void Awesomium::WebContextMenuInfo::page_url(Awesomium::WebURL value)
 	static int _bind_set_page_url(lua_State *L) {
 		if (!_lg_typecheck_set_page_url(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::page_url(Awesomium::WebURL value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::page_url(Awesomium::WebURL value)\nClass arguments details:\narg 1 ID = 3243885\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::page_url(Awesomium::WebURL value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::page_url(Awesomium::WebURL value)\nClass arguments details:\narg 1 ID = 3243885\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebURL* value_ptr=(Luna< Awesomium::WebURL >::check(L,2));
@@ -639,8 +598,7 @@ public:
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::page_url(Awesomium::WebURL). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::page_url(Awesomium::WebURL). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->page_url = value;
 
@@ -650,8 +608,7 @@ public:
 	// void Awesomium::WebContextMenuInfo::frame_url(Awesomium::WebURL value)
 	static int _bind_set_frame_url(lua_State *L) {
 		if (!_lg_typecheck_set_frame_url(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::frame_url(Awesomium::WebURL value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::frame_url(Awesomium::WebURL value)\nClass arguments details:\narg 1 ID = 3243885\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::frame_url(Awesomium::WebURL value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::frame_url(Awesomium::WebURL value)\nClass arguments details:\narg 1 ID = 3243885\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebURL* value_ptr=(Luna< Awesomium::WebURL >::check(L,2));
@@ -662,8 +619,7 @@ public:
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::frame_url(Awesomium::WebURL). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::frame_url(Awesomium::WebURL). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->frame_url = value;
 
@@ -673,16 +629,14 @@ public:
 	// void Awesomium::WebContextMenuInfo::frame_id(long long value)
 	static int _bind_set_frame_id(lua_State *L) {
 		if (!_lg_typecheck_set_frame_id(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::frame_id(long long value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::frame_id(long long value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::frame_id(long long value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::frame_id(long long value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long long value=(long long)lua_tointeger(L,2);
+		long long value=(long long)lua_tonumber(L,2);
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::frame_id(long long). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::frame_id(long long). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->frame_id = value;
 
@@ -692,8 +646,7 @@ public:
 	// void Awesomium::WebContextMenuInfo::selection_text(Awesomium::WebString value)
 	static int _bind_set_selection_text(lua_State *L) {
 		if (!_lg_typecheck_set_selection_text(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::selection_text(Awesomium::WebString value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::selection_text(Awesomium::WebString value)\nClass arguments details:\narg 1 ID = 13938525\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::selection_text(Awesomium::WebString value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::selection_text(Awesomium::WebString value)\nClass arguments details:\narg 1 ID = 13938525\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string value_str(lua_tostring(L,2),lua_objlen(L,2));
@@ -701,8 +654,7 @@ public:
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::selection_text(Awesomium::WebString). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::selection_text(Awesomium::WebString). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->selection_text = value;
 
@@ -712,16 +664,14 @@ public:
 	// void Awesomium::WebContextMenuInfo::is_editable(bool value)
 	static int _bind_set_is_editable(lua_State *L) {
 		if (!_lg_typecheck_set_is_editable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::is_editable(bool value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::is_editable(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::is_editable(bool value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::is_editable(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::is_editable(bool). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::is_editable(bool). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->is_editable = value;
 
@@ -731,16 +681,14 @@ public:
 	// void Awesomium::WebContextMenuInfo::edit_flags(int value)
 	static int _bind_set_edit_flags(lua_State *L) {
 		if (!_lg_typecheck_set_edit_flags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::edit_flags(int value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::edit_flags(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebContextMenuInfo::edit_flags(int value) function, expected prototype:\nvoid Awesomium::WebContextMenuInfo::edit_flags(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::WebContextMenuInfo* self=(Luna< Awesomium::WebContextMenuInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::edit_flags(int). Got : '%s'",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebContextMenuInfo::edit_flags(int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebContextMenuInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->edit_flags = value;
 
