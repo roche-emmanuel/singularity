@@ -53,6 +53,26 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
+	// void Awesomium::WebViewListener::Dialog::OnShowCertificateErrorDialog(Awesomium::WebView * caller, bool is_overridable, const Awesomium::WebURL & url, Awesomium::CertError error)
+	void OnShowCertificateErrorDialog(Awesomium::WebView * caller, bool is_overridable, const Awesomium::WebURL & url, Awesomium::CertError error) {
+		THROW_IF(!_obj.pushFunction("OnShowCertificateErrorDialog"),"No implementation for abstract function Awesomium::WebViewListener::Dialog::OnShowCertificateErrorDialog");
+		_obj.pushArg((Awesomium::WebViewListener::Dialog*)this);
+		_obj.pushArg(caller);
+		_obj.pushArg(is_overridable);
+		_obj.pushArg(&url);
+		_obj.pushArg((int)error);
+		return (_obj.callFunction<void>());
+	};
+
+	// void Awesomium::WebViewListener::Dialog::OnShowPageInfoDialog(Awesomium::WebView * caller, const Awesomium::WebPageInfo & page_info)
+	void OnShowPageInfoDialog(Awesomium::WebView * caller, const Awesomium::WebPageInfo & page_info) {
+		THROW_IF(!_obj.pushFunction("OnShowPageInfoDialog"),"No implementation for abstract function Awesomium::WebViewListener::Dialog::OnShowPageInfoDialog");
+		_obj.pushArg((Awesomium::WebViewListener::Dialog*)this);
+		_obj.pushArg(caller);
+		_obj.pushArg(&page_info);
+		return (_obj.callFunction<void>());
+	};
+
 
 	// Protected non-virtual methods:
 

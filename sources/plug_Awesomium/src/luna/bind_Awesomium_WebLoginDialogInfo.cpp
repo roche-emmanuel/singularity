@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebLoginDialogInfo*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebLoginDialogInfo*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebLoginDialogInfo* rhs =(Luna< Awesomium::WebLoginDialogInfo >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebLoginDialogInfo* self= (Awesomium::WebLoginDialogInfo*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::WebLoginDialogInfo >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -203,15 +199,13 @@ public:
 	// int Awesomium::WebLoginDialogInfo::request_id()
 	static int _bind_get_request_id(lua_State *L) {
 		if (!_lg_typecheck_get_request_id(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::WebLoginDialogInfo::request_id() function, expected prototype:\nint Awesomium::WebLoginDialogInfo::request_id()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebLoginDialogInfo::request_id() function, expected prototype:\nint Awesomium::WebLoginDialogInfo::request_id()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebLoginDialogInfo* self=(Luna< Awesomium::WebLoginDialogInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::WebLoginDialogInfo::request_id(). Got : '%s'",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::WebLoginDialogInfo::request_id(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->request_id;
 		lua_pushnumber(L,lret);
@@ -222,15 +216,13 @@ public:
 	// Awesomium::WebString Awesomium::WebLoginDialogInfo::request_url()
 	static int _bind_get_request_url(lua_State *L) {
 		if (!_lg_typecheck_get_request_url(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WebLoginDialogInfo::request_url() function, expected prototype:\nAwesomium::WebString Awesomium::WebLoginDialogInfo::request_url()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WebLoginDialogInfo::request_url() function, expected prototype:\nAwesomium::WebString Awesomium::WebLoginDialogInfo::request_url()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebLoginDialogInfo* self=(Luna< Awesomium::WebLoginDialogInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebLoginDialogInfo::request_url(). Got : '%s'",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebLoginDialogInfo::request_url(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		Awesomium::WebString lret = self->request_url;
 		std::string lret_str = Awesomium::ToString(lret);
@@ -242,15 +234,13 @@ public:
 	// bool Awesomium::WebLoginDialogInfo::is_proxy()
 	static int _bind_get_is_proxy(lua_State *L) {
 		if (!_lg_typecheck_get_is_proxy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::WebLoginDialogInfo::is_proxy() function, expected prototype:\nbool Awesomium::WebLoginDialogInfo::is_proxy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::WebLoginDialogInfo::is_proxy() function, expected prototype:\nbool Awesomium::WebLoginDialogInfo::is_proxy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebLoginDialogInfo* self=(Luna< Awesomium::WebLoginDialogInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::WebLoginDialogInfo::is_proxy(). Got : '%s'",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::WebLoginDialogInfo::is_proxy(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->is_proxy;
 		lua_pushboolean(L,lret?1:0);
@@ -261,15 +251,13 @@ public:
 	// Awesomium::WebString Awesomium::WebLoginDialogInfo::host()
 	static int _bind_getHost(lua_State *L) {
 		if (!_lg_typecheck_getHost(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WebLoginDialogInfo::host() function, expected prototype:\nAwesomium::WebString Awesomium::WebLoginDialogInfo::host()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WebLoginDialogInfo::host() function, expected prototype:\nAwesomium::WebString Awesomium::WebLoginDialogInfo::host()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebLoginDialogInfo* self=(Luna< Awesomium::WebLoginDialogInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebLoginDialogInfo::host(). Got : '%s'",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebLoginDialogInfo::host(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		Awesomium::WebString lret = self->host;
 		std::string lret_str = Awesomium::ToString(lret);
@@ -281,15 +269,13 @@ public:
 	// unsigned short Awesomium::WebLoginDialogInfo::port()
 	static int _bind_getPort(lua_State *L) {
 		if (!_lg_typecheck_getPort(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned short Awesomium::WebLoginDialogInfo::port() function, expected prototype:\nunsigned short Awesomium::WebLoginDialogInfo::port()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned short Awesomium::WebLoginDialogInfo::port() function, expected prototype:\nunsigned short Awesomium::WebLoginDialogInfo::port()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebLoginDialogInfo* self=(Luna< Awesomium::WebLoginDialogInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short Awesomium::WebLoginDialogInfo::port(). Got : '%s'",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned short Awesomium::WebLoginDialogInfo::port(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned short lret = self->port;
 		lua_pushnumber(L,lret);
@@ -300,15 +286,13 @@ public:
 	// Awesomium::WebString Awesomium::WebLoginDialogInfo::scheme()
 	static int _bind_getScheme(lua_State *L) {
 		if (!_lg_typecheck_getScheme(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WebLoginDialogInfo::scheme() function, expected prototype:\nAwesomium::WebString Awesomium::WebLoginDialogInfo::scheme()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WebLoginDialogInfo::scheme() function, expected prototype:\nAwesomium::WebString Awesomium::WebLoginDialogInfo::scheme()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebLoginDialogInfo* self=(Luna< Awesomium::WebLoginDialogInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebLoginDialogInfo::scheme(). Got : '%s'",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebLoginDialogInfo::scheme(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		Awesomium::WebString lret = self->scheme;
 		std::string lret_str = Awesomium::ToString(lret);
@@ -320,15 +304,13 @@ public:
 	// Awesomium::WebString Awesomium::WebLoginDialogInfo::realm()
 	static int _bind_getRealm(lua_State *L) {
 		if (!_lg_typecheck_getRealm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WebLoginDialogInfo::realm() function, expected prototype:\nAwesomium::WebString Awesomium::WebLoginDialogInfo::realm()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::WebLoginDialogInfo::realm() function, expected prototype:\nAwesomium::WebString Awesomium::WebLoginDialogInfo::realm()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebLoginDialogInfo* self=(Luna< Awesomium::WebLoginDialogInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebLoginDialogInfo::realm(). Got : '%s'",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::WebLoginDialogInfo::realm(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		Awesomium::WebString lret = self->realm;
 		std::string lret_str = Awesomium::ToString(lret);
@@ -340,16 +322,14 @@ public:
 	// void Awesomium::WebLoginDialogInfo::request_id(int value)
 	static int _bind_set_request_id(lua_State *L) {
 		if (!_lg_typecheck_set_request_id(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebLoginDialogInfo::request_id(int value) function, expected prototype:\nvoid Awesomium::WebLoginDialogInfo::request_id(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebLoginDialogInfo::request_id(int value) function, expected prototype:\nvoid Awesomium::WebLoginDialogInfo::request_id(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::WebLoginDialogInfo* self=(Luna< Awesomium::WebLoginDialogInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebLoginDialogInfo::request_id(int). Got : '%s'",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebLoginDialogInfo::request_id(int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->request_id = value;
 
@@ -359,8 +339,7 @@ public:
 	// void Awesomium::WebLoginDialogInfo::request_url(Awesomium::WebString value)
 	static int _bind_set_request_url(lua_State *L) {
 		if (!_lg_typecheck_set_request_url(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebLoginDialogInfo::request_url(Awesomium::WebString value) function, expected prototype:\nvoid Awesomium::WebLoginDialogInfo::request_url(Awesomium::WebString value)\nClass arguments details:\narg 1 ID = 13938525\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebLoginDialogInfo::request_url(Awesomium::WebString value) function, expected prototype:\nvoid Awesomium::WebLoginDialogInfo::request_url(Awesomium::WebString value)\nClass arguments details:\narg 1 ID = 13938525\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string value_str(lua_tostring(L,2),lua_objlen(L,2));
@@ -368,8 +347,7 @@ public:
 
 		Awesomium::WebLoginDialogInfo* self=(Luna< Awesomium::WebLoginDialogInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebLoginDialogInfo::request_url(Awesomium::WebString). Got : '%s'",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebLoginDialogInfo::request_url(Awesomium::WebString). Got : '%s'\n%s",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->request_url = value;
 
@@ -379,16 +357,14 @@ public:
 	// void Awesomium::WebLoginDialogInfo::is_proxy(bool value)
 	static int _bind_set_is_proxy(lua_State *L) {
 		if (!_lg_typecheck_set_is_proxy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebLoginDialogInfo::is_proxy(bool value) function, expected prototype:\nvoid Awesomium::WebLoginDialogInfo::is_proxy(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebLoginDialogInfo::is_proxy(bool value) function, expected prototype:\nvoid Awesomium::WebLoginDialogInfo::is_proxy(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		Awesomium::WebLoginDialogInfo* self=(Luna< Awesomium::WebLoginDialogInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebLoginDialogInfo::is_proxy(bool). Got : '%s'",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebLoginDialogInfo::is_proxy(bool). Got : '%s'\n%s",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->is_proxy = value;
 
@@ -398,8 +374,7 @@ public:
 	// void Awesomium::WebLoginDialogInfo::host(Awesomium::WebString value)
 	static int _bind_setHost(lua_State *L) {
 		if (!_lg_typecheck_setHost(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebLoginDialogInfo::host(Awesomium::WebString value) function, expected prototype:\nvoid Awesomium::WebLoginDialogInfo::host(Awesomium::WebString value)\nClass arguments details:\narg 1 ID = 13938525\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebLoginDialogInfo::host(Awesomium::WebString value) function, expected prototype:\nvoid Awesomium::WebLoginDialogInfo::host(Awesomium::WebString value)\nClass arguments details:\narg 1 ID = 13938525\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string value_str(lua_tostring(L,2),lua_objlen(L,2));
@@ -407,8 +382,7 @@ public:
 
 		Awesomium::WebLoginDialogInfo* self=(Luna< Awesomium::WebLoginDialogInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebLoginDialogInfo::host(Awesomium::WebString). Got : '%s'",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebLoginDialogInfo::host(Awesomium::WebString). Got : '%s'\n%s",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->host = value;
 
@@ -418,16 +392,14 @@ public:
 	// void Awesomium::WebLoginDialogInfo::port(unsigned short value)
 	static int _bind_setPort(lua_State *L) {
 		if (!_lg_typecheck_setPort(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebLoginDialogInfo::port(unsigned short value) function, expected prototype:\nvoid Awesomium::WebLoginDialogInfo::port(unsigned short value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebLoginDialogInfo::port(unsigned short value) function, expected prototype:\nvoid Awesomium::WebLoginDialogInfo::port(unsigned short value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short value=(unsigned short)lua_tointeger(L,2);
 
 		Awesomium::WebLoginDialogInfo* self=(Luna< Awesomium::WebLoginDialogInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebLoginDialogInfo::port(unsigned short). Got : '%s'",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebLoginDialogInfo::port(unsigned short). Got : '%s'\n%s",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->port = value;
 
@@ -437,8 +409,7 @@ public:
 	// void Awesomium::WebLoginDialogInfo::scheme(Awesomium::WebString value)
 	static int _bind_setScheme(lua_State *L) {
 		if (!_lg_typecheck_setScheme(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebLoginDialogInfo::scheme(Awesomium::WebString value) function, expected prototype:\nvoid Awesomium::WebLoginDialogInfo::scheme(Awesomium::WebString value)\nClass arguments details:\narg 1 ID = 13938525\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebLoginDialogInfo::scheme(Awesomium::WebString value) function, expected prototype:\nvoid Awesomium::WebLoginDialogInfo::scheme(Awesomium::WebString value)\nClass arguments details:\narg 1 ID = 13938525\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string value_str(lua_tostring(L,2),lua_objlen(L,2));
@@ -446,8 +417,7 @@ public:
 
 		Awesomium::WebLoginDialogInfo* self=(Luna< Awesomium::WebLoginDialogInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebLoginDialogInfo::scheme(Awesomium::WebString). Got : '%s'",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebLoginDialogInfo::scheme(Awesomium::WebString). Got : '%s'\n%s",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->scheme = value;
 
@@ -457,8 +427,7 @@ public:
 	// void Awesomium::WebLoginDialogInfo::realm(Awesomium::WebString value)
 	static int _bind_setRealm(lua_State *L) {
 		if (!_lg_typecheck_setRealm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebLoginDialogInfo::realm(Awesomium::WebString value) function, expected prototype:\nvoid Awesomium::WebLoginDialogInfo::realm(Awesomium::WebString value)\nClass arguments details:\narg 1 ID = 13938525\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebLoginDialogInfo::realm(Awesomium::WebString value) function, expected prototype:\nvoid Awesomium::WebLoginDialogInfo::realm(Awesomium::WebString value)\nClass arguments details:\narg 1 ID = 13938525\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string value_str(lua_tostring(L,2),lua_objlen(L,2));
@@ -466,8 +435,7 @@ public:
 
 		Awesomium::WebLoginDialogInfo* self=(Luna< Awesomium::WebLoginDialogInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebLoginDialogInfo::realm(Awesomium::WebString). Got : '%s'",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebLoginDialogInfo::realm(Awesomium::WebString). Got : '%s'\n%s",typeid(Luna< Awesomium::WebLoginDialogInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->realm = value;
 

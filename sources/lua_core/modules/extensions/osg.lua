@@ -117,6 +117,14 @@ osg.Vec3f.dot = function(self,rhs)
 	return self*rhs
 end
 
+osg.Vec3d.toDeg = function(self)
+	return self*180.0/math.pi
+end
+
+osg.Vec3d.toRad = function(self)
+	return self*math.pi/180.0
+end
+
 osg.XAXIS = osg.Vec3d(1.0,0.0,0.0)
 osg.YAXIS = osg.Vec3d(0.0,1.0,0.0)
 osg.ZAXIS = osg.Vec3d(0.0,0.0,1.0)

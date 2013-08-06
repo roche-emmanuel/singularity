@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::JSValue*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::JSValue*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::JSValue* rhs =(Luna< Awesomium::JSValue >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::JSValue* self= (Awesomium::JSValue*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::JSValue >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -289,8 +285,7 @@ public:
 	// Awesomium::JSValue::JSValue()
 	static Awesomium::JSValue* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::JSValue::JSValue() function, expected prototype:\nAwesomium::JSValue::JSValue()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::JSValue::JSValue() function, expected prototype:\nAwesomium::JSValue::JSValue()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -300,8 +295,7 @@ public:
 	// Awesomium::JSValue::JSValue(bool value)
 	static Awesomium::JSValue* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::JSValue::JSValue(bool value) function, expected prototype:\nAwesomium::JSValue::JSValue(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::JSValue::JSValue(bool value) function, expected prototype:\nAwesomium::JSValue::JSValue(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,1)==1);
@@ -312,8 +306,7 @@ public:
 	// Awesomium::JSValue::JSValue(int value)
 	static Awesomium::JSValue* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::JSValue::JSValue(int value) function, expected prototype:\nAwesomium::JSValue::JSValue(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::JSValue::JSValue(int value) function, expected prototype:\nAwesomium::JSValue::JSValue(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,1);
@@ -324,8 +317,7 @@ public:
 	// Awesomium::JSValue::JSValue(double value)
 	static Awesomium::JSValue* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::JSValue::JSValue(double value) function, expected prototype:\nAwesomium::JSValue::JSValue(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::JSValue::JSValue(double value) function, expected prototype:\nAwesomium::JSValue::JSValue(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,1);
@@ -336,8 +328,7 @@ public:
 	// Awesomium::JSValue::JSValue(const Awesomium::WebString & value)
 	static Awesomium::JSValue* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::JSValue::JSValue(const Awesomium::WebString & value) function, expected prototype:\nAwesomium::JSValue::JSValue(const Awesomium::WebString & value)\nClass arguments details:\narg 1 ID = 13938525\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::JSValue::JSValue(const Awesomium::WebString & value) function, expected prototype:\nAwesomium::JSValue::JSValue(const Awesomium::WebString & value)\nClass arguments details:\narg 1 ID = 13938525\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string value_str(lua_tostring(L,1),lua_objlen(L,1));
@@ -349,8 +340,7 @@ public:
 	// Awesomium::JSValue::JSValue(const Awesomium::JSObject & value)
 	static Awesomium::JSValue* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::JSValue::JSValue(const Awesomium::JSObject & value) function, expected prototype:\nAwesomium::JSValue::JSValue(const Awesomium::JSObject & value)\nClass arguments details:\narg 1 ID = 47180827\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::JSValue::JSValue(const Awesomium::JSObject & value) function, expected prototype:\nAwesomium::JSValue::JSValue(const Awesomium::JSObject & value)\nClass arguments details:\narg 1 ID = 47180827\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const Awesomium::JSObject* value_ptr=(Luna< Awesomium::JSObject >::check(L,1));
@@ -365,8 +355,7 @@ public:
 	// Awesomium::JSValue::JSValue(const Awesomium::JSArray & value)
 	static Awesomium::JSValue* _bind_ctor_overload_7(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::JSValue::JSValue(const Awesomium::JSArray & value) function, expected prototype:\nAwesomium::JSValue::JSValue(const Awesomium::JSArray & value)\nClass arguments details:\narg 1 ID = 18109170\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::JSValue::JSValue(const Awesomium::JSArray & value) function, expected prototype:\nAwesomium::JSValue::JSValue(const Awesomium::JSArray & value)\nClass arguments details:\narg 1 ID = 18109170\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const Awesomium::JSArray* value_ptr=(Luna< Awesomium::JSArray >::check(L,1));
@@ -381,8 +370,7 @@ public:
 	// Awesomium::JSValue::JSValue(const Awesomium::JSValue & original)
 	static Awesomium::JSValue* _bind_ctor_overload_8(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::JSValue::JSValue(const Awesomium::JSValue & original) function, expected prototype:\nAwesomium::JSValue::JSValue(const Awesomium::JSValue & original)\nClass arguments details:\narg 1 ID = 36991498\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::JSValue::JSValue(const Awesomium::JSValue & original) function, expected prototype:\nAwesomium::JSValue::JSValue(const Awesomium::JSValue & original)\nClass arguments details:\narg 1 ID = 36991498\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const Awesomium::JSValue* original_ptr=(Luna< Awesomium::JSValue >::check(L,1));
@@ -414,15 +402,13 @@ public:
 	// bool Awesomium::JSValue::IsBoolean() const
 	static int _bind_IsBoolean(lua_State *L) {
 		if (!_lg_typecheck_IsBoolean(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsBoolean() const function, expected prototype:\nbool Awesomium::JSValue::IsBoolean() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsBoolean() const function, expected prototype:\nbool Awesomium::JSValue::IsBoolean() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsBoolean() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsBoolean() const. Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsBoolean();
 		lua_pushboolean(L,lret?1:0);
@@ -433,15 +419,13 @@ public:
 	// bool Awesomium::JSValue::IsInteger() const
 	static int _bind_IsInteger(lua_State *L) {
 		if (!_lg_typecheck_IsInteger(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsInteger() const function, expected prototype:\nbool Awesomium::JSValue::IsInteger() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsInteger() const function, expected prototype:\nbool Awesomium::JSValue::IsInteger() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsInteger() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsInteger() const. Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsInteger();
 		lua_pushboolean(L,lret?1:0);
@@ -452,15 +436,13 @@ public:
 	// bool Awesomium::JSValue::IsDouble() const
 	static int _bind_IsDouble(lua_State *L) {
 		if (!_lg_typecheck_IsDouble(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsDouble() const function, expected prototype:\nbool Awesomium::JSValue::IsDouble() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsDouble() const function, expected prototype:\nbool Awesomium::JSValue::IsDouble() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsDouble() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsDouble() const. Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsDouble();
 		lua_pushboolean(L,lret?1:0);
@@ -471,15 +453,13 @@ public:
 	// bool Awesomium::JSValue::IsNumber() const
 	static int _bind_IsNumber(lua_State *L) {
 		if (!_lg_typecheck_IsNumber(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsNumber() const function, expected prototype:\nbool Awesomium::JSValue::IsNumber() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsNumber() const function, expected prototype:\nbool Awesomium::JSValue::IsNumber() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsNumber() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsNumber() const. Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsNumber();
 		lua_pushboolean(L,lret?1:0);
@@ -490,15 +470,13 @@ public:
 	// bool Awesomium::JSValue::IsString() const
 	static int _bind_IsString(lua_State *L) {
 		if (!_lg_typecheck_IsString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsString() const function, expected prototype:\nbool Awesomium::JSValue::IsString() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsString() const function, expected prototype:\nbool Awesomium::JSValue::IsString() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsString() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsString() const. Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsString();
 		lua_pushboolean(L,lret?1:0);
@@ -509,15 +487,13 @@ public:
 	// bool Awesomium::JSValue::IsArray() const
 	static int _bind_IsArray(lua_State *L) {
 		if (!_lg_typecheck_IsArray(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsArray() const function, expected prototype:\nbool Awesomium::JSValue::IsArray() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsArray() const function, expected prototype:\nbool Awesomium::JSValue::IsArray() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsArray() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsArray() const. Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsArray();
 		lua_pushboolean(L,lret?1:0);
@@ -528,15 +504,13 @@ public:
 	// bool Awesomium::JSValue::IsObject() const
 	static int _bind_IsObject(lua_State *L) {
 		if (!_lg_typecheck_IsObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsObject() const function, expected prototype:\nbool Awesomium::JSValue::IsObject() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsObject() const function, expected prototype:\nbool Awesomium::JSValue::IsObject() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsObject() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsObject() const. Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsObject();
 		lua_pushboolean(L,lret?1:0);
@@ -547,15 +521,13 @@ public:
 	// bool Awesomium::JSValue::IsNull() const
 	static int _bind_IsNull(lua_State *L) {
 		if (!_lg_typecheck_IsNull(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsNull() const function, expected prototype:\nbool Awesomium::JSValue::IsNull() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsNull() const function, expected prototype:\nbool Awesomium::JSValue::IsNull() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsNull() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsNull() const. Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsNull();
 		lua_pushboolean(L,lret?1:0);
@@ -566,15 +538,13 @@ public:
 	// bool Awesomium::JSValue::IsUndefined() const
 	static int _bind_IsUndefined(lua_State *L) {
 		if (!_lg_typecheck_IsUndefined(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsUndefined() const function, expected prototype:\nbool Awesomium::JSValue::IsUndefined() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::IsUndefined() const function, expected prototype:\nbool Awesomium::JSValue::IsUndefined() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsUndefined() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::IsUndefined() const. Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsUndefined();
 		lua_pushboolean(L,lret?1:0);
@@ -585,15 +555,13 @@ public:
 	// Awesomium::WebString Awesomium::JSValue::ToString() const
 	static int _bind_ToString(lua_State *L) {
 		if (!_lg_typecheck_ToString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::JSValue::ToString() const function, expected prototype:\nAwesomium::WebString Awesomium::JSValue::ToString() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::JSValue::ToString() const function, expected prototype:\nAwesomium::WebString Awesomium::JSValue::ToString() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::JSValue::ToString() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::JSValue::ToString() const. Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		Awesomium::WebString lret = self->ToString();
 		std::string lret_str = Awesomium::ToString(lret);
@@ -605,15 +573,13 @@ public:
 	// int Awesomium::JSValue::ToInteger() const
 	static int _bind_ToInteger(lua_State *L) {
 		if (!_lg_typecheck_ToInteger(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::JSValue::ToInteger() const function, expected prototype:\nint Awesomium::JSValue::ToInteger() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::JSValue::ToInteger() const function, expected prototype:\nint Awesomium::JSValue::ToInteger() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::JSValue::ToInteger() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::JSValue::ToInteger() const. Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->ToInteger();
 		lua_pushnumber(L,lret);
@@ -624,15 +590,13 @@ public:
 	// double Awesomium::JSValue::ToDouble() const
 	static int _bind_ToDouble(lua_State *L) {
 		if (!_lg_typecheck_ToDouble(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double Awesomium::JSValue::ToDouble() const function, expected prototype:\ndouble Awesomium::JSValue::ToDouble() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double Awesomium::JSValue::ToDouble() const function, expected prototype:\ndouble Awesomium::JSValue::ToDouble() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double Awesomium::JSValue::ToDouble() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double Awesomium::JSValue::ToDouble() const. Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->ToDouble();
 		lua_pushnumber(L,lret);
@@ -643,15 +607,13 @@ public:
 	// bool Awesomium::JSValue::ToBoolean() const
 	static int _bind_ToBoolean(lua_State *L) {
 		if (!_lg_typecheck_ToBoolean(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::ToBoolean() const function, expected prototype:\nbool Awesomium::JSValue::ToBoolean() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::JSValue::ToBoolean() const function, expected prototype:\nbool Awesomium::JSValue::ToBoolean() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::ToBoolean() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::JSValue::ToBoolean() const. Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ToBoolean();
 		lua_pushboolean(L,lret?1:0);
@@ -662,15 +624,13 @@ public:
 	// Awesomium::JSArray & Awesomium::JSValue::ToArray()
 	static int _bind_ToArray_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ToArray_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::JSArray & Awesomium::JSValue::ToArray() function, expected prototype:\nAwesomium::JSArray & Awesomium::JSValue::ToArray()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::JSArray & Awesomium::JSValue::ToArray() function, expected prototype:\nAwesomium::JSArray & Awesomium::JSValue::ToArray()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::JSArray & Awesomium::JSValue::ToArray(). Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::JSArray & Awesomium::JSValue::ToArray(). Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const Awesomium::JSArray* lret = &self->ToArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -683,15 +643,13 @@ public:
 	// const Awesomium::JSArray & Awesomium::JSValue::ToArray() const
 	static int _bind_ToArray_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ToArray_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const Awesomium::JSArray & Awesomium::JSValue::ToArray() const function, expected prototype:\nconst Awesomium::JSArray & Awesomium::JSValue::ToArray() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const Awesomium::JSArray & Awesomium::JSValue::ToArray() const function, expected prototype:\nconst Awesomium::JSArray & Awesomium::JSValue::ToArray() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const Awesomium::JSArray & Awesomium::JSValue::ToArray() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const Awesomium::JSArray & Awesomium::JSValue::ToArray() const. Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const Awesomium::JSArray* lret = &self->ToArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -713,15 +671,13 @@ public:
 	// Awesomium::JSObject & Awesomium::JSValue::ToObject()
 	static int _bind_ToObject_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ToObject_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::JSObject & Awesomium::JSValue::ToObject() function, expected prototype:\nAwesomium::JSObject & Awesomium::JSValue::ToObject()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::JSObject & Awesomium::JSValue::ToObject() function, expected prototype:\nAwesomium::JSObject & Awesomium::JSValue::ToObject()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::JSObject & Awesomium::JSValue::ToObject(). Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::JSObject & Awesomium::JSValue::ToObject(). Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const Awesomium::JSObject* lret = &self->ToObject();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -734,15 +690,13 @@ public:
 	// const Awesomium::JSObject & Awesomium::JSValue::ToObject() const
 	static int _bind_ToObject_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ToObject_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const Awesomium::JSObject & Awesomium::JSValue::ToObject() const function, expected prototype:\nconst Awesomium::JSObject & Awesomium::JSValue::ToObject() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const Awesomium::JSObject & Awesomium::JSValue::ToObject() const function, expected prototype:\nconst Awesomium::JSObject & Awesomium::JSValue::ToObject() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const Awesomium::JSObject & Awesomium::JSValue::ToObject() const. Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const Awesomium::JSObject & Awesomium::JSValue::ToObject() const. Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const Awesomium::JSObject* lret = &self->ToObject();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -764,8 +718,7 @@ public:
 	// static const Awesomium::JSValue & Awesomium::JSValue::Undefined()
 	static int _bind_Undefined(lua_State *L) {
 		if (!_lg_typecheck_Undefined(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static const Awesomium::JSValue & Awesomium::JSValue::Undefined() function, expected prototype:\nstatic const Awesomium::JSValue & Awesomium::JSValue::Undefined()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static const Awesomium::JSValue & Awesomium::JSValue::Undefined() function, expected prototype:\nstatic const Awesomium::JSValue & Awesomium::JSValue::Undefined()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -780,8 +733,7 @@ public:
 	// static const Awesomium::JSValue & Awesomium::JSValue::Null()
 	static int _bind_Null(lua_State *L) {
 		if (!_lg_typecheck_Null(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static const Awesomium::JSValue & Awesomium::JSValue::Null() function, expected prototype:\nstatic const Awesomium::JSValue & Awesomium::JSValue::Null()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static const Awesomium::JSValue & Awesomium::JSValue::Null() function, expected prototype:\nstatic const Awesomium::JSValue & Awesomium::JSValue::Null()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -798,8 +750,7 @@ public:
 	// Awesomium::JSValue & Awesomium::JSValue::operator=(const Awesomium::JSValue & rhs)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::JSValue & Awesomium::JSValue::operator=(const Awesomium::JSValue & rhs) function, expected prototype:\nAwesomium::JSValue & Awesomium::JSValue::operator=(const Awesomium::JSValue & rhs)\nClass arguments details:\narg 1 ID = 36991498\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::JSValue & Awesomium::JSValue::operator=(const Awesomium::JSValue & rhs) function, expected prototype:\nAwesomium::JSValue & Awesomium::JSValue::operator=(const Awesomium::JSValue & rhs)\nClass arguments details:\narg 1 ID = 36991498\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const Awesomium::JSValue* rhs_ptr=(Luna< Awesomium::JSValue >::check(L,2));
@@ -810,8 +761,7 @@ public:
 
 		Awesomium::JSValue* self=(Luna< Awesomium::JSValue >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::JSValue & Awesomium::JSValue::operator=(const Awesomium::JSValue &). Got : '%s'",typeid(Luna< Awesomium::JSValue >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::JSValue & Awesomium::JSValue::operator=(const Awesomium::JSValue &). Got : '%s'\n%s",typeid(Luna< Awesomium::JSValue >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const Awesomium::JSValue* lret = &self->operator=(rhs);
 		if(!lret) return 0; // Do not write NULL pointers.

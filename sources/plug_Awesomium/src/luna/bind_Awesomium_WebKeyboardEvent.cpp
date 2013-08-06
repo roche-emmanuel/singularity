@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebKeyboardEvent*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebKeyboardEvent*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebKeyboardEvent* rhs =(Luna< Awesomium::WebKeyboardEvent >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebKeyboardEvent* self= (Awesomium::WebKeyboardEvent*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -207,8 +203,7 @@ public:
 	// Awesomium::WebKeyboardEvent::WebKeyboardEvent()
 	static Awesomium::WebKeyboardEvent* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebKeyboardEvent::WebKeyboardEvent() function, expected prototype:\nAwesomium::WebKeyboardEvent::WebKeyboardEvent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebKeyboardEvent::WebKeyboardEvent() function, expected prototype:\nAwesomium::WebKeyboardEvent::WebKeyboardEvent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -220,8 +215,7 @@ public:
 	// void Awesomium::WebKeyboardEvent::setType(Awesomium::WebKeyboardEvent * ke, int type)
 	static int _bind_setType(lua_State *L) {
 		if (!_lg_typecheck_setType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::setType(Awesomium::WebKeyboardEvent * ke, int type) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::setType(Awesomium::WebKeyboardEvent * ke, int type)\nClass arguments details:\narg 1 ID = 95002106\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::setType(Awesomium::WebKeyboardEvent * ke, int type) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::setType(Awesomium::WebKeyboardEvent * ke, int type)\nClass arguments details:\narg 1 ID = 95002106\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebKeyboardEvent* ke=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
@@ -235,8 +229,7 @@ public:
 	// void Awesomium::WebKeyboardEvent::setModifiers(Awesomium::WebKeyboardEvent * ke, int mod)
 	static int _bind_setModifiers(lua_State *L) {
 		if (!_lg_typecheck_setModifiers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::setModifiers(Awesomium::WebKeyboardEvent * ke, int mod) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::setModifiers(Awesomium::WebKeyboardEvent * ke, int mod)\nClass arguments details:\narg 1 ID = 95002106\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::setModifiers(Awesomium::WebKeyboardEvent * ke, int mod) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::setModifiers(Awesomium::WebKeyboardEvent * ke, int mod)\nClass arguments details:\narg 1 ID = 95002106\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebKeyboardEvent* ke=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
@@ -250,8 +243,7 @@ public:
 	// std::string Awesomium::WebKeyboardEvent::setVirtualKeyCode(Awesomium::WebKeyboardEvent * ke, int code)
 	static int _bind_setVirtualKeyCode(lua_State *L) {
 		if (!_lg_typecheck_setVirtualKeyCode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string Awesomium::WebKeyboardEvent::setVirtualKeyCode(Awesomium::WebKeyboardEvent * ke, int code) function, expected prototype:\nstd::string Awesomium::WebKeyboardEvent::setVirtualKeyCode(Awesomium::WebKeyboardEvent * ke, int code)\nClass arguments details:\narg 1 ID = 95002106\n");
+			luaL_error(L, "luna typecheck failed in std::string Awesomium::WebKeyboardEvent::setVirtualKeyCode(Awesomium::WebKeyboardEvent * ke, int code) function, expected prototype:\nstd::string Awesomium::WebKeyboardEvent::setVirtualKeyCode(Awesomium::WebKeyboardEvent * ke, int code)\nClass arguments details:\narg 1 ID = 95002106\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebKeyboardEvent* ke=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
@@ -266,8 +258,7 @@ public:
 	// void Awesomium::WebKeyboardEvent::setNativeKeyCode(Awesomium::WebKeyboardEvent * ke, int code)
 	static int _bind_setNativeKeyCode(lua_State *L) {
 		if (!_lg_typecheck_setNativeKeyCode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::setNativeKeyCode(Awesomium::WebKeyboardEvent * ke, int code) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::setNativeKeyCode(Awesomium::WebKeyboardEvent * ke, int code)\nClass arguments details:\narg 1 ID = 95002106\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::setNativeKeyCode(Awesomium::WebKeyboardEvent * ke, int code) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::setNativeKeyCode(Awesomium::WebKeyboardEvent * ke, int code)\nClass arguments details:\narg 1 ID = 95002106\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebKeyboardEvent* ke=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
@@ -281,8 +272,7 @@ public:
 	// void Awesomium::WebKeyboardEvent::setText(Awesomium::WebKeyboardEvent * ke, int character)
 	static int _bind_setText(lua_State *L) {
 		if (!_lg_typecheck_setText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::setText(Awesomium::WebKeyboardEvent * ke, int character) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::setText(Awesomium::WebKeyboardEvent * ke, int character)\nClass arguments details:\narg 1 ID = 95002106\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::setText(Awesomium::WebKeyboardEvent * ke, int character) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::setText(Awesomium::WebKeyboardEvent * ke, int character)\nClass arguments details:\narg 1 ID = 95002106\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebKeyboardEvent* ke=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
@@ -296,15 +286,13 @@ public:
 	// Awesomium::WebKeyboardEvent::Type Awesomium::WebKeyboardEvent::type()
 	static int _bind_getType(lua_State *L) {
 		if (!_lg_typecheck_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebKeyboardEvent::Type Awesomium::WebKeyboardEvent::type() function, expected prototype:\nAwesomium::WebKeyboardEvent::Type Awesomium::WebKeyboardEvent::type()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebKeyboardEvent::Type Awesomium::WebKeyboardEvent::type() function, expected prototype:\nAwesomium::WebKeyboardEvent::Type Awesomium::WebKeyboardEvent::type()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebKeyboardEvent::Type Awesomium::WebKeyboardEvent::type(). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebKeyboardEvent::Type Awesomium::WebKeyboardEvent::type(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		Awesomium::WebKeyboardEvent::Type lret = self->type;
 		lua_pushnumber(L,lret);
@@ -315,15 +303,13 @@ public:
 	// int Awesomium::WebKeyboardEvent::modifiers()
 	static int _bind_getModifiers(lua_State *L) {
 		if (!_lg_typecheck_getModifiers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::WebKeyboardEvent::modifiers() function, expected prototype:\nint Awesomium::WebKeyboardEvent::modifiers()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebKeyboardEvent::modifiers() function, expected prototype:\nint Awesomium::WebKeyboardEvent::modifiers()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::WebKeyboardEvent::modifiers(). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::WebKeyboardEvent::modifiers(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->modifiers;
 		lua_pushnumber(L,lret);
@@ -334,15 +320,13 @@ public:
 	// int Awesomium::WebKeyboardEvent::virtual_key_code()
 	static int _bind_get_virtual_key_code(lua_State *L) {
 		if (!_lg_typecheck_get_virtual_key_code(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::WebKeyboardEvent::virtual_key_code() function, expected prototype:\nint Awesomium::WebKeyboardEvent::virtual_key_code()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebKeyboardEvent::virtual_key_code() function, expected prototype:\nint Awesomium::WebKeyboardEvent::virtual_key_code()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::WebKeyboardEvent::virtual_key_code(). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::WebKeyboardEvent::virtual_key_code(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->virtual_key_code;
 		lua_pushnumber(L,lret);
@@ -353,15 +337,13 @@ public:
 	// int Awesomium::WebKeyboardEvent::native_key_code()
 	static int _bind_get_native_key_code(lua_State *L) {
 		if (!_lg_typecheck_get_native_key_code(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::WebKeyboardEvent::native_key_code() function, expected prototype:\nint Awesomium::WebKeyboardEvent::native_key_code()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebKeyboardEvent::native_key_code() function, expected prototype:\nint Awesomium::WebKeyboardEvent::native_key_code()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::WebKeyboardEvent::native_key_code(). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::WebKeyboardEvent::native_key_code(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->native_key_code;
 		lua_pushnumber(L,lret);
@@ -372,15 +354,13 @@ public:
 	// bool Awesomium::WebKeyboardEvent::is_system_key()
 	static int _bind_get_is_system_key(lua_State *L) {
 		if (!_lg_typecheck_get_is_system_key(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::WebKeyboardEvent::is_system_key() function, expected prototype:\nbool Awesomium::WebKeyboardEvent::is_system_key()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::WebKeyboardEvent::is_system_key() function, expected prototype:\nbool Awesomium::WebKeyboardEvent::is_system_key()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::WebKeyboardEvent::is_system_key(). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::WebKeyboardEvent::is_system_key(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->is_system_key;
 		lua_pushboolean(L,lret?1:0);
@@ -391,16 +371,14 @@ public:
 	// void Awesomium::WebKeyboardEvent::virtual_key_code(int value)
 	static int _bind_set_virtual_key_code(lua_State *L) {
 		if (!_lg_typecheck_set_virtual_key_code(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::virtual_key_code(int value) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::virtual_key_code(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::virtual_key_code(int value) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::virtual_key_code(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebKeyboardEvent::virtual_key_code(int). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebKeyboardEvent::virtual_key_code(int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->virtual_key_code = value;
 
@@ -410,16 +388,14 @@ public:
 	// void Awesomium::WebKeyboardEvent::native_key_code(int value)
 	static int _bind_set_native_key_code(lua_State *L) {
 		if (!_lg_typecheck_set_native_key_code(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::native_key_code(int value) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::native_key_code(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::native_key_code(int value) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::native_key_code(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebKeyboardEvent::native_key_code(int). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebKeyboardEvent::native_key_code(int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->native_key_code = value;
 
@@ -429,16 +405,14 @@ public:
 	// void Awesomium::WebKeyboardEvent::is_system_key(bool value)
 	static int _bind_set_is_system_key(lua_State *L) {
 		if (!_lg_typecheck_set_is_system_key(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::is_system_key(bool value) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::is_system_key(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebKeyboardEvent::is_system_key(bool value) function, expected prototype:\nvoid Awesomium::WebKeyboardEvent::is_system_key(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		Awesomium::WebKeyboardEvent* self=(Luna< Awesomium::WebKeyboardEvent >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebKeyboardEvent::is_system_key(bool). Got : '%s'",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebKeyboardEvent::is_system_key(bool). Got : '%s'\n%s",typeid(Luna< Awesomium::WebKeyboardEvent >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->is_system_key = value;
 

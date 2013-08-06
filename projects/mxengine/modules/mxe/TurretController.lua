@@ -13,8 +13,8 @@ function Class:buildControlPanel(intf)
 	intf:addDoubleEntry{name="my_double",caption="My double"}
 	
 	intf:pushSizer{text="Steering mode",orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxALL+wx.wxEXPAND}
-		intf:addActionButtonEntry{name="STEERING_DISABLED",caption="DISABLED",
-								  handler="updateSteeringMode"}
+		-- intf:addActionButtonEntry{name="STEERING_DISABLED",caption="DISABLED",
+								  -- handler="updateSteeringMode"}
 		intf:addActionButtonEntry{name="STEERING_STOW",caption="STOW",
 								  handler="updateSteeringMode"}
 		intf:addActionButtonEntry{name="STEERING_FORWARD",caption="FORWARD",

@@ -15,6 +15,12 @@ class State {
 
 };
 
+namespace Awesomium {
+
+class NativeWindow {};
+
+};
+
 namespace KeyCodes {
   
   enum KeyCodes {

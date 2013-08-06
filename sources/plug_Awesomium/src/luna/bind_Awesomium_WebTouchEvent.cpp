@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebTouchEvent*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebTouchEvent*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebTouchEvent* rhs =(Luna< Awesomium::WebTouchEvent >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebTouchEvent* self= (Awesomium::WebTouchEvent*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::WebTouchEvent >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -168,8 +164,7 @@ public:
 	// Awesomium::WebTouchEvent::WebTouchEvent()
 	static Awesomium::WebTouchEvent* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebTouchEvent::WebTouchEvent() function, expected prototype:\nAwesomium::WebTouchEvent::WebTouchEvent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebTouchEvent::WebTouchEvent() function, expected prototype:\nAwesomium::WebTouchEvent::WebTouchEvent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -181,15 +176,13 @@ public:
 	// Awesomium::WebTouchEventType Awesomium::WebTouchEvent::type()
 	static int _bind_getType(lua_State *L) {
 		if (!_lg_typecheck_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebTouchEventType Awesomium::WebTouchEvent::type() function, expected prototype:\nAwesomium::WebTouchEventType Awesomium::WebTouchEvent::type()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebTouchEventType Awesomium::WebTouchEvent::type() function, expected prototype:\nAwesomium::WebTouchEventType Awesomium::WebTouchEvent::type()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebTouchEvent* self=(Luna< Awesomium::WebTouchEvent >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebTouchEventType Awesomium::WebTouchEvent::type(). Got : '%s'",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebTouchEventType Awesomium::WebTouchEvent::type(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		Awesomium::WebTouchEventType lret = self->type;
 		lua_pushnumber(L,lret);
@@ -200,15 +193,13 @@ public:
 	// unsigned int Awesomium::WebTouchEvent::touches_length()
 	static int _bind_get_touches_length(lua_State *L) {
 		if (!_lg_typecheck_get_touches_length(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int Awesomium::WebTouchEvent::touches_length() function, expected prototype:\nunsigned int Awesomium::WebTouchEvent::touches_length()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int Awesomium::WebTouchEvent::touches_length() function, expected prototype:\nunsigned int Awesomium::WebTouchEvent::touches_length()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebTouchEvent* self=(Luna< Awesomium::WebTouchEvent >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int Awesomium::WebTouchEvent::touches_length(). Got : '%s'",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int Awesomium::WebTouchEvent::touches_length(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->touches_length;
 		lua_pushnumber(L,lret);
@@ -219,15 +210,13 @@ public:
 	// unsigned int Awesomium::WebTouchEvent::changed_touches_length()
 	static int _bind_get_changed_touches_length(lua_State *L) {
 		if (!_lg_typecheck_get_changed_touches_length(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int Awesomium::WebTouchEvent::changed_touches_length() function, expected prototype:\nunsigned int Awesomium::WebTouchEvent::changed_touches_length()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int Awesomium::WebTouchEvent::changed_touches_length() function, expected prototype:\nunsigned int Awesomium::WebTouchEvent::changed_touches_length()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebTouchEvent* self=(Luna< Awesomium::WebTouchEvent >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int Awesomium::WebTouchEvent::changed_touches_length(). Got : '%s'",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int Awesomium::WebTouchEvent::changed_touches_length(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->changed_touches_length;
 		lua_pushnumber(L,lret);
@@ -238,15 +227,13 @@ public:
 	// unsigned int Awesomium::WebTouchEvent::target_touches_length()
 	static int _bind_get_target_touches_length(lua_State *L) {
 		if (!_lg_typecheck_get_target_touches_length(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int Awesomium::WebTouchEvent::target_touches_length() function, expected prototype:\nunsigned int Awesomium::WebTouchEvent::target_touches_length()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int Awesomium::WebTouchEvent::target_touches_length() function, expected prototype:\nunsigned int Awesomium::WebTouchEvent::target_touches_length()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebTouchEvent* self=(Luna< Awesomium::WebTouchEvent >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int Awesomium::WebTouchEvent::target_touches_length(). Got : '%s'",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int Awesomium::WebTouchEvent::target_touches_length(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->target_touches_length;
 		lua_pushnumber(L,lret);
@@ -257,16 +244,14 @@ public:
 	// void Awesomium::WebTouchEvent::type(Awesomium::WebTouchEventType value)
 	static int _bind_setType(lua_State *L) {
 		if (!_lg_typecheck_setType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchEvent::type(Awesomium::WebTouchEventType value) function, expected prototype:\nvoid Awesomium::WebTouchEvent::type(Awesomium::WebTouchEventType value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchEvent::type(Awesomium::WebTouchEventType value) function, expected prototype:\nvoid Awesomium::WebTouchEvent::type(Awesomium::WebTouchEventType value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebTouchEventType value=(Awesomium::WebTouchEventType)lua_tointeger(L,2);
 
 		Awesomium::WebTouchEvent* self=(Luna< Awesomium::WebTouchEvent >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchEvent::type(Awesomium::WebTouchEventType). Got : '%s'",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchEvent::type(Awesomium::WebTouchEventType). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->type = value;
 
@@ -276,16 +261,14 @@ public:
 	// void Awesomium::WebTouchEvent::touches_length(unsigned int value)
 	static int _bind_set_touches_length(lua_State *L) {
 		if (!_lg_typecheck_set_touches_length(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchEvent::touches_length(unsigned int value) function, expected prototype:\nvoid Awesomium::WebTouchEvent::touches_length(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchEvent::touches_length(unsigned int value) function, expected prototype:\nvoid Awesomium::WebTouchEvent::touches_length(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		Awesomium::WebTouchEvent* self=(Luna< Awesomium::WebTouchEvent >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchEvent::touches_length(unsigned int). Got : '%s'",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchEvent::touches_length(unsigned int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->touches_length = value;
 
@@ -295,16 +278,14 @@ public:
 	// void Awesomium::WebTouchEvent::changed_touches_length(unsigned int value)
 	static int _bind_set_changed_touches_length(lua_State *L) {
 		if (!_lg_typecheck_set_changed_touches_length(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchEvent::changed_touches_length(unsigned int value) function, expected prototype:\nvoid Awesomium::WebTouchEvent::changed_touches_length(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchEvent::changed_touches_length(unsigned int value) function, expected prototype:\nvoid Awesomium::WebTouchEvent::changed_touches_length(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		Awesomium::WebTouchEvent* self=(Luna< Awesomium::WebTouchEvent >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchEvent::changed_touches_length(unsigned int). Got : '%s'",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchEvent::changed_touches_length(unsigned int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->changed_touches_length = value;
 
@@ -314,16 +295,14 @@ public:
 	// void Awesomium::WebTouchEvent::target_touches_length(unsigned int value)
 	static int _bind_set_target_touches_length(lua_State *L) {
 		if (!_lg_typecheck_set_target_touches_length(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchEvent::target_touches_length(unsigned int value) function, expected prototype:\nvoid Awesomium::WebTouchEvent::target_touches_length(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchEvent::target_touches_length(unsigned int value) function, expected prototype:\nvoid Awesomium::WebTouchEvent::target_touches_length(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		Awesomium::WebTouchEvent* self=(Luna< Awesomium::WebTouchEvent >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchEvent::target_touches_length(unsigned int). Got : '%s'",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchEvent::target_touches_length(unsigned int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchEvent >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->target_touches_length = value;
 

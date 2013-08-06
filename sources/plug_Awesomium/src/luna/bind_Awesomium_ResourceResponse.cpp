@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::ResourceResponse*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::ResourceResponse*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::ResourceResponse* rhs =(Luna< Awesomium::ResourceResponse >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::ResourceResponse* self= (Awesomium::ResourceResponse*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::ResourceResponse >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -128,8 +124,7 @@ public:
 	// static Awesomium::ResourceResponse * Awesomium::ResourceResponse::Create(unsigned int num_bytes, unsigned char * buffer, const Awesomium::WebString & mime_type)
 	static int _bind_Create_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Create_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static Awesomium::ResourceResponse * Awesomium::ResourceResponse::Create(unsigned int num_bytes, unsigned char * buffer, const Awesomium::WebString & mime_type) function, expected prototype:\nstatic Awesomium::ResourceResponse * Awesomium::ResourceResponse::Create(unsigned int num_bytes, unsigned char * buffer, const Awesomium::WebString & mime_type)\nClass arguments details:\narg 3 ID = 13938525\n");
+			luaL_error(L, "luna typecheck failed in static Awesomium::ResourceResponse * Awesomium::ResourceResponse::Create(unsigned int num_bytes, unsigned char * buffer, const Awesomium::WebString & mime_type) function, expected prototype:\nstatic Awesomium::ResourceResponse * Awesomium::ResourceResponse::Create(unsigned int num_bytes, unsigned char * buffer, const Awesomium::WebString & mime_type)\nClass arguments details:\narg 3 ID = 13938525\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int num_bytes=(unsigned int)lua_tointeger(L,1);
@@ -148,8 +143,7 @@ public:
 	// static Awesomium::ResourceResponse * Awesomium::ResourceResponse::Create(const Awesomium::WebString & file_path)
 	static int _bind_Create_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Create_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static Awesomium::ResourceResponse * Awesomium::ResourceResponse::Create(const Awesomium::WebString & file_path) function, expected prototype:\nstatic Awesomium::ResourceResponse * Awesomium::ResourceResponse::Create(const Awesomium::WebString & file_path)\nClass arguments details:\narg 1 ID = 13938525\n");
+			luaL_error(L, "luna typecheck failed in static Awesomium::ResourceResponse * Awesomium::ResourceResponse::Create(const Awesomium::WebString & file_path) function, expected prototype:\nstatic Awesomium::ResourceResponse * Awesomium::ResourceResponse::Create(const Awesomium::WebString & file_path)\nClass arguments details:\narg 1 ID = 13938525\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string file_path_str(lua_tostring(L,1),lua_objlen(L,1));

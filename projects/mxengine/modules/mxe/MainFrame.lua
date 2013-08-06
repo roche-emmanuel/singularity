@@ -1,5 +1,7 @@
 local Class = require("classBuilder"){name="MainFrame",bases="mxe.TurretController"};
 
+local assert = require "utils.assert"
+
 function Class:initialize(options)
 	-- build the main frame on the app frame:
 	self:check(options and options.app,"Invalid app to build main frame")
@@ -55,11 +57,11 @@ function Class:initialize(options)
 				
 				intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxALL+wx.wxEXPAND}
 					intf:addSingleChoiceEntry{name="single_turret.output_model",prop=1,caption="Output model",
-						choices={"std_outputs","debug_sources","debug_streams","debug_outputs"},
+						choices={"std_outputs","debug_sources","debug_streams","debug_outputs","no_outputs"},
 						defaultValue="std_outputs",
 						handler="onOutputModelChanged"}
 					intf:addSingleChoiceEntry{name="single_turret.network_model",prop=1,caption="Network model",
-						choices={"no_network"},
+						choices={"no_network","std_mxsim"},
 						defaultValue="no_network",
 						handler="onNetworkModelChanged"}
 				intf:popSizer()
@@ -81,7 +83,11 @@ function Class:initialize(options)
 		intf:pushBookPage{caption="Network"}
 		intf:popParent(true) -- Network page
 	intf:popParent()
-	intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxALIGN_RIGHT}
+	intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxEXPAND}
+		-- intf:addBitmapButton{src="two_boxes",tip="Toggle VBSHook debug outputs",
+		intf:addCheckBox{text="Debug textures",tip="Toggle VBSHook debug outputs",
+							 handler="toggleVBSHookDebug"}
+		intf:addSpacer{prop=1}
 		intf:addBitmapButton{src="check",tip="Perform mission level unit tests",
 							 -- flags=wx.wxALIGN_RIGHT,
 							 handler="performMissionUnitTests"}
@@ -127,24 +133,30 @@ end
 function Class:onTurretModelChanged(data)
 	self:debug("Updating turret model to: ",data.value)
 	local mobj = self:getMissionManager():getMissionObject()
+	assert.InstanceOf(require "mission.SingleTurretMission",mobj)
 	mobj:setTurretModel(data.value)
 end
 
 function Class:onPlatformModelChanged(data)
 	self:debug("Updating platform model to: ",data.value)
 	local mobj = self:getMissionManager():getMissionObject()
+	assert.InstanceOf(require "mission.SingleTurretMission",mobj)
 	mobj:setPlatformModel(data.value)	
 end
 
 function Class:onOutputModelChanged(data)
 	self:debug("Updating output model to: ",data.value)
 	local mobj = self:getMissionManager():getMissionObject()
+	self:info("Testing class of mission object...")
+	assert.InstanceOf(require "mission.SingleTurretMission",mobj)
+	self:info("Test done.")
 	mobj:setOutputModel(data.value)	
 end
 
 function Class:onNetworkModelChanged(data)
 	self:info("Updating network model to: ",data.value)
 	local mobj = self:getMissionManager():getMissionObject()
+	assert.InstanceOf(require "mission.SingleTurretMission",mobj)
 	mobj:setNetworkModel(data.value)	
 end
 
@@ -156,6 +168,15 @@ function Class:performMissionUnitTests()
 	
 	local tester = require "utils.MissionUnitTests"
 	tester:run()
+end
+
+function Class:toggleVBSHookDebug(intf,event)
+	local comp = require "engine.CompositeHandler"
+	local handler = comp:getHandler("MainHandler")
+	self:check(handler,"Invalid main handler.")
+	
+	self:info("Should toggle VBSHook debug state to: ",event:IsChecked())
+	handler:setDebugTextures(event:IsChecked())
 end
 
 function Class:performGlobalUnitTests()

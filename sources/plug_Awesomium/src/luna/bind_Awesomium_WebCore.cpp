@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebCore*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebCore*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebCore* rhs =(Luna< Awesomium::WebCore >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebCore* self= (Awesomium::WebCore*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::WebCore >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -219,8 +214,7 @@ public:
 	// Awesomium::WebCore::WebCore(lua_Table * data)
 	static Awesomium::WebCore* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebCore::WebCore(lua_Table * data) function, expected prototype:\nAwesomium::WebCore::WebCore(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebCore::WebCore(lua_Table * data) function, expected prototype:\nAwesomium::WebCore::WebCore(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -232,8 +226,7 @@ public:
 	// static Awesomium::WebCore * Awesomium::WebCore::Initialize(const Awesomium::WebConfig & config)
 	static int _bind_Initialize(lua_State *L) {
 		if (!_lg_typecheck_Initialize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static Awesomium::WebCore * Awesomium::WebCore::Initialize(const Awesomium::WebConfig & config) function, expected prototype:\nstatic Awesomium::WebCore * Awesomium::WebCore::Initialize(const Awesomium::WebConfig & config)\nClass arguments details:\narg 1 ID = 51132402\n");
+			luaL_error(L, "luna typecheck failed in static Awesomium::WebCore * Awesomium::WebCore::Initialize(const Awesomium::WebConfig & config) function, expected prototype:\nstatic Awesomium::WebCore * Awesomium::WebCore::Initialize(const Awesomium::WebConfig & config)\nClass arguments details:\narg 1 ID = 51132402\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const Awesomium::WebConfig* config_ptr=(Luna< Awesomium::WebConfig >::check(L,1));
@@ -253,8 +246,7 @@ public:
 	// static void Awesomium::WebCore::Shutdown()
 	static int _bind_Shutdown(lua_State *L) {
 		if (!_lg_typecheck_Shutdown(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void Awesomium::WebCore::Shutdown() function, expected prototype:\nstatic void Awesomium::WebCore::Shutdown()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void Awesomium::WebCore::Shutdown() function, expected prototype:\nstatic void Awesomium::WebCore::Shutdown()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -266,8 +258,7 @@ public:
 	// static Awesomium::WebCore * Awesomium::WebCore::instance()
 	static int _bind_instance(lua_State *L) {
 		if (!_lg_typecheck_instance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static Awesomium::WebCore * Awesomium::WebCore::instance() function, expected prototype:\nstatic Awesomium::WebCore * Awesomium::WebCore::instance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static Awesomium::WebCore * Awesomium::WebCore::instance() function, expected prototype:\nstatic Awesomium::WebCore * Awesomium::WebCore::instance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -282,8 +273,7 @@ public:
 	// Awesomium::WebSession * Awesomium::WebCore::CreateWebSession(const Awesomium::WebString & path, const Awesomium::WebPreferences & prefs)
 	static int _bind_CreateWebSession(lua_State *L) {
 		if (!_lg_typecheck_CreateWebSession(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebSession * Awesomium::WebCore::CreateWebSession(const Awesomium::WebString & path, const Awesomium::WebPreferences & prefs) function, expected prototype:\nAwesomium::WebSession * Awesomium::WebCore::CreateWebSession(const Awesomium::WebString & path, const Awesomium::WebPreferences & prefs)\nClass arguments details:\narg 1 ID = 13938525\narg 2 ID = 51772222\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebSession * Awesomium::WebCore::CreateWebSession(const Awesomium::WebString & path, const Awesomium::WebPreferences & prefs) function, expected prototype:\nAwesomium::WebSession * Awesomium::WebCore::CreateWebSession(const Awesomium::WebString & path, const Awesomium::WebPreferences & prefs)\nClass arguments details:\narg 1 ID = 13938525\narg 2 ID = 51772222\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string path_str(lua_tostring(L,2),lua_objlen(L,2));
@@ -296,8 +286,7 @@ public:
 
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebSession * Awesomium::WebCore::CreateWebSession(const Awesomium::WebString &, const Awesomium::WebPreferences &). Got : '%s'",typeid(Luna< Awesomium::WebCore >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebSession * Awesomium::WebCore::CreateWebSession(const Awesomium::WebString &, const Awesomium::WebPreferences &). Got : '%s'\n%s",typeid(Luna< Awesomium::WebCore >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		Awesomium::WebSession * lret = self->CreateWebSession(path, prefs);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -310,8 +299,7 @@ public:
 	// Awesomium::WebView * Awesomium::WebCore::CreateWebView(int width, int height, Awesomium::WebSession * session = 0, Awesomium::WebViewType type = Awesomium::kWebViewType_Offscreen)
 	static int _bind_CreateWebView(lua_State *L) {
 		if (!_lg_typecheck_CreateWebView(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebView * Awesomium::WebCore::CreateWebView(int width, int height, Awesomium::WebSession * session = 0, Awesomium::WebViewType type = Awesomium::kWebViewType_Offscreen) function, expected prototype:\nAwesomium::WebView * Awesomium::WebCore::CreateWebView(int width, int height, Awesomium::WebSession * session = 0, Awesomium::WebViewType type = Awesomium::kWebViewType_Offscreen)\nClass arguments details:\narg 3 ID = 3873994\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebView * Awesomium::WebCore::CreateWebView(int width, int height, Awesomium::WebSession * session = 0, Awesomium::WebViewType type = Awesomium::kWebViewType_Offscreen) function, expected prototype:\nAwesomium::WebView * Awesomium::WebCore::CreateWebView(int width, int height, Awesomium::WebSession * session = 0, Awesomium::WebViewType type = Awesomium::kWebViewType_Offscreen)\nClass arguments details:\narg 3 ID = 3873994\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -323,8 +311,7 @@ public:
 
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebView * Awesomium::WebCore::CreateWebView(int, int, Awesomium::WebSession *, Awesomium::WebViewType). Got : '%s'",typeid(Luna< Awesomium::WebCore >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebView * Awesomium::WebCore::CreateWebView(int, int, Awesomium::WebSession *, Awesomium::WebViewType). Got : '%s'\n%s",typeid(Luna< Awesomium::WebCore >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		Awesomium::WebView * lret = self->CreateWebView(width, height, session, type);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -337,16 +324,14 @@ public:
 	// void Awesomium::WebCore::set_surface_factory(Awesomium::SurfaceFactory * factory)
 	static int _bind_set_surface_factory(lua_State *L) {
 		if (!_lg_typecheck_set_surface_factory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebCore::set_surface_factory(Awesomium::SurfaceFactory * factory) function, expected prototype:\nvoid Awesomium::WebCore::set_surface_factory(Awesomium::SurfaceFactory * factory)\nClass arguments details:\narg 1 ID = 86287934\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebCore::set_surface_factory(Awesomium::SurfaceFactory * factory) function, expected prototype:\nvoid Awesomium::WebCore::set_surface_factory(Awesomium::SurfaceFactory * factory)\nClass arguments details:\narg 1 ID = 86287934\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::SurfaceFactory* factory=(Luna< Awesomium::SurfaceFactory >::check(L,2));
 
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebCore::set_surface_factory(Awesomium::SurfaceFactory *). Got : '%s'",typeid(Luna< Awesomium::WebCore >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebCore::set_surface_factory(Awesomium::SurfaceFactory *). Got : '%s'\n%s",typeid(Luna< Awesomium::WebCore >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set_surface_factory(factory);
 
@@ -356,15 +341,13 @@ public:
 	// Awesomium::SurfaceFactory * Awesomium::WebCore::surface_factory() const
 	static int _bind_surface_factory(lua_State *L) {
 		if (!_lg_typecheck_surface_factory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::SurfaceFactory * Awesomium::WebCore::surface_factory() const function, expected prototype:\nAwesomium::SurfaceFactory * Awesomium::WebCore::surface_factory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::SurfaceFactory * Awesomium::WebCore::surface_factory() const function, expected prototype:\nAwesomium::SurfaceFactory * Awesomium::WebCore::surface_factory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::SurfaceFactory * Awesomium::WebCore::surface_factory() const. Got : '%s'",typeid(Luna< Awesomium::WebCore >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::SurfaceFactory * Awesomium::WebCore::surface_factory() const. Got : '%s'\n%s",typeid(Luna< Awesomium::WebCore >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		Awesomium::SurfaceFactory * lret = self->surface_factory();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -377,16 +360,14 @@ public:
 	// void Awesomium::WebCore::set_resource_interceptor(Awesomium::ResourceInterceptor * interceptor)
 	static int _bind_set_resource_interceptor(lua_State *L) {
 		if (!_lg_typecheck_set_resource_interceptor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebCore::set_resource_interceptor(Awesomium::ResourceInterceptor * interceptor) function, expected prototype:\nvoid Awesomium::WebCore::set_resource_interceptor(Awesomium::ResourceInterceptor * interceptor)\nClass arguments details:\narg 1 ID = 29549996\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebCore::set_resource_interceptor(Awesomium::ResourceInterceptor * interceptor) function, expected prototype:\nvoid Awesomium::WebCore::set_resource_interceptor(Awesomium::ResourceInterceptor * interceptor)\nClass arguments details:\narg 1 ID = 29549996\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::ResourceInterceptor* interceptor=(Luna< Awesomium::ResourceInterceptor >::check(L,2));
 
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebCore::set_resource_interceptor(Awesomium::ResourceInterceptor *). Got : '%s'",typeid(Luna< Awesomium::WebCore >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebCore::set_resource_interceptor(Awesomium::ResourceInterceptor *). Got : '%s'\n%s",typeid(Luna< Awesomium::WebCore >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set_resource_interceptor(interceptor);
 
@@ -396,15 +377,13 @@ public:
 	// Awesomium::ResourceInterceptor * Awesomium::WebCore::resource_interceptor() const
 	static int _bind_resource_interceptor(lua_State *L) {
 		if (!_lg_typecheck_resource_interceptor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::ResourceInterceptor * Awesomium::WebCore::resource_interceptor() const function, expected prototype:\nAwesomium::ResourceInterceptor * Awesomium::WebCore::resource_interceptor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::ResourceInterceptor * Awesomium::WebCore::resource_interceptor() const function, expected prototype:\nAwesomium::ResourceInterceptor * Awesomium::WebCore::resource_interceptor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::ResourceInterceptor * Awesomium::WebCore::resource_interceptor() const. Got : '%s'",typeid(Luna< Awesomium::WebCore >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::ResourceInterceptor * Awesomium::WebCore::resource_interceptor() const. Got : '%s'\n%s",typeid(Luna< Awesomium::WebCore >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		Awesomium::ResourceInterceptor * lret = self->resource_interceptor();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -417,15 +396,13 @@ public:
 	// void Awesomium::WebCore::Update()
 	static int _bind_Update(lua_State *L) {
 		if (!_lg_typecheck_Update(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebCore::Update() function, expected prototype:\nvoid Awesomium::WebCore::Update()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebCore::Update() function, expected prototype:\nvoid Awesomium::WebCore::Update()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebCore::Update(). Got : '%s'",typeid(Luna< Awesomium::WebCore >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebCore::Update(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebCore >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Update();
 
@@ -435,15 +412,13 @@ public:
 	// const char * Awesomium::WebCore::version_string() const
 	static int _bind_version_string(lua_State *L) {
 		if (!_lg_typecheck_version_string(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * Awesomium::WebCore::version_string() const function, expected prototype:\nconst char * Awesomium::WebCore::version_string() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * Awesomium::WebCore::version_string() const function, expected prototype:\nconst char * Awesomium::WebCore::version_string() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebCore* self=(Luna< Awesomium::WebCore >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * Awesomium::WebCore::version_string() const. Got : '%s'",typeid(Luna< Awesomium::WebCore >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * Awesomium::WebCore::version_string() const. Got : '%s'\n%s",typeid(Luna< Awesomium::WebCore >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->version_string();
 		lua_pushstring(L,lret);

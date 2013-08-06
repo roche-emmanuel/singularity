@@ -88,6 +88,8 @@ local dxColorf = osg.Vec4f.toDXColor
 local dxColord = osg.Vec4d.toDXColor
 local fromYPR = osg.Quat.fromYPR
 local toYPR = osg.Quat.toYPR
+local toLLA = osg.Vec3d.toLLA
+local toUTM = osg.Vec3d.toUTM
 
 -- reload the extensions from MX project:
 require "osg"
@@ -96,9 +98,10 @@ require "extensions"
 
 osg.Vec4f.toDXColor = dxColorf
 osg.Vec4d.toDXColor = dxColord
-
 osg.Quat.fromYPR = fromYPR
 osg.Quat.toYPR = toYPR
+osg.Vec3d.toLLA = toLLA
+osg.Vec3d.toUTM = toUTM
 
 require "mxe.MXEHandler"
 

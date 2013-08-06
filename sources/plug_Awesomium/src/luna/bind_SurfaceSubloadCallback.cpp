@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SurfaceSubloadCallback* self=(Luna< SurfaceSubloadCallback >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(SurfaceSubloadCallback*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(SurfaceSubloadCallback*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SurfaceSubloadCallback* rhs =(Luna< SurfaceSubloadCallback >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SurfaceSubloadCallback* self= (SurfaceSubloadCallback*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< SurfaceSubloadCallback >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -169,8 +164,7 @@ public:
 	// SurfaceSubloadCallback::SurfaceSubloadCallback(Awesomium::WebView * view)
 	static SurfaceSubloadCallback* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SurfaceSubloadCallback::SurfaceSubloadCallback(Awesomium::WebView * view) function, expected prototype:\nSurfaceSubloadCallback::SurfaceSubloadCallback(Awesomium::WebView * view)\nClass arguments details:\narg 1 ID = 613205\n");
+			luaL_error(L, "luna typecheck failed in SurfaceSubloadCallback::SurfaceSubloadCallback(Awesomium::WebView * view) function, expected prototype:\nSurfaceSubloadCallback::SurfaceSubloadCallback(Awesomium::WebView * view)\nClass arguments details:\narg 1 ID = 613205\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebView* view=(Luna< Awesomium::WebView >::check(L,1));
@@ -181,8 +175,7 @@ public:
 	// SurfaceSubloadCallback::SurfaceSubloadCallback(lua_Table * data, Awesomium::WebView * view)
 	static SurfaceSubloadCallback* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SurfaceSubloadCallback::SurfaceSubloadCallback(lua_Table * data, Awesomium::WebView * view) function, expected prototype:\nSurfaceSubloadCallback::SurfaceSubloadCallback(lua_Table * data, Awesomium::WebView * view)\nClass arguments details:\narg 2 ID = 613205\n");
+			luaL_error(L, "luna typecheck failed in SurfaceSubloadCallback::SurfaceSubloadCallback(lua_Table * data, Awesomium::WebView * view) function, expected prototype:\nSurfaceSubloadCallback::SurfaceSubloadCallback(lua_Table * data, Awesomium::WebView * view)\nClass arguments details:\narg 2 ID = 613205\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebView* view=(Luna< Awesomium::WebView >::check(L,2));
@@ -204,8 +197,7 @@ public:
 	// void SurfaceSubloadCallback::load(const osg::Texture2D & texture, osg::State & state) const
 	static int _bind_load(lua_State *L) {
 		if (!_lg_typecheck_load(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SurfaceSubloadCallback::load(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nvoid SurfaceSubloadCallback::load(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void SurfaceSubloadCallback::load(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nvoid SurfaceSubloadCallback::load(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Texture2D* texture_ptr=(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,2));
@@ -221,8 +213,7 @@ public:
 
 		SurfaceSubloadCallback* self=(Luna< SurfaceSubloadCallback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SurfaceSubloadCallback::load(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< SurfaceSubloadCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SurfaceSubloadCallback::load(const osg::Texture2D &, osg::State &) const. Got : '%s'\n%s",typeid(Luna< SurfaceSubloadCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->load(texture, state);
 
@@ -232,8 +223,7 @@ public:
 	// void SurfaceSubloadCallback::subload(const osg::Texture2D & texture, osg::State & state) const
 	static int _bind_subload(lua_State *L) {
 		if (!_lg_typecheck_subload(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SurfaceSubloadCallback::subload(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nvoid SurfaceSubloadCallback::subload(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void SurfaceSubloadCallback::subload(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nvoid SurfaceSubloadCallback::subload(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Texture2D* texture_ptr=(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,2));
@@ -249,8 +239,7 @@ public:
 
 		SurfaceSubloadCallback* self=(Luna< SurfaceSubloadCallback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SurfaceSubloadCallback::subload(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< SurfaceSubloadCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SurfaceSubloadCallback::subload(const osg::Texture2D &, osg::State &) const. Got : '%s'\n%s",typeid(Luna< SurfaceSubloadCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->subload(texture, state);
 

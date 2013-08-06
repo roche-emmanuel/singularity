@@ -124,6 +124,12 @@ namespace Awesomium {
 	class WebLoginDialogInfo {
 	};
 
+	class WebPageInfo {
+	};
+
+	class NativeWindow {
+	};
+
 	namespace KeyCodes {
 	};
 

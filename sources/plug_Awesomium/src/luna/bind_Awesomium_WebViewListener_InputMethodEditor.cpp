@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebViewListener::InputMethodEditor* self=(Luna< Awesomium::WebViewListener::InputMethodEditor >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebViewListener::InputMethodEditor*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebViewListener::InputMethodEditor*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebViewListener::InputMethodEditor* rhs =(Luna< Awesomium::WebViewListener::InputMethodEditor >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebViewListener::InputMethodEditor* self= (Awesomium::WebViewListener::InputMethodEditor*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::WebViewListener::InputMethodEditor >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -169,8 +164,7 @@ public:
 	// Awesomium::WebViewListener::InputMethodEditor::InputMethodEditor(lua_Table * data)
 	static Awesomium::WebViewListener::InputMethodEditor* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebViewListener::InputMethodEditor::InputMethodEditor(lua_Table * data) function, expected prototype:\nAwesomium::WebViewListener::InputMethodEditor::InputMethodEditor(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebViewListener::InputMethodEditor::InputMethodEditor(lua_Table * data) function, expected prototype:\nAwesomium::WebViewListener::InputMethodEditor::InputMethodEditor(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -182,8 +176,7 @@ public:
 	// void Awesomium::WebViewListener::InputMethodEditor::OnUpdateIME(Awesomium::WebView * caller, Awesomium::TextInputType type, int caret_x, int caret_y)
 	static int _bind_OnUpdateIME(lua_State *L) {
 		if (!_lg_typecheck_OnUpdateIME(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::InputMethodEditor::OnUpdateIME(Awesomium::WebView * caller, Awesomium::TextInputType type, int caret_x, int caret_y) function, expected prototype:\nvoid Awesomium::WebViewListener::InputMethodEditor::OnUpdateIME(Awesomium::WebView * caller, Awesomium::TextInputType type, int caret_x, int caret_y)\nClass arguments details:\narg 1 ID = 613205\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::InputMethodEditor::OnUpdateIME(Awesomium::WebView * caller, Awesomium::TextInputType type, int caret_x, int caret_y) function, expected prototype:\nvoid Awesomium::WebViewListener::InputMethodEditor::OnUpdateIME(Awesomium::WebView * caller, Awesomium::TextInputType type, int caret_x, int caret_y)\nClass arguments details:\narg 1 ID = 613205\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebView* caller=(Luna< Awesomium::WebView >::check(L,2));
@@ -193,8 +186,7 @@ public:
 
 		Awesomium::WebViewListener::InputMethodEditor* self=(Luna< Awesomium::WebViewListener::InputMethodEditor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::InputMethodEditor::OnUpdateIME(Awesomium::WebView *, Awesomium::TextInputType, int, int). Got : '%s'",typeid(Luna< Awesomium::WebViewListener::InputMethodEditor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::InputMethodEditor::OnUpdateIME(Awesomium::WebView *, Awesomium::TextInputType, int, int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebViewListener::InputMethodEditor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnUpdateIME(caller, type, caret_x, caret_y);
 
@@ -204,16 +196,14 @@ public:
 	// void Awesomium::WebViewListener::InputMethodEditor::OnCancelIME(Awesomium::WebView * caller)
 	static int _bind_OnCancelIME(lua_State *L) {
 		if (!_lg_typecheck_OnCancelIME(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::InputMethodEditor::OnCancelIME(Awesomium::WebView * caller) function, expected prototype:\nvoid Awesomium::WebViewListener::InputMethodEditor::OnCancelIME(Awesomium::WebView * caller)\nClass arguments details:\narg 1 ID = 613205\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::InputMethodEditor::OnCancelIME(Awesomium::WebView * caller) function, expected prototype:\nvoid Awesomium::WebViewListener::InputMethodEditor::OnCancelIME(Awesomium::WebView * caller)\nClass arguments details:\narg 1 ID = 613205\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebView* caller=(Luna< Awesomium::WebView >::check(L,2));
 
 		Awesomium::WebViewListener::InputMethodEditor* self=(Luna< Awesomium::WebViewListener::InputMethodEditor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::InputMethodEditor::OnCancelIME(Awesomium::WebView *). Got : '%s'",typeid(Luna< Awesomium::WebViewListener::InputMethodEditor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::InputMethodEditor::OnCancelIME(Awesomium::WebView *). Got : '%s'\n%s",typeid(Luna< Awesomium::WebViewListener::InputMethodEditor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnCancelIME(caller);
 
@@ -223,8 +213,7 @@ public:
 	// void Awesomium::WebViewListener::InputMethodEditor::OnChangeIMERange(Awesomium::WebView * caller, unsigned int start, unsigned int end)
 	static int _bind_OnChangeIMERange(lua_State *L) {
 		if (!_lg_typecheck_OnChangeIMERange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::InputMethodEditor::OnChangeIMERange(Awesomium::WebView * caller, unsigned int start, unsigned int end) function, expected prototype:\nvoid Awesomium::WebViewListener::InputMethodEditor::OnChangeIMERange(Awesomium::WebView * caller, unsigned int start, unsigned int end)\nClass arguments details:\narg 1 ID = 613205\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebViewListener::InputMethodEditor::OnChangeIMERange(Awesomium::WebView * caller, unsigned int start, unsigned int end) function, expected prototype:\nvoid Awesomium::WebViewListener::InputMethodEditor::OnChangeIMERange(Awesomium::WebView * caller, unsigned int start, unsigned int end)\nClass arguments details:\narg 1 ID = 613205\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebView* caller=(Luna< Awesomium::WebView >::check(L,2));
@@ -233,8 +222,7 @@ public:
 
 		Awesomium::WebViewListener::InputMethodEditor* self=(Luna< Awesomium::WebViewListener::InputMethodEditor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::InputMethodEditor::OnChangeIMERange(Awesomium::WebView *, unsigned int, unsigned int). Got : '%s'",typeid(Luna< Awesomium::WebViewListener::InputMethodEditor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebViewListener::InputMethodEditor::OnChangeIMERange(Awesomium::WebView *, unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebViewListener::InputMethodEditor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OnChangeIMERange(caller, start, end);
 

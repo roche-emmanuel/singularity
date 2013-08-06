@@ -77,7 +77,15 @@ function Class:get(entry)
         return nil;
     end
     
-	return item:get(entry:getName(),entry:getDefaultValue())
+	local val = item:get(entry:getName())
+	if val==nil then
+		-- there is no value in the container yet, so we force calling the handler if
+		-- applicable by having the entry itself set its value.
+		val = entry:getDefaultValue()
+		entry:setValue(val)
+	end
+	
+	return val
 end
 
 function Class:set(entry,val)

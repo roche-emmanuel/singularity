@@ -56,6 +56,13 @@ public:
 		return (_obj.callFunction<int>());
 	};
 
+	// int Awesomium::WebView::routing_id()
+	int routing_id() {
+		THROW_IF(!_obj.pushFunction("routing_id"),"No implementation for abstract function Awesomium::WebView::routing_id");
+		_obj.pushArg((Awesomium::WebView*)this);
+		return (_obj.callFunction<int>());
+	};
+
 	// void Awesomium::WebView::set_view_listener(Awesomium::WebViewListener::View * listener)
 	void set_view_listener(Awesomium::WebViewListener::View * listener) {
 		THROW_IF(!_obj.pushFunction("set_view_listener"),"No implementation for abstract function Awesomium::WebView::set_view_listener");
@@ -336,6 +343,42 @@ public:
 		return (Awesomium::FocusedElementType)(_obj.callFunction<int>());
 	};
 
+	// void Awesomium::WebView::ZoomIn()
+	void ZoomIn() {
+		THROW_IF(!_obj.pushFunction("ZoomIn"),"No implementation for abstract function Awesomium::WebView::ZoomIn");
+		_obj.pushArg((Awesomium::WebView*)this);
+		return (_obj.callFunction<void>());
+	};
+
+	// void Awesomium::WebView::ZoomOut()
+	void ZoomOut() {
+		THROW_IF(!_obj.pushFunction("ZoomOut"),"No implementation for abstract function Awesomium::WebView::ZoomOut");
+		_obj.pushArg((Awesomium::WebView*)this);
+		return (_obj.callFunction<void>());
+	};
+
+	// void Awesomium::WebView::SetZoom(int zoom_percent)
+	void SetZoom(int zoom_percent) {
+		THROW_IF(!_obj.pushFunction("SetZoom"),"No implementation for abstract function Awesomium::WebView::SetZoom");
+		_obj.pushArg((Awesomium::WebView*)this);
+		_obj.pushArg(zoom_percent);
+		return (_obj.callFunction<void>());
+	};
+
+	// void Awesomium::WebView::ResetZoom()
+	void ResetZoom() {
+		THROW_IF(!_obj.pushFunction("ResetZoom"),"No implementation for abstract function Awesomium::WebView::ResetZoom");
+		_obj.pushArg((Awesomium::WebView*)this);
+		return (_obj.callFunction<void>());
+	};
+
+	// int Awesomium::WebView::GetZoom()
+	int GetZoom() {
+		THROW_IF(!_obj.pushFunction("GetZoom"),"No implementation for abstract function Awesomium::WebView::GetZoom");
+		_obj.pushArg((Awesomium::WebView*)this);
+		return (_obj.callFunction<int>());
+	};
+
 	// void Awesomium::WebView::InjectMouseMove(int x, int y)
 	void InjectMouseMove(int x, int y) {
 		THROW_IF(!_obj.pushFunction("InjectMouseMove"),"No implementation for abstract function Awesomium::WebView::InjectMouseMove");
@@ -535,6 +578,21 @@ public:
 		return (_obj.callFunction<Awesomium::JSMethodHandler*>());
 	};
 
+	// void Awesomium::WebView::set_sync_message_timeout(int timeout_ms)
+	void set_sync_message_timeout(int timeout_ms) {
+		THROW_IF(!_obj.pushFunction("set_sync_message_timeout"),"No implementation for abstract function Awesomium::WebView::set_sync_message_timeout");
+		_obj.pushArg((Awesomium::WebView*)this);
+		_obj.pushArg(timeout_ms);
+		return (_obj.callFunction<void>());
+	};
+
+	// int Awesomium::WebView::sync_message_timeout()
+	int sync_message_timeout() {
+		THROW_IF(!_obj.pushFunction("sync_message_timeout"),"No implementation for abstract function Awesomium::WebView::sync_message_timeout");
+		_obj.pushArg((Awesomium::WebView*)this);
+		return (_obj.callFunction<int>());
+	};
+
 	// void Awesomium::WebView::DidSelectPopupMenuItem(int item_index)
 	void DidSelectPopupMenuItem(int item_index) {
 		THROW_IF(!_obj.pushFunction("DidSelectPopupMenuItem"),"No implementation for abstract function Awesomium::WebView::DidSelectPopupMenuItem");
@@ -594,6 +652,20 @@ public:
 		return (_obj.callFunction<void>());
 	};
 
+	// void Awesomium::WebView::DidOverrideCertificateError()
+	void DidOverrideCertificateError() {
+		THROW_IF(!_obj.pushFunction("DidOverrideCertificateError"),"No implementation for abstract function Awesomium::WebView::DidOverrideCertificateError");
+		_obj.pushArg((Awesomium::WebView*)this);
+		return (_obj.callFunction<void>());
+	};
+
+	// void Awesomium::WebView::RequestPageInfo()
+	void RequestPageInfo() {
+		THROW_IF(!_obj.pushFunction("RequestPageInfo"),"No implementation for abstract function Awesomium::WebView::RequestPageInfo");
+		_obj.pushArg((Awesomium::WebView*)this);
+		return (_obj.callFunction<void>());
+	};
+
 
 	// Protected non-virtual methods:
 
@@ -613,23 +685,23 @@ ProcessHandle process_handle() {
 };
 
 public:
-// void Awesomium::WebView::set_parent_window(NativeWindow parent)
-void set_parent_window(NativeWindow) {
-	THROW_IF(true,"The function call void Awesomium::WebView::set_parent_window(NativeWindow) is not implemented in wrapper.");
+// void Awesomium::WebView::set_parent_window(Awesomium::NativeWindow parent)
+void set_parent_window(Awesomium::NativeWindow) {
+	THROW_IF(true,"The function call void Awesomium::WebView::set_parent_window(Awesomium::NativeWindow) is not implemented in wrapper.");
 };
 
 public:
-// NativeWindow Awesomium::WebView::parent_window()
-NativeWindow parent_window() {
-	THROW_IF(true,"The function call NativeWindow Awesomium::WebView::parent_window() is not implemented in wrapper.");
-	return NativeWindow();
+// Awesomium::NativeWindow Awesomium::WebView::parent_window()
+Awesomium::NativeWindow parent_window() {
+	THROW_IF(true,"The function call Awesomium::NativeWindow Awesomium::WebView::parent_window() is not implemented in wrapper.");
+	return Awesomium::NativeWindow();
 };
 
 public:
-// NativeWindow Awesomium::WebView::window()
-NativeWindow window() {
-	THROW_IF(true,"The function call NativeWindow Awesomium::WebView::window() is not implemented in wrapper.");
-	return NativeWindow();
+// Awesomium::NativeWindow Awesomium::WebView::window()
+Awesomium::NativeWindow window() {
+	THROW_IF(true,"The function call Awesomium::NativeWindow Awesomium::WebView::window() is not implemented in wrapper.");
+	return Awesomium::NativeWindow();
 };
 
 };

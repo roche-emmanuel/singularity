@@ -25,7 +25,7 @@ function Class:loadProgram(options)
 		return prog
 	end
 	
-	local version = options.version or 330
+	local version = options.version or 120
 	
 	-- create a new program
 	prog = osg.Program()
@@ -35,19 +35,19 @@ function Class:loadProgram(options)
 	local src = f:read("*a")
 	f:close()
 	
-	src = "#version ".. version .. "\n" .. src
+	local vstr = "#version ".. version .. "\n"
 	
 	if src:find("#ifdef%s+_VERTEX_") then
 		self:info("Adding vertex shader from file ",file)
 		local sh = osg.Shader(osg.Shader.VERTEX);
-		sh:setShaderSource("#define _VERTEX_\n" .. src);
+		sh:setShaderSource(vstr.. "#define _VERTEX_\n" .. src);
 		prog:addShader(sh)
 	end
 	
 	if src:find("#ifdef%s+_FRAGMENT_") then
 		self:info("Adding vertex shader from file ",file)
 		local sh = osg.Shader(osg.Shader.FRAGMENT);
-		sh:setShaderSource("#define _FRAGMENT_\n" .. src);
+		sh:setShaderSource(vstr.. "#define _FRAGMENT_\n" .. src);
 		prog:addShader(sh)
 	end
 

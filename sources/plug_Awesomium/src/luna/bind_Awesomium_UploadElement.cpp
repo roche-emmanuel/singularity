@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::UploadElement* self=(Luna< Awesomium::UploadElement >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::UploadElement*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::UploadElement*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::UploadElement* rhs =(Luna< Awesomium::UploadElement >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::UploadElement* self= (Awesomium::UploadElement*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::UploadElement >::check(L,1));
@@ -108,8 +104,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -173,8 +168,7 @@ public:
 	// Awesomium::UploadElement::UploadElement(lua_Table * data)
 	static Awesomium::UploadElement* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::UploadElement::UploadElement(lua_Table * data) function, expected prototype:\nAwesomium::UploadElement::UploadElement(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::UploadElement::UploadElement(lua_Table * data) function, expected prototype:\nAwesomium::UploadElement::UploadElement(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -186,15 +180,13 @@ public:
 	// bool Awesomium::UploadElement::IsFilePath() const
 	static int _bind_IsFilePath(lua_State *L) {
 		if (!_lg_typecheck_IsFilePath(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::UploadElement::IsFilePath() const function, expected prototype:\nbool Awesomium::UploadElement::IsFilePath() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::UploadElement::IsFilePath() const function, expected prototype:\nbool Awesomium::UploadElement::IsFilePath() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::UploadElement* self=(Luna< Awesomium::UploadElement >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::UploadElement::IsFilePath() const. Got : '%s'",typeid(Luna< Awesomium::UploadElement >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::UploadElement::IsFilePath() const. Got : '%s'\n%s",typeid(Luna< Awesomium::UploadElement >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsFilePath();
 		lua_pushboolean(L,lret?1:0);
@@ -205,15 +197,13 @@ public:
 	// bool Awesomium::UploadElement::IsBytes() const
 	static int _bind_IsBytes(lua_State *L) {
 		if (!_lg_typecheck_IsBytes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Awesomium::UploadElement::IsBytes() const function, expected prototype:\nbool Awesomium::UploadElement::IsBytes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Awesomium::UploadElement::IsBytes() const function, expected prototype:\nbool Awesomium::UploadElement::IsBytes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::UploadElement* self=(Luna< Awesomium::UploadElement >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Awesomium::UploadElement::IsBytes() const. Got : '%s'",typeid(Luna< Awesomium::UploadElement >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Awesomium::UploadElement::IsBytes() const. Got : '%s'\n%s",typeid(Luna< Awesomium::UploadElement >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsBytes();
 		lua_pushboolean(L,lret?1:0);
@@ -224,15 +214,13 @@ public:
 	// unsigned int Awesomium::UploadElement::num_bytes() const
 	static int _bind_num_bytes(lua_State *L) {
 		if (!_lg_typecheck_num_bytes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int Awesomium::UploadElement::num_bytes() const function, expected prototype:\nunsigned int Awesomium::UploadElement::num_bytes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int Awesomium::UploadElement::num_bytes() const function, expected prototype:\nunsigned int Awesomium::UploadElement::num_bytes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::UploadElement* self=(Luna< Awesomium::UploadElement >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int Awesomium::UploadElement::num_bytes() const. Got : '%s'",typeid(Luna< Awesomium::UploadElement >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int Awesomium::UploadElement::num_bytes() const. Got : '%s'\n%s",typeid(Luna< Awesomium::UploadElement >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->num_bytes();
 		lua_pushnumber(L,lret);
@@ -243,15 +231,13 @@ public:
 	// const unsigned char * Awesomium::UploadElement::bytes() const
 	static int _bind_bytes(lua_State *L) {
 		if (!_lg_typecheck_bytes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const unsigned char * Awesomium::UploadElement::bytes() const function, expected prototype:\nconst unsigned char * Awesomium::UploadElement::bytes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const unsigned char * Awesomium::UploadElement::bytes() const function, expected prototype:\nconst unsigned char * Awesomium::UploadElement::bytes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::UploadElement* self=(Luna< Awesomium::UploadElement >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const unsigned char * Awesomium::UploadElement::bytes() const. Got : '%s'",typeid(Luna< Awesomium::UploadElement >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const unsigned char * Awesomium::UploadElement::bytes() const. Got : '%s'\n%s",typeid(Luna< Awesomium::UploadElement >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const unsigned char * lret = self->bytes();
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
@@ -262,15 +248,13 @@ public:
 	// Awesomium::WebString Awesomium::UploadElement::file_path() const
 	static int _bind_file_path(lua_State *L) {
 		if (!_lg_typecheck_file_path(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::UploadElement::file_path() const function, expected prototype:\nAwesomium::WebString Awesomium::UploadElement::file_path() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebString Awesomium::UploadElement::file_path() const function, expected prototype:\nAwesomium::WebString Awesomium::UploadElement::file_path() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::UploadElement* self=(Luna< Awesomium::UploadElement >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::UploadElement::file_path() const. Got : '%s'",typeid(Luna< Awesomium::UploadElement >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebString Awesomium::UploadElement::file_path() const. Got : '%s'\n%s",typeid(Luna< Awesomium::UploadElement >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		Awesomium::WebString lret = self->file_path();
 		std::string lret_str = Awesomium::ToString(lret);

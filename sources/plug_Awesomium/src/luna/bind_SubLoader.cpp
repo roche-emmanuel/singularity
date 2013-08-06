@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(SubLoader*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(SubLoader*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SubLoader* rhs =(Luna< SubLoader >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SubLoader* self= (SubLoader*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< SubLoader >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -167,8 +163,7 @@ public:
 	// SubLoader::SubLoader()
 	static SubLoader* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SubLoader::SubLoader() function, expected prototype:\nSubLoader::SubLoader()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SubLoader::SubLoader() function, expected prototype:\nSubLoader::SubLoader()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -180,8 +175,7 @@ public:
 	// bool SubLoader::textureObjectValid(const osg::Texture2D & texture, osg::State & state) const
 	static int _bind_textureObjectValid(lua_State *L) {
 		if (!_lg_typecheck_textureObjectValid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SubLoader::textureObjectValid(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nbool SubLoader::textureObjectValid(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool SubLoader::textureObjectValid(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nbool SubLoader::textureObjectValid(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Texture2D* texture_ptr=(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,2));
@@ -197,8 +191,7 @@ public:
 
 		SubLoader* self=(Luna< SubLoader >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SubLoader::textureObjectValid(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< SubLoader >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SubLoader::textureObjectValid(const osg::Texture2D &, osg::State &) const. Got : '%s'\n%s",typeid(Luna< SubLoader >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->textureObjectValid(texture, state);
 		lua_pushboolean(L,lret?1:0);
@@ -209,8 +202,7 @@ public:
 	// void SubLoader::load(const osg::Texture2D & texture, osg::State & state) const
 	static int _bind_load(lua_State *L) {
 		if (!_lg_typecheck_load(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SubLoader::load(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nvoid SubLoader::load(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void SubLoader::load(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nvoid SubLoader::load(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Texture2D* texture_ptr=(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,2));
@@ -226,8 +218,7 @@ public:
 
 		SubLoader* self=(Luna< SubLoader >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SubLoader::load(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< SubLoader >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SubLoader::load(const osg::Texture2D &, osg::State &) const. Got : '%s'\n%s",typeid(Luna< SubLoader >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->load(texture, state);
 
@@ -237,8 +228,7 @@ public:
 	// void SubLoader::subload(const osg::Texture2D & texture, osg::State & state) const
 	static int _bind_subload(lua_State *L) {
 		if (!_lg_typecheck_subload(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SubLoader::subload(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nvoid SubLoader::subload(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void SubLoader::subload(const osg::Texture2D & texture, osg::State & state) const function, expected prototype:\nvoid SubLoader::subload(const osg::Texture2D & texture, osg::State & state) const\nClass arguments details:\narg 1 ID = 50169651\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Texture2D* texture_ptr=(Luna< osg::Referenced >::checkSubType< osg::Texture2D >(L,2));
@@ -254,8 +244,7 @@ public:
 
 		SubLoader* self=(Luna< SubLoader >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SubLoader::subload(const osg::Texture2D &, osg::State &) const. Got : '%s'",typeid(Luna< SubLoader >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SubLoader::subload(const osg::Texture2D &, osg::State &) const. Got : '%s'\n%s",typeid(Luna< SubLoader >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->subload(texture, state);
 
@@ -265,8 +254,7 @@ public:
 	// void SubLoader::setSurfaceSize(int width, int height)
 	static int _bind_setSurfaceSize(lua_State *L) {
 		if (!_lg_typecheck_setSurfaceSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SubLoader::setSurfaceSize(int width, int height) function, expected prototype:\nvoid SubLoader::setSurfaceSize(int width, int height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SubLoader::setSurfaceSize(int width, int height) function, expected prototype:\nvoid SubLoader::setSurfaceSize(int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int width=(int)lua_tointeger(L,2);
@@ -274,8 +262,7 @@ public:
 
 		SubLoader* self=(Luna< SubLoader >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SubLoader::setSurfaceSize(int, int). Got : '%s'",typeid(Luna< SubLoader >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SubLoader::setSurfaceSize(int, int). Got : '%s'\n%s",typeid(Luna< SubLoader >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSurfaceSize(width, height);
 
@@ -285,8 +272,7 @@ public:
 	// void SubLoader::addArea(int xx, int yy, int ww, int hh, unsigned char * ptr)
 	static int _bind_addArea(lua_State *L) {
 		if (!_lg_typecheck_addArea(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SubLoader::addArea(int xx, int yy, int ww, int hh, unsigned char * ptr) function, expected prototype:\nvoid SubLoader::addArea(int xx, int yy, int ww, int hh, unsigned char * ptr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SubLoader::addArea(int xx, int yy, int ww, int hh, unsigned char * ptr) function, expected prototype:\nvoid SubLoader::addArea(int xx, int yy, int ww, int hh, unsigned char * ptr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int xx=(int)lua_tointeger(L,2);
@@ -297,8 +283,7 @@ public:
 
 		SubLoader* self=(Luna< SubLoader >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SubLoader::addArea(int, int, int, int, unsigned char *). Got : '%s'",typeid(Luna< SubLoader >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SubLoader::addArea(int, int, int, int, unsigned char *). Got : '%s'\n%s",typeid(Luna< SubLoader >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addArea(xx, yy, ww, hh, &ptr);
 
@@ -308,8 +293,7 @@ public:
 	// unsigned char * SubLoader::getData(int xx, int yy)
 	static int _bind_getData(lua_State *L) {
 		if (!_lg_typecheck_getData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char * SubLoader::getData(int xx, int yy) function, expected prototype:\nunsigned char * SubLoader::getData(int xx, int yy)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char * SubLoader::getData(int xx, int yy) function, expected prototype:\nunsigned char * SubLoader::getData(int xx, int yy)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int xx=(int)lua_tointeger(L,2);
@@ -317,8 +301,7 @@ public:
 
 		SubLoader* self=(Luna< SubLoader >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char * SubLoader::getData(int, int). Got : '%s'",typeid(Luna< SubLoader >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char * SubLoader::getData(int, int). Got : '%s'\n%s",typeid(Luna< SubLoader >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char * lret = self->getData(xx, yy);
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");

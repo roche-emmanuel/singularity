@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebTouchPoint*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(Awesomium::WebTouchPoint*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebTouchPoint* rhs =(Luna< Awesomium::WebTouchPoint >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebTouchPoint* self= (Awesomium::WebTouchPoint*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::WebTouchPoint >::check(L,1));
@@ -82,8 +79,7 @@ public:
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -246,8 +242,7 @@ public:
 	// Awesomium::WebTouchPoint::WebTouchPoint()
 	static Awesomium::WebTouchPoint* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebTouchPoint::WebTouchPoint() function, expected prototype:\nAwesomium::WebTouchPoint::WebTouchPoint()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebTouchPoint::WebTouchPoint() function, expected prototype:\nAwesomium::WebTouchPoint::WebTouchPoint()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -259,15 +254,13 @@ public:
 	// int Awesomium::WebTouchPoint::id()
 	static int _bind_getId(lua_State *L) {
 		if (!_lg_typecheck_getId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::id() function, expected prototype:\nint Awesomium::WebTouchPoint::id()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::id() function, expected prototype:\nint Awesomium::WebTouchPoint::id()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::WebTouchPoint::id(). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::WebTouchPoint::id(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->id;
 		lua_pushnumber(L,lret);
@@ -278,15 +271,13 @@ public:
 	// Awesomium::WebTouchPointState Awesomium::WebTouchPoint::state()
 	static int _bind_getState(lua_State *L) {
 		if (!_lg_typecheck_getState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebTouchPointState Awesomium::WebTouchPoint::state() function, expected prototype:\nAwesomium::WebTouchPointState Awesomium::WebTouchPoint::state()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebTouchPointState Awesomium::WebTouchPoint::state() function, expected prototype:\nAwesomium::WebTouchPointState Awesomium::WebTouchPoint::state()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebTouchPointState Awesomium::WebTouchPoint::state(). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebTouchPointState Awesomium::WebTouchPoint::state(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		Awesomium::WebTouchPointState lret = self->state;
 		lua_pushnumber(L,lret);
@@ -297,15 +288,13 @@ public:
 	// int Awesomium::WebTouchPoint::screen_position_x()
 	static int _bind_get_screen_position_x(lua_State *L) {
 		if (!_lg_typecheck_get_screen_position_x(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::screen_position_x() function, expected prototype:\nint Awesomium::WebTouchPoint::screen_position_x()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::screen_position_x() function, expected prototype:\nint Awesomium::WebTouchPoint::screen_position_x()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::WebTouchPoint::screen_position_x(). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::WebTouchPoint::screen_position_x(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->screen_position_x;
 		lua_pushnumber(L,lret);
@@ -316,15 +305,13 @@ public:
 	// int Awesomium::WebTouchPoint::screen_position_y()
 	static int _bind_get_screen_position_y(lua_State *L) {
 		if (!_lg_typecheck_get_screen_position_y(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::screen_position_y() function, expected prototype:\nint Awesomium::WebTouchPoint::screen_position_y()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::screen_position_y() function, expected prototype:\nint Awesomium::WebTouchPoint::screen_position_y()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::WebTouchPoint::screen_position_y(). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::WebTouchPoint::screen_position_y(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->screen_position_y;
 		lua_pushnumber(L,lret);
@@ -335,15 +322,13 @@ public:
 	// int Awesomium::WebTouchPoint::position_x()
 	static int _bind_get_position_x(lua_State *L) {
 		if (!_lg_typecheck_get_position_x(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::position_x() function, expected prototype:\nint Awesomium::WebTouchPoint::position_x()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::position_x() function, expected prototype:\nint Awesomium::WebTouchPoint::position_x()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::WebTouchPoint::position_x(). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::WebTouchPoint::position_x(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->position_x;
 		lua_pushnumber(L,lret);
@@ -354,15 +339,13 @@ public:
 	// int Awesomium::WebTouchPoint::position_y()
 	static int _bind_get_position_y(lua_State *L) {
 		if (!_lg_typecheck_get_position_y(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::position_y() function, expected prototype:\nint Awesomium::WebTouchPoint::position_y()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::position_y() function, expected prototype:\nint Awesomium::WebTouchPoint::position_y()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::WebTouchPoint::position_y(). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::WebTouchPoint::position_y(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->position_y;
 		lua_pushnumber(L,lret);
@@ -373,15 +356,13 @@ public:
 	// int Awesomium::WebTouchPoint::radius_x()
 	static int _bind_get_radius_x(lua_State *L) {
 		if (!_lg_typecheck_get_radius_x(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::radius_x() function, expected prototype:\nint Awesomium::WebTouchPoint::radius_x()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::radius_x() function, expected prototype:\nint Awesomium::WebTouchPoint::radius_x()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::WebTouchPoint::radius_x(). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::WebTouchPoint::radius_x(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->radius_x;
 		lua_pushnumber(L,lret);
@@ -392,15 +373,13 @@ public:
 	// int Awesomium::WebTouchPoint::radius_y()
 	static int _bind_get_radius_y(lua_State *L) {
 		if (!_lg_typecheck_get_radius_y(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::radius_y() function, expected prototype:\nint Awesomium::WebTouchPoint::radius_y()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int Awesomium::WebTouchPoint::radius_y() function, expected prototype:\nint Awesomium::WebTouchPoint::radius_y()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int Awesomium::WebTouchPoint::radius_y(). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int Awesomium::WebTouchPoint::radius_y(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->radius_y;
 		lua_pushnumber(L,lret);
@@ -411,15 +390,13 @@ public:
 	// float Awesomium::WebTouchPoint::rotation_angle()
 	static int _bind_get_rotation_angle(lua_State *L) {
 		if (!_lg_typecheck_get_rotation_angle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float Awesomium::WebTouchPoint::rotation_angle() function, expected prototype:\nfloat Awesomium::WebTouchPoint::rotation_angle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float Awesomium::WebTouchPoint::rotation_angle() function, expected prototype:\nfloat Awesomium::WebTouchPoint::rotation_angle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float Awesomium::WebTouchPoint::rotation_angle(). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float Awesomium::WebTouchPoint::rotation_angle(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->rotation_angle;
 		lua_pushnumber(L,lret);
@@ -430,15 +407,13 @@ public:
 	// float Awesomium::WebTouchPoint::force()
 	static int _bind_getForce(lua_State *L) {
 		if (!_lg_typecheck_getForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float Awesomium::WebTouchPoint::force() function, expected prototype:\nfloat Awesomium::WebTouchPoint::force()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float Awesomium::WebTouchPoint::force() function, expected prototype:\nfloat Awesomium::WebTouchPoint::force()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float Awesomium::WebTouchPoint::force(). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float Awesomium::WebTouchPoint::force(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->force;
 		lua_pushnumber(L,lret);
@@ -449,16 +424,14 @@ public:
 	// void Awesomium::WebTouchPoint::id(int value)
 	static int _bind_setId(lua_State *L) {
 		if (!_lg_typecheck_setId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::id(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::id(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::id(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::id(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::id(int). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::id(int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->id = value;
 
@@ -468,16 +441,14 @@ public:
 	// void Awesomium::WebTouchPoint::state(Awesomium::WebTouchPointState value)
 	static int _bind_setState(lua_State *L) {
 		if (!_lg_typecheck_setState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::state(Awesomium::WebTouchPointState value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::state(Awesomium::WebTouchPointState value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::state(Awesomium::WebTouchPointState value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::state(Awesomium::WebTouchPointState value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebTouchPointState value=(Awesomium::WebTouchPointState)lua_tointeger(L,2);
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::state(Awesomium::WebTouchPointState). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::state(Awesomium::WebTouchPointState). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->state = value;
 
@@ -487,16 +458,14 @@ public:
 	// void Awesomium::WebTouchPoint::screen_position_x(int value)
 	static int _bind_set_screen_position_x(lua_State *L) {
 		if (!_lg_typecheck_set_screen_position_x(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::screen_position_x(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::screen_position_x(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::screen_position_x(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::screen_position_x(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::screen_position_x(int). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::screen_position_x(int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->screen_position_x = value;
 
@@ -506,16 +475,14 @@ public:
 	// void Awesomium::WebTouchPoint::screen_position_y(int value)
 	static int _bind_set_screen_position_y(lua_State *L) {
 		if (!_lg_typecheck_set_screen_position_y(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::screen_position_y(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::screen_position_y(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::screen_position_y(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::screen_position_y(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::screen_position_y(int). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::screen_position_y(int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->screen_position_y = value;
 
@@ -525,16 +492,14 @@ public:
 	// void Awesomium::WebTouchPoint::position_x(int value)
 	static int _bind_set_position_x(lua_State *L) {
 		if (!_lg_typecheck_set_position_x(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::position_x(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::position_x(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::position_x(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::position_x(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::position_x(int). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::position_x(int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->position_x = value;
 
@@ -544,16 +509,14 @@ public:
 	// void Awesomium::WebTouchPoint::position_y(int value)
 	static int _bind_set_position_y(lua_State *L) {
 		if (!_lg_typecheck_set_position_y(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::position_y(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::position_y(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::position_y(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::position_y(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::position_y(int). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::position_y(int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->position_y = value;
 
@@ -563,16 +526,14 @@ public:
 	// void Awesomium::WebTouchPoint::radius_x(int value)
 	static int _bind_set_radius_x(lua_State *L) {
 		if (!_lg_typecheck_set_radius_x(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::radius_x(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::radius_x(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::radius_x(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::radius_x(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::radius_x(int). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::radius_x(int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->radius_x = value;
 
@@ -582,16 +543,14 @@ public:
 	// void Awesomium::WebTouchPoint::radius_y(int value)
 	static int _bind_set_radius_y(lua_State *L) {
 		if (!_lg_typecheck_set_radius_y(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::radius_y(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::radius_y(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::radius_y(int value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::radius_y(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::radius_y(int). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::radius_y(int). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->radius_y = value;
 
@@ -601,16 +560,14 @@ public:
 	// void Awesomium::WebTouchPoint::rotation_angle(float value)
 	static int _bind_set_rotation_angle(lua_State *L) {
 		if (!_lg_typecheck_set_rotation_angle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::rotation_angle(float value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::rotation_angle(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::rotation_angle(float value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::rotation_angle(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::rotation_angle(float). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::rotation_angle(float). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->rotation_angle = value;
 
@@ -620,16 +577,14 @@ public:
 	// void Awesomium::WebTouchPoint::force(float value)
 	static int _bind_setForce(lua_State *L) {
 		if (!_lg_typecheck_setForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::force(float value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::force(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebTouchPoint::force(float value) function, expected prototype:\nvoid Awesomium::WebTouchPoint::force(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		Awesomium::WebTouchPoint* self=(Luna< Awesomium::WebTouchPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::force(float). Got : '%s'",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void Awesomium::WebTouchPoint::force(float). Got : '%s'\n%s",typeid(Luna< Awesomium::WebTouchPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->force = value;
 

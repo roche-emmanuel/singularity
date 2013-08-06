@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::Surface* self=(Luna< Awesomium::Surface >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		OSGSurface* self= (OSGSurface*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< Awesomium::Surface >::check(L,1));
@@ -184,8 +181,7 @@ public:
 	// OSGSurface::OSGSurface(Awesomium::WebView * view)
 	static OSGSurface* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in OSGSurface::OSGSurface(Awesomium::WebView * view) function, expected prototype:\nOSGSurface::OSGSurface(Awesomium::WebView * view)\nClass arguments details:\narg 1 ID = 613205\n");
+			luaL_error(L, "luna typecheck failed in OSGSurface::OSGSurface(Awesomium::WebView * view) function, expected prototype:\nOSGSurface::OSGSurface(Awesomium::WebView * view)\nClass arguments details:\narg 1 ID = 613205\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebView* view=(Luna< Awesomium::WebView >::check(L,1));
@@ -196,8 +192,7 @@ public:
 	// OSGSurface::OSGSurface(lua_Table * data, Awesomium::WebView * view)
 	static OSGSurface* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in OSGSurface::OSGSurface(lua_Table * data, Awesomium::WebView * view) function, expected prototype:\nOSGSurface::OSGSurface(lua_Table * data, Awesomium::WebView * view)\nClass arguments details:\narg 2 ID = 613205\n");
+			luaL_error(L, "luna typecheck failed in OSGSurface::OSGSurface(lua_Table * data, Awesomium::WebView * view) function, expected prototype:\nOSGSurface::OSGSurface(lua_Table * data, Awesomium::WebView * view)\nClass arguments details:\narg 2 ID = 613205\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Awesomium::WebView* view=(Luna< Awesomium::WebView >::check(L,2));
@@ -219,15 +214,13 @@ public:
 	// Awesomium::WebView * OSGSurface::getWebView()
 	static int _bind_getWebView(lua_State *L) {
 		if (!_lg_typecheck_getWebView(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Awesomium::WebView * OSGSurface::getWebView() function, expected prototype:\nAwesomium::WebView * OSGSurface::getWebView()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Awesomium::WebView * OSGSurface::getWebView() function, expected prototype:\nAwesomium::WebView * OSGSurface::getWebView()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OSGSurface* self=Luna< Awesomium::Surface >::checkSubType< OSGSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call Awesomium::WebView * OSGSurface::getWebView(). Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call Awesomium::WebView * OSGSurface::getWebView(). Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		Awesomium::WebView * lret = self->getWebView();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -240,8 +233,7 @@ public:
 	// void OSGSurface::setSize(int width, int height)
 	static int _bind_setSize(lua_State *L) {
 		if (!_lg_typecheck_setSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void OSGSurface::setSize(int width, int height) function, expected prototype:\nvoid OSGSurface::setSize(int width, int height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void OSGSurface::setSize(int width, int height) function, expected prototype:\nvoid OSGSurface::setSize(int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int width=(int)lua_tointeger(L,2);
@@ -249,8 +241,7 @@ public:
 
 		OSGSurface* self=Luna< Awesomium::Surface >::checkSubType< OSGSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void OSGSurface::setSize(int, int). Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void OSGSurface::setSize(int, int). Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSize(width, height);
 
@@ -260,15 +251,13 @@ public:
 	// osg::Texture2D * OSGSurface::getTexture()
 	static int _bind_getTexture(lua_State *L) {
 		if (!_lg_typecheck_getTexture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Texture2D * OSGSurface::getTexture() function, expected prototype:\nosg::Texture2D * OSGSurface::getTexture()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Texture2D * OSGSurface::getTexture() function, expected prototype:\nosg::Texture2D * OSGSurface::getTexture()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		OSGSurface* self=Luna< Awesomium::Surface >::checkSubType< OSGSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Texture2D * OSGSurface::getTexture(). Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Texture2D * OSGSurface::getTexture(). Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Texture2D * lret = self->getTexture();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -281,8 +270,7 @@ public:
 	// void OSGSurface::validateClipRect(int dx, int dy, const Awesomium::Rect & clip_rect, Area & result)
 	static int _bind_validateClipRect(lua_State *L) {
 		if (!_lg_typecheck_validateClipRect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void OSGSurface::validateClipRect(int dx, int dy, const Awesomium::Rect & clip_rect, Area & result) function, expected prototype:\nvoid OSGSurface::validateClipRect(int dx, int dy, const Awesomium::Rect & clip_rect, Area & result)\nClass arguments details:\narg 3 ID = 8907551\narg 4 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void OSGSurface::validateClipRect(int dx, int dy, const Awesomium::Rect & clip_rect, Area & result) function, expected prototype:\nvoid OSGSurface::validateClipRect(int dx, int dy, const Awesomium::Rect & clip_rect, Area & result)\nClass arguments details:\narg 3 ID = 8907551\narg 4 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int dx=(int)lua_tointeger(L,2);
@@ -300,8 +288,7 @@ public:
 
 		OSGSurface* self=Luna< Awesomium::Surface >::checkSubType< OSGSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void OSGSurface::validateClipRect(int, int, const Awesomium::Rect &, Area &). Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void OSGSurface::validateClipRect(int, int, const Awesomium::Rect &, Area &). Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->validateClipRect(dx, dy, clip_rect, result);
 
@@ -311,8 +298,7 @@ public:
 	// void OSGSurface::Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect)
 	static int _bind_Paint(lua_State *L) {
 		if (!_lg_typecheck_Paint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void OSGSurface::Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect) function, expected prototype:\nvoid OSGSurface::Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect)\nClass arguments details:\narg 3 ID = 8907551\narg 4 ID = 8907551\n");
+			luaL_error(L, "luna typecheck failed in void OSGSurface::Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect) function, expected prototype:\nvoid OSGSurface::Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect)\nClass arguments details:\narg 3 ID = 8907551\narg 4 ID = 8907551\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char src_buffer = (unsigned char)(lua_tointeger(L,2));
@@ -330,8 +316,7 @@ public:
 
 		OSGSurface* self=Luna< Awesomium::Surface >::checkSubType< OSGSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void OSGSurface::Paint(unsigned char *, int, const Awesomium::Rect &, const Awesomium::Rect &). Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void OSGSurface::Paint(unsigned char *, int, const Awesomium::Rect &, const Awesomium::Rect &). Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Paint(&src_buffer, src_row_span, src_rect, dest_rect);
 
@@ -341,8 +326,7 @@ public:
 	// void OSGSurface::Scroll(int dx, int dy, const Awesomium::Rect & clip_rect)
 	static int _bind_Scroll(lua_State *L) {
 		if (!_lg_typecheck_Scroll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void OSGSurface::Scroll(int dx, int dy, const Awesomium::Rect & clip_rect) function, expected prototype:\nvoid OSGSurface::Scroll(int dx, int dy, const Awesomium::Rect & clip_rect)\nClass arguments details:\narg 3 ID = 8907551\n");
+			luaL_error(L, "luna typecheck failed in void OSGSurface::Scroll(int dx, int dy, const Awesomium::Rect & clip_rect) function, expected prototype:\nvoid OSGSurface::Scroll(int dx, int dy, const Awesomium::Rect & clip_rect)\nClass arguments details:\narg 3 ID = 8907551\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int dx=(int)lua_tointeger(L,2);
@@ -355,8 +339,7 @@ public:
 
 		OSGSurface* self=Luna< Awesomium::Surface >::checkSubType< OSGSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void OSGSurface::Scroll(int, int, const Awesomium::Rect &). Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void OSGSurface::Scroll(int, int, const Awesomium::Rect &). Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Scroll(dx, dy, clip_rect);
 
@@ -366,8 +349,7 @@ public:
 	// void OSGSurface::base_Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect)
 	static int _bind_base_Paint(lua_State *L) {
 		if (!_lg_typecheck_base_Paint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void OSGSurface::base_Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect) function, expected prototype:\nvoid OSGSurface::base_Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect)\nClass arguments details:\narg 3 ID = 8907551\narg 4 ID = 8907551\n");
+			luaL_error(L, "luna typecheck failed in void OSGSurface::base_Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect) function, expected prototype:\nvoid OSGSurface::base_Paint(unsigned char * src_buffer, int src_row_span, const Awesomium::Rect & src_rect, const Awesomium::Rect & dest_rect)\nClass arguments details:\narg 3 ID = 8907551\narg 4 ID = 8907551\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char src_buffer = (unsigned char)(lua_tointeger(L,2));
@@ -385,8 +367,7 @@ public:
 
 		OSGSurface* self=Luna< Awesomium::Surface >::checkSubType< OSGSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void OSGSurface::base_Paint(unsigned char *, int, const Awesomium::Rect &, const Awesomium::Rect &). Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void OSGSurface::base_Paint(unsigned char *, int, const Awesomium::Rect &, const Awesomium::Rect &). Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OSGSurface::Paint(&src_buffer, src_row_span, src_rect, dest_rect);
 
@@ -396,8 +377,7 @@ public:
 	// void OSGSurface::base_Scroll(int dx, int dy, const Awesomium::Rect & clip_rect)
 	static int _bind_base_Scroll(lua_State *L) {
 		if (!_lg_typecheck_base_Scroll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void OSGSurface::base_Scroll(int dx, int dy, const Awesomium::Rect & clip_rect) function, expected prototype:\nvoid OSGSurface::base_Scroll(int dx, int dy, const Awesomium::Rect & clip_rect)\nClass arguments details:\narg 3 ID = 8907551\n");
+			luaL_error(L, "luna typecheck failed in void OSGSurface::base_Scroll(int dx, int dy, const Awesomium::Rect & clip_rect) function, expected prototype:\nvoid OSGSurface::base_Scroll(int dx, int dy, const Awesomium::Rect & clip_rect)\nClass arguments details:\narg 3 ID = 8907551\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int dx=(int)lua_tointeger(L,2);
@@ -410,8 +390,7 @@ public:
 
 		OSGSurface* self=Luna< Awesomium::Surface >::checkSubType< OSGSurface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void OSGSurface::base_Scroll(int, int, const Awesomium::Rect &). Got : '%s'",typeid(Luna< Awesomium::Surface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void OSGSurface::base_Scroll(int, int, const Awesomium::Rect &). Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->OSGSurface::Scroll(dx, dy, clip_rect);
 
