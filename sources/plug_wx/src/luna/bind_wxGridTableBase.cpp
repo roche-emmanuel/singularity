@@ -250,7 +250,7 @@ public:
 	inline static bool _lg_typecheck_SetView(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,19919380)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
 		return true;
 	}
 
@@ -514,7 +514,7 @@ public:
 	inline static bool _lg_typecheck_base_SetView(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,19919380)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
 		return true;
 	}
 
@@ -1034,10 +1034,10 @@ public:
 	// void wxGridTableBase::SetView(wxGrid * grid)
 	static int _bind_SetView(lua_State *L) {
 		if (!_lg_typecheck_SetView(L)) {
-			luaL_error(L, "luna typecheck failed in void wxGridTableBase::SetView(wxGrid * grid) function, expected prototype:\nvoid wxGridTableBase::SetView(wxGrid * grid)\nClass arguments details:\narg 1 ID = 19919380\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in void wxGridTableBase::SetView(wxGrid * grid) function, expected prototype:\nvoid wxGridTableBase::SetView(wxGrid * grid)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		wxGrid* grid=(Luna< wxGrid >::check(L,2));
+		wxGrid* grid=(Luna< wxObject >::checkSubType< wxGrid >(L,2));
 
 		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {
@@ -1665,10 +1665,10 @@ public:
 	// void wxGridTableBase::base_SetView(wxGrid * grid)
 	static int _bind_base_SetView(lua_State *L) {
 		if (!_lg_typecheck_base_SetView(L)) {
-			luaL_error(L, "luna typecheck failed in void wxGridTableBase::base_SetView(wxGrid * grid) function, expected prototype:\nvoid wxGridTableBase::base_SetView(wxGrid * grid)\nClass arguments details:\narg 1 ID = 19919380\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in void wxGridTableBase::base_SetView(wxGrid * grid) function, expected prototype:\nvoid wxGridTableBase::base_SetView(wxGrid * grid)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		wxGrid* grid=(Luna< wxGrid >::check(L,2));
+		wxGrid* grid=(Luna< wxObject >::checkSubType< wxGrid >(L,2));
 
 		wxGridTableBase* self=Luna< wxObject >::checkSubType< wxGridTableBase >(L,1);
 		if(!self) {

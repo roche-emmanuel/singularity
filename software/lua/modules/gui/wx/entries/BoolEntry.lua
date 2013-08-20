@@ -41,7 +41,11 @@ function Class:create()
         self:setValue(val);
     end
     
-    self._controls[1] = intf:addCheckBox{text=self._caption,handler=checkHandler,flags=self._flags or wx.wxALIGN_RIGHT+wx.wxALL,tip=self._tip,style=wx.wxALIGN_RIGHT+wx.wxCHK_2STATE};
+    self._controls[1] = intf:addCheckBox{text=self._caption,
+										 handler=checkHandler,
+										 flags=self._flags or wx.wxALIGN_RIGHT+wx.wxALL,
+										 tip=self._tip,
+										 style=self._style or wx.wxALIGN_RIGHT+wx.wxCHK_2STATE};
     intf:addLicensedItem(self._controls[1],self._right)
 end
 

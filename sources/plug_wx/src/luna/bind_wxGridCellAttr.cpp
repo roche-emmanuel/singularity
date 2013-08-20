@@ -150,7 +150,7 @@ public:
 	inline static bool _lg_typecheck_GetEditor(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,19919380)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
@@ -173,7 +173,7 @@ public:
 	inline static bool _lg_typecheck_GetRenderer(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,19919380)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
@@ -422,10 +422,10 @@ public:
 	// wxGridCellEditor * wxGridCellAttr::GetEditor(const wxGrid * grid, int row, int col) const
 	static int _bind_GetEditor(lua_State *L) {
 		if (!_lg_typecheck_GetEditor(L)) {
-			luaL_error(L, "luna typecheck failed in wxGridCellEditor * wxGridCellAttr::GetEditor(const wxGrid * grid, int row, int col) const function, expected prototype:\nwxGridCellEditor * wxGridCellAttr::GetEditor(const wxGrid * grid, int row, int col) const\nClass arguments details:\narg 1 ID = 19919380\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in wxGridCellEditor * wxGridCellAttr::GetEditor(const wxGrid * grid, int row, int col) const function, expected prototype:\nwxGridCellEditor * wxGridCellAttr::GetEditor(const wxGrid * grid, int row, int col) const\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const wxGrid* grid=(Luna< wxGrid >::check(L,2));
+		const wxGrid* grid=(Luna< wxObject >::checkSubType< wxGrid >(L,2));
 		int row=(int)lua_tointeger(L,3);
 		int col=(int)lua_tointeger(L,4);
 
@@ -481,10 +481,10 @@ public:
 	// wxGridCellRenderer * wxGridCellAttr::GetRenderer(const wxGrid * grid, int row, int col) const
 	static int _bind_GetRenderer(lua_State *L) {
 		if (!_lg_typecheck_GetRenderer(L)) {
-			luaL_error(L, "luna typecheck failed in wxGridCellRenderer * wxGridCellAttr::GetRenderer(const wxGrid * grid, int row, int col) const function, expected prototype:\nwxGridCellRenderer * wxGridCellAttr::GetRenderer(const wxGrid * grid, int row, int col) const\nClass arguments details:\narg 1 ID = 19919380\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in wxGridCellRenderer * wxGridCellAttr::GetRenderer(const wxGrid * grid, int row, int col) const function, expected prototype:\nwxGridCellRenderer * wxGridCellAttr::GetRenderer(const wxGrid * grid, int row, int col) const\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const wxGrid* grid=(Luna< wxGrid >::check(L,2));
+		const wxGrid* grid=(Luna< wxObject >::checkSubType< wxGrid >(L,2));
 		int row=(int)lua_tointeger(L,3);
 		int col=(int)lua_tointeger(L,4);
 

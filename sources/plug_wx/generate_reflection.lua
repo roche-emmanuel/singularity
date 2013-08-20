@@ -325,7 +325,7 @@ ReflectionGenerator.generate{
         "wxDDE",
         "wxDebug",
         "wxScrolled$",
-		"wxScrolledWindow",
+		-- "wxScrolledWindow",
         "wxHash",
         "wxMBConv",
         "wxNotificationMessage",

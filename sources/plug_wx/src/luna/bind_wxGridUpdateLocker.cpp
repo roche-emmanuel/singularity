@@ -100,7 +100,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
-		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,19919380)) ) return false;
+		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
 		return true;
 	}
 
@@ -109,7 +109,7 @@ public:
 	inline static bool _lg_typecheck_Create(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,19919380)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
 		return true;
 	}
 
@@ -121,12 +121,12 @@ public:
 	// wxGridUpdateLocker::wxGridUpdateLocker(wxGrid * grid = NULL)
 	static wxGridUpdateLocker* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luaL_error(L, "luna typecheck failed in wxGridUpdateLocker::wxGridUpdateLocker(wxGrid * grid = NULL) function, expected prototype:\nwxGridUpdateLocker::wxGridUpdateLocker(wxGrid * grid = NULL)\nClass arguments details:\narg 1 ID = 19919380\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in wxGridUpdateLocker::wxGridUpdateLocker(wxGrid * grid = NULL) function, expected prototype:\nwxGridUpdateLocker::wxGridUpdateLocker(wxGrid * grid = NULL)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
-		wxGrid* grid=luatop>0 ? (Luna< wxGrid >::check(L,1)) : (wxGrid*)NULL;
+		wxGrid* grid=luatop>0 ? (Luna< wxObject >::checkSubType< wxGrid >(L,1)) : (wxGrid*)NULL;
 
 		return new wxGridUpdateLocker(grid);
 	}
@@ -136,10 +136,10 @@ public:
 	// void wxGridUpdateLocker::Create(wxGrid * grid)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
-			luaL_error(L, "luna typecheck failed in void wxGridUpdateLocker::Create(wxGrid * grid) function, expected prototype:\nvoid wxGridUpdateLocker::Create(wxGrid * grid)\nClass arguments details:\narg 1 ID = 19919380\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in void wxGridUpdateLocker::Create(wxGrid * grid) function, expected prototype:\nvoid wxGridUpdateLocker::Create(wxGrid * grid)\nClass arguments details:\narg 1 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		wxGrid* grid=(Luna< wxGrid >::check(L,2));
+		wxGrid* grid=(Luna< wxObject >::checkSubType< wxGrid >(L,2));
 
 		wxGridUpdateLocker* self=(Luna< wxGridUpdateLocker >::check(L,1));
 		if(!self) {

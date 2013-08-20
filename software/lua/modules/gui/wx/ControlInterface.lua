@@ -74,6 +74,29 @@ function Class:addControl(ctrl,options)
     return ctrl;    
 end
 
+--[[
+Function: addCustomWindow
+
+Add a custom window to the interface.
+
+Parameters:
+	options[1] - The name of the class to use to create the window. This class should derive from <gui.wx.BasicWindow>.
+
+Returns:
+	The window object itself and the <gui.wx.BasicWindow> object.
+]]
+function Class:addCustomWindow(options)
+	local className = options[1]
+	self:check(className,"Invalid custom window class name.")
+	
+	-- create a new instance of the class:
+	options.parent = self:getCurrentParent() 
+	local win = require(className)(options)
+	
+	self:addControl(win:getWindow(),options)
+	return win:getWindow(), win
+end
+
 function Class:pushPanel(options)
     self:debug3("Building an panel parent")
     local parent = self:getCurrentParent()
@@ -209,8 +232,14 @@ function Class:addListBox(options)
     end
     return self:addControl(ctrl,options)
 end
+
+function Class:addGrid(options)
+    options = options or {}
+    local ctrl = wx.wxGrid:new(self:getCurrentParent(),wx.wxID_ANY,wx.wxDefaultPosition,wx.wxDefaultSize);
+    return self:addControl(ctrl,options)
+end
  
- function Class:addCheckListBox(options)
+function Class:addCheckListBox(options)
     options = options or {}
     options.prop = options.prop or 1
     options.flags = options.flags or wx.wxEXPAND+wx.wxALL;

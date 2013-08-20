@@ -91,7 +91,7 @@ public:
 	inline static bool _lg_typecheck_DrawBorder(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,19919380) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,20234418) ) return false;
 		return true;
@@ -100,7 +100,7 @@ public:
 	inline static bool _lg_typecheck_base_DrawBorder(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,19919380) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,20234418) ) return false;
 		return true;
@@ -116,10 +116,10 @@ public:
 	// void wxGridCornerHeaderRendererDefault::DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const
 	static int _bind_DrawBorder(lua_State *L) {
 		if (!_lg_typecheck_DrawBorder(L)) {
-			luaL_error(L, "luna typecheck failed in void wxGridCornerHeaderRendererDefault::DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const function, expected prototype:\nvoid wxGridCornerHeaderRendererDefault::DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const\nClass arguments details:\narg 1 ID = 19919380\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in void wxGridCornerHeaderRendererDefault::DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const function, expected prototype:\nvoid wxGridCornerHeaderRendererDefault::DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const wxGrid* grid_ptr=(Luna< wxGrid >::check(L,2));
+		const wxGrid* grid_ptr=(Luna< wxObject >::checkSubType< wxGrid >(L,2));
 		if( !grid_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg grid in wxGridCornerHeaderRendererDefault::DrawBorder function");
 		}
@@ -147,10 +147,10 @@ public:
 	// void wxGridCornerHeaderRendererDefault::base_DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const
 	static int _bind_base_DrawBorder(lua_State *L) {
 		if (!_lg_typecheck_base_DrawBorder(L)) {
-			luaL_error(L, "luna typecheck failed in void wxGridCornerHeaderRendererDefault::base_DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const function, expected prototype:\nvoid wxGridCornerHeaderRendererDefault::base_DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const\nClass arguments details:\narg 1 ID = 19919380\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in void wxGridCornerHeaderRendererDefault::base_DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const function, expected prototype:\nvoid wxGridCornerHeaderRendererDefault::base_DrawBorder(const wxGrid & grid, wxDC & dc, wxRect & rect) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const wxGrid* grid_ptr=(Luna< wxGrid >::check(L,2));
+		const wxGrid* grid_ptr=(Luna< wxObject >::checkSubType< wxGrid >(L,2));
 		if( !grid_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg grid in wxGridCornerHeaderRendererDefault::base_DrawBorder function");
 		}

@@ -54,6 +54,11 @@ function Class:getCurrentItem()
     local cont = self:getContainer()
     local item = self._autoCreate and cont:getOrCreateItem(itemId) or cont:getItem(itemId)    
         
+	if not item then
+		-- return nothing in case there is no current item.
+		return
+	end
+	
     return ItemContainer{data=item}
 end
 

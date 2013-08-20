@@ -298,6 +298,7 @@ int PLUG_EXPORT luaopen_wx(lua_State* L) {
 	Luna< wxGraphicsPath >::Register(L);
 	Luna< wxGraphicsPen >::Register(L);
 	Luna< wxGraphicsRenderer >::Register(L);
+	Luna< wxScrolledWindow >::Register(L);
 	Luna< wxGrid >::Register(L);
 	Luna< wxGridBagSizer >::Register(L);
 	Luna< wxGridCellAttr >::Register(L);
@@ -608,6 +609,7 @@ int PLUG_EXPORT luaopen_wx(lua_State* L) {
 	Luna< wxSashLayoutWindow >::Register(L);
 	Luna< wxScreenDC >::Register(L);
 	Luna< wxScrollBar >::Register(L);
+	Luna< wxScrolledCanvas >::Register(L);
 	Luna< wxScrollEvent >::Register(L);
 	Luna< wxScrollWinEvent >::Register(L);
 	Luna< wxTextCtrl >::Register(L);
@@ -757,7 +759,6 @@ int PLUG_EXPORT luaopen_wx(lua_State* L) {
 	Luna< wxZipOutputStream >::Register(L);
 	Luna< wxZlibInputStream >::Register(L);
 	Luna< wxZlibOutputStream >::Register(L);
-	Luna< wxScrolled< wxWindow > >::Register(L);
 	Luna< wxVector< wxTreeListItem > >::Register(L);
 	Luna< wxWindowList >::Register(L);
 	Luna< WXWidget >::Register(L);

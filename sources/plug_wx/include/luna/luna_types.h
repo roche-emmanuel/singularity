@@ -130,6 +130,7 @@
 #include <wx/valgen.h>
 #include <wx/glcanvas.h>
 #include <wx/graphics.h>
+#include <wx/scrolwin.h>
 #include <wx/grid.h>
 #include <wx/headerctrl.h>
 #include <wx/vscroll.h>
@@ -302,7 +303,6 @@
 #include <wx/xml/xml.h>
 #include <wx/zipstrm.h>
 #include <wx/zstream.h>
-#include <wx/scrolwin.h>
 
 // Class: wxEventFilter
 template<>
@@ -5700,6 +5700,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: wxScrolledWindow
+template<>
+class LunaTraits< wxScrolledWindow > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxScrolledWindow* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxScrolledWindow* obj);
+	typedef wxObject parent_t;
+	typedef wxScrolledWindow base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: wxGrid
 template<>
 class LunaTraits< wxGrid > {
@@ -5714,7 +5733,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static wxGrid* _bind_ctor(lua_State *L);
 	static void _bind_dtor(wxGrid* obj);
-	typedef wxGrid parent_t;
+	typedef wxObject parent_t;
 	typedef wxGrid base_t;
 	static luna_ConverterType converters[];
 };
@@ -7158,7 +7177,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static wxHtmlWindow* _bind_ctor(lua_State *L);
 	static void _bind_dtor(wxHtmlWindow* obj);
-	typedef wxHtmlWindow parent_t;
+	typedef wxObject parent_t;
 	typedef wxHtmlWindow base_t;
 	static luna_ConverterType converters[];
 };
@@ -9514,7 +9533,7 @@ public:
 	static luna_RegEnumType enumValues[];
 	static wxPreviewCanvas* _bind_ctor(lua_State *L);
 	static void _bind_dtor(wxPreviewCanvas* obj);
-	typedef wxPreviewCanvas parent_t;
+	typedef wxObject parent_t;
 	typedef wxPreviewCanvas base_t;
 	static luna_ConverterType converters[];
 };
@@ -11587,6 +11606,25 @@ public:
 	static void _bind_dtor(wxScrollBar* obj);
 	typedef wxObject parent_t;
 	typedef wxScrollBar base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: wxScrolledCanvas
+template<>
+class LunaTraits< wxScrolledCanvas > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static wxScrolledCanvas* _bind_ctor(lua_State *L);
+	static void _bind_dtor(wxScrolledCanvas* obj);
+	typedef wxObject parent_t;
+	typedef wxScrolledCanvas base_t;
 	static luna_ConverterType converters[];
 };
 
@@ -14421,25 +14459,6 @@ public:
 	static luna_ConverterType converters[];
 };
 
-// Class: wxScrolled< wxWindow >
-template<>
-class LunaTraits< wxScrolled< wxWindow > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static wxScrolled< wxWindow >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(wxScrolled< wxWindow >* obj);
-	typedef wxScrolled< wxWindow > parent_t;
-	typedef wxScrolled< wxWindow > base_t;
-	static luna_ConverterType converters[];
-};
-
 // Class: wxVector< wxTreeListItem >
 template<>
 class LunaTraits< wxVector< wxTreeListItem > > {
@@ -15640,13 +15659,6 @@ public:
 };
 
 template<>
-class LunaType< 19919380 > {
-public:
-	typedef wxGrid type;
-	
-};
-
-template<>
 class LunaType< 25758569 > {
 public:
 	typedef wxGridCellAttr type;
@@ -15755,13 +15767,6 @@ template<>
 class LunaType< 66986009 > {
 public:
 	typedef wxHtmlTag type;
-	
-};
-
-template<>
-class LunaType< 73577618 > {
-public:
-	typedef wxHtmlWindow type;
 	
 };
 
@@ -16007,13 +16012,6 @@ template<>
 class LunaType< 9908765 > {
 public:
 	typedef wxPosition type;
-	
-};
-
-template<>
-class LunaType< 37711363 > {
-public:
-	typedef wxPreviewCanvas type;
 	
 };
 
@@ -16676,23 +16674,9 @@ public:
 };
 
 template<>
-class LunaType< 56668806 > {
-public:
-	typedef wxScrolledCanvas type;
-	
-};
-
-template<>
 class LunaType< 33321875 > {
 public:
 	typedef wxTreeListItems type;
-	
-};
-
-template<>
-class LunaType< 32777408 > {
-public:
-	typedef wxScrolled< wxWindow > type;
 	
 };
 

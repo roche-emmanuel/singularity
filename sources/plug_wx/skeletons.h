@@ -758,7 +758,7 @@ class wxGraphicsPen: public wxGraphicsObject {
 class wxGraphicsRenderer: public wxObject {
 };
 
-class wxGrid {
+class wxGrid: public wxScrolledWindow {
 };
 
 class wxGridBagSizer: public wxFlexGridSizer {
@@ -971,7 +971,7 @@ class wxHtmlTagsModule: public wxModule {
 class wxHtmlWidgetCell: public wxHtmlCell {
 };
 
-class wxHtmlWindow {
+class wxHtmlWindow: public wxScrolledWindow {
 };
 
 class wxHtmlWinParser: public wxHtmlParser {
@@ -1389,7 +1389,7 @@ class wxPosition {
 class wxPowerEvent: public wxEvent {
 };
 
-class wxPreviewCanvas {
+class wxPreviewCanvas: public wxScrolledWindow {
 };
 
 class wxPreviewControlBar: public wxPanel {
@@ -1723,6 +1723,12 @@ class wxScreenDC: public wxDC {
 };
 
 class wxScrollBar: public wxControl {
+};
+
+class wxScrolledCanvas: public wxWindow {
+};
+
+class wxScrolledWindow: public wxPanel {
 };
 
 class wxScrollEvent: public wxCommandEvent {
@@ -2248,12 +2254,6 @@ class wxScopedCharBuffer {
 };
 
 class wxScopedWCharBuffer {
-};
-
-class wxScrolledWindow {
-};
-
-class wxScrolledCanvas {
 };
 
 class wxTreeListItems {

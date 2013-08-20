@@ -132,7 +132,7 @@ public:
 	inline static bool _lg_typecheck_Draw(lua_State *L) {
 		if( lua_gettop(L)!=8 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,19919380) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,25758569) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,56813631) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,20234418) ) return false;
@@ -145,7 +145,7 @@ public:
 	inline static bool _lg_typecheck_GetBestSize(lua_State *L) {
 		if( lua_gettop(L)!=6 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,19919380) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,25758569) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,56813631) ) return false;
 		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
@@ -182,10 +182,10 @@ public:
 	// void wxGridCellRenderer::Draw(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, const wxRect & rect, int row, int col, bool isSelected)
 	static int _bind_Draw(lua_State *L) {
 		if (!_lg_typecheck_Draw(L)) {
-			luaL_error(L, "luna typecheck failed in void wxGridCellRenderer::Draw(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, const wxRect & rect, int row, int col, bool isSelected) function, expected prototype:\nvoid wxGridCellRenderer::Draw(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, const wxRect & rect, int row, int col, bool isSelected)\nClass arguments details:\narg 1 ID = 19919380\narg 2 ID = 25758569\narg 3 ID = 56813631\narg 4 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in void wxGridCellRenderer::Draw(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, const wxRect & rect, int row, int col, bool isSelected) function, expected prototype:\nvoid wxGridCellRenderer::Draw(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, const wxRect & rect, int row, int col, bool isSelected)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 25758569\narg 3 ID = 56813631\narg 4 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		wxGrid* grid_ptr=(Luna< wxGrid >::check(L,2));
+		wxGrid* grid_ptr=(Luna< wxObject >::checkSubType< wxGrid >(L,2));
 		if( !grid_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg grid in wxGridCellRenderer::Draw function");
 		}
@@ -221,10 +221,10 @@ public:
 	// wxSize wxGridCellRenderer::GetBestSize(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, int row, int col)
 	static int _bind_GetBestSize(lua_State *L) {
 		if (!_lg_typecheck_GetBestSize(L)) {
-			luaL_error(L, "luna typecheck failed in wxSize wxGridCellRenderer::GetBestSize(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, int row, int col) function, expected prototype:\nwxSize wxGridCellRenderer::GetBestSize(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, int row, int col)\nClass arguments details:\narg 1 ID = 19919380\narg 2 ID = 25758569\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in wxSize wxGridCellRenderer::GetBestSize(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, int row, int col) function, expected prototype:\nwxSize wxGridCellRenderer::GetBestSize(wxGrid & grid, wxGridCellAttr & attr, wxDC & dc, int row, int col)\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 25758569\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		wxGrid* grid_ptr=(Luna< wxGrid >::check(L,2));
+		wxGrid* grid_ptr=(Luna< wxObject >::checkSubType< wxGrid >(L,2));
 		if( !grid_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg grid in wxGridCellRenderer::GetBestSize function");
 		}

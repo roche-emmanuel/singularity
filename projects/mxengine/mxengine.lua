@@ -4,6 +4,7 @@ vlog:notice "Starting MXEngine extension..."
 
 sgt_root="W:/Cloud/Projects/singularity/software/"
 mxe_root="W:/Cloud/Projects/singularity/projects/mxengine/modules/"
+mxe_assets="W:/Cloud/Projects/singularity/projects/mxengine/assets/"
 
 flavor="win32"
 
@@ -88,8 +89,8 @@ local dxColorf = osg.Vec4f.toDXColor
 local dxColord = osg.Vec4d.toDXColor
 local fromYPR = osg.Quat.fromYPR
 local toYPR = osg.Quat.toYPR
-local toLLA = osg.Vec3d.toLLA
-local toUTM = osg.Vec3d.toUTM
+-- local toLLA = osg.Vec3d.toLLA
+-- local toUTM = osg.Vec3d.toUTM
 
 -- reload the extensions from MX project:
 require "osg"
@@ -100,12 +101,21 @@ osg.Vec4f.toDXColor = dxColorf
 osg.Vec4d.toDXColor = dxColord
 osg.Quat.fromYPR = fromYPR
 osg.Quat.toYPR = toYPR
-osg.Vec3d.toLLA = toLLA
-osg.Vec3d.toUTM = toUTM
+-- osg.Vec3d.toLLA = toLLA
+-- osg.Vec3d.toUTM = toUTM
 
-require "mxe.MXEHandler"
+local loader = function()
+	require "mxe.MXEHandler"
+	vlog:info "MXEngine extension started."
+	log:info("This message should be in the mxengine.log file.")
+	
+	require "wx"
+	
+	local im = require "gui.wx.ImageManager"
+	im:addImagePath(mxe_assets.."images/")
+end
 
-vlog:info "MXEngine extension started."
-
-log:info("This message should be in the mxengine.log file.")
-
+local res, err = pcall(loader)
+if not res then
+	vlog:error("Loading MXEHandler failed with error: "..err)
+end
