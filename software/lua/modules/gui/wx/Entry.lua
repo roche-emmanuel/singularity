@@ -38,11 +38,14 @@ function Class:initialize(options)
 	self._prop = options.prop or 0
 	self._flags = options.flags or wx.wxALL
 	self._border = options.border or 2
+	self._style = options.style
 	self._handler = options.handler
 	self._actionHandler = options.actionHandler
 	self._actions = options.actions
 	self._numFormat = "%.6f"
 	self._enabled = true
+	self._validItemOnly = options.validItemOnly
+	
 	self._controls = {}
 	self._classes = {} -- classes for the controls.
 	
@@ -101,9 +104,9 @@ function Class:updateValue()
     if self._states then
         -- if this entry is a state entry, then also update the currentState member:
         self._currentState = nil -- invalid the current state.
-        for k,v in ipairs(self._states) do
+        for _,v in ipairs(self._states) do
             if v.id == self._value then
-                self._currentState = (k-1);
+                self._currentState = v.value;
                 break;
             end
         end
@@ -114,7 +117,11 @@ function Class:updateValue()
 
     return self._value
 end
-   
+
+function Class:getCurrentState()
+
+end
+
 function Class:getValue()
     return self:updateValue()
 end      
@@ -128,6 +135,11 @@ function Class:handle(val)
             name=self._name,
             entry=self,
             intf=self._provider:getInterface()}
+		
+		if self._validItemOnly and not data.item then
+			return -- do not call the handler in that case.
+		end
+		
         self._handler(data)
     end        
 end

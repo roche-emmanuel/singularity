@@ -575,7 +575,8 @@ protected:
 */
 //class wxScrolledWindow : public wxScrolled<wxPanel> {
 //}
-typedef wxScrolled<wxPanel> wxScrolledWindow;
+// typedef wxScrolled<wxPanel> wxScrolledWindow;
+class wxScrolledWindow : public wxPanel {};
 
 /**
     Alias for wxScrolled<wxWindow>. Scrolled window that doesn't have children
@@ -588,4 +589,5 @@ typedef wxScrolled<wxPanel> wxScrolledWindow;
 
     @see wxScrolled, ::wxScrolledWindow
 */
-typedef wxScrolled<wxWindow> wxScrolledCanvas;
+// typedef wxScrolled<wxWindow> wxScrolledCanvas;
+class wxScrolledCanvas : public wxWindow {};

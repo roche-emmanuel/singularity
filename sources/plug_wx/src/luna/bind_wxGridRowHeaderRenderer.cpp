@@ -91,7 +91,7 @@ public:
 	inline static bool _lg_typecheck_base_DrawLabel(lua_State *L) {
 		if( lua_gettop(L)!=8 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,19919380) ) return false;
+		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
 		if( lua_isstring(L,4)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,20234418) ) return false;
@@ -111,10 +111,10 @@ public:
 	// void wxGridRowHeaderRenderer::base_DrawLabel(const wxGrid & grid, wxDC & dc, const wxString & value, const wxRect & rect, int horizAlign, int vertAlign, int textOrientation) const
 	static int _bind_base_DrawLabel(lua_State *L) {
 		if (!_lg_typecheck_base_DrawLabel(L)) {
-			luaL_error(L, "luna typecheck failed in void wxGridRowHeaderRenderer::base_DrawLabel(const wxGrid & grid, wxDC & dc, const wxString & value, const wxRect & rect, int horizAlign, int vertAlign, int textOrientation) const function, expected prototype:\nvoid wxGridRowHeaderRenderer::base_DrawLabel(const wxGrid & grid, wxDC & dc, const wxString & value, const wxRect & rect, int horizAlign, int vertAlign, int textOrientation) const\nClass arguments details:\narg 1 ID = 19919380\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in void wxGridRowHeaderRenderer::base_DrawLabel(const wxGrid & grid, wxDC & dc, const wxString & value, const wxRect & rect, int horizAlign, int vertAlign, int textOrientation) const function, expected prototype:\nvoid wxGridRowHeaderRenderer::base_DrawLabel(const wxGrid & grid, wxDC & dc, const wxString & value, const wxRect & rect, int horizAlign, int vertAlign, int textOrientation) const\nClass arguments details:\narg 1 ID = 56813631\narg 2 ID = 56813631\narg 3 ID = 88196105\narg 4 ID = 20234418\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		const wxGrid* grid_ptr=(Luna< wxGrid >::check(L,2));
+		const wxGrid* grid_ptr=(Luna< wxObject >::checkSubType< wxGrid >(L,2));
 		if( !grid_ptr ) {
 			luaL_error(L, "Dereferencing NULL pointer for arg grid in wxGridRowHeaderRenderer::base_DrawLabel function");
 		}

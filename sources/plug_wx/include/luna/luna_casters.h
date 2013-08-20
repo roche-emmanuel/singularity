@@ -1236,13 +1236,6 @@ struct luna_caster<wxZipClassFactory,dstType> {
 };
 
 template <typename dstType>
-struct luna_caster<wxScrolled< wxWindow >,dstType> {
-	static inline dstType* cast(wxScrolled< wxWindow >* ptr) {
-		return static_cast<dstType*>(ptr);
-	};
-};
-
-template <typename dstType>
 struct luna_caster<wxVector< wxTreeListItem >,dstType> {
 	static inline dstType* cast(wxVector< wxTreeListItem >* ptr) {
 		return static_cast<dstType*>(ptr);

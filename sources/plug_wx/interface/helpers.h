@@ -85,6 +85,10 @@ protected:
     ~wxObjectRefData();
 };
 
+// class wxScrolledWindow : public wxPanel {
+// };
+
+
 
 typedef double wxDouble;
 typedef int wxCoord;

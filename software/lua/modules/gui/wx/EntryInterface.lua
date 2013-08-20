@@ -74,6 +74,7 @@ function Class:addComboBoxSelector(options)
     end
     
     self:connectHandler(cb,wx.wxEVT_COMMAND_COMBOBOX_SELECTED,selectHandler)
+    -- self:connectHandler(cb,wx.wxEVT_COMMAND_TEXT_UPDATED,selectHandler)
     
     if not options.noProvider then 
         self:setDefaultProvider(prov) -- use this combobox as the entries provider

@@ -37,6 +37,7 @@ osg.Matrix3.__tostring = function(self)
 	return str
 end
 
+
 -- Vec4f extensions:
 osg.Vec4f.__tostring = function(self)
 	return "("..self:x()..", "..self:y()..", "..self:z()..", "..self:w()..")"
@@ -134,6 +135,47 @@ osg.Vec3 = osg.Vec3f
 osg.Vec4 = osg.Vec4f
 
 osg.BoundingSphere = osg.osg_BoundingSphereImpl_osg_Vec3d
+
+-- index overloads:
+local vec3dIndex = osg.Vec3d.__index
+
+osg.Vec3d.__index = function(self,key)
+	if tonumber(key) then
+		return self:op_index(key)
+	else
+		return vec3dIndex[key]
+	end
+end
+
+local vec3fIndex = osg.Vec3f.__index
+
+osg.Vec3f.__index = function(self,key)
+	if tonumber(key) then
+		return self:op_index(key)
+	else
+		return vec3fIndex[key]
+	end
+end
+
+local vec4dIndex = osg.Vec4d.__index
+
+osg.Vec4d.__index = function(self,key)
+	if tonumber(key) then
+		return self:op_index(key)
+	else
+		return vec4dIndex[key]
+	end
+end
+
+local vec4fIndex = osg.Vec4f.__index
+
+osg.Vec4f.__index = function(self,key)
+	if tonumber(key) then
+		return self:op_index(key)
+	else
+		return vec4fIndex[key]
+	end
+end
 
 -- callback extensions:
 osg.Node.setUpdateCB = function(self, func)

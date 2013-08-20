@@ -141,7 +141,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,19919380)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
 		return true;
 	}
 
@@ -171,7 +171,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,19919380)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
 		if( lua_isstring(L,5)==0 ) return false;
 		if( lua_isstring(L,6)==0 ) return false;
 		return true;
@@ -182,7 +182,7 @@ public:
 
 		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,19919380)) ) return false;
+		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
 		return true;
 	}
 
@@ -329,12 +329,12 @@ public:
 	// void wxGridCellEditor::BeginEdit(int row, int col, wxGrid * grid)
 	static int _bind_BeginEdit(lua_State *L) {
 		if (!_lg_typecheck_BeginEdit(L)) {
-			luaL_error(L, "luna typecheck failed in void wxGridCellEditor::BeginEdit(int row, int col, wxGrid * grid) function, expected prototype:\nvoid wxGridCellEditor::BeginEdit(int row, int col, wxGrid * grid)\nClass arguments details:\narg 3 ID = 19919380\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in void wxGridCellEditor::BeginEdit(int row, int col, wxGrid * grid) function, expected prototype:\nvoid wxGridCellEditor::BeginEdit(int row, int col, wxGrid * grid)\nClass arguments details:\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int row=(int)lua_tointeger(L,2);
 		int col=(int)lua_tointeger(L,3);
-		wxGrid* grid=(Luna< wxGrid >::check(L,4));
+		wxGrid* grid=(Luna< wxObject >::checkSubType< wxGrid >(L,4));
 
 		wxGridCellEditor* self=(Luna< wxGridCellEditor >::check(L,1));
 		if(!self) {
@@ -402,12 +402,12 @@ public:
 	// bool wxGridCellEditor::EndEdit(int row, int col, const wxGrid * grid, const wxString & oldval, wxString * newval)
 	static int _bind_EndEdit(lua_State *L) {
 		if (!_lg_typecheck_EndEdit(L)) {
-			luaL_error(L, "luna typecheck failed in bool wxGridCellEditor::EndEdit(int row, int col, const wxGrid * grid, const wxString & oldval, wxString * newval) function, expected prototype:\nbool wxGridCellEditor::EndEdit(int row, int col, const wxGrid * grid, const wxString & oldval, wxString * newval)\nClass arguments details:\narg 3 ID = 19919380\narg 4 ID = 88196105\narg 5 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in bool wxGridCellEditor::EndEdit(int row, int col, const wxGrid * grid, const wxString & oldval, wxString * newval) function, expected prototype:\nbool wxGridCellEditor::EndEdit(int row, int col, const wxGrid * grid, const wxString & oldval, wxString * newval)\nClass arguments details:\narg 3 ID = 56813631\narg 4 ID = 88196105\narg 5 ID = 88196105\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int row=(int)lua_tointeger(L,2);
 		int col=(int)lua_tointeger(L,3);
-		const wxGrid* grid=(Luna< wxGrid >::check(L,4));
+		const wxGrid* grid=(Luna< wxObject >::checkSubType< wxGrid >(L,4));
 		wxString oldval(lua_tostring(L,5),lua_objlen(L,5));
 		wxString newval(lua_tostring(L,6),lua_objlen(L,6));
 
@@ -424,12 +424,12 @@ public:
 	// void wxGridCellEditor::ApplyEdit(int row, int col, wxGrid * grid)
 	static int _bind_ApplyEdit(lua_State *L) {
 		if (!_lg_typecheck_ApplyEdit(L)) {
-			luaL_error(L, "luna typecheck failed in void wxGridCellEditor::ApplyEdit(int row, int col, wxGrid * grid) function, expected prototype:\nvoid wxGridCellEditor::ApplyEdit(int row, int col, wxGrid * grid)\nClass arguments details:\narg 3 ID = 19919380\n\n%s",luna_dumpStack(L).c_str());
+			luaL_error(L, "luna typecheck failed in void wxGridCellEditor::ApplyEdit(int row, int col, wxGrid * grid) function, expected prototype:\nvoid wxGridCellEditor::ApplyEdit(int row, int col, wxGrid * grid)\nClass arguments details:\narg 3 ID = 56813631\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int row=(int)lua_tointeger(L,2);
 		int col=(int)lua_tointeger(L,3);
-		wxGrid* grid=(Luna< wxGrid >::check(L,4));
+		wxGrid* grid=(Luna< wxObject >::checkSubType< wxGrid >(L,4));
 
 		wxGridCellEditor* self=(Luna< wxGridCellEditor >::check(L,1));
 		if(!self) {
