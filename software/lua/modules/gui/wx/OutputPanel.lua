@@ -43,10 +43,10 @@ end
 
 function Class:create()
 	local Interface = require "gui.wx.ControlInterface"
-	local intf = Interface{root=self._parent}
-	
-	self._window = intf:addTextCtrl{prop=1,flags=wx.wxALL+wx.wxEXPAND,style=bit.bor(wx.wxTE_MULTILINE,wx.wxTE_READONLY,wx.wxTE_BESTWRAP,wx.wxTE_RICH2)}
-	self._tc = self._window
+	self._window = self:createPanel{parent=self._parent}
+
+	local intf = Interface{root=self._window}	
+	self._tc = intf:addTextCtrl{prop=1,flags=wx.wxALL+wx.wxEXPAND,style=bit.bor(wx.wxTE_MULTILINE,wx.wxTE_READONLY,wx.wxTE_BESTWRAP,wx.wxTE_RICH2)}
 	
 	self._styles = {}
 	self._styles[sgt.LogManager.INFO] = wx.wxTextAttr(wx.wxBLUE, wx.wxWHITE)
@@ -56,6 +56,10 @@ function Class:create()
 	self._styles[sgt.LogManager.FATAL] = wx.wxTextAttr(wx.wxPURPLE, wx.wxWHITE)
 	
 	self._defaultStyle = wx.wxTextAttr(wx.wxBLACK, wx.wxWHITE)
+end
+
+function Class:clear()
+	self._tc:Clear()
 end
 
 return Class
