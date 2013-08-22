@@ -498,16 +498,18 @@ function Class:addOSGCtrl(options)
 end
 
 function Class:addOutputPanel(options)
-	--self:check(options.root,"a valid 'root' entry is needed to build an OSGCtrl")
-	options.parent = self:getCurrentParent();
 	
-	local panel = require("gui.wx.OutputPanel")(options)
+	options[1] = options[1] or "gui.wx.OutputPanel"
+	return self:addCustomWindow(options)
+	
+	-- options.parent = self:getCurrentParent();
+	
+	-- local panel = require()(options)
 
-	--options.intf = options.intf or self
-	options.flags = options.flags or wx.wxALL+wx.wxEXPAND
-	options.prop = options.prop or 1
+	-- options.flags = options.flags or wx.wxALL+wx.wxEXPAND
+	-- options.prop = options.prop or 1
 	
-	return panel:getWindow(), panel
+	-- return panel:getWindow(), panel
 end
 
 function Class:addTimePickerCtrl(options)

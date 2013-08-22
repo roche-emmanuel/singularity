@@ -89,22 +89,6 @@ function Class:initialize(options)
 									 handler="performGlobalUnitTests"}
 			intf:popSizer()
 			
-			intf:pushSizer{text="Logging",orient=wx.wxVERTICAL,prop=0,flags=wx.wxEXPAND}
-				intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxEXPAND}
-					intf:addSingleChoiceEntry{name="logging.log_level",prop=1,caption="Log level",
-									choices={"Fatal","Error","Warning","Notice","Info","Debug0",
-											 "Debug1","Debug2","Debug3","Debug4","Debug5"},
-									defaultValue="Debug0",
-									handler="changeLogLevel"}
-					intf:addSpacer{size=10}
-					intf:addBoolEntry{name="logging.verbose_state",caption="Verbose",style=0,
-									  flags=wx.wxALIGN_CENTER_VERTICAL,
-									  tip="Toggle verbose outputs", handler="toggleVerbose"}
-				intf:popSizer()
-				
-				intf:addOutputPanel{}
-			intf:popSizer()
-			
 		intf:popParent(true) -- mission page
 		
 		intf:pushBookPage{caption="Controls"}
@@ -121,6 +105,35 @@ function Class:initialize(options)
 		intf:popParent(true) -- Network page
 	intf:popParent()
 
+	intf:pushSizer{text="Logging",orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxEXPAND}
+		intf:pushSizer{orient=wx.wxVERTICAL,prop=2,flags=wx.wxEXPAND}
+			local owin
+			owin, self._output = intf:addOutputPanel{prop=2,flags=wx.wxALL+wx.wxEXPAND}
+			intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxEXPAND}
+				intf:addBitmapButton{src="delete",tip="Clear the log console",
+							 handler="clearLogConsole"}
+				-- intf:addSpacer{size=5}						 
+				intf:addSingleChoiceEntry{name="logging.log_level",prop=1,caption="Log level",
+								choices={"Fatal","Error","Warning","Notice","Info","Debug0",
+										 "Debug1","Debug2","Debug3","Debug4","Debug5"},
+								defaultValue="Debug0",
+								handler="changeLogLevel"}
+				intf:addSpacer{size=10}
+				intf:addBoolEntry{name="logging.verbose_state",caption="Verbose",style=0,
+								  flags=wx.wxALIGN_CENTER_VERTICAL,
+								  tip="Toggle verbose outputs", handler="toggleVerbose"}
+			intf:popSizer()
+		intf:popSizer()
+		
+		intf:pushSizer{orient=wx.wxVERTICAL,prop=1,flags=wx.wxEXPAND}
+			self._execTc = intf:addTextCtrl{prop=1,flags=wx.wxALL+wx.wxEXPAND,
+											style=bit.bor(wx.wxTE_MULTILINE,wx.wxTE_BESTWRAP,wx.wxTE_RICH2)}
+			intf:addBitmapButton{src="execute", flags=wx.wxALL+wx.wxALIGN_RIGHT,
+								 tip="Execute the content of the script console",
+								 handler="executeScript"}
+		intf:popSizer()
+	intf:popSizer()
+	
 	intf:popParent(true)
 	
 	parent:Layout()	
@@ -219,6 +232,11 @@ function Class:toggleVerbose(data)
 	scLog.LogManager.instance():setVerbose(data.value)
 end
 
+function Class:clearLogConsole(data)
+	self:info("Clearing log outputs...")
+	self._output:clear()
+end
+
 function Class:changeLogLevel(data)
 	self:info("Changing log level to : ",data.value)
 	local lvl = sgt.LogManager[data.value:upper()]
@@ -230,5 +248,26 @@ function Class:performGlobalUnitTests()
 	local tester = require "utils.GlobalUnitTests"
 	tester:run()
 end
+
+function Class:executeScript()
+	-- execute the content of the script console:
+	local content = self._execTc:GetValue()
+	if content == "" then
+		return -- nothing to do.
+	end
+	
+	local f, msg = loadstring(content)
+	if not f then
+		self:error("Error while compiling lua chunk: ",msg)
+		return
+	end
+	
+	-- The chunk was compiled successfully, now execute it:
+	local status, msg = pcall(f)
+	if not status then
+		self:error("Error while executing lua chunk: ",msg)
+	end
+end
+
 
 return Class -- return class instance.

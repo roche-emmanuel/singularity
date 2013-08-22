@@ -29,7 +29,19 @@ function Class:buildControlPanel()
 								  
 		intf:popSizer()
 		intf:addSpacer{prop=1}
-		intf:addCustomWindow{"mxe.SteeringTransducer",prop=0,flags=wx.wxALL}		
+		local _, steer = intf:addCustomWindow{"mxe.SteeringTransducer",prop=0,flags=wx.wxALL}
+		
+		intf:addDummyEntry{name="slew_transducer_updater",handler=function(data)
+			local dmap = data.item
+			if not dmap then
+				self:info("Removing target turret for steering transducer.")
+				steer:setTargetTurret(nil)
+			else
+				local turret = dmap:fetch("turret")		
+				self:info("Assigning turret ",turret:getName()," as target for steering transducer.")
+				steer:setTargetTurret(turret)			
+			end
+		end}
 	intf:popSizer()
 
 	intf:pushSizer{text="Platform",orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxALL+wx.wxEXPAND}
