@@ -71,6 +71,7 @@
 - Updated wx plugin.
 - Updated MXEngine.
 - Now finding all models for MXEngine automatically.
+- Added support for direct Mission playback for MXEngine.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
