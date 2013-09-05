@@ -164,6 +164,8 @@ function Class:initialize(options)
 			intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxEXPAND}
 				intf:addBitmapButton{src="delete",tip="Clear the log console",
 							 handler="clearLogConsole"}
+				intf:addBitmapButton{src="freeze",tip="Freeze/unfreeze the log console content",
+							 handler="freezeLogConsole"}							 
 				-- intf:addSpacer{size=5}						 
 				intf:addSingleChoiceEntry{name="logging.log_level",prop=1,caption="Log level",
 								choices={"Fatal","Error","Warning","Notice","Info","Debug0",
@@ -284,9 +286,24 @@ function Class:toggleVerbose(data)
 	scLog.LogManager.instance():setVerbose(data.value)
 end
 
-function Class:clearLogConsole(data)
+function Class:clearLogConsole()
 	self:info("Clearing log outputs...")
 	self._output:clear()
+end
+
+local im = require "gui.wx.ImageManager"
+local freezeBmp = im:getBitmap("freeze")
+local unfreezeBmp = im:getBitmap("unfreeze")
+
+function Class:freezeLogConsole(intf,event)
+	local freezed = not self._output:getFreezed()
+	self:debug2_v("Toggling log outputs freeze to: ",freezed)
+	self._output:setFreezed(freezed)
+	
+	-- toggle the button image:
+	local ctrl = event:GetEventObject():dynCast("wxBitmapButton")
+	self:check(ctrl,"Invalid bitmap button object.")
+	ctrl:SetBitmap(freezed and unfreezeBmp or freezeBmp)
 end
 
 function Class:changeLogLevel(data)
