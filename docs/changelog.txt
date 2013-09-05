@@ -74,6 +74,7 @@
 - Added support for direct Mission playback for MXEngine.
 - Added support for web view reloading in MXEngine.
 - Added support for output panel freeze.
+- Added support for in mission close operation with web views.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
