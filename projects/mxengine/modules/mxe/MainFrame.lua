@@ -334,6 +334,11 @@ function Class:startStopMission(data)
 		self:info("Starting mission ",mname)
 		VBS2Fusion.MissionUtilities.playMission("","../mpmissions/"..mname,true);
 	elseif data.action == "stop_mission" then
+		if not self:isMissionRunning() then
+			self:warn("No mission running.")
+			return
+		end
+		
 		self:info("Ending mission ",mname)
 		VBS2Fusion.MissionUtilities.endMission("END1");	
 	end

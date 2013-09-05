@@ -27,10 +27,12 @@ function Class:initialize(options)
 	local tobj = require "aw.WebView" {width = size:x(), height = size:y(), transparent=true}
 	-- local tobj = require "aw.WebView" {width = 1280, height = 720}
 	-- tobj:loadURL("http://www.google.fr")
-	tobj:loadURL("file:///W:/Cloud/Projects/singularity/projects/mxengine/assets/overlays.html")
+	tobj:loadURL("W:/Cloud/Projects/singularity/projects/mxengine/assets/overlays.html")
 	tobj:getTextureObject():setLinearFiltering()
 	
 	fx:setTextureObject(tobj,1)
+	
+	self._webView = tobj
 	
 	-- local TextureObject = require "dx.TextureObject"	
 	-- fx:setTextureObject(TextureObject{file="test_logo"},1)
@@ -39,8 +41,14 @@ function Class:initialize(options)
 	self:getTurret():addListener{Turret.EVT_RELEASE,function()
 		self:notice("Releasing WebView for discarded turret...")
 		fx:setTextureObject(nil,1)
+		self._webView = nil
 		tobj:release()
-	end}
+	end}	
+end
+
+function Class:reload()
+	self:check(self._webView,"Invalid webView for reload.")
+	self._webView:reloadURL()
 end
 
 return Class

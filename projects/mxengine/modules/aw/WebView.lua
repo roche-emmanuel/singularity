@@ -31,8 +31,15 @@ function Class:getTextureObject()
 end
 
 function Class:loadURL(url)
+	self._url = url
 	self:info("Loading URL: ", url)
 	self._webView:LoadURL(awe.WebURL(url))
+end
+
+function Class:reloadURL()
+	self:info("Reloading...")
+	self:check(self._url,"Invalid url for Reload")
+	self:loadURL(self._url)
 end
 
 return Class

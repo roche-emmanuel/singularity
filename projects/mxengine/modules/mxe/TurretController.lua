@@ -77,6 +77,8 @@ function Class:buildControlPanel()
 						  tip="Use the turret state to fill the state grid", 
 						  --handler="toggleFillGrid", validItemOnly=true,
 						  }
+		intf:addSpacer{prop=1}
+		intf:addActionButtonEntry{name="reload_web_pages",caption="reload",src="reload",tip="Reload all web views",handler="reloadWebPages",validItemOnly=true}
 	intf:popSizer()
 	
 	-- self._grid = intf:addGrid{prop=1,flags=wx.wxALL+wx.wxEXPAND}
@@ -245,5 +247,20 @@ function Class:toggleFillGrid(data)
 		dmap:set("gridStateCB",cb)
 	end
 end
+
+function Class:reloadWebPages(data)
+	local dmap = data.item
+	local turret = dmap:fetch("turret")
+
+	local AweOverlay = require "display.effects.AweOverlay"
+	
+	-- find all the webView components, and reload them:
+	turret:getComponents():foreach(function(comp)
+		if comp:isInstanceOf(AweOverlay) then
+			comp:reload()
+		end
+	end)
+end
+
 
 return Class -- return class instance.
