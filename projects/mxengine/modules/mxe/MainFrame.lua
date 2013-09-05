@@ -125,7 +125,9 @@ function Class:initialize(options)
 				intf:popParent() -- choicebook.
 			intf:popSizer()
 			
-			intf:pushSizer{text="Debugging",orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxEXPAND}
+			intf:pushSizer{text="Debugging",orient=wx.wxVERTICAL,prop=0,flags=wx.wxEXPAND}
+				self._fpsSt = intf:addStaticText{text="Current framerate: 0 FPS"}
+				intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxEXPAND}
 				intf:addCheckBox{text="Debug textures",tip="Toggle VBSHook debug outputs",
 									 handler="toggleVBSHookDebug"}
 				intf:addCheckBox{text="With alt surfaces",tip="Toggle VBSHook alt surfaces display",
@@ -139,6 +141,7 @@ function Class:initialize(options)
 				intf:addBitmapButton{src="check@earth",tip="Perform global level unit tests",
 									 -- flags=wx.wxALIGN_RIGHT,
 									 handler="performGlobalUnitTests"}
+				intf:popSizer()
 			intf:popSizer()
 			
 		intf:popParent(true) -- mission page
@@ -215,6 +218,13 @@ function Class:initialize(options)
 			mobj:setOutputModel(data.output_model)
 			mobj:setNetworkModel(data.network_model)
 		end		
+	end}
+	
+	-- use the scheduler to update the FPS display:
+	local scheduler = require "gui.wx.Scheduler"
+	local fh = require "fusion.FusionHandler"
+	scheduler:addTimer{frequency=10,callback=function(event) 
+		self._fpsSt:SetLabel(("Current framerate: %.2f FPS."):format(fh:getFPS():at(1)))
 	end}
 end
 

@@ -53,7 +53,8 @@ function Class:releaseWebView(view)
 		-- we need to release this texture object:
 		self._surfaces:erase(view)
 		tobj:invalidate()
-		tobj:getResourceManager():unregisterResource(tobj)
+		-- We should not unregister the texture object here...
+		--tobj:getResourceManager():unregisterResource(tobj)
 	end
 end
 
@@ -61,10 +62,19 @@ function Class:releaseAllSurfaces()
 	self:info("Calling releaseAllSurfaces()")
 	for view,tobj in self._surfaces:sequence() do
 		tobj:invalidate()
-		tobj:getResourceManager():unregisterResource(tobj)
+		--tobj:getResourceManager():unregisterResource(tobj)
 	end
 	
 	self._surfaces:clear()
+end
+
+--[[
+Function: isEmpty
+
+Check if there are some surfaces available or not.
+]]
+function Class:isEmpty()
+	return self._surfaces:empty()
 end
 
 --[[

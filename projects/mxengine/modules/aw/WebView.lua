@@ -20,7 +20,7 @@ Function: release
 
 Method called to release the resources created for this WebView
 ]]
-function Class:release()
+function Class:releaseWebView()
 	if self._webView then
 		wman:destroyWebView(self._webView)
 	end

@@ -11,7 +11,8 @@ function Class:initialize(options)
 end
 
 function Class:destroyWebView(view)
-	self._surfaceFactory:releaseWebView(view)
+	self._surfaceFactory:getTable():releaseWebView(view)
+	Class.super.destroyWebView(self,view)
 end
 
 function Class:createSurfaceFactory()
@@ -34,6 +35,10 @@ end
 function Class:onFrame()
 	if not self:isMissionRunning() then
 		return -- do nothing.
+	end
+	
+	if self._surfaceFactory:getTable():isEmpty() then
+		return
 	end
 	
 	-- self:info("Calling DXWebManager:onFrame()")

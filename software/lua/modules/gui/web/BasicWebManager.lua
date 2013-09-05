@@ -30,9 +30,9 @@ function Class:initialize(options)
 	self:setSurfaceFactory(sf)
 
 	-- first call to core update:
-	self:warn("Calling Core:Update()")
+	-- self:warn("Calling Core:Update()")
 	self._core:Update()
-	self:warn("Core:Update() called.")
+	-- self:warn("Core:Update() called.")
 	
 	local Set = require "std.Set"
 	self._webViewList = Set();
@@ -109,7 +109,7 @@ end
 function Class:unregisterWebView(view)
 	self:info("Unregistering webview: ", view)
 	self:releaseObjects(view)
-	self._webViewList:eraseItem(view)
+	self._webViewList:eraseValue(view)
 end
 
 function Class:createWebView(options)
@@ -123,6 +123,7 @@ end
 
 function Class:destroyWebView(view)
 	self:unregisterWebView(view)
+	view:Destroy()
 end
 
 function Class:onFrame()
@@ -134,6 +135,12 @@ end
 
 function Class:onAppClosing()
 	self:info("Closing Web manager...")
+	
+	if not self._core then
+		self:info("Web manager already closed.")
+		return
+	end
+	
 	self._core:Update()	
 	
 	-- destroy all the webviews:
@@ -151,6 +158,8 @@ function Class:onAppClosing()
 	awe.WebCore.Shutdown()	
 
 	self:releaseAllSurfaces()
+	
+	self._core = nil
 
 	self:info("Web manager closed.")	
 end

@@ -17,7 +17,7 @@ Create a new instance of the class.
 function AweOverlay(options)
 ]=]
 function Class:initialize(options)
-	self:warn("Loading AWE Overlay!")
+	-- self:warn("Loading AWE Overlay!")
 	
 	local fx = self:addFilter{"AddLayer"}	
 	
@@ -42,7 +42,7 @@ function Class:initialize(options)
 		self:notice("Releasing WebView for discarded turret...")
 		fx:setTextureObject(nil,1)
 		self._webView = nil
-		tobj:release()
+		tobj:releaseWebView()
 	end}	
 end
 
