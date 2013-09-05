@@ -24,7 +24,7 @@ ADD_SUBDIRECTORY(sgtCore)
 # ADD_SUBDIRECTORY(sgtLand)
 # ADD_SUBDIRECTORY(sgtProland)
 
-ADD_SUBDIRECTORY(lua_core)
+# ADD_SUBDIRECTORY(lua_core)
 # ADD_SUBDIRECTORY(lua_externals)
 # ADD_SUBDIRECTORY(lua_cog)
 # ADD_SUBDIRECTORY(lua_seed)
@@ -64,6 +64,8 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_proland)
 # ADD_SUBDIRECTORY(plug_opengl)
 # ADD_SUBDIRECTORY(plug_land)
+# ADD_SUBDIRECTORY(plug_dx9)
+ADD_SUBDIRECTORY(plug_awDX)
 
 # ToDo:
 # ADD_SUBDIRECTORY(plug_freenect)

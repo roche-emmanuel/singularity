@@ -16,6 +16,13 @@ ENDIF()
 SETUP_WXWIDGETS()
 
 # common dependency setups:
+SET(DX_INC_DIR 	${DEP_DX}/Include)
+SET(DX_LIB_DIR 	${DEP_DX}/Lib/x86)
+# IF(DEBUG_MODE)
+# SET(DX_LIBS 	d3dx9d.lib DxErr.lib)
+# ELSE()
+SET(DX_LIBS 	d3dx9.lib DxErr.lib)
+# ENDIF()
 
 SET(BOOST_INC_DIR 	${DEP_BOOST}/include)
 SET(BOOST_LIB_DIR 	${DEP_BOOST}/lib)

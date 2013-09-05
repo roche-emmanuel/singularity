@@ -70,6 +70,7 @@
 - Updated awesomium dependency. Fixed handling of entry update with default value.
 - Updated wx plugin.
 - Updated MXEngine.
+- Now finding all models for MXEngine automatically.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

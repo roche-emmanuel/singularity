@@ -13,15 +13,13 @@ Class used to connect event handlers.
 This class inherits from <base.EventHandler>.
 ]]
 -- This class provides functions to add wx controls.
-function Class:initialize(options)
-	self:info("Executing initialize for BasicInterface...")
-	
+function Class:initialize(options)	
 	self._connectedHandlers = Vector()	
 end
 
 function Class:disconnectHandlers()
 	for _,connection in self._connectedHandlers:sequence() do
-		self:info("Disconnecting handler with id=",connection.id," eventType=",connection.eventType)
+		self:debug2_v("Disconnecting handler with id=",connection.id," eventType=",connection.eventType)
 		connection.ctrl:disconnect(connection.id,connection.id,connection.eventType)
 	end
 end

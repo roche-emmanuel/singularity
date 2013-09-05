@@ -113,7 +113,7 @@ void OSGSurface::Paint(unsigned char *src_buffer, int src_row_span, const Awesom
 	unsigned char* subptr = buf;
 	unsigned char* line;
 	
-	unsigned char* src = src_buffer + src_rect.y * src_row_span + + src_rect.x * 4;
+	unsigned char* src = src_buffer + src_rect.y * src_row_span + src_rect.x * 4;
 	
 	unsigned char* ptr = _cb->getData(xx,yy);
 	for(int row=0; row<height; ++row) {
