@@ -9,8 +9,14 @@ local prof = require "debugging.Profiler"
 function Class:initialize(options)
 	self:debug4("Initializing OutputPanel.")
 
+	self._freezed = false;
+	
 	self._sink = sgt.LogSink{
 		output = function(tt,obj,level,trace,msg)
+			if self._freezed then
+				return -- do not write anything in that case.
+			end
+			
 			self._tc:SetDefaultStyle(self._styles[level] or self._defaultStyle);
 
 			self._tc:AppendText(msg);
@@ -56,6 +62,14 @@ function Class:create()
 	self._styles[sgt.LogManager.FATAL] = wx.wxTextAttr(wx.wxPURPLE, wx.wxWHITE)
 	
 	self._defaultStyle = wx.wxTextAttr(wx.wxBLACK, wx.wxWHITE)
+end
+
+function Class:getFreezed()
+	return self._freezed
+end
+
+function Class:setFreezed(enabled)
+	self._freezed = enabled
 end
 
 function Class:clear()
