@@ -60,6 +60,16 @@ function Class:initialize(options)
 		self._handler = function(data) func(obj,data) end
 	end
 	
+	if type(self._actionHandler)=="string" then
+		local obj = self._intf:getHandler()
+		self:check(obj,"Invalid handler class for interface, cannot setup handler: ", self._actionHandler)
+		local func = obj[self._actionHandler]
+		self:check(func,"Invalid handler real handler function with name: ", self._actionHandler)
+		
+		-- update the handler:
+		self._actionHandler = function(data) func(obj,data) end
+	end
+	
 	if self._parent then
 		self._parent:addChild(self)
 	end

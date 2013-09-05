@@ -59,6 +59,7 @@ function Class:create(options)
 	-- the bitmap buttons for the available actions:
 	if self._actionHandler then
 		for k,act in ipairs(self._actions or {}) do
+			act = type(act)=="string" and {name=act} or act
 			self._controls[k+2] = intf:addBitmapButton{name=act.name, src=act.src or act.name,size=options.size,handler=butHandler,flags=wx.wxALIGN_CENTER_VERTICAL};
 		end
 	end

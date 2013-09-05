@@ -5,6 +5,7 @@ vlog:notice "Starting MXEngine extension..."
 sgt_root="W:/Cloud/Projects/singularity/software/"
 mxe_root="W:/Cloud/Projects/singularity/projects/mxengine/modules/"
 mxe_assets="W:/Cloud/Projects/singularity/projects/mxengine/assets/"
+vbs2_root="W:/Games/VBS2/"
 
 flavor="win32"
 

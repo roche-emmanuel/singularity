@@ -18,6 +18,22 @@ function Class:findModels(folder,list)
 	return list
 end
 
+function Class:findMissions(folder,list)
+	list = list or {}
+	
+	local dir = require "utils.dir"
+	local path = require "utils.path"
+	
+	local files = dir.getFiles(folder,"*.pbo")
+	local ext
+	for _,file in files:sequence() do
+		file, ext = path.splitExt(path.baseName(file))
+		table.insert(list,file)
+	end
+	
+	return list
+end
+
 function Class:initialize(options)
 	-- build the main frame on the app frame:
 	self:check(options and options.app,"Invalid app to build main frame")
@@ -29,7 +45,7 @@ function Class:initialize(options)
 	local platformList = self:findModels(prefix .."platform/")
 	local outputList = self:findModels(prefix .."output/")
 	local networkList = self:findModels(prefix .."network/")
-
+	local missionList = self:findMissions(vbs2_root.."mpmissions/")
 	
 	local Interface = require "gui.wx.EntryInterface"
 	local im = require "gui.wx.ImageManager"
@@ -46,6 +62,13 @@ function Class:initialize(options)
 	intf:pushNotebook{prop=1,flags=wx.wxALL+wx.wxEXPAND}
 		intf:pushBookPage{caption="Mission"}
 		
+			intf:pushSizer{text="Mission",orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxALL+wx.wxEXPAND}
+				intf:addSingleChoiceEntry{name="selected_mission",prop=1,caption="Mission",
+					choices=missionList,
+					actionHandler="startStopMission",
+					actions={"start_mission","stop_mission"}}
+			intf:popSizer()
+			
 			intf:pushSizer{text="Mission settings",orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxALL+wx.wxEXPAND}
 				intf:pushChoicebook{prop=1,flags=wx.wxALL+wx.wxEXPAND,
 									name="mission_type",
@@ -295,6 +318,24 @@ function Class:executeScript()
 	local status, msg = pcall(f)
 	if not status then
 		self:error("Error while executing lua chunk: ",msg)
+	end
+end
+
+function Class:startStopMission(data)
+	require "fusion3"
+	
+	local mname = data.value
+	if data.action == "start_mission" then
+		if self:isMissionRunning() then
+			self:warn("Mission is currently running. Please stop the previous mission first.")
+			return
+		end
+		
+		self:info("Starting mission ",mname)
+		VBS2Fusion.MissionUtilities.playMission("","../mpmissions/"..mname,true);
+	elseif data.action == "stop_mission" then
+		self:info("Ending mission ",mname)
+		VBS2Fusion.MissionUtilities.endMission("END1");	
 	end
 end
 
