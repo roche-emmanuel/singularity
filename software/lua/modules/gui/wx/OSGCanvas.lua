@@ -35,6 +35,7 @@ end
 function Class:getWindow()
 	return self._panel;
 end
+
 local forcedKeyDownMap = {}
 forcedKeyDownMap[wx.WXK_CONTROL] = osgGA.GUIEventAdapter.KEY_Control_L;
 forcedKeyDownMap[wx.WXK_SHIFT] = osgGA.GUIEventAdapter.KEY_Shift_L;

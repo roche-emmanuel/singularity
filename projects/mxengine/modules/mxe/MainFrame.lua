@@ -2,9 +2,34 @@ local Class = require("classBuilder"){name="MainFrame",bases="mxe.TurretControll
 
 local assert = require "utils.assert"
 
+function Class:findModels(folder,list)
+	list = list or {}
+	
+	local dir = require "utils.dir"
+	local path = require "utils.path"
+	
+	local files = dir.getFiles(folder,"*.lua")
+	local ext
+	for _,file in files:sequence() do
+		file, ext = path.splitExt(path.baseName(file))
+		table.insert(list,file)
+	end
+	
+	return list
+end
+
 function Class:initialize(options)
 	-- build the main frame on the app frame:
 	self:check(options and options.app,"Invalid app to build main frame")
+	
+	-- first retrieve the list of turret/output/network/platform models
+	local prefix = root_path .. "/lua/modules/vbsng/models/"
+	local turretList = self:findModels(prefix .."turret/")
+	self:findModels(mxe_root .. "models/turret/",turretList)
+	local platformList = self:findModels(prefix .."platform/")
+	local outputList = self:findModels(prefix .."output/")
+	local networkList = self:findModels(prefix .."network/")
+
 	
 	local Interface = require "gui.wx.EntryInterface"
 	local im = require "gui.wx.ImageManager"
@@ -49,22 +74,26 @@ function Class:initialize(options)
 				intf:pushBookPage{caption="SingleTurret"}
 					intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxALL+wx.wxEXPAND}
 						intf:addSingleChoiceEntry{name="single_turret.turret_model",prop=1,caption="Turret model",
-							choices={"basic_turret"},
-							defaultValue="basic_turret",
+							-- choices={"MX15HDi","MX15DiD","MX15DiD_SOCOM","basic_turret","awe_turret"},
+							choices=turretList,
+							defaultValue="MX15DiD_SOCOM",
 							handler="onTurretModelChanged"}
 						intf:addSingleChoiceEntry{name="single_turret.platform_model",prop=1,caption="Platform model",
-							choices={"basic_platform","basic_platform_2","basic_platform_offset1"},
+							-- choices={"basic_platform","basic_platform_2","basic_platform_offset1"},
+							choices=platformList,
 							defaultValue="basic_platform",
 							handler="onPlatformModelChanged"}
 					intf:popSizer()
 					
 					intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxALL+wx.wxEXPAND}
 						intf:addSingleChoiceEntry{name="single_turret.output_model",prop=1,caption="Output model",
-							choices={"std_outputs","debug_sources","debug_streams","debug_outputs","no_outputs"},
+							-- choices={"std_outputs","debug_sources","debug_streams","debug_outputs","no_outputs","digital1","digital2"},
+							choices=outputList,
 							defaultValue="std_outputs",
 							handler="onOutputModelChanged"}
 						intf:addSingleChoiceEntry{name="single_turret.network_model",prop=1,caption="Network model",
-							choices={"no_network","std_mxsim"},
+							-- choices={"no_network","std_mxsim"},
+							choices=networkList,
 							defaultValue="no_network",
 							handler="onNetworkModelChanged"}
 					intf:popSizer()

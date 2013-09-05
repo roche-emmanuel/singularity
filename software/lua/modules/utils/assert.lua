@@ -180,7 +180,7 @@ end
 
 function Class.isDir(val,...)
 	path = path or require "utils.path"
-	return doTest1(path.isDir(val),val,"is not a file",...)	
+	return doTest1(path.isDir(val),val,"is not a dir",...)	
 end
 
 function Class.isInstanceOf(class,obj,...)

@@ -52,6 +52,8 @@ SET(DEP_CD ${DEPS_DIR}/${FLAVOR}/CD-5.5.1_vc9_lib CACHE STRING "cd path")
 SET(DEP_IUP ${DEPS_DIR}/${FLAVOR}/IUP-3.6_vc9_lib CACHE STRING "iup path")
 SET(DEP_SDL ${DEPS_DIR}/${FLAVOR}/SDL-1.2.15 CACHE STRING "SDL path")
 SET(DEP_SPICE ${DEPS_DIR}/${FLAVOR}/CSpice-N0064 CACHE STRING "cspice path")
+SET(DEP_DX ${DEPS_DIR}/${FLAVOR}/DXSDK-June2010 CACHE STRING "directx path")
+
 
 SET(ECHO "W:/Cloud/Dev/Cygwin/bin/echo.exe" CACHE STRING "echo executable")
 SET(SED "W:/Cloud/Dev/Cygwin/bin/sed.exe" CACHE STRING "sed executable")

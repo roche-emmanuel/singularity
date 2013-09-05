@@ -1,0 +1,2 @@
+module=awDX
+DXSurface => Awesomium::Surface

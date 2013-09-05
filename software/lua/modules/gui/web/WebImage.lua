@@ -13,7 +13,6 @@ function Class:initialize(options)
 	
 	-- create a webview for this tile:
 	self._webView = options.webView or webman:createWebView{width=ww,height=hh};
-	webman:registerWebView(self._webView)
 	self._webView:Resize(ww,hh)
 	
 	-- create the corresponding image:

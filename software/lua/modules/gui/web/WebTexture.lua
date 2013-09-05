@@ -12,7 +12,6 @@ function Class:initialize(options)
 	
 	-- create a webview for this tile:
 	self._webView = options.webView or webman:createWebView{width=ww,height=hh};
-	webman:registerWebView(self._webView)
 	self._webView:Resize(ww,hh)
 
 	self._surface = webman:getSurfaceFactory():getOrCreateSurface(self._webView)

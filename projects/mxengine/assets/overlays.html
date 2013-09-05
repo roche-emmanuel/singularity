@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Wescam</title>
+		<link rel="stylesheet" href="css/overlays.css" />		
+		<!-- Lets load up prefixfree first -->
+		<script src="js/prefixfree.min.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/overlays.js"></script>
+    </head>
+    <body>
+		<!--img id="myImage" src="css/images/az_pict_fov2.png"/-->
+		
+		<div id="compute">E</div>
+
+		<div class="block" id="destabilization"><img src="css/images/destabilization_2.png"/></div>
+		
+		<div class="block top left" id="date_group">
+			<div id="date">02MAR2013</div>
+			<div id="time">14:39:57</div>
+			<div id="utc">USER +0.0</div>
+		</div>
+		
+		<div id="sensor_group">
+			<div class="block top sensor_l1" >
+				<div id="gimbal_control">AUTO</div>
+				<!-- img id='hand_controller1' src='css/images/little_man.png'/-->
+				<div id="hand_controller1"><img src="css/images/little_man.png"/></div>
+				<div id="mission_grip_alt"></div>
+				<div id="hand_controller2"><img src="css/images/little_man.png"/></div>
+				<div id="slew_to_radar">RDR</div>
+			</div>
+			<div class="block top sensor_l2 center" >		
+				<div id="avt_input">VIC</div>
+				<div id="avt_algo">COR-M</div>
+			</div>
+			<div class="block top sensor_l3" >		
+				<div id="spa_proc">SPA</div>
+				<div id="tem_proc">TEM</div>
+			</div>
+			<div class="block top sensor_c center" >		
+				<div id="vic">FSD</div>
+				<div id="subvic">IR:EOW-DL</div>
+			</div>	
+			<div class="block top sensor_r1 right" >		
+				<div id="vic">20:80</div>
+				<div id="subvic">AUTO</div>
+			</div>	
+			<div class="block top sensor_r2 right" >		
+				<div id="focal_length">120</div>
+				<div id="ezoom">2.0X</div>
+			</div>	
+			<div class="block top sensor_r3 right" >		
+				<div id="filter"></div>
+				<div id="scene">DFLT</div>
+			</div>		
+			<div class="block top sensor_r4 right" >		
+				<div id="gain">AUTO</div>
+				<div id="offset">AUTO</div>
+			</div>
+			<div class="block top sensor_r5 right" >		
+				<div id="gain">230</div>
+				<div id="offset">-5%</div>
+			</div>		
+		</div>
+		
+		<div id="aicraft_group">
+			<div class="block platform_l0" >		
+				<div id="platform_name">ACFT</div>
+			</div>
+			<div class="block bottom platform_l1 right" >		
+				<div id="platform_lat">27:46:75N</div>
+				<div id="platform_lon">112:74:98W</div>
+			</div>
+			<div class="block platform_l2 right" >		
+				<div id="platform_heading">010°</div>
+			</div>
+			<div class="block bottom platform_l3 right" >		
+				<div id="platform_alt">1012FT</div>
+			</div>			
+		</div>
+		
+		<div id="spot_group">
+			<div class="block bottom spot_l1 right" >		
+				<div id="spot_code">LST:1788</div>
+				<div id="spot_mode">SCANNING</div>
+			</div>		
+		</div>
+		
+		<div id="target_group">
+			<div class="block bottom target_r1 right" >		
+				<div id="terrain_alt">230FT</div>
+			</div>		
+			<div class="block bottom target_r2 right" >		
+				<div id="slant_range">1.1KM</div>
+			</div>		
+			<div class="block bottom target_r3 right" >		
+				<div id="target_bearing">309°</div>
+				<div id="range_source">LDR</div>
+			</div>		
+			<div class="block bottom target_r4 right" >		
+				<div id="target_name">TGT</div>
+				<div id="target_lat">27:46:05N</div>
+				<div id="target_lon">112:75:22W</div>
+			</div>
+			<div class="block target_r5 right" >		
+				<div id="target_poi">#4</div>
+			</div>
+		</div>
+		
+		<div id="scales_group">
+			<div class="block" id="az_pict_frame"><img src="css/images/az_pict_frame.png"/></div>
+			<div class="block" id="az_pict_fov"><img src="css/images/az_pict_fov.png"/></div>
+			<div class="block" id="elev_pict_frame"><img src="css/images/elev_pict_frame.png"/></div>
+			<div class="block" id="elev_pict_fov"><img src="css/images/elev_pict_fov.png"/></div>
+		</div>
+		
+		<div id="north_indicator_group">
+			<div class="block" id="north_arrow"><img src="css/images/north_arrow.png"/></div>
+			<div class="block north_indicator center" >		
+				<div>N</div>
+			</div>
+		</div>
+
+		<div id="gated_imaging_group">
+			<div class="block gated_imaging" >
+				<div id="gated_gc">GC:18000m</div>
+				<div id="gated_gd">GD:14000m</div>
+			</div>
+		</div>
+		
+		<div id="laser_group">
+			<div class="block laser right" >
+				<div id="desig_mode">RNG MAN</div>
+				<div id="desig_wave">1.57</div>
+				<div id="desig_state">STANDBY</div>
+				<div id="desig_status">READY</div>
+				<div id="desig_code">1788</div>
+				<div id="desig_bore">BORE VALID</div>
+				<div id="desig_range">RANGE VALID</div>
+				<div id="lrf_mode">AUTO VALID</div>
+				<div id="gtd_mode">GTD VALID</div>
+			</div>
+			<div class="block illuminator" >
+				<div id="l1_mode">W : HIGH-TIME LMT</div>
+				<div id="l2_mode">UN: PULSE-TIME LMT</div>
+			</div>			
+		</div>
+		
+		<div id="strata_group">
+			<div class="block strata right" >
+				<div id="strata_waypoint"><img src="css/images/strata_waypoint.png"/></div>
+				<div id="strata_dtk">DTKW12</div>
+				<div id="strata_dist">2KM</div>
+				<div id="strata_state">OFF</div>
+				<div id="strata_channel">8+</div>
+			</div>		
+		</div>
+		
+		<div id="output">Output message</div>
+		
+    </body>
+</html>
+
+
