@@ -146,7 +146,7 @@ end
 function Object:throw(msg,...)
 	self:error(msg,...)
 	self:backtrace()
-	error("Stopping because error occured.")
+	error("Stopping because error occured: '"..msg.."'\n at: ".. debug.traceback())
 end
 
 function Object:soft_no_impl(msg)
@@ -157,7 +157,7 @@ end
 function Object:no_impl()
 	self:error("The function called is not implemented yet.")
 	self:backtrace()
-	error("Stopping because error occured.")
+	error("Stopping because of missing implementation.")
 end
 
 function Object:deprecated(msg)

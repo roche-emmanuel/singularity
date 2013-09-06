@@ -875,6 +875,17 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_createDepthSurface(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>4 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,44522754)) ) return false;
+		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_createFont(lua_State *L) {
 		if( lua_gettop(L)!=6 ) return false;
 
@@ -2722,6 +2733,27 @@ public:
 		return 1;
 	}
 
+	// IDirect3DSurface9 * IDirect3DDevice9::createDepthSurface(IDirect3DDevice9 * device, unsigned int width, unsigned int height, D3DFORMAT fmt = ::D3DFMT_D24S8)
+	static int _bind_createDepthSurface(lua_State *L) {
+		if (!_lg_typecheck_createDepthSurface(L)) {
+			luaL_error(L, "luna typecheck failed in IDirect3DSurface9 * IDirect3DDevice9::createDepthSurface(IDirect3DDevice9 * device, unsigned int width, unsigned int height, D3DFORMAT fmt = ::D3DFMT_D24S8) function, expected prototype:\nIDirect3DSurface9 * IDirect3DDevice9::createDepthSurface(IDirect3DDevice9 * device, unsigned int width, unsigned int height, D3DFORMAT fmt = ::D3DFMT_D24S8)\nClass arguments details:\narg 1 ID = 44522754\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		int luatop = lua_gettop(L);
+
+		IDirect3DDevice9* device=(Luna< IDirect3DDevice9 >::check(L,1));
+		unsigned int width=(unsigned int)lua_tointeger(L,2);
+		unsigned int height=(unsigned int)lua_tointeger(L,3);
+		D3DFORMAT fmt=luatop>3 ? (D3DFORMAT)lua_tointeger(L,4) : (D3DFORMAT)::D3DFMT_D24S8;
+
+		IDirect3DSurface9 * lret = createDepthSurface(device, width, height, fmt);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< IDirect3DSurface9 >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// ID3DXFont * IDirect3DDevice9::createFont(IDirect3DDevice9 * device, int width, int height, bool bold, bool italic, const std::string & faceName)
 	static int _bind_createFont(lua_State *L) {
 		if (!_lg_typecheck_createFont(L)) {
@@ -2859,6 +2891,7 @@ luna_RegType LunaTraits< IDirect3DDevice9 >::methods[] = {
 	{"createVertexBuffer", &luna_wrapper_IDirect3DDevice9::_bind_createVertexBuffer},
 	{"createTextureFromFile", &luna_wrapper_IDirect3DDevice9::_bind_createTextureFromFile},
 	{"createTexture", &luna_wrapper_IDirect3DDevice9::_bind_createTexture},
+	{"createDepthSurface", &luna_wrapper_IDirect3DDevice9::_bind_createDepthSurface},
 	{"createFont", &luna_wrapper_IDirect3DDevice9::_bind_createFont},
 	{"dynCast", &luna_wrapper_IDirect3DDevice9::_bind_dynCast},
 	{"__eq", &luna_wrapper_IDirect3DDevice9::_bind___eq},

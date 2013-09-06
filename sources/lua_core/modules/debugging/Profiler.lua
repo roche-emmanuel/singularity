@@ -1,6 +1,6 @@
 local Class = require("classBuilder"){name="Profiler",bases="base.Object"};
 
--- local osg = require "osg"
+local osg = require "osg"
 local Section = require "debugging.Section"
 -- local tm = require "base.TimeManager"
 

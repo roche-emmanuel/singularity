@@ -78,6 +78,10 @@ function Class:initialize(options)
 					-- intf:addStaticText{text="This type of mission has no parameter."}
 				-- intf:popParent(true)
 				
+				intf:pushBookPage{caption="TestCameraManager"}
+					intf:addStaticText{text="This type of mission has no parameter."}
+				intf:popParent(true)
+				
 				intf:pushBookPage{caption="TestTurret"}
 					intf:addStaticText{text="This type of mission has no parameter."}
 				intf:popParent(true)
@@ -132,7 +136,8 @@ function Class:initialize(options)
 									 handler="toggleVBSHookDebug"}
 				intf:addCheckBox{text="With alt surfaces",tip="Toggle VBSHook alt surfaces display",
 									 handler="toggleVBSHookAltSurface"}
-									 
+					intf:addCheckBox{text="With Depth surfaces",tip="Toggle VBSHook depth surfaces display",
+									 handler="toggleVBSHookDepthSurface"}								 
 									 
 				intf:addSpacer{prop=1}
 				intf:addBitmapButton{src="check",tip="Perform mission level unit tests",
@@ -224,6 +229,7 @@ function Class:initialize(options)
 	local scheduler = require "gui.wx.Scheduler"
 	local fh = require "fusion.FusionHandler"
 	scheduler:addTimer{frequency=10,callback=function(event) 
+		-- self:info("writing FPS value!")
 		self._fpsSt:SetLabel(("Current framerate: %.2f FPS."):format(fh:getFPS():at(1)))
 	end}
 end
@@ -287,6 +293,15 @@ function Class:toggleVBSHookAltSurface(intf,event)
 	
 	self:info("Should toggle Alt surface state to: ",event:IsChecked())
 	handler:setWithAltSurface(event:IsChecked())
+end
+
+function Class:toggleVBSHookDepthSurface(intf,event)
+	local comp = require "engine.CompositeHandler"
+	local handler = comp:getHandler("MainHandler")
+	self:check(handler,"Invalid main handler.")
+	
+	self:info("Should toggle Depth surface state to: ",event:IsChecked())
+	handler:setWithDepthSurface(event:IsChecked())
 end
 
 function Class:toggleVerbose(data)

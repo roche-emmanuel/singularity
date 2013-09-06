@@ -57,6 +57,14 @@ package.loaded["logging.DefaultLogger"] = nil
 package.loaded["std.Vector"] = nil
 package.loaded["std.Set"] = nil
 
+-- backup of VBS specific osg functions:
+local dxColorf = osg.Vec4f.toDXColor
+local dxColord = osg.Vec4d.toDXColor
+local fromYPR = osg.Quat.fromYPR
+local toYPR = osg.Quat.toYPR
+-- local toLLA = osg.Vec3d.toLLA
+-- local toUTM = osg.Vec3d.toUTM
+
 setupPackagePaths()
 setupLogManager("mxengine.log")
 
@@ -86,13 +94,6 @@ end
 
 addLuaPath(mxe_root.."?.lua")
 
-local dxColorf = osg.Vec4f.toDXColor
-local dxColord = osg.Vec4d.toDXColor
-local fromYPR = osg.Quat.fromYPR
-local toYPR = osg.Quat.toYPR
--- local toLLA = osg.Vec3d.toLLA
--- local toUTM = osg.Vec3d.toUTM
-
 -- reload the extensions from MX project:
 require "osg"
 package.loaded["extensions"] = nil
@@ -102,10 +103,13 @@ osg.Vec4f.toDXColor = dxColorf
 osg.Vec4d.toDXColor = dxColord
 osg.Quat.fromYPR = fromYPR
 osg.Quat.toYPR = toYPR
+
 -- osg.Vec3d.toLLA = toLLA
 -- osg.Vec3d.toUTM = toUTM
 
 local loader = function()
+	local res = osg.Vec4f(1.0,0.0,1.0,0.5):toDXColor()
+	
 	require "mxe.MXEHandler"
 	vlog:info "MXEngine extension started."
 	log:info("This message should be in the mxengine.log file.")
