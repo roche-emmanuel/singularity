@@ -96,10 +96,23 @@ inline IDirect3DTexture9* createTextureFromFile(IDirect3DDevice9* device, const 
 inline IDirect3DTexture9* createTexture(IDirect3DDevice9* device, unsigned int width, unsigned int height, D3DFORMAT fmt = D3DFMT_A8R8G8B8, bool dynamic = false )
 {
 	IDirect3DTexture9* tex = NULL;
-	HRESULT result = device->CreateTexture(width, height, 1, dynamic ? D3DUSAGE_DYNAMIC : D3DUSAGE_RENDERTARGET, fmt, D3DPOOL_DEFAULT, &tex, NULL);
+	// int usage = (fmt==D3DFMT_D24S8 || fmt==D3DFMT_R32F) ? D3DUSAGE_DEPTHSTENCIL : D3DUSAGE_RENDERTARGET;
+	int usage = D3DUSAGE_RENDERTARGET;
+	HRESULT result = device->CreateTexture(width, height, 1, dynamic ? D3DUSAGE_DYNAMIC : usage, fmt, D3DPOOL_DEFAULT, &tex, NULL);
 	// HRESULT result = device->CreateTexture(width, height, 1, sysmem ? 0 : D3DUSAGE_RENDERTARGET, 
 										   // fmt, sysmen ? D3DPOOL_SYSTEMMEM : D3DPOOL_DEFAULT, &tex, NULL);
 	CHECK_RESULT_RET(result,NULL,"Error while calling CreateTexture()");
+
+	return tex;
+}
+
+/** LUNA_CLASS_EXTENSION */
+inline IDirect3DSurface9* createDepthSurface(IDirect3DDevice9* device, unsigned int width, unsigned int height, D3DFORMAT fmt = D3DFMT_D24S8)
+{
+	IDirect3DSurface9* tex = NULL;
+	HRESULT result = device->CreateDepthStencilSurface(width, height, fmt,
+													   D3DMULTISAMPLE_NONE, 0, FALSE, &tex, NULL);
+	CHECK_RESULT_RET(result,NULL,"Error while calling CreateDepthStencilSurface()");
 
 	return tex;
 }
