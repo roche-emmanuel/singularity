@@ -46,6 +46,7 @@ function Class:initialize(options)
 	self._enabled = true
 	self._validItemOnly = options.validItemOnly
 	
+	self.options = options
 	self._controls = {}
 	self._classes = {} -- classes for the controls.
 	

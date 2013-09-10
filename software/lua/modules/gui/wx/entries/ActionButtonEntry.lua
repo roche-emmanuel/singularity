@@ -17,7 +17,7 @@ Create a new instance of the class.
 function ActionButtonEntry(options)
 ]=]
 function Class:initialize(options)
-    self:check(options and options.caption,"A valid 'caption' is needed to build a Action button entry.");
+    self:check(options and (options.caption or options.src),"A valid 'caption' or 'src' option is needed to build a Action button entry.");
 
     -- overrride some values:
     self._type = "void"
@@ -34,7 +34,11 @@ function Class:create(options)
 	end
 	
 	if options.src then
-		self._controls[1], istool = intf:addBitmapButton{tip=options.tip, kind=options.kind, caption=options.caption, name=options.name, src=options.src,size=options.size,handler=butHandler,prop=0,flags=options.flags,style=options.style};
+		self._controls[1], istool = intf:addBitmapButton{tip=options.tip, kind=options.kind, 
+														 caption=options.caption, name=options.name, 
+														 src=options.src,size=options.size,
+														 handler=butHandler,prop=0,
+														 flags=options.flags,style=options.style};
 		if not istool then
 			self._controls[1]:SetToolTip(options.tip or options.caption)
 		elseif platform~="win32" then
