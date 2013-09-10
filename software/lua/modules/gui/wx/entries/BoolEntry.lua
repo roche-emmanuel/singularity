@@ -31,8 +31,7 @@ function Class:create()
                 --wx.wxLogMessage("Disabling entry "..v)
                 if ent ~= self then
                     ent:setValue(false);
-                    ent:updateDisplay()
-                    ent:updateChildrenDisplay()                    
+                    ent:updateDisplay()                  
                 end
             end
         end
