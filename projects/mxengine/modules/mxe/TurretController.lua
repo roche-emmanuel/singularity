@@ -4,10 +4,14 @@ function Class:buildControlPanel()
 	local turrets = {
 	};
 	
+	self._turrets = turrets
+	
 	local intf = self._intf
 	
 	local prev_prov = intf:getDefaultProvider()
 	local panel = intf:getCurrentParent()
+	
+	self._controlPanel = panel
 	
 	-- add selector for the turret to control:
 	intf:addComboBoxSelector{caption="Current turret: ",cont=turrets}
@@ -45,13 +49,6 @@ function Class:buildControlPanel()
 		intf:popSizer()
 		
 		intf:pushSizer{text="Sensor settings",orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxALL+wx.wxEXPAND}
-			intf:pushNotebook{prop=1,flags=wx.wxALL+wx.wxEXPAND}
-				for _,sensor in ipairs{"EOW","IR","EON"} do
-					intf:pushBookPage{caption=sensor}	
-						self:buildSensorPanel(sensor)
-					intf:popParent(true)
-				end				
-			intf:popParent()
 			intf:addDummyEntry{name="sensor_updater",validItemOnly=true, handler=function(data)
 				local dmap = data.item
 				local turret = dmap:fetch("turret")		
@@ -60,7 +57,7 @@ function Class:buildControlPanel()
 				local setRange = function(eName,val,range)
 					local entry = intf:getEntry(eName)
 					if entry then
-						self:check(range:x()<=val and val <= range:y(),"Out of range initial value.")
+						self:check(range:x()<=val and val <= range:y(),"Out of range initial value val=",val,", range=",range)
 						entry._range[1] = range:x()
 						entry._range[2] = range:y()	
 						entry:setValue(val)
@@ -74,6 +71,15 @@ function Class:buildControlPanel()
 					setRange(sensor:getName()..".focus",lens:getFocus(),lens:getFocusRange())
 				end)
 			end}
+			
+			intf:pushNotebook{prop=1,flags=wx.wxALL+wx.wxEXPAND}
+				for _,sensor in ipairs{"EOW","IR","EON"} do
+					intf:pushBookPage{caption=sensor}	
+						self:buildSensorPanel(sensor)
+					intf:popParent(true)
+				end				
+			intf:popParent()
+
 		intf:popSizer()
 	
 	intf:popSizer()
@@ -128,31 +134,7 @@ function Class:buildControlPanel()
 	mman:addListener{mman.EVT_STARTED_MISSION,function()
 		self:info("Enabling turret control...")
 		
-		-- retrieve the turret Manager:
-		local tman = self:getTurretManager()
-		local DataMap = require "utils.DataMap"
-		
-		for i=1,tman:getNumTurrets() do
-			local turr = tman:getTurretByIndex(i)
-			self:check(turr,"Invalid turret object.")
-			self:info("Adding turret ", turr:getName())
-			local dmap = DataMap()
-			dmap:set("name","Turret "..i.." - ".. turr:getName())
-			dmap:set("turret",turr)
-			
-			for _,sname in ipairs{"EOW","IR","EON"} do
-				local sensor = turr:getSource(turr["VIDEO_"..sname])
-				if sensor then
-					dmap:set(sname..".focal_length",sensor:getFocalLength())
-					dmap:set(sname..".focus",sensor:getFocus())
-				end
-			end
-			table.insert(turrets,dmap:getTable())
-		end
-		
-		intf:updateProviders()
-		intf:updateEntries()
-		panel:Enable(true)
+		self:updateTurretList()
 	end}
 	
 	mman:addListener{mman.EVT_ENDING_MISSION,function()
@@ -165,6 +147,40 @@ function Class:buildControlPanel()
 		intf:updateProviders()
 		
 	end}	
+end
+
+function Class:updateTurretList()
+	-- retrieve the turret Manager:
+	local tman = self:getTurretManager()
+	local DataMap = require "utils.DataMap"
+	
+	local turrets = self._turrets
+
+	-- first we have to clear the list:
+	while #turrets > 0 do
+		table.remove(turrets,1)
+	end
+		
+	-- now populate the list:
+	for i=1,tman:getNumTurrets() do
+		local turr = tman:getTurretByIndex(i)
+		self:check(turr,"Invalid turret object.")
+		self:info("Adding turret ", turr:getName())
+		local dmap = DataMap()
+		dmap:set("name","Turret "..i.." - ".. turr:getName())
+		dmap:set("turret",turr)
+		
+		turr:foreachSensor(function(sensor)
+			local sname = sensor:getName()
+			dmap:set(sname..".focal_length",sensor:getFocalLength())
+			dmap:set(sname..".focus",sensor:getFocus())
+		end)
+		table.insert(turrets,dmap:getTable())
+	end
+	
+	self._intf:updateProviders()
+	self._intf:updateEntries()
+	self._controlPanel:Enable(true)
 end
 
 -- build a panel to display/control the given sensor details:
@@ -253,6 +269,12 @@ function Class:updateFocalLength(data)
 		
 		if data.value ~= fl then
 			self:info("Setting fl value to: ",fl," instead of: ", data.value)
+			
+			-- No clear understanding why but we should also fix the entry range here:
+			local range = lens:getFocalLengthRange()
+			data.entry._range[1] = range:x()
+			data.entry._range[2] = range:y()
+			
 			-- we also need to update the value of this entry:
 			data.entry:setValue(fl)
 			data.entry:updateDisplay()

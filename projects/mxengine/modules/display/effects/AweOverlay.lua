@@ -27,7 +27,8 @@ function Class:initialize(options)
 	local tobj = require "aw.WebView" {width = size:x(), height = size:y(), transparent=true}
 	-- local tobj = require "aw.WebView" {width = 1280, height = 720}
 	-- tobj:loadURL("http://www.google.fr")
-	tobj:loadURL("W:/Cloud/Projects/singularity/projects/mxengine/assets/overlays.html")
+	-- tobj:loadURL("W:/Cloud/Projects/singularity/projects/mxengine/assets/overlays.html")
+	tobj:loadURL("W:/Cloud/Projects/singularity/projects/mxengine/web/dist/index.html")
 	tobj:getTextureObject():setLinearFiltering()
 	
 	fx:setTextureObject(tobj,1)

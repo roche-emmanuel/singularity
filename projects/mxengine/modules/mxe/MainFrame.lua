@@ -244,6 +244,11 @@ function Class:onTurretModelChanged(data)
 	local mobj = self:getMissionManager():getMissionObject()
 	assert.InstanceOf(require "mission.SingleTurretMission",mobj)
 	mobj:setTurretModel(data.value)
+	
+	if self:isMissionRunning() then
+		-- we also need to replace the turret object from the "Control" page:
+		self:updateTurretList()
+	end
 end
 
 function Class:onPlatformModelChanged(data)

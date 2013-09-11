@@ -8,7 +8,7 @@ require.config({
 	}
 });
 
-require(['log','views/Overlay'], function(log, OverlayView) {
+require(['log','views/Overlay','libs/prefixfree.min'], function(log, OverlayView) {
 	log.info("Starting Wescam Overlays...");
 	
 	new OverlayView;

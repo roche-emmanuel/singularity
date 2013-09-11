@@ -249,7 +249,21 @@ function Class:setControlValue(ctrl,className)
         if type == "vec3d" then
             val = val[ctrl:GetId()]
         end
-        ctrl:SetValue(math.floor(0.5 + (val-range[1])/(range[2]-range[1])*10000));
+		--self:info("Setting slider value to: ",val, "with range=[",range[1],", ",range[2],"]")
+		--self:warn(debug.traceback())
+		--self:check(val >= range[1] and val <= range[2],"Out of range value")
+		-- self:info("Setting slider value 2: ",val,", range=",range)
+		if val < range[1] or val > range[2] then
+			self:warn("Out of range value: ",val, "with range=[",range[1],", ",range[2],"]")
+		end
+		if range[1]==range[2] then
+			val = 5000;
+		else
+			val = math.floor(0.5 + (val-range[1])/(range[2]-range[1])*10000)
+		end
+		-- self:info("Setting slider value: ",val)
+		
+        ctrl:SetValue(val);
     elseif class == "wxControl" or class == "wxPanel" then
         ctrl:Refresh()
     elseif class == "wxTextCtrl" then
