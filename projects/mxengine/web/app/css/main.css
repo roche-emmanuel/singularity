@@ -1,6 +1,9 @@
 @font-face {
     font-family: 'OverlayFont';
-    src: url('Cousine-Regular-Latin.ttf');
+    //src: url('Cousine-Regular-Latin.ttf');
+    src: url('DejaVuSansMono.ttf');
+    //src: url('DejaVuSansMono-Bold.ttf');
+    //src: url('RailModelFont.ttf');
 }
 
 * {
@@ -58,6 +61,8 @@ div {
 
 .block div {
 	text-shadow: -1px -1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, 1px 1px 1px #000;
+	//text-shadow: -1px 0px 1px #000, 1px 0px 1px #000, 0px 1px 1px #000, 0px -1px 1px #000;
+	//text-shadow: -1px -1px 1px #000, 1px 1px 1px #000;
 }
 
 .center {
