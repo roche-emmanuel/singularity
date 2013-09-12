@@ -80,6 +80,7 @@
 - Added support for proper turret switch on control page during mission.
 - Added support for dynamic overlay debugging.
 - Added minimal test for javascript function call for Awesomium.
+- Added implementation for gui.web.View with full Load listener support.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
