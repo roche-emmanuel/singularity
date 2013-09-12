@@ -30,6 +30,10 @@ function Class:getTextureObject()
 	return self._textureObject
 end
 
+function Class:getView()
+	return self._webView
+end
+
 function Class:loadURL(url)
 	self._url = url
 	self:info("Loading URL: ", url)

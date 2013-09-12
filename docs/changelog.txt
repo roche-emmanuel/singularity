@@ -79,6 +79,7 @@
 - Added support for focal length and focus control on MXEngine interface.
 - Added support for proper turret switch on control page during mission.
 - Added support for dynamic overlay debugging.
+- Added minimal test for javascript function call for Awesomium.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
