@@ -38,35 +38,35 @@ function Class:initialize(options)
 	self._webView = tobj
 	
 	-- Add a load listener on the Awesomium WebView object:
-	local aweView = self._webView:getView()
+	-- local aweView = self._webView:getView()
 	
-	self._loadListener = awe.Load{
-		OnBeginLoadingFrame = function(tt, obj, caller, frame_id,is_main_frame, url, is_error_page)
-			self:info("Begin Loading frame...")
-		end,
+	-- self._loadListener = awe.Load{
+		-- OnBeginLoadingFrame = function(tt, obj, caller, frame_id,is_main_frame, url, is_error_page)
+			-- self:info("Begin Loading frame...")
+		-- end,
 		
-		OnFailLoadingFrame = function(tt, obj, caller, frame_id, is_main_frame, url, error_code, error_desc)
-			self:error("Failed loading frame.")
-		end,
+		-- OnFailLoadingFrame = function(tt, obj, caller, frame_id, is_main_frame, url, error_code, error_desc)
+			-- self:error("Failed loading frame.")
+		-- end,
  
-		OnFinishLoadingFrame = function(tt, obj, caller, frame_id, is_main_frame, url)
-			self:info("Finished loading frame.")
-		end,
+		-- OnFinishLoadingFrame = function(tt, obj, caller, frame_id, is_main_frame, url)
+			-- self:info("Finished loading frame.")
+		-- end,
  
-		OnDocumentReady = function(tt, obj, caller, url)
-			self:info("DOM ready.")
-			if not self._initialized then
+		-- OnDocumentReady = function(tt, obj, caller, url)
+			-- self:info("DOM ready.")
+			-- if not self._initialized then
 				-- self._initialized = true
 				
 				-- perform the initialization here:
-				self:info("Calling updateFunc...")
-				aweView:ExecuteJavascript("updateFunc();","")
-				self:info("updateFunc called.")
-			end
-		end
-	}
+				-- self:info("Calling updateFunc...")
+				-- aweView:ExecuteJavascript("updateFunc();","")
+				-- self:info("updateFunc called.")
+			-- end
+		-- end
+	-- }
 	
-	aweView:set_load_listener(self._loadListener)
+	-- aweView:set_load_listener(self._loadListener)
 	
 	-- local TextureObject = require "dx.TextureObject"	
 	-- fx:setTextureObject(TextureObject{file="test_logo"},1)
