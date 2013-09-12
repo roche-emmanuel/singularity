@@ -86,6 +86,7 @@ This method is called internally.
 ]]
 function Class:setupListeners()
 	self:setupLoadListener()
+	self:setupViewListener()
 end
 
 --[[
@@ -113,6 +114,130 @@ function Class:setupLoadListener()
 	}
 	
 	self._webView:set_load_listener(self._loadListener)
+end
+
+--[[
+Function: setupViewListener
+
+Method called internally to setup the view listener.
+]]
+function Class:setupViewListener()
+	self._viewListener = awe.View{
+		OnChangeTitle = function(tt, obj, caller, title) -- title: WebString
+			self:onChangeTitle(caller,title,obj);
+		end,
+		
+		OnChangeAddressBar = function (tt, obj, caller, url) -- url: WebURL
+			self:onChangeAddressBar(caller,url:spec(),obj)
+		end,
+		
+		OnChangeTooltip = function(tt, obj, caller, tooltip) -- tooltip: WebString
+			self:onChangeTooltip(caller,tooltip,obj)
+		end,
+		
+		OnChangeTargetURL = function(tt, obj, caller, url) -- url: WebURL
+			self:onChangeTargetURL(caller,url:spec(),obj)
+		end,
+		
+		OnChangeCursor = function(tt, obj, caller, cursor)
+			self:onChangeCursor(caller,cursor,obj)
+		end,
+		
+		OnChangeFocus = function(tt, obj, caller, focused_type)
+			self:onChangeFocus(caller,focused_type,obj)
+		end,
+		
+		OnAddConsoleMessage = function(tt, obj, caller, message, line_number, source)
+			self:onAddConsoleMessage(caller, message, line_number, source, obj);
+		end,
+		
+		OnShowCreatedWebView = function(tt, obj, caller, new_view, opener_url, target_url, initial_pos, is_popup)
+			self:onShowCreatedWebView(caller,new_view,opener_url:spec(),target_url:spec(),initial_pos,is_popup,obj)
+		end,
+	}
+	
+	self._webView:set_view_listener(self._viewListener)
+end
+
+--[[
+Function: onChangeTitle
+
+This event occurs when the page title has changed.
+]]
+function Class:onChangeTitle(caller,title,obj)
+	self:debug("Calling onChangeTitle().")
+end
+
+--[[
+Function: onChangeAddressBar
+
+This event occurs when the page URL has changed.
+]]
+function Class:onChangeAddressBar(caller,url,obj)
+	self:debug("Calling onChangeAddressBar().")
+end
+
+--[[
+Function: onChangeTooltip
+
+This event occurs when the tooltip text has changed. 
+You should hide the tooltip when the text is empty.
+]]
+function Class:onChangeTooltip(caller,tooltip,obj)
+	self:debug("Calling onChangeTooltip().")
+end
+
+--[[
+Function: onChangeTargetURL
+
+This event occurs when the target URL has changed. 
+This is usually the result of hovering over a link on a page.
+]]
+function Class:onChangeTargetURL(caller,url,obj)
+	self:debug("Calling onChangeTargetURL().")
+end
+
+--[[
+Function: onChangeCursor
+
+This event occurs when the cursor has changed. 
+This is is usually the result of hovering over different content.
+]]
+function Class:onChangeCursor(caller,cursor,obj)
+	self:debug("Calling onChangeCursor().")
+end
+
+--[[
+Function: onChangeFocus
+
+This event occurs when the focused element changes on the page. 
+This is usually the result of textbox being focused or some other user-interaction event.
+]]
+function Class:onChangeFocus(caller,focused_type,obj)
+	self:debug("Calling onChangeFocus().")
+end
+
+--[[
+Function: onAddConsoleMessage
+
+This event occurs when a message is added to the console on the page. 
+This is usually the result of a JavaScript error being encountered on a page.
+]]
+function Class:onAddConsoleMessage(caller, message, line_number, source, obj)
+	self:info("WebView: ",message," (",source,":",line_number,")")
+end
+
+--[[
+Function: onShowCreatedWebView
+
+This event occurs when a WebView creates a new child WebView (usually the result of window.open or an external link). 
+It is your responsibility to display this child WebView in your application. 
+You should call Resize on the child WebView immediately after this event to make it match your container size.
+
+If this is a child of a Windowed WebView, you should call WebView::set_parent_window on the new view immediately within this event.
+]]
+function Class:onShowCreatedWebView(caller,new_view,opener_url,target_url,initial_pos,is_popup,obj)
+	self:warn("Calling onShowCreateWebView(): no concrete implementation.")
 end
 
 --[[
