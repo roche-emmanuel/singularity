@@ -25,6 +25,10 @@ function View(options)
 function Class:initialize(options)
 	self:check(options and options.width and options.height,"Invalid dimensions for web View creation")
 	
+	local Map = require "std.Map"
+	self._objectNameMap = Map()
+	self._methodIDMap = Map()
+	
 	-- create the webview:
 	self._webView = self:getManager():createWebView{width=options.width,height=options.height}
 	self:check(self._webView,"Invalid web view object.")
@@ -34,6 +38,9 @@ function Class:initialize(options)
 	
 	-- setup the listeners:
 	self:setupListeners()
+	
+	-- setu the JS handler:
+	self:setupJSHandler()
 end
 
 --[[
@@ -61,21 +68,99 @@ Parameters:
 	url - The URL to load.
 ]]
 function Class:loadURL(url)
-	self._url = url
 	self:debug("Loading URL: ", url)
 	self._webView:LoadURL(awe.WebURL(url))
 end
 
 --[[
-Function: reloadURL
+Function: reload
 
 Reload the last URL loaded.
-This method will trigger an error if no URL was loaded before.
+
+Parameters:
+	ignore_cache - (optional) If set to false, then the cache will not be reloaded. Default value is true.
 ]]
-function Class:reloadURL()
-	self:check(self._url,"Invalid url for Reload")
+function Class:reload(ignore_cache)
 	self:debug("Reloading...")
-	self:loadURL(self._url)
+	self:Reload(ignore_cache==nil or ignore_cache)
+end
+
+--[[
+Function: registerObject
+
+Register a JSObject with a list of custom methods.
+
+Parameters:
+	objName - The name to give to the object.
+	methods - (optional) A table mapping method names to functions to be executed.
+Those methods should not return any values (results will be discarded anyway).
+	withReturnMethods - (optional) A table mapping method names to functions to be executed.
+Those methods must return a result and this result will be sent to the Javascript engine. This
+kind of method has some specific limitations and should be used carefully( see Awesomium documentation).
+  
+Returns:
+	The JSObject just created. An error can be triggered if the object cannot be created.
+	
+]]
+function Class:registerObject(objName,methods,withReturnMethods)
+	self:check(not self._objectNameMap:get(objName),"Object with name ", objName," was already registered.")
+	methods = methods or {}
+	
+	-- Now create the object:
+	local obj = self._webView:CreateGlobalJavascriptObject(self._name)
+	self:check(obj:IsObject(),"Could not create JS global object, error code is: ", self._webView:last_error());
+	
+	-- convert to object:
+	obj = obj:ToObject()
+	
+	-- keep reference on the object:
+	self._objectNameMap:set(objName,obj)
+	
+	-- get the remove ID:
+	local id = obj:remote_id()
+	self:check(id~=0,"id==0 : Global object should not be local.")
+	
+	-- keep reference on the methods table:
+	self._methodIDMap:set(id,methods)
+	
+	-- register the custom methods:
+	for name,func in pairs(methods) do
+		obj:SetCustomMethod(name,false)
+	end
+	
+	-- now extend the methods table with the methods returning values
+	-- and register them at the same time:
+	for name,func in pairs(withReturnMethods or {}) do
+		self:check(not methods[name],"A JS method named ", name," was already registered.")
+		methods[name] = func
+		obj:SetCustomMethod(name,true) -- this one returns a value.
+	end
+	
+	return obj
+end
+
+function Class:getObject(name)
+	return self._objectNameMap:get(name)
+end
+
+function Class:getMethods(id)
+	return self._methodIDMap:get(id)
+end
+
+function Class:setupJSHandler()
+	self._jsHandler = awe.JSMethodHandler{
+		OnMethodCall = function(tt, obj, caller, objectId, method_name, args)
+			self:onMethodCall(caller, objectId, method_name, args:asTable(), obj)
+		end,
+		
+		OnMethodCallWithReturnValue = function(tt, obj, caller, objectId, method_name, args)
+			local res = self:onMethodCall(caller, objectId, method_name, args:asTable(), obj)
+			self:check(res,"Invalid return value for method call: ",method_name)
+			return res -- awe.JSValue.Null()
+		end,
+	}
+	
+	self._webView:set_js_method_handler(self._jsHandler)
 end
 
 --[[
@@ -87,6 +172,7 @@ This method is called internally.
 function Class:setupListeners()
 	self:setupLoadListener()
 	self:setupViewListener()
+	self:setupProcessListener()
 end
 
 --[[
@@ -114,6 +200,29 @@ function Class:setupLoadListener()
 	}
 	
 	self._webView:set_load_listener(self._loadListener)
+end
+
+--[[
+Function: setupProcessListener
+
+Method called internally to setup the process listener.
+]]
+function Class:setupProcessListener()
+	self._processListener = awe.Process{
+		OnUnresponsive = function(tt, obj, caller)
+			self:onUnresponsive(caller, obj)
+		end,
+		 
+		OnResponsive = function(tt, obj, caller)
+			self:onResponsive(caller, obj)
+		end,
+ 
+		OnCrashed = function(tt, obj, caller, status)
+			self:onCrashed(caller, status, obj)
+		end
+	}
+	
+	self._webView:set_process_listener(self._processListener)
 end
 
 --[[
@@ -157,6 +266,66 @@ function Class:setupViewListener()
 	}
 	
 	self._webView:set_view_listener(self._viewListener)
+end
+
+--[[
+Function: onMethodCall
+
+This event occurs whenever a custom JSObject method (with or wihout return value) is called from JavaScript.
+
+Parameters:
+	caller - The caller webview.
+	objectID - The ID of the object where this method is called.
+	method_name - The name of the method to call.
+	args - The arguments passed to the method as a table.
+	obj - the JS handler object.
+]]
+function Class:onMethodCall(caller, objectId, method_name, args, obj)
+	-- We first retrieve the methods for this object:
+	local methods = self:getMethods(objectId)
+	self:check(methods,"No methods registered for object with ID=",objectId);
+	
+	-- retrieve the actual method that should be executed:
+	local func = methods[method_name]
+	self:check(func,"Could not retrieve custom method with name ", method_name," on object with ID=",objectId)
+	
+	-- call the callback:
+	local status, res = pcall(func,unpack(args))
+	
+	if not status then
+		self:error("Could not execute JS custom method ", method_name,": ",res)
+		return awe.JSValue.Undefined()
+	end
+	
+	-- Return the result if any:
+	return res;
+end
+
+--[[
+Function: onUnresponsive
+
+This event occurs when the process hangs. 
+]]
+function Class:onUnresponsive(caller, obj)
+	self:warn("The webview process became unresponsive...")
+end
+
+--[[
+Function: onResponsive
+
+This event occurs when the process becomes responsive after a hang.
+]]
+function Class:onResponsive(caller, obj)
+	self:notice("The webview process is now responsive again.")
+end
+
+--[[
+Function: onCrashed
+
+This event occurs when the process crashes.
+]]
+function Class:onCrashed(caller, status, obj)
+	self:error("The webview process has crashed with status: ",status)
 end
 
 --[[
@@ -224,7 +393,15 @@ This event occurs when a message is added to the console on the page.
 This is usually the result of a JavaScript error being encountered on a page.
 ]]
 function Class:onAddConsoleMessage(caller, message, line_number, source, obj)
-	self:info("WebView: ",message," (",source,":",line_number,")")
+	if message:find("[INFO]%s+") then
+		message = message:gsub("[INFO]%s+","")
+		self:info(message," (",source,":",line_number,")")
+	elseif message:find("[DEBUG]") then
+		message = message:gsub("[DEBUG]%s+","")
+		self:debug(message," (",source,":",line_number,")")
+	else
+		self:warn(message," (",source,":",line_number,")")
+	end
 end
 
 --[[

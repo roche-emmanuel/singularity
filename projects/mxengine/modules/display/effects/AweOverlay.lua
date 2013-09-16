@@ -86,7 +86,7 @@ end
 
 function Class:reload()
 	self:check(self._webView,"Invalid webView for reload.")
-	self._webView:reloadURL()
+	self._webView:reload()
 end
 
 return Class
