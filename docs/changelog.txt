@@ -83,6 +83,7 @@
 - Added implementation for gui.web.View with full Load listener support.
 - Added view listener in web view.
 - Implementing basic web View class.
+- Added support for gui.web.View usage.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

@@ -22,7 +22,7 @@ cfg.mainframe_ribbon_enabled = false
 cfg.mainframe_menus_enabled = true
 
 -- Master framerate given in Hz.
-cfg.master_framerate = 30;
+cfg.master_framerate = 20;
 
 cfg.log_verbose = true
 cfg.log_level = "DEBUG0"

@@ -23,18 +23,17 @@ function Class:addWebPage(url,webview,options)
 	-- attach the event handlers:
 	local tile = page:getWebTile()
 	
-	tile:addListener{event="onChangeTitle",name="WebBookApp",func=function(handler,event,caller,title)
+	tile:onChangeTitle(function(caller,title)
 		self:setPageCaption(page:getWindow(),title)
-	end}
-
-	tile:addListener{event="onChangeTargetURL",name="WebBookApp",func=function(handler,event,caller,url)
-		self:getFrame():GetStatusBar():SetStatusText(url:spec(),0)
-	end}
-
-	tile:addListener{event="onShowCreatedWebView",name="WebBookApp",func=function(handler,event,caller,new_view,opener_url,target_url,initial_pos,is_popup)
-		-- we should add a new webpage to the book:
+	end)
+	
+	tile:onChangeTargetURL(function(caller,url)
+		self:getFrame():GetStatusBar():SetStatusText(url,0)
+	end)
+	
+	tile:onShowCreatedWebView(function(caller,new_view,opener_url,target_url,initial_pos,is_popup)
 		self:addWebPage(target_url,new_view)
-	end}
+	end)
 	
 	page:loadURL(url)
 	--self._page = page

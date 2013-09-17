@@ -23,24 +23,133 @@ Parameters:
 function View(options)
 ]=]
 function Class:initialize(options)
-	self:check(options and options.width and options.height,"Invalid dimensions for web View creation")
+	options = options or {}
+	
 	
 	local Map = require "std.Map"
 	self._objectNameMap = Map()
 	self._methodIDMap = Map()
 	
-	-- create the webview:
-	self._webView = self:getManager():createWebView{width=options.width,height=options.height}
-	self:check(self._webView,"Invalid web view object.")
+	-- get or create the webview:
+	self._width = options.width or 1280
+	self._height = options.height or 720
+	
+	self._webView = options.webView
+	if not self._webView then
+		self._webView = self:getManager():createWebView{width=self._width,height=self._height}
+		self:check(self._webView,"Invalid web view object.")
+	else
+		-- just ensure we use the proper dimensions:
+		self._webView:Resize(self._width,self._height)
+	end
 	
 	-- set as transparent if needed:
 	self._webView:SetTransparent(options.transparent or false)
+	
+	-- create the default handlers:
+	self:setupDefaultHandlers()
 	
 	-- setup the listeners:
 	self:setupListeners()
 	
 	-- setu the JS handler:
 	self:setupJSHandler()
+	
+	-- force init of the window object ??
+	local res = self:executeJavascriptWithResult("window");
+end
+
+function Class:setupDefaultHandlers()
+	-- Process handlers:
+	self._onUnresponsive = function(caller, obj)
+		self:warn("The webview process became unresponsive...")
+	end
+	
+	self._onResponsive = function(caller, obj)
+		self:notice("The webview process is now responsive again.")
+	end
+
+	self._onCrashed = function(caller, status, obj)
+		self:error("The webview process has crashed with status: ",status)
+	end
+	
+	-- View handlers:
+	self._onChangeTitle = function(caller,title,obj)
+		self:debug("Calling onChangeTitle().")
+	end
+
+	self._onChangeAddressBar = function(caller,url,obj)
+		self:debug("Calling onChangeAddressBar().")
+	end
+
+	self._onChangeTooltip = function(caller,tooltip,obj)
+		self:debug("Calling onChangeTooltip().")
+	end
+
+	self._onChangeTargetURL = function(caller,url,obj)
+		self:debug("Calling onChangeTargetURL().")
+	end
+
+	self._onChangeCursor = function(caller,cursor,obj)
+		self:debug("Calling onChangeCursor().")
+	end
+
+	self._onChangeFocus = function(caller,focused_type,obj)
+		self:debug("Calling onChangeFocus().")
+	end
+	
+	self._onAddConsoleMessage = function(caller, message, line_number, source, obj)
+		if message:find("[INFO]%s+") then
+			message = message:gsub("[INFO]%s+","")
+			self:info(message," (",source,":",line_number,")")
+		elseif message:find("[DEBUG]") then
+			message = message:gsub("[DEBUG]%s+","")
+			self:debug(message," (",source,":",line_number,")")
+		else
+			self:warn(message," (",source,":",line_number,")")
+		end
+	end
+
+	self._onShowCreatedWebView = function(caller,new_view,opener_url,target_url,initial_pos,is_popup,obj)
+		self:warn("Calling onShowCreateWebView(): no concrete implementation.")
+	end
+	
+	-- Load handlers:
+	self._onBeginLoadingFrame = function(caller,frame_id,is_main_frame,url,is_error_page,obj)
+		self:debug("Calling onBeginLoadingFrame().")
+	end
+
+	self._onFailLoadingFrame = function(caller,frame_id,is_main_frame,url,error_code,error_desc,obj)
+		self:error("Failed loading frame from url='", url,"', error_code=",error_code,", desc=",error_desc);
+	end
+	
+	self._onFinishLoadingFrame = function(caller,frame_id,is_main_frame,url,obj)
+		self:debug("Calling onFinishLoadingFrame().")
+	end
+	
+	self._onDocumentReady = function(caller,url,obj)
+		self:debug("Calling onDocumentReady().")
+	end
+end
+
+--[[
+Function: getWidth
+
+Retrieve the width of this web view.
+Width is in pixels
+]]
+function Class:getWidth()
+	return self._width
+end
+
+--[[
+Function: getHeight
+
+Retrieve the height of this web view.
+Height is in pixels
+]]
+function Class:getHeight()
+	return self._height
 end
 
 --[[
@@ -70,6 +179,23 @@ Parameters:
 function Class:loadURL(url)
 	self:debug("Loading URL: ", url)
 	self._webView:LoadURL(awe.WebURL(url))
+end
+
+--[[
+Function: resize
+
+Resize the webview.
+
+Parameters:
+	ww - New width for the webview
+	hh - New height for the webview
+]]
+function Class:resize(ww,hh)
+	if ww~=self._width or hh~=self._height then
+		self._width = ww
+		self._height = hh
+		self._webView:Resize(self._width,self._height)
+	end
 end
 
 --[[
@@ -107,7 +233,7 @@ function Class:registerObject(objName,methods,withReturnMethods)
 	methods = methods or {}
 	
 	-- Now create the object:
-	local obj = self._webView:CreateGlobalJavascriptObject(self._name)
+	local obj = self._webView:CreateGlobalJavascriptObject(objName)
 	self:check(obj:IsObject(),"Could not create JS global object, error code is: ", self._webView:last_error());
 	
 	-- convert to object:
@@ -183,19 +309,19 @@ Method called internally to setup the load listener.
 function Class:setupLoadListener()
 	self._loadListener = awe.Load{
 		OnBeginLoadingFrame = function(tt, obj, caller, frame_id,is_main_frame, url, is_error_page)
-			self:onBeginLoadingFrame(caller,frame_id,is_main_frame,url:spec(),is_error_page,obj)
+			self._onBeginLoadingFrame(caller,frame_id,is_main_frame,url:spec(),is_error_page,obj)
 		end,
 		
 		OnFailLoadingFrame = function(tt, obj, caller, frame_id, is_main_frame, url, error_code, error_desc)
-			self:onFailLoadingFrame(caller,frame_id,is_main_frame,url:spec(),error_code,error_desc,obj)
+			self._onFailLoadingFrame(caller,frame_id,is_main_frame,url:spec(),error_code,error_desc,obj)
 		end,
  
 		OnFinishLoadingFrame = function(tt, obj, caller, frame_id, is_main_frame, url)
-			self:onFinishLoadingFrame(caller,frame_id,is_main_frame,url:spec(),obj)
+			self._onFinishLoadingFrame(caller,frame_id,is_main_frame,url:spec(),obj)
 		end,
  
 		OnDocumentReady = function(tt, obj, caller, url)
-			self:onDocumentReady(caller,url:spec(),obj)
+			self._onDocumentReady(caller,url:spec(),obj)
 		end
 	}
 	
@@ -210,15 +336,15 @@ Method called internally to setup the process listener.
 function Class:setupProcessListener()
 	self._processListener = awe.Process{
 		OnUnresponsive = function(tt, obj, caller)
-			self:onUnresponsive(caller, obj)
+			self._onUnresponsive(caller, obj)
 		end,
 		 
 		OnResponsive = function(tt, obj, caller)
-			self:onResponsive(caller, obj)
+			self._onResponsive(caller, obj)
 		end,
  
 		OnCrashed = function(tt, obj, caller, status)
-			self:onCrashed(caller, status, obj)
+			self._onCrashed(caller, status, obj)
 		end
 	}
 	
@@ -233,35 +359,35 @@ Method called internally to setup the view listener.
 function Class:setupViewListener()
 	self._viewListener = awe.View{
 		OnChangeTitle = function(tt, obj, caller, title) -- title: WebString
-			self:onChangeTitle(caller,title,obj);
+			self._onChangeTitle(caller,title,obj);
 		end,
 		
 		OnChangeAddressBar = function (tt, obj, caller, url) -- url: WebURL
-			self:onChangeAddressBar(caller,url:spec(),obj)
+			self._onChangeAddressBar(caller,url:spec(),obj)
 		end,
 		
 		OnChangeTooltip = function(tt, obj, caller, tooltip) -- tooltip: WebString
-			self:onChangeTooltip(caller,tooltip,obj)
+			self._onChangeTooltip(caller,tooltip,obj)
 		end,
 		
 		OnChangeTargetURL = function(tt, obj, caller, url) -- url: WebURL
-			self:onChangeTargetURL(caller,url:spec(),obj)
+			self._onChangeTargetURL(caller,url:spec(),obj)
 		end,
 		
 		OnChangeCursor = function(tt, obj, caller, cursor)
-			self:onChangeCursor(caller,cursor,obj)
+			self._onChangeCursor(caller,cursor,obj)
 		end,
 		
 		OnChangeFocus = function(tt, obj, caller, focused_type)
-			self:onChangeFocus(caller,focused_type,obj)
+			self._onChangeFocus(caller,focused_type,obj)
 		end,
 		
 		OnAddConsoleMessage = function(tt, obj, caller, message, line_number, source)
-			self:onAddConsoleMessage(caller, message, line_number, source, obj);
+			self._onAddConsoleMessage(caller, message, line_number, source, obj);
 		end,
 		
 		OnShowCreatedWebView = function(tt, obj, caller, new_view, opener_url, target_url, initial_pos, is_popup)
-			self:onShowCreatedWebView(caller,new_view,opener_url:spec(),target_url:spec(),initial_pos,is_popup,obj)
+			self._onShowCreatedWebView(caller,new_view,opener_url:spec(),target_url:spec(),initial_pos,is_popup,obj)
 		end,
 	}
 	
@@ -306,8 +432,9 @@ Function: onUnresponsive
 
 This event occurs when the process hangs. 
 ]]
-function Class:onUnresponsive(caller, obj)
-	self:warn("The webview process became unresponsive...")
+function Class:onUnresponsive(func)
+	self:check(type(func)=="function","Invalid function argument")
+	self._onUnresponsive = func
 end
 
 --[[
@@ -315,8 +442,9 @@ Function: onResponsive
 
 This event occurs when the process becomes responsive after a hang.
 ]]
-function Class:onResponsive(caller, obj)
-	self:notice("The webview process is now responsive again.")
+function Class:onResponsive(func)
+	self:check(type(func)=="function","Invalid function argument")
+	self._onResponsive = func
 end
 
 --[[
@@ -324,8 +452,9 @@ Function: onCrashed
 
 This event occurs when the process crashes.
 ]]
-function Class:onCrashed(caller, status, obj)
-	self:error("The webview process has crashed with status: ",status)
+function Class:onCrashed(func)
+	self:check(type(func)=="function","Invalid function argument")
+	self._onCrashed = func
 end
 
 --[[
@@ -333,8 +462,9 @@ Function: onChangeTitle
 
 This event occurs when the page title has changed.
 ]]
-function Class:onChangeTitle(caller,title,obj)
-	self:debug("Calling onChangeTitle().")
+function Class:onChangeTitle(func)
+	self:check(type(func)=="function","Invalid function argument")
+	self._onChangeTitle = func
 end
 
 --[[
@@ -342,8 +472,9 @@ Function: onChangeAddressBar
 
 This event occurs when the page URL has changed.
 ]]
-function Class:onChangeAddressBar(caller,url,obj)
-	self:debug("Calling onChangeAddressBar().")
+function Class:onChangeAddressBar(func)
+	self:check(type(func)=="function","Invalid function argument")
+	self._onChangeAddressBar = func
 end
 
 --[[
@@ -352,8 +483,9 @@ Function: onChangeTooltip
 This event occurs when the tooltip text has changed. 
 You should hide the tooltip when the text is empty.
 ]]
-function Class:onChangeTooltip(caller,tooltip,obj)
-	self:debug("Calling onChangeTooltip().")
+function Class:onChangeTooltip(func)
+	self:check(type(func)=="function","Invalid function argument")
+	self._onChangeTooltip = func
 end
 
 --[[
@@ -362,8 +494,9 @@ Function: onChangeTargetURL
 This event occurs when the target URL has changed. 
 This is usually the result of hovering over a link on a page.
 ]]
-function Class:onChangeTargetURL(caller,url,obj)
-	self:debug("Calling onChangeTargetURL().")
+function Class:onChangeTargetURL(func)
+	self:check(type(func)=="function","Invalid function argument")
+	self._onChangeTargetURL = func
 end
 
 --[[
@@ -372,8 +505,9 @@ Function: onChangeCursor
 This event occurs when the cursor has changed. 
 This is is usually the result of hovering over different content.
 ]]
-function Class:onChangeCursor(caller,cursor,obj)
-	self:debug("Calling onChangeCursor().")
+function Class:onChangeCursor(func)
+	self:check(type(func)=="function","Invalid function argument")
+	self._onChangeCursor = func
 end
 
 --[[
@@ -382,8 +516,9 @@ Function: onChangeFocus
 This event occurs when the focused element changes on the page. 
 This is usually the result of textbox being focused or some other user-interaction event.
 ]]
-function Class:onChangeFocus(caller,focused_type,obj)
-	self:debug("Calling onChangeFocus().")
+function Class:onChangeFocus(func)
+	self:check(type(func)=="function","Invalid function argument")
+	self._onChangeFocus = func
 end
 
 --[[
@@ -392,16 +527,9 @@ Function: onAddConsoleMessage
 This event occurs when a message is added to the console on the page. 
 This is usually the result of a JavaScript error being encountered on a page.
 ]]
-function Class:onAddConsoleMessage(caller, message, line_number, source, obj)
-	if message:find("[INFO]%s+") then
-		message = message:gsub("[INFO]%s+","")
-		self:info(message," (",source,":",line_number,")")
-	elseif message:find("[DEBUG]") then
-		message = message:gsub("[DEBUG]%s+","")
-		self:debug(message," (",source,":",line_number,")")
-	else
-		self:warn(message," (",source,":",line_number,")")
-	end
+function Class:onAddConsoleMessage(func)
+	self:check(type(func)=="function","Invalid function argument")
+	self._onAddConsoleMessage = func
 end
 
 --[[
@@ -413,16 +541,17 @@ You should call Resize on the child WebView immediately after this event to make
 
 If this is a child of a Windowed WebView, you should call WebView::set_parent_window on the new view immediately within this event.
 ]]
-function Class:onShowCreatedWebView(caller,new_view,opener_url,target_url,initial_pos,is_popup,obj)
-	self:warn("Calling onShowCreateWebView(): no concrete implementation.")
+function Class:onShowCreatedWebView(func)
+	self:check(type(func)=="function","Invalid function argument")
+	self._onShowCreatedWebView = func
 end
 
 --[[
 Function: onBeginLoadingFrame
 
-Load listener event for begin loading frame.
+Set Load listener event handler for begin loading frame.
 
-Parameters:
+Callback parameters:
 	caller - The awesomium WebView caller.
 	frame_id - The frame_id.
 	is_main_frame - {boolean} True if this is the main frame.
@@ -430,17 +559,18 @@ Parameters:
 	is_error_page - {boolean} True if this is an error page
 	obj - the load listener object.  
 ]]
-function Class:onBeginLoadingFrame(caller,frame_id,is_main_frame,url,is_error_page,obj)
-	self:debug("Calling onBeginLoadingFrame().")
+function Class:onBeginLoadingFrame(func)
+	self:check(type(func)=="function","Invalid function argument")
+	self._onBeginLoadingFrame = func
 end
 
 --[[
 Function: onFailLoadingFrame
 
-Load listener event for failed loading frame.
+Set Load listener event handler for failed loading frame.
 This event occurs when a frame fails to load. See error_desc for additional information.
 
-Parameters:
+Callback parameters:
 	caller - The awesomium WebView caller.
 	frame_id - The frame_id.
 	is_main_frame - {boolean} True if this is the main frame.
@@ -449,43 +579,77 @@ Parameters:
 	error_desc - {string} The error description.
 	obj - the load listener object.  
 ]]
-function Class:onFailLoadingFrame(caller,frame_id,is_main_frame,url,error_code,error_desc,obj)
-	self:error("Failed loading frame from url='", url,"', error_code=",error_code,", desc=",error_desc);
+function Class:onFailLoadingFrame(func)
+	self:check(type(func)=="function","Invalid function argument")
+	self._onFailLoadingFrame = func
 end
 
 --[[
 Function: onFinishLoadingFrame
 
-Load listener event for finished frame loading.
+Set Load listener event handler for finished frame loading.
 This event occurs when the page finishes loading a frame. 
 The main frame always finishes loading last for a given page load.
 
-Parameters:
+Callback parameters:
 	caller - The awesomium WebView caller.
 	frame_id - The frame_id.
 	is_main_frame - {boolean} True if this is the main frame.
 	url - {string} The URL being loaded.
 	obj - the load listener object.  
 ]]
-function Class:onFinishLoadingFrame(caller,frame_id,is_main_frame,url,obj)
-	self:debug("Calling onFinishLoadingFrame().")
+function Class:onFinishLoadingFrame(func)
+	self:check(type(func)=="function","Invalid function argument")
+	self._onFinishLoadingFrame = func
 end
 
 --[[
 Function: onDocumentReady
 
-Load listener event for DOM ready.
+Set Load listener event handler for DOM ready.
 This event occurs when the DOM has finished parsing and the window object is available for JavaScript execution.
 
-Parameters:
+Callback parameters:
 	caller - The awesomium WebView caller.
 	url - {string} The URL being loaded.
 	obj - the load listener object.  
 ]]
-function Class:onDocumentReady(caller,url,obj)
-	self:debug("Calling onDocumentReady().")
+function Class:onDocumentReady(func)
+	self:check(type(func)=="function","Invalid function argument")
+	self._onDocumentReady = func
 end
 
+function Class:focus()
+	self._webView:Focus()
+end
+
+function Class:injectKeyboardEvent(ke)
+	self._webView:InjectKeyboardEvent(ke)
+end
+
+function Class:injectMouseMove(x,y)
+	self._webView:InjectMouseMove(x,y)
+end
+
+function Class:injectMouseDown(mb)
+	self._webView:InjectMouseDown(mb)
+end
+
+function Class:injectMouseUp(mb)
+	self._webView:InjectMouseUp(mb)
+end
+
+function Class:injectMouseWheel(vwm,hwm)
+	self._webView:InjectMouseWheel(vwm,hwm)
+end
+
+function Class:executeJavascript(script,frame_xpath)
+	self._webView:ExecuteJavascript(script,frame_xpath or "")
+end
+
+function Class:executeJavascriptWithResult(script,frame_xpath)
+	return self._webView:ExecuteJavascriptWithResult(script,frame_xpath or "")
+end
 
 return Class
 
