@@ -40,17 +40,16 @@ local cursor_map = {}
 cursor_map[awe.kCursor_Hand] = wx.wxCURSOR_HAND
 
 function Class:setupListeners()
-	self._tile:addListener{event="onChangeAddressBar",name="WebPage",func=function(handler,event,caller,url)
-		self._addressBar:ChangeValue(url:spec())
-		self._addressBar:SelectAll()
-	end}
-	self._tile:addListener{event="onChangeCursor",name="WebPage",func=function(handler,event,caller,cursor)
+	self._tile:onChangeAddressBar(function(caller,url)
+		self._addressBar:ChangeValue(url)
+		self._addressBar:SelectAll()	
+	end)
+	
+	self._tile:onChangeCursor(function(caller,cursor)
 		self:info("Setting hand cursor ",cursor)
 		local win = self._canvas:getWindow()
-		win:SetCursor(cursor_map[cursor] or wx.wxCURSOR_DEFAULT);
-		-- self._window:SetCursor(wx.wxCursor(wx.wxCURSOR_HAND));
-		--wx.wxSetCursor(wx.wxCursor(wx.wxCURSOR_HAND));
-	end}
+		win:SetCursor(cursor_map[cursor] or wx.wxCURSOR_DEFAULT);	
+	end)
 end
 
 function Class:setupEventHandlers()

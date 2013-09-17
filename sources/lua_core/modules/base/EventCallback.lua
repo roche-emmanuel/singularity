@@ -12,6 +12,8 @@ function Class:initialize(desc)
 		desc.func = desc.object["on".. desc.event]
 	end
 	
+	self:check(desc.func,"Invalid callback function for event with desc=",desc)
+	
 	if type(desc.func)=="string" then
 		self:check(desc.object,"Invalid object in unnamed callback description.")
 		desc.func = desc.object[desc.func]	

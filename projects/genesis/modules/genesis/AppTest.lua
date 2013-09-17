@@ -28,24 +28,31 @@ function Class:initialize(options)
 	}
 	
 	self:getRoot():addChild(sb)
-	
-	local view = self._tile:getWebView()
+		
+	local view = self._tile
 
-	self._hand = require("genesis.GenesisHandler")()
-	view:set_js_method_handler(self._hand:getHandler())
-
-	-- This is needed to force initialization of the window object ??
-	local res = view:ExecuteJavascriptWithResult("window","");
+	if true then
+	local log = require "logger"
 	
-	require("gui.web.objects.Logger"){name="log",view=view}
-	
-	local sgtVal = view:CreateGlobalJavascriptObject("sgt")
-	
-	self:check(sgtVal:IsObject(),"Invalid sgtVal object")
-	sgtVal = sgtVal:ToObject()
-	local id = sgtVal:remote_id()
-	self:info("sgtVal remote id is: ",id)
-	sgtVal:SetCustomMethod("logInfo",false)
+	-- assign a document ready callback:
+	view:onDocumentReady(function()
+		-- here we can register the global object:
+		if not self._initialized then
+			self._initialized = true;
+			view:registerObject("sgt",{
+				logInfo = function(...)
+					log:info(...)
+				end
+			})
+			
+			view:registerObject("log",{
+				info = function(...) log:info(...) end,
+				debug = function(...) log:debug(...) end,
+				error = function(...) log:error(...) end,
+			})
+		end
+	end)
+	end
 	
 	self:showOutputPanel(false)
 

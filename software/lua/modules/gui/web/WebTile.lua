@@ -1,14 +1,13 @@
-local Class = require("classBuilder"){name="WebTile",bases={"osg.BasicNode","base.EventHandler"}};
+local Class = require("classBuilder"){name="WebTile",bases={"osg.BasicNode","gui.web.WebTexture"}};
 
 local Event = require "base.Event"
-local webman = require "gui.web.WebManager"
 local tools = require "osg.Tools"
 local awe = require "Awesomium"
 
 local buttonMap = {}
 buttonMap[osgGA.GUIEventAdapter.LEFT_MOUSE_BUTTON] = awe.kMouseButton_Left
-buttonMap[osgGA.GUIEventAdapter.MIDDLE_MOUSE_BUTTON] = kMouseButton_Middle
-buttonMap[osgGA.GUIEventAdapter.RIGHT_MOUSE_BUTTON] = kMouseButton_Right
+buttonMap[osgGA.GUIEventAdapter.MIDDLE_MOUSE_BUTTON] = awe.kMouseButton_Middle
+buttonMap[osgGA.GUIEventAdapter.RIGHT_MOUSE_BUTTON] = awe.kMouseButton_Right
 
 local scrollScale = 120.0;
 
@@ -21,111 +20,50 @@ hScrollMap[osgGA.GUIEventAdapter.SCROLL_LEFT] = -scrollScale
 hScrollMap[osgGA.GUIEventAdapter.SCROLL_RIGHT] = scrollScale
 
 function Class:initialize(options)
-	-- create a webview for this tile:
-	-- self._webImage = webman:createWebImage(options);
-	self._webImage = webman:createWebTexture(options);
-	self._webView = self._webImage:getWebView();
-	
-	self._webView:SetTransparent(options and options.transparent or false)
-	
 	-- Also create the screen quad where to apply the image:
-	-- self._quad = tools:createScreenQuad{image=self._webImage:getImage()}
-	self._quad = tools:createScreenQuad{texture=self._webImage:getImage(),invertY=true}
+	self._quad = tools:createScreenQuad{texture=self:getOSGTexture(),invertY=true}
 	
 	-- Register the update callback for this WebTile:
-	self:getEventManager():addListener{event=Event.FRAME,object=self}
+	-- self:getEventManager():addListener{event=Event.FRAME,object=self}
 	
 	self:info("Done creating webtile.")
 	
-	self._viewListener = awe.View{
-		OnChangeTitle = function(tt, obj, caller, title) -- title: WebString
-			--self:info("In OnChangeTile(), title=",title);
-			self:fireEvent("onChangeTitle",caller,title);
-		end,
-		
-		OnChangeAddressBar = function (tt, obj, caller, url) -- url: WebURL
-			--self:info("In OnChangeAddressBar(), url=",url:spec());
-			self:fireEvent("onChangeAddressBar",caller,url);
-		end,
-		
-		OnChangeTooltip = function(tt, obj, caller, tooltip) -- tooltip: WebString
-			self:info("In OnChangeTooltip(), tooltip=",tooltip);
-		end,
-		
-		OnChangeTargetURL = function(tt, obj, caller, url) -- url: WebURL
-			--self:info("In OnChangeTargetURL(), url='",url:spec(),"'");
-			self:fireEvent("onChangeTargetURL",caller,url);
-		end,
-		
-		OnChangeCursor = function(tt, obj, caller, cursor)
-			-- self:info("In OnChangeCursor(), cursor=",cursor);
-			self:fireEvent("onChangeCursor",caller,cursor);
-		end,
-		
-		OnChangeFocus = function(tt, obj, caller, focused_type)
-			self:info("In OnChangeFocus(), focused=",focused_type);
-		end,
-		
-		OnShowCreatedWebView = function(tt, obj, caller, new_view, opener_url, target_url, initial_pos, is_popup)
-			self:info("In OnShowCreatedWebView(), opener_url=",opener_url:spec(),", target_url=",target_url:spec(),", is_popup=",is_popup);
-			self:fireEvent("onShowCreatedWebView",caller, new_view, opener_url, target_url, initial_pos, is_popup);
-		end,
-	};
-	
+	self:buildEventHandler()
+end
+
+function Class:buildEventHandler()
 	self._eventHandler = osgGA.GUIEventHandler{
 		handle = function(tt,obj,ea,aa)
 			local etype = ea:getEventType();
-			local xratio = self._webImage:getWidth()/ea:getWindowWidth()
-			local yratio = self._webImage:getHeight()/ea:getWindowHeight()
+			local xratio = self:getWidth()/ea:getWindowWidth()
+			local yratio = self:getHeight()/ea:getWindowHeight()
 			
 			local x = math.floor(ea:getX()*xratio + 0.5);
 			local y = math.floor((ea:getWindowHeight() - ea:getY())*yratio + 0.5);
 			
-			self._webView:Focus();
+			self:focus();
 			
 			if etype == osgGA.GUIEventAdapter.MOVE or etype == osgGA.GUIEventAdapter.DRAG then
-				self._webView:InjectMouseMove(x,y);
+				self:injectMouseMove(x,y);
 			elseif etype == osgGA.GUIEventAdapter.PUSH then
-				self._webView:InjectMouseDown(buttonMap[ea:getButton()] or 0)
+				self:injectMouseDown(buttonMap[ea:getButton()] or 0)
 			elseif etype == osgGA.GUIEventAdapter.RELEASE then
-				self._webView:InjectMouseUp(buttonMap[ea:getButton()] or 0)
+				self:injectMouseUp(buttonMap[ea:getButton()] or 0)
 			elseif etype == osgGA.GUIEventAdapter.SCROLL then
-				--self:info("deltaY=",ea:getScrollingDeltaY(),", deltaX=",ea:getScrollingDeltaX())
-				--self._webView:InjectMouseWheel(ea:getScrollingDeltaY(),ea:getScrollingDeltaX())
 				local sm = ea:getScrollingMotion()
-				self._webView:InjectMouseWheel(vScrollMap[sm] or 0,hScrollMap[sm] or 0)
-				
+				self:injectMouseWheel(vScrollMap[sm] or 0,hScrollMap[sm] or 0)				
 			elseif etype == osgGA.GUIEventAdapter.KEYDOWN or etype == osgGA.GUIEventAdapter.KEYUP then
-				self._webView:InjectKeyboardEvent(self:createKeyEvent(ea));
+				self:injectKeyboardEvent(self:createKeyEvent(ea));
 			end
 			
 			return false;
 		end
 	};
-	
-	self._webView:set_view_listener(self._viewListener)
 end
 
 function Class:release()
 	self:info("Releasing WebTile...");
-	--self._webView:set_view_listener(nil);
-	self._webView = nil;
-	self._webImage = nil;
-	self._viewListener = nil;
 	self._eventHandler = nil;
-end
-
-function Class:resize(ww,hh)
-	self:info("Resizing web tile to ",ww,"x",hh)
-	self._webView:Resize(ww,hh)
-end
-
-function Class:getWebView()
-	return self._webView;
-end
-
-function Class:setChangeTitleCallback(cb)
-
 end
 
 function Class:buildInstance(obj)
@@ -222,16 +160,8 @@ function Class:getEventHandler()
 	return self._eventHandler
 end
 
---function Class:getImage()
---	return self._webImage:getImage()
---end
-
 function Class:buildObjectWrapper(wrapper)
 	-- nothing to serialize.
-end
-
-function Class:onFrame()
-	self._webImage:update()
 end
 
 -- definition of the needed methods to traverse this node a kind of group:
@@ -256,10 +186,6 @@ end
 function Class:releaseGLObjects(obj,state)
     obj:base_releaseGLObjects(state);
 	self._quad:releaseGLObjects(state);
-end
-
-function Class:loadURL(url)
-	self._webView:LoadURL(Awesomium.WebURL(url))
 end
 
 return Class

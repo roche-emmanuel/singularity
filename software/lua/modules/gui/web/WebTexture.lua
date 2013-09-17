@@ -1,20 +1,9 @@
-local Class = require("classBuilder"){name="WebTexture",bases="base.Object"};
+local Class = require("classBuilder"){name="WebTexture",bases="gui.web.View"};
 
-local Event = require "base.Event"
-local webman = require "gui.web.WebManager"
 local osg = require "osg"
-local gl = require "luagl"
 
 function Class:initialize(options)	
-	options = options or {}
-	local ww = options.width or 1280
-	local hh = options.height or 720;
-	
-	-- create a webview for this tile:
-	self._webView = options.webView or webman:createWebView{width=ww,height=hh};
-	self._webView:Resize(ww,hh)
-
-	self._surface = webman:getSurfaceFactory():getOrCreateSurface(self._webView)
+	self._surface = self:getManager():getSurfaceFactory():getOrCreateSurface(self._webView)
 	self._texture = self._surface:getTexture();
 
 	local tex = self._texture;	
@@ -25,27 +14,19 @@ function Class:initialize(options)
     --tex:setFilter(osg.Texture.MIN_FILTER,osg.Texture.NEAREST);
     tex:setFilter(osg.Texture.MAG_FILTER,osg.Texture.LINEAR);
 	
-	self._surface:setSize(ww,hh);
+	self._surface:setSize(self._width,self._height);
 end
 
-function Class:getWidth()
-	return self._texture:getTextureWidth()
+function Class:getManager()
+	return require "gui.web.WebManager"
 end
 
-function Class:getHeight()
-	return self._texture:getTextureHeight()
-end
+-- function Class:getWebView()
+	-- return self._webView;
+-- end
 
-function Class:getWebView()
-	return self._webView;
-end
-
-function Class:getImage()
+function Class:getOSGTexture()
 	return self._texture
-end
-
-function Class:update()
-	-- nothing to do here.
 end
 
 return Class

@@ -78,6 +78,7 @@ Group: Gui  {
    File: Provider  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/Provider.lua)
    File: Selector  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/Selector.lua)
    File: SelectorProvider  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/SelectorProvider.lua)
+   File: web.View  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/View.lua)
 
    Group: wx  {
 
