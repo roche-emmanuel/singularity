@@ -54,4 +54,24 @@ function Class:createBase(options)
 	self:getRoot():addChild(base)
 end
 
+function Class:setupDefaultScene()
+	local mt = self:loadModel("tests/data/glider.osgt")
+	self:createCube(1)
+	self:createBase()
+	self:applyCircleAnimation(mt, 4.0, 6.0)
+	
+	local tools = require "osg.Tools"
+	
+	local sb = tools:createSkyBox{
+		x_pos="skybox1/right.jpg",
+		x_neg="skybox1/left.jpg",
+		y_pos="skybox1/front.jpg",
+		y_neg="skybox1/back.jpg",
+		z_pos="skybox1/top.jpg",
+		z_neg="skybox1/bottom.jpg",
+	}
+	
+	self:getRoot():addChild(sb)
+end
+
 return Class

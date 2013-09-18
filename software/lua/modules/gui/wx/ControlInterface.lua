@@ -500,15 +500,13 @@ end
 function Class:addOutputPanel(options)
 	
 	options[1] = options[1] or "gui.wx.OutputPanel"
+	options.flags = options.flags or wx.wxALL+wx.wxEXPAND
+	options.prop = options.prop or 1
+	
 	return self:addCustomWindow(options)
 	
 	-- options.parent = self:getCurrentParent();
-	
 	-- local panel = require()(options)
-
-	-- options.flags = options.flags or wx.wxALL+wx.wxEXPAND
-	-- options.prop = options.prop or 1
-	
 	-- return panel:getWindow(), panel
 end
 

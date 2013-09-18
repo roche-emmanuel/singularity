@@ -30,7 +30,7 @@ function Class:connectHandler(ctrl,eventType,func,id,data)
     self:check(func,"Invalid event handler in connectHandler")
     
 	if type(func)=="string" then
-		local obj = self._handler
+		local obj = self:getHandler()
 		self:check(obj,"Invalid handler class for interface, cannot setup handler: ", func)
 		local realfunc = obj[func]
 		self:check(realfunc,"Invalid handler real handler function with name: ", func)

@@ -8,6 +8,24 @@ function Class:new(options)
 	self._tile = WebTile{transparent=true,width=1920,height=1080}
 end
 
+function Class:setupInterface(options)
+	local Interface = require "gui.wx.ControlInterface"
+	local im = require "gui.wx.ImageManager"
+
+	local intf = Interface{root=self:getFrame()}
+
+	intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
+		local ctrl, canvas = intf:addOSGCtrl{prop=3,handlers=options.handlers}
+		self._canvas = canvas;
+	
+		self._outputPanel = intf:addOutputPanel{}
+
+	intf:popParent(true)
+	
+	self:getWindowManager():getMainFrame():SetSize(1280,720)
+	
+end
+
 function Class:initialize(options)
 	self:getRoot():addChild(osg.Node(self._tile))	
 
@@ -18,12 +36,9 @@ function Class:initialize(options)
 	local view = self._tile
 	
 	-- assign a document ready callback:
-	view:onDocumentReady(function()
+	-- view:onInitialize(function()
 		-- here we can register the global object:
-		if not self._initialized then
-			self._initialized = true;
-		end
-	end)
+	-- end)
 	
 	self:showOutputPanel(true)
 
