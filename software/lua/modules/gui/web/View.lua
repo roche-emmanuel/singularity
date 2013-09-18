@@ -207,6 +207,23 @@ function Class:resize(ww,hh)
 	end
 end
 
+local err_map = {
+[awe.kError_None] = "No error (everything is cool!)",
+[awe.kError_BadParameters] ="Bad parameters were supplied.",
+[awe.kError_ObjectGone] ="The object no longer exists.",
+[awe.kError_ConnectionGone] ="The IPC connection no longest exists.",
+[awe.kError_TimedOut] ="The operation timed out.",
+[awe.kError_WebViewGone] ="The WebView no longer exists.",
+[awe.kError_Generic] 	="A generic error was encountered."
+}
+
+function Class:checkErrors(obj)
+	local err = (obj or self._webView):last_error()
+	if err ~= awe.kError_None  then
+		self:error("Error occured in last call: ",err_map[err] or "Unknown error?")
+	end
+end
+
 --[[
 Function: reload
 
@@ -218,6 +235,8 @@ Parameters:
 function Class:reload(ignore_cache)
 	self:debug("Reloading...")
 	self._webView:Reload(ignore_cache==nil or ignore_cache)
+	-- self._webView:Reload(true)
+	-- self:loadURL(self._webView:url():spec())
 end
 
 --[[

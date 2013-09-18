@@ -20,13 +20,12 @@ function AweOverlay(options)
 function Class:initialize(options)
 	-- self:warn("Loading AWE Overlay!")
 	
-	local fx = self:addFilter{"AddLayer"}	
+	local fx = self:addFilter{"AddLayer"}
 	
 	-- Add the overlay texture on slot 1:
 	local size = self:getTurret():getRenderSize()
 	
 	local tobj = require "aw.WebView" {width = size:x(), height = size:y(), transparent=true}
-	-- local tobj = require "aw.WebView" {width = 1280, height = 720}
 	-- tobj:loadURL("http://www.google.fr")
 	-- tobj:loadURL("W:/Cloud/Projects/singularity/projects/mxengine/assets/overlays.html")
 	tobj:loadURL("W:/Cloud/Projects/singularity/projects/mxengine/web/app/index.html")
@@ -49,13 +48,26 @@ function Class:initialize(options)
 	end}	
 	
 	self:getTurret():addListener{Turret.EVT_POST_UPDATE,function()
-		-- perform update here.
+		self:updateOverlayContent()
 	end}	
 end
 
 function Class:reload()
 	self:check(self._webView,"Invalid webView for reload.")
 	self._webView:reload()
+end
+
+--[[
+Function: updateOverlayContent
+
+Thie method is called in the turret post update to.
+retrieve all the updated overlay values from the turret
+for this cycle.
+]]
+function Class:updateOverlayContent()
+	local changes = self:getTurret():getUpdatedOverlayFields()
+	--changes:set("overlay_source","EOW")
+	self._webView:setFields(changes:getTable());
 end
 
 return Class

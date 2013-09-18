@@ -8,17 +8,14 @@ require.config({
 	}
 });
 
-// global level update method to trigger an update of the display.
-var updateFunc;
-
 require(['log','views/Overlay','libs/prefixfree.min'], function(log, OverlayView) {
 	log.info("Starting Wescam Overlays...");
 	
-	new OverlayView;
+	var overlay = new OverlayView;
 	
-	updateFunc = function() {
-		log.info("Hello from update function!")
+	if (typeof turretProxy != 'undefined') {
+		turretProxy.onOverlayReady(overlay.getModel());
 	}
-	
+		
 	log.debug("Wescam app loaded.");
 });

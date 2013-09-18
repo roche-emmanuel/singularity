@@ -1,4 +1,10 @@
-define(["backbone","underscore","base/LayoutManager","text!templates/overlay/default.html"],function(Backbone,_,lman,tpl) {
+define(["backbone","underscore","base/LayoutManager",
+		"models/Overlay",
+		"text!templates/overlay/default.html"],
+function(Backbone,_,lman,OverlayModel,tpl) {
+	
+	var model = new OverlayModel;
+	
 	var Overlay = Backbone.View.extend({
 		el: $('#overlays'),
 		
@@ -12,6 +18,14 @@ define(["backbone","underscore","base/LayoutManager","text!templates/overlay/def
 			
 			// setup the layout:
 			lman.setup();
+			
+			// setup the default Overlay values:
+			model.setDefaults();
+		},
+		
+		// Retrieve the overlay model used for this display:
+		getModel : function() {
+			return model;
 		},
 	
 	});
