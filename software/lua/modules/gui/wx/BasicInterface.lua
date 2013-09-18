@@ -41,8 +41,22 @@ function Class:initialize(options)
 	self._licenseCb = evtman:addListener{event="LicenseChanged",object=self}
 end
 
+--[[
+Function: setHandler
+
+Assign a new handler to this interface.
+This method will also return the previous handler is any.
+
+Parameters:
+	hd - The new handler object
+  
+Returns:
+	The previous handler object.
+]]
 function Class:setHandler(hd)
+	local prev = self._handler
 	self._handler = hd
+	return prev
 end
 
 function Class:getHandler()

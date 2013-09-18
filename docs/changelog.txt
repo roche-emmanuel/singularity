@@ -84,6 +84,7 @@
 - Added view listener in web view.
 - Implementing basic web View class.
 - Added support for gui.web.View usage.
+- Implementing Genesis test interface.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

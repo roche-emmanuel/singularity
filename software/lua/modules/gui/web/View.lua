@@ -54,12 +54,20 @@ function Class:initialize(options)
 	
 	-- setu the JS handler:
 	self:setupJSHandler()
-	
-	-- force init of the window object ??
-	local res = self:executeJavascriptWithResult("window");
+end
+
+function Class:initView()
+	if not self._initialized then
+		self._onInitialize()
+	end
 end
 
 function Class:setupDefaultHandlers()
+	-- Custom handlers:
+	self._onInitialize = function()
+		-- do nothing special.
+	end
+	
 	-- Process handlers:
 	self._onUnresponsive = function(caller, obj)
 		self:warn("The webview process became unresponsive...")
@@ -128,7 +136,8 @@ function Class:setupDefaultHandlers()
 	end
 	
 	self._onDocumentReady = function(caller,url,obj)
-		self:debug("Calling onDocumentReady().")
+		self:initView()
+		-- self:debug("Calling onDocumentReady().")
 	end
 end
 
@@ -208,7 +217,7 @@ Parameters:
 ]]
 function Class:reload(ignore_cache)
 	self:debug("Reloading...")
-	self:Reload(ignore_cache==nil or ignore_cache)
+	self._webView:Reload(ignore_cache==nil or ignore_cache)
 end
 
 --[[
@@ -601,6 +610,16 @@ Callback parameters:
 function Class:onFinishLoadingFrame(func)
 	self:check(type(func)=="function","Invalid function argument")
 	self._onFinishLoadingFrame = func
+end
+
+--[[
+Function: onInitialize
+
+Method called the first time the DOM becomes ready by default.
+]]
+function Class:onInitialize(func)
+	self:check(type(func)=="function","Invalid function argument")
+	self._onInitialize = func
 end
 
 --[[

@@ -4,16 +4,21 @@ local tools = require "osg.Tools"
 local fs = require "base.FileSystem"
 
 function Class:initialize(options)
+	
+	self:setupInterface(options)
+	
+	self:getFrame():Layout()
+
+	self:setupEventHandlers()
+end
+
+function Class:setupInterface(options)
 	local Interface = require "gui.wx.ControlInterface"
 	local im = require "gui.wx.ImageManager"
 
 	local intf = Interface{root=self:getFrame()}
 
 	self:buildInterface(intf,options)
-	
-	self:getFrame():Layout()
-
-	self:setupEventHandlers()
 end
 
 function Class:buildInterface(intf, options)
