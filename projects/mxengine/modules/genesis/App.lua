@@ -9,16 +9,17 @@ function Class:new(options)
 end
 
 function Class:setupInterface(options)
-	local Interface = require "gui.wx.ControlInterface"
+	local Interface = require "gui.wx.EntryInterface"
 	local im = require "gui.wx.ImageManager"
 
-	local intf = Interface{root=self:getFrame()}
+	local intf = Interface{root=self:getFrame(),handler=self}
 
 	intf:pushPanel{prop=1,flags=wx.wxALL+wx.wxEXPAND}
 		local ctrl, canvas = intf:addOSGCtrl{prop=3,handlers=options.handlers}
 		self._canvas = canvas;
 	
-		self._outputPanel = intf:addOutputPanel{}
+		require "gui.LogPanel" {intf}
+		-- self._outputPanel = intf:addOutputPanel{}
 
 	intf:popParent(true)
 	
@@ -40,7 +41,7 @@ function Class:initialize(options)
 		-- here we can register the global object:
 	-- end)
 	
-	self:showOutputPanel(true)
+	-- self:showOutputPanel(true)
 
 	-- local man = require "gui.web.WebManager"
     -- self:getWebManager():addDataPak("genesis", config.genesis.root_path .. "assets.pak");

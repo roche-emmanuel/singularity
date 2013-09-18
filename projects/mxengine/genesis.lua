@@ -10,9 +10,13 @@ addLuaPath(path .. "modules/?.lua")
 dofile(path .. "config.lua")
 config.genesis.root_path = path
 
+require "wx" -- need to require this before accessing the ImageManager.
+local im = require "gui.wx.ImageManager"
+im:addImagePath(path .."assets/images/")
+
 -- local App = require "gui.web.BookApp"
--- local App = require "genesis.App"
-local App = require "genesis.AppTest"
+local App = require "genesis.App"
+-- local App = require "genesis.AppTest"
 local app = App{profileFile="profile.log"}
 
 app:run()

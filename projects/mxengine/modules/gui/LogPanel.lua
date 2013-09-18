@@ -61,9 +61,9 @@ function Class:clearLogConsole()
 end
 
 function Class:freezeLogConsole(intf,event)
-	local freezed = not self._output:getFreezed()
+	local freezed = not self._outputPanel:getFreezed()
 	self:debug2_v("Toggling log outputs freeze to: ",freezed)
-	self._output:setFreezed(freezed)
+	self._outputPanel:setFreezed(freezed)
 	
 	-- toggle the button image:
 	local ctrl = event:GetEventObject():dynCast("wxBitmapButton")
@@ -75,7 +75,10 @@ function Class:changeLogLevel(data)
 	self:info("Changing log level to : ",data.value)
 	local lvl = sgt.LogManager[data.value:upper()]
 	sgt.LogManager.instance():setNotifyLevel(lvl)
-	scLog.LogManager.instance():setNotifyLevel(lvl)
+	if scLog then
+		-- SimCore package is also available:
+		scLog.LogManager.instance():setNotifyLevel(lvl)
+	end
 end
 
 function Class:executeScript()
