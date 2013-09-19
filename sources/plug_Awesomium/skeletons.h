@@ -127,9 +127,6 @@ namespace Awesomium {
 	class WebPageInfo {
 	};
 
-	class NativeWindow {
-	};
-
 	namespace KeyCodes {
 	};
 

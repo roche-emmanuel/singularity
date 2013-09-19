@@ -1076,6 +1076,16 @@ public:
 		return wxPreviewControlBar::DoUpdateWindowUI(event);
 	};
 
+	// HWND wxWindow::GetHandle() const
+	HWND GetHandle() const {
+		if(_obj.pushFunction("GetHandle")) {
+			_obj.pushArg((wxPreviewControlBar*)this);
+			return *(_obj.callFunction<HWND*>());
+		}
+
+		return wxPreviewControlBar::GetHandle();
+	};
+
 	// bool wxWindow::HasMultiplePages() const
 	bool HasMultiplePages() const {
 		if(_obj.pushFunction("HasMultiplePages")) {

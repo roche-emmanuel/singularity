@@ -1,3 +1,7 @@
+struct HWND {};
+
+typedef HWND WXWidget;
+
 
 // missing classes:
 class wxAuiToolBarItemArray {

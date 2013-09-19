@@ -10,6 +10,9 @@ class __uint64 {
 class BaseClass {
 };
 
+class HWND {
+};
+
 class uintptr_t {
 };
 

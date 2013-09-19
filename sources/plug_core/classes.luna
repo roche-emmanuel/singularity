@@ -2,6 +2,7 @@ module=sgt
 __int64 => __int64
 __uint64 => __uint64
 BaseClass => BaseClass
+HWND => HWND
 uintptr_t => uintptr_t
 void => void
 module=boost

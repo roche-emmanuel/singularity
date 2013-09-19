@@ -62,6 +62,18 @@ struct luna_caster<wxTextAttr,dstType> {
 
 LUNA_DEFINE_DIRECT_CAST(wxItemContainer);
 
+#ifdef WIN32
+LUNA_BEGIN_GETTER(HWND)
+	// Retrieve the result from the stack:
+	return *(Luna< HWND >::check(L,index));
+LUNA_END_GETTER(HWND)
+
+LUNA_BEGIN_GETTER(HWND*)
+	// Retrieve the result from the stack:
+	return Luna< HWND >::check(L,index);
+LUNA_END_GETTER(HWND*)
+#endif
+
 namespace sgt {
 
 inline void pushValue(lua_State* L, const wxString& arg) {

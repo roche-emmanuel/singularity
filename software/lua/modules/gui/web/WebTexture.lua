@@ -3,6 +3,16 @@ local Class = require("classBuilder"){name="WebTexture",bases="gui.web.View"};
 local osg = require "osg"
 
 function Class:initialize(options)	
+	
+	-- TODO: Investigate this workaround: 
+	-- This is needed to get anything rendered but only with the OpenGL surface implementation.
+	-- DirectX surfaces are OK without this.
+	-- Forcing the init of the window object here seems to trigger the render of the view with proper
+	-- text size ??
+	local res = self:executeJavascriptWithResult("window");	
+end
+
+function Class:createSurface(options)
 	self._surface = self:getManager():getSurfaceFactory():getOrCreateSurface(self._webView)
 	self._texture = self._surface:getTexture();
 
@@ -15,13 +25,6 @@ function Class:initialize(options)
     tex:setFilter(osg.Texture.MAG_FILTER,osg.Texture.LINEAR);
 	
 	self._surface:setSize(self._width,self._height);
-	
-	-- TODO: Investigate this workaround: 
-	-- This is needed to get anything rendered but only with the OpenGL surface implementation.
-	-- DirectX surfaces are OK without this.
-	-- Forcing the init of the window object here seems to trigger the render of the view with proper
-	-- text size ??
-	local res = self:executeJavascriptWithResult("window");	
 end
 
 function Class:getManager()

@@ -1,5 +1,6 @@
 
 #include "DXSurface.h"
+#include <osg/Timer>
 
 void DXSurface::setTargetSurface(IDirect3DSurface9* surface)
 {
@@ -39,7 +40,9 @@ void DXSurface::validateClipRect(int dx, int dy, const Awesomium::Rect &clip_rec
 };
 	
 void DXSurface::Paint(unsigned char *src_buffer, int src_row_span, const Awesomium::Rect &src_rect, const Awesomium::Rect &dest_rect) {
-	logINFO("Painting rect: x="<<dest_rect.x<<", y="<<dest_rect.y<<", w="<<dest_rect.width<<", h="<<dest_rect.height);
+	// logINFO("Painting rect: x="<<dest_rect.x<<", y="<<dest_rect.y<<", w="<<dest_rect.width<<", h="<<dest_rect.height);
+	
+	osg::Timer_t startTick = osg::Timer::instance()->tick();
 	
 	CHECK(_surface,"Invalid DirectX Surface in DXSurface::Paint()")
 	
@@ -54,7 +57,7 @@ void DXSurface::Paint(unsigned char *src_buffer, int src_row_span, const Awesomi
 	rect.right = dest_rect.x+dest_rect.width;
 	rect.bottom = dest_rect.y+dest_rect.height;
 	
-	CHECK_RESULT(_surface->LockRect(&locked,&rect,0),"Could not lock surface data");
+	CHECK_RESULT(_surface->LockRect(&locked,&rect,D3DLOCK_NOSYSLOCK),"Could not lock surface data");
 	
 	CHECK(locked.Pitch==_surfaceWidth*4,"Invalid Pitch value, expected:"<< _surfaceWidth*4<<", got: "<<locked.Pitch);
 	
@@ -78,6 +81,9 @@ void DXSurface::Paint(unsigned char *src_buffer, int src_row_span, const Awesomi
 	}
 	
 	CHECK_RESULT(_surface->UnlockRect(),"Could not unlock surface data");
+	
+	double elapsed = osg::Timer::instance()->delta_s(startTick,osg::Timer::instance()->tick());
+	// logINFO("Painted in " << elapsed*1000 << " ms");
 };
 
 void DXSurface::Scroll(int dx, int dy, const Awesomium::Rect &clip_rect) {

@@ -1101,6 +1101,16 @@ public:
 		return wxCommandLinkButton::DoUpdateWindowUI(event);
 	};
 
+	// HWND wxWindow::GetHandle() const
+	HWND GetHandle() const {
+		if(_obj.pushFunction("GetHandle")) {
+			_obj.pushArg((wxCommandLinkButton*)this);
+			return *(_obj.callFunction<HWND*>());
+		}
+
+		return wxCommandLinkButton::GetHandle();
+	};
+
 	// bool wxWindow::HasMultiplePages() const
 	bool HasMultiplePages() const {
 		if(_obj.pushFunction("HasMultiplePages")) {

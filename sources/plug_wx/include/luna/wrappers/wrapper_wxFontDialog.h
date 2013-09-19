@@ -1037,6 +1037,16 @@ public:
 		return wxFontDialog::DoUpdateWindowUI(event);
 	};
 
+	// HWND wxWindow::GetHandle() const
+	HWND GetHandle() const {
+		if(_obj.pushFunction("GetHandle")) {
+			_obj.pushArg((wxFontDialog*)this);
+			return *(_obj.callFunction<HWND*>());
+		}
+
+		return wxFontDialog::GetHandle();
+	};
+
 	// bool wxWindow::HasMultiplePages() const
 	bool HasMultiplePages() const {
 		if(_obj.pushFunction("HasMultiplePages")) {

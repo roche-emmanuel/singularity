@@ -1,4 +1,7 @@
 
+class HWND {
+};
+
 namespace osg {
 
 class Referenced {
@@ -17,7 +20,7 @@ class State {
 
 namespace Awesomium {
 
-class NativeWindow {};
+typedef HWND NativeWindow;
 
 };
 

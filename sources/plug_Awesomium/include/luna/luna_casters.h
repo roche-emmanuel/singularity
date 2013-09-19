@@ -18,6 +18,13 @@ struct luna_caster<Area,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<HWND,dstType> {
+	static inline dstType* cast(HWND* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<std::vector< OSGSurface * >,dstType> {
 	static inline dstType* cast(std::vector< OSGSurface * >* ptr) {
 		return static_cast<dstType*>(ptr);
@@ -181,13 +188,6 @@ struct luna_caster<Awesomium::WebLoginDialogInfo,dstType> {
 template <typename dstType>
 struct luna_caster<Awesomium::WebPageInfo,dstType> {
 	static inline dstType* cast(Awesomium::WebPageInfo* ptr) {
-		return static_cast<dstType*>(ptr);
-	};
-};
-
-template <typename dstType>
-struct luna_caster<Awesomium::NativeWindow,dstType> {
-	static inline dstType* cast(Awesomium::NativeWindow* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };

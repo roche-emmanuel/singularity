@@ -1092,6 +1092,16 @@ public:
 		return wxPanel::DoUpdateWindowUI(event);
 	};
 
+	// HWND wxWindow::GetHandle() const
+	HWND GetHandle() const {
+		if(_obj.pushFunction("GetHandle")) {
+			_obj.pushArg((wxPanel*)this);
+			return *(_obj.callFunction<HWND*>());
+		}
+
+		return wxPanel::GetHandle();
+	};
+
 	// bool wxWindow::HasMultiplePages() const
 	bool HasMultiplePages() const {
 		if(_obj.pushFunction("HasMultiplePages")) {

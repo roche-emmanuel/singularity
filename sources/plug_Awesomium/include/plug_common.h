@@ -33,6 +33,18 @@ using namespace Awesomium;
 #endif
 
 
+#ifdef WIN32
+LUNA_BEGIN_GETTER(HWND)
+	// Retrieve the result from the stack:
+	return *(Luna< HWND >::check(L,index));
+LUNA_END_GETTER(HWND)
+
+LUNA_BEGIN_GETTER(HWND*)
+	// Retrieve the result from the stack:
+	return Luna< HWND >::check(L,index);
+LUNA_END_GETTER(HWND*)
+#endif
+
 template <typename dstType>
 struct luna_caster<Awesomium::Surface, dstType> {
 	static inline dstType* cast(Awesomium::Surface* ptr) {

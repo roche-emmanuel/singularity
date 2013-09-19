@@ -1093,6 +1093,16 @@ public:
 		return wxColourPickerCtrl::DoUpdateWindowUI(event);
 	};
 
+	// HWND wxWindow::GetHandle() const
+	HWND GetHandle() const {
+		if(_obj.pushFunction("GetHandle")) {
+			_obj.pushArg((wxColourPickerCtrl*)this);
+			return *(_obj.callFunction<HWND*>());
+		}
+
+		return wxColourPickerCtrl::GetHandle();
+	};
+
 	// bool wxWindow::HasMultiplePages() const
 	bool HasMultiplePages() const {
 		if(_obj.pushFunction("HasMultiplePages")) {

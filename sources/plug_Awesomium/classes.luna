@@ -40,7 +40,6 @@ Awesomium::WebPopupMenuInfo => Awesomium::WebPopupMenuInfo
 Awesomium::WebContextMenuInfo => Awesomium::WebContextMenuInfo
 Awesomium::WebLoginDialogInfo => Awesomium::WebLoginDialogInfo
 Awesomium::WebPageInfo => Awesomium::WebPageInfo
-Awesomium::NativeWindow => Awesomium::NativeWindow
 Awesomium::WebViewListener::View => Awesomium::WebViewListener::View
 Awesomium::WebViewListener::Load => Awesomium::WebViewListener::Load
 Awesomium::WebViewListener::Process => Awesomium::WebViewListener::Process

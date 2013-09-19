@@ -746,7 +746,6 @@ wxZlibInputStream => wxObject
 wxZlibOutputStream => wxObject
 wxVector< wxTreeListItem > => wxVector< wxTreeListItem >
 wxWindowList => wxWindowList
-WXWidget => WXWidget
 wxTimerImpl => wxTimerImpl
 wxSizerItemList => wxSizerItemList
 wxArrayVideoModes => wxArrayVideoModes

@@ -761,7 +761,6 @@ int PLUG_EXPORT luaopen_wx(lua_State* L) {
 	Luna< wxZlibOutputStream >::Register(L);
 	Luna< wxVector< wxTreeListItem > >::Register(L);
 	Luna< wxWindowList >::Register(L);
-	Luna< WXWidget >::Register(L);
 	Luna< wxTimerImpl >::Register(L);
 	Luna< wxSizerItemList >::Register(L);
 	Luna< wxArrayVideoModes >::Register(L);

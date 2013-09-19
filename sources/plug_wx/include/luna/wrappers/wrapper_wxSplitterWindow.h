@@ -1122,6 +1122,16 @@ public:
 		return wxSplitterWindow::DoUpdateWindowUI(event);
 	};
 
+	// HWND wxWindow::GetHandle() const
+	HWND GetHandle() const {
+		if(_obj.pushFunction("GetHandle")) {
+			_obj.pushArg((wxSplitterWindow*)this);
+			return *(_obj.callFunction<HWND*>());
+		}
+
+		return wxSplitterWindow::GetHandle();
+	};
+
 	// bool wxWindow::HasMultiplePages() const
 	bool HasMultiplePages() const {
 		if(_obj.pushFunction("HasMultiplePages")) {
