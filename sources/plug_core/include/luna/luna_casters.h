@@ -18,6 +18,13 @@ struct luna_caster<__uint64,dstType> {
 };
 
 template <typename dstType>
+struct luna_caster<HWND,dstType> {
+	static inline dstType* cast(HWND* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<uintptr_t,dstType> {
 	static inline dstType* cast(uintptr_t* ptr) {
 		return static_cast<dstType*>(ptr);

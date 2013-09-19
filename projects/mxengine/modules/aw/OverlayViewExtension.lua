@@ -19,17 +19,28 @@ Create a new instance of the class.
 ]]
 function OverlayViewExtension(options)
 ]=]
-function Class:initialize(options)
-	-- setup a global object to notify that the loading is done:
-	self:registerObject("turretProxy",{
-		onOverlayReady = function(controller)
-			self:check(controller,"Invalid controller object")
-			self._controller = awe.JSObject(controller); -- keep a reference properly!
-			self:check(self._controller:remote_id()~=0,"Controller object is local!")
-			self:debug2_v("Overlay model remote ID is:",self._controller:remote_id())
-			self:onOverlayReady()
-		end
-	})
+function Class:initialize(options)	
+	self:addSourcePrefix("web/app/scripts/")
+end
+
+function Class:registerTurretProxy()
+	if not self:getObject("turretProxy") then
+		self:info("Registering turret proxy...")
+		self:registerObject("turretProxy",{
+			onOverlayReady = function(controller)
+				self:check(controller,"Invalid controller object")
+				self._controller = awe.JSObject(controller); -- keep a reference properly!
+				self:check(self._controller:remote_id()~=0,"Controller object is local!")
+				self:debug2_v("Overlay model remote ID is:",self._controller:remote_id())
+				self:onOverlayReady()
+			end
+		})
+	end
+end
+
+function Class:releaseController()
+	self:info("Releasing controller...")
+	self._controller = nil
 end
 
 function Class:onOverlayReady()

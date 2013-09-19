@@ -1,5 +1,11 @@
 #include <plug_common.h>
 
+const char LunaTraits< HWND >::className[] = "HWND";
+const char LunaTraits< HWND >::fullName[] = "HWND";
+const char LunaTraits< HWND >::moduleName[] = "sgt";
+const int LunaTraits< HWND >::hash = 2231045;
+const int LunaTraits< HWND >::uniqueIDs[] = {2231045,0};
+
 const char LunaTraits< void >::className[] = "void";
 const char LunaTraits< void >::fullName[] = "void";
 const char LunaTraits< void >::moduleName[] = "sgt";

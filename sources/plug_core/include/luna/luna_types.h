@@ -74,6 +74,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: HWND
+template<>
+class LunaTraits< HWND > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static HWND* _bind_ctor(lua_State *L);
+	static void _bind_dtor(HWND* obj);
+	typedef HWND parent_t;
+	typedef HWND base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: uintptr_t
 template<>
 class LunaTraits< uintptr_t > {
@@ -1082,6 +1101,13 @@ template<>
 class LunaType< 48128592 > {
 public:
 	typedef BaseClass type;
+	
+};
+
+template<>
+class LunaType< 2231045 > {
+public:
+	typedef HWND type;
 	
 };
 

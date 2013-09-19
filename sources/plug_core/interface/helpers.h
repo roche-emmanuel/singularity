@@ -1,4 +1,7 @@
 
+struct HWND {
+};
+
 namespace OpenThreads {
 
 class Mutex {

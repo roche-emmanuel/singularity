@@ -63,6 +63,28 @@ public:
 		return (_obj.callFunction<int>());
 	};
 
+	// void Awesomium::WebView::set_parent_window(HWND parent)
+	void set_parent_window(HWND parent) {
+		THROW_IF(!_obj.pushFunction("set_parent_window"),"No implementation for abstract function Awesomium::WebView::set_parent_window");
+		_obj.pushArg((Awesomium::WebView*)this);
+		_obj.pushArg(&parent);
+		return (_obj.callFunction<void>());
+	};
+
+	// HWND Awesomium::WebView::parent_window()
+	HWND parent_window() {
+		THROW_IF(!_obj.pushFunction("parent_window"),"No implementation for abstract function Awesomium::WebView::parent_window");
+		_obj.pushArg((Awesomium::WebView*)this);
+		return *(_obj.callFunction<HWND*>());
+	};
+
+	// HWND Awesomium::WebView::window()
+	HWND window() {
+		THROW_IF(!_obj.pushFunction("window"),"No implementation for abstract function Awesomium::WebView::window");
+		_obj.pushArg((Awesomium::WebView*)this);
+		return *(_obj.callFunction<HWND*>());
+	};
+
 	// void Awesomium::WebView::set_view_listener(Awesomium::WebViewListener::View * listener)
 	void set_view_listener(Awesomium::WebViewListener::View * listener) {
 		THROW_IF(!_obj.pushFunction("set_view_listener"),"No implementation for abstract function Awesomium::WebView::set_view_listener");
@@ -678,30 +700,10 @@ public:
 
 
 public:
-// ProcessHandle Awesomium::WebView::process_handle()
-ProcessHandle process_handle() {
-	THROW_IF(true,"The function call ProcessHandle Awesomium::WebView::process_handle() is not implemented in wrapper.");
-	return ProcessHandle();
-};
-
-public:
-// void Awesomium::WebView::set_parent_window(Awesomium::NativeWindow parent)
-void set_parent_window(Awesomium::NativeWindow) {
-	THROW_IF(true,"The function call void Awesomium::WebView::set_parent_window(Awesomium::NativeWindow) is not implemented in wrapper.");
-};
-
-public:
-// Awesomium::NativeWindow Awesomium::WebView::parent_window()
-Awesomium::NativeWindow parent_window() {
-	THROW_IF(true,"The function call Awesomium::NativeWindow Awesomium::WebView::parent_window() is not implemented in wrapper.");
-	return Awesomium::NativeWindow();
-};
-
-public:
-// Awesomium::NativeWindow Awesomium::WebView::window()
-Awesomium::NativeWindow window() {
-	THROW_IF(true,"The function call Awesomium::NativeWindow Awesomium::WebView::window() is not implemented in wrapper.");
-	return Awesomium::NativeWindow();
+// HANDLE Awesomium::WebView::process_handle()
+HANDLE process_handle() {
+	THROW_IF(true,"The function call HANDLE Awesomium::WebView::process_handle() is not implemented in wrapper.");
+	return HANDLE();
 };
 
 };

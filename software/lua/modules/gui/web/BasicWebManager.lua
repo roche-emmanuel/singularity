@@ -115,7 +115,12 @@ end
 function Class:createWebView(options)
 	self:check(options and options.width,"Invalid webview width.")
 	self:check(options and options.height,"Invalid webview height.")
-	local view = self._core:CreateWebView(options.width, options.height, self._session);
+	local view = self._core:CreateWebView(options.width, options.height, self._session,
+										  options.window and awe.kWebViewType_Window or awe.kWebViewType_Offscreen);
+	if options.window then
+		view:set_parent_window(options.window)
+	end
+	
 	self:registerWebView(view)
 	
 	return view;

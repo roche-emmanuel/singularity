@@ -1021,6 +1021,16 @@ public:
 		return wxDirDialog::DoUpdateWindowUI(event);
 	};
 
+	// HWND wxWindow::GetHandle() const
+	HWND GetHandle() const {
+		if(_obj.pushFunction("GetHandle")) {
+			_obj.pushArg((wxDirDialog*)this);
+			return *(_obj.callFunction<HWND*>());
+		}
+
+		return wxDirDialog::GetHandle();
+	};
+
 	// bool wxWindow::HasMultiplePages() const
 	bool HasMultiplePages() const {
 		if(_obj.pushFunction("HasMultiplePages")) {

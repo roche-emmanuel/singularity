@@ -67,6 +67,8 @@ function Class:buildControlPanel()
 				
 				turret:foreachSensor(function(sensor)
 					local lens = sensor:getLens()
+					if not lens then return end
+
 					setRange(sensor:getName()..".focal_length",lens:getFocalLength(),lens:getFocalLengthRange())
 					setRange(sensor:getName()..".focus",lens:getFocus(),lens:getFocusRange())
 				end)
@@ -218,6 +220,10 @@ function Class:getLens(data)
 
 	local sname = data.entry.options.sname
 	local sensor = turret:getSensor(sname)
+	if not sensor then
+		return
+	end
+	
 	self:check(sensor,"Invalid turret sensor for id=",sname)
 	
 	local lens = sensor:getLens()
@@ -232,6 +238,9 @@ end
 function Class:stepFocalLength(data)
 	local entry = self._intf:getEntry(data.entry.options.sname..".focal_length")
 	local lens = self:getLens(data)
+	
+	if not lens then return end
+	
 	local fl = lens:getFocalLength()
 	
 	local val = data.entry.options.dir > 0 and fl*scale or fl/scale
@@ -244,6 +253,8 @@ end
 function Class:stepFocus(data)
 	local entry = self._intf:getEntry(data.entry.options.sname..".focus")
 	local lens = self:getLens(data)
+	if not lens then return end
+
 	local focus = lens:getFocus()
 	
 	local val = data.entry.options.dir > 0 and focus*scale or focus/scale
@@ -255,6 +266,7 @@ end
 
 function Class:updateFocalLength(data)
 	local lens = self:getLens(data)
+	if not lens then return end
 	
 	if lens:hasDiscreteFocalLength() then
 		local fl = lens:getFocalLength()
@@ -286,6 +298,7 @@ end
 
 function Class:updateFocus(data)
 	local lens = self:getLens(data)
+	if not lens then return end
 	lens:setFocus(data.value)
 end
 

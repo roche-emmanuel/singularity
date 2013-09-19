@@ -1114,6 +1114,16 @@ public:
 		return wxRibbonGallery::DoUpdateWindowUI(event);
 	};
 
+	// HWND wxWindow::GetHandle() const
+	HWND GetHandle() const {
+		if(_obj.pushFunction("GetHandle")) {
+			_obj.pushArg((wxRibbonGallery*)this);
+			return *(_obj.callFunction<HWND*>());
+		}
+
+		return wxRibbonGallery::GetHandle();
+	};
+
 	// bool wxWindow::HasMultiplePages() const
 	bool HasMultiplePages() const {
 		if(_obj.pushFunction("HasMultiplePages")) {

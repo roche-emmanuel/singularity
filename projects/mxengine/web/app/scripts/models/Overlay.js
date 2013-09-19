@@ -9,15 +9,10 @@ define(["log","backbone","models/OverlayController"],function(log,Backbone,Contr
 		initialize: function() {
 			log.info("Initializing Overlay Model");
 			
-			this.on("change:video_in_control",function(model) {
-				//log.info("Changing video_in_control value  to '"+model.get("video_in_control")+"'");
-				con.setVIC(model);
-			});
-			
-			this.on("change:time",function(model) {
-				//log.info("Changing time value to '"+model.get("time")+"'");
-				con.setTime(model);
-			});
+			var list = con.getStdFields();
+			for (var i in list) {
+				this.on("change:"+list[i],con["set_"+list[i]]);
+			};
 		},
 	
 		// Setup the default values for the display:

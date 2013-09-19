@@ -154,6 +154,25 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_set_parent_window(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( !Luna<void>::has_uniqueid(L,2,2231045) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_parent_window(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
+	inline static bool _lg_typecheck_window(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_set_view_listener(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -758,6 +777,67 @@ public:
 		}
 		int lret = self->routing_id();
 		lua_pushnumber(L,lret);
+
+		return 1;
+	}
+
+	// void Awesomium::WebView::set_parent_window(HWND parent)
+	static int _bind_set_parent_window(lua_State *L) {
+		if (!_lg_typecheck_set_parent_window(L)) {
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::set_parent_window(HWND parent) function, expected prototype:\nvoid Awesomium::WebView::set_parent_window(HWND parent)\nClass arguments details:\narg 1 ID = 2231045\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		HWND* parent_ptr=(Luna< HWND >::check(L,2));
+		if( !parent_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg parent in Awesomium::WebView::set_parent_window function");
+		}
+		HWND parent=*parent_ptr;
+
+		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call void Awesomium::WebView::set_parent_window(HWND). Got : '%s'\n%s",typeid(Luna< Awesomium::WebView >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		self->set_parent_window(parent);
+
+		return 0;
+	}
+
+	// HWND Awesomium::WebView::parent_window()
+	static int _bind_parent_window(lua_State *L) {
+		if (!_lg_typecheck_parent_window(L)) {
+			luaL_error(L, "luna typecheck failed in HWND Awesomium::WebView::parent_window() function, expected prototype:\nHWND Awesomium::WebView::parent_window()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+
+		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call HWND Awesomium::WebView::parent_window(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebView >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		HWND stack_lret = self->parent_window();
+		HWND* lret = new HWND(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< HWND >::push(L,lret,true);
+
+		return 1;
+	}
+
+	// HWND Awesomium::WebView::window()
+	static int _bind_window(lua_State *L) {
+		if (!_lg_typecheck_window(L)) {
+			luaL_error(L, "luna typecheck failed in HWND Awesomium::WebView::window() function, expected prototype:\nHWND Awesomium::WebView::window()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+
+		Awesomium::WebView* self=(Luna< Awesomium::WebView >::check(L,1));
+		if(!self) {
+			luaL_error(L, "Invalid object in function call HWND Awesomium::WebView::window(). Got : '%s'\n%s",typeid(Luna< Awesomium::WebView >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		HWND stack_lret = self->window();
+		HWND* lret = new HWND(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< HWND >::push(L,lret,true);
 
 		return 1;
 	}
@@ -2177,10 +2257,10 @@ Awesomium::WebView* LunaTraits< Awesomium::WebView >::_bind_ctor(lua_State *L) {
 	// Awesomium::WebViewType Awesomium::WebView::type()
 	// int Awesomium::WebView::process_id()
 	// int Awesomium::WebView::routing_id()
-	// ProcessHandle Awesomium::WebView::process_handle()
-	// void Awesomium::WebView::set_parent_window(Awesomium::NativeWindow parent)
-	// Awesomium::NativeWindow Awesomium::WebView::parent_window()
-	// Awesomium::NativeWindow Awesomium::WebView::window()
+	// HANDLE Awesomium::WebView::process_handle()
+	// void Awesomium::WebView::set_parent_window(HWND parent)
+	// HWND Awesomium::WebView::parent_window()
+	// HWND Awesomium::WebView::window()
 	// void Awesomium::WebView::set_view_listener(Awesomium::WebViewListener::View * listener)
 	// void Awesomium::WebView::set_load_listener(Awesomium::WebViewListener::Load * listener)
 	// void Awesomium::WebView::set_process_listener(Awesomium::WebViewListener::Process * listener)
@@ -2278,6 +2358,9 @@ luna_RegType LunaTraits< Awesomium::WebView >::methods[] = {
 	{"type", &luna_wrapper_Awesomium_WebView::_bind_type},
 	{"process_id", &luna_wrapper_Awesomium_WebView::_bind_process_id},
 	{"routing_id", &luna_wrapper_Awesomium_WebView::_bind_routing_id},
+	{"set_parent_window", &luna_wrapper_Awesomium_WebView::_bind_set_parent_window},
+	{"parent_window", &luna_wrapper_Awesomium_WebView::_bind_parent_window},
+	{"window", &luna_wrapper_Awesomium_WebView::_bind_window},
 	{"set_view_listener", &luna_wrapper_Awesomium_WebView::_bind_set_view_listener},
 	{"set_load_listener", &luna_wrapper_Awesomium_WebView::_bind_set_load_listener},
 	{"set_process_listener", &luna_wrapper_Awesomium_WebView::_bind_set_process_listener},

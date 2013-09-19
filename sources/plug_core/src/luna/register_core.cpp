@@ -17,6 +17,7 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	Luna< __int64 >::Register(L);
 	Luna< __uint64 >::Register(L);
 	Luna< BaseClass >::Register(L);
+	Luna< HWND >::Register(L);
 	Luna< uintptr_t >::Register(L);
 	Luna< void >::Register(L);
 	luna_popModule(L);

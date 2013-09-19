@@ -25,7 +25,6 @@ function View(options)
 function Class:initialize(options)
 	options = options or {}
 	
-	
 	local Map = require "std.Map"
 	self._objectNameMap = Map()
 	self._methodIDMap = Map()
@@ -33,15 +32,32 @@ function Class:initialize(options)
 	-- get or create the webview:
 	self._width = options.width or 1280
 	self._height = options.height or 720
+	self._hwnd = options.window
 	
+	self:createWebView(options)	
+end
+
+function Class:createWebView(options)
+	-- self:info("Building webview object...")
 	self._webView = options.webView
 	if not self._webView then
-		self._webView = self:getManager():createWebView{width=self._width,height=self._height}
+		self._webView = self:getManager():createWebView{width=self._width,height=self._height,window=self:getParentWindowHandle()}
 		self:check(self._webView,"Invalid web view object.")
 	else
 		-- just ensure we use the proper dimensions:
 		self._webView:Resize(self._width,self._height)
 	end
+	-- self:info("Done building webview object.")
+	
+	self:setupWebView()
+end
+
+function Class:setupWebView()
+	-- Create the display surface here if applycable.
+	self:createSurface(options)
+	
+	-- prepare source prefix list:
+	self._sourcePrefixes = require "std.Set" ();
 	
 	-- set as transparent if needed:
 	self._webView:SetTransparent(options.transparent or false)
@@ -54,6 +70,14 @@ function Class:initialize(options)
 	
 	-- setu the JS handler:
 	self:setupJSHandler()
+end
+
+function Class:getParentWindowHandle()
+	-- return nothing by default.
+end
+
+function Class:addSourcePrefix(prefix)
+	self._sourcePrefixes:push_back(prefix)
 end
 
 function Class:initView()
@@ -107,11 +131,20 @@ function Class:setupDefaultHandlers()
 	end
 	
 	self._onAddConsoleMessage = function(caller, message, line_number, source, obj)
-		if message:find("[INFO]%s+") then
-			message = message:gsub("[INFO]%s+","")
+		
+		local i1, i2
+		for _,prefix in self._sourcePrefixes:sequence() do
+			i1, i2 = source:find(prefix)
+			if i2 then
+				source = source:sub(i2+1) -- only keep the end of the source file name.
+			end
+		end
+		
+		if message:find("%[INFO%]%s+") then
+			message = message:gsub("%[INFO%]%s+","")
 			self:info(message," (",source,":",line_number,")")
-		elseif message:find("[DEBUG]") then
-			message = message:gsub("[DEBUG]%s+","")
+		elseif message:find("%[DEBUG%]%s+") then
+			message = message:gsub("%[DEBUG%]%s+","")
 			self:debug(message," (",source,":",line_number,")")
 		else
 			self:warn(message," (",source,":",line_number,")")

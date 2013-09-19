@@ -87,6 +87,7 @@
 - Implementing Genesis test interface.
 - Added Log Panel in genesis test app.
 - Added common ovelay web view extension.
+- Preparing support for awesomium direct rendering.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

@@ -786,6 +786,12 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_base_GetHandle(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		return true;
+	}
+
 	inline static bool _lg_typecheck_base_HasMultiplePages(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -2772,6 +2778,26 @@ public:
 		return 0;
 	}
 
+	// HWND wxPickerBase::base_GetHandle() const
+	static int _bind_base_GetHandle(lua_State *L) {
+		if (!_lg_typecheck_base_GetHandle(L)) {
+			luaL_error(L, "luna typecheck failed in HWND wxPickerBase::base_GetHandle() const function, expected prototype:\nHWND wxPickerBase::base_GetHandle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+
+		wxPickerBase* self=Luna< wxObject >::checkSubType< wxPickerBase >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call HWND wxPickerBase::base_GetHandle() const. Got : '%s'\n%s",typeid(Luna< wxObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		HWND stack_lret = self->wxPickerBase::GetHandle();
+		HWND* lret = new HWND(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< HWND >::push(L,lret,true);
+
+		return 1;
+	}
+
 	// bool wxPickerBase::base_HasMultiplePages() const
 	static int _bind_base_HasMultiplePages(lua_State *L) {
 		if (!_lg_typecheck_base_HasMultiplePages(L)) {
@@ -3123,6 +3149,7 @@ luna_RegType LunaTraits< wxPickerBase >::methods[] = {
 	{"base_SetCursor", &luna_wrapper_wxPickerBase::_bind_base_SetCursor},
 	{"base_WarpPointer", &luna_wrapper_wxPickerBase::_bind_base_WarpPointer},
 	{"base_DoUpdateWindowUI", &luna_wrapper_wxPickerBase::_bind_base_DoUpdateWindowUI},
+	{"base_GetHandle", &luna_wrapper_wxPickerBase::_bind_base_GetHandle},
 	{"base_HasMultiplePages", &luna_wrapper_wxPickerBase::_bind_base_HasMultiplePages},
 	{"base_InheritAttributes", &luna_wrapper_wxPickerBase::_bind_base_InheritAttributes},
 	{"base_InitDialog", &luna_wrapper_wxPickerBase::_bind_base_InitDialog},

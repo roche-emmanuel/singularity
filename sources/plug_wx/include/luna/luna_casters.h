@@ -4,6 +4,13 @@
 #include <plug_common.h>
 
 template <typename dstType>
+struct luna_caster<HWND,dstType> {
+	static inline dstType* cast(HWND* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
 struct luna_caster<wxTrackable,dstType> {
 	static inline dstType* cast(wxTrackable* ptr) {
 		return static_cast<dstType*>(ptr);

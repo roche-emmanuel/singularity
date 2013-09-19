@@ -25,15 +25,14 @@ function Class:initialize(options)
 	-- Add the overlay texture on slot 1:
 	local size = self:getTurret():getRenderSize()
 	
+	self:info("Creating webview...")
 	local tobj = require "aw.WebView" {width = size:x(), height = size:y(), transparent=true}
-	-- tobj:loadURL("http://www.google.fr")
-	-- tobj:loadURL("W:/Cloud/Projects/singularity/projects/mxengine/assets/overlays.html")
-	tobj:loadURL("W:/Cloud/Projects/singularity/projects/mxengine/web/app/index.html")
-	-- tobj:loadURL("W:/Cloud/Projects/singularity/projects/mxengine/web/dist/index.html")
-	tobj:getTextureObject():setLinearFiltering()
+	self:info("Setting up texture Object")
 	
+	tobj:getTextureObject():setLinearFiltering()	
 	fx:setTextureObject(tobj,1)
-	
+	self:info("Webview created.")
+		
 	self._webView = tobj
 	
 	-- local TextureObject = require "dx.TextureObject"	
@@ -48,6 +47,10 @@ function Class:initialize(options)
 	end}	
 	
 	self:getTurret():addListener{Turret.EVT_POST_UPDATE,function()
+		if not self._webView:validate() then
+			return
+		end
+		
 		self:updateOverlayContent()
 	end}	
 end

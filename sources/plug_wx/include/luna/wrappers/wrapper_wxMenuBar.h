@@ -1070,6 +1070,16 @@ public:
 		return wxMenuBar::DoUpdateWindowUI(event);
 	};
 
+	// HWND wxWindow::GetHandle() const
+	HWND GetHandle() const {
+		if(_obj.pushFunction("GetHandle")) {
+			_obj.pushArg((wxMenuBar*)this);
+			return *(_obj.callFunction<HWND*>());
+		}
+
+		return wxMenuBar::GetHandle();
+	};
+
 	// bool wxWindow::HasMultiplePages() const
 	bool HasMultiplePages() const {
 		if(_obj.pushFunction("HasMultiplePages")) {

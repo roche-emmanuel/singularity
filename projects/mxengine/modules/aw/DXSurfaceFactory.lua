@@ -18,6 +18,7 @@ function Class:getOrCreateTextureObject(view)
 		self:info("Creating SurfaceTextureObject...")
 		tobj = SurfaceTextureObject{width=800,height=600,format=dx9.D3DFMT_A8R8G8B8}
 		self._surfaces:set(view,tobj)
+		self:info("SurfaceTextureObject created.")
 	end
 
 	return tobj

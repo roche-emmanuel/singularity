@@ -304,6 +304,25 @@
 #include <wx/zipstrm.h>
 #include <wx/zstream.h>
 
+// Class: HWND
+template<>
+class LunaTraits< HWND > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static HWND* _bind_ctor(lua_State *L);
+	static void _bind_dtor(HWND* obj);
+	typedef HWND parent_t;
+	typedef HWND base_t;
+	static luna_ConverterType converters[];
+};
+
 // Class: wxEventFilter
 template<>
 class LunaTraits< wxEventFilter > {
@@ -14498,25 +14517,6 @@ public:
 	static luna_ConverterType converters[];
 };
 
-// Mapped type: WXWidget
-template<>
-class LunaTraits< WXWidget > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static WXWidget* _bind_ctor(lua_State *L);
-	static void _bind_dtor(WXWidget* obj);
-	typedef WXWidget parent_t;
-	typedef WXWidget base_t;
-	static luna_ConverterType converters[];
-};
-
 // Mapped type: wxTimerImpl
 template<>
 class LunaTraits< wxTimerImpl > {
@@ -14991,6 +14991,13 @@ public:
 	typedef osg::Referenced parent_t;
 	typedef sgt::LogManager::LogHandler base_t;
 	static luna_ConverterType converters[];
+};
+
+template<>
+class LunaType< 2231045 > {
+public:
+	typedef HWND type;
+	
 };
 
 template<>
@@ -16691,13 +16698,6 @@ template<>
 class LunaType< 85025491 > {
 public:
 	typedef wxWindowList type;
-	
-};
-
-template<>
-class LunaType< 88389584 > {
-public:
-	typedef WXWidget type;
 	
 };
 

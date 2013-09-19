@@ -1029,6 +1029,16 @@ public:
 		return wxFindReplaceDialog::DoUpdateWindowUI(event);
 	};
 
+	// HWND wxWindow::GetHandle() const
+	HWND GetHandle() const {
+		if(_obj.pushFunction("GetHandle")) {
+			_obj.pushArg((wxFindReplaceDialog*)this);
+			return *(_obj.callFunction<HWND*>());
+		}
+
+		return wxFindReplaceDialog::GetHandle();
+	};
+
 	// bool wxWindow::HasMultiplePages() const
 	bool HasMultiplePages() const {
 		if(_obj.pushFunction("HasMultiplePages")) {

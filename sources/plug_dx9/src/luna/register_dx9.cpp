@@ -38,7 +38,6 @@ int PLUG_EXPORT luaopen_dx9(lua_State* L) {
 	Luna< D3DVSHADERCAPS2_0 >::Register(L);
 	Luna< GUID >::Register(L);
 	Luna< HMONITOR >::Register(L);
-	Luna< HWND >::Register(L);
 	Luna< ID3DXBuffer >::Register(L);
 	Luna< ID3DXConstantTable >::Register(L);
 	Luna< ID3DXFont >::Register(L);

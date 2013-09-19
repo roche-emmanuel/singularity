@@ -73,9 +73,6 @@ class GUID {
 class HMONITOR {
 };
 
-class HWND {
-};
-
 class ID3DXBuffer {
 };
 
