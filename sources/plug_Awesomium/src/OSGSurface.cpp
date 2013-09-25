@@ -1,5 +1,6 @@
 
 #include "OSGSurface.h"
+#include <osg/Timer>
 
 bool SubLoader::textureObjectValid (const Texture2D &texture, State &state) const {
     // logINFO("Checking texture object validity with w="<<_surfaceWidth<<", h="<<_surfaceHeight);
@@ -25,7 +26,10 @@ Texture::TextureObject* SubLoader::generateTextureObject (const Texture2D &textu
 	
 void SubLoader::load(const Texture2D &texture, State &state) const {
 	// copy the complete image:
-	// logINFO("Performing complete load...");
+	
+	logINFO("Performing complete load...");
+	osg::Timer_t startTick = osg::Timer::instance()->tick();
+
 	glTexImage2D( GL_TEXTURE_2D, 0, _internalFormat,
                      _surfaceWidth, _surfaceHeight, 0,
                      _internalFormat,
@@ -34,13 +38,17 @@ void SubLoader::load(const Texture2D &texture, State &state) const {
 		
 	// clear all the areas:
 	_areas.clear();
+	
+	double elapsed = osg::Timer::instance()->delta_s(startTick,osg::Timer::instance()->tick());
+	logINFO("Complete load done in " << elapsed*1000 << " ms");	
 };
 
 void SubLoader::subload (const Texture2D &texture, State &state) const {
 	if(_areas.empty())
 		return;
 			 
-    // logINFO("Performing " << _areas.size() << " subloadings...");
+    logINFO("Performing " << _areas.size() << " subloadings...");
+	osg::Timer_t startTick = osg::Timer::instance()->tick();	
 	for(AreaList::iterator it = _areas.begin(); it!=_areas.end(); ++it) {
 		glTexSubImage2D( GL_TEXTURE_2D, 0,
 						 (*it)->x, (*it)->y,
@@ -52,6 +60,8 @@ void SubLoader::subload (const Texture2D &texture, State &state) const {
 
 	// clear all the areas:
 	_areas.clear();
+	double elapsed = osg::Timer::instance()->delta_s(startTick,osg::Timer::instance()->tick());
+	logINFO("Subloads done in " << elapsed*1000 << " ms");		
 };
 
 void SubLoader::setSurfaceSize(int width, int height) {

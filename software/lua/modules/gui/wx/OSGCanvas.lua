@@ -41,6 +41,10 @@ forcedKeyDownMap[wx.WXK_CONTROL] = osgGA.GUIEventAdapter.KEY_Control_L;
 forcedKeyDownMap[wx.WXK_SHIFT] = osgGA.GUIEventAdapter.KEY_Shift_L;
 forcedKeyDownMap[wx.WXK_ALT] = osgGA.GUIEventAdapter.KEY_Alt_L;
 
+function Class:getGLCanvas()
+	return self._window
+end
+
 function Class:buildInstance()
 	self:info("Building OSGCanvas instance...")
 	
