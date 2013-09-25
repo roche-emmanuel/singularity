@@ -27,6 +27,11 @@ inline void setModifiers(Awesomium::WebKeyboardEvent* ke, int mod) {
 };
 
 /** LUNA_CLASS_EXTENSION */
+inline void remove_parent_window(Awesomium::WebView* view) {
+	view->set_parent_window(NULL);
+};
+
+/** LUNA_CLASS_EXTENSION */
 inline std::string setVirtualKeyCode(Awesomium::WebKeyboardEvent* ke, int code) {
 	ke->virtual_key_code = code;
 	char* buf = new char[20];

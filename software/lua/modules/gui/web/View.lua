@@ -32,12 +32,25 @@ function Class:initialize(options)
 	-- get or create the webview:
 	self._width = options.width or 1280
 	self._height = options.height or 720
-	self._hwnd = options.window
+	self._hwnd = options.windowHandle
 	
 	self:createWebView(options)	
 end
 
+function Class:createSurface(options)
+	-- do nothing by default.
+end
+
 function Class:createWebView(options)
+	self:doCreateWebView(options)
+end
+
+function Class:destroy()
+	self:getManager():destroyWebView(self._webView)
+	self._webView = nil
+end
+
+function Class:doCreateWebView(options)
 	-- self:info("Building webview object...")
 	self._webView = options.webView
 	if not self._webView then
@@ -49,10 +62,10 @@ function Class:createWebView(options)
 	end
 	-- self:info("Done building webview object.")
 	
-	self:setupWebView()
+	self:setupWebView(options)
 end
 
-function Class:setupWebView()
+function Class:setupWebView(options)
 	-- Create the display surface here if applycable.
 	self:createSurface(options)
 	
@@ -73,7 +86,7 @@ function Class:setupWebView()
 end
 
 function Class:getParentWindowHandle()
-	-- return nothing by default.
+	return self._hwnd
 end
 
 function Class:addSourcePrefix(prefix)

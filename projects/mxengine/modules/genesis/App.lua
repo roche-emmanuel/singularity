@@ -49,6 +49,12 @@ function Class:setField(data)
 	local fname = data.item:get("field_name")
 	local fval = data.item:get("field_value")
 	
+	if fval=="true" then
+		fval = true
+	elseif fval=="false" then
+		fval = false
+	end
+	
 	self._tile:setFields{ [fname] = fval }
 	self:info("field was set.")	
 end

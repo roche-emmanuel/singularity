@@ -7,7 +7,7 @@ function Class:initialize(options)
     -- overrride some values:
     self._type = "bool"
     self._defaultValue = self._defaultValue or false
-        
+    self._asButton = options.asButton
     self:create()
 end
 
@@ -40,11 +40,18 @@ function Class:create()
         self:setValue(val);
     end
     
-    self._controls[1] = intf:addCheckBox{text=self._caption,
-										 handler=checkHandler,
-										 flags=self._flags or wx.wxALIGN_RIGHT+wx.wxALL,
-										 tip=self._tip,
-										 style=self._style or wx.wxALIGN_RIGHT+wx.wxCHK_2STATE};
+	if self._asButton then
+		self._controls[1] = intf:addToggleButton{text=self._caption,
+											 handler=checkHandler,
+											 flags=self._flags or wx.wxALIGN_RIGHT+wx.wxALL,
+											 tip=self._tip};	
+	else
+		self._controls[1] = intf:addCheckBox{text=self._caption,
+											 handler=checkHandler,
+											 flags=self._flags or wx.wxALIGN_RIGHT+wx.wxALL,
+											 tip=self._tip,
+											 style=self._style or wx.wxALIGN_RIGHT+wx.wxCHK_2STATE};
+	end
     intf:addLicensedItem(self._controls[1],self._right)
 end
 

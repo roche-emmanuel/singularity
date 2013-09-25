@@ -13,10 +13,12 @@
 }
 
 body {
-	//background-color: rgba(0, 0, 0, 0.75);
+	//background-color: rgba(1.0, 0, 0, 0.75);
 	background-color: transparent;
 	//background: #ccc;
 	//background: #000;
+	//opacity: 0.0;
+	//background: rgb(1.0, 0, 0);
 	font-family: 'OverlayFont', arial, verdana, tahoma;
 	//font-size: 20px;
 	color: #fff;
@@ -53,6 +55,17 @@ div {
 	left: 20px;
 }
 
+.highlighted {
+	background: #fff;
+	color: #000;
+	text-shadow: none;
+	text-decoration: none;
+}
+
+//.lastchar {
+//	letter-spacing: 30px;
+//}
+
 .block {
 	position: absolute;
 	font-size: 20;
@@ -63,6 +76,22 @@ div {
 	text-shadow: -1px -1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, 1px 1px 1px #000;
 	//text-shadow: -1px 0px 1px #000, 1px 0px 1px #000, 0px 1px 1px #000, 0px -1px 1px #000;
 	//text-shadow: -1px -1px 1px #000, 1px 1px 1px #000;
+	
+	// Webkit outline
+	//text-stroke-width: 1px;
+	//text-stroke-color: black;
+}
+
+.block div span {
+	padding: 0;
+	border: 0;
+	margin: 0;
+}
+
+em {
+	padding: 0;
+	border: 0;
+	margin: 0;
 }
 
 .center {

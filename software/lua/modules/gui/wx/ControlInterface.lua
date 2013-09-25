@@ -463,6 +463,16 @@ function Class:addCheckBox(options)
     return self:addControl(ctrl,options)
 end
 
+function Class:addToggleButton(options)
+    self:check(options and options.text,"A valid 'text' entry is needed to build a wxCheckBox.")
+    local ctrl = wx.wxToggleButton:new(self:getCurrentParent(),wx.wxID_ANY,options.text,wx.wxDefaultPosition, wx.wxDefaultSize, options.style or 0);
+    if options.handler then
+        self:connectHandler(ctrl,options.eventType or wx.wxEVT_COMMAND_TOGGLEBUTTON_CLICKED,options.handler)
+    end      
+    --options.flags = wx.wxALIGN_CENTER_VERTICAL
+    return self:addControl(ctrl,options)
+end
+
 function Class:addDatePickerCtrl(options)
     local ctrl = wx.wxDatePickerCtrl:new(self:getCurrentParent(),options.id or wx.wxID_ANY,wx.wxDefaultDateTime,wx.wxDefaultPosition,wx.wxSize(-1,20),options.style or wx.wxDP_DROPDOWN)
     options.flags = options.flags or wx.wxALL+wx.wxALIGN_CENTER_VERTICAL

@@ -3,6 +3,7 @@ require.config({
 		"jquery": "vendor/jquery/jquery",
 		"underscore": "vendor/underscore-amd/underscore",
 		"backbone": "vendor/backbone-amd/backbone",
+		"raphael": "vendor/raphael/raphael",
 		"text": "vendor/requirejs-text/text",
 		"log": "base/Logger",
 	}

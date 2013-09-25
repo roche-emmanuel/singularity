@@ -9,13 +9,18 @@ local prof = require "debugging.Profiler"
 function Class:initialize(options)
 	self:debug("Initializing WebPanel.")
 	
-	self:create()
+	self:getEventManager():addListener{event=Event.APP_CLOSING,object=self}
+	self:create(options)
 
 	self:debug("WebPanel initialization done.")
 end
 
 function Class:getParentWindowHandle()
 	return self._window:GetHandle()
+end
+
+function Class:createSurface(options)
+	-- do nothing by default.
 end
 
 function Class:getManager()
@@ -27,25 +32,26 @@ function Class:createWebView(options)
 end
 
 function Class:onAppClosing()
-	-- release all the images:
-	self:info("Removing OutputPanel Sink.")
-	sgt.LogManager.instance():removeSink(self._sink);
-
-	self:info("Removing wx log handler...")
-	sgt.LogManager.instance():setLogHandler(self._prevLogHandler)
-	self._prevLogHandler = nil;		
+	self:info("Destroying webview...")
+	self:destroy()
+	-- self:info("Detaching from parent...")
+	-- self._webView:remove_parent_window()
+	self:info("Destroying children...")
+	self._window:DestroyChildren()
+	self:info("Destroying window...")
+	self._window:Destroy()
+	self:info("Done")
 end
 
-function Class:create()
+function Class:create(options)
 	local Interface = require "gui.wx.ControlInterface"
 	self._window = self:createPanel{parent=self._parent}
 
-	local handle =
+	local handle = self:getParentWindowHandle()
 	self:info("Window handle is: ", handle)
 	
 	-- create the webview here:
-	
-	self:setupWebView()
+	self:doCreateWebView(options)	
 end
 
 return Class

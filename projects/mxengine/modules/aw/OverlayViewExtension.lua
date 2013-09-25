@@ -32,7 +32,9 @@ function Class:registerTurretProxy()
 				self._controller = awe.JSObject(controller); -- keep a reference properly!
 				self:check(self._controller:remote_id()~=0,"Controller object is local!")
 				self:debug2_v("Overlay model remote ID is:",self._controller:remote_id())
-				self:onOverlayReady()
+				if self._onOverlayReady then
+					self._onOverlayReady()
+				end
 			end
 		})
 	end
@@ -43,15 +45,27 @@ function Class:releaseController()
 	self._controller = nil
 end
 
-function Class:onOverlayReady()
-	-- do nothing here by default.
+function Class:onOverlayReady(func)
+	self._onOverlayReady = func
 end
 
 function Class:setFields(mapping)
+	
+	-- create a copy of the map first:
+	local tt = {}
+	for k,v in pairs(mapping) do
+		-- tt[k] = type(v)=="string" and v:gsub("°","&deg;"):gsub(" ","&nbsp;") or v; -- make the degree symbol compatible with html display.
+		tt[k] = v; 
+	end
+	mapping = tt;
+	
 	if not self._controller then
 		-- controller is not reading, we should save the data to send here:
 		self._postponed = self._postponed or {}
 		for prop,val in pairs(mapping) do
+			if self._postponed[prop]~=nil and self._postponed[prop]~=val then
+				self:warn("Overriding postponed value prop=",prop,", val=",self._postponed[prop]," with newval=", val)
+			end
 			self._postponed[prop] = val
 		end
 		return
@@ -64,6 +78,8 @@ function Class:setFields(mapping)
 		for prop,val in pairs(self._postponed) do
 			if mapping[prop]==nil then
 				mapping[prop] = val
+			elseif mapping[prop] ~= val then
+				self:warn("Discarding postponed value prop=",prop,", val=",val," with newval=",mapping[prop] )
 			end
 		end
 		

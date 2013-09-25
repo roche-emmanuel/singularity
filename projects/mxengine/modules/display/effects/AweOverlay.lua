@@ -35,6 +35,11 @@ function Class:initialize(options)
 		
 	self._webView = tobj
 	
+	-- assign a callback for overlay ready state:
+	self._webView:onOverlayReady(function()
+		self:updateOverlayContent(true) -- force complete update.
+	end)
+	
 	-- local TextureObject = require "dx.TextureObject"	
 	-- fx:setTextureObject(TextureObject{file="test_logo"},1)
 	local Turret = require "mx.Turret"
@@ -55,6 +60,10 @@ function Class:initialize(options)
 	end}	
 end
 
+function Class:getOutputChannel()
+	return self._processor
+end
+
 function Class:reload()
 	self:check(self._webView,"Invalid webView for reload.")
 	self._webView:reload()
@@ -67,8 +76,22 @@ Thie method is called in the turret post update to.
 retrieve all the updated overlay values from the turret
 for this cycle.
 ]]
-function Class:updateOverlayContent()
-	local changes = self:getTurret():getUpdatedOverlayFields()
+function Class:updateOverlayContent(all)
+	local src = self:getOutputChannel():getSource()
+	
+	local sname = src:getName()	
+	
+	if self._currentStreamName~=sname or all then
+		self._currentStreamName = sname
+		self._webView:setFields{current_stream=sname}
+	end 
+	
+	local changes = all and self:getTurret():getOverlayFields() or self:getTurret():getUpdatedOverlayFields()
+	
+	-- if sname=="IR" then
+		-- self:warn("Setting overlay updates:",changes:getTable())
+	-- end
+	
 	--changes:set("overlay_source","EOW")
 	self._webView:setFields(changes:getTable());
 end

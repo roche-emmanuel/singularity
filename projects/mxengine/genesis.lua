@@ -16,6 +16,7 @@ im:addImagePath(path .."assets/images/")
 
 -- local App = require "gui.web.BookApp"
 local App = require "genesis.App"
+-- local App = require "genesis.AppWebPanel"
 -- local App = require "genesis.AppTest"
 local app = App{profileFile="profile.log"}
 

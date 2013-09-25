@@ -20,77 +20,84 @@
 		<div id="slew_to_radar"></div>
 	</div>
 	<div class="block top sensor_l2 center" >		
-		<div id="avt_input">VIC</div>
-		<div id="avt_algo">COR-M</div>
+		<div id="avt_source">avt_source</div>
+		<div id="avt_algorithm">avt_algorithm</div>
 	</div>
 	<div class="block top sensor_l3" >		
-		<div id="spa_proc">SPA</div>
-		<div id="tem_proc">TEM</div>
+		<div id="spatial_processing">spatial_processing</div>
+		<div id="temporal_processing">temporal_processing</div>
 	</div>
 	<div class="block top sensor_c center" >		
-		<div id="video_in_control">FSD</div>
-		<div id="subvic">IR:EOW-DL</div>
-	</div>	
+		<div id="video_in_control">video_in_control</div>
+		<div id="sub_vic">sub_vic</div>
+	</div>
 	<div class="block top sensor_r1 right" >		
-		<div id="vic">20:80</div>
-		<div id="subvic">AUTO</div>
+		<div id="alpha_blend"></div>
+		<div id="blend_mode"></div>
 	</div>	
 	<div class="block top sensor_r2 right" >		
-		<div id="focal_length">120</div>
-		<div id="ezoom">2.0X</div>
+		<div id="focal_length">focal_length</div>
+		<div id="ezoom">ezoom</div>
 	</div>	
 	<div class="block top sensor_r3 right" >		
-		<div id="filter"></div>
-		<div id="scene">DFLT</div>
+		<div id="filter">filter</div>
+		<div id="scene_setup">scene_setup</div>
 	</div>		
 	<div class="block top sensor_r4 right" >		
-		<div id="gain">AUTO</div>
-		<div id="offset">AUTO</div>
+		<div id="sensitivity">sensitivity</div>
+		<div id="black_level">black_level</div>
 	</div>
 	<div class="block top sensor_r5 right" >		
-		<div id="gain">450</div>
-		<div id="offset">-5%</div>
+		<div id="focus">focus</div>
+		<div id="focus_trim">focus_trim</div>
 	</div>		
 </div>
 
 <div id="aicraft_group">
+	<div class="block elev_pict_value right" >		
+		<div id="elevation_pict">picto_elevation</div>
+	</div>
+	<div class="block az_pict_value right" >		
+		<div id="azimuth_pict">picto_azimuth</div>
+	</div>
+
 	<div class="block platform_l0" >		
 		<div id="platform_name">ACFT</div>
 	</div>
 	<div class="block bottom platform_l1 right" >		
-		<div id="platform_lat">27:46:75N</div>
-		<div id="platform_lon">112:74:98W</div>
+		<div id="platform_latitude">platform_latitude</div>
+		<div id="platform_longitude">platform_longitude</div>
 	</div>
 	<div class="block platform_l2 right" >		
-		<div id="platform_heading">010°</div>
+		<div id="platform_heading">platform_heading</div>
 	</div>
 	<div class="block bottom platform_l3 right" >		
-		<div id="platform_alt">1012FT</div>
+		<div id="platform_altitude">platform_altitude</div>
 	</div>			
 </div>
 
 <div id="spot_group">
 	<div class="block bottom spot_l1 right" >		
-		<div id="spot_code">LST:1788</div>
-		<div id="spot_mode">SCANNING</div>
+		<div id="spot_code"></div>
+		<div id="spot_mode"></div>
 	</div>		
 </div>
 
 <div id="target_group">
 	<div class="block bottom target_r1 right" >		
-		<div id="terrain_alt">230FT</div>
+		<div id="terrain_elevation">terrain_elevation</div>
 	</div>		
 	<div class="block bottom target_r2 right" >		
-		<div id="slant_range">1.1KM</div>
+		<div id="slant_range">slant_range</div>
 	</div>		
 	<div class="block bottom target_r3 right" >		
-		<div id="target_bearing">309°</div>
-		<div id="range_source">LDR</div>
+		<div id="target_bearing">target_bearing</div>
+		<div id="range_source">range_source</div>
 	</div>		
-	<div class="block bottom target_r4 right" >		
+	<div class="block bottom target_r4 right" >
 		<div id="target_name">TGT</div>
-		<div id="target_lat">27:46:05N</div>
-		<div id="target_lon">112:75:22W</div>
+		<div id="target_latitude">target_latitude</div>
+		<div id="target_longitude">target_longitude</div>
 	</div>
 	<div class="block target_r5 right" >		
 		<div id="target_poi">#4</div>

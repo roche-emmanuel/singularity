@@ -48,6 +48,15 @@ function Class:buildControlPanel()
 			end}
 		intf:popSizer()
 		
+		intf:pushSizer{text="General",orient=wx.wxVERTICAL,prop=0,flags=wx.wxALL+wx.wxEXPAND}
+			intf:pushSizer{text="Video in Control",orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxALL+wx.wxEXPAND}
+				for _,sensor in ipairs{"EOW","IR","EON"} do
+					intf:addBoolEntry{name="vic_"..sensor,caption=sensor,group="vic",asButton=true,
+											  handler="updateVIC",validItemOnly=true}
+				end
+			intf:popSizer()
+		intf:popSizer()
+		
 		intf:pushSizer{text="Sensor settings",orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxALL+wx.wxEXPAND}
 			intf:addDummyEntry{name="sensor_updater",validItemOnly=true, handler=function(data)
 				local dmap = data.item
@@ -310,6 +319,21 @@ function Class:updateSteeringMode(data)
 	-- set th turret to stow mode:
 	-- the data name is precisely the name of the enum value to use:
 	gimbal:setCurrentSteeringMode(gimbal[data.name])
+end
+
+function Class:updateVIC(data)
+	if data.value then
+		local sname = data.name:sub(5)
+		self:info("Setting VIC to ",sname)
+		local turret = data.item:fetch("turret")
+		local src = turret:getSensor(sname)
+		if not src then
+			self:warn("Sensor ",sname," is not available.")
+			return
+		end
+		
+		turret:setVIC(src:getID())
+	end
 end
 
 function Class:fillGrid(dmap)

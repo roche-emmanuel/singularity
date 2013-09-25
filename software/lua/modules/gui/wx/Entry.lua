@@ -397,7 +397,11 @@ function Class:setControlValue(ctrl,className)
         if type == "bool" then
             ctrl:SetValue(val);
         end
-    elseif class == "wxButton" then
+    elseif class == "wxToggleButton" then
+        if type == "bool" then
+            ctrl:SetValue(val);
+        end
+	elseif class == "wxButton" then
         --wx.wxLogMessage("Updating button")
         if type == "statebutton" then
             --wx.wxLogMessage("Updated caption is:"..entry.states[entry.currentState+1].caption)

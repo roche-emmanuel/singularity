@@ -697,6 +697,13 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_remove_parent_window(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,613205)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -2244,6 +2251,19 @@ public:
 		return 0;
 	}
 
+	// void Awesomium::WebView::remove_parent_window(Awesomium::WebView * view)
+	static int _bind_remove_parent_window(lua_State *L) {
+		if (!_lg_typecheck_remove_parent_window(L)) {
+			luaL_error(L, "luna typecheck failed in void Awesomium::WebView::remove_parent_window(Awesomium::WebView * view) function, expected prototype:\nvoid Awesomium::WebView::remove_parent_window(Awesomium::WebView * view)\nClass arguments details:\narg 1 ID = 613205\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		Awesomium::WebView* view=(Luna< Awesomium::WebView >::check(L,1));
+
+		remove_parent_window(view);
+
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -2440,6 +2460,7 @@ luna_RegType LunaTraits< Awesomium::WebView >::methods[] = {
 	{"DidCancelDownload", &luna_wrapper_Awesomium_WebView::_bind_DidCancelDownload},
 	{"DidOverrideCertificateError", &luna_wrapper_Awesomium_WebView::_bind_DidOverrideCertificateError},
 	{"RequestPageInfo", &luna_wrapper_Awesomium_WebView::_bind_RequestPageInfo},
+	{"remove_parent_window", &luna_wrapper_Awesomium_WebView::_bind_remove_parent_window},
 	{"dynCast", &luna_wrapper_Awesomium_WebView::_bind_dynCast},
 	{"__eq", &luna_wrapper_Awesomium_WebView::_bind___eq},
 	{"fromVoid", &luna_wrapper_Awesomium_WebView::_bind_fromVoid},
