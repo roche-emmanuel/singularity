@@ -27,7 +27,11 @@ function Class:addListener(desc,cb,oneShot)
 		local obj = type(cb)=="table" and cb
 		return self:addListener{event=desc,func=func,object=obj,oneShot=oneShot}
 	end
-		
+	
+	desc.event = desc.event or desc[1]
+	desc.func = desc.func or (type(desc[2])=="function" and desc[2])
+	desc.object = desc.object or (type(desc[2])=="table" and desc[2])
+	
 	local cb = EventCallback(desc);
 	
 	local front = desc.front; -- or Event.isFront(desc.event)

@@ -53,9 +53,12 @@ function Class:setFields(mapping)
 	
 	-- create a copy of the map first:
 	local tt = {}
+	local asProp = false
+
 	for k,v in pairs(mapping) do
 		-- tt[k] = type(v)=="string" and v:gsub("°","&deg;"):gsub(" ","&nbsp;") or v; -- make the degree symbol compatible with html display.
 		tt[k] = v; 
+		asProp = true;
 	end
 	mapping = tt;
 	
@@ -81,9 +84,14 @@ function Class:setFields(mapping)
 			elseif mapping[prop] ~= val then
 				self:warn("Discarding postponed value prop=",prop,", val=",val," with newval=",mapping[prop] )
 			end
+			asProp = true;
 		end
 		
 		self._postponed = nil
+	end
+	
+	if not asProp then
+		return -- nothing to do here.
 	end
 	
 	-- self:check(self._controller,"Invalid controller object")
@@ -94,13 +102,36 @@ function Class:setFields(mapping)
 
 	local obj = awe.JSObject()
 	for prop,val in pairs(mapping) do
-		obj:SetProperty(prop,awe.JSValue(val));
+		obj:SetProperty(prop,awe.JSValue.box(val));
 	end
+	
+	-- self:info("Sending updates for: ",mapping)		
+
 
 	args:Push(awe.JSValue(obj))
 	
 	self._controller:InvokeAsync("set",args)
 	-- controller:InvokeAsync("setFields",args)
+	self:checkErrors(self._controller)
+end
+
+function Class:toggleOverlays()
+	if not self._controller then
+		self:warn("Controller is not ready yet.")
+	end
+	
+	local args = awe.JSArray()
+	self._controller:InvokeAsync("toggleOverlays",args)
+	self:checkErrors(self._controller)
+end
+
+function Class:toggleMenus()
+	if not self._controller then
+		self:warn("Controller is not ready yet.")
+	end
+	
+	local args = awe.JSArray()
+	self._controller:InvokeAsync("toggleMenus",args)
 	self:checkErrors(self._controller)
 end
 

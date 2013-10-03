@@ -32,7 +32,12 @@ define(["log","backbone"],function(log,Backbone) {
 		"sensitivity",
 		"black_level",
 		"focus",
-		"focus_trim"
+		"focus_trim",
+		"camera_extender"
+	];
+	
+	var stdHighlights = [
+		"sub_vic"	
 	];
 	
 	var streamHighlights = [
@@ -52,19 +57,52 @@ define(["log","backbone"],function(log,Backbone) {
 		},
 		
 		setValue : function(elName,value) {			
-			var str = value;
+			var str = value+"";
 			if (typeof value == "string" && value.length > 0) {
 				var lastChar = value.substring(value.length-1);
 				if (lastChar == " ") {
 					lastChar = "&nbsp;"
 				}
-				// str = str.replace(/\s/g,"&nbsp;");
-				str = value.substring(0,value.length-1) + "<em class='lastchar'>" + lastChar +"</em>"
+				str = str.replace(/\s/g,"&nbsp;");
+				// str = value.substring(0,value.length-1) + "<em class='lastchar'>" + lastChar +"</em>"
 				str = str.replace(/°/g,"&deg;");
 			}
 			
+			var el = $("#"+elName+" > span")
 			
-			$("#"+elName+" > span").html(str);
+			if(el.length==0) {
+				log.error("Could not find the element '#"+elName+" > span'"+" parent content is: "+$("#"+elName).html()+". Forcing creation...")
+				
+				// force creation:
+				$("#"+elName).html("<span></span>")
+				el = $("#"+elName+" > span")
+			}
+			
+			el.html(str);
+		},
+		
+		highlightPart : function(elName,p1,p2) {
+			var el = $("#"+elName+" > span")
+			if(el.length==0) {
+				log.error("Could not find the element '#"+elName+" > span'"+" parent content is: "+$("#"+elName).html()+". Forcing creation...")
+				
+				// force creation:
+				$("#"+elName).html("<span></span>")
+				el = $("#"+elName+" > span")
+			}
+			
+			var txt = el.text();
+			
+			var str = txt;
+			
+			if (p1 > 0 && p2 <= txt.length) {
+				str = txt.substring(0,p1-1) + "<em class='highlighted'>" + txt.substring(p1-1,p2) + "</em>" + txt.substring(p2);
+			}
+			else {
+				log.error("Invalid highlight range:"+p1+", "+p2+" with length="+txt.length);
+			}
+
+			el.html(str);
 		},
 		
 		initialize: function() {
@@ -88,6 +126,36 @@ define(["log","backbone"],function(log,Backbone) {
 				this.allNames.push(name);
 			};
 			
+			for (var j in stdHighlights) {
+				var name = stdHighlights[j];
+				var fname = name + "_highlighted";
+				this["set_"+fname] = (function(name,obj) {
+					return function(model) {
+						var state = model.get(name+"_highlighted")
+						// log.info("Setting highlight to "+state+" for "+name)
+						if(typeof state == "boolean") {
+							var el = $("#"+name+" > span");
+							if(state) {
+								el.addClass("highlighted");
+							}
+							else {
+								el.removeClass("highlighted");
+								el.html(el.text()) // remove internal highlight if any.
+							}
+						}
+						else {
+							// the state is an array:
+							var p1 = state[0];
+							var p2 = state[1];
+							// log.info("Should highlight the range: "+ p1+" to "+p2);
+							obj.highlightPart(name,p1,p2);
+						}
+					};
+				})(name,this);
+				
+				this.allFields.push(fname);
+			}
+				
 			// Add the stream specific fields:
 			for (var i in streams) {
 				var sname = streams[i];
@@ -97,9 +165,10 @@ define(["log","backbone"],function(log,Backbone) {
 					this["set_"+fname] = (function(name,sname,obj) {
 						return function(model) {
 							var currentStream = model.get("current_stream");
-							//log.info("Current stream: "+currentStream);
-							//log.info("sname: "+sname);
+							// log.info("Current stream: "+currentStream);
+							// log.info("sname: "+sname);
 							if (currentStream == sname) {
+								// log.info("Setting value on "+sname+" for "+name+" to "+model.get(sname+"_"+name));
 								// get or create the span sub element:								
 								//$("#"+name+" > span").html(model.get(sname+"_"+name));
 								obj.setValue(name,model.get(sname+"_"+name));
@@ -108,9 +177,9 @@ define(["log","backbone"],function(log,Backbone) {
 					})(name,sname,this);
 					
 					this.allFields.push(fname);
-					if (this.allNames.indexOf(name)<0) {
+					// if (this.allNames.indexOf(name)<0) {
 						this.allNames.push(name);
-					}
+					// }
 				}
 				
 				// register the highlights:
@@ -120,16 +189,24 @@ define(["log","backbone"],function(log,Backbone) {
 					this["set_"+fname] = (function(name,sname,obj) {
 						return function(model) {
 							var currentStream = model.get("current_stream");
-							log.info("Current stream: "+currentStream);
-							log.info("sname: "+sname);
+							// log.info("Current stream: "+currentStream);
+							// log.info("sname: "+sname);
 							if (currentStream == sname) {
 								var state = model.get(sname+"_"+name+"_highlighted")
-								log.info("Setting highlight to "+state+" for "+name)
-								if(state) {
-									$("#"+name+" > span").addClass("highlighted");
+								// log.info("Setting highlight to "+state+" for "+name)
+								if(typeof state == "boolean") {
+									if(state) {
+										$("#"+name+" > span").addClass("highlighted");
+									}
+									else {
+										$("#"+name+" > span").removeClass("highlighted");
+									}
 								}
 								else {
-									$("#"+name+" > span").removeClass("highlighted");
+									// the state is an array:
+									var p1 = state[0];
+									var p2 = state[1];
+									// log.info("Should highlight the range: "+ p1+" to "+p2);
 								}
 							}
 						};
@@ -142,7 +219,7 @@ define(["log","backbone"],function(log,Backbone) {
 			this["set_current_stream"] = (function(obj) {
 				return function(model) {
 					var sname = model.get("current_stream");
-					log.info("Setting current stream to: "+sname);
+					// log.info("Setting current stream to: "+sname);
 					//log.info("And current stream is: "+obj.get("current_stream"));
 					for (var i in streamFields) {
 						var name = streamFields[i];
@@ -157,7 +234,7 @@ define(["log","backbone"],function(log,Backbone) {
 			// Now setup the spans:
 			for (var j in this.allNames) {
 				var name = this.allNames[j];
-				log.info("Initializing span for "+name);
+				// log.info("Initializing span for "+name);
 				$("#"+name).html("<span>"+name+"</span>");
 				// $('<span></span>').appendTo("#"+name); //.html("<span>"+name+"</span>");
 			}		

@@ -1,4 +1,4 @@
-define(['log','jquery','config','raphael'], function(log,$,cfg,raphael) {
+define(['log','jquery','config','raphael','base/Tools'], function(log,$,cfg,raphael,tools) {
 	
 	var buildNorthPointer = function(w,h) {
 		var paper = raphael("north_arrow",w,h);
@@ -41,20 +41,9 @@ define(['log','jquery','config','raphael'], function(log,$,cfg,raphael) {
 		setup : function() {
 			log.debug("Setting up main layout...");
 			
-			// add a loader on the window:
-			// $(window).load(function(){
+			var xr = tools.getBlockWidth();
+			var yr = tools.getBlockHeight();
 			
-			var ww = $(window).width();
-			var hh = $(window).height();
-			log.debug("Window dimensions are: "+ww+"x"+hh);
-			
-			var sw = cfg.block_width; // screen width
-			var sh = cfg.block_height; // screen height
-			log.debug("Number of blocks are: "+sw+"x"+sh);
-
-			var xr = ww/sw;
-			var yr = hh/sh;
-
 			// Set the font size. We leave one pixel above, and one pixel under.
 			var fsize = Math.floor(yr-2);
 			var test = $('#compute');
@@ -68,7 +57,7 @@ define(['log','jquery','config','raphael'], function(log,$,cfg,raphael) {
 			
 			// Update the styles on the body element:
 			//$('div').css('minHeight',fsize+2);
-			$('.block div').css({letterSpacing: ls, paddingLeft: pad, paddingRight: pad, paddingTop: 1, paddingBottom: 1, marginRight: -pad});
+			$('.block div').css({letterSpacing: ls, paddingLeft: pad, paddingRight: pad, paddingTop: 1, paddingBottom: 1, marginRight: -ls});
 			$('.block div').css({fontSize: fsize, lineHeight: (fsize)+'px'});
 			$('.block div').css({minHeight: (fsize)+'px', height: (fsize)+'px', maxHeight: (fsize)+'px'});
 			//$('#target_name').css({letterSpacing: ls+xr/2.0, marginRight: -ls-xr/2.0})
@@ -121,6 +110,7 @@ define(['log','jquery','config','raphael'], function(log,$,cfg,raphael) {
 			setLeft('.sensor_c',36,9)
 			setLeft('.sensor_r1',48,5)
 			setLeft('.sensor_r2',55,4)
+			setLeft('.sensor_r2b',59,1)
 			setLeft('.sensor_r3',61,4)
 			setLeft('.sensor_r4',67,4)
 			setLeft('.sensor_r5',74,5)

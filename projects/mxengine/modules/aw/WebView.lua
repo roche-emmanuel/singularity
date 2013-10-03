@@ -54,6 +54,7 @@ function Class:validate()
 	
 	if self._isReady and not self._textureObject:isValid() then
 		self._isReady = false
+		self:warn("Releasing controller...")
 		self:releaseController()
 		return false;
 	end

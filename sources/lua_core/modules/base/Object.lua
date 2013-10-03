@@ -128,7 +128,13 @@ function Object:getAllClassMembers(obj)
 end
 
 function Object:isInstanceOf(class,obj)	
-	local obj_class = oo.classof(obj or self)
+	local obj_class;
+	if obj~=nil then
+		obj_class = oo.classof(obj)
+	else
+		obj_class = oo.classof(self)	
+	end
+	
 	return obj_class==class or oo.subclassof(obj_class,class)
 end
 

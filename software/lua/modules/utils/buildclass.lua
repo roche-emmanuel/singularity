@@ -71,6 +71,18 @@ local createClass = function(options)
 		return obj 
 	end
 
+	-- add extensions on the fly for a given class:
+	function result.extendsWith(options)
+		local list = {result}
+		for _,base in ipairs(options) do
+			table.insert(list,base)
+		end
+		
+		local name = options.name or result._CLASSNAME_ .. "_ext"
+		return createClass{name=name,bases=list};
+	end
+
+	
 	function result:doInitialize(opt,class,done)
 		-- this is needed to ensure we don't execute parent functions multiple times in diamond
 		-- inheritance.

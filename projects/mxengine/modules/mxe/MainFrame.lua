@@ -1,4 +1,4 @@
-local Class = require("classBuilder"){name="MainFrame",bases="mxe.TurretController"};
+local Class = require("classBuilder"){name="MainFrame",bases="base.Object"};
 
 local assert = require "utils.assert"
 
@@ -152,7 +152,7 @@ function Class:initialize(options)
 		intf:popParent(true) -- mission page
 		
 		intf:pushBookPage{caption="Controls"}
-			self:buildControlPanel()
+			require "gui.TurretControllerPage" {intf}
 		intf:popParent(true) -- controls page
 		
 		intf:pushBookPage{caption="Turrets"}
@@ -166,36 +166,6 @@ function Class:initialize(options)
 	intf:popParent()
 
 	require "gui.LogPanel" {intf}
-	
-	-- intf:pushSizer{text="Logging",orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxEXPAND}
-		-- intf:pushSizer{orient=wx.wxVERTICAL,prop=2,flags=wx.wxEXPAND}
-			-- local owin
-			-- owin, self._output = intf:addOutputPanel{prop=2,flags=wx.wxALL+wx.wxEXPAND}
-			-- intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxEXPAND}
-				-- intf:addBitmapButton{src="delete",tip="Clear the log console",
-							 -- handler="clearLogConsole"}
-				-- intf:addBitmapButton{src="freeze",tip="Freeze/unfreeze the log console content",
-							 -- handler="freezeLogConsole"}							 					 
-				-- intf:addSingleChoiceEntry{name="logging.log_level",prop=1,caption="Log level",
-								-- choices={"Fatal","Error","Warning","Notice","Info","Debug0",
-										 -- "Debug1","Debug2","Debug3","Debug4","Debug5"},
-								-- defaultValue="Debug0",
-								-- handler="changeLogLevel"}
-				-- intf:addSpacer{size=10}
-				-- intf:addBoolEntry{name="logging.verbose_state",caption="Verbose",style=0,
-								  -- flags=wx.wxALIGN_CENTER_VERTICAL,
-								  -- tip="Toggle verbose outputs", handler="toggleVerbose"}
-			-- intf:popSizer()
-		-- intf:popSizer()
-		
-		-- intf:pushSizer{orient=wx.wxVERTICAL,prop=1,flags=wx.wxEXPAND}
-			-- self._execTc = intf:addTextCtrl{prop=1,flags=wx.wxALL+wx.wxEXPAND,
-											-- style=bit.bor(wx.wxTE_MULTILINE,wx.wxTE_BESTWRAP,wx.wxTE_RICH2)}
-			-- intf:addBitmapButton{src="execute", flags=wx.wxALL+wx.wxALIGN_RIGHT,
-								 -- tip="Execute the content of the script console",
-								 -- handler="executeScript"}
-		-- intf:popSizer()
-	-- intf:popSizer()
 	
 	intf:popParent(true)
 	

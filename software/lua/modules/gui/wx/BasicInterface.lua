@@ -196,6 +196,22 @@ function Class:pushSizer(options)
     self:pushSizerObject(sizer)
 end
 
+function Class:pushSizerH(options)
+	self:check(options and type(options[1])=="function","Invalid sizer function.")
+	options.orient = wx.wxHORIZONTAL
+	self:pushSizer(options)
+	options[1]()
+	self:popSizer()
+end
+
+function Class:pushSizerV(options)
+	self:check(options and type(options[1])=="function","Invalid sizer function.")
+	options.orient = wx.wxVERTICAL
+	self:pushSizer(options)
+	options[1]()
+	self:popSizer()
+end
+
 function Class:pushSizerObject(sizer)
     self:check(self._sizerStack,"Invalid sizer stack.")
     self:check(sizer,"Invalid sizer object.")

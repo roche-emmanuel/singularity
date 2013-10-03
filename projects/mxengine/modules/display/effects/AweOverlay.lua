@@ -88,7 +88,7 @@ function Class:updateOverlayContent(all)
 	
 	local changes = all and self:getTurret():getOverlayFields() or self:getTurret():getUpdatedOverlayFields()
 	
-	-- if sname=="IR" then
+	-- if sname=="VIC" then
 		-- self:warn("Setting overlay updates:",changes:getTable())
 	-- end
 	

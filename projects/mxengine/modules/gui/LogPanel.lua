@@ -1,17 +1,10 @@
-local Class = require("classBuilder"){name="LogPanel",bases="base.Object"};
+local Class = require("classBuilder"){name="LogPanel",bases="gui.wx.InterfaceComponent"};
 
 local im = require "gui.wx.ImageManager"
 local freezeBmp = im:getBitmap("freeze")
 local unfreezeBmp = im:getBitmap("unfreeze")
 
-function Class:initialize(options)
-	self:check(options and options[1],"Invalid interface to build log panel")
-	self:build(options[1])
-end
-
-function Class:build(intf)
-	-- assign the current object as handler:
-	local prev_handler = intf:setHandler(self)
+function Class:buildComponent(intf)
 	
 	intf:pushSizer{text="Logging",orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxEXPAND}
 		intf:pushSizer{orient=wx.wxVERTICAL,prop=2,flags=wx.wxEXPAND}
@@ -43,9 +36,6 @@ function Class:build(intf)
 								 handler="executeScript"}
 		intf:popSizer()
 	intf:popSizer()
-	
-	-- restore the previous handler:
-	intf:setHandler(prev_handler)
 end
 
 function Class:toggleVerbose(data)

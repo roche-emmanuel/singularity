@@ -1,9 +1,11 @@
 define(["backbone","underscore","base/LayoutManager",
 		"models/Overlay",
-		"text!templates/overlay/default.html"],
-function(Backbone,_,lman,OverlayModel,tpl) {
+		"text!templates/overlay/default.html",
+		"models/MenuManager"],
+function(Backbone,_,lman,OverlayModel,tpl,MenuManager) {
 	
 	var model = new OverlayModel;
+	var mm = new MenuManager();
 	
 	var Overlay = Backbone.View.extend({
 		el: $('#overlays'),

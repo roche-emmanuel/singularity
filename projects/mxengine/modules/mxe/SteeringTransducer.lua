@@ -56,7 +56,7 @@ function Class:initialize(options)
 		local dc = wx.wxPaintDC(win);
 	
 		local size = dc:GetSize()
-		dc:SetBrush(wx.wxBrush(wx.wxColour(255,0,0,255)))
+		dc:SetBrush(wx.wxBrush(wx.wxColour(255,255,255,255)))
 		dc:DrawRectangle(0, 0, size:GetWidth(), size:GetHeight());
 		
 		-- draw circles from the center:

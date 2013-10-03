@@ -41,6 +41,10 @@ div {
 	overflow: hidden;
 }
 
+.hidden {
+	display: none;
+}
+
 #compute
 {
     position: absolute;

@@ -26,7 +26,12 @@ function Class:setupInterface(options)
 		intf:addActionButtonEntry{name="reload_web_page",caption="reload",src="reload",
 								  tip="Reload web view",handler="reloadWebPage",
 								  validItemOnly=true}
-		
+		intf:addActionButtonEntry{name="toggle_overlays",caption="toggle_overlays",src="overlays",
+								  tip="Toggle overlay display",handler="toggleOverlays",
+								  validItemOnly=true}		
+		intf:addActionButtonEntry{name="toggle_menus",caption="toggle_menus",src="menu",
+								  tip="Toggle menu display",handler="toggleMenus",
+								  validItemOnly=true}	
 		intf:addSpacer{prop=1}
 		
 		intf:addStringEntry{name="field_name",caption="Field"}
@@ -53,6 +58,11 @@ function Class:setField(data)
 		fval = true
 	elseif fval=="false" then
 		fval = false
+	elseif fval:find("{") then
+		-- this is an array, we should extract the values:
+		local p1, p2, v1, v2 = fval:find("{([0-9]+)%s*,%s*([0-9]+)%s*}")
+		self:info("Extracted values: ",v1," and ",v2)
+		fval = {v1, v2}
 	end
 	
 	self._tile:setFields{ [fname] = fval }
@@ -89,6 +99,14 @@ function Class:setupEventHandlers()
 	self:getViewer():addEventHandler( self._tile:getEventHandler() )	
 	self:getViewer():addEventHandler( osgViewer.StatsHandler() )	
 	self:getViewer():addEventHandler( osgViewer.WindowSizeHandler() )
+end
+
+function Class:toggleOverlays()
+	self._tile:toggleOverlays()
+end
+
+function Class:toggleMenus()
+	self._tile:toggleMenus()
 end
 
 return Class 
