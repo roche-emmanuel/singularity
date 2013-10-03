@@ -63,9 +63,11 @@ function Class:__call(handler,eventName,...)
 		profiler:start("EventCB - ".. eventName .. " - " .. (self._name or "[unnamed cb]"))
 		local res;
 		if #self._args > 0 then
-			res = self._func(unpack(self._args),handler,eventName,...)		
+			-- res = self._func(unpack(self._args),handler,eventName,...)		
+			res = self._func(unpack(self._args),...)		
 		else
-			res = self._func(handler,eventName,...)		
+			-- res = self._func(handler,eventName,...)		
+			res = self._func(...)		
 		end
 		profiler:stop()
 		return res;

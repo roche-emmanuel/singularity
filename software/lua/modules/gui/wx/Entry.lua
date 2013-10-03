@@ -324,13 +324,9 @@ function Class:setControlValue(ctrl,className)
             -- display the scene in the combo box:
             --ctrl:SetValue(val.scene)
             if platform=="linux64" then ctrl:ChangeValue(val.scene) else ctrl:SetValue(val.scene) end;
-        elseif type == "statecb" then
-            local str = "";
-            for k,v in pairs(self.states) do
-                if v.id == val then
-                    str = v.caption
-                end
-            end
+        elseif type == "state" then
+            local str = self:getStateCaption(val)
+
             -- display the scene in the combo box:
             --ctrl:SetValue(str)
             if platform=="linux64" then ctrl:ChangeValue(str) else ctrl:SetValue(str) end;
