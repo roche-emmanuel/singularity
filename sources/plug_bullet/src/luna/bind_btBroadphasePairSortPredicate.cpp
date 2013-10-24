@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btBroadphasePairSortPredicate*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btBroadphasePairSortPredicate*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphasePairSortPredicate* rhs =(Luna< btBroadphasePairSortPredicate >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphasePairSortPredicate* self= (btBroadphasePairSortPredicate*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btBroadphasePairSortPredicate >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -122,8 +118,7 @@ public:
 	// bool btBroadphasePairSortPredicate::operator()(const btBroadphasePair & a, const btBroadphasePair & b) const
 	static int _bind_op_call(lua_State *L) {
 		if (!_lg_typecheck_op_call(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btBroadphasePairSortPredicate::operator()(const btBroadphasePair & a, const btBroadphasePair & b) const function, expected prototype:\nbool btBroadphasePairSortPredicate::operator()(const btBroadphasePair & a, const btBroadphasePair & b) const\nClass arguments details:\narg 1 ID = 82050774\narg 2 ID = 82050774\n");
+			luaL_error(L, "luna typecheck failed in bool btBroadphasePairSortPredicate::operator()(const btBroadphasePair & a, const btBroadphasePair & b) const function, expected prototype:\nbool btBroadphasePairSortPredicate::operator()(const btBroadphasePair & a, const btBroadphasePair & b) const\nClass arguments details:\narg 1 ID = 82050774\narg 2 ID = 82050774\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btBroadphasePair* a_ptr=(Luna< btBroadphasePair >::check(L,2));
@@ -139,8 +134,7 @@ public:
 
 		btBroadphasePairSortPredicate* self=(Luna< btBroadphasePairSortPredicate >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btBroadphasePairSortPredicate::operator()(const btBroadphasePair &, const btBroadphasePair &) const. Got : '%s'",typeid(Luna< btBroadphasePairSortPredicate >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btBroadphasePairSortPredicate::operator()(const btBroadphasePair &, const btBroadphasePair &) const. Got : '%s'\n%s",typeid(Luna< btBroadphasePairSortPredicate >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator()(a, b);
 		lua_pushboolean(L,lret?1:0);

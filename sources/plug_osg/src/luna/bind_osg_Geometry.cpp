@@ -215,7 +215,7 @@ public:
 	inline static bool _lg_typecheck_setNormalBinding(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -266,7 +266,7 @@ public:
 	inline static bool _lg_typecheck_setColorBinding(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -317,7 +317,7 @@ public:
 	inline static bool _lg_typecheck_setSecondaryColorBinding(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -368,7 +368,7 @@ public:
 	inline static bool _lg_typecheck_setFogCoordBinding(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -419,7 +419,7 @@ public:
 	inline static bool _lg_typecheck_setTexCoordArray(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 		return true;
 	}
@@ -427,21 +427,21 @@ public:
 	inline static bool _lg_typecheck_getTexCoordArray_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getTexCoordArray_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setTexCoordData(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,26680564) ) return false;
 		return true;
 	}
@@ -449,14 +449,14 @@ public:
 	inline static bool _lg_typecheck_getTexCoordData_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getTexCoordData_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -481,7 +481,7 @@ public:
 	inline static bool _lg_typecheck_setVertexAttribArray(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 		return true;
 	}
@@ -489,51 +489,51 @@ public:
 	inline static bool _lg_typecheck_getVertexAttribArray_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getVertexAttribArray_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setVertexAttribBinding(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getVertexAttribBinding(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setVertexAttribNormalize(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getVertexAttribNormalize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setVertexAttribData(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,26680564) ) return false;
 		return true;
 	}
@@ -541,14 +541,14 @@ public:
 	inline static bool _lg_typecheck_getVertexAttribData_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getVertexAttribData_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -579,14 +579,14 @@ public:
 	inline static bool _lg_typecheck_getPrimitiveSet_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getPrimitiveSet_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -600,7 +600,7 @@ public:
 	inline static bool _lg_typecheck_setPrimitiveSet(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 		return true;
 	}
@@ -608,7 +608,7 @@ public:
 	inline static bool _lg_typecheck_insertPrimitiveSet(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 		return true;
 	}
@@ -617,8 +617,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -727,7 +727,7 @@ public:
 	inline static bool _lg_typecheck_setTexCoordIndices(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 		return true;
 	}
@@ -735,21 +735,21 @@ public:
 	inline static bool _lg_typecheck_getTexCoordIndices_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getTexCoordIndices_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setVertexAttribIndices(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 		return true;
 	}
@@ -757,14 +757,14 @@ public:
 	inline static bool _lg_typecheck_getVertexAttribIndices_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getVertexAttribIndices_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -944,7 +944,7 @@ public:
 	inline static bool _lg_typecheck_base_setName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 

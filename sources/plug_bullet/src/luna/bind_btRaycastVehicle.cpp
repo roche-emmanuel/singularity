@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btActionInterface* self=(Luna< btActionInterface >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRaycastVehicle* self= (btRaycastVehicle*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btActionInterface >::check(L,1));
@@ -120,7 +117,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,62162664)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -147,7 +144,7 @@ public:
 	inline static bool _lg_typecheck_updateVehicle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -160,30 +157,30 @@ public:
 	inline static bool _lg_typecheck_getSteeringValue(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setSteeringValue(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_applyEngineForce(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getWheelTransformWS(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -191,7 +188,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -202,8 +199,8 @@ public:
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,91513369) ) return false;
 		if( lua_isboolean(L,8)==0 ) return false;
 		return true;
@@ -218,14 +215,14 @@ public:
 	inline static bool _lg_typecheck_getWheelInfo_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getWheelInfo_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -241,29 +238,29 @@ public:
 	inline static bool _lg_typecheck_setBrake(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setPitchControl(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_updateSuspension(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_updateFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -312,9 +309,9 @@ public:
 	inline static bool _lg_typecheck_setCoordinateSystem(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -327,14 +324,14 @@ public:
 	inline static bool _lg_typecheck_setUserConstraintType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setUserConstraintId(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -348,7 +345,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,62162664)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -362,23 +359,23 @@ public:
 	inline static bool _lg_typecheck_base_updateVehicle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_updateFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_setCoordinateSystem(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -390,8 +387,7 @@ public:
 	// btRaycastVehicle::btRaycastVehicle(const btRaycastVehicle::btVehicleTuning & tuning, btRigidBody * chassis, btVehicleRaycaster * raycaster)
 	static btRaycastVehicle* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btRaycastVehicle::btRaycastVehicle(const btRaycastVehicle::btVehicleTuning & tuning, btRigidBody * chassis, btVehicleRaycaster * raycaster) function, expected prototype:\nbtRaycastVehicle::btRaycastVehicle(const btRaycastVehicle::btVehicleTuning & tuning, btRigidBody * chassis, btVehicleRaycaster * raycaster)\nClass arguments details:\narg 1 ID = 91513369\narg 2 ID = 85758361\narg 3 ID = 79998095\n");
+			luaL_error(L, "luna typecheck failed in btRaycastVehicle::btRaycastVehicle(const btRaycastVehicle::btVehicleTuning & tuning, btRigidBody * chassis, btVehicleRaycaster * raycaster) function, expected prototype:\nbtRaycastVehicle::btRaycastVehicle(const btRaycastVehicle::btVehicleTuning & tuning, btRigidBody * chassis, btVehicleRaycaster * raycaster)\nClass arguments details:\narg 1 ID = 91513369\narg 2 ID = 85758361\narg 3 ID = 79998095\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btRaycastVehicle::btVehicleTuning* tuning_ptr=(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1));
@@ -408,8 +404,7 @@ public:
 	// btRaycastVehicle::btRaycastVehicle(lua_Table * data, const btRaycastVehicle::btVehicleTuning & tuning, btRigidBody * chassis, btVehicleRaycaster * raycaster)
 	static btRaycastVehicle* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btRaycastVehicle::btRaycastVehicle(lua_Table * data, const btRaycastVehicle::btVehicleTuning & tuning, btRigidBody * chassis, btVehicleRaycaster * raycaster) function, expected prototype:\nbtRaycastVehicle::btRaycastVehicle(lua_Table * data, const btRaycastVehicle::btVehicleTuning & tuning, btRigidBody * chassis, btVehicleRaycaster * raycaster)\nClass arguments details:\narg 2 ID = 91513369\narg 3 ID = 85758361\narg 4 ID = 79998095\n");
+			luaL_error(L, "luna typecheck failed in btRaycastVehicle::btRaycastVehicle(lua_Table * data, const btRaycastVehicle::btVehicleTuning & tuning, btRigidBody * chassis, btVehicleRaycaster * raycaster) function, expected prototype:\nbtRaycastVehicle::btRaycastVehicle(lua_Table * data, const btRaycastVehicle::btVehicleTuning & tuning, btRigidBody * chassis, btVehicleRaycaster * raycaster)\nClass arguments details:\narg 2 ID = 91513369\narg 3 ID = 85758361\narg 4 ID = 79998095\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btRaycastVehicle::btVehicleTuning* tuning_ptr=(Luna< btRaycastVehicle::btVehicleTuning >::check(L,2));
@@ -437,8 +432,7 @@ public:
 	// void btRaycastVehicle::updateAction(btCollisionWorld * collisionWorld, float step)
 	static int _bind_updateAction(lua_State *L) {
 		if (!_lg_typecheck_updateAction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::updateAction(btCollisionWorld * collisionWorld, float step) function, expected prototype:\nvoid btRaycastVehicle::updateAction(btCollisionWorld * collisionWorld, float step)\nClass arguments details:\narg 1 ID = 62162664\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::updateAction(btCollisionWorld * collisionWorld, float step) function, expected prototype:\nvoid btRaycastVehicle::updateAction(btCollisionWorld * collisionWorld, float step)\nClass arguments details:\narg 1 ID = 62162664\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld* collisionWorld=(Luna< btCollisionWorld >::check(L,2));
@@ -446,8 +440,7 @@ public:
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::updateAction(btCollisionWorld *, float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::updateAction(btCollisionWorld *, float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->updateAction(collisionWorld, step);
 
@@ -457,16 +450,14 @@ public:
 	// void btRaycastVehicle::debugDraw(btIDebugDraw * debugDrawer)
 	static int _bind_debugDraw(lua_State *L) {
 		if (!_lg_typecheck_debugDraw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::debugDraw(btIDebugDraw * debugDrawer) function, expected prototype:\nvoid btRaycastVehicle::debugDraw(btIDebugDraw * debugDrawer)\nClass arguments details:\narg 1 ID = 63441741\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::debugDraw(btIDebugDraw * debugDrawer) function, expected prototype:\nvoid btRaycastVehicle::debugDraw(btIDebugDraw * debugDrawer)\nClass arguments details:\narg 1 ID = 63441741\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btIDebugDraw* debugDrawer=(Luna< btIDebugDraw >::check(L,2));
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::debugDraw(btIDebugDraw *). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::debugDraw(btIDebugDraw *). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->debugDraw(debugDrawer);
 
@@ -476,15 +467,13 @@ public:
 	// const btTransform & btRaycastVehicle::getChassisWorldTransform() const
 	static int _bind_getChassisWorldTransform(lua_State *L) {
 		if (!_lg_typecheck_getChassisWorldTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btTransform & btRaycastVehicle::getChassisWorldTransform() const function, expected prototype:\nconst btTransform & btRaycastVehicle::getChassisWorldTransform() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btTransform & btRaycastVehicle::getChassisWorldTransform() const function, expected prototype:\nconst btTransform & btRaycastVehicle::getChassisWorldTransform() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btTransform & btRaycastVehicle::getChassisWorldTransform() const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btTransform & btRaycastVehicle::getChassisWorldTransform() const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getChassisWorldTransform();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -497,8 +486,7 @@ public:
 	// float btRaycastVehicle::rayCast(btWheelInfo & wheel)
 	static int _bind_rayCast(lua_State *L) {
 		if (!_lg_typecheck_rayCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::rayCast(btWheelInfo & wheel) function, expected prototype:\nfloat btRaycastVehicle::rayCast(btWheelInfo & wheel)\nClass arguments details:\narg 1 ID = 45065223\n");
+			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::rayCast(btWheelInfo & wheel) function, expected prototype:\nfloat btRaycastVehicle::rayCast(btWheelInfo & wheel)\nClass arguments details:\narg 1 ID = 45065223\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btWheelInfo* wheel_ptr=(Luna< btWheelInfo >::check(L,2));
@@ -509,8 +497,7 @@ public:
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRaycastVehicle::rayCast(btWheelInfo &). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRaycastVehicle::rayCast(btWheelInfo &). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->rayCast(wheel);
 		lua_pushnumber(L,lret);
@@ -521,16 +508,14 @@ public:
 	// void btRaycastVehicle::updateVehicle(float step)
 	static int _bind_updateVehicle(lua_State *L) {
 		if (!_lg_typecheck_updateVehicle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::updateVehicle(float step) function, expected prototype:\nvoid btRaycastVehicle::updateVehicle(float step)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::updateVehicle(float step) function, expected prototype:\nvoid btRaycastVehicle::updateVehicle(float step)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float step=(float)lua_tonumber(L,2);
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::updateVehicle(float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::updateVehicle(float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->updateVehicle(step);
 
@@ -540,15 +525,13 @@ public:
 	// void btRaycastVehicle::resetSuspension()
 	static int _bind_resetSuspension(lua_State *L) {
 		if (!_lg_typecheck_resetSuspension(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::resetSuspension() function, expected prototype:\nvoid btRaycastVehicle::resetSuspension()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::resetSuspension() function, expected prototype:\nvoid btRaycastVehicle::resetSuspension()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::resetSuspension(). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::resetSuspension(). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->resetSuspension();
 
@@ -558,16 +541,14 @@ public:
 	// float btRaycastVehicle::getSteeringValue(int wheel) const
 	static int _bind_getSteeringValue(lua_State *L) {
 		if (!_lg_typecheck_getSteeringValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::getSteeringValue(int wheel) const function, expected prototype:\nfloat btRaycastVehicle::getSteeringValue(int wheel) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::getSteeringValue(int wheel) const function, expected prototype:\nfloat btRaycastVehicle::getSteeringValue(int wheel) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int wheel=(int)lua_tointeger(L,2);
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRaycastVehicle::getSteeringValue(int) const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRaycastVehicle::getSteeringValue(int) const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getSteeringValue(wheel);
 		lua_pushnumber(L,lret);
@@ -578,8 +559,7 @@ public:
 	// void btRaycastVehicle::setSteeringValue(float steering, int wheel)
 	static int _bind_setSteeringValue(lua_State *L) {
 		if (!_lg_typecheck_setSteeringValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::setSteeringValue(float steering, int wheel) function, expected prototype:\nvoid btRaycastVehicle::setSteeringValue(float steering, int wheel)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::setSteeringValue(float steering, int wheel) function, expected prototype:\nvoid btRaycastVehicle::setSteeringValue(float steering, int wheel)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float steering=(float)lua_tonumber(L,2);
@@ -587,8 +567,7 @@ public:
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::setSteeringValue(float, int). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::setSteeringValue(float, int). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSteeringValue(steering, wheel);
 
@@ -598,8 +577,7 @@ public:
 	// void btRaycastVehicle::applyEngineForce(float force, int wheel)
 	static int _bind_applyEngineForce(lua_State *L) {
 		if (!_lg_typecheck_applyEngineForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::applyEngineForce(float force, int wheel) function, expected prototype:\nvoid btRaycastVehicle::applyEngineForce(float force, int wheel)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::applyEngineForce(float force, int wheel) function, expected prototype:\nvoid btRaycastVehicle::applyEngineForce(float force, int wheel)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float force=(float)lua_tonumber(L,2);
@@ -607,8 +585,7 @@ public:
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::applyEngineForce(float, int). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::applyEngineForce(float, int). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->applyEngineForce(force, wheel);
 
@@ -618,16 +595,14 @@ public:
 	// const btTransform & btRaycastVehicle::getWheelTransformWS(int wheelIndex) const
 	static int _bind_getWheelTransformWS(lua_State *L) {
 		if (!_lg_typecheck_getWheelTransformWS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btTransform & btRaycastVehicle::getWheelTransformWS(int wheelIndex) const function, expected prototype:\nconst btTransform & btRaycastVehicle::getWheelTransformWS(int wheelIndex) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btTransform & btRaycastVehicle::getWheelTransformWS(int wheelIndex) const function, expected prototype:\nconst btTransform & btRaycastVehicle::getWheelTransformWS(int wheelIndex) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int wheelIndex=(int)lua_tointeger(L,2);
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btTransform & btRaycastVehicle::getWheelTransformWS(int) const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btTransform & btRaycastVehicle::getWheelTransformWS(int) const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getWheelTransformWS(wheelIndex);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -640,8 +615,7 @@ public:
 	// void btRaycastVehicle::updateWheelTransform(int wheelIndex, bool interpolatedTransform = true)
 	static int _bind_updateWheelTransform(lua_State *L) {
 		if (!_lg_typecheck_updateWheelTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::updateWheelTransform(int wheelIndex, bool interpolatedTransform = true) function, expected prototype:\nvoid btRaycastVehicle::updateWheelTransform(int wheelIndex, bool interpolatedTransform = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::updateWheelTransform(int wheelIndex, bool interpolatedTransform = true) function, expected prototype:\nvoid btRaycastVehicle::updateWheelTransform(int wheelIndex, bool interpolatedTransform = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -651,8 +625,7 @@ public:
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::updateWheelTransform(int, bool). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::updateWheelTransform(int, bool). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->updateWheelTransform(wheelIndex, interpolatedTransform);
 
@@ -662,8 +635,7 @@ public:
 	// btWheelInfo & btRaycastVehicle::addWheel(const btVector3 & connectionPointCS0, const btVector3 & wheelDirectionCS0, const btVector3 & wheelAxleCS, float suspensionRestLength, float wheelRadius, const btRaycastVehicle::btVehicleTuning & tuning, bool isFrontWheel)
 	static int _bind_addWheel(lua_State *L) {
 		if (!_lg_typecheck_addWheel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btWheelInfo & btRaycastVehicle::addWheel(const btVector3 & connectionPointCS0, const btVector3 & wheelDirectionCS0, const btVector3 & wheelAxleCS, float suspensionRestLength, float wheelRadius, const btRaycastVehicle::btVehicleTuning & tuning, bool isFrontWheel) function, expected prototype:\nbtWheelInfo & btRaycastVehicle::addWheel(const btVector3 & connectionPointCS0, const btVector3 & wheelDirectionCS0, const btVector3 & wheelAxleCS, float suspensionRestLength, float wheelRadius, const btRaycastVehicle::btVehicleTuning & tuning, bool isFrontWheel)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 6 ID = 91513369\n");
+			luaL_error(L, "luna typecheck failed in btWheelInfo & btRaycastVehicle::addWheel(const btVector3 & connectionPointCS0, const btVector3 & wheelDirectionCS0, const btVector3 & wheelAxleCS, float suspensionRestLength, float wheelRadius, const btRaycastVehicle::btVehicleTuning & tuning, bool isFrontWheel) function, expected prototype:\nbtWheelInfo & btRaycastVehicle::addWheel(const btVector3 & connectionPointCS0, const btVector3 & wheelDirectionCS0, const btVector3 & wheelAxleCS, float suspensionRestLength, float wheelRadius, const btRaycastVehicle::btVehicleTuning & tuning, bool isFrontWheel)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 6 ID = 91513369\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* connectionPointCS0_ptr=(Luna< btVector3 >::check(L,2));
@@ -692,8 +664,7 @@ public:
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btWheelInfo & btRaycastVehicle::addWheel(const btVector3 &, const btVector3 &, const btVector3 &, float, float, const btRaycastVehicle::btVehicleTuning &, bool). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btWheelInfo & btRaycastVehicle::addWheel(const btVector3 &, const btVector3 &, const btVector3 &, float, float, const btRaycastVehicle::btVehicleTuning &, bool). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btWheelInfo* lret = &self->addWheel(connectionPointCS0, wheelDirectionCS0, wheelAxleCS, suspensionRestLength, wheelRadius, tuning, isFrontWheel);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -706,15 +677,13 @@ public:
 	// int btRaycastVehicle::getNumWheels() const
 	static int _bind_getNumWheels(lua_State *L) {
 		if (!_lg_typecheck_getNumWheels(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btRaycastVehicle::getNumWheels() const function, expected prototype:\nint btRaycastVehicle::getNumWheels() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btRaycastVehicle::getNumWheels() const function, expected prototype:\nint btRaycastVehicle::getNumWheels() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btRaycastVehicle::getNumWheels() const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btRaycastVehicle::getNumWheels() const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNumWheels();
 		lua_pushnumber(L,lret);
@@ -725,16 +694,14 @@ public:
 	// const btWheelInfo & btRaycastVehicle::getWheelInfo(int index) const
 	static int _bind_getWheelInfo_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getWheelInfo_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btWheelInfo & btRaycastVehicle::getWheelInfo(int index) const function, expected prototype:\nconst btWheelInfo & btRaycastVehicle::getWheelInfo(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btWheelInfo & btRaycastVehicle::getWheelInfo(int index) const function, expected prototype:\nconst btWheelInfo & btRaycastVehicle::getWheelInfo(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btWheelInfo & btRaycastVehicle::getWheelInfo(int) const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btWheelInfo & btRaycastVehicle::getWheelInfo(int) const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btWheelInfo* lret = &self->getWheelInfo(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -747,16 +714,14 @@ public:
 	// btWheelInfo & btRaycastVehicle::getWheelInfo(int index)
 	static int _bind_getWheelInfo_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getWheelInfo_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btWheelInfo & btRaycastVehicle::getWheelInfo(int index) function, expected prototype:\nbtWheelInfo & btRaycastVehicle::getWheelInfo(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btWheelInfo & btRaycastVehicle::getWheelInfo(int index) function, expected prototype:\nbtWheelInfo & btRaycastVehicle::getWheelInfo(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btWheelInfo & btRaycastVehicle::getWheelInfo(int). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btWheelInfo & btRaycastVehicle::getWheelInfo(int). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btWheelInfo* lret = &self->getWheelInfo(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -778,8 +743,7 @@ public:
 	// void btRaycastVehicle::updateWheelTransformsWS(btWheelInfo & wheel, bool interpolatedTransform = true)
 	static int _bind_updateWheelTransformsWS(lua_State *L) {
 		if (!_lg_typecheck_updateWheelTransformsWS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::updateWheelTransformsWS(btWheelInfo & wheel, bool interpolatedTransform = true) function, expected prototype:\nvoid btRaycastVehicle::updateWheelTransformsWS(btWheelInfo & wheel, bool interpolatedTransform = true)\nClass arguments details:\narg 1 ID = 45065223\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::updateWheelTransformsWS(btWheelInfo & wheel, bool interpolatedTransform = true) function, expected prototype:\nvoid btRaycastVehicle::updateWheelTransformsWS(btWheelInfo & wheel, bool interpolatedTransform = true)\nClass arguments details:\narg 1 ID = 45065223\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -793,8 +757,7 @@ public:
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::updateWheelTransformsWS(btWheelInfo &, bool). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::updateWheelTransformsWS(btWheelInfo &, bool). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->updateWheelTransformsWS(wheel, interpolatedTransform);
 
@@ -804,8 +767,7 @@ public:
 	// void btRaycastVehicle::setBrake(float brake, int wheelIndex)
 	static int _bind_setBrake(lua_State *L) {
 		if (!_lg_typecheck_setBrake(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::setBrake(float brake, int wheelIndex) function, expected prototype:\nvoid btRaycastVehicle::setBrake(float brake, int wheelIndex)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::setBrake(float brake, int wheelIndex) function, expected prototype:\nvoid btRaycastVehicle::setBrake(float brake, int wheelIndex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float brake=(float)lua_tonumber(L,2);
@@ -813,8 +775,7 @@ public:
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::setBrake(float, int). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::setBrake(float, int). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setBrake(brake, wheelIndex);
 
@@ -824,16 +785,14 @@ public:
 	// void btRaycastVehicle::setPitchControl(float pitch)
 	static int _bind_setPitchControl(lua_State *L) {
 		if (!_lg_typecheck_setPitchControl(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::setPitchControl(float pitch) function, expected prototype:\nvoid btRaycastVehicle::setPitchControl(float pitch)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::setPitchControl(float pitch) function, expected prototype:\nvoid btRaycastVehicle::setPitchControl(float pitch)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float pitch=(float)lua_tonumber(L,2);
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::setPitchControl(float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::setPitchControl(float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPitchControl(pitch);
 
@@ -843,16 +802,14 @@ public:
 	// void btRaycastVehicle::updateSuspension(float deltaTime)
 	static int _bind_updateSuspension(lua_State *L) {
 		if (!_lg_typecheck_updateSuspension(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::updateSuspension(float deltaTime) function, expected prototype:\nvoid btRaycastVehicle::updateSuspension(float deltaTime)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::updateSuspension(float deltaTime) function, expected prototype:\nvoid btRaycastVehicle::updateSuspension(float deltaTime)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float deltaTime=(float)lua_tonumber(L,2);
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::updateSuspension(float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::updateSuspension(float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->updateSuspension(deltaTime);
 
@@ -862,16 +819,14 @@ public:
 	// void btRaycastVehicle::updateFriction(float timeStep)
 	static int _bind_updateFriction(lua_State *L) {
 		if (!_lg_typecheck_updateFriction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::updateFriction(float timeStep) function, expected prototype:\nvoid btRaycastVehicle::updateFriction(float timeStep)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::updateFriction(float timeStep) function, expected prototype:\nvoid btRaycastVehicle::updateFriction(float timeStep)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float timeStep=(float)lua_tonumber(L,2);
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::updateFriction(float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::updateFriction(float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->updateFriction(timeStep);
 
@@ -881,15 +836,13 @@ public:
 	// btRigidBody * btRaycastVehicle::getRigidBody()
 	static int _bind_getRigidBody_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getRigidBody_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btRigidBody * btRaycastVehicle::getRigidBody() function, expected prototype:\nbtRigidBody * btRaycastVehicle::getRigidBody()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btRigidBody * btRaycastVehicle::getRigidBody() function, expected prototype:\nbtRigidBody * btRaycastVehicle::getRigidBody()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btRigidBody * btRaycastVehicle::getRigidBody(). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btRigidBody * btRaycastVehicle::getRigidBody(). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btRigidBody * lret = self->getRigidBody();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -902,15 +855,13 @@ public:
 	// const btRigidBody * btRaycastVehicle::getRigidBody() const
 	static int _bind_getRigidBody_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getRigidBody_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btRigidBody * btRaycastVehicle::getRigidBody() const function, expected prototype:\nconst btRigidBody * btRaycastVehicle::getRigidBody() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btRigidBody * btRaycastVehicle::getRigidBody() const function, expected prototype:\nconst btRigidBody * btRaycastVehicle::getRigidBody() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btRigidBody * btRaycastVehicle::getRigidBody() const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btRigidBody * btRaycastVehicle::getRigidBody() const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btRigidBody * lret = self->getRigidBody();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -932,15 +883,13 @@ public:
 	// int btRaycastVehicle::getRightAxis() const
 	static int _bind_getRightAxis(lua_State *L) {
 		if (!_lg_typecheck_getRightAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btRaycastVehicle::getRightAxis() const function, expected prototype:\nint btRaycastVehicle::getRightAxis() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btRaycastVehicle::getRightAxis() const function, expected prototype:\nint btRaycastVehicle::getRightAxis() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btRaycastVehicle::getRightAxis() const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btRaycastVehicle::getRightAxis() const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getRightAxis();
 		lua_pushnumber(L,lret);
@@ -951,15 +900,13 @@ public:
 	// int btRaycastVehicle::getUpAxis() const
 	static int _bind_getUpAxis(lua_State *L) {
 		if (!_lg_typecheck_getUpAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btRaycastVehicle::getUpAxis() const function, expected prototype:\nint btRaycastVehicle::getUpAxis() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btRaycastVehicle::getUpAxis() const function, expected prototype:\nint btRaycastVehicle::getUpAxis() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btRaycastVehicle::getUpAxis() const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btRaycastVehicle::getUpAxis() const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getUpAxis();
 		lua_pushnumber(L,lret);
@@ -970,15 +917,13 @@ public:
 	// int btRaycastVehicle::getForwardAxis() const
 	static int _bind_getForwardAxis(lua_State *L) {
 		if (!_lg_typecheck_getForwardAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btRaycastVehicle::getForwardAxis() const function, expected prototype:\nint btRaycastVehicle::getForwardAxis() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btRaycastVehicle::getForwardAxis() const function, expected prototype:\nint btRaycastVehicle::getForwardAxis() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btRaycastVehicle::getForwardAxis() const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btRaycastVehicle::getForwardAxis() const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getForwardAxis();
 		lua_pushnumber(L,lret);
@@ -989,15 +934,13 @@ public:
 	// btVector3 btRaycastVehicle::getForwardVector() const
 	static int _bind_getForwardVector(lua_State *L) {
 		if (!_lg_typecheck_getForwardVector(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btRaycastVehicle::getForwardVector() const function, expected prototype:\nbtVector3 btRaycastVehicle::getForwardVector() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btRaycastVehicle::getForwardVector() const function, expected prototype:\nbtVector3 btRaycastVehicle::getForwardVector() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btRaycastVehicle::getForwardVector() const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btRaycastVehicle::getForwardVector() const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->getForwardVector();
 		btVector3* lret = new btVector3(stack_lret);
@@ -1011,15 +954,13 @@ public:
 	// float btRaycastVehicle::getCurrentSpeedKmHour() const
 	static int _bind_getCurrentSpeedKmHour(lua_State *L) {
 		if (!_lg_typecheck_getCurrentSpeedKmHour(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::getCurrentSpeedKmHour() const function, expected prototype:\nfloat btRaycastVehicle::getCurrentSpeedKmHour() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::getCurrentSpeedKmHour() const function, expected prototype:\nfloat btRaycastVehicle::getCurrentSpeedKmHour() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRaycastVehicle::getCurrentSpeedKmHour() const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRaycastVehicle::getCurrentSpeedKmHour() const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getCurrentSpeedKmHour();
 		lua_pushnumber(L,lret);
@@ -1030,8 +971,7 @@ public:
 	// void btRaycastVehicle::setCoordinateSystem(int rightIndex, int upIndex, int forwardIndex)
 	static int _bind_setCoordinateSystem(lua_State *L) {
 		if (!_lg_typecheck_setCoordinateSystem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::setCoordinateSystem(int rightIndex, int upIndex, int forwardIndex) function, expected prototype:\nvoid btRaycastVehicle::setCoordinateSystem(int rightIndex, int upIndex, int forwardIndex)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::setCoordinateSystem(int rightIndex, int upIndex, int forwardIndex) function, expected prototype:\nvoid btRaycastVehicle::setCoordinateSystem(int rightIndex, int upIndex, int forwardIndex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int rightIndex=(int)lua_tointeger(L,2);
@@ -1040,8 +980,7 @@ public:
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::setCoordinateSystem(int, int, int). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::setCoordinateSystem(int, int, int). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setCoordinateSystem(rightIndex, upIndex, forwardIndex);
 
@@ -1051,15 +990,13 @@ public:
 	// int btRaycastVehicle::getUserConstraintType() const
 	static int _bind_getUserConstraintType(lua_State *L) {
 		if (!_lg_typecheck_getUserConstraintType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btRaycastVehicle::getUserConstraintType() const function, expected prototype:\nint btRaycastVehicle::getUserConstraintType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btRaycastVehicle::getUserConstraintType() const function, expected prototype:\nint btRaycastVehicle::getUserConstraintType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btRaycastVehicle::getUserConstraintType() const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btRaycastVehicle::getUserConstraintType() const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getUserConstraintType();
 		lua_pushnumber(L,lret);
@@ -1070,16 +1007,14 @@ public:
 	// void btRaycastVehicle::setUserConstraintType(int userConstraintType)
 	static int _bind_setUserConstraintType(lua_State *L) {
 		if (!_lg_typecheck_setUserConstraintType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::setUserConstraintType(int userConstraintType) function, expected prototype:\nvoid btRaycastVehicle::setUserConstraintType(int userConstraintType)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::setUserConstraintType(int userConstraintType) function, expected prototype:\nvoid btRaycastVehicle::setUserConstraintType(int userConstraintType)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int userConstraintType=(int)lua_tointeger(L,2);
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::setUserConstraintType(int). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::setUserConstraintType(int). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setUserConstraintType(userConstraintType);
 
@@ -1089,16 +1024,14 @@ public:
 	// void btRaycastVehicle::setUserConstraintId(int uid)
 	static int _bind_setUserConstraintId(lua_State *L) {
 		if (!_lg_typecheck_setUserConstraintId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::setUserConstraintId(int uid) function, expected prototype:\nvoid btRaycastVehicle::setUserConstraintId(int uid)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::setUserConstraintId(int uid) function, expected prototype:\nvoid btRaycastVehicle::setUserConstraintId(int uid)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int uid=(int)lua_tointeger(L,2);
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::setUserConstraintId(int). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::setUserConstraintId(int). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setUserConstraintId(uid);
 
@@ -1108,15 +1041,13 @@ public:
 	// int btRaycastVehicle::getUserConstraintId() const
 	static int _bind_getUserConstraintId(lua_State *L) {
 		if (!_lg_typecheck_getUserConstraintId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btRaycastVehicle::getUserConstraintId() const function, expected prototype:\nint btRaycastVehicle::getUserConstraintId() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btRaycastVehicle::getUserConstraintId() const function, expected prototype:\nint btRaycastVehicle::getUserConstraintId() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btRaycastVehicle::getUserConstraintId() const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btRaycastVehicle::getUserConstraintId() const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getUserConstraintId();
 		lua_pushnumber(L,lret);
@@ -1127,8 +1058,7 @@ public:
 	// void btRaycastVehicle::base_updateAction(btCollisionWorld * collisionWorld, float step)
 	static int _bind_base_updateAction(lua_State *L) {
 		if (!_lg_typecheck_base_updateAction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::base_updateAction(btCollisionWorld * collisionWorld, float step) function, expected prototype:\nvoid btRaycastVehicle::base_updateAction(btCollisionWorld * collisionWorld, float step)\nClass arguments details:\narg 1 ID = 62162664\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::base_updateAction(btCollisionWorld * collisionWorld, float step) function, expected prototype:\nvoid btRaycastVehicle::base_updateAction(btCollisionWorld * collisionWorld, float step)\nClass arguments details:\narg 1 ID = 62162664\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld* collisionWorld=(Luna< btCollisionWorld >::check(L,2));
@@ -1136,8 +1066,7 @@ public:
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::base_updateAction(btCollisionWorld *, float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::base_updateAction(btCollisionWorld *, float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btRaycastVehicle::updateAction(collisionWorld, step);
 
@@ -1147,16 +1076,14 @@ public:
 	// void btRaycastVehicle::base_debugDraw(btIDebugDraw * debugDrawer)
 	static int _bind_base_debugDraw(lua_State *L) {
 		if (!_lg_typecheck_base_debugDraw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::base_debugDraw(btIDebugDraw * debugDrawer) function, expected prototype:\nvoid btRaycastVehicle::base_debugDraw(btIDebugDraw * debugDrawer)\nClass arguments details:\narg 1 ID = 63441741\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::base_debugDraw(btIDebugDraw * debugDrawer) function, expected prototype:\nvoid btRaycastVehicle::base_debugDraw(btIDebugDraw * debugDrawer)\nClass arguments details:\narg 1 ID = 63441741\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btIDebugDraw* debugDrawer=(Luna< btIDebugDraw >::check(L,2));
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::base_debugDraw(btIDebugDraw *). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::base_debugDraw(btIDebugDraw *). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btRaycastVehicle::debugDraw(debugDrawer);
 
@@ -1166,16 +1093,14 @@ public:
 	// void btRaycastVehicle::base_updateVehicle(float step)
 	static int _bind_base_updateVehicle(lua_State *L) {
 		if (!_lg_typecheck_base_updateVehicle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::base_updateVehicle(float step) function, expected prototype:\nvoid btRaycastVehicle::base_updateVehicle(float step)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::base_updateVehicle(float step) function, expected prototype:\nvoid btRaycastVehicle::base_updateVehicle(float step)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float step=(float)lua_tonumber(L,2);
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::base_updateVehicle(float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::base_updateVehicle(float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btRaycastVehicle::updateVehicle(step);
 
@@ -1185,16 +1110,14 @@ public:
 	// void btRaycastVehicle::base_updateFriction(float timeStep)
 	static int _bind_base_updateFriction(lua_State *L) {
 		if (!_lg_typecheck_base_updateFriction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::base_updateFriction(float timeStep) function, expected prototype:\nvoid btRaycastVehicle::base_updateFriction(float timeStep)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::base_updateFriction(float timeStep) function, expected prototype:\nvoid btRaycastVehicle::base_updateFriction(float timeStep)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float timeStep=(float)lua_tonumber(L,2);
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::base_updateFriction(float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::base_updateFriction(float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btRaycastVehicle::updateFriction(timeStep);
 
@@ -1204,8 +1127,7 @@ public:
 	// void btRaycastVehicle::base_setCoordinateSystem(int rightIndex, int upIndex, int forwardIndex)
 	static int _bind_base_setCoordinateSystem(lua_State *L) {
 		if (!_lg_typecheck_base_setCoordinateSystem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::base_setCoordinateSystem(int rightIndex, int upIndex, int forwardIndex) function, expected prototype:\nvoid btRaycastVehicle::base_setCoordinateSystem(int rightIndex, int upIndex, int forwardIndex)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::base_setCoordinateSystem(int rightIndex, int upIndex, int forwardIndex) function, expected prototype:\nvoid btRaycastVehicle::base_setCoordinateSystem(int rightIndex, int upIndex, int forwardIndex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int rightIndex=(int)lua_tointeger(L,2);
@@ -1214,8 +1136,7 @@ public:
 
 		btRaycastVehicle* self=Luna< btActionInterface >::checkSubType< btRaycastVehicle >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::base_setCoordinateSystem(int, int, int). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::base_setCoordinateSystem(int, int, int). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btRaycastVehicle::setCoordinateSystem(rightIndex, upIndex, forwardIndex);
 

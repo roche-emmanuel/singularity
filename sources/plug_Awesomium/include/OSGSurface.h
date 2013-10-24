@@ -1,7 +1,7 @@
 #ifndef _OSGSURFACE_H_
 #define _OSGSURFACE_H_
 
-#include <sgtCommon.h>
+#include <lunaCommon.h>
 #include <Awesomium/Surface.h>
 #include <osg/Texture2D>
 

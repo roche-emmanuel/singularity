@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btVoronoiSimplexSolver*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btVoronoiSimplexSolver*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVoronoiSimplexSolver* rhs =(Luna< btVoronoiSimplexSolver >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVoronoiSimplexSolver* self= (btVoronoiSimplexSolver*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btVoronoiSimplexSolver >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -111,7 +107,7 @@ public:
 	inline static bool _lg_typecheck_removeVertex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -180,7 +176,7 @@ public:
 	inline static bool _lg_typecheck_setEqualVertexThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -303,7 +299,7 @@ public:
 	inline static bool _lg_typecheck_setNumVertices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -364,8 +360,7 @@ public:
 	// btVoronoiSimplexSolver::btVoronoiSimplexSolver()
 	static btVoronoiSimplexSolver* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVoronoiSimplexSolver::btVoronoiSimplexSolver() function, expected prototype:\nbtVoronoiSimplexSolver::btVoronoiSimplexSolver()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVoronoiSimplexSolver::btVoronoiSimplexSolver() function, expected prototype:\nbtVoronoiSimplexSolver::btVoronoiSimplexSolver()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -377,16 +372,14 @@ public:
 	// void btVoronoiSimplexSolver::removeVertex(int index)
 	static int _bind_removeVertex(lua_State *L) {
 		if (!_lg_typecheck_removeVertex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::removeVertex(int index) function, expected prototype:\nvoid btVoronoiSimplexSolver::removeVertex(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::removeVertex(int index) function, expected prototype:\nvoid btVoronoiSimplexSolver::removeVertex(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::removeVertex(int). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::removeVertex(int). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->removeVertex(index);
 
@@ -396,8 +389,7 @@ public:
 	// void btVoronoiSimplexSolver::reduceVertices(const btUsageBitfield & usedVerts)
 	static int _bind_reduceVertices(lua_State *L) {
 		if (!_lg_typecheck_reduceVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::reduceVertices(const btUsageBitfield & usedVerts) function, expected prototype:\nvoid btVoronoiSimplexSolver::reduceVertices(const btUsageBitfield & usedVerts)\nClass arguments details:\narg 1 ID = 61938597\n");
+			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::reduceVertices(const btUsageBitfield & usedVerts) function, expected prototype:\nvoid btVoronoiSimplexSolver::reduceVertices(const btUsageBitfield & usedVerts)\nClass arguments details:\narg 1 ID = 61938597\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btUsageBitfield* usedVerts_ptr=(Luna< btUsageBitfield >::check(L,2));
@@ -408,8 +400,7 @@ public:
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::reduceVertices(const btUsageBitfield &). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::reduceVertices(const btUsageBitfield &). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reduceVertices(usedVerts);
 
@@ -419,15 +410,13 @@ public:
 	// bool btVoronoiSimplexSolver::updateClosestVectorAndPoints()
 	static int _bind_updateClosestVectorAndPoints(lua_State *L) {
 		if (!_lg_typecheck_updateClosestVectorAndPoints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::updateClosestVectorAndPoints() function, expected prototype:\nbool btVoronoiSimplexSolver::updateClosestVectorAndPoints()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::updateClosestVectorAndPoints() function, expected prototype:\nbool btVoronoiSimplexSolver::updateClosestVectorAndPoints()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::updateClosestVectorAndPoints(). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::updateClosestVectorAndPoints(). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->updateClosestVectorAndPoints();
 		lua_pushboolean(L,lret?1:0);
@@ -438,8 +427,7 @@ public:
 	// bool btVoronoiSimplexSolver::closestPtPointTetrahedron(const btVector3 & p, const btVector3 & a, const btVector3 & b, const btVector3 & c, const btVector3 & d, btSubSimplexClosestResult & finalResult)
 	static int _bind_closestPtPointTetrahedron(lua_State *L) {
 		if (!_lg_typecheck_closestPtPointTetrahedron(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::closestPtPointTetrahedron(const btVector3 & p, const btVector3 & a, const btVector3 & b, const btVector3 & c, const btVector3 & d, btSubSimplexClosestResult & finalResult) function, expected prototype:\nbool btVoronoiSimplexSolver::closestPtPointTetrahedron(const btVector3 & p, const btVector3 & a, const btVector3 & b, const btVector3 & c, const btVector3 & d, btSubSimplexClosestResult & finalResult)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 75923500\n");
+			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::closestPtPointTetrahedron(const btVector3 & p, const btVector3 & a, const btVector3 & b, const btVector3 & c, const btVector3 & d, btSubSimplexClosestResult & finalResult) function, expected prototype:\nbool btVoronoiSimplexSolver::closestPtPointTetrahedron(const btVector3 & p, const btVector3 & a, const btVector3 & b, const btVector3 & c, const btVector3 & d, btSubSimplexClosestResult & finalResult)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 75923500\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* p_ptr=(Luna< btVector3 >::check(L,2));
@@ -475,8 +463,7 @@ public:
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::closestPtPointTetrahedron(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, btSubSimplexClosestResult &). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::closestPtPointTetrahedron(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, btSubSimplexClosestResult &). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->closestPtPointTetrahedron(p, a, b, c, d, finalResult);
 		lua_pushboolean(L,lret?1:0);
@@ -487,8 +474,7 @@ public:
 	// int btVoronoiSimplexSolver::pointOutsideOfPlane(const btVector3 & p, const btVector3 & a, const btVector3 & b, const btVector3 & c, const btVector3 & d)
 	static int _bind_pointOutsideOfPlane(lua_State *L) {
 		if (!_lg_typecheck_pointOutsideOfPlane(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btVoronoiSimplexSolver::pointOutsideOfPlane(const btVector3 & p, const btVector3 & a, const btVector3 & b, const btVector3 & c, const btVector3 & d) function, expected prototype:\nint btVoronoiSimplexSolver::pointOutsideOfPlane(const btVector3 & p, const btVector3 & a, const btVector3 & b, const btVector3 & c, const btVector3 & d)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in int btVoronoiSimplexSolver::pointOutsideOfPlane(const btVector3 & p, const btVector3 & a, const btVector3 & b, const btVector3 & c, const btVector3 & d) function, expected prototype:\nint btVoronoiSimplexSolver::pointOutsideOfPlane(const btVector3 & p, const btVector3 & a, const btVector3 & b, const btVector3 & c, const btVector3 & d)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* p_ptr=(Luna< btVector3 >::check(L,2));
@@ -519,8 +505,7 @@ public:
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btVoronoiSimplexSolver::pointOutsideOfPlane(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btVoronoiSimplexSolver::pointOutsideOfPlane(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->pointOutsideOfPlane(p, a, b, c, d);
 		lua_pushnumber(L,lret);
@@ -531,8 +516,7 @@ public:
 	// bool btVoronoiSimplexSolver::closestPtPointTriangle(const btVector3 & p, const btVector3 & a, const btVector3 & b, const btVector3 & c, btSubSimplexClosestResult & result)
 	static int _bind_closestPtPointTriangle(lua_State *L) {
 		if (!_lg_typecheck_closestPtPointTriangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::closestPtPointTriangle(const btVector3 & p, const btVector3 & a, const btVector3 & b, const btVector3 & c, btSubSimplexClosestResult & result) function, expected prototype:\nbool btVoronoiSimplexSolver::closestPtPointTriangle(const btVector3 & p, const btVector3 & a, const btVector3 & b, const btVector3 & c, btSubSimplexClosestResult & result)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 75923500\n");
+			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::closestPtPointTriangle(const btVector3 & p, const btVector3 & a, const btVector3 & b, const btVector3 & c, btSubSimplexClosestResult & result) function, expected prototype:\nbool btVoronoiSimplexSolver::closestPtPointTriangle(const btVector3 & p, const btVector3 & a, const btVector3 & b, const btVector3 & c, btSubSimplexClosestResult & result)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 75923500\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* p_ptr=(Luna< btVector3 >::check(L,2));
@@ -563,8 +547,7 @@ public:
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::closestPtPointTriangle(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, btSubSimplexClosestResult &). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::closestPtPointTriangle(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, btSubSimplexClosestResult &). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->closestPtPointTriangle(p, a, b, c, result);
 		lua_pushboolean(L,lret?1:0);
@@ -575,15 +558,13 @@ public:
 	// void btVoronoiSimplexSolver::reset()
 	static int _bind_reset(lua_State *L) {
 		if (!_lg_typecheck_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::reset() function, expected prototype:\nvoid btVoronoiSimplexSolver::reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::reset() function, expected prototype:\nvoid btVoronoiSimplexSolver::reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::reset(). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::reset(). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reset();
 
@@ -593,8 +574,7 @@ public:
 	// void btVoronoiSimplexSolver::addVertex(const btVector3 & w, const btVector3 & p, const btVector3 & q)
 	static int _bind_addVertex(lua_State *L) {
 		if (!_lg_typecheck_addVertex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::addVertex(const btVector3 & w, const btVector3 & p, const btVector3 & q) function, expected prototype:\nvoid btVoronoiSimplexSolver::addVertex(const btVector3 & w, const btVector3 & p, const btVector3 & q)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::addVertex(const btVector3 & w, const btVector3 & p, const btVector3 & q) function, expected prototype:\nvoid btVoronoiSimplexSolver::addVertex(const btVector3 & w, const btVector3 & p, const btVector3 & q)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* w_ptr=(Luna< btVector3 >::check(L,2));
@@ -615,8 +595,7 @@ public:
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::addVertex(const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::addVertex(const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addVertex(w, p, q);
 
@@ -626,16 +605,14 @@ public:
 	// void btVoronoiSimplexSolver::setEqualVertexThreshold(float threshold)
 	static int _bind_setEqualVertexThreshold(lua_State *L) {
 		if (!_lg_typecheck_setEqualVertexThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::setEqualVertexThreshold(float threshold) function, expected prototype:\nvoid btVoronoiSimplexSolver::setEqualVertexThreshold(float threshold)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::setEqualVertexThreshold(float threshold) function, expected prototype:\nvoid btVoronoiSimplexSolver::setEqualVertexThreshold(float threshold)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float threshold=(float)lua_tonumber(L,2);
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::setEqualVertexThreshold(float). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::setEqualVertexThreshold(float). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setEqualVertexThreshold(threshold);
 
@@ -645,15 +622,13 @@ public:
 	// float btVoronoiSimplexSolver::getEqualVertexThreshold() const
 	static int _bind_getEqualVertexThreshold(lua_State *L) {
 		if (!_lg_typecheck_getEqualVertexThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btVoronoiSimplexSolver::getEqualVertexThreshold() const function, expected prototype:\nfloat btVoronoiSimplexSolver::getEqualVertexThreshold() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btVoronoiSimplexSolver::getEqualVertexThreshold() const function, expected prototype:\nfloat btVoronoiSimplexSolver::getEqualVertexThreshold() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btVoronoiSimplexSolver::getEqualVertexThreshold() const. Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btVoronoiSimplexSolver::getEqualVertexThreshold() const. Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getEqualVertexThreshold();
 		lua_pushnumber(L,lret);
@@ -664,8 +639,7 @@ public:
 	// bool btVoronoiSimplexSolver::closest(btVector3 & v)
 	static int _bind_closest(lua_State *L) {
 		if (!_lg_typecheck_closest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::closest(btVector3 & v) function, expected prototype:\nbool btVoronoiSimplexSolver::closest(btVector3 & v)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::closest(btVector3 & v) function, expected prototype:\nbool btVoronoiSimplexSolver::closest(btVector3 & v)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* v_ptr=(Luna< btVector3 >::check(L,2));
@@ -676,8 +650,7 @@ public:
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::closest(btVector3 &). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::closest(btVector3 &). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->closest(v);
 		lua_pushboolean(L,lret?1:0);
@@ -688,15 +661,13 @@ public:
 	// float btVoronoiSimplexSolver::maxVertex()
 	static int _bind_maxVertex(lua_State *L) {
 		if (!_lg_typecheck_maxVertex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btVoronoiSimplexSolver::maxVertex() function, expected prototype:\nfloat btVoronoiSimplexSolver::maxVertex()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btVoronoiSimplexSolver::maxVertex() function, expected prototype:\nfloat btVoronoiSimplexSolver::maxVertex()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btVoronoiSimplexSolver::maxVertex(). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btVoronoiSimplexSolver::maxVertex(). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->maxVertex();
 		lua_pushnumber(L,lret);
@@ -707,15 +678,13 @@ public:
 	// bool btVoronoiSimplexSolver::fullSimplex() const
 	static int _bind_fullSimplex(lua_State *L) {
 		if (!_lg_typecheck_fullSimplex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::fullSimplex() const function, expected prototype:\nbool btVoronoiSimplexSolver::fullSimplex() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::fullSimplex() const function, expected prototype:\nbool btVoronoiSimplexSolver::fullSimplex() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::fullSimplex() const. Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::fullSimplex() const. Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->fullSimplex();
 		lua_pushboolean(L,lret?1:0);
@@ -726,8 +695,7 @@ public:
 	// int btVoronoiSimplexSolver::getSimplex(btVector3 * pBuf, btVector3 * qBuf, btVector3 * yBuf) const
 	static int _bind_getSimplex(lua_State *L) {
 		if (!_lg_typecheck_getSimplex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btVoronoiSimplexSolver::getSimplex(btVector3 * pBuf, btVector3 * qBuf, btVector3 * yBuf) const function, expected prototype:\nint btVoronoiSimplexSolver::getSimplex(btVector3 * pBuf, btVector3 * qBuf, btVector3 * yBuf) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in int btVoronoiSimplexSolver::getSimplex(btVector3 * pBuf, btVector3 * qBuf, btVector3 * yBuf) const function, expected prototype:\nint btVoronoiSimplexSolver::getSimplex(btVector3 * pBuf, btVector3 * qBuf, btVector3 * yBuf) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* pBuf=(Luna< btVector3 >::check(L,2));
@@ -736,8 +704,7 @@ public:
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btVoronoiSimplexSolver::getSimplex(btVector3 *, btVector3 *, btVector3 *) const. Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btVoronoiSimplexSolver::getSimplex(btVector3 *, btVector3 *, btVector3 *) const. Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getSimplex(pBuf, qBuf, yBuf);
 		lua_pushnumber(L,lret);
@@ -748,8 +715,7 @@ public:
 	// bool btVoronoiSimplexSolver::inSimplex(const btVector3 & w)
 	static int _bind_inSimplex(lua_State *L) {
 		if (!_lg_typecheck_inSimplex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::inSimplex(const btVector3 & w) function, expected prototype:\nbool btVoronoiSimplexSolver::inSimplex(const btVector3 & w)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::inSimplex(const btVector3 & w) function, expected prototype:\nbool btVoronoiSimplexSolver::inSimplex(const btVector3 & w)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* w_ptr=(Luna< btVector3 >::check(L,2));
@@ -760,8 +726,7 @@ public:
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::inSimplex(const btVector3 &). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::inSimplex(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->inSimplex(w);
 		lua_pushboolean(L,lret?1:0);
@@ -772,8 +737,7 @@ public:
 	// void btVoronoiSimplexSolver::backup_closest(btVector3 & v)
 	static int _bind_backup_closest(lua_State *L) {
 		if (!_lg_typecheck_backup_closest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::backup_closest(btVector3 & v) function, expected prototype:\nvoid btVoronoiSimplexSolver::backup_closest(btVector3 & v)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::backup_closest(btVector3 & v) function, expected prototype:\nvoid btVoronoiSimplexSolver::backup_closest(btVector3 & v)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* v_ptr=(Luna< btVector3 >::check(L,2));
@@ -784,8 +748,7 @@ public:
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::backup_closest(btVector3 &). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::backup_closest(btVector3 &). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->backup_closest(v);
 
@@ -795,15 +758,13 @@ public:
 	// bool btVoronoiSimplexSolver::emptySimplex() const
 	static int _bind_emptySimplex(lua_State *L) {
 		if (!_lg_typecheck_emptySimplex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::emptySimplex() const function, expected prototype:\nbool btVoronoiSimplexSolver::emptySimplex() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::emptySimplex() const function, expected prototype:\nbool btVoronoiSimplexSolver::emptySimplex() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::emptySimplex() const. Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::emptySimplex() const. Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->emptySimplex();
 		lua_pushboolean(L,lret?1:0);
@@ -814,8 +775,7 @@ public:
 	// void btVoronoiSimplexSolver::compute_points(btVector3 & p1, btVector3 & p2)
 	static int _bind_compute_points(lua_State *L) {
 		if (!_lg_typecheck_compute_points(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::compute_points(btVector3 & p1, btVector3 & p2) function, expected prototype:\nvoid btVoronoiSimplexSolver::compute_points(btVector3 & p1, btVector3 & p2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::compute_points(btVector3 & p1, btVector3 & p2) function, expected prototype:\nvoid btVoronoiSimplexSolver::compute_points(btVector3 & p1, btVector3 & p2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* p1_ptr=(Luna< btVector3 >::check(L,2));
@@ -831,8 +791,7 @@ public:
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::compute_points(btVector3 &, btVector3 &). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::compute_points(btVector3 &, btVector3 &). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->compute_points(p1, p2);
 
@@ -842,15 +801,13 @@ public:
 	// int btVoronoiSimplexSolver::numVertices() const
 	static int _bind_numVertices(lua_State *L) {
 		if (!_lg_typecheck_numVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btVoronoiSimplexSolver::numVertices() const function, expected prototype:\nint btVoronoiSimplexSolver::numVertices() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btVoronoiSimplexSolver::numVertices() const function, expected prototype:\nint btVoronoiSimplexSolver::numVertices() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btVoronoiSimplexSolver::numVertices() const. Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btVoronoiSimplexSolver::numVertices() const. Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->numVertices();
 		lua_pushnumber(L,lret);
@@ -861,15 +818,13 @@ public:
 	// int btVoronoiSimplexSolver::m_numVertices()
 	static int _bind_getNumVertices(lua_State *L) {
 		if (!_lg_typecheck_getNumVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btVoronoiSimplexSolver::m_numVertices() function, expected prototype:\nint btVoronoiSimplexSolver::m_numVertices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btVoronoiSimplexSolver::m_numVertices() function, expected prototype:\nint btVoronoiSimplexSolver::m_numVertices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btVoronoiSimplexSolver::m_numVertices(). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btVoronoiSimplexSolver::m_numVertices(). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_numVertices;
 		lua_pushnumber(L,lret);
@@ -880,15 +835,13 @@ public:
 	// btVector3 btVoronoiSimplexSolver::m_cachedP1()
 	static int _bind_getCachedP1(lua_State *L) {
 		if (!_lg_typecheck_getCachedP1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btVoronoiSimplexSolver::m_cachedP1() function, expected prototype:\nbtVector3 btVoronoiSimplexSolver::m_cachedP1()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btVoronoiSimplexSolver::m_cachedP1() function, expected prototype:\nbtVector3 btVoronoiSimplexSolver::m_cachedP1()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btVoronoiSimplexSolver::m_cachedP1(). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btVoronoiSimplexSolver::m_cachedP1(). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_cachedP1;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -901,15 +854,13 @@ public:
 	// btVector3 btVoronoiSimplexSolver::m_cachedP2()
 	static int _bind_getCachedP2(lua_State *L) {
 		if (!_lg_typecheck_getCachedP2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btVoronoiSimplexSolver::m_cachedP2() function, expected prototype:\nbtVector3 btVoronoiSimplexSolver::m_cachedP2()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btVoronoiSimplexSolver::m_cachedP2() function, expected prototype:\nbtVector3 btVoronoiSimplexSolver::m_cachedP2()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btVoronoiSimplexSolver::m_cachedP2(). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btVoronoiSimplexSolver::m_cachedP2(). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_cachedP2;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -922,15 +873,13 @@ public:
 	// btVector3 btVoronoiSimplexSolver::m_cachedV()
 	static int _bind_getCachedV(lua_State *L) {
 		if (!_lg_typecheck_getCachedV(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btVoronoiSimplexSolver::m_cachedV() function, expected prototype:\nbtVector3 btVoronoiSimplexSolver::m_cachedV()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btVoronoiSimplexSolver::m_cachedV() function, expected prototype:\nbtVector3 btVoronoiSimplexSolver::m_cachedV()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btVoronoiSimplexSolver::m_cachedV(). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btVoronoiSimplexSolver::m_cachedV(). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_cachedV;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -943,15 +892,13 @@ public:
 	// btVector3 btVoronoiSimplexSolver::m_lastW()
 	static int _bind_getLastW(lua_State *L) {
 		if (!_lg_typecheck_getLastW(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btVoronoiSimplexSolver::m_lastW() function, expected prototype:\nbtVector3 btVoronoiSimplexSolver::m_lastW()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btVoronoiSimplexSolver::m_lastW() function, expected prototype:\nbtVector3 btVoronoiSimplexSolver::m_lastW()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btVoronoiSimplexSolver::m_lastW(). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btVoronoiSimplexSolver::m_lastW(). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_lastW;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -964,15 +911,13 @@ public:
 	// bool btVoronoiSimplexSolver::m_cachedValidClosest()
 	static int _bind_getCachedValidClosest(lua_State *L) {
 		if (!_lg_typecheck_getCachedValidClosest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::m_cachedValidClosest() function, expected prototype:\nbool btVoronoiSimplexSolver::m_cachedValidClosest()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::m_cachedValidClosest() function, expected prototype:\nbool btVoronoiSimplexSolver::m_cachedValidClosest()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::m_cachedValidClosest(). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::m_cachedValidClosest(). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->m_cachedValidClosest;
 		lua_pushboolean(L,lret?1:0);
@@ -983,15 +928,13 @@ public:
 	// btSubSimplexClosestResult btVoronoiSimplexSolver::m_cachedBC()
 	static int _bind_getCachedBC(lua_State *L) {
 		if (!_lg_typecheck_getCachedBC(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSubSimplexClosestResult btVoronoiSimplexSolver::m_cachedBC() function, expected prototype:\nbtSubSimplexClosestResult btVoronoiSimplexSolver::m_cachedBC()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btSubSimplexClosestResult btVoronoiSimplexSolver::m_cachedBC() function, expected prototype:\nbtSubSimplexClosestResult btVoronoiSimplexSolver::m_cachedBC()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btSubSimplexClosestResult btVoronoiSimplexSolver::m_cachedBC(). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btSubSimplexClosestResult btVoronoiSimplexSolver::m_cachedBC(). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btSubSimplexClosestResult* lret = &self->m_cachedBC;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1004,15 +947,13 @@ public:
 	// bool btVoronoiSimplexSolver::m_needsUpdate()
 	static int _bind_getNeedsUpdate(lua_State *L) {
 		if (!_lg_typecheck_getNeedsUpdate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::m_needsUpdate() function, expected prototype:\nbool btVoronoiSimplexSolver::m_needsUpdate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btVoronoiSimplexSolver::m_needsUpdate() function, expected prototype:\nbool btVoronoiSimplexSolver::m_needsUpdate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::m_needsUpdate(). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btVoronoiSimplexSolver::m_needsUpdate(). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->m_needsUpdate;
 		lua_pushboolean(L,lret?1:0);
@@ -1023,16 +964,14 @@ public:
 	// void btVoronoiSimplexSolver::m_numVertices(int value)
 	static int _bind_setNumVertices(lua_State *L) {
 		if (!_lg_typecheck_setNumVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_numVertices(int value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_numVertices(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_numVertices(int value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_numVertices(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::m_numVertices(int). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::m_numVertices(int). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_numVertices = value;
 
@@ -1042,8 +981,7 @@ public:
 	// void btVoronoiSimplexSolver::m_cachedP1(btVector3 value)
 	static int _bind_setCachedP1(lua_State *L) {
 		if (!_lg_typecheck_setCachedP1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_cachedP1(btVector3 value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_cachedP1(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_cachedP1(btVector3 value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_cachedP1(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -1054,8 +992,7 @@ public:
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::m_cachedP1(btVector3). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::m_cachedP1(btVector3). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_cachedP1 = value;
 
@@ -1065,8 +1002,7 @@ public:
 	// void btVoronoiSimplexSolver::m_cachedP2(btVector3 value)
 	static int _bind_setCachedP2(lua_State *L) {
 		if (!_lg_typecheck_setCachedP2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_cachedP2(btVector3 value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_cachedP2(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_cachedP2(btVector3 value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_cachedP2(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -1077,8 +1013,7 @@ public:
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::m_cachedP2(btVector3). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::m_cachedP2(btVector3). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_cachedP2 = value;
 
@@ -1088,8 +1023,7 @@ public:
 	// void btVoronoiSimplexSolver::m_cachedV(btVector3 value)
 	static int _bind_setCachedV(lua_State *L) {
 		if (!_lg_typecheck_setCachedV(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_cachedV(btVector3 value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_cachedV(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_cachedV(btVector3 value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_cachedV(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -1100,8 +1034,7 @@ public:
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::m_cachedV(btVector3). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::m_cachedV(btVector3). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_cachedV = value;
 
@@ -1111,8 +1044,7 @@ public:
 	// void btVoronoiSimplexSolver::m_lastW(btVector3 value)
 	static int _bind_setLastW(lua_State *L) {
 		if (!_lg_typecheck_setLastW(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_lastW(btVector3 value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_lastW(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_lastW(btVector3 value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_lastW(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -1123,8 +1055,7 @@ public:
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::m_lastW(btVector3). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::m_lastW(btVector3). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_lastW = value;
 
@@ -1134,16 +1065,14 @@ public:
 	// void btVoronoiSimplexSolver::m_cachedValidClosest(bool value)
 	static int _bind_setCachedValidClosest(lua_State *L) {
 		if (!_lg_typecheck_setCachedValidClosest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_cachedValidClosest(bool value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_cachedValidClosest(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_cachedValidClosest(bool value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_cachedValidClosest(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::m_cachedValidClosest(bool). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::m_cachedValidClosest(bool). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_cachedValidClosest = value;
 
@@ -1153,8 +1082,7 @@ public:
 	// void btVoronoiSimplexSolver::m_cachedBC(btSubSimplexClosestResult value)
 	static int _bind_setCachedBC(lua_State *L) {
 		if (!_lg_typecheck_setCachedBC(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_cachedBC(btSubSimplexClosestResult value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_cachedBC(btSubSimplexClosestResult value)\nClass arguments details:\narg 1 ID = 75923500\n");
+			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_cachedBC(btSubSimplexClosestResult value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_cachedBC(btSubSimplexClosestResult value)\nClass arguments details:\narg 1 ID = 75923500\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSubSimplexClosestResult* value_ptr=(Luna< btSubSimplexClosestResult >::check(L,2));
@@ -1165,8 +1093,7 @@ public:
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::m_cachedBC(btSubSimplexClosestResult). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::m_cachedBC(btSubSimplexClosestResult). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_cachedBC = value;
 
@@ -1176,16 +1103,14 @@ public:
 	// void btVoronoiSimplexSolver::m_needsUpdate(bool value)
 	static int _bind_setNeedsUpdate(lua_State *L) {
 		if (!_lg_typecheck_setNeedsUpdate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_needsUpdate(bool value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_needsUpdate(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btVoronoiSimplexSolver::m_needsUpdate(bool value) function, expected prototype:\nvoid btVoronoiSimplexSolver::m_needsUpdate(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		btVoronoiSimplexSolver* self=(Luna< btVoronoiSimplexSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::m_needsUpdate(bool). Got : '%s'",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btVoronoiSimplexSolver::m_needsUpdate(bool). Got : '%s'\n%s",typeid(Luna< btVoronoiSimplexSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_needsUpdate = value;
 

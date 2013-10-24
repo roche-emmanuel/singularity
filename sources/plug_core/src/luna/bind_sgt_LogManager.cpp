@@ -104,18 +104,18 @@ public:
 	inline static bool _lg_typecheck_log(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_doLog(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -135,46 +135,46 @@ public:
 	inline static bool _lg_typecheck_getLevelFlags(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setLevelFlags(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_addLevelFlags(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_removeLevelFlags(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getTraceFlags(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setTraceFlags(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -196,7 +196,7 @@ public:
 	inline static bool _lg_typecheck_removeSink_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -209,7 +209,7 @@ public:
 	inline static bool _lg_typecheck_getSink(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -222,7 +222,7 @@ public:
 	inline static bool _lg_typecheck_setNotifyLevel(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -242,7 +242,7 @@ public:
 	inline static bool _lg_typecheck_getLevelString(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -255,14 +255,14 @@ public:
 	inline static bool _lg_typecheck_setDefaultTraceFlags(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDefaultLevelFlags(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -799,7 +799,7 @@ void LunaTraits< sgt::LogManager >::_bind_dtor(sgt::LogManager* obj) {
 const char LunaTraits< sgt::LogManager >::className[] = "LogManager";
 const char LunaTraits< sgt::LogManager >::fullName[] = "sgt::LogManager";
 const char LunaTraits< sgt::LogManager >::moduleName[] = "sgt";
-const char* LunaTraits< sgt::LogManager >::parents[] = {"sgt.Referenced", 0};
+const char* LunaTraits< sgt::LogManager >::parents[] = {"osg.Referenced", 0};
 const int LunaTraits< sgt::LogManager >::hash = 36134915;
 const int LunaTraits< sgt::LogManager >::uniqueIDs[] = {50169651,0};
 

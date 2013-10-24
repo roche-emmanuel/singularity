@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btAngularLimit*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btAngularLimit*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAngularLimit* rhs =(Luna< btAngularLimit >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAngularLimit* self= (btAngularLimit*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btAngularLimit >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -112,18 +108,18 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>6 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_test(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -172,7 +168,7 @@ public:
 	inline static bool _lg_typecheck_fit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -202,8 +198,7 @@ public:
 	// btAngularLimit::btAngularLimit()
 	static btAngularLimit* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAngularLimit::btAngularLimit() function, expected prototype:\nbtAngularLimit::btAngularLimit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAngularLimit::btAngularLimit() function, expected prototype:\nbtAngularLimit::btAngularLimit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -215,8 +210,7 @@ public:
 	// void btAngularLimit::set(float low, float high, float _softness = 0.9f, float _biasFactor = 0.3f, float _relaxationFactor = 1.0f)
 	static int _bind_set(lua_State *L) {
 		if (!_lg_typecheck_set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btAngularLimit::set(float low, float high, float _softness = 0.9f, float _biasFactor = 0.3f, float _relaxationFactor = 1.0f) function, expected prototype:\nvoid btAngularLimit::set(float low, float high, float _softness = 0.9f, float _biasFactor = 0.3f, float _relaxationFactor = 1.0f)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btAngularLimit::set(float low, float high, float _softness = 0.9f, float _biasFactor = 0.3f, float _relaxationFactor = 1.0f) function, expected prototype:\nvoid btAngularLimit::set(float low, float high, float _softness = 0.9f, float _biasFactor = 0.3f, float _relaxationFactor = 1.0f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -229,8 +223,7 @@ public:
 
 		btAngularLimit* self=(Luna< btAngularLimit >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btAngularLimit::set(float, float, float, float, float). Got : '%s'",typeid(Luna< btAngularLimit >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btAngularLimit::set(float, float, float, float, float). Got : '%s'\n%s",typeid(Luna< btAngularLimit >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->set(low, high, _softness, _biasFactor, _relaxationFactor);
 
@@ -240,16 +233,14 @@ public:
 	// void btAngularLimit::test(const float angle)
 	static int _bind_test(lua_State *L) {
 		if (!_lg_typecheck_test(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btAngularLimit::test(const float angle) function, expected prototype:\nvoid btAngularLimit::test(const float angle)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btAngularLimit::test(const float angle) function, expected prototype:\nvoid btAngularLimit::test(const float angle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const float angle=(const float)lua_tonumber(L,2);
 
 		btAngularLimit* self=(Luna< btAngularLimit >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btAngularLimit::test(const float). Got : '%s'",typeid(Luna< btAngularLimit >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btAngularLimit::test(const float). Got : '%s'\n%s",typeid(Luna< btAngularLimit >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->test(angle);
 
@@ -259,15 +250,13 @@ public:
 	// float btAngularLimit::getSoftness() const
 	static int _bind_getSoftness(lua_State *L) {
 		if (!_lg_typecheck_getSoftness(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btAngularLimit::getSoftness() const function, expected prototype:\nfloat btAngularLimit::getSoftness() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btAngularLimit::getSoftness() const function, expected prototype:\nfloat btAngularLimit::getSoftness() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btAngularLimit* self=(Luna< btAngularLimit >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btAngularLimit::getSoftness() const. Got : '%s'",typeid(Luna< btAngularLimit >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btAngularLimit::getSoftness() const. Got : '%s'\n%s",typeid(Luna< btAngularLimit >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getSoftness();
 		lua_pushnumber(L,lret);
@@ -278,15 +267,13 @@ public:
 	// float btAngularLimit::getBiasFactor() const
 	static int _bind_getBiasFactor(lua_State *L) {
 		if (!_lg_typecheck_getBiasFactor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btAngularLimit::getBiasFactor() const function, expected prototype:\nfloat btAngularLimit::getBiasFactor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btAngularLimit::getBiasFactor() const function, expected prototype:\nfloat btAngularLimit::getBiasFactor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btAngularLimit* self=(Luna< btAngularLimit >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btAngularLimit::getBiasFactor() const. Got : '%s'",typeid(Luna< btAngularLimit >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btAngularLimit::getBiasFactor() const. Got : '%s'\n%s",typeid(Luna< btAngularLimit >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getBiasFactor();
 		lua_pushnumber(L,lret);
@@ -297,15 +284,13 @@ public:
 	// float btAngularLimit::getRelaxationFactor() const
 	static int _bind_getRelaxationFactor(lua_State *L) {
 		if (!_lg_typecheck_getRelaxationFactor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btAngularLimit::getRelaxationFactor() const function, expected prototype:\nfloat btAngularLimit::getRelaxationFactor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btAngularLimit::getRelaxationFactor() const function, expected prototype:\nfloat btAngularLimit::getRelaxationFactor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btAngularLimit* self=(Luna< btAngularLimit >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btAngularLimit::getRelaxationFactor() const. Got : '%s'",typeid(Luna< btAngularLimit >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btAngularLimit::getRelaxationFactor() const. Got : '%s'\n%s",typeid(Luna< btAngularLimit >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getRelaxationFactor();
 		lua_pushnumber(L,lret);
@@ -316,15 +301,13 @@ public:
 	// float btAngularLimit::getCorrection() const
 	static int _bind_getCorrection(lua_State *L) {
 		if (!_lg_typecheck_getCorrection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btAngularLimit::getCorrection() const function, expected prototype:\nfloat btAngularLimit::getCorrection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btAngularLimit::getCorrection() const function, expected prototype:\nfloat btAngularLimit::getCorrection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btAngularLimit* self=(Luna< btAngularLimit >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btAngularLimit::getCorrection() const. Got : '%s'",typeid(Luna< btAngularLimit >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btAngularLimit::getCorrection() const. Got : '%s'\n%s",typeid(Luna< btAngularLimit >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getCorrection();
 		lua_pushnumber(L,lret);
@@ -335,15 +318,13 @@ public:
 	// float btAngularLimit::getSign() const
 	static int _bind_getSign(lua_State *L) {
 		if (!_lg_typecheck_getSign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btAngularLimit::getSign() const function, expected prototype:\nfloat btAngularLimit::getSign() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btAngularLimit::getSign() const function, expected prototype:\nfloat btAngularLimit::getSign() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btAngularLimit* self=(Luna< btAngularLimit >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btAngularLimit::getSign() const. Got : '%s'",typeid(Luna< btAngularLimit >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btAngularLimit::getSign() const. Got : '%s'\n%s",typeid(Luna< btAngularLimit >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getSign();
 		lua_pushnumber(L,lret);
@@ -354,15 +335,13 @@ public:
 	// float btAngularLimit::getHalfRange() const
 	static int _bind_getHalfRange(lua_State *L) {
 		if (!_lg_typecheck_getHalfRange(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btAngularLimit::getHalfRange() const function, expected prototype:\nfloat btAngularLimit::getHalfRange() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btAngularLimit::getHalfRange() const function, expected prototype:\nfloat btAngularLimit::getHalfRange() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btAngularLimit* self=(Luna< btAngularLimit >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btAngularLimit::getHalfRange() const. Got : '%s'",typeid(Luna< btAngularLimit >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btAngularLimit::getHalfRange() const. Got : '%s'\n%s",typeid(Luna< btAngularLimit >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getHalfRange();
 		lua_pushnumber(L,lret);
@@ -373,15 +352,13 @@ public:
 	// bool btAngularLimit::isLimit() const
 	static int _bind_isLimit(lua_State *L) {
 		if (!_lg_typecheck_isLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btAngularLimit::isLimit() const function, expected prototype:\nbool btAngularLimit::isLimit() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btAngularLimit::isLimit() const function, expected prototype:\nbool btAngularLimit::isLimit() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btAngularLimit* self=(Luna< btAngularLimit >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btAngularLimit::isLimit() const. Got : '%s'",typeid(Luna< btAngularLimit >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btAngularLimit::isLimit() const. Got : '%s'\n%s",typeid(Luna< btAngularLimit >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isLimit();
 		lua_pushboolean(L,lret?1:0);
@@ -392,34 +369,31 @@ public:
 	// void btAngularLimit::fit(float & angle) const
 	static int _bind_fit(lua_State *L) {
 		if (!_lg_typecheck_fit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btAngularLimit::fit(float & angle) const function, expected prototype:\nvoid btAngularLimit::fit(float & angle) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btAngularLimit::fit(float & angle) const function, expected prototype:\nvoid btAngularLimit::fit(float & angle) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float angle=(float)lua_tonumber(L,2);
 
 		btAngularLimit* self=(Luna< btAngularLimit >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btAngularLimit::fit(float &) const. Got : '%s'",typeid(Luna< btAngularLimit >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btAngularLimit::fit(float &) const. Got : '%s'\n%s",typeid(Luna< btAngularLimit >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->fit(angle);
 
-		return 0;
+		lua_pushnumber(L,angle);
+		return 1;
 	}
 
 	// float btAngularLimit::getError() const
 	static int _bind_getError(lua_State *L) {
 		if (!_lg_typecheck_getError(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btAngularLimit::getError() const function, expected prototype:\nfloat btAngularLimit::getError() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btAngularLimit::getError() const function, expected prototype:\nfloat btAngularLimit::getError() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btAngularLimit* self=(Luna< btAngularLimit >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btAngularLimit::getError() const. Got : '%s'",typeid(Luna< btAngularLimit >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btAngularLimit::getError() const. Got : '%s'\n%s",typeid(Luna< btAngularLimit >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getError();
 		lua_pushnumber(L,lret);
@@ -430,15 +404,13 @@ public:
 	// float btAngularLimit::getLow() const
 	static int _bind_getLow(lua_State *L) {
 		if (!_lg_typecheck_getLow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btAngularLimit::getLow() const function, expected prototype:\nfloat btAngularLimit::getLow() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btAngularLimit::getLow() const function, expected prototype:\nfloat btAngularLimit::getLow() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btAngularLimit* self=(Luna< btAngularLimit >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btAngularLimit::getLow() const. Got : '%s'",typeid(Luna< btAngularLimit >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btAngularLimit::getLow() const. Got : '%s'\n%s",typeid(Luna< btAngularLimit >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getLow();
 		lua_pushnumber(L,lret);
@@ -449,15 +421,13 @@ public:
 	// float btAngularLimit::getHigh() const
 	static int _bind_getHigh(lua_State *L) {
 		if (!_lg_typecheck_getHigh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btAngularLimit::getHigh() const function, expected prototype:\nfloat btAngularLimit::getHigh() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btAngularLimit::getHigh() const function, expected prototype:\nfloat btAngularLimit::getHigh() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btAngularLimit* self=(Luna< btAngularLimit >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btAngularLimit::getHigh() const. Got : '%s'",typeid(Luna< btAngularLimit >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btAngularLimit::getHigh() const. Got : '%s'\n%s",typeid(Luna< btAngularLimit >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getHigh();
 		lua_pushnumber(L,lret);

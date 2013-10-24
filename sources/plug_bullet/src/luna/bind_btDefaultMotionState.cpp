@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMotionState* self=(Luna< btMotionState >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDefaultMotionState* self= (btDefaultMotionState*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btMotionState >::check(L,1));
@@ -202,8 +199,7 @@ public:
 	// btDefaultMotionState::btDefaultMotionState(const btTransform & startTrans = btTransform::getIdentity (), const btTransform & centerOfMassOffset = btTransform::getIdentity ())
 	static btDefaultMotionState* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btDefaultMotionState::btDefaultMotionState(const btTransform & startTrans = btTransform::getIdentity (), const btTransform & centerOfMassOffset = btTransform::getIdentity ()) function, expected prototype:\nbtDefaultMotionState::btDefaultMotionState(const btTransform & startTrans = btTransform::getIdentity (), const btTransform & centerOfMassOffset = btTransform::getIdentity ())\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btDefaultMotionState::btDefaultMotionState(const btTransform & startTrans = btTransform::getIdentity (), const btTransform & centerOfMassOffset = btTransform::getIdentity ()) function, expected prototype:\nbtDefaultMotionState::btDefaultMotionState(const btTransform & startTrans = btTransform::getIdentity (), const btTransform & centerOfMassOffset = btTransform::getIdentity ())\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -225,8 +221,7 @@ public:
 	// btDefaultMotionState::btDefaultMotionState(lua_Table * data, const btTransform & startTrans = btTransform::getIdentity (), const btTransform & centerOfMassOffset = btTransform::getIdentity ())
 	static btDefaultMotionState* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btDefaultMotionState::btDefaultMotionState(lua_Table * data, const btTransform & startTrans = btTransform::getIdentity (), const btTransform & centerOfMassOffset = btTransform::getIdentity ()) function, expected prototype:\nbtDefaultMotionState::btDefaultMotionState(lua_Table * data, const btTransform & startTrans = btTransform::getIdentity (), const btTransform & centerOfMassOffset = btTransform::getIdentity ())\nClass arguments details:\narg 2 ID = 13247377\narg 3 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btDefaultMotionState::btDefaultMotionState(lua_Table * data, const btTransform & startTrans = btTransform::getIdentity (), const btTransform & centerOfMassOffset = btTransform::getIdentity ()) function, expected prototype:\nbtDefaultMotionState::btDefaultMotionState(lua_Table * data, const btTransform & startTrans = btTransform::getIdentity (), const btTransform & centerOfMassOffset = btTransform::getIdentity ())\nClass arguments details:\narg 2 ID = 13247377\narg 3 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -259,8 +254,7 @@ public:
 	// void btDefaultMotionState::getWorldTransform(btTransform & centerOfMassWorldTrans) const
 	static int _bind_getWorldTransform(lua_State *L) {
 		if (!_lg_typecheck_getWorldTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::getWorldTransform(btTransform & centerOfMassWorldTrans) const function, expected prototype:\nvoid btDefaultMotionState::getWorldTransform(btTransform & centerOfMassWorldTrans) const\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::getWorldTransform(btTransform & centerOfMassWorldTrans) const function, expected prototype:\nvoid btDefaultMotionState::getWorldTransform(btTransform & centerOfMassWorldTrans) const\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTransform* centerOfMassWorldTrans_ptr=(Luna< btTransform >::check(L,2));
@@ -271,8 +265,7 @@ public:
 
 		btDefaultMotionState* self=Luna< btMotionState >::checkSubType< btDefaultMotionState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDefaultMotionState::getWorldTransform(btTransform &) const. Got : '%s'",typeid(Luna< btMotionState >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDefaultMotionState::getWorldTransform(btTransform &) const. Got : '%s'\n%s",typeid(Luna< btMotionState >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getWorldTransform(centerOfMassWorldTrans);
 
@@ -282,8 +275,7 @@ public:
 	// void btDefaultMotionState::setWorldTransform(const btTransform & centerOfMassWorldTrans)
 	static int _bind_setWorldTransform(lua_State *L) {
 		if (!_lg_typecheck_setWorldTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::setWorldTransform(const btTransform & centerOfMassWorldTrans) function, expected prototype:\nvoid btDefaultMotionState::setWorldTransform(const btTransform & centerOfMassWorldTrans)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::setWorldTransform(const btTransform & centerOfMassWorldTrans) function, expected prototype:\nvoid btDefaultMotionState::setWorldTransform(const btTransform & centerOfMassWorldTrans)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* centerOfMassWorldTrans_ptr=(Luna< btTransform >::check(L,2));
@@ -294,8 +286,7 @@ public:
 
 		btDefaultMotionState* self=Luna< btMotionState >::checkSubType< btDefaultMotionState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDefaultMotionState::setWorldTransform(const btTransform &). Got : '%s'",typeid(Luna< btMotionState >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDefaultMotionState::setWorldTransform(const btTransform &). Got : '%s'\n%s",typeid(Luna< btMotionState >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setWorldTransform(centerOfMassWorldTrans);
 
@@ -305,15 +296,13 @@ public:
 	// btTransform btDefaultMotionState::m_graphicsWorldTrans()
 	static int _bind_getGraphicsWorldTrans(lua_State *L) {
 		if (!_lg_typecheck_getGraphicsWorldTrans(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btDefaultMotionState::m_graphicsWorldTrans() function, expected prototype:\nbtTransform btDefaultMotionState::m_graphicsWorldTrans()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform btDefaultMotionState::m_graphicsWorldTrans() function, expected prototype:\nbtTransform btDefaultMotionState::m_graphicsWorldTrans()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDefaultMotionState* self=Luna< btMotionState >::checkSubType< btDefaultMotionState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btDefaultMotionState::m_graphicsWorldTrans(). Got : '%s'",typeid(Luna< btMotionState >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btDefaultMotionState::m_graphicsWorldTrans(). Got : '%s'\n%s",typeid(Luna< btMotionState >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->m_graphicsWorldTrans;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -326,15 +315,13 @@ public:
 	// btTransform btDefaultMotionState::m_centerOfMassOffset()
 	static int _bind_getCenterOfMassOffset(lua_State *L) {
 		if (!_lg_typecheck_getCenterOfMassOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btDefaultMotionState::m_centerOfMassOffset() function, expected prototype:\nbtTransform btDefaultMotionState::m_centerOfMassOffset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform btDefaultMotionState::m_centerOfMassOffset() function, expected prototype:\nbtTransform btDefaultMotionState::m_centerOfMassOffset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDefaultMotionState* self=Luna< btMotionState >::checkSubType< btDefaultMotionState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btDefaultMotionState::m_centerOfMassOffset(). Got : '%s'",typeid(Luna< btMotionState >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btDefaultMotionState::m_centerOfMassOffset(). Got : '%s'\n%s",typeid(Luna< btMotionState >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->m_centerOfMassOffset;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -347,15 +334,13 @@ public:
 	// btTransform btDefaultMotionState::m_startWorldTrans()
 	static int _bind_getStartWorldTrans(lua_State *L) {
 		if (!_lg_typecheck_getStartWorldTrans(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btDefaultMotionState::m_startWorldTrans() function, expected prototype:\nbtTransform btDefaultMotionState::m_startWorldTrans()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform btDefaultMotionState::m_startWorldTrans() function, expected prototype:\nbtTransform btDefaultMotionState::m_startWorldTrans()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDefaultMotionState* self=Luna< btMotionState >::checkSubType< btDefaultMotionState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btDefaultMotionState::m_startWorldTrans(). Got : '%s'",typeid(Luna< btMotionState >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btDefaultMotionState::m_startWorldTrans(). Got : '%s'\n%s",typeid(Luna< btMotionState >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->m_startWorldTrans;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -368,15 +353,13 @@ public:
 	// void * btDefaultMotionState::m_userPointer()
 	static int _bind_getUserPointer(lua_State *L) {
 		if (!_lg_typecheck_getUserPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * btDefaultMotionState::m_userPointer() function, expected prototype:\nvoid * btDefaultMotionState::m_userPointer()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * btDefaultMotionState::m_userPointer() function, expected prototype:\nvoid * btDefaultMotionState::m_userPointer()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDefaultMotionState* self=Luna< btMotionState >::checkSubType< btDefaultMotionState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * btDefaultMotionState::m_userPointer(). Got : '%s'",typeid(Luna< btMotionState >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * btDefaultMotionState::m_userPointer(). Got : '%s'\n%s",typeid(Luna< btMotionState >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->m_userPointer;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -389,8 +372,7 @@ public:
 	// void btDefaultMotionState::m_graphicsWorldTrans(btTransform value)
 	static int _bind_setGraphicsWorldTrans(lua_State *L) {
 		if (!_lg_typecheck_setGraphicsWorldTrans(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::m_graphicsWorldTrans(btTransform value) function, expected prototype:\nvoid btDefaultMotionState::m_graphicsWorldTrans(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::m_graphicsWorldTrans(btTransform value) function, expected prototype:\nvoid btDefaultMotionState::m_graphicsWorldTrans(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTransform* value_ptr=(Luna< btTransform >::check(L,2));
@@ -401,8 +383,7 @@ public:
 
 		btDefaultMotionState* self=Luna< btMotionState >::checkSubType< btDefaultMotionState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDefaultMotionState::m_graphicsWorldTrans(btTransform). Got : '%s'",typeid(Luna< btMotionState >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDefaultMotionState::m_graphicsWorldTrans(btTransform). Got : '%s'\n%s",typeid(Luna< btMotionState >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_graphicsWorldTrans = value;
 
@@ -412,8 +393,7 @@ public:
 	// void btDefaultMotionState::m_centerOfMassOffset(btTransform value)
 	static int _bind_setCenterOfMassOffset(lua_State *L) {
 		if (!_lg_typecheck_setCenterOfMassOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::m_centerOfMassOffset(btTransform value) function, expected prototype:\nvoid btDefaultMotionState::m_centerOfMassOffset(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::m_centerOfMassOffset(btTransform value) function, expected prototype:\nvoid btDefaultMotionState::m_centerOfMassOffset(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTransform* value_ptr=(Luna< btTransform >::check(L,2));
@@ -424,8 +404,7 @@ public:
 
 		btDefaultMotionState* self=Luna< btMotionState >::checkSubType< btDefaultMotionState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDefaultMotionState::m_centerOfMassOffset(btTransform). Got : '%s'",typeid(Luna< btMotionState >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDefaultMotionState::m_centerOfMassOffset(btTransform). Got : '%s'\n%s",typeid(Luna< btMotionState >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_centerOfMassOffset = value;
 
@@ -435,8 +414,7 @@ public:
 	// void btDefaultMotionState::m_startWorldTrans(btTransform value)
 	static int _bind_setStartWorldTrans(lua_State *L) {
 		if (!_lg_typecheck_setStartWorldTrans(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::m_startWorldTrans(btTransform value) function, expected prototype:\nvoid btDefaultMotionState::m_startWorldTrans(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::m_startWorldTrans(btTransform value) function, expected prototype:\nvoid btDefaultMotionState::m_startWorldTrans(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTransform* value_ptr=(Luna< btTransform >::check(L,2));
@@ -447,8 +425,7 @@ public:
 
 		btDefaultMotionState* self=Luna< btMotionState >::checkSubType< btDefaultMotionState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDefaultMotionState::m_startWorldTrans(btTransform). Got : '%s'",typeid(Luna< btMotionState >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDefaultMotionState::m_startWorldTrans(btTransform). Got : '%s'\n%s",typeid(Luna< btMotionState >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_startWorldTrans = value;
 
@@ -458,16 +435,14 @@ public:
 	// void btDefaultMotionState::m_userPointer(void * value)
 	static int _bind_setUserPointer(lua_State *L) {
 		if (!_lg_typecheck_setUserPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::m_userPointer(void * value) function, expected prototype:\nvoid btDefaultMotionState::m_userPointer(void * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::m_userPointer(void * value) function, expected prototype:\nvoid btDefaultMotionState::m_userPointer(void * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* value=(Luna< void >::check(L,2));
 
 		btDefaultMotionState* self=Luna< btMotionState >::checkSubType< btDefaultMotionState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDefaultMotionState::m_userPointer(void *). Got : '%s'",typeid(Luna< btMotionState >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDefaultMotionState::m_userPointer(void *). Got : '%s'\n%s",typeid(Luna< btMotionState >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_userPointer = value;
 
@@ -477,8 +452,7 @@ public:
 	// void btDefaultMotionState::base_getWorldTransform(btTransform & centerOfMassWorldTrans) const
 	static int _bind_base_getWorldTransform(lua_State *L) {
 		if (!_lg_typecheck_base_getWorldTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::base_getWorldTransform(btTransform & centerOfMassWorldTrans) const function, expected prototype:\nvoid btDefaultMotionState::base_getWorldTransform(btTransform & centerOfMassWorldTrans) const\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::base_getWorldTransform(btTransform & centerOfMassWorldTrans) const function, expected prototype:\nvoid btDefaultMotionState::base_getWorldTransform(btTransform & centerOfMassWorldTrans) const\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTransform* centerOfMassWorldTrans_ptr=(Luna< btTransform >::check(L,2));
@@ -489,8 +463,7 @@ public:
 
 		btDefaultMotionState* self=Luna< btMotionState >::checkSubType< btDefaultMotionState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDefaultMotionState::base_getWorldTransform(btTransform &) const. Got : '%s'",typeid(Luna< btMotionState >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDefaultMotionState::base_getWorldTransform(btTransform &) const. Got : '%s'\n%s",typeid(Luna< btMotionState >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btDefaultMotionState::getWorldTransform(centerOfMassWorldTrans);
 
@@ -500,8 +473,7 @@ public:
 	// void btDefaultMotionState::base_setWorldTransform(const btTransform & centerOfMassWorldTrans)
 	static int _bind_base_setWorldTransform(lua_State *L) {
 		if (!_lg_typecheck_base_setWorldTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::base_setWorldTransform(const btTransform & centerOfMassWorldTrans) function, expected prototype:\nvoid btDefaultMotionState::base_setWorldTransform(const btTransform & centerOfMassWorldTrans)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btDefaultMotionState::base_setWorldTransform(const btTransform & centerOfMassWorldTrans) function, expected prototype:\nvoid btDefaultMotionState::base_setWorldTransform(const btTransform & centerOfMassWorldTrans)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* centerOfMassWorldTrans_ptr=(Luna< btTransform >::check(L,2));
@@ -512,8 +484,7 @@ public:
 
 		btDefaultMotionState* self=Luna< btMotionState >::checkSubType< btDefaultMotionState >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDefaultMotionState::base_setWorldTransform(const btTransform &). Got : '%s'",typeid(Luna< btMotionState >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDefaultMotionState::base_setWorldTransform(const btTransform &). Got : '%s'\n%s",typeid(Luna< btMotionState >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btDefaultMotionState::setWorldTransform(centerOfMassWorldTrans);
 

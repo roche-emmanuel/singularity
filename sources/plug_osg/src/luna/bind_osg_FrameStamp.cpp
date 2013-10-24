@@ -121,7 +121,7 @@ public:
 	inline static bool _lg_typecheck_setFrameNumber(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -134,7 +134,7 @@ public:
 	inline static bool _lg_typecheck_setReferenceTime(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -147,7 +147,7 @@ public:
 	inline static bool _lg_typecheck_setSimulationTime(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2ChainAndCircleContact* self= (b2ChainAndCircleContact*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Contact >::check(L,1));
@@ -94,10 +91,10 @@ public:
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,92969381)) ) return false;
 		if( (lua_isnil(L,1)==0 && !(Luna< b2Fixture >::check(L,1)) ) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92969381)) ) return false;
 		if( (lua_isnil(L,3)==0 && !(Luna< b2Fixture >::check(L,3)) ) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -107,10 +104,10 @@ public:
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,92969381)) ) return false;
 		if( (lua_isnil(L,2)==0 && !(Luna< b2Fixture >::check(L,2)) ) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,92969381)) ) return false;
 		if( (lua_isnil(L,4)==0 && !(Luna< b2Fixture >::check(L,4)) ) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -120,9 +117,9 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,92969381)) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92969381)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,76186022)) ) return false;
 		return true;
 	}
@@ -161,8 +158,7 @@ public:
 	// b2ChainAndCircleContact::b2ChainAndCircleContact(b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB)
 	static b2ChainAndCircleContact* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2ChainAndCircleContact::b2ChainAndCircleContact(b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB) function, expected prototype:\nb2ChainAndCircleContact::b2ChainAndCircleContact(b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB)\nClass arguments details:\narg 1 ID = 92969381\narg 3 ID = 92969381\n");
+			luaL_error(L, "luna typecheck failed in b2ChainAndCircleContact::b2ChainAndCircleContact(b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB) function, expected prototype:\nb2ChainAndCircleContact::b2ChainAndCircleContact(b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB)\nClass arguments details:\narg 1 ID = 92969381\narg 3 ID = 92969381\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Fixture* fixtureA=(Luna< b2Fixture >::check(L,1));
@@ -176,8 +172,7 @@ public:
 	// b2ChainAndCircleContact::b2ChainAndCircleContact(lua_Table * data, b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB)
 	static b2ChainAndCircleContact* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2ChainAndCircleContact::b2ChainAndCircleContact(lua_Table * data, b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB) function, expected prototype:\nb2ChainAndCircleContact::b2ChainAndCircleContact(lua_Table * data, b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB)\nClass arguments details:\narg 2 ID = 92969381\narg 4 ID = 92969381\n");
+			luaL_error(L, "luna typecheck failed in b2ChainAndCircleContact::b2ChainAndCircleContact(lua_Table * data, b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB) function, expected prototype:\nb2ChainAndCircleContact::b2ChainAndCircleContact(lua_Table * data, b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB)\nClass arguments details:\narg 2 ID = 92969381\narg 4 ID = 92969381\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Fixture* fixtureA=(Luna< b2Fixture >::check(L,2));
@@ -202,8 +197,7 @@ public:
 	// static b2Contact * b2ChainAndCircleContact::Create(b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB, b2BlockAllocator * allocator)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static b2Contact * b2ChainAndCircleContact::Create(b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB, b2BlockAllocator * allocator) function, expected prototype:\nstatic b2Contact * b2ChainAndCircleContact::Create(b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB, b2BlockAllocator * allocator)\nClass arguments details:\narg 1 ID = 92969381\narg 3 ID = 92969381\narg 5 ID = 76186022\n");
+			luaL_error(L, "luna typecheck failed in static b2Contact * b2ChainAndCircleContact::Create(b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB, b2BlockAllocator * allocator) function, expected prototype:\nstatic b2Contact * b2ChainAndCircleContact::Create(b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB, b2BlockAllocator * allocator)\nClass arguments details:\narg 1 ID = 92969381\narg 3 ID = 92969381\narg 5 ID = 76186022\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Fixture* fixtureA=(Luna< b2Fixture >::check(L,1));
@@ -223,8 +217,7 @@ public:
 	// static void b2ChainAndCircleContact::Destroy(b2Contact * contact, b2BlockAllocator * allocator)
 	static int _bind_Destroy(lua_State *L) {
 		if (!_lg_typecheck_Destroy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void b2ChainAndCircleContact::Destroy(b2Contact * contact, b2BlockAllocator * allocator) function, expected prototype:\nstatic void b2ChainAndCircleContact::Destroy(b2Contact * contact, b2BlockAllocator * allocator)\nClass arguments details:\narg 1 ID = 92978558\narg 2 ID = 76186022\n");
+			luaL_error(L, "luna typecheck failed in static void b2ChainAndCircleContact::Destroy(b2Contact * contact, b2BlockAllocator * allocator) function, expected prototype:\nstatic void b2ChainAndCircleContact::Destroy(b2Contact * contact, b2BlockAllocator * allocator)\nClass arguments details:\narg 1 ID = 92978558\narg 2 ID = 76186022\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Contact* contact=(Luna< b2Contact >::check(L,1));
@@ -238,8 +231,7 @@ public:
 	// void b2ChainAndCircleContact::Evaluate(b2Manifold * manifold, const b2Transform & xfA, const b2Transform & xfB)
 	static int _bind_Evaluate(lua_State *L) {
 		if (!_lg_typecheck_Evaluate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ChainAndCircleContact::Evaluate(b2Manifold * manifold, const b2Transform & xfA, const b2Transform & xfB) function, expected prototype:\nvoid b2ChainAndCircleContact::Evaluate(b2Manifold * manifold, const b2Transform & xfA, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 73405450\narg 2 ID = 44090970\narg 3 ID = 44090970\n");
+			luaL_error(L, "luna typecheck failed in void b2ChainAndCircleContact::Evaluate(b2Manifold * manifold, const b2Transform & xfA, const b2Transform & xfB) function, expected prototype:\nvoid b2ChainAndCircleContact::Evaluate(b2Manifold * manifold, const b2Transform & xfA, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 73405450\narg 2 ID = 44090970\narg 3 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Manifold* manifold=(Luna< b2Manifold >::check(L,2));
@@ -256,8 +248,7 @@ public:
 
 		b2ChainAndCircleContact* self=Luna< b2Contact >::checkSubType< b2ChainAndCircleContact >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ChainAndCircleContact::Evaluate(b2Manifold *, const b2Transform &, const b2Transform &). Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ChainAndCircleContact::Evaluate(b2Manifold *, const b2Transform &, const b2Transform &). Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Evaluate(manifold, xfA, xfB);
 
@@ -267,8 +258,7 @@ public:
 	// void b2ChainAndCircleContact::base_Evaluate(b2Manifold * manifold, const b2Transform & xfA, const b2Transform & xfB)
 	static int _bind_base_Evaluate(lua_State *L) {
 		if (!_lg_typecheck_base_Evaluate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ChainAndCircleContact::base_Evaluate(b2Manifold * manifold, const b2Transform & xfA, const b2Transform & xfB) function, expected prototype:\nvoid b2ChainAndCircleContact::base_Evaluate(b2Manifold * manifold, const b2Transform & xfA, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 73405450\narg 2 ID = 44090970\narg 3 ID = 44090970\n");
+			luaL_error(L, "luna typecheck failed in void b2ChainAndCircleContact::base_Evaluate(b2Manifold * manifold, const b2Transform & xfA, const b2Transform & xfB) function, expected prototype:\nvoid b2ChainAndCircleContact::base_Evaluate(b2Manifold * manifold, const b2Transform & xfA, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 73405450\narg 2 ID = 44090970\narg 3 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Manifold* manifold=(Luna< b2Manifold >::check(L,2));
@@ -285,8 +275,7 @@ public:
 
 		b2ChainAndCircleContact* self=Luna< b2Contact >::checkSubType< b2ChainAndCircleContact >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ChainAndCircleContact::base_Evaluate(b2Manifold *, const b2Transform &, const b2Transform &). Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ChainAndCircleContact::base_Evaluate(b2Manifold *, const b2Transform &, const b2Transform &). Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->b2ChainAndCircleContact::Evaluate(manifold, xfA, xfB);
 

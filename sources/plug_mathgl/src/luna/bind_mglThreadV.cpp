@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglThreadV*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglThreadV*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglThreadV* rhs =(Luna< mglThreadV >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglThreadV* self= (mglThreadV*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< mglThreadV >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -173,14 +169,14 @@ public:
 	inline static bool _lg_typecheck_setId(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setN(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -194,15 +190,13 @@ public:
 	// double * mglThreadV::a()
 	static int _bind_getA(lua_State *L) {
 		if (!_lg_typecheck_getA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double * mglThreadV::a() function, expected prototype:\ndouble * mglThreadV::a()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double * mglThreadV::a() function, expected prototype:\ndouble * mglThreadV::a()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglThreadV* self=(Luna< mglThreadV >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double * mglThreadV::a(). Got : '%s'",typeid(Luna< mglThreadV >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double * mglThreadV::a(). Got : '%s'\n%s",typeid(Luna< mglThreadV >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double * lret = self->a;
 		lua_pushnumber(L,*lret);
@@ -213,15 +207,13 @@ public:
 	// dual * mglThreadV::aa()
 	static int _bind_getAa(lua_State *L) {
 		if (!_lg_typecheck_getAa(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dual * mglThreadV::aa() function, expected prototype:\ndual * mglThreadV::aa()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in dual * mglThreadV::aa() function, expected prototype:\ndual * mglThreadV::aa()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglThreadV* self=(Luna< mglThreadV >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call dual * mglThreadV::aa(). Got : '%s'",typeid(Luna< mglThreadV >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call dual * mglThreadV::aa(). Got : '%s'\n%s",typeid(Luna< mglThreadV >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		dual * lret = self->aa;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -234,15 +226,13 @@ public:
 	// const void * mglThreadV::b()
 	static int _bind_getB(lua_State *L) {
 		if (!_lg_typecheck_getB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const void * mglThreadV::b() function, expected prototype:\nconst void * mglThreadV::b()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const void * mglThreadV::b() function, expected prototype:\nconst void * mglThreadV::b()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglThreadV* self=(Luna< mglThreadV >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * mglThreadV::b(). Got : '%s'",typeid(Luna< mglThreadV >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const void * mglThreadV::b(). Got : '%s'\n%s",typeid(Luna< mglThreadV >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const void * lret = self->b;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -255,15 +245,13 @@ public:
 	// const void * mglThreadV::c()
 	static int _bind_getC(lua_State *L) {
 		if (!_lg_typecheck_getC(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const void * mglThreadV::c() function, expected prototype:\nconst void * mglThreadV::c()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const void * mglThreadV::c() function, expected prototype:\nconst void * mglThreadV::c()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglThreadV* self=(Luna< mglThreadV >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * mglThreadV::c(). Got : '%s'",typeid(Luna< mglThreadV >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const void * mglThreadV::c(). Got : '%s'\n%s",typeid(Luna< mglThreadV >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const void * lret = self->c;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -276,15 +264,13 @@ public:
 	// const double * mglThreadV::d()
 	static int _bind_getD(lua_State *L) {
 		if (!_lg_typecheck_getD(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const double * mglThreadV::d() function, expected prototype:\nconst double * mglThreadV::d()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const double * mglThreadV::d() function, expected prototype:\nconst double * mglThreadV::d()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglThreadV* self=(Luna< mglThreadV >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const double * mglThreadV::d(). Got : '%s'",typeid(Luna< mglThreadV >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const double * mglThreadV::d(). Got : '%s'\n%s",typeid(Luna< mglThreadV >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const double * lret = self->d;
 		lua_pushnumber(L,*lret);
@@ -295,15 +281,13 @@ public:
 	// const long * mglThreadV::p()
 	static int _bind_getP(lua_State *L) {
 		if (!_lg_typecheck_getP(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const long * mglThreadV::p() function, expected prototype:\nconst long * mglThreadV::p()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const long * mglThreadV::p() function, expected prototype:\nconst long * mglThreadV::p()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglThreadV* self=(Luna< mglThreadV >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const long * mglThreadV::p(). Got : '%s'",typeid(Luna< mglThreadV >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const long * mglThreadV::p(). Got : '%s'\n%s",typeid(Luna< mglThreadV >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const long * lret = self->p;
 		lua_pushnumber(L,*lret);
@@ -314,15 +298,13 @@ public:
 	// const void * mglThreadV::v()
 	static int _bind_getV(lua_State *L) {
 		if (!_lg_typecheck_getV(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const void * mglThreadV::v() function, expected prototype:\nconst void * mglThreadV::v()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const void * mglThreadV::v() function, expected prototype:\nconst void * mglThreadV::v()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglThreadV* self=(Luna< mglThreadV >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * mglThreadV::v(). Got : '%s'",typeid(Luna< mglThreadV >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const void * mglThreadV::v(). Got : '%s'\n%s",typeid(Luna< mglThreadV >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const void * lret = self->v;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -335,15 +317,13 @@ public:
 	// int mglThreadV::id()
 	static int _bind_getId(lua_State *L) {
 		if (!_lg_typecheck_getId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int mglThreadV::id() function, expected prototype:\nint mglThreadV::id()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int mglThreadV::id() function, expected prototype:\nint mglThreadV::id()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglThreadV* self=(Luna< mglThreadV >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int mglThreadV::id(). Got : '%s'",typeid(Luna< mglThreadV >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int mglThreadV::id(). Got : '%s'\n%s",typeid(Luna< mglThreadV >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->id;
 		lua_pushnumber(L,lret);
@@ -354,15 +334,13 @@ public:
 	// long mglThreadV::n()
 	static int _bind_getN(lua_State *L) {
 		if (!_lg_typecheck_getN(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long mglThreadV::n() function, expected prototype:\nlong mglThreadV::n()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long mglThreadV::n() function, expected prototype:\nlong mglThreadV::n()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglThreadV* self=(Luna< mglThreadV >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long mglThreadV::n(). Got : '%s'",typeid(Luna< mglThreadV >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long mglThreadV::n(). Got : '%s'\n%s",typeid(Luna< mglThreadV >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->n;
 		lua_pushnumber(L,lret);
@@ -373,16 +351,14 @@ public:
 	// void mglThreadV::a(double * value)
 	static int _bind_setA(lua_State *L) {
 		if (!_lg_typecheck_setA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglThreadV::a(double * value) function, expected prototype:\nvoid mglThreadV::a(double * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglThreadV::a(double * value) function, expected prototype:\nvoid mglThreadV::a(double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double* value=(double*)Luna< void >::check(L,2);
 
 		mglThreadV* self=(Luna< mglThreadV >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglThreadV::a(double *). Got : '%s'",typeid(Luna< mglThreadV >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglThreadV::a(double *). Got : '%s'\n%s",typeid(Luna< mglThreadV >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->a = value;
 
@@ -392,16 +368,14 @@ public:
 	// void mglThreadV::aa(dual * value)
 	static int _bind_setAa(lua_State *L) {
 		if (!_lg_typecheck_setAa(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglThreadV::aa(dual * value) function, expected prototype:\nvoid mglThreadV::aa(dual * value)\nClass arguments details:\narg 1 ID = 3094652\n");
+			luaL_error(L, "luna typecheck failed in void mglThreadV::aa(dual * value) function, expected prototype:\nvoid mglThreadV::aa(dual * value)\nClass arguments details:\narg 1 ID = 3094652\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		dual* value=(Luna< std::complex< double > >::checkSubType< dual >(L,2));
 
 		mglThreadV* self=(Luna< mglThreadV >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglThreadV::aa(dual *). Got : '%s'",typeid(Luna< mglThreadV >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglThreadV::aa(dual *). Got : '%s'\n%s",typeid(Luna< mglThreadV >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->aa = value;
 
@@ -411,16 +385,14 @@ public:
 	// void mglThreadV::id(int value)
 	static int _bind_setId(lua_State *L) {
 		if (!_lg_typecheck_setId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglThreadV::id(int value) function, expected prototype:\nvoid mglThreadV::id(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglThreadV::id(int value) function, expected prototype:\nvoid mglThreadV::id(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		mglThreadV* self=(Luna< mglThreadV >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglThreadV::id(int). Got : '%s'",typeid(Luna< mglThreadV >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglThreadV::id(int). Got : '%s'\n%s",typeid(Luna< mglThreadV >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->id = value;
 
@@ -430,16 +402,14 @@ public:
 	// void mglThreadV::n(long value)
 	static int _bind_setN(lua_State *L) {
 		if (!_lg_typecheck_setN(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglThreadV::n(long value) function, expected prototype:\nvoid mglThreadV::n(long value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglThreadV::n(long value) function, expected prototype:\nvoid mglThreadV::n(long value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long value=(long)lua_tointeger(L,2);
+		long value=(long)lua_tonumber(L,2);
 
 		mglThreadV* self=(Luna< mglThreadV >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglThreadV::n(long). Got : '%s'",typeid(Luna< mglThreadV >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglThreadV::n(long). Got : '%s'\n%s",typeid(Luna< mglThreadV >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->n = value;
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionShape* self=(Luna< btCollisionShape >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexPointCloudShape* self= (btConvexPointCloudShape*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCollisionShape >::check(L,1));
@@ -101,7 +98,7 @@ public:
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,91544891)) ) return false;
 		if( (lua_isnil(L,1)==0 && !(Luna< btVector3 >::check(L,1)) ) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		if( (!(Luna< btVector3 >::check(L,3))) ) return false;
 		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
@@ -122,7 +119,7 @@ public:
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
 		if( (lua_isnil(L,2)==0 && !(Luna< btVector3 >::check(L,2)) ) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 		if( (!(Luna< btVector3 >::check(L,4))) ) return false;
 		if( luatop>4 && lua_isboolean(L,5)==0 ) return false;
@@ -136,7 +133,7 @@ public:
 		if( luatop<3 || luatop>5 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
 		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,91544891) ) return false;
 		return true;
@@ -163,7 +160,7 @@ public:
 	inline static bool _lg_typecheck_getScaledPoint(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -186,7 +183,7 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,91544891)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -211,7 +208,7 @@ public:
 	inline static bool _lg_typecheck_getEdge(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 		return true;
@@ -220,7 +217,7 @@ public:
 	inline static bool _lg_typecheck_getVertex(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		return true;
 	}
@@ -236,7 +233,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -244,7 +241,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -259,7 +256,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -272,7 +269,7 @@ public:
 	inline static bool _lg_typecheck_base_getContactBreakingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -287,8 +284,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -310,7 +307,7 @@ public:
 	inline static bool _lg_typecheck_base_setMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -329,7 +326,7 @@ public:
 	inline static bool _lg_typecheck_base_getPreferredPenetrationDirection(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		return true;
 	}
@@ -344,14 +341,14 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_calculateLocalInertia(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		return true;
 	}
@@ -384,7 +381,7 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,91544891)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -409,7 +406,7 @@ public:
 	inline static bool _lg_typecheck_base_getEdge(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 		return true;
@@ -418,7 +415,7 @@ public:
 	inline static bool _lg_typecheck_base_getVertex(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		return true;
 	}
@@ -434,7 +431,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -442,7 +439,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -461,8 +458,7 @@ public:
 	// btConvexPointCloudShape::btConvexPointCloudShape()
 	static btConvexPointCloudShape* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConvexPointCloudShape::btConvexPointCloudShape() function, expected prototype:\nbtConvexPointCloudShape::btConvexPointCloudShape()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btConvexPointCloudShape::btConvexPointCloudShape() function, expected prototype:\nbtConvexPointCloudShape::btConvexPointCloudShape()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -472,8 +468,7 @@ public:
 	// btConvexPointCloudShape::btConvexPointCloudShape(btVector3 * points, int numPoints, const btVector3 & localScaling, bool computeAabb = true)
 	static btConvexPointCloudShape* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConvexPointCloudShape::btConvexPointCloudShape(btVector3 * points, int numPoints, const btVector3 & localScaling, bool computeAabb = true) function, expected prototype:\nbtConvexPointCloudShape::btConvexPointCloudShape(btVector3 * points, int numPoints, const btVector3 & localScaling, bool computeAabb = true)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btConvexPointCloudShape::btConvexPointCloudShape(btVector3 * points, int numPoints, const btVector3 & localScaling, bool computeAabb = true) function, expected prototype:\nbtConvexPointCloudShape::btConvexPointCloudShape(btVector3 * points, int numPoints, const btVector3 & localScaling, bool computeAabb = true)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -493,8 +488,7 @@ public:
 	// btConvexPointCloudShape::btConvexPointCloudShape(lua_Table * data)
 	static btConvexPointCloudShape* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConvexPointCloudShape::btConvexPointCloudShape(lua_Table * data) function, expected prototype:\nbtConvexPointCloudShape::btConvexPointCloudShape(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btConvexPointCloudShape::btConvexPointCloudShape(lua_Table * data) function, expected prototype:\nbtConvexPointCloudShape::btConvexPointCloudShape(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -504,8 +498,7 @@ public:
 	// btConvexPointCloudShape::btConvexPointCloudShape(lua_Table * data, btVector3 * points, int numPoints, const btVector3 & localScaling, bool computeAabb = true)
 	static btConvexPointCloudShape* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConvexPointCloudShape::btConvexPointCloudShape(lua_Table * data, btVector3 * points, int numPoints, const btVector3 & localScaling, bool computeAabb = true) function, expected prototype:\nbtConvexPointCloudShape::btConvexPointCloudShape(lua_Table * data, btVector3 * points, int numPoints, const btVector3 & localScaling, bool computeAabb = true)\nClass arguments details:\narg 2 ID = 91544891\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btConvexPointCloudShape::btConvexPointCloudShape(lua_Table * data, btVector3 * points, int numPoints, const btVector3 & localScaling, bool computeAabb = true) function, expected prototype:\nbtConvexPointCloudShape::btConvexPointCloudShape(lua_Table * data, btVector3 * points, int numPoints, const btVector3 & localScaling, bool computeAabb = true)\nClass arguments details:\narg 2 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -538,8 +531,7 @@ public:
 	// void btConvexPointCloudShape::setPoints(btVector3 * points, int numPoints, bool computeAabb = true, const btVector3 & localScaling = btVector3 (1.f, 1.f, 1.f))
 	static int _bind_setPoints(lua_State *L) {
 		if (!_lg_typecheck_setPoints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::setPoints(btVector3 * points, int numPoints, bool computeAabb = true, const btVector3 & localScaling = btVector3 (1.f, 1.f, 1.f)) function, expected prototype:\nvoid btConvexPointCloudShape::setPoints(btVector3 * points, int numPoints, bool computeAabb = true, const btVector3 & localScaling = btVector3 (1.f, 1.f, 1.f))\nClass arguments details:\narg 1 ID = 91544891\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::setPoints(btVector3 * points, int numPoints, bool computeAabb = true, const btVector3 & localScaling = btVector3 (1.f, 1.f, 1.f)) function, expected prototype:\nvoid btConvexPointCloudShape::setPoints(btVector3 * points, int numPoints, bool computeAabb = true, const btVector3 & localScaling = btVector3 (1.f, 1.f, 1.f))\nClass arguments details:\narg 1 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -555,8 +547,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::setPoints(btVector3 *, int, bool, const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::setPoints(btVector3 *, int, bool, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPoints(points, numPoints, computeAabb, localScaling);
 
@@ -566,15 +557,13 @@ public:
 	// btVector3 * btConvexPointCloudShape::getUnscaledPoints()
 	static int _bind_getUnscaledPoints_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getUnscaledPoints_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 * btConvexPointCloudShape::getUnscaledPoints() function, expected prototype:\nbtVector3 * btConvexPointCloudShape::getUnscaledPoints()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 * btConvexPointCloudShape::getUnscaledPoints() function, expected prototype:\nbtVector3 * btConvexPointCloudShape::getUnscaledPoints()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 * btConvexPointCloudShape::getUnscaledPoints(). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 * btConvexPointCloudShape::getUnscaledPoints(). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 * lret = self->getUnscaledPoints();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -587,15 +576,13 @@ public:
 	// const btVector3 * btConvexPointCloudShape::getUnscaledPoints() const
 	static int _bind_getUnscaledPoints_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getUnscaledPoints_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 * btConvexPointCloudShape::getUnscaledPoints() const function, expected prototype:\nconst btVector3 * btConvexPointCloudShape::getUnscaledPoints() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 * btConvexPointCloudShape::getUnscaledPoints() const function, expected prototype:\nconst btVector3 * btConvexPointCloudShape::getUnscaledPoints() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 * btConvexPointCloudShape::getUnscaledPoints() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 * btConvexPointCloudShape::getUnscaledPoints() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3 * lret = self->getUnscaledPoints();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -617,15 +604,13 @@ public:
 	// int btConvexPointCloudShape::getNumPoints() const
 	static int _bind_getNumPoints(lua_State *L) {
 		if (!_lg_typecheck_getNumPoints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::getNumPoints() const function, expected prototype:\nint btConvexPointCloudShape::getNumPoints() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::getNumPoints() const function, expected prototype:\nint btConvexPointCloudShape::getNumPoints() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::getNumPoints() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::getNumPoints() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNumPoints();
 		lua_pushnumber(L,lret);
@@ -636,16 +621,14 @@ public:
 	// btVector3 btConvexPointCloudShape::getScaledPoint(int index) const
 	static int _bind_getScaledPoint(lua_State *L) {
 		if (!_lg_typecheck_getScaledPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btConvexPointCloudShape::getScaledPoint(int index) const function, expected prototype:\nbtVector3 btConvexPointCloudShape::getScaledPoint(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btConvexPointCloudShape::getScaledPoint(int index) const function, expected prototype:\nbtVector3 btConvexPointCloudShape::getScaledPoint(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btConvexPointCloudShape::getScaledPoint(int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btConvexPointCloudShape::getScaledPoint(int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->getScaledPoint(index);
 		btVector3* lret = new btVector3(stack_lret);
@@ -659,8 +642,7 @@ public:
 	// btVector3 btConvexPointCloudShape::localGetSupportingVertex(const btVector3 & vec) const
 	static int _bind_localGetSupportingVertex(lua_State *L) {
 		if (!_lg_typecheck_localGetSupportingVertex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btConvexPointCloudShape::localGetSupportingVertex(const btVector3 & vec) const function, expected prototype:\nbtVector3 btConvexPointCloudShape::localGetSupportingVertex(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btConvexPointCloudShape::localGetSupportingVertex(const btVector3 & vec) const function, expected prototype:\nbtVector3 btConvexPointCloudShape::localGetSupportingVertex(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* vec_ptr=(Luna< btVector3 >::check(L,2));
@@ -671,8 +653,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btConvexPointCloudShape::localGetSupportingVertex(const btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btConvexPointCloudShape::localGetSupportingVertex(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->localGetSupportingVertex(vec);
 		btVector3* lret = new btVector3(stack_lret);
@@ -686,8 +667,7 @@ public:
 	// btVector3 btConvexPointCloudShape::localGetSupportingVertexWithoutMargin(const btVector3 & vec) const
 	static int _bind_localGetSupportingVertexWithoutMargin(lua_State *L) {
 		if (!_lg_typecheck_localGetSupportingVertexWithoutMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btConvexPointCloudShape::localGetSupportingVertexWithoutMargin(const btVector3 & vec) const function, expected prototype:\nbtVector3 btConvexPointCloudShape::localGetSupportingVertexWithoutMargin(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btConvexPointCloudShape::localGetSupportingVertexWithoutMargin(const btVector3 & vec) const function, expected prototype:\nbtVector3 btConvexPointCloudShape::localGetSupportingVertexWithoutMargin(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* vec_ptr=(Luna< btVector3 >::check(L,2));
@@ -698,8 +678,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btConvexPointCloudShape::localGetSupportingVertexWithoutMargin(const btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btConvexPointCloudShape::localGetSupportingVertexWithoutMargin(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->localGetSupportingVertexWithoutMargin(vec);
 		btVector3* lret = new btVector3(stack_lret);
@@ -713,8 +692,7 @@ public:
 	// void btConvexPointCloudShape::batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const
 	static int _bind_batchedUnitVectorGetSupportingVertexWithoutMargin(lua_State *L) {
 		if (!_lg_typecheck_batchedUnitVectorGetSupportingVertexWithoutMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const function, expected prototype:\nvoid btConvexPointCloudShape::batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const function, expected prototype:\nvoid btConvexPointCloudShape::batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* vectors=(Luna< btVector3 >::check(L,2));
@@ -723,8 +701,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 *, btVector3 *, int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 *, btVector3 *, int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->batchedUnitVectorGetSupportingVertexWithoutMargin(vectors, supportVerticesOut, numVectors);
 
@@ -734,15 +711,13 @@ public:
 	// const char * btConvexPointCloudShape::getName() const
 	static int _bind_getName(lua_State *L) {
 		if (!_lg_typecheck_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * btConvexPointCloudShape::getName() const function, expected prototype:\nconst char * btConvexPointCloudShape::getName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * btConvexPointCloudShape::getName() const function, expected prototype:\nconst char * btConvexPointCloudShape::getName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * btConvexPointCloudShape::getName() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * btConvexPointCloudShape::getName() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->getName();
 		lua_pushstring(L,lret);
@@ -753,15 +728,13 @@ public:
 	// int btConvexPointCloudShape::getNumVertices() const
 	static int _bind_getNumVertices(lua_State *L) {
 		if (!_lg_typecheck_getNumVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::getNumVertices() const function, expected prototype:\nint btConvexPointCloudShape::getNumVertices() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::getNumVertices() const function, expected prototype:\nint btConvexPointCloudShape::getNumVertices() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::getNumVertices() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::getNumVertices() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNumVertices();
 		lua_pushnumber(L,lret);
@@ -772,15 +745,13 @@ public:
 	// int btConvexPointCloudShape::getNumEdges() const
 	static int _bind_getNumEdges(lua_State *L) {
 		if (!_lg_typecheck_getNumEdges(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::getNumEdges() const function, expected prototype:\nint btConvexPointCloudShape::getNumEdges() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::getNumEdges() const function, expected prototype:\nint btConvexPointCloudShape::getNumEdges() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::getNumEdges() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::getNumEdges() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNumEdges();
 		lua_pushnumber(L,lret);
@@ -791,8 +762,7 @@ public:
 	// void btConvexPointCloudShape::getEdge(int i, btVector3 & pa, btVector3 & pb) const
 	static int _bind_getEdge(lua_State *L) {
 		if (!_lg_typecheck_getEdge(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::getEdge(int i, btVector3 & pa, btVector3 & pb) const function, expected prototype:\nvoid btConvexPointCloudShape::getEdge(int i, btVector3 & pa, btVector3 & pb) const\nClass arguments details:\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::getEdge(int i, btVector3 & pa, btVector3 & pb) const function, expected prototype:\nvoid btConvexPointCloudShape::getEdge(int i, btVector3 & pa, btVector3 & pb) const\nClass arguments details:\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int i=(int)lua_tointeger(L,2);
@@ -809,8 +779,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::getEdge(int, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::getEdge(int, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getEdge(i, pa, pb);
 
@@ -820,8 +789,7 @@ public:
 	// void btConvexPointCloudShape::getVertex(int i, btVector3 & vtx) const
 	static int _bind_getVertex(lua_State *L) {
 		if (!_lg_typecheck_getVertex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::getVertex(int i, btVector3 & vtx) const function, expected prototype:\nvoid btConvexPointCloudShape::getVertex(int i, btVector3 & vtx) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::getVertex(int i, btVector3 & vtx) const function, expected prototype:\nvoid btConvexPointCloudShape::getVertex(int i, btVector3 & vtx) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int i=(int)lua_tointeger(L,2);
@@ -833,8 +801,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::getVertex(int, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::getVertex(int, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getVertex(i, vtx);
 
@@ -844,15 +811,13 @@ public:
 	// int btConvexPointCloudShape::getNumPlanes() const
 	static int _bind_getNumPlanes(lua_State *L) {
 		if (!_lg_typecheck_getNumPlanes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::getNumPlanes() const function, expected prototype:\nint btConvexPointCloudShape::getNumPlanes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::getNumPlanes() const function, expected prototype:\nint btConvexPointCloudShape::getNumPlanes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::getNumPlanes() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::getNumPlanes() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNumPlanes();
 		lua_pushnumber(L,lret);
@@ -863,8 +828,7 @@ public:
 	// void btConvexPointCloudShape::getPlane(btVector3 & planeNormal, btVector3 & planeSupport, int i) const
 	static int _bind_getPlane(lua_State *L) {
 		if (!_lg_typecheck_getPlane(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::getPlane(btVector3 & planeNormal, btVector3 & planeSupport, int i) const function, expected prototype:\nvoid btConvexPointCloudShape::getPlane(btVector3 & planeNormal, btVector3 & planeSupport, int i) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::getPlane(btVector3 & planeNormal, btVector3 & planeSupport, int i) const function, expected prototype:\nvoid btConvexPointCloudShape::getPlane(btVector3 & planeNormal, btVector3 & planeSupport, int i) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* planeNormal_ptr=(Luna< btVector3 >::check(L,2));
@@ -881,8 +845,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::getPlane(btVector3 &, btVector3 &, int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::getPlane(btVector3 &, btVector3 &, int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getPlane(planeNormal, planeSupport, i);
 
@@ -892,8 +855,7 @@ public:
 	// bool btConvexPointCloudShape::isInside(const btVector3 & pt, float tolerance) const
 	static int _bind_isInside(lua_State *L) {
 		if (!_lg_typecheck_isInside(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btConvexPointCloudShape::isInside(const btVector3 & pt, float tolerance) const function, expected prototype:\nbool btConvexPointCloudShape::isInside(const btVector3 & pt, float tolerance) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in bool btConvexPointCloudShape::isInside(const btVector3 & pt, float tolerance) const function, expected prototype:\nbool btConvexPointCloudShape::isInside(const btVector3 & pt, float tolerance) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* pt_ptr=(Luna< btVector3 >::check(L,2));
@@ -905,8 +867,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btConvexPointCloudShape::isInside(const btVector3 &, float) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btConvexPointCloudShape::isInside(const btVector3 &, float) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isInside(pt, tolerance);
 		lua_pushboolean(L,lret?1:0);
@@ -917,8 +878,7 @@ public:
 	// void btConvexPointCloudShape::setLocalScaling(const btVector3 & scaling)
 	static int _bind_setLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_setLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btConvexPointCloudShape::setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btConvexPointCloudShape::setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* scaling_ptr=(Luna< btVector3 >::check(L,2));
@@ -929,8 +889,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::setLocalScaling(const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::setLocalScaling(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLocalScaling(scaling);
 
@@ -940,8 +899,7 @@ public:
 	// void btConvexPointCloudShape::base_getBoundingSphere(btVector3 & center, float & radius) const
 	static int _bind_base_getBoundingSphere(lua_State *L) {
 		if (!_lg_typecheck_base_getBoundingSphere(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_getBoundingSphere(btVector3 & center, float & radius) const function, expected prototype:\nvoid btConvexPointCloudShape::base_getBoundingSphere(btVector3 & center, float & radius) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_getBoundingSphere(btVector3 & center, float & radius) const function, expected prototype:\nvoid btConvexPointCloudShape::base_getBoundingSphere(btVector3 & center, float & radius) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* center_ptr=(Luna< btVector3 >::check(L,2));
@@ -953,26 +911,24 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_getBoundingSphere(btVector3 &, float &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_getBoundingSphere(btVector3 &, float &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexPointCloudShape::getBoundingSphere(center, radius);
 
-		return 0;
+		lua_pushnumber(L,radius);
+		return 1;
 	}
 
 	// float btConvexPointCloudShape::base_getAngularMotionDisc() const
 	static int _bind_base_getAngularMotionDisc(lua_State *L) {
 		if (!_lg_typecheck_base_getAngularMotionDisc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btConvexPointCloudShape::base_getAngularMotionDisc() const function, expected prototype:\nfloat btConvexPointCloudShape::base_getAngularMotionDisc() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btConvexPointCloudShape::base_getAngularMotionDisc() const function, expected prototype:\nfloat btConvexPointCloudShape::base_getAngularMotionDisc() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btConvexPointCloudShape::base_getAngularMotionDisc() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btConvexPointCloudShape::base_getAngularMotionDisc() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btConvexPointCloudShape::getAngularMotionDisc();
 		lua_pushnumber(L,lret);
@@ -983,16 +939,14 @@ public:
 	// float btConvexPointCloudShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const
 	static int _bind_base_getContactBreakingThreshold(lua_State *L) {
 		if (!_lg_typecheck_base_getContactBreakingThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btConvexPointCloudShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const function, expected prototype:\nfloat btConvexPointCloudShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btConvexPointCloudShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const function, expected prototype:\nfloat btConvexPointCloudShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float defaultContactThresholdFactor=(float)lua_tonumber(L,2);
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btConvexPointCloudShape::base_getContactBreakingThreshold(float) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btConvexPointCloudShape::base_getContactBreakingThreshold(float) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btConvexPointCloudShape::getContactBreakingThreshold(defaultContactThresholdFactor);
 		lua_pushnumber(L,lret);
@@ -1003,15 +957,13 @@ public:
 	// btVector3 btConvexPointCloudShape::base_getAnisotropicRollingFrictionDirection() const
 	static int _bind_base_getAnisotropicRollingFrictionDirection(lua_State *L) {
 		if (!_lg_typecheck_base_getAnisotropicRollingFrictionDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btConvexPointCloudShape::base_getAnisotropicRollingFrictionDirection() const function, expected prototype:\nbtVector3 btConvexPointCloudShape::base_getAnisotropicRollingFrictionDirection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btConvexPointCloudShape::base_getAnisotropicRollingFrictionDirection() const function, expected prototype:\nbtVector3 btConvexPointCloudShape::base_getAnisotropicRollingFrictionDirection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btConvexPointCloudShape::base_getAnisotropicRollingFrictionDirection() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btConvexPointCloudShape::base_getAnisotropicRollingFrictionDirection() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->btConvexPointCloudShape::getAnisotropicRollingFrictionDirection();
 		btVector3* lret = new btVector3(stack_lret);
@@ -1025,8 +977,7 @@ public:
 	// void btConvexPointCloudShape::base_project(const btTransform & trans, const btVector3 & dir, float & min, float & max) const
 	static int _bind_base_project(lua_State *L) {
 		if (!_lg_typecheck_base_project(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_project(const btTransform & trans, const btVector3 & dir, float & min, float & max) const function, expected prototype:\nvoid btConvexPointCloudShape::base_project(const btTransform & trans, const btVector3 & dir, float & min, float & max) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_project(const btTransform & trans, const btVector3 & dir, float & min, float & max) const function, expected prototype:\nvoid btConvexPointCloudShape::base_project(const btTransform & trans, const btVector3 & dir, float & min, float & max) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* trans_ptr=(Luna< btTransform >::check(L,2));
@@ -1044,19 +995,19 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_project(const btTransform &, const btVector3 &, float &, float &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_project(const btTransform &, const btVector3 &, float &, float &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexPointCloudShape::project(trans, dir, min, max);
 
-		return 0;
+		lua_pushnumber(L,min);
+		lua_pushnumber(L,max);
+		return 2;
 	}
 
 	// void btConvexPointCloudShape::base_getAabbSlow(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_base_getAabbSlow(lua_State *L) {
 		if (!_lg_typecheck_base_getAabbSlow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_getAabbSlow(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btConvexPointCloudShape::base_getAabbSlow(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_getAabbSlow(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btConvexPointCloudShape::base_getAabbSlow(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* t_ptr=(Luna< btTransform >::check(L,2));
@@ -1077,8 +1028,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_getAabbSlow(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_getAabbSlow(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexPointCloudShape::getAabbSlow(t, aabbMin, aabbMax);
 
@@ -1088,15 +1038,13 @@ public:
 	// const btVector3 & btConvexPointCloudShape::base_getLocalScaling() const
 	static int _bind_base_getLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_base_getLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 & btConvexPointCloudShape::base_getLocalScaling() const function, expected prototype:\nconst btVector3 & btConvexPointCloudShape::base_getLocalScaling() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 & btConvexPointCloudShape::base_getLocalScaling() const function, expected prototype:\nconst btVector3 & btConvexPointCloudShape::base_getLocalScaling() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 & btConvexPointCloudShape::base_getLocalScaling() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 & btConvexPointCloudShape::base_getLocalScaling() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->btConvexPointCloudShape::getLocalScaling();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1109,16 +1057,14 @@ public:
 	// void btConvexPointCloudShape::base_setMargin(float margin)
 	static int _bind_base_setMargin(lua_State *L) {
 		if (!_lg_typecheck_base_setMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_setMargin(float margin) function, expected prototype:\nvoid btConvexPointCloudShape::base_setMargin(float margin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_setMargin(float margin) function, expected prototype:\nvoid btConvexPointCloudShape::base_setMargin(float margin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float margin=(float)lua_tonumber(L,2);
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_setMargin(float). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_setMargin(float). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexPointCloudShape::setMargin(margin);
 
@@ -1128,15 +1074,13 @@ public:
 	// float btConvexPointCloudShape::base_getMargin() const
 	static int _bind_base_getMargin(lua_State *L) {
 		if (!_lg_typecheck_base_getMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btConvexPointCloudShape::base_getMargin() const function, expected prototype:\nfloat btConvexPointCloudShape::base_getMargin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btConvexPointCloudShape::base_getMargin() const function, expected prototype:\nfloat btConvexPointCloudShape::base_getMargin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btConvexPointCloudShape::base_getMargin() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btConvexPointCloudShape::base_getMargin() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btConvexPointCloudShape::getMargin();
 		lua_pushnumber(L,lret);
@@ -1147,15 +1091,13 @@ public:
 	// int btConvexPointCloudShape::base_getNumPreferredPenetrationDirections() const
 	static int _bind_base_getNumPreferredPenetrationDirections(lua_State *L) {
 		if (!_lg_typecheck_base_getNumPreferredPenetrationDirections(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::base_getNumPreferredPenetrationDirections() const function, expected prototype:\nint btConvexPointCloudShape::base_getNumPreferredPenetrationDirections() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::base_getNumPreferredPenetrationDirections() const function, expected prototype:\nint btConvexPointCloudShape::base_getNumPreferredPenetrationDirections() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::base_getNumPreferredPenetrationDirections() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::base_getNumPreferredPenetrationDirections() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btConvexPointCloudShape::getNumPreferredPenetrationDirections();
 		lua_pushnumber(L,lret);
@@ -1166,8 +1108,7 @@ public:
 	// void btConvexPointCloudShape::base_getPreferredPenetrationDirection(int index, btVector3 & penetrationVector) const
 	static int _bind_base_getPreferredPenetrationDirection(lua_State *L) {
 		if (!_lg_typecheck_base_getPreferredPenetrationDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_getPreferredPenetrationDirection(int index, btVector3 & penetrationVector) const function, expected prototype:\nvoid btConvexPointCloudShape::base_getPreferredPenetrationDirection(int index, btVector3 & penetrationVector) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_getPreferredPenetrationDirection(int index, btVector3 & penetrationVector) const function, expected prototype:\nvoid btConvexPointCloudShape::base_getPreferredPenetrationDirection(int index, btVector3 & penetrationVector) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -1179,8 +1120,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_getPreferredPenetrationDirection(int, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_getPreferredPenetrationDirection(int, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexPointCloudShape::getPreferredPenetrationDirection(index, penetrationVector);
 
@@ -1190,15 +1130,13 @@ public:
 	// int btConvexPointCloudShape::base_calculateSerializeBufferSize() const
 	static int _bind_base_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_base_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::base_calculateSerializeBufferSize() const function, expected prototype:\nint btConvexPointCloudShape::base_calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::base_calculateSerializeBufferSize() const function, expected prototype:\nint btConvexPointCloudShape::base_calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::base_calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::base_calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btConvexPointCloudShape::calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);
@@ -1209,8 +1147,7 @@ public:
 	// bool btConvexPointCloudShape::base_initializePolyhedralFeatures(int shiftVerticesByMargin = 0)
 	static int _bind_base_initializePolyhedralFeatures(lua_State *L) {
 		if (!_lg_typecheck_base_initializePolyhedralFeatures(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btConvexPointCloudShape::base_initializePolyhedralFeatures(int shiftVerticesByMargin = 0) function, expected prototype:\nbool btConvexPointCloudShape::base_initializePolyhedralFeatures(int shiftVerticesByMargin = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btConvexPointCloudShape::base_initializePolyhedralFeatures(int shiftVerticesByMargin = 0) function, expected prototype:\nbool btConvexPointCloudShape::base_initializePolyhedralFeatures(int shiftVerticesByMargin = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1219,8 +1156,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btConvexPointCloudShape::base_initializePolyhedralFeatures(int). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btConvexPointCloudShape::base_initializePolyhedralFeatures(int). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->btConvexPointCloudShape::initializePolyhedralFeatures(shiftVerticesByMargin);
 		lua_pushboolean(L,lret?1:0);
@@ -1231,8 +1167,7 @@ public:
 	// void btConvexPointCloudShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const
 	static int _bind_base_calculateLocalInertia(lua_State *L) {
 		if (!_lg_typecheck_base_calculateLocalInertia(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const function, expected prototype:\nvoid btConvexPointCloudShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const function, expected prototype:\nvoid btConvexPointCloudShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float mass=(float)lua_tonumber(L,2);
@@ -1244,8 +1179,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_calculateLocalInertia(float, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_calculateLocalInertia(float, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexPointCloudShape::calculateLocalInertia(mass, inertia);
 
@@ -1255,8 +1189,7 @@ public:
 	// void btConvexPointCloudShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_base_getAabb(lua_State *L) {
 		if (!_lg_typecheck_base_getAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btConvexPointCloudShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btConvexPointCloudShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* t_ptr=(Luna< btTransform >::check(L,2));
@@ -1277,8 +1210,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexPointCloudShape::getAabb(t, aabbMin, aabbMax);
 
@@ -1288,8 +1220,7 @@ public:
 	// btVector3 btConvexPointCloudShape::base_localGetSupportingVertex(const btVector3 & vec) const
 	static int _bind_base_localGetSupportingVertex(lua_State *L) {
 		if (!_lg_typecheck_base_localGetSupportingVertex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btConvexPointCloudShape::base_localGetSupportingVertex(const btVector3 & vec) const function, expected prototype:\nbtVector3 btConvexPointCloudShape::base_localGetSupportingVertex(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btConvexPointCloudShape::base_localGetSupportingVertex(const btVector3 & vec) const function, expected prototype:\nbtVector3 btConvexPointCloudShape::base_localGetSupportingVertex(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* vec_ptr=(Luna< btVector3 >::check(L,2));
@@ -1300,8 +1231,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btConvexPointCloudShape::base_localGetSupportingVertex(const btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btConvexPointCloudShape::base_localGetSupportingVertex(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->btConvexPointCloudShape::localGetSupportingVertex(vec);
 		btVector3* lret = new btVector3(stack_lret);
@@ -1315,8 +1245,7 @@ public:
 	// btVector3 btConvexPointCloudShape::base_localGetSupportingVertexWithoutMargin(const btVector3 & vec) const
 	static int _bind_base_localGetSupportingVertexWithoutMargin(lua_State *L) {
 		if (!_lg_typecheck_base_localGetSupportingVertexWithoutMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btConvexPointCloudShape::base_localGetSupportingVertexWithoutMargin(const btVector3 & vec) const function, expected prototype:\nbtVector3 btConvexPointCloudShape::base_localGetSupportingVertexWithoutMargin(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btConvexPointCloudShape::base_localGetSupportingVertexWithoutMargin(const btVector3 & vec) const function, expected prototype:\nbtVector3 btConvexPointCloudShape::base_localGetSupportingVertexWithoutMargin(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* vec_ptr=(Luna< btVector3 >::check(L,2));
@@ -1327,8 +1256,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btConvexPointCloudShape::base_localGetSupportingVertexWithoutMargin(const btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btConvexPointCloudShape::base_localGetSupportingVertexWithoutMargin(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->btConvexPointCloudShape::localGetSupportingVertexWithoutMargin(vec);
 		btVector3* lret = new btVector3(stack_lret);
@@ -1342,8 +1270,7 @@ public:
 	// void btConvexPointCloudShape::base_batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const
 	static int _bind_base_batchedUnitVectorGetSupportingVertexWithoutMargin(lua_State *L) {
 		if (!_lg_typecheck_base_batchedUnitVectorGetSupportingVertexWithoutMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const function, expected prototype:\nvoid btConvexPointCloudShape::base_batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const function, expected prototype:\nvoid btConvexPointCloudShape::base_batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* vectors=(Luna< btVector3 >::check(L,2));
@@ -1352,8 +1279,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 *, btVector3 *, int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 *, btVector3 *, int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexPointCloudShape::batchedUnitVectorGetSupportingVertexWithoutMargin(vectors, supportVerticesOut, numVectors);
 
@@ -1363,15 +1289,13 @@ public:
 	// const char * btConvexPointCloudShape::base_getName() const
 	static int _bind_base_getName(lua_State *L) {
 		if (!_lg_typecheck_base_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * btConvexPointCloudShape::base_getName() const function, expected prototype:\nconst char * btConvexPointCloudShape::base_getName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * btConvexPointCloudShape::base_getName() const function, expected prototype:\nconst char * btConvexPointCloudShape::base_getName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * btConvexPointCloudShape::base_getName() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * btConvexPointCloudShape::base_getName() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->btConvexPointCloudShape::getName();
 		lua_pushstring(L,lret);
@@ -1382,15 +1306,13 @@ public:
 	// int btConvexPointCloudShape::base_getNumVertices() const
 	static int _bind_base_getNumVertices(lua_State *L) {
 		if (!_lg_typecheck_base_getNumVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::base_getNumVertices() const function, expected prototype:\nint btConvexPointCloudShape::base_getNumVertices() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::base_getNumVertices() const function, expected prototype:\nint btConvexPointCloudShape::base_getNumVertices() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::base_getNumVertices() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::base_getNumVertices() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btConvexPointCloudShape::getNumVertices();
 		lua_pushnumber(L,lret);
@@ -1401,15 +1323,13 @@ public:
 	// int btConvexPointCloudShape::base_getNumEdges() const
 	static int _bind_base_getNumEdges(lua_State *L) {
 		if (!_lg_typecheck_base_getNumEdges(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::base_getNumEdges() const function, expected prototype:\nint btConvexPointCloudShape::base_getNumEdges() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::base_getNumEdges() const function, expected prototype:\nint btConvexPointCloudShape::base_getNumEdges() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::base_getNumEdges() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::base_getNumEdges() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btConvexPointCloudShape::getNumEdges();
 		lua_pushnumber(L,lret);
@@ -1420,8 +1340,7 @@ public:
 	// void btConvexPointCloudShape::base_getEdge(int i, btVector3 & pa, btVector3 & pb) const
 	static int _bind_base_getEdge(lua_State *L) {
 		if (!_lg_typecheck_base_getEdge(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_getEdge(int i, btVector3 & pa, btVector3 & pb) const function, expected prototype:\nvoid btConvexPointCloudShape::base_getEdge(int i, btVector3 & pa, btVector3 & pb) const\nClass arguments details:\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_getEdge(int i, btVector3 & pa, btVector3 & pb) const function, expected prototype:\nvoid btConvexPointCloudShape::base_getEdge(int i, btVector3 & pa, btVector3 & pb) const\nClass arguments details:\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int i=(int)lua_tointeger(L,2);
@@ -1438,8 +1357,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_getEdge(int, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_getEdge(int, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexPointCloudShape::getEdge(i, pa, pb);
 
@@ -1449,8 +1367,7 @@ public:
 	// void btConvexPointCloudShape::base_getVertex(int i, btVector3 & vtx) const
 	static int _bind_base_getVertex(lua_State *L) {
 		if (!_lg_typecheck_base_getVertex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_getVertex(int i, btVector3 & vtx) const function, expected prototype:\nvoid btConvexPointCloudShape::base_getVertex(int i, btVector3 & vtx) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_getVertex(int i, btVector3 & vtx) const function, expected prototype:\nvoid btConvexPointCloudShape::base_getVertex(int i, btVector3 & vtx) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int i=(int)lua_tointeger(L,2);
@@ -1462,8 +1379,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_getVertex(int, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_getVertex(int, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexPointCloudShape::getVertex(i, vtx);
 
@@ -1473,15 +1389,13 @@ public:
 	// int btConvexPointCloudShape::base_getNumPlanes() const
 	static int _bind_base_getNumPlanes(lua_State *L) {
 		if (!_lg_typecheck_base_getNumPlanes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::base_getNumPlanes() const function, expected prototype:\nint btConvexPointCloudShape::base_getNumPlanes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btConvexPointCloudShape::base_getNumPlanes() const function, expected prototype:\nint btConvexPointCloudShape::base_getNumPlanes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::base_getNumPlanes() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btConvexPointCloudShape::base_getNumPlanes() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btConvexPointCloudShape::getNumPlanes();
 		lua_pushnumber(L,lret);
@@ -1492,8 +1406,7 @@ public:
 	// void btConvexPointCloudShape::base_getPlane(btVector3 & planeNormal, btVector3 & planeSupport, int i) const
 	static int _bind_base_getPlane(lua_State *L) {
 		if (!_lg_typecheck_base_getPlane(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_getPlane(btVector3 & planeNormal, btVector3 & planeSupport, int i) const function, expected prototype:\nvoid btConvexPointCloudShape::base_getPlane(btVector3 & planeNormal, btVector3 & planeSupport, int i) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_getPlane(btVector3 & planeNormal, btVector3 & planeSupport, int i) const function, expected prototype:\nvoid btConvexPointCloudShape::base_getPlane(btVector3 & planeNormal, btVector3 & planeSupport, int i) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* planeNormal_ptr=(Luna< btVector3 >::check(L,2));
@@ -1510,8 +1423,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_getPlane(btVector3 &, btVector3 &, int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_getPlane(btVector3 &, btVector3 &, int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexPointCloudShape::getPlane(planeNormal, planeSupport, i);
 
@@ -1521,8 +1433,7 @@ public:
 	// bool btConvexPointCloudShape::base_isInside(const btVector3 & pt, float tolerance) const
 	static int _bind_base_isInside(lua_State *L) {
 		if (!_lg_typecheck_base_isInside(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btConvexPointCloudShape::base_isInside(const btVector3 & pt, float tolerance) const function, expected prototype:\nbool btConvexPointCloudShape::base_isInside(const btVector3 & pt, float tolerance) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in bool btConvexPointCloudShape::base_isInside(const btVector3 & pt, float tolerance) const function, expected prototype:\nbool btConvexPointCloudShape::base_isInside(const btVector3 & pt, float tolerance) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* pt_ptr=(Luna< btVector3 >::check(L,2));
@@ -1534,8 +1445,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btConvexPointCloudShape::base_isInside(const btVector3 &, float) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btConvexPointCloudShape::base_isInside(const btVector3 &, float) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->btConvexPointCloudShape::isInside(pt, tolerance);
 		lua_pushboolean(L,lret?1:0);
@@ -1546,8 +1456,7 @@ public:
 	// void btConvexPointCloudShape::base_setLocalScaling(const btVector3 & scaling)
 	static int _bind_base_setLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_base_setLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btConvexPointCloudShape::base_setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPointCloudShape::base_setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btConvexPointCloudShape::base_setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* scaling_ptr=(Luna< btVector3 >::check(L,2));
@@ -1558,8 +1467,7 @@ public:
 
 		btConvexPointCloudShape* self=Luna< btCollisionShape >::checkSubType< btConvexPointCloudShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_setLocalScaling(const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPointCloudShape::base_setLocalScaling(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexPointCloudShape::setLocalScaling(scaling);
 

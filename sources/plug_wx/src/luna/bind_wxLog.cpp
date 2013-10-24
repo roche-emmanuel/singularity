@@ -98,7 +98,7 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
@@ -126,7 +126,7 @@ public:
 	inline static bool _lg_typecheck_AddTraceMask(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -145,14 +145,14 @@ public:
 	inline static bool _lg_typecheck_IsAllowedTraceMask(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_RemoveTraceMask(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -209,23 +209,23 @@ public:
 	inline static bool _lg_typecheck_IsLevelEnabled(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetComponentLevel(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetLogLevel(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -266,7 +266,7 @@ public:
 	inline static bool _lg_typecheck_SetTimestamp(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -299,8 +299,8 @@ public:
 	inline static bool _lg_typecheck_LogRecord(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,82105951) ) return false;
 		return true;
 	}

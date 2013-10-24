@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Island*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Island*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Island* rhs =(Luna< b2Island >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Island* self= (b2Island*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Island >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -103,9 +99,9 @@ public:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,83926873)) ) return false;
 		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,55252344)) ) return false;
 		return true;
@@ -133,8 +129,8 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,28832978) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -260,42 +256,42 @@ public:
 	inline static bool _lg_typecheck_setBodyCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setJointCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setContactCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setBodyCapacity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setContactCapacity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setJointCapacity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -307,8 +303,7 @@ public:
 	// b2Island::b2Island(signed int bodyCapacity, signed int contactCapacity, signed int jointCapacity, b2StackAllocator * allocator, b2ContactListener * listener)
 	static b2Island* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Island::b2Island(signed int bodyCapacity, signed int contactCapacity, signed int jointCapacity, b2StackAllocator * allocator, b2ContactListener * listener) function, expected prototype:\nb2Island::b2Island(signed int bodyCapacity, signed int contactCapacity, signed int jointCapacity, b2StackAllocator * allocator, b2ContactListener * listener)\nClass arguments details:\narg 4 ID = 83926873\narg 5 ID = 55252344\n");
+			luaL_error(L, "luna typecheck failed in b2Island::b2Island(signed int bodyCapacity, signed int contactCapacity, signed int jointCapacity, b2StackAllocator * allocator, b2ContactListener * listener) function, expected prototype:\nb2Island::b2Island(signed int bodyCapacity, signed int contactCapacity, signed int jointCapacity, b2StackAllocator * allocator, b2ContactListener * listener)\nClass arguments details:\narg 4 ID = 83926873\narg 5 ID = 55252344\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int bodyCapacity=(signed int)lua_tointeger(L,1);
@@ -325,15 +320,13 @@ public:
 	// void b2Island::Clear()
 	static int _bind_Clear(lua_State *L) {
 		if (!_lg_typecheck_Clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Island::Clear() function, expected prototype:\nvoid b2Island::Clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Island::Clear() function, expected prototype:\nvoid b2Island::Clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Island::Clear(). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Island::Clear(). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Clear();
 
@@ -343,8 +336,7 @@ public:
 	// void b2Island::Solve(b2Profile * profile, const b2TimeStep & step, const b2Vec2 & gravity, bool allowSleep)
 	static int _bind_Solve(lua_State *L) {
 		if (!_lg_typecheck_Solve(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Island::Solve(b2Profile * profile, const b2TimeStep & step, const b2Vec2 & gravity, bool allowSleep) function, expected prototype:\nvoid b2Island::Solve(b2Profile * profile, const b2TimeStep & step, const b2Vec2 & gravity, bool allowSleep)\nClass arguments details:\narg 1 ID = 16927334\narg 2 ID = 28832978\narg 3 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2Island::Solve(b2Profile * profile, const b2TimeStep & step, const b2Vec2 & gravity, bool allowSleep) function, expected prototype:\nvoid b2Island::Solve(b2Profile * profile, const b2TimeStep & step, const b2Vec2 & gravity, bool allowSleep)\nClass arguments details:\narg 1 ID = 16927334\narg 2 ID = 28832978\narg 3 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Profile* profile=(Luna< b2Profile >::check(L,2));
@@ -362,8 +354,7 @@ public:
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Island::Solve(b2Profile *, const b2TimeStep &, const b2Vec2 &, bool). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Island::Solve(b2Profile *, const b2TimeStep &, const b2Vec2 &, bool). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Solve(profile, step, gravity, allowSleep);
 
@@ -373,8 +364,7 @@ public:
 	// void b2Island::SolveTOI(const b2TimeStep & subStep, signed int toiIndexA, signed int toiIndexB)
 	static int _bind_SolveTOI(lua_State *L) {
 		if (!_lg_typecheck_SolveTOI(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Island::SolveTOI(const b2TimeStep & subStep, signed int toiIndexA, signed int toiIndexB) function, expected prototype:\nvoid b2Island::SolveTOI(const b2TimeStep & subStep, signed int toiIndexA, signed int toiIndexB)\nClass arguments details:\narg 1 ID = 28832978\n");
+			luaL_error(L, "luna typecheck failed in void b2Island::SolveTOI(const b2TimeStep & subStep, signed int toiIndexA, signed int toiIndexB) function, expected prototype:\nvoid b2Island::SolveTOI(const b2TimeStep & subStep, signed int toiIndexA, signed int toiIndexB)\nClass arguments details:\narg 1 ID = 28832978\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2TimeStep* subStep_ptr=(Luna< b2TimeStep >::check(L,2));
@@ -387,8 +377,7 @@ public:
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Island::SolveTOI(const b2TimeStep &, signed int, signed int). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Island::SolveTOI(const b2TimeStep &, signed int, signed int). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SolveTOI(subStep, toiIndexA, toiIndexB);
 
@@ -398,16 +387,14 @@ public:
 	// void b2Island::Add(b2Body * body)
 	static int _bind_Add_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Add_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Island::Add(b2Body * body) function, expected prototype:\nvoid b2Island::Add(b2Body * body)\nClass arguments details:\narg 1 ID = 53908778\n");
+			luaL_error(L, "luna typecheck failed in void b2Island::Add(b2Body * body) function, expected prototype:\nvoid b2Island::Add(b2Body * body)\nClass arguments details:\narg 1 ID = 53908778\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Body* body=(Luna< b2Body >::check(L,2));
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Island::Add(b2Body *). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Island::Add(b2Body *). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Add(body);
 
@@ -417,16 +404,14 @@ public:
 	// void b2Island::Add(b2Contact * contact)
 	static int _bind_Add_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Add_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Island::Add(b2Contact * contact) function, expected prototype:\nvoid b2Island::Add(b2Contact * contact)\nClass arguments details:\narg 1 ID = 92978558\n");
+			luaL_error(L, "luna typecheck failed in void b2Island::Add(b2Contact * contact) function, expected prototype:\nvoid b2Island::Add(b2Contact * contact)\nClass arguments details:\narg 1 ID = 92978558\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Contact* contact=(Luna< b2Contact >::check(L,2));
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Island::Add(b2Contact *). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Island::Add(b2Contact *). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Add(contact);
 
@@ -436,16 +421,14 @@ public:
 	// void b2Island::Add(b2Joint * joint)
 	static int _bind_Add_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Add_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Island::Add(b2Joint * joint) function, expected prototype:\nvoid b2Island::Add(b2Joint * joint)\nClass arguments details:\narg 1 ID = 78564754\n");
+			luaL_error(L, "luna typecheck failed in void b2Island::Add(b2Joint * joint) function, expected prototype:\nvoid b2Island::Add(b2Joint * joint)\nClass arguments details:\narg 1 ID = 78564754\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Joint* joint=(Luna< b2Joint >::check(L,2));
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Island::Add(b2Joint *). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Island::Add(b2Joint *). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Add(joint);
 
@@ -465,16 +448,14 @@ public:
 	// void b2Island::Report(const b2ContactVelocityConstraint * constraints)
 	static int _bind_Report(lua_State *L) {
 		if (!_lg_typecheck_Report(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Island::Report(const b2ContactVelocityConstraint * constraints) function, expected prototype:\nvoid b2Island::Report(const b2ContactVelocityConstraint * constraints)\nClass arguments details:\narg 1 ID = 22596938\n");
+			luaL_error(L, "luna typecheck failed in void b2Island::Report(const b2ContactVelocityConstraint * constraints) function, expected prototype:\nvoid b2Island::Report(const b2ContactVelocityConstraint * constraints)\nClass arguments details:\narg 1 ID = 22596938\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2ContactVelocityConstraint* constraints=(Luna< b2ContactVelocityConstraint >::check(L,2));
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Island::Report(const b2ContactVelocityConstraint *). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Island::Report(const b2ContactVelocityConstraint *). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Report(constraints);
 
@@ -484,15 +465,13 @@ public:
 	// b2StackAllocator * b2Island::m_allocator()
 	static int _bind_getAllocator(lua_State *L) {
 		if (!_lg_typecheck_getAllocator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2StackAllocator * b2Island::m_allocator() function, expected prototype:\nb2StackAllocator * b2Island::m_allocator()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2StackAllocator * b2Island::m_allocator() function, expected prototype:\nb2StackAllocator * b2Island::m_allocator()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2StackAllocator * b2Island::m_allocator(). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2StackAllocator * b2Island::m_allocator(). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2StackAllocator * lret = self->m_allocator;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -505,15 +484,13 @@ public:
 	// b2ContactListener * b2Island::m_listener()
 	static int _bind_getListener(lua_State *L) {
 		if (!_lg_typecheck_getListener(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2ContactListener * b2Island::m_listener() function, expected prototype:\nb2ContactListener * b2Island::m_listener()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2ContactListener * b2Island::m_listener() function, expected prototype:\nb2ContactListener * b2Island::m_listener()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2ContactListener * b2Island::m_listener(). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2ContactListener * b2Island::m_listener(). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2ContactListener * lret = self->m_listener;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -526,15 +503,13 @@ public:
 	// b2Position * b2Island::m_positions()
 	static int _bind_getPositions(lua_State *L) {
 		if (!_lg_typecheck_getPositions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Position * b2Island::m_positions() function, expected prototype:\nb2Position * b2Island::m_positions()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Position * b2Island::m_positions() function, expected prototype:\nb2Position * b2Island::m_positions()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Position * b2Island::m_positions(). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Position * b2Island::m_positions(). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Position * lret = self->m_positions;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -547,15 +522,13 @@ public:
 	// b2Velocity * b2Island::m_velocities()
 	static int _bind_getVelocities(lua_State *L) {
 		if (!_lg_typecheck_getVelocities(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Velocity * b2Island::m_velocities() function, expected prototype:\nb2Velocity * b2Island::m_velocities()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Velocity * b2Island::m_velocities() function, expected prototype:\nb2Velocity * b2Island::m_velocities()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Velocity * b2Island::m_velocities(). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Velocity * b2Island::m_velocities(). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Velocity * lret = self->m_velocities;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -568,15 +541,13 @@ public:
 	// signed int b2Island::m_bodyCount()
 	static int _bind_getBodyCount(lua_State *L) {
 		if (!_lg_typecheck_getBodyCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2Island::m_bodyCount() function, expected prototype:\nsigned int b2Island::m_bodyCount()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2Island::m_bodyCount() function, expected prototype:\nsigned int b2Island::m_bodyCount()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2Island::m_bodyCount(). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2Island::m_bodyCount(). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->m_bodyCount;
 		lua_pushnumber(L,lret);
@@ -587,15 +558,13 @@ public:
 	// signed int b2Island::m_jointCount()
 	static int _bind_getJointCount(lua_State *L) {
 		if (!_lg_typecheck_getJointCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2Island::m_jointCount() function, expected prototype:\nsigned int b2Island::m_jointCount()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2Island::m_jointCount() function, expected prototype:\nsigned int b2Island::m_jointCount()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2Island::m_jointCount(). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2Island::m_jointCount(). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->m_jointCount;
 		lua_pushnumber(L,lret);
@@ -606,15 +575,13 @@ public:
 	// signed int b2Island::m_contactCount()
 	static int _bind_getContactCount(lua_State *L) {
 		if (!_lg_typecheck_getContactCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2Island::m_contactCount() function, expected prototype:\nsigned int b2Island::m_contactCount()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2Island::m_contactCount() function, expected prototype:\nsigned int b2Island::m_contactCount()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2Island::m_contactCount(). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2Island::m_contactCount(). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->m_contactCount;
 		lua_pushnumber(L,lret);
@@ -625,15 +592,13 @@ public:
 	// signed int b2Island::m_bodyCapacity()
 	static int _bind_getBodyCapacity(lua_State *L) {
 		if (!_lg_typecheck_getBodyCapacity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2Island::m_bodyCapacity() function, expected prototype:\nsigned int b2Island::m_bodyCapacity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2Island::m_bodyCapacity() function, expected prototype:\nsigned int b2Island::m_bodyCapacity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2Island::m_bodyCapacity(). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2Island::m_bodyCapacity(). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->m_bodyCapacity;
 		lua_pushnumber(L,lret);
@@ -644,15 +609,13 @@ public:
 	// signed int b2Island::m_contactCapacity()
 	static int _bind_getContactCapacity(lua_State *L) {
 		if (!_lg_typecheck_getContactCapacity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2Island::m_contactCapacity() function, expected prototype:\nsigned int b2Island::m_contactCapacity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2Island::m_contactCapacity() function, expected prototype:\nsigned int b2Island::m_contactCapacity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2Island::m_contactCapacity(). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2Island::m_contactCapacity(). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->m_contactCapacity;
 		lua_pushnumber(L,lret);
@@ -663,15 +626,13 @@ public:
 	// signed int b2Island::m_jointCapacity()
 	static int _bind_getJointCapacity(lua_State *L) {
 		if (!_lg_typecheck_getJointCapacity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2Island::m_jointCapacity() function, expected prototype:\nsigned int b2Island::m_jointCapacity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2Island::m_jointCapacity() function, expected prototype:\nsigned int b2Island::m_jointCapacity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2Island::m_jointCapacity(). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2Island::m_jointCapacity(). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->m_jointCapacity;
 		lua_pushnumber(L,lret);
@@ -682,16 +643,14 @@ public:
 	// void b2Island::m_allocator(b2StackAllocator * value)
 	static int _bind_setAllocator(lua_State *L) {
 		if (!_lg_typecheck_setAllocator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Island::m_allocator(b2StackAllocator * value) function, expected prototype:\nvoid b2Island::m_allocator(b2StackAllocator * value)\nClass arguments details:\narg 1 ID = 83926873\n");
+			luaL_error(L, "luna typecheck failed in void b2Island::m_allocator(b2StackAllocator * value) function, expected prototype:\nvoid b2Island::m_allocator(b2StackAllocator * value)\nClass arguments details:\narg 1 ID = 83926873\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2StackAllocator* value=(Luna< b2StackAllocator >::check(L,2));
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Island::m_allocator(b2StackAllocator *). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Island::m_allocator(b2StackAllocator *). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_allocator = value;
 
@@ -701,16 +660,14 @@ public:
 	// void b2Island::m_listener(b2ContactListener * value)
 	static int _bind_setListener(lua_State *L) {
 		if (!_lg_typecheck_setListener(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Island::m_listener(b2ContactListener * value) function, expected prototype:\nvoid b2Island::m_listener(b2ContactListener * value)\nClass arguments details:\narg 1 ID = 55252344\n");
+			luaL_error(L, "luna typecheck failed in void b2Island::m_listener(b2ContactListener * value) function, expected prototype:\nvoid b2Island::m_listener(b2ContactListener * value)\nClass arguments details:\narg 1 ID = 55252344\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2ContactListener* value=(Luna< b2ContactListener >::check(L,2));
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Island::m_listener(b2ContactListener *). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Island::m_listener(b2ContactListener *). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_listener = value;
 
@@ -720,16 +677,14 @@ public:
 	// void b2Island::m_positions(b2Position * value)
 	static int _bind_setPositions(lua_State *L) {
 		if (!_lg_typecheck_setPositions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Island::m_positions(b2Position * value) function, expected prototype:\nvoid b2Island::m_positions(b2Position * value)\nClass arguments details:\narg 1 ID = 79848895\n");
+			luaL_error(L, "luna typecheck failed in void b2Island::m_positions(b2Position * value) function, expected prototype:\nvoid b2Island::m_positions(b2Position * value)\nClass arguments details:\narg 1 ID = 79848895\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Position* value=(Luna< b2Position >::check(L,2));
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Island::m_positions(b2Position *). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Island::m_positions(b2Position *). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_positions = value;
 
@@ -739,16 +694,14 @@ public:
 	// void b2Island::m_velocities(b2Velocity * value)
 	static int _bind_setVelocities(lua_State *L) {
 		if (!_lg_typecheck_setVelocities(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Island::m_velocities(b2Velocity * value) function, expected prototype:\nvoid b2Island::m_velocities(b2Velocity * value)\nClass arguments details:\narg 1 ID = 85114450\n");
+			luaL_error(L, "luna typecheck failed in void b2Island::m_velocities(b2Velocity * value) function, expected prototype:\nvoid b2Island::m_velocities(b2Velocity * value)\nClass arguments details:\narg 1 ID = 85114450\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Velocity* value=(Luna< b2Velocity >::check(L,2));
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Island::m_velocities(b2Velocity *). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Island::m_velocities(b2Velocity *). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_velocities = value;
 
@@ -758,16 +711,14 @@ public:
 	// void b2Island::m_bodyCount(signed int value)
 	static int _bind_setBodyCount(lua_State *L) {
 		if (!_lg_typecheck_setBodyCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Island::m_bodyCount(signed int value) function, expected prototype:\nvoid b2Island::m_bodyCount(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Island::m_bodyCount(signed int value) function, expected prototype:\nvoid b2Island::m_bodyCount(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Island::m_bodyCount(signed int). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Island::m_bodyCount(signed int). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_bodyCount = value;
 
@@ -777,16 +728,14 @@ public:
 	// void b2Island::m_jointCount(signed int value)
 	static int _bind_setJointCount(lua_State *L) {
 		if (!_lg_typecheck_setJointCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Island::m_jointCount(signed int value) function, expected prototype:\nvoid b2Island::m_jointCount(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Island::m_jointCount(signed int value) function, expected prototype:\nvoid b2Island::m_jointCount(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Island::m_jointCount(signed int). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Island::m_jointCount(signed int). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_jointCount = value;
 
@@ -796,16 +745,14 @@ public:
 	// void b2Island::m_contactCount(signed int value)
 	static int _bind_setContactCount(lua_State *L) {
 		if (!_lg_typecheck_setContactCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Island::m_contactCount(signed int value) function, expected prototype:\nvoid b2Island::m_contactCount(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Island::m_contactCount(signed int value) function, expected prototype:\nvoid b2Island::m_contactCount(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Island::m_contactCount(signed int). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Island::m_contactCount(signed int). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_contactCount = value;
 
@@ -815,16 +762,14 @@ public:
 	// void b2Island::m_bodyCapacity(signed int value)
 	static int _bind_setBodyCapacity(lua_State *L) {
 		if (!_lg_typecheck_setBodyCapacity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Island::m_bodyCapacity(signed int value) function, expected prototype:\nvoid b2Island::m_bodyCapacity(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Island::m_bodyCapacity(signed int value) function, expected prototype:\nvoid b2Island::m_bodyCapacity(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Island::m_bodyCapacity(signed int). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Island::m_bodyCapacity(signed int). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_bodyCapacity = value;
 
@@ -834,16 +779,14 @@ public:
 	// void b2Island::m_contactCapacity(signed int value)
 	static int _bind_setContactCapacity(lua_State *L) {
 		if (!_lg_typecheck_setContactCapacity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Island::m_contactCapacity(signed int value) function, expected prototype:\nvoid b2Island::m_contactCapacity(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Island::m_contactCapacity(signed int value) function, expected prototype:\nvoid b2Island::m_contactCapacity(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Island::m_contactCapacity(signed int). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Island::m_contactCapacity(signed int). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_contactCapacity = value;
 
@@ -853,16 +796,14 @@ public:
 	// void b2Island::m_jointCapacity(signed int value)
 	static int _bind_setJointCapacity(lua_State *L) {
 		if (!_lg_typecheck_setJointCapacity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Island::m_jointCapacity(signed int value) function, expected prototype:\nvoid b2Island::m_jointCapacity(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Island::m_jointCapacity(signed int value) function, expected prototype:\nvoid b2Island::m_jointCapacity(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2Island* self=(Luna< b2Island >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Island::m_jointCapacity(signed int). Got : '%s'",typeid(Luna< b2Island >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Island::m_jointCapacity(signed int). Got : '%s'\n%s",typeid(Luna< b2Island >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_jointCapacity = value;
 

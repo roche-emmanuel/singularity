@@ -91,7 +91,7 @@ public:
 	inline static bool _lg_typecheck_instance(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}

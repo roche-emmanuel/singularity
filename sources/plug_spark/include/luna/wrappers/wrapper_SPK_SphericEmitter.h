@@ -286,8 +286,7 @@ public:
 	// void SPK::Registerable::public_registerChild(SPK::Registerable * child, bool registerAll)
 	static int _bind_public_registerChild(lua_State *L) {
 		if (!_lg_typecheck_public_registerChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Registerable::public_registerChild(SPK::Registerable * child, bool registerAll) function, expected prototype:\nvoid SPK::Registerable::public_registerChild(SPK::Registerable * child, bool registerAll)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Registerable::public_registerChild(SPK::Registerable * child, bool registerAll) function, expected prototype:\nvoid SPK::Registerable::public_registerChild(SPK::Registerable * child, bool registerAll)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* child=(Luna< SPK::Registerable >::check(L,2));
@@ -295,8 +294,7 @@ public:
 
 		wrapper_SPK_SphericEmitter* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_SphericEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_registerChild(SPK::Registerable *, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_registerChild(SPK::Registerable *, bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_registerChild(child, registerAll);
 
@@ -306,8 +304,7 @@ public:
 	// SPK::Registerable * SPK::Registerable::public_copyChild(SPK::Registerable * child, bool createBase)
 	static int _bind_public_copyChild(lua_State *L) {
 		if (!_lg_typecheck_public_copyChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::Registerable::public_copyChild(SPK::Registerable * child, bool createBase) function, expected prototype:\nSPK::Registerable * SPK::Registerable::public_copyChild(SPK::Registerable * child, bool createBase)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::Registerable::public_copyChild(SPK::Registerable * child, bool createBase) function, expected prototype:\nSPK::Registerable * SPK::Registerable::public_copyChild(SPK::Registerable * child, bool createBase)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* child=(Luna< SPK::Registerable >::check(L,2));
@@ -315,8 +312,7 @@ public:
 
 		wrapper_SPK_SphericEmitter* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_SphericEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Registerable::public_copyChild(SPK::Registerable *, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Registerable::public_copyChild(SPK::Registerable *, bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::Registerable * lret = self->public_copyChild(child, createBase);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -329,8 +325,7 @@ public:
 	// bool SPK::Registerable::public_destroyChild(SPK::Registerable * child, bool keepChildren)
 	static int _bind_public_destroyChild(lua_State *L) {
 		if (!_lg_typecheck_public_destroyChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::Registerable::public_destroyChild(SPK::Registerable * child, bool keepChildren) function, expected prototype:\nbool SPK::Registerable::public_destroyChild(SPK::Registerable * child, bool keepChildren)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::Registerable::public_destroyChild(SPK::Registerable * child, bool keepChildren) function, expected prototype:\nbool SPK::Registerable::public_destroyChild(SPK::Registerable * child, bool keepChildren)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* child=(Luna< SPK::Registerable >::check(L,2));
@@ -338,8 +333,7 @@ public:
 
 		wrapper_SPK_SphericEmitter* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_SphericEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Registerable::public_destroyChild(SPK::Registerable *, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::Registerable::public_destroyChild(SPK::Registerable *, bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_destroyChild(child, keepChildren);
 		lua_pushboolean(L,lret?1:0);
@@ -350,16 +344,14 @@ public:
 	// void SPK::Registerable::public_incrementChildReference(SPK::Registerable * child)
 	static int _bind_public_incrementChildReference(lua_State *L) {
 		if (!_lg_typecheck_public_incrementChildReference(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Registerable::public_incrementChildReference(SPK::Registerable * child) function, expected prototype:\nvoid SPK::Registerable::public_incrementChildReference(SPK::Registerable * child)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Registerable::public_incrementChildReference(SPK::Registerable * child) function, expected prototype:\nvoid SPK::Registerable::public_incrementChildReference(SPK::Registerable * child)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* child=(Luna< SPK::Registerable >::check(L,2));
 
 		wrapper_SPK_SphericEmitter* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_SphericEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_incrementChildReference(SPK::Registerable *). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_incrementChildReference(SPK::Registerable *). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_incrementChildReference(child);
 
@@ -369,16 +361,14 @@ public:
 	// void SPK::Registerable::public_decrementChildReference(SPK::Registerable * child)
 	static int _bind_public_decrementChildReference(lua_State *L) {
 		if (!_lg_typecheck_public_decrementChildReference(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Registerable::public_decrementChildReference(SPK::Registerable * child) function, expected prototype:\nvoid SPK::Registerable::public_decrementChildReference(SPK::Registerable * child)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Registerable::public_decrementChildReference(SPK::Registerable * child) function, expected prototype:\nvoid SPK::Registerable::public_decrementChildReference(SPK::Registerable * child)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* child=(Luna< SPK::Registerable >::check(L,2));
 
 		wrapper_SPK_SphericEmitter* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_SphericEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_decrementChildReference(SPK::Registerable *). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_decrementChildReference(SPK::Registerable *). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_decrementChildReference(child);
 
@@ -388,8 +378,7 @@ public:
 	// static void SPK::Registerable::public_registerObject(SPK::Registerable * obj, bool registerAll = false)
 	static int _bind_public_registerObject(lua_State *L) {
 		if (!_lg_typecheck_public_registerObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void SPK::Registerable::public_registerObject(SPK::Registerable * obj, bool registerAll = false) function, expected prototype:\nstatic void SPK::Registerable::public_registerObject(SPK::Registerable * obj, bool registerAll = false)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in static void SPK::Registerable::public_registerObject(SPK::Registerable * obj, bool registerAll = false) function, expected prototype:\nstatic void SPK::Registerable::public_registerObject(SPK::Registerable * obj, bool registerAll = false)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -399,8 +388,7 @@ public:
 
 		wrapper_SPK_SphericEmitter* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_SphericEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void SPK::Registerable::public_registerObject(SPK::Registerable *, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static void SPK::Registerable::public_registerObject(SPK::Registerable *, bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_registerObject(obj, registerAll);
 
@@ -410,8 +398,7 @@ public:
 	// void SPK::Transformable::public_transformPos(SPK::Vector3D & tPos, const SPK::Vector3D & pos)
 	static int _bind_public_transformPos(lua_State *L) {
 		if (!_lg_typecheck_public_transformPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Transformable::public_transformPos(SPK::Vector3D & tPos, const SPK::Vector3D & pos) function, expected prototype:\nvoid SPK::Transformable::public_transformPos(SPK::Vector3D & tPos, const SPK::Vector3D & pos)\nClass arguments details:\narg 1 ID = 70092749\narg 2 ID = 70092749\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Transformable::public_transformPos(SPK::Vector3D & tPos, const SPK::Vector3D & pos) function, expected prototype:\nvoid SPK::Transformable::public_transformPos(SPK::Vector3D & tPos, const SPK::Vector3D & pos)\nClass arguments details:\narg 1 ID = 70092749\narg 2 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Vector3D* tPos_ptr=(Luna< SPK::Vector3D >::check(L,2));
@@ -427,8 +414,7 @@ public:
 
 		wrapper_SPK_SphericEmitter* self=Luna< SPK::Transformable >::checkSubType< wrapper_SPK_SphericEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::public_transformPos(SPK::Vector3D &, const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::public_transformPos(SPK::Vector3D &, const SPK::Vector3D &). Got : '%s'\n%s",typeid(Luna< SPK::Transformable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_transformPos(tPos, pos);
 
@@ -438,8 +424,7 @@ public:
 	// void SPK::Transformable::public_transformDir(SPK::Vector3D & tDir, const SPK::Vector3D & dir)
 	static int _bind_public_transformDir(lua_State *L) {
 		if (!_lg_typecheck_public_transformDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Transformable::public_transformDir(SPK::Vector3D & tDir, const SPK::Vector3D & dir) function, expected prototype:\nvoid SPK::Transformable::public_transformDir(SPK::Vector3D & tDir, const SPK::Vector3D & dir)\nClass arguments details:\narg 1 ID = 70092749\narg 2 ID = 70092749\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Transformable::public_transformDir(SPK::Vector3D & tDir, const SPK::Vector3D & dir) function, expected prototype:\nvoid SPK::Transformable::public_transformDir(SPK::Vector3D & tDir, const SPK::Vector3D & dir)\nClass arguments details:\narg 1 ID = 70092749\narg 2 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Vector3D* tDir_ptr=(Luna< SPK::Vector3D >::check(L,2));
@@ -455,8 +440,7 @@ public:
 
 		wrapper_SPK_SphericEmitter* self=Luna< SPK::Transformable >::checkSubType< wrapper_SPK_SphericEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::public_transformDir(SPK::Vector3D &, const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::public_transformDir(SPK::Vector3D &, const SPK::Vector3D &). Got : '%s'\n%s",typeid(Luna< SPK::Transformable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_transformDir(tDir, dir);
 
@@ -466,15 +450,13 @@ public:
 	// bool SPK::Transformable::public_isUpdateNotified() const
 	static int _bind_public_isUpdateNotified(lua_State *L) {
 		if (!_lg_typecheck_public_isUpdateNotified(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::Transformable::public_isUpdateNotified() const function, expected prototype:\nbool SPK::Transformable::public_isUpdateNotified() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::Transformable::public_isUpdateNotified() const function, expected prototype:\nbool SPK::Transformable::public_isUpdateNotified() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_SphericEmitter* self=Luna< SPK::Transformable >::checkSubType< wrapper_SPK_SphericEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Transformable::public_isUpdateNotified() const. Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::Transformable::public_isUpdateNotified() const. Got : '%s'\n%s",typeid(Luna< SPK::Transformable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_isUpdateNotified();
 		lua_pushboolean(L,lret?1:0);
@@ -485,15 +467,13 @@ public:
 	// void SPK::Transformable::public_notifyForUpdate()
 	static int _bind_public_notifyForUpdate(lua_State *L) {
 		if (!_lg_typecheck_public_notifyForUpdate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Transformable::public_notifyForUpdate() function, expected prototype:\nvoid SPK::Transformable::public_notifyForUpdate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Transformable::public_notifyForUpdate() function, expected prototype:\nvoid SPK::Transformable::public_notifyForUpdate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_SphericEmitter* self=Luna< SPK::Transformable >::checkSubType< wrapper_SPK_SphericEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Transformable::public_notifyForUpdate(). Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Transformable::public_notifyForUpdate(). Got : '%s'\n%s",typeid(Luna< SPK::Transformable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_notifyForUpdate();
 
@@ -503,15 +483,13 @@ public:
 	// const SPK::Transformable * SPK::Transformable::public_getParentTransform() const
 	static int _bind_public_getParentTransform(lua_State *L) {
 		if (!_lg_typecheck_public_getParentTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const SPK::Transformable * SPK::Transformable::public_getParentTransform() const function, expected prototype:\nconst SPK::Transformable * SPK::Transformable::public_getParentTransform() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const SPK::Transformable * SPK::Transformable::public_getParentTransform() const function, expected prototype:\nconst SPK::Transformable * SPK::Transformable::public_getParentTransform() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_SphericEmitter* self=Luna< SPK::Transformable >::checkSubType< wrapper_SPK_SphericEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Transformable * SPK::Transformable::public_getParentTransform() const. Got : '%s'",typeid(Luna< SPK::Transformable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const SPK::Transformable * SPK::Transformable::public_getParentTransform() const. Got : '%s'\n%s",typeid(Luna< SPK::Transformable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const SPK::Transformable * lret = self->public_getParentTransform();
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -1,7 +1,7 @@
 #ifndef _OSGSURFACEFACTORY_H_
 #define _OSGSURFACEFACTORY_H_
 
-#include <sgtCommon.h>
+#include <lunaCommon.h>
 #include <Awesomium/Surface.h>
 
 class OSGSurface;

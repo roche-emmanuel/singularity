@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btQuadWord* self= (btQuadWord*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btQuadWord >::check(L,1));
@@ -52,14 +50,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -85,19 +82,19 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -124,28 +121,28 @@ public:
 	inline static bool _lg_typecheck_setX(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setY(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setZ(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setW(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -176,19 +173,19 @@ public:
 	inline static bool _lg_typecheck_setValue_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setValue_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -228,8 +225,7 @@ public:
 	// btQuadWord::btQuadWord()
 	static btQuadWord* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btQuadWord::btQuadWord() function, expected prototype:\nbtQuadWord::btQuadWord()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btQuadWord::btQuadWord() function, expected prototype:\nbtQuadWord::btQuadWord()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -239,8 +235,7 @@ public:
 	// btQuadWord::btQuadWord(const float & _x, const float & _y, const float & _z)
 	static btQuadWord* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btQuadWord::btQuadWord(const float & _x, const float & _y, const float & _z) function, expected prototype:\nbtQuadWord::btQuadWord(const float & _x, const float & _y, const float & _z)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btQuadWord::btQuadWord(const float & _x, const float & _y, const float & _z) function, expected prototype:\nbtQuadWord::btQuadWord(const float & _x, const float & _y, const float & _z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const float _x=(const float)lua_tonumber(L,1);
@@ -253,8 +248,7 @@ public:
 	// btQuadWord::btQuadWord(const float & _x, const float & _y, const float & _z, const float & _w)
 	static btQuadWord* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btQuadWord::btQuadWord(const float & _x, const float & _y, const float & _z, const float & _w) function, expected prototype:\nbtQuadWord::btQuadWord(const float & _x, const float & _y, const float & _z, const float & _w)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btQuadWord::btQuadWord(const float & _x, const float & _y, const float & _z, const float & _w) function, expected prototype:\nbtQuadWord::btQuadWord(const float & _x, const float & _y, const float & _z, const float & _w)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const float _x=(const float)lua_tonumber(L,1);
@@ -280,15 +274,13 @@ public:
 	// const float & btQuadWord::getX() const
 	static int _bind_getX(lua_State *L) {
 		if (!_lg_typecheck_getX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const float & btQuadWord::getX() const function, expected prototype:\nconst float & btQuadWord::getX() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const float & btQuadWord::getX() const function, expected prototype:\nconst float & btQuadWord::getX() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const float & btQuadWord::getX() const. Got : '%s'",typeid(Luna< btQuadWord >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const float & btQuadWord::getX() const. Got : '%s'\n%s",typeid(Luna< btQuadWord >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const float & lret = self->getX();
 		lua_pushnumber(L,lret);
@@ -299,15 +291,13 @@ public:
 	// const float & btQuadWord::getY() const
 	static int _bind_getY(lua_State *L) {
 		if (!_lg_typecheck_getY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const float & btQuadWord::getY() const function, expected prototype:\nconst float & btQuadWord::getY() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const float & btQuadWord::getY() const function, expected prototype:\nconst float & btQuadWord::getY() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const float & btQuadWord::getY() const. Got : '%s'",typeid(Luna< btQuadWord >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const float & btQuadWord::getY() const. Got : '%s'\n%s",typeid(Luna< btQuadWord >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const float & lret = self->getY();
 		lua_pushnumber(L,lret);
@@ -318,15 +308,13 @@ public:
 	// const float & btQuadWord::getZ() const
 	static int _bind_getZ(lua_State *L) {
 		if (!_lg_typecheck_getZ(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const float & btQuadWord::getZ() const function, expected prototype:\nconst float & btQuadWord::getZ() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const float & btQuadWord::getZ() const function, expected prototype:\nconst float & btQuadWord::getZ() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const float & btQuadWord::getZ() const. Got : '%s'",typeid(Luna< btQuadWord >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const float & btQuadWord::getZ() const. Got : '%s'\n%s",typeid(Luna< btQuadWord >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const float & lret = self->getZ();
 		lua_pushnumber(L,lret);
@@ -337,16 +325,14 @@ public:
 	// void btQuadWord::setX(float _x)
 	static int _bind_setX(lua_State *L) {
 		if (!_lg_typecheck_setX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuadWord::setX(float _x) function, expected prototype:\nvoid btQuadWord::setX(float _x)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btQuadWord::setX(float _x) function, expected prototype:\nvoid btQuadWord::setX(float _x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float _x=(float)lua_tonumber(L,2);
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuadWord::setX(float). Got : '%s'",typeid(Luna< btQuadWord >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuadWord::setX(float). Got : '%s'\n%s",typeid(Luna< btQuadWord >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setX(_x);
 
@@ -356,16 +342,14 @@ public:
 	// void btQuadWord::setY(float _y)
 	static int _bind_setY(lua_State *L) {
 		if (!_lg_typecheck_setY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuadWord::setY(float _y) function, expected prototype:\nvoid btQuadWord::setY(float _y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btQuadWord::setY(float _y) function, expected prototype:\nvoid btQuadWord::setY(float _y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float _y=(float)lua_tonumber(L,2);
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuadWord::setY(float). Got : '%s'",typeid(Luna< btQuadWord >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuadWord::setY(float). Got : '%s'\n%s",typeid(Luna< btQuadWord >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setY(_y);
 
@@ -375,16 +359,14 @@ public:
 	// void btQuadWord::setZ(float _z)
 	static int _bind_setZ(lua_State *L) {
 		if (!_lg_typecheck_setZ(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuadWord::setZ(float _z) function, expected prototype:\nvoid btQuadWord::setZ(float _z)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btQuadWord::setZ(float _z) function, expected prototype:\nvoid btQuadWord::setZ(float _z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float _z=(float)lua_tonumber(L,2);
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuadWord::setZ(float). Got : '%s'",typeid(Luna< btQuadWord >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuadWord::setZ(float). Got : '%s'\n%s",typeid(Luna< btQuadWord >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setZ(_z);
 
@@ -394,16 +376,14 @@ public:
 	// void btQuadWord::setW(float _w)
 	static int _bind_setW(lua_State *L) {
 		if (!_lg_typecheck_setW(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuadWord::setW(float _w) function, expected prototype:\nvoid btQuadWord::setW(float _w)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btQuadWord::setW(float _w) function, expected prototype:\nvoid btQuadWord::setW(float _w)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float _w=(float)lua_tonumber(L,2);
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuadWord::setW(float). Got : '%s'",typeid(Luna< btQuadWord >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuadWord::setW(float). Got : '%s'\n%s",typeid(Luna< btQuadWord >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setW(_w);
 
@@ -413,15 +393,13 @@ public:
 	// const float & btQuadWord::x() const
 	static int _bind_x(lua_State *L) {
 		if (!_lg_typecheck_x(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const float & btQuadWord::x() const function, expected prototype:\nconst float & btQuadWord::x() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const float & btQuadWord::x() const function, expected prototype:\nconst float & btQuadWord::x() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const float & btQuadWord::x() const. Got : '%s'",typeid(Luna< btQuadWord >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const float & btQuadWord::x() const. Got : '%s'\n%s",typeid(Luna< btQuadWord >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const float & lret = self->x();
 		lua_pushnumber(L,lret);
@@ -432,15 +410,13 @@ public:
 	// const float & btQuadWord::y() const
 	static int _bind_y(lua_State *L) {
 		if (!_lg_typecheck_y(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const float & btQuadWord::y() const function, expected prototype:\nconst float & btQuadWord::y() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const float & btQuadWord::y() const function, expected prototype:\nconst float & btQuadWord::y() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const float & btQuadWord::y() const. Got : '%s'",typeid(Luna< btQuadWord >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const float & btQuadWord::y() const. Got : '%s'\n%s",typeid(Luna< btQuadWord >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const float & lret = self->y();
 		lua_pushnumber(L,lret);
@@ -451,15 +427,13 @@ public:
 	// const float & btQuadWord::z() const
 	static int _bind_z(lua_State *L) {
 		if (!_lg_typecheck_z(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const float & btQuadWord::z() const function, expected prototype:\nconst float & btQuadWord::z() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const float & btQuadWord::z() const function, expected prototype:\nconst float & btQuadWord::z() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const float & btQuadWord::z() const. Got : '%s'",typeid(Luna< btQuadWord >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const float & btQuadWord::z() const. Got : '%s'\n%s",typeid(Luna< btQuadWord >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const float & lret = self->z();
 		lua_pushnumber(L,lret);
@@ -470,15 +444,13 @@ public:
 	// const float & btQuadWord::w() const
 	static int _bind_w(lua_State *L) {
 		if (!_lg_typecheck_w(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const float & btQuadWord::w() const function, expected prototype:\nconst float & btQuadWord::w() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const float & btQuadWord::w() const function, expected prototype:\nconst float & btQuadWord::w() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const float & btQuadWord::w() const. Got : '%s'",typeid(Luna< btQuadWord >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const float & btQuadWord::w() const. Got : '%s'\n%s",typeid(Luna< btQuadWord >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const float & lret = self->w();
 		lua_pushnumber(L,lret);
@@ -489,8 +461,7 @@ public:
 	// void btQuadWord::setValue(const float & _x, const float & _y, const float & _z)
 	static int _bind_setValue_overload_1(lua_State *L) {
 		if (!_lg_typecheck_setValue_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuadWord::setValue(const float & _x, const float & _y, const float & _z) function, expected prototype:\nvoid btQuadWord::setValue(const float & _x, const float & _y, const float & _z)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btQuadWord::setValue(const float & _x, const float & _y, const float & _z) function, expected prototype:\nvoid btQuadWord::setValue(const float & _x, const float & _y, const float & _z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const float _x=(const float)lua_tonumber(L,2);
@@ -499,8 +470,7 @@ public:
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuadWord::setValue(const float &, const float &, const float &). Got : '%s'",typeid(Luna< btQuadWord >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuadWord::setValue(const float &, const float &, const float &). Got : '%s'\n%s",typeid(Luna< btQuadWord >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setValue(_x, _y, _z);
 
@@ -510,8 +480,7 @@ public:
 	// void btQuadWord::setValue(const float & _x, const float & _y, const float & _z, const float & _w)
 	static int _bind_setValue_overload_2(lua_State *L) {
 		if (!_lg_typecheck_setValue_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuadWord::setValue(const float & _x, const float & _y, const float & _z, const float & _w) function, expected prototype:\nvoid btQuadWord::setValue(const float & _x, const float & _y, const float & _z, const float & _w)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btQuadWord::setValue(const float & _x, const float & _y, const float & _z, const float & _w) function, expected prototype:\nvoid btQuadWord::setValue(const float & _x, const float & _y, const float & _z, const float & _w)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const float _x=(const float)lua_tonumber(L,2);
@@ -521,8 +490,7 @@ public:
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuadWord::setValue(const float &, const float &, const float &, const float &). Got : '%s'",typeid(Luna< btQuadWord >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuadWord::setValue(const float &, const float &, const float &, const float &). Got : '%s'\n%s",typeid(Luna< btQuadWord >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setValue(_x, _y, _z, _w);
 
@@ -541,8 +509,7 @@ public:
 	// void btQuadWord::setMax(const btQuadWord & other)
 	static int _bind_setMax(lua_State *L) {
 		if (!_lg_typecheck_setMax(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuadWord::setMax(const btQuadWord & other) function, expected prototype:\nvoid btQuadWord::setMax(const btQuadWord & other)\nClass arguments details:\narg 1 ID = 2139400\n");
+			luaL_error(L, "luna typecheck failed in void btQuadWord::setMax(const btQuadWord & other) function, expected prototype:\nvoid btQuadWord::setMax(const btQuadWord & other)\nClass arguments details:\narg 1 ID = 2139400\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btQuadWord* other_ptr=(Luna< btQuadWord >::check(L,2));
@@ -553,8 +520,7 @@ public:
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuadWord::setMax(const btQuadWord &). Got : '%s'",typeid(Luna< btQuadWord >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuadWord::setMax(const btQuadWord &). Got : '%s'\n%s",typeid(Luna< btQuadWord >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMax(other);
 
@@ -564,8 +530,7 @@ public:
 	// void btQuadWord::setMin(const btQuadWord & other)
 	static int _bind_setMin(lua_State *L) {
 		if (!_lg_typecheck_setMin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuadWord::setMin(const btQuadWord & other) function, expected prototype:\nvoid btQuadWord::setMin(const btQuadWord & other)\nClass arguments details:\narg 1 ID = 2139400\n");
+			luaL_error(L, "luna typecheck failed in void btQuadWord::setMin(const btQuadWord & other) function, expected prototype:\nvoid btQuadWord::setMin(const btQuadWord & other)\nClass arguments details:\narg 1 ID = 2139400\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btQuadWord* other_ptr=(Luna< btQuadWord >::check(L,2));
@@ -576,8 +541,7 @@ public:
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuadWord::setMin(const btQuadWord &). Got : '%s'",typeid(Luna< btQuadWord >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuadWord::setMin(const btQuadWord &). Got : '%s'\n%s",typeid(Luna< btQuadWord >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMin(other);
 
@@ -589,8 +553,7 @@ public:
 	// bool btQuadWord::operator==(const btQuadWord & other) const
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btQuadWord::operator==(const btQuadWord & other) const function, expected prototype:\nbool btQuadWord::operator==(const btQuadWord & other) const\nClass arguments details:\narg 1 ID = 2139400\n");
+			luaL_error(L, "luna typecheck failed in bool btQuadWord::operator==(const btQuadWord & other) const function, expected prototype:\nbool btQuadWord::operator==(const btQuadWord & other) const\nClass arguments details:\narg 1 ID = 2139400\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btQuadWord* other_ptr=(Luna< btQuadWord >::check(L,2));
@@ -601,8 +564,7 @@ public:
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btQuadWord::operator==(const btQuadWord &) const. Got : '%s'",typeid(Luna< btQuadWord >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btQuadWord::operator==(const btQuadWord &) const. Got : '%s'\n%s",typeid(Luna< btQuadWord >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(other);
 		lua_pushboolean(L,lret?1:0);
@@ -613,8 +575,7 @@ public:
 	// bool btQuadWord::operator!=(const btQuadWord & other) const
 	static int _bind_op_neq(lua_State *L) {
 		if (!_lg_typecheck_op_neq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btQuadWord::operator!=(const btQuadWord & other) const function, expected prototype:\nbool btQuadWord::operator!=(const btQuadWord & other) const\nClass arguments details:\narg 1 ID = 2139400\n");
+			luaL_error(L, "luna typecheck failed in bool btQuadWord::operator!=(const btQuadWord & other) const function, expected prototype:\nbool btQuadWord::operator!=(const btQuadWord & other) const\nClass arguments details:\narg 1 ID = 2139400\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btQuadWord* other_ptr=(Luna< btQuadWord >::check(L,2));
@@ -625,8 +586,7 @@ public:
 
 		btQuadWord* self=(Luna< btQuadWord >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btQuadWord::operator!=(const btQuadWord &) const. Got : '%s'",typeid(Luna< btQuadWord >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btQuadWord::operator!=(const btQuadWord &) const. Got : '%s'\n%s",typeid(Luna< btQuadWord >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator!=(other);
 		lua_pushboolean(L,lret?1:0);

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld* self=(Luna< btCollisionWorld >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSimpleDynamicsWorld* self= (btSimpleDynamicsWorld*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCollisionWorld >::check(L,1));
@@ -124,9 +121,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -156,8 +153,8 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,85758361)) ) return false;
 		if( (lua_isnil(L,2)==0 && !(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,2)) ) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -274,8 +271,8 @@ public:
 		if( luatop<2 || luatop>4 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,85758361)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -310,14 +307,14 @@ public:
 	inline static bool _lg_typecheck_base_getConstraint_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_getConstraint_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -353,9 +350,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -385,8 +382,8 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,85758361)) ) return false;
 		if( (lua_isnil(L,2)==0 && !(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,2)) ) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -469,8 +466,7 @@ public:
 	// btSimpleDynamicsWorld::btSimpleDynamicsWorld(btDispatcher * dispatcher, btBroadphaseInterface * pairCache, btConstraintSolver * constraintSolver, btCollisionConfiguration * collisionConfiguration)
 	static btSimpleDynamicsWorld* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSimpleDynamicsWorld::btSimpleDynamicsWorld(btDispatcher * dispatcher, btBroadphaseInterface * pairCache, btConstraintSolver * constraintSolver, btCollisionConfiguration * collisionConfiguration) function, expected prototype:\nbtSimpleDynamicsWorld::btSimpleDynamicsWorld(btDispatcher * dispatcher, btBroadphaseInterface * pairCache, btConstraintSolver * constraintSolver, btCollisionConfiguration * collisionConfiguration)\nClass arguments details:\narg 1 ID = 71097681\narg 2 ID = 25261840\narg 3 ID = 53256621\narg 4 ID = 31901746\n");
+			luaL_error(L, "luna typecheck failed in btSimpleDynamicsWorld::btSimpleDynamicsWorld(btDispatcher * dispatcher, btBroadphaseInterface * pairCache, btConstraintSolver * constraintSolver, btCollisionConfiguration * collisionConfiguration) function, expected prototype:\nbtSimpleDynamicsWorld::btSimpleDynamicsWorld(btDispatcher * dispatcher, btBroadphaseInterface * pairCache, btConstraintSolver * constraintSolver, btCollisionConfiguration * collisionConfiguration)\nClass arguments details:\narg 1 ID = 71097681\narg 2 ID = 25261840\narg 3 ID = 53256621\narg 4 ID = 31901746\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDispatcher* dispatcher=(Luna< btDispatcher >::check(L,1));
@@ -484,8 +480,7 @@ public:
 	// btSimpleDynamicsWorld::btSimpleDynamicsWorld(lua_Table * data, btDispatcher * dispatcher, btBroadphaseInterface * pairCache, btConstraintSolver * constraintSolver, btCollisionConfiguration * collisionConfiguration)
 	static btSimpleDynamicsWorld* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSimpleDynamicsWorld::btSimpleDynamicsWorld(lua_Table * data, btDispatcher * dispatcher, btBroadphaseInterface * pairCache, btConstraintSolver * constraintSolver, btCollisionConfiguration * collisionConfiguration) function, expected prototype:\nbtSimpleDynamicsWorld::btSimpleDynamicsWorld(lua_Table * data, btDispatcher * dispatcher, btBroadphaseInterface * pairCache, btConstraintSolver * constraintSolver, btCollisionConfiguration * collisionConfiguration)\nClass arguments details:\narg 2 ID = 71097681\narg 3 ID = 25261840\narg 4 ID = 53256621\narg 5 ID = 31901746\n");
+			luaL_error(L, "luna typecheck failed in btSimpleDynamicsWorld::btSimpleDynamicsWorld(lua_Table * data, btDispatcher * dispatcher, btBroadphaseInterface * pairCache, btConstraintSolver * constraintSolver, btCollisionConfiguration * collisionConfiguration) function, expected prototype:\nbtSimpleDynamicsWorld::btSimpleDynamicsWorld(lua_Table * data, btDispatcher * dispatcher, btBroadphaseInterface * pairCache, btConstraintSolver * constraintSolver, btCollisionConfiguration * collisionConfiguration)\nClass arguments details:\narg 2 ID = 71097681\narg 3 ID = 25261840\narg 4 ID = 53256621\narg 5 ID = 31901746\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDispatcher* dispatcher=(Luna< btDispatcher >::check(L,2));
@@ -510,8 +505,7 @@ public:
 	// int btSimpleDynamicsWorld::stepSimulation(float timeStep, int maxSubSteps = 1, float fixedTimeStep = float (1.)/ float (60.))
 	static int _bind_stepSimulation(lua_State *L) {
 		if (!_lg_typecheck_stepSimulation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btSimpleDynamicsWorld::stepSimulation(float timeStep, int maxSubSteps = 1, float fixedTimeStep = float (1.)/ float (60.)) function, expected prototype:\nint btSimpleDynamicsWorld::stepSimulation(float timeStep, int maxSubSteps = 1, float fixedTimeStep = float (1.)/ float (60.))\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btSimpleDynamicsWorld::stepSimulation(float timeStep, int maxSubSteps = 1, float fixedTimeStep = float (1.)/ float (60.)) function, expected prototype:\nint btSimpleDynamicsWorld::stepSimulation(float timeStep, int maxSubSteps = 1, float fixedTimeStep = float (1.)/ float (60.))\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -522,8 +516,7 @@ public:
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btSimpleDynamicsWorld::stepSimulation(float, int, float). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btSimpleDynamicsWorld::stepSimulation(float, int, float). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->stepSimulation(timeStep, maxSubSteps, fixedTimeStep);
 		lua_pushnumber(L,lret);
@@ -534,8 +527,7 @@ public:
 	// void btSimpleDynamicsWorld::setGravity(const btVector3 & gravity)
 	static int _bind_setGravity(lua_State *L) {
 		if (!_lg_typecheck_setGravity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::setGravity(const btVector3 & gravity) function, expected prototype:\nvoid btSimpleDynamicsWorld::setGravity(const btVector3 & gravity)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::setGravity(const btVector3 & gravity) function, expected prototype:\nvoid btSimpleDynamicsWorld::setGravity(const btVector3 & gravity)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* gravity_ptr=(Luna< btVector3 >::check(L,2));
@@ -546,8 +538,7 @@ public:
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::setGravity(const btVector3 &). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::setGravity(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setGravity(gravity);
 
@@ -557,15 +548,13 @@ public:
 	// btVector3 btSimpleDynamicsWorld::getGravity() const
 	static int _bind_getGravity(lua_State *L) {
 		if (!_lg_typecheck_getGravity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btSimpleDynamicsWorld::getGravity() const function, expected prototype:\nbtVector3 btSimpleDynamicsWorld::getGravity() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btSimpleDynamicsWorld::getGravity() const function, expected prototype:\nbtVector3 btSimpleDynamicsWorld::getGravity() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btSimpleDynamicsWorld::getGravity() const. Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btSimpleDynamicsWorld::getGravity() const. Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->getGravity();
 		btVector3* lret = new btVector3(stack_lret);
@@ -579,16 +568,14 @@ public:
 	// void btSimpleDynamicsWorld::addRigidBody(btRigidBody * body)
 	static int _bind_addRigidBody_overload_1(lua_State *L) {
 		if (!_lg_typecheck_addRigidBody_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::addRigidBody(btRigidBody * body) function, expected prototype:\nvoid btSimpleDynamicsWorld::addRigidBody(btRigidBody * body)\nClass arguments details:\narg 1 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::addRigidBody(btRigidBody * body) function, expected prototype:\nvoid btSimpleDynamicsWorld::addRigidBody(btRigidBody * body)\nClass arguments details:\narg 1 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* body=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::addRigidBody(btRigidBody *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::addRigidBody(btRigidBody *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addRigidBody(body);
 
@@ -598,8 +585,7 @@ public:
 	// void btSimpleDynamicsWorld::addRigidBody(btRigidBody * body, short group, short mask)
 	static int _bind_addRigidBody_overload_2(lua_State *L) {
 		if (!_lg_typecheck_addRigidBody_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::addRigidBody(btRigidBody * body, short group, short mask) function, expected prototype:\nvoid btSimpleDynamicsWorld::addRigidBody(btRigidBody * body, short group, short mask)\nClass arguments details:\narg 1 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::addRigidBody(btRigidBody * body, short group, short mask) function, expected prototype:\nvoid btSimpleDynamicsWorld::addRigidBody(btRigidBody * body, short group, short mask)\nClass arguments details:\narg 1 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* body=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,2));
@@ -608,8 +594,7 @@ public:
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::addRigidBody(btRigidBody *, short, short). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::addRigidBody(btRigidBody *, short, short). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addRigidBody(body, group, mask);
 
@@ -628,16 +613,14 @@ public:
 	// void btSimpleDynamicsWorld::removeRigidBody(btRigidBody * body)
 	static int _bind_removeRigidBody(lua_State *L) {
 		if (!_lg_typecheck_removeRigidBody(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::removeRigidBody(btRigidBody * body) function, expected prototype:\nvoid btSimpleDynamicsWorld::removeRigidBody(btRigidBody * body)\nClass arguments details:\narg 1 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::removeRigidBody(btRigidBody * body) function, expected prototype:\nvoid btSimpleDynamicsWorld::removeRigidBody(btRigidBody * body)\nClass arguments details:\narg 1 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* body=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::removeRigidBody(btRigidBody *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::removeRigidBody(btRigidBody *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->removeRigidBody(body);
 
@@ -647,15 +630,13 @@ public:
 	// void btSimpleDynamicsWorld::debugDrawWorld()
 	static int _bind_debugDrawWorld(lua_State *L) {
 		if (!_lg_typecheck_debugDrawWorld(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::debugDrawWorld() function, expected prototype:\nvoid btSimpleDynamicsWorld::debugDrawWorld()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::debugDrawWorld() function, expected prototype:\nvoid btSimpleDynamicsWorld::debugDrawWorld()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::debugDrawWorld(). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::debugDrawWorld(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->debugDrawWorld();
 
@@ -665,16 +646,14 @@ public:
 	// void btSimpleDynamicsWorld::addAction(btActionInterface * action)
 	static int _bind_addAction(lua_State *L) {
 		if (!_lg_typecheck_addAction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::addAction(btActionInterface * action) function, expected prototype:\nvoid btSimpleDynamicsWorld::addAction(btActionInterface * action)\nClass arguments details:\narg 1 ID = 91159321\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::addAction(btActionInterface * action) function, expected prototype:\nvoid btSimpleDynamicsWorld::addAction(btActionInterface * action)\nClass arguments details:\narg 1 ID = 91159321\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btActionInterface* action=(Luna< btActionInterface >::check(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::addAction(btActionInterface *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::addAction(btActionInterface *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addAction(action);
 
@@ -684,16 +663,14 @@ public:
 	// void btSimpleDynamicsWorld::removeAction(btActionInterface * action)
 	static int _bind_removeAction(lua_State *L) {
 		if (!_lg_typecheck_removeAction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::removeAction(btActionInterface * action) function, expected prototype:\nvoid btSimpleDynamicsWorld::removeAction(btActionInterface * action)\nClass arguments details:\narg 1 ID = 91159321\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::removeAction(btActionInterface * action) function, expected prototype:\nvoid btSimpleDynamicsWorld::removeAction(btActionInterface * action)\nClass arguments details:\narg 1 ID = 91159321\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btActionInterface* action=(Luna< btActionInterface >::check(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::removeAction(btActionInterface *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::removeAction(btActionInterface *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->removeAction(action);
 
@@ -703,16 +680,14 @@ public:
 	// void btSimpleDynamicsWorld::removeCollisionObject(btCollisionObject * collisionObject)
 	static int _bind_removeCollisionObject(lua_State *L) {
 		if (!_lg_typecheck_removeCollisionObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::removeCollisionObject(btCollisionObject * collisionObject) function, expected prototype:\nvoid btSimpleDynamicsWorld::removeCollisionObject(btCollisionObject * collisionObject)\nClass arguments details:\narg 1 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::removeCollisionObject(btCollisionObject * collisionObject) function, expected prototype:\nvoid btSimpleDynamicsWorld::removeCollisionObject(btCollisionObject * collisionObject)\nClass arguments details:\narg 1 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionObject* collisionObject=(Luna< btCollisionObject >::check(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::removeCollisionObject(btCollisionObject *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::removeCollisionObject(btCollisionObject *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->removeCollisionObject(collisionObject);
 
@@ -722,15 +697,13 @@ public:
 	// void btSimpleDynamicsWorld::updateAabbs()
 	static int _bind_updateAabbs(lua_State *L) {
 		if (!_lg_typecheck_updateAabbs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::updateAabbs() function, expected prototype:\nvoid btSimpleDynamicsWorld::updateAabbs()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::updateAabbs() function, expected prototype:\nvoid btSimpleDynamicsWorld::updateAabbs()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::updateAabbs(). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::updateAabbs(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->updateAabbs();
 
@@ -740,15 +713,13 @@ public:
 	// void btSimpleDynamicsWorld::synchronizeMotionStates()
 	static int _bind_synchronizeMotionStates(lua_State *L) {
 		if (!_lg_typecheck_synchronizeMotionStates(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::synchronizeMotionStates() function, expected prototype:\nvoid btSimpleDynamicsWorld::synchronizeMotionStates()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::synchronizeMotionStates() function, expected prototype:\nvoid btSimpleDynamicsWorld::synchronizeMotionStates()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::synchronizeMotionStates(). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::synchronizeMotionStates(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->synchronizeMotionStates();
 
@@ -758,16 +729,14 @@ public:
 	// void btSimpleDynamicsWorld::setConstraintSolver(btConstraintSolver * solver)
 	static int _bind_setConstraintSolver(lua_State *L) {
 		if (!_lg_typecheck_setConstraintSolver(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::setConstraintSolver(btConstraintSolver * solver) function, expected prototype:\nvoid btSimpleDynamicsWorld::setConstraintSolver(btConstraintSolver * solver)\nClass arguments details:\narg 1 ID = 53256621\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::setConstraintSolver(btConstraintSolver * solver) function, expected prototype:\nvoid btSimpleDynamicsWorld::setConstraintSolver(btConstraintSolver * solver)\nClass arguments details:\narg 1 ID = 53256621\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConstraintSolver* solver=(Luna< btConstraintSolver >::check(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::setConstraintSolver(btConstraintSolver *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::setConstraintSolver(btConstraintSolver *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setConstraintSolver(solver);
 
@@ -777,15 +746,13 @@ public:
 	// btConstraintSolver * btSimpleDynamicsWorld::getConstraintSolver()
 	static int _bind_getConstraintSolver(lua_State *L) {
 		if (!_lg_typecheck_getConstraintSolver(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConstraintSolver * btSimpleDynamicsWorld::getConstraintSolver() function, expected prototype:\nbtConstraintSolver * btSimpleDynamicsWorld::getConstraintSolver()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btConstraintSolver * btSimpleDynamicsWorld::getConstraintSolver() function, expected prototype:\nbtConstraintSolver * btSimpleDynamicsWorld::getConstraintSolver()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btConstraintSolver * btSimpleDynamicsWorld::getConstraintSolver(). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btConstraintSolver * btSimpleDynamicsWorld::getConstraintSolver(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btConstraintSolver * lret = self->getConstraintSolver();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -798,15 +765,13 @@ public:
 	// btDynamicsWorldType btSimpleDynamicsWorld::getWorldType() const
 	static int _bind_getWorldType(lua_State *L) {
 		if (!_lg_typecheck_getWorldType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btDynamicsWorldType btSimpleDynamicsWorld::getWorldType() const function, expected prototype:\nbtDynamicsWorldType btSimpleDynamicsWorld::getWorldType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btDynamicsWorldType btSimpleDynamicsWorld::getWorldType() const function, expected prototype:\nbtDynamicsWorldType btSimpleDynamicsWorld::getWorldType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btDynamicsWorldType btSimpleDynamicsWorld::getWorldType() const. Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btDynamicsWorldType btSimpleDynamicsWorld::getWorldType() const. Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btDynamicsWorldType lret = self->getWorldType();
 		lua_pushnumber(L,lret);
@@ -817,15 +782,13 @@ public:
 	// void btSimpleDynamicsWorld::clearForces()
 	static int _bind_clearForces(lua_State *L) {
 		if (!_lg_typecheck_clearForces(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::clearForces() function, expected prototype:\nvoid btSimpleDynamicsWorld::clearForces()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::clearForces() function, expected prototype:\nvoid btSimpleDynamicsWorld::clearForces()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::clearForces(). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::clearForces(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->clearForces();
 
@@ -835,15 +798,13 @@ public:
 	// void btSimpleDynamicsWorld::base_computeOverlappingPairs()
 	static int _bind_base_computeOverlappingPairs(lua_State *L) {
 		if (!_lg_typecheck_base_computeOverlappingPairs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_computeOverlappingPairs() function, expected prototype:\nvoid btSimpleDynamicsWorld::base_computeOverlappingPairs()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_computeOverlappingPairs() function, expected prototype:\nvoid btSimpleDynamicsWorld::base_computeOverlappingPairs()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_computeOverlappingPairs(). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_computeOverlappingPairs(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::computeOverlappingPairs();
 
@@ -853,16 +814,14 @@ public:
 	// void btSimpleDynamicsWorld::base_setDebugDrawer(btIDebugDraw * debugDrawer)
 	static int _bind_base_setDebugDrawer(lua_State *L) {
 		if (!_lg_typecheck_base_setDebugDrawer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_setDebugDrawer(btIDebugDraw * debugDrawer) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_setDebugDrawer(btIDebugDraw * debugDrawer)\nClass arguments details:\narg 1 ID = 63441741\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_setDebugDrawer(btIDebugDraw * debugDrawer) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_setDebugDrawer(btIDebugDraw * debugDrawer)\nClass arguments details:\narg 1 ID = 63441741\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btIDebugDraw* debugDrawer=(Luna< btIDebugDraw >::check(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_setDebugDrawer(btIDebugDraw *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_setDebugDrawer(btIDebugDraw *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::setDebugDrawer(debugDrawer);
 
@@ -872,15 +831,13 @@ public:
 	// btIDebugDraw * btSimpleDynamicsWorld::base_getDebugDrawer()
 	static int _bind_base_getDebugDrawer(lua_State *L) {
 		if (!_lg_typecheck_base_getDebugDrawer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btIDebugDraw * btSimpleDynamicsWorld::base_getDebugDrawer() function, expected prototype:\nbtIDebugDraw * btSimpleDynamicsWorld::base_getDebugDrawer()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btIDebugDraw * btSimpleDynamicsWorld::base_getDebugDrawer() function, expected prototype:\nbtIDebugDraw * btSimpleDynamicsWorld::base_getDebugDrawer()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btIDebugDraw * btSimpleDynamicsWorld::base_getDebugDrawer(). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btIDebugDraw * btSimpleDynamicsWorld::base_getDebugDrawer(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btIDebugDraw * lret = self->btSimpleDynamicsWorld::getDebugDrawer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -893,8 +850,7 @@ public:
 	// void btSimpleDynamicsWorld::base_debugDrawObject(const btTransform & worldTransform, const btCollisionShape * shape, const btVector3 & color)
 	static int _bind_base_debugDrawObject(lua_State *L) {
 		if (!_lg_typecheck_base_debugDrawObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_debugDrawObject(const btTransform & worldTransform, const btCollisionShape * shape, const btVector3 & color) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_debugDrawObject(const btTransform & worldTransform, const btCollisionShape * shape, const btVector3 & color)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 58243831\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_debugDrawObject(const btTransform & worldTransform, const btCollisionShape * shape, const btVector3 & color) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_debugDrawObject(const btTransform & worldTransform, const btCollisionShape * shape, const btVector3 & color)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 58243831\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* worldTransform_ptr=(Luna< btTransform >::check(L,2));
@@ -911,8 +867,7 @@ public:
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_debugDrawObject(const btTransform &, const btCollisionShape *, const btVector3 &). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_debugDrawObject(const btTransform &, const btCollisionShape *, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::debugDrawObject(worldTransform, shape, color);
 
@@ -922,8 +877,7 @@ public:
 	// void btSimpleDynamicsWorld::base_rayTest(const btVector3 & rayFromWorld, const btVector3 & rayToWorld, btCollisionWorld::RayResultCallback & resultCallback) const
 	static int _bind_base_rayTest(lua_State *L) {
 		if (!_lg_typecheck_base_rayTest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_rayTest(const btVector3 & rayFromWorld, const btVector3 & rayToWorld, btCollisionWorld::RayResultCallback & resultCallback) const function, expected prototype:\nvoid btSimpleDynamicsWorld::base_rayTest(const btVector3 & rayFromWorld, const btVector3 & rayToWorld, btCollisionWorld::RayResultCallback & resultCallback) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 44790882\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_rayTest(const btVector3 & rayFromWorld, const btVector3 & rayToWorld, btCollisionWorld::RayResultCallback & resultCallback) const function, expected prototype:\nvoid btSimpleDynamicsWorld::base_rayTest(const btVector3 & rayFromWorld, const btVector3 & rayToWorld, btCollisionWorld::RayResultCallback & resultCallback) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 44790882\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* rayFromWorld_ptr=(Luna< btVector3 >::check(L,2));
@@ -944,8 +898,7 @@ public:
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_rayTest(const btVector3 &, const btVector3 &, btCollisionWorld::RayResultCallback &) const. Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_rayTest(const btVector3 &, const btVector3 &, btCollisionWorld::RayResultCallback &) const. Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::rayTest(rayFromWorld, rayToWorld, resultCallback);
 
@@ -955,8 +908,7 @@ public:
 	// void btSimpleDynamicsWorld::base_addCollisionObject(btCollisionObject * collisionObject, short int collisionFilterGroup = btBroadphaseProxy::DefaultFilter, short int collisionFilterMask = btBroadphaseProxy::AllFilter)
 	static int _bind_base_addCollisionObject(lua_State *L) {
 		if (!_lg_typecheck_base_addCollisionObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_addCollisionObject(btCollisionObject * collisionObject, short int collisionFilterGroup = btBroadphaseProxy::DefaultFilter, short int collisionFilterMask = btBroadphaseProxy::AllFilter) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_addCollisionObject(btCollisionObject * collisionObject, short int collisionFilterGroup = btBroadphaseProxy::DefaultFilter, short int collisionFilterMask = btBroadphaseProxy::AllFilter)\nClass arguments details:\narg 1 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_addCollisionObject(btCollisionObject * collisionObject, short int collisionFilterGroup = btBroadphaseProxy::DefaultFilter, short int collisionFilterMask = btBroadphaseProxy::AllFilter) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_addCollisionObject(btCollisionObject * collisionObject, short int collisionFilterGroup = btBroadphaseProxy::DefaultFilter, short int collisionFilterMask = btBroadphaseProxy::AllFilter)\nClass arguments details:\narg 1 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -967,8 +919,7 @@ public:
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_addCollisionObject(btCollisionObject *, short int, short int). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_addCollisionObject(btCollisionObject *, short int, short int). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::addCollisionObject(collisionObject, collisionFilterGroup, collisionFilterMask);
 
@@ -978,15 +929,13 @@ public:
 	// void btSimpleDynamicsWorld::base_performDiscreteCollisionDetection()
 	static int _bind_base_performDiscreteCollisionDetection(lua_State *L) {
 		if (!_lg_typecheck_base_performDiscreteCollisionDetection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_performDiscreteCollisionDetection() function, expected prototype:\nvoid btSimpleDynamicsWorld::base_performDiscreteCollisionDetection()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_performDiscreteCollisionDetection() function, expected prototype:\nvoid btSimpleDynamicsWorld::base_performDiscreteCollisionDetection()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_performDiscreteCollisionDetection(). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_performDiscreteCollisionDetection(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::performDiscreteCollisionDetection();
 
@@ -996,8 +945,7 @@ public:
 	// void btSimpleDynamicsWorld::base_addConstraint(btTypedConstraint * constraint, bool disableCollisionsBetweenLinkedBodies = false)
 	static int _bind_base_addConstraint(lua_State *L) {
 		if (!_lg_typecheck_base_addConstraint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_addConstraint(btTypedConstraint * constraint, bool disableCollisionsBetweenLinkedBodies = false) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_addConstraint(btTypedConstraint * constraint, bool disableCollisionsBetweenLinkedBodies = false)\nClass arguments details:\narg 1 ID = 66271199\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_addConstraint(btTypedConstraint * constraint, bool disableCollisionsBetweenLinkedBodies = false) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_addConstraint(btTypedConstraint * constraint, bool disableCollisionsBetweenLinkedBodies = false)\nClass arguments details:\narg 1 ID = 66271199\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1007,8 +955,7 @@ public:
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_addConstraint(btTypedConstraint *, bool). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_addConstraint(btTypedConstraint *, bool). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::addConstraint(constraint, disableCollisionsBetweenLinkedBodies);
 
@@ -1018,16 +965,14 @@ public:
 	// void btSimpleDynamicsWorld::base_removeConstraint(btTypedConstraint * constraint)
 	static int _bind_base_removeConstraint(lua_State *L) {
 		if (!_lg_typecheck_base_removeConstraint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_removeConstraint(btTypedConstraint * constraint) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_removeConstraint(btTypedConstraint * constraint)\nClass arguments details:\narg 1 ID = 66271199\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_removeConstraint(btTypedConstraint * constraint) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_removeConstraint(btTypedConstraint * constraint)\nClass arguments details:\narg 1 ID = 66271199\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint* constraint=(Luna< btTypedObject >::checkSubType< btTypedConstraint >(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_removeConstraint(btTypedConstraint *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_removeConstraint(btTypedConstraint *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::removeConstraint(constraint);
 
@@ -1037,15 +982,13 @@ public:
 	// int btSimpleDynamicsWorld::base_getNumConstraints() const
 	static int _bind_base_getNumConstraints(lua_State *L) {
 		if (!_lg_typecheck_base_getNumConstraints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btSimpleDynamicsWorld::base_getNumConstraints() const function, expected prototype:\nint btSimpleDynamicsWorld::base_getNumConstraints() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btSimpleDynamicsWorld::base_getNumConstraints() const function, expected prototype:\nint btSimpleDynamicsWorld::base_getNumConstraints() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btSimpleDynamicsWorld::base_getNumConstraints() const. Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btSimpleDynamicsWorld::base_getNumConstraints() const. Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btSimpleDynamicsWorld::getNumConstraints();
 		lua_pushnumber(L,lret);
@@ -1056,16 +999,14 @@ public:
 	// btTypedConstraint * btSimpleDynamicsWorld::base_getConstraint(int index)
 	static int _bind_base_getConstraint_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getConstraint_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTypedConstraint * btSimpleDynamicsWorld::base_getConstraint(int index) function, expected prototype:\nbtTypedConstraint * btSimpleDynamicsWorld::base_getConstraint(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTypedConstraint * btSimpleDynamicsWorld::base_getConstraint(int index) function, expected prototype:\nbtTypedConstraint * btSimpleDynamicsWorld::base_getConstraint(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTypedConstraint * btSimpleDynamicsWorld::base_getConstraint(int). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTypedConstraint * btSimpleDynamicsWorld::base_getConstraint(int). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btTypedConstraint * lret = self->btSimpleDynamicsWorld::getConstraint(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1078,16 +1019,14 @@ public:
 	// const btTypedConstraint * btSimpleDynamicsWorld::base_getConstraint(int index) const
 	static int _bind_base_getConstraint_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getConstraint_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btTypedConstraint * btSimpleDynamicsWorld::base_getConstraint(int index) const function, expected prototype:\nconst btTypedConstraint * btSimpleDynamicsWorld::base_getConstraint(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btTypedConstraint * btSimpleDynamicsWorld::base_getConstraint(int index) const function, expected prototype:\nconst btTypedConstraint * btSimpleDynamicsWorld::base_getConstraint(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btTypedConstraint * btSimpleDynamicsWorld::base_getConstraint(int) const. Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btTypedConstraint * btSimpleDynamicsWorld::base_getConstraint(int) const. Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTypedConstraint * lret = self->btSimpleDynamicsWorld::getConstraint(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1109,16 +1048,14 @@ public:
 	// void btSimpleDynamicsWorld::base_addVehicle(btActionInterface * vehicle)
 	static int _bind_base_addVehicle(lua_State *L) {
 		if (!_lg_typecheck_base_addVehicle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_addVehicle(btActionInterface * vehicle) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_addVehicle(btActionInterface * vehicle)\nClass arguments details:\narg 1 ID = 91159321\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_addVehicle(btActionInterface * vehicle) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_addVehicle(btActionInterface * vehicle)\nClass arguments details:\narg 1 ID = 91159321\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btActionInterface* vehicle=(Luna< btActionInterface >::check(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_addVehicle(btActionInterface *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_addVehicle(btActionInterface *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::addVehicle(vehicle);
 
@@ -1128,16 +1065,14 @@ public:
 	// void btSimpleDynamicsWorld::base_removeVehicle(btActionInterface * vehicle)
 	static int _bind_base_removeVehicle(lua_State *L) {
 		if (!_lg_typecheck_base_removeVehicle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_removeVehicle(btActionInterface * vehicle) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_removeVehicle(btActionInterface * vehicle)\nClass arguments details:\narg 1 ID = 91159321\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_removeVehicle(btActionInterface * vehicle) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_removeVehicle(btActionInterface * vehicle)\nClass arguments details:\narg 1 ID = 91159321\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btActionInterface* vehicle=(Luna< btActionInterface >::check(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_removeVehicle(btActionInterface *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_removeVehicle(btActionInterface *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::removeVehicle(vehicle);
 
@@ -1147,16 +1082,14 @@ public:
 	// void btSimpleDynamicsWorld::base_addCharacter(btActionInterface * character)
 	static int _bind_base_addCharacter(lua_State *L) {
 		if (!_lg_typecheck_base_addCharacter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_addCharacter(btActionInterface * character) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_addCharacter(btActionInterface * character)\nClass arguments details:\narg 1 ID = 91159321\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_addCharacter(btActionInterface * character) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_addCharacter(btActionInterface * character)\nClass arguments details:\narg 1 ID = 91159321\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btActionInterface* character=(Luna< btActionInterface >::check(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_addCharacter(btActionInterface *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_addCharacter(btActionInterface *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::addCharacter(character);
 
@@ -1166,16 +1099,14 @@ public:
 	// void btSimpleDynamicsWorld::base_removeCharacter(btActionInterface * character)
 	static int _bind_base_removeCharacter(lua_State *L) {
 		if (!_lg_typecheck_base_removeCharacter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_removeCharacter(btActionInterface * character) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_removeCharacter(btActionInterface * character)\nClass arguments details:\narg 1 ID = 91159321\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_removeCharacter(btActionInterface * character) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_removeCharacter(btActionInterface * character)\nClass arguments details:\narg 1 ID = 91159321\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btActionInterface* character=(Luna< btActionInterface >::check(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_removeCharacter(btActionInterface *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_removeCharacter(btActionInterface *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::removeCharacter(character);
 
@@ -1185,8 +1116,7 @@ public:
 	// int btSimpleDynamicsWorld::base_stepSimulation(float timeStep, int maxSubSteps = 1, float fixedTimeStep = float (1.)/ float (60.))
 	static int _bind_base_stepSimulation(lua_State *L) {
 		if (!_lg_typecheck_base_stepSimulation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btSimpleDynamicsWorld::base_stepSimulation(float timeStep, int maxSubSteps = 1, float fixedTimeStep = float (1.)/ float (60.)) function, expected prototype:\nint btSimpleDynamicsWorld::base_stepSimulation(float timeStep, int maxSubSteps = 1, float fixedTimeStep = float (1.)/ float (60.))\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btSimpleDynamicsWorld::base_stepSimulation(float timeStep, int maxSubSteps = 1, float fixedTimeStep = float (1.)/ float (60.)) function, expected prototype:\nint btSimpleDynamicsWorld::base_stepSimulation(float timeStep, int maxSubSteps = 1, float fixedTimeStep = float (1.)/ float (60.))\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1197,8 +1127,7 @@ public:
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btSimpleDynamicsWorld::base_stepSimulation(float, int, float). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btSimpleDynamicsWorld::base_stepSimulation(float, int, float). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btSimpleDynamicsWorld::stepSimulation(timeStep, maxSubSteps, fixedTimeStep);
 		lua_pushnumber(L,lret);
@@ -1209,8 +1138,7 @@ public:
 	// void btSimpleDynamicsWorld::base_setGravity(const btVector3 & gravity)
 	static int _bind_base_setGravity(lua_State *L) {
 		if (!_lg_typecheck_base_setGravity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_setGravity(const btVector3 & gravity) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_setGravity(const btVector3 & gravity)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_setGravity(const btVector3 & gravity) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_setGravity(const btVector3 & gravity)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* gravity_ptr=(Luna< btVector3 >::check(L,2));
@@ -1221,8 +1149,7 @@ public:
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_setGravity(const btVector3 &). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_setGravity(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::setGravity(gravity);
 
@@ -1232,15 +1159,13 @@ public:
 	// btVector3 btSimpleDynamicsWorld::base_getGravity() const
 	static int _bind_base_getGravity(lua_State *L) {
 		if (!_lg_typecheck_base_getGravity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btSimpleDynamicsWorld::base_getGravity() const function, expected prototype:\nbtVector3 btSimpleDynamicsWorld::base_getGravity() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btSimpleDynamicsWorld::base_getGravity() const function, expected prototype:\nbtVector3 btSimpleDynamicsWorld::base_getGravity() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btSimpleDynamicsWorld::base_getGravity() const. Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btSimpleDynamicsWorld::base_getGravity() const. Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->btSimpleDynamicsWorld::getGravity();
 		btVector3* lret = new btVector3(stack_lret);
@@ -1254,16 +1179,14 @@ public:
 	// void btSimpleDynamicsWorld::base_addRigidBody(btRigidBody * body)
 	static int _bind_base_addRigidBody_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_addRigidBody_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_addRigidBody(btRigidBody * body) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_addRigidBody(btRigidBody * body)\nClass arguments details:\narg 1 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_addRigidBody(btRigidBody * body) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_addRigidBody(btRigidBody * body)\nClass arguments details:\narg 1 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* body=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_addRigidBody(btRigidBody *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_addRigidBody(btRigidBody *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::addRigidBody(body);
 
@@ -1273,8 +1196,7 @@ public:
 	// void btSimpleDynamicsWorld::base_addRigidBody(btRigidBody * body, short group, short mask)
 	static int _bind_base_addRigidBody_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_addRigidBody_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_addRigidBody(btRigidBody * body, short group, short mask) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_addRigidBody(btRigidBody * body, short group, short mask)\nClass arguments details:\narg 1 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_addRigidBody(btRigidBody * body, short group, short mask) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_addRigidBody(btRigidBody * body, short group, short mask)\nClass arguments details:\narg 1 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* body=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,2));
@@ -1283,8 +1205,7 @@ public:
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_addRigidBody(btRigidBody *, short, short). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_addRigidBody(btRigidBody *, short, short). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::addRigidBody(body, group, mask);
 
@@ -1303,16 +1224,14 @@ public:
 	// void btSimpleDynamicsWorld::base_removeRigidBody(btRigidBody * body)
 	static int _bind_base_removeRigidBody(lua_State *L) {
 		if (!_lg_typecheck_base_removeRigidBody(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_removeRigidBody(btRigidBody * body) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_removeRigidBody(btRigidBody * body)\nClass arguments details:\narg 1 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_removeRigidBody(btRigidBody * body) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_removeRigidBody(btRigidBody * body)\nClass arguments details:\narg 1 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* body=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_removeRigidBody(btRigidBody *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_removeRigidBody(btRigidBody *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::removeRigidBody(body);
 
@@ -1322,15 +1241,13 @@ public:
 	// void btSimpleDynamicsWorld::base_debugDrawWorld()
 	static int _bind_base_debugDrawWorld(lua_State *L) {
 		if (!_lg_typecheck_base_debugDrawWorld(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_debugDrawWorld() function, expected prototype:\nvoid btSimpleDynamicsWorld::base_debugDrawWorld()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_debugDrawWorld() function, expected prototype:\nvoid btSimpleDynamicsWorld::base_debugDrawWorld()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_debugDrawWorld(). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_debugDrawWorld(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::debugDrawWorld();
 
@@ -1340,16 +1257,14 @@ public:
 	// void btSimpleDynamicsWorld::base_addAction(btActionInterface * action)
 	static int _bind_base_addAction(lua_State *L) {
 		if (!_lg_typecheck_base_addAction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_addAction(btActionInterface * action) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_addAction(btActionInterface * action)\nClass arguments details:\narg 1 ID = 91159321\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_addAction(btActionInterface * action) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_addAction(btActionInterface * action)\nClass arguments details:\narg 1 ID = 91159321\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btActionInterface* action=(Luna< btActionInterface >::check(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_addAction(btActionInterface *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_addAction(btActionInterface *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::addAction(action);
 
@@ -1359,16 +1274,14 @@ public:
 	// void btSimpleDynamicsWorld::base_removeAction(btActionInterface * action)
 	static int _bind_base_removeAction(lua_State *L) {
 		if (!_lg_typecheck_base_removeAction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_removeAction(btActionInterface * action) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_removeAction(btActionInterface * action)\nClass arguments details:\narg 1 ID = 91159321\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_removeAction(btActionInterface * action) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_removeAction(btActionInterface * action)\nClass arguments details:\narg 1 ID = 91159321\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btActionInterface* action=(Luna< btActionInterface >::check(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_removeAction(btActionInterface *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_removeAction(btActionInterface *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::removeAction(action);
 
@@ -1378,16 +1291,14 @@ public:
 	// void btSimpleDynamicsWorld::base_removeCollisionObject(btCollisionObject * collisionObject)
 	static int _bind_base_removeCollisionObject(lua_State *L) {
 		if (!_lg_typecheck_base_removeCollisionObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_removeCollisionObject(btCollisionObject * collisionObject) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_removeCollisionObject(btCollisionObject * collisionObject)\nClass arguments details:\narg 1 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_removeCollisionObject(btCollisionObject * collisionObject) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_removeCollisionObject(btCollisionObject * collisionObject)\nClass arguments details:\narg 1 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionObject* collisionObject=(Luna< btCollisionObject >::check(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_removeCollisionObject(btCollisionObject *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_removeCollisionObject(btCollisionObject *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::removeCollisionObject(collisionObject);
 
@@ -1397,15 +1308,13 @@ public:
 	// void btSimpleDynamicsWorld::base_updateAabbs()
 	static int _bind_base_updateAabbs(lua_State *L) {
 		if (!_lg_typecheck_base_updateAabbs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_updateAabbs() function, expected prototype:\nvoid btSimpleDynamicsWorld::base_updateAabbs()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_updateAabbs() function, expected prototype:\nvoid btSimpleDynamicsWorld::base_updateAabbs()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_updateAabbs(). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_updateAabbs(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::updateAabbs();
 
@@ -1415,15 +1324,13 @@ public:
 	// void btSimpleDynamicsWorld::base_synchronizeMotionStates()
 	static int _bind_base_synchronizeMotionStates(lua_State *L) {
 		if (!_lg_typecheck_base_synchronizeMotionStates(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_synchronizeMotionStates() function, expected prototype:\nvoid btSimpleDynamicsWorld::base_synchronizeMotionStates()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_synchronizeMotionStates() function, expected prototype:\nvoid btSimpleDynamicsWorld::base_synchronizeMotionStates()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_synchronizeMotionStates(). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_synchronizeMotionStates(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::synchronizeMotionStates();
 
@@ -1433,16 +1340,14 @@ public:
 	// void btSimpleDynamicsWorld::base_setConstraintSolver(btConstraintSolver * solver)
 	static int _bind_base_setConstraintSolver(lua_State *L) {
 		if (!_lg_typecheck_base_setConstraintSolver(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_setConstraintSolver(btConstraintSolver * solver) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_setConstraintSolver(btConstraintSolver * solver)\nClass arguments details:\narg 1 ID = 53256621\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_setConstraintSolver(btConstraintSolver * solver) function, expected prototype:\nvoid btSimpleDynamicsWorld::base_setConstraintSolver(btConstraintSolver * solver)\nClass arguments details:\narg 1 ID = 53256621\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConstraintSolver* solver=(Luna< btConstraintSolver >::check(L,2));
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_setConstraintSolver(btConstraintSolver *). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_setConstraintSolver(btConstraintSolver *). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::setConstraintSolver(solver);
 
@@ -1452,15 +1357,13 @@ public:
 	// btConstraintSolver * btSimpleDynamicsWorld::base_getConstraintSolver()
 	static int _bind_base_getConstraintSolver(lua_State *L) {
 		if (!_lg_typecheck_base_getConstraintSolver(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConstraintSolver * btSimpleDynamicsWorld::base_getConstraintSolver() function, expected prototype:\nbtConstraintSolver * btSimpleDynamicsWorld::base_getConstraintSolver()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btConstraintSolver * btSimpleDynamicsWorld::base_getConstraintSolver() function, expected prototype:\nbtConstraintSolver * btSimpleDynamicsWorld::base_getConstraintSolver()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btConstraintSolver * btSimpleDynamicsWorld::base_getConstraintSolver(). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btConstraintSolver * btSimpleDynamicsWorld::base_getConstraintSolver(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btConstraintSolver * lret = self->btSimpleDynamicsWorld::getConstraintSolver();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1473,15 +1376,13 @@ public:
 	// btDynamicsWorldType btSimpleDynamicsWorld::base_getWorldType() const
 	static int _bind_base_getWorldType(lua_State *L) {
 		if (!_lg_typecheck_base_getWorldType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btDynamicsWorldType btSimpleDynamicsWorld::base_getWorldType() const function, expected prototype:\nbtDynamicsWorldType btSimpleDynamicsWorld::base_getWorldType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btDynamicsWorldType btSimpleDynamicsWorld::base_getWorldType() const function, expected prototype:\nbtDynamicsWorldType btSimpleDynamicsWorld::base_getWorldType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btDynamicsWorldType btSimpleDynamicsWorld::base_getWorldType() const. Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btDynamicsWorldType btSimpleDynamicsWorld::base_getWorldType() const. Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btDynamicsWorldType lret = self->btSimpleDynamicsWorld::getWorldType();
 		lua_pushnumber(L,lret);
@@ -1492,15 +1393,13 @@ public:
 	// void btSimpleDynamicsWorld::base_clearForces()
 	static int _bind_base_clearForces(lua_State *L) {
 		if (!_lg_typecheck_base_clearForces(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_clearForces() function, expected prototype:\nvoid btSimpleDynamicsWorld::base_clearForces()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::base_clearForces() function, expected prototype:\nvoid btSimpleDynamicsWorld::base_clearForces()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_clearForces(). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::base_clearForces(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimpleDynamicsWorld::clearForces();
 

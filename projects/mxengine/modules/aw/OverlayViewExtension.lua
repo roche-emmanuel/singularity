@@ -110,28 +110,20 @@ function Class:setFields(mapping)
 
 	args:Push(awe.JSValue(obj))
 	
-	self._controller:InvokeAsync("set",args)
+	self._controller:InvokeAsync("setFields",args)
 	-- controller:InvokeAsync("setFields",args)
 	self:checkErrors(self._controller)
 end
 
-function Class:toggleOverlays()
+function Class:call(mname,...)
 	if not self._controller then
 		self:warn("Controller is not ready yet.")
+		return
 	end
 	
-	local args = awe.JSArray()
-	self._controller:InvokeAsync("toggleOverlays",args)
-	self:checkErrors(self._controller)
-end
-
-function Class:toggleMenus()
-	if not self._controller then
-		self:warn("Controller is not ready yet.")
-	end
+	local args = awe.JSArray.fromTable{...}
 	
-	local args = awe.JSArray()
-	self._controller:InvokeAsync("toggleMenus",args)
+	self._controller:InvokeAsync(mname,args)
 	self:checkErrors(self._controller)
 end
 

@@ -69,8 +69,7 @@ public:
 	// osg::Matrix spark::SparkUpdatingHandler::public_computeTransformMatrix(spark::SparkDrawable * spark, osg::Transform * trackee)
 	static int _bind_public_computeTransformMatrix(lua_State *L) {
 		if (!_lg_typecheck_public_computeTransformMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Matrix spark::SparkUpdatingHandler::public_computeTransformMatrix(spark::SparkDrawable * spark, osg::Transform * trackee) function, expected prototype:\nosg::Matrix spark::SparkUpdatingHandler::public_computeTransformMatrix(spark::SparkDrawable * spark, osg::Transform * trackee)\nClass arguments details:\narg 1 ID = 20484188\n");
+			luaL_error(L, "luna typecheck failed in osg::Matrix spark::SparkUpdatingHandler::public_computeTransformMatrix(spark::SparkDrawable * spark, osg::Transform * trackee) function, expected prototype:\nosg::Matrix spark::SparkUpdatingHandler::public_computeTransformMatrix(spark::SparkDrawable * spark, osg::Transform * trackee)\nClass arguments details:\narg 1 ID = 20484188\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		spark::SparkDrawable* spark=(Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,2));
@@ -78,8 +77,7 @@ public:
 
 		wrapper_spark_SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_spark_SparkUpdatingHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Matrix spark::SparkUpdatingHandler::public_computeTransformMatrix(spark::SparkDrawable *, osg::Transform *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Matrix spark::SparkUpdatingHandler::public_computeTransformMatrix(spark::SparkDrawable *, osg::Transform *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Matrix stack_lret = self->public_computeTransformMatrix(spark, trackee);
 		osg::Matrix* lret = new osg::Matrix(stack_lret);

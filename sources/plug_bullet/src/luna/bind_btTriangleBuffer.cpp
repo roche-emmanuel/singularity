@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleCallback* self=(Luna< btTriangleCallback >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleBuffer* self= (btTriangleBuffer*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btTriangleCallback >::check(L,1));
@@ -108,8 +105,8 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -122,7 +119,7 @@ public:
 	inline static bool _lg_typecheck_getTriangle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -136,8 +133,8 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -149,8 +146,7 @@ public:
 	// btTriangleBuffer::btTriangleBuffer()
 	static btTriangleBuffer* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTriangleBuffer::btTriangleBuffer() function, expected prototype:\nbtTriangleBuffer::btTriangleBuffer()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTriangleBuffer::btTriangleBuffer() function, expected prototype:\nbtTriangleBuffer::btTriangleBuffer()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -160,8 +156,7 @@ public:
 	// btTriangleBuffer::btTriangleBuffer(lua_Table * data)
 	static btTriangleBuffer* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTriangleBuffer::btTriangleBuffer(lua_Table * data) function, expected prototype:\nbtTriangleBuffer::btTriangleBuffer(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTriangleBuffer::btTriangleBuffer(lua_Table * data) function, expected prototype:\nbtTriangleBuffer::btTriangleBuffer(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -182,8 +177,7 @@ public:
 	// void btTriangleBuffer::processTriangle(btVector3 * triangle, int partId, int triangleIndex)
 	static int _bind_processTriangle(lua_State *L) {
 		if (!_lg_typecheck_processTriangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleBuffer::processTriangle(btVector3 * triangle, int partId, int triangleIndex) function, expected prototype:\nvoid btTriangleBuffer::processTriangle(btVector3 * triangle, int partId, int triangleIndex)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleBuffer::processTriangle(btVector3 * triangle, int partId, int triangleIndex) function, expected prototype:\nvoid btTriangleBuffer::processTriangle(btVector3 * triangle, int partId, int triangleIndex)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* triangle=(Luna< btVector3 >::check(L,2));
@@ -192,8 +186,7 @@ public:
 
 		btTriangleBuffer* self=Luna< btTriangleCallback >::checkSubType< btTriangleBuffer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleBuffer::processTriangle(btVector3 *, int, int). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleBuffer::processTriangle(btVector3 *, int, int). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->processTriangle(triangle, partId, triangleIndex);
 
@@ -203,15 +196,13 @@ public:
 	// int btTriangleBuffer::getNumTriangles() const
 	static int _bind_getNumTriangles(lua_State *L) {
 		if (!_lg_typecheck_getNumTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTriangleBuffer::getNumTriangles() const function, expected prototype:\nint btTriangleBuffer::getNumTriangles() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btTriangleBuffer::getNumTriangles() const function, expected prototype:\nint btTriangleBuffer::getNumTriangles() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleBuffer* self=Luna< btTriangleCallback >::checkSubType< btTriangleBuffer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTriangleBuffer::getNumTriangles() const. Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btTriangleBuffer::getNumTriangles() const. Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNumTriangles();
 		lua_pushnumber(L,lret);
@@ -222,16 +213,14 @@ public:
 	// const btTriangle & btTriangleBuffer::getTriangle(int index) const
 	static int _bind_getTriangle(lua_State *L) {
 		if (!_lg_typecheck_getTriangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btTriangle & btTriangleBuffer::getTriangle(int index) const function, expected prototype:\nconst btTriangle & btTriangleBuffer::getTriangle(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btTriangle & btTriangleBuffer::getTriangle(int index) const function, expected prototype:\nconst btTriangle & btTriangleBuffer::getTriangle(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btTriangleBuffer* self=Luna< btTriangleCallback >::checkSubType< btTriangleBuffer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btTriangle & btTriangleBuffer::getTriangle(int) const. Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btTriangle & btTriangleBuffer::getTriangle(int) const. Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTriangle* lret = &self->getTriangle(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -244,15 +233,13 @@ public:
 	// void btTriangleBuffer::clearBuffer()
 	static int _bind_clearBuffer(lua_State *L) {
 		if (!_lg_typecheck_clearBuffer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleBuffer::clearBuffer() function, expected prototype:\nvoid btTriangleBuffer::clearBuffer()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleBuffer::clearBuffer() function, expected prototype:\nvoid btTriangleBuffer::clearBuffer()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleBuffer* self=Luna< btTriangleCallback >::checkSubType< btTriangleBuffer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleBuffer::clearBuffer(). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleBuffer::clearBuffer(). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->clearBuffer();
 
@@ -262,8 +249,7 @@ public:
 	// void btTriangleBuffer::base_processTriangle(btVector3 * triangle, int partId, int triangleIndex)
 	static int _bind_base_processTriangle(lua_State *L) {
 		if (!_lg_typecheck_base_processTriangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleBuffer::base_processTriangle(btVector3 * triangle, int partId, int triangleIndex) function, expected prototype:\nvoid btTriangleBuffer::base_processTriangle(btVector3 * triangle, int partId, int triangleIndex)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleBuffer::base_processTriangle(btVector3 * triangle, int partId, int triangleIndex) function, expected prototype:\nvoid btTriangleBuffer::base_processTriangle(btVector3 * triangle, int partId, int triangleIndex)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* triangle=(Luna< btVector3 >::check(L,2));
@@ -272,8 +258,7 @@ public:
 
 		btTriangleBuffer* self=Luna< btTriangleCallback >::checkSubType< btTriangleBuffer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleBuffer::base_processTriangle(btVector3 *, int, int). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleBuffer::base_processTriangle(btVector3 *, int, int). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btTriangleBuffer::processTriangle(triangle, partId, triangleIndex);
 

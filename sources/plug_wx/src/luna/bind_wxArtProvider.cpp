@@ -99,8 +99,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>3 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
-		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
+		if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,20268751) ) return false;
 		return true;
 	}
@@ -109,8 +109,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>3 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
-		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
+		if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,20268751) ) return false;
 		return true;
 	}
@@ -118,7 +118,7 @@ public:
 	inline static bool _lg_typecheck_GetNativeSizeHint(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -126,7 +126,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		if( luatop>1 && lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
@@ -135,8 +135,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
-		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
+		if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 

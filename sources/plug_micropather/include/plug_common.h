@@ -17,6 +17,8 @@
 
 #include <lua.hpp>
 
+#include <osg/Array>
+
 #include "plug_extensions.h"
 
 #include <luna/luna.h>

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(micropather::StateCost*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(micropather::StateCost*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		micropather::StateCost* rhs =(Luna< micropather::StateCost >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		micropather::StateCost* self= (micropather::StateCost*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< micropather::StateCost >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -130,7 +126,7 @@ public:
 	inline static bool _lg_typecheck_setCost(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -142,8 +138,7 @@ public:
 	// micropather::StateCost::StateCost()
 	static micropather::StateCost* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in micropather::StateCost::StateCost() function, expected prototype:\nmicropather::StateCost::StateCost()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in micropather::StateCost::StateCost() function, expected prototype:\nmicropather::StateCost::StateCost()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -155,15 +150,13 @@ public:
 	// void * micropather::StateCost::state()
 	static int _bind_getState(lua_State *L) {
 		if (!_lg_typecheck_getState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * micropather::StateCost::state() function, expected prototype:\nvoid * micropather::StateCost::state()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * micropather::StateCost::state() function, expected prototype:\nvoid * micropather::StateCost::state()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		micropather::StateCost* self=(Luna< micropather::StateCost >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * micropather::StateCost::state(). Got : '%s'",typeid(Luna< micropather::StateCost >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * micropather::StateCost::state(). Got : '%s'\n%s",typeid(Luna< micropather::StateCost >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->state;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -176,15 +169,13 @@ public:
 	// float micropather::StateCost::cost()
 	static int _bind_getCost(lua_State *L) {
 		if (!_lg_typecheck_getCost(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float micropather::StateCost::cost() function, expected prototype:\nfloat micropather::StateCost::cost()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float micropather::StateCost::cost() function, expected prototype:\nfloat micropather::StateCost::cost()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		micropather::StateCost* self=(Luna< micropather::StateCost >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float micropather::StateCost::cost(). Got : '%s'",typeid(Luna< micropather::StateCost >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float micropather::StateCost::cost(). Got : '%s'\n%s",typeid(Luna< micropather::StateCost >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->cost;
 		lua_pushnumber(L,lret);
@@ -195,16 +186,14 @@ public:
 	// void micropather::StateCost::state(void * value)
 	static int _bind_setState(lua_State *L) {
 		if (!_lg_typecheck_setState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void micropather::StateCost::state(void * value) function, expected prototype:\nvoid micropather::StateCost::state(void * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void micropather::StateCost::state(void * value) function, expected prototype:\nvoid micropather::StateCost::state(void * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* value=(Luna< void >::check(L,2));
 
 		micropather::StateCost* self=(Luna< micropather::StateCost >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void micropather::StateCost::state(void *). Got : '%s'",typeid(Luna< micropather::StateCost >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void micropather::StateCost::state(void *). Got : '%s'\n%s",typeid(Luna< micropather::StateCost >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->state = value;
 
@@ -214,16 +203,14 @@ public:
 	// void micropather::StateCost::cost(float value)
 	static int _bind_setCost(lua_State *L) {
 		if (!_lg_typecheck_setCost(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void micropather::StateCost::cost(float value) function, expected prototype:\nvoid micropather::StateCost::cost(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void micropather::StateCost::cost(float value) function, expected prototype:\nvoid micropather::StateCost::cost(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		micropather::StateCost* self=(Luna< micropather::StateCost >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void micropather::StateCost::cost(float). Got : '%s'",typeid(Luna< micropather::StateCost >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void micropather::StateCost::cost(float). Got : '%s'\n%s",typeid(Luna< micropather::StateCost >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->cost = value;
 

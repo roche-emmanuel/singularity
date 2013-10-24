@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseAabbCallback* self=(Luna< btBroadphaseAabbCallback >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseRayCallback* self= (btBroadphaseRayCallback*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btBroadphaseAabbCallback >::check(L,1));
@@ -120,7 +117,7 @@ public:
 	inline static bool _lg_typecheck_set_lambda_max(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -132,8 +129,7 @@ public:
 	// btBroadphaseRayCallback::btBroadphaseRayCallback(lua_Table * data)
 	static btBroadphaseRayCallback* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBroadphaseRayCallback::btBroadphaseRayCallback(lua_Table * data) function, expected prototype:\nbtBroadphaseRayCallback::btBroadphaseRayCallback(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btBroadphaseRayCallback::btBroadphaseRayCallback(lua_Table * data) function, expected prototype:\nbtBroadphaseRayCallback::btBroadphaseRayCallback(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -145,15 +141,13 @@ public:
 	// btVector3 btBroadphaseRayCallback::m_rayDirectionInverse()
 	static int _bind_getRayDirectionInverse(lua_State *L) {
 		if (!_lg_typecheck_getRayDirectionInverse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btBroadphaseRayCallback::m_rayDirectionInverse() function, expected prototype:\nbtVector3 btBroadphaseRayCallback::m_rayDirectionInverse()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btBroadphaseRayCallback::m_rayDirectionInverse() function, expected prototype:\nbtVector3 btBroadphaseRayCallback::m_rayDirectionInverse()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBroadphaseRayCallback* self=Luna< btBroadphaseAabbCallback >::checkSubType< btBroadphaseRayCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btBroadphaseRayCallback::m_rayDirectionInverse(). Got : '%s'",typeid(Luna< btBroadphaseAabbCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btBroadphaseRayCallback::m_rayDirectionInverse(). Got : '%s'\n%s",typeid(Luna< btBroadphaseAabbCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_rayDirectionInverse;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -166,15 +160,13 @@ public:
 	// float btBroadphaseRayCallback::m_lambda_max()
 	static int _bind_get_lambda_max(lua_State *L) {
 		if (!_lg_typecheck_get_lambda_max(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btBroadphaseRayCallback::m_lambda_max() function, expected prototype:\nfloat btBroadphaseRayCallback::m_lambda_max()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btBroadphaseRayCallback::m_lambda_max() function, expected prototype:\nfloat btBroadphaseRayCallback::m_lambda_max()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBroadphaseRayCallback* self=Luna< btBroadphaseAabbCallback >::checkSubType< btBroadphaseRayCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btBroadphaseRayCallback::m_lambda_max(). Got : '%s'",typeid(Luna< btBroadphaseAabbCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btBroadphaseRayCallback::m_lambda_max(). Got : '%s'\n%s",typeid(Luna< btBroadphaseAabbCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_lambda_max;
 		lua_pushnumber(L,lret);
@@ -185,8 +177,7 @@ public:
 	// void btBroadphaseRayCallback::m_rayDirectionInverse(btVector3 value)
 	static int _bind_setRayDirectionInverse(lua_State *L) {
 		if (!_lg_typecheck_setRayDirectionInverse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseRayCallback::m_rayDirectionInverse(btVector3 value) function, expected prototype:\nvoid btBroadphaseRayCallback::m_rayDirectionInverse(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseRayCallback::m_rayDirectionInverse(btVector3 value) function, expected prototype:\nvoid btBroadphaseRayCallback::m_rayDirectionInverse(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -197,8 +188,7 @@ public:
 
 		btBroadphaseRayCallback* self=Luna< btBroadphaseAabbCallback >::checkSubType< btBroadphaseRayCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseRayCallback::m_rayDirectionInverse(btVector3). Got : '%s'",typeid(Luna< btBroadphaseAabbCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseRayCallback::m_rayDirectionInverse(btVector3). Got : '%s'\n%s",typeid(Luna< btBroadphaseAabbCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_rayDirectionInverse = value;
 
@@ -208,16 +198,14 @@ public:
 	// void btBroadphaseRayCallback::m_lambda_max(float value)
 	static int _bind_set_lambda_max(lua_State *L) {
 		if (!_lg_typecheck_set_lambda_max(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseRayCallback::m_lambda_max(float value) function, expected prototype:\nvoid btBroadphaseRayCallback::m_lambda_max(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseRayCallback::m_lambda_max(float value) function, expected prototype:\nvoid btBroadphaseRayCallback::m_lambda_max(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btBroadphaseRayCallback* self=Luna< btBroadphaseAabbCallback >::checkSubType< btBroadphaseRayCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseRayCallback::m_lambda_max(float). Got : '%s'",typeid(Luna< btBroadphaseAabbCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseRayCallback::m_lambda_max(float). Got : '%s'\n%s",typeid(Luna< btBroadphaseAabbCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_lambda_max = value;
 

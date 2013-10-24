@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Version*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Version*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Version* rhs =(Luna< b2Version >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Version* self= (b2Version*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Version >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -123,21 +119,21 @@ public:
 	inline static bool _lg_typecheck_setMajor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setMinor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setRevision(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -151,15 +147,13 @@ public:
 	// signed int b2Version::major()
 	static int _bind_getMajor(lua_State *L) {
 		if (!_lg_typecheck_getMajor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2Version::major() function, expected prototype:\nsigned int b2Version::major()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2Version::major() function, expected prototype:\nsigned int b2Version::major()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Version* self=(Luna< b2Version >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2Version::major(). Got : '%s'",typeid(Luna< b2Version >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2Version::major(). Got : '%s'\n%s",typeid(Luna< b2Version >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->major;
 		lua_pushnumber(L,lret);
@@ -170,15 +164,13 @@ public:
 	// signed int b2Version::minor()
 	static int _bind_getMinor(lua_State *L) {
 		if (!_lg_typecheck_getMinor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2Version::minor() function, expected prototype:\nsigned int b2Version::minor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2Version::minor() function, expected prototype:\nsigned int b2Version::minor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Version* self=(Luna< b2Version >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2Version::minor(). Got : '%s'",typeid(Luna< b2Version >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2Version::minor(). Got : '%s'\n%s",typeid(Luna< b2Version >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->minor;
 		lua_pushnumber(L,lret);
@@ -189,15 +181,13 @@ public:
 	// signed int b2Version::revision()
 	static int _bind_getRevision(lua_State *L) {
 		if (!_lg_typecheck_getRevision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2Version::revision() function, expected prototype:\nsigned int b2Version::revision()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2Version::revision() function, expected prototype:\nsigned int b2Version::revision()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Version* self=(Luna< b2Version >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2Version::revision(). Got : '%s'",typeid(Luna< b2Version >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2Version::revision(). Got : '%s'\n%s",typeid(Luna< b2Version >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->revision;
 		lua_pushnumber(L,lret);
@@ -208,16 +198,14 @@ public:
 	// void b2Version::major(signed int value)
 	static int _bind_setMajor(lua_State *L) {
 		if (!_lg_typecheck_setMajor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Version::major(signed int value) function, expected prototype:\nvoid b2Version::major(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Version::major(signed int value) function, expected prototype:\nvoid b2Version::major(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2Version* self=(Luna< b2Version >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Version::major(signed int). Got : '%s'",typeid(Luna< b2Version >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Version::major(signed int). Got : '%s'\n%s",typeid(Luna< b2Version >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->major = value;
 
@@ -227,16 +215,14 @@ public:
 	// void b2Version::minor(signed int value)
 	static int _bind_setMinor(lua_State *L) {
 		if (!_lg_typecheck_setMinor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Version::minor(signed int value) function, expected prototype:\nvoid b2Version::minor(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Version::minor(signed int value) function, expected prototype:\nvoid b2Version::minor(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2Version* self=(Luna< b2Version >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Version::minor(signed int). Got : '%s'",typeid(Luna< b2Version >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Version::minor(signed int). Got : '%s'\n%s",typeid(Luna< b2Version >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->minor = value;
 
@@ -246,16 +232,14 @@ public:
 	// void b2Version::revision(signed int value)
 	static int _bind_setRevision(lua_State *L) {
 		if (!_lg_typecheck_setRevision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Version::revision(signed int value) function, expected prototype:\nvoid b2Version::revision(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Version::revision(signed int value) function, expected prototype:\nvoid b2Version::revision(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2Version* self=(Luna< b2Version >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Version::revision(signed int). Got : '%s'",typeid(Luna< b2Version >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Version::revision(signed int). Got : '%s'\n%s",typeid(Luna< b2Version >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->revision = value;
 

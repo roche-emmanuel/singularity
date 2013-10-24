@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleIndexVertexMaterialArray* self= (btTriangleIndexVertexMaterialArray*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btStridingMeshInterface >::check(L,1));
@@ -98,17 +95,17 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=11 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-		if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+		if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 		if( (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,3625364)) ) return false;
-		if( (lua_isnumber(L,11)==0 || lua_tointeger(L,11) != lua_tonumber(L,11)) ) return false;
+		if( (lua_type(L,11)!=LUA_TNUMBER || lua_tointeger(L,11) != lua_tonumber(L,11)) ) return false;
 		return true;
 	}
 
@@ -123,17 +120,17 @@ public:
 		if( lua_gettop(L)!=12 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
-		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-		if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
-		if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
+		if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+		if( (lua_type(L,10)!=LUA_TNUMBER || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 		if( (lua_isnil(L,11)==0 && !Luna<void>::has_uniqueid(L,11,3625364)) ) return false;
-		if( (lua_isnumber(L,12)==0 || lua_tointeger(L,12) != lua_tonumber(L,12)) ) return false;
+		if( (lua_type(L,12)!=LUA_TNUMBER || lua_tointeger(L,12) != lua_tonumber(L,12)) ) return false;
 		return true;
 	}
 
@@ -144,7 +141,7 @@ public:
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,67602617) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -166,14 +163,14 @@ public:
 	inline static bool _lg_typecheck_base_unLockVertexBase(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_unLockReadOnlyVertexBase(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -186,14 +183,14 @@ public:
 	inline static bool _lg_typecheck_base_preallocateVertices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_preallocateIndices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -227,8 +224,7 @@ public:
 	// btTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray()
 	static btTriangleIndexVertexMaterialArray* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray() function, expected prototype:\nbtTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray() function, expected prototype:\nbtTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -238,8 +234,7 @@ public:
 	// btTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray(int numTriangles, int * triangleIndexBase, int triangleIndexStride, int numVertices, float * vertexBase, int vertexStride, int numMaterials, unsigned char * materialBase, int materialStride, int * triangleMaterialsBase, int materialIndexStride)
 	static btTriangleIndexVertexMaterialArray* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray(int numTriangles, int * triangleIndexBase, int triangleIndexStride, int numVertices, float * vertexBase, int vertexStride, int numMaterials, unsigned char * materialBase, int materialStride, int * triangleMaterialsBase, int materialIndexStride) function, expected prototype:\nbtTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray(int numTriangles, int * triangleIndexBase, int triangleIndexStride, int numVertices, float * vertexBase, int vertexStride, int numMaterials, unsigned char * materialBase, int materialStride, int * triangleMaterialsBase, int materialIndexStride)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray(int numTriangles, int * triangleIndexBase, int triangleIndexStride, int numVertices, float * vertexBase, int vertexStride, int numMaterials, unsigned char * materialBase, int materialStride, int * triangleMaterialsBase, int materialIndexStride) function, expected prototype:\nbtTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray(int numTriangles, int * triangleIndexBase, int triangleIndexStride, int numVertices, float * vertexBase, int vertexStride, int numMaterials, unsigned char * materialBase, int materialStride, int * triangleMaterialsBase, int materialIndexStride)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int numTriangles=(int)lua_tointeger(L,1);
@@ -260,8 +255,7 @@ public:
 	// btTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray(lua_Table * data)
 	static btTriangleIndexVertexMaterialArray* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray(lua_Table * data) function, expected prototype:\nbtTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray(lua_Table * data) function, expected prototype:\nbtTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -271,8 +265,7 @@ public:
 	// btTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray(lua_Table * data, int numTriangles, int * triangleIndexBase, int triangleIndexStride, int numVertices, float * vertexBase, int vertexStride, int numMaterials, unsigned char * materialBase, int materialStride, int * triangleMaterialsBase, int materialIndexStride)
 	static btTriangleIndexVertexMaterialArray* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray(lua_Table * data, int numTriangles, int * triangleIndexBase, int triangleIndexStride, int numVertices, float * vertexBase, int vertexStride, int numMaterials, unsigned char * materialBase, int materialStride, int * triangleMaterialsBase, int materialIndexStride) function, expected prototype:\nbtTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray(lua_Table * data, int numTriangles, int * triangleIndexBase, int triangleIndexStride, int numVertices, float * vertexBase, int vertexStride, int numMaterials, unsigned char * materialBase, int materialStride, int * triangleMaterialsBase, int materialIndexStride)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray(lua_Table * data, int numTriangles, int * triangleIndexBase, int triangleIndexStride, int numVertices, float * vertexBase, int vertexStride, int numMaterials, unsigned char * materialBase, int materialStride, int * triangleMaterialsBase, int materialIndexStride) function, expected prototype:\nbtTriangleIndexVertexMaterialArray::btTriangleIndexVertexMaterialArray(lua_Table * data, int numTriangles, int * triangleIndexBase, int triangleIndexStride, int numVertices, float * vertexBase, int vertexStride, int numMaterials, unsigned char * materialBase, int materialStride, int * triangleMaterialsBase, int materialIndexStride)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int numTriangles=(int)lua_tointeger(L,2);
@@ -306,8 +299,7 @@ public:
 	// void btTriangleIndexVertexMaterialArray::addMaterialProperties(const btMaterialProperties & mat, PHY_ScalarType triangleType = ::PHY_INTEGER)
 	static int _bind_addMaterialProperties(lua_State *L) {
 		if (!_lg_typecheck_addMaterialProperties(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleIndexVertexMaterialArray::addMaterialProperties(const btMaterialProperties & mat, PHY_ScalarType triangleType = ::PHY_INTEGER) function, expected prototype:\nvoid btTriangleIndexVertexMaterialArray::addMaterialProperties(const btMaterialProperties & mat, PHY_ScalarType triangleType = ::PHY_INTEGER)\nClass arguments details:\narg 1 ID = 67602617\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleIndexVertexMaterialArray::addMaterialProperties(const btMaterialProperties & mat, PHY_ScalarType triangleType = ::PHY_INTEGER) function, expected prototype:\nvoid btTriangleIndexVertexMaterialArray::addMaterialProperties(const btMaterialProperties & mat, PHY_ScalarType triangleType = ::PHY_INTEGER)\nClass arguments details:\narg 1 ID = 67602617\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -321,8 +313,7 @@ public:
 
 		btTriangleIndexVertexMaterialArray* self=Luna< btStridingMeshInterface >::checkSubType< btTriangleIndexVertexMaterialArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleIndexVertexMaterialArray::addMaterialProperties(const btMaterialProperties &, PHY_ScalarType). Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleIndexVertexMaterialArray::addMaterialProperties(const btMaterialProperties &, PHY_ScalarType). Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addMaterialProperties(mat, triangleType);
 
@@ -332,8 +323,7 @@ public:
 	// void btTriangleIndexVertexMaterialArray::base_InternalProcessAllTriangles(btInternalTriangleIndexCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const
 	static int _bind_base_InternalProcessAllTriangles(lua_State *L) {
 		if (!_lg_typecheck_base_InternalProcessAllTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleIndexVertexMaterialArray::base_InternalProcessAllTriangles(btInternalTriangleIndexCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btTriangleIndexVertexMaterialArray::base_InternalProcessAllTriangles(btInternalTriangleIndexCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 59503577\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleIndexVertexMaterialArray::base_InternalProcessAllTriangles(btInternalTriangleIndexCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btTriangleIndexVertexMaterialArray::base_InternalProcessAllTriangles(btInternalTriangleIndexCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 59503577\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btInternalTriangleIndexCallback* callback=(Luna< btInternalTriangleIndexCallback >::check(L,2));
@@ -350,8 +340,7 @@ public:
 
 		btTriangleIndexVertexMaterialArray* self=Luna< btStridingMeshInterface >::checkSubType< btTriangleIndexVertexMaterialArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleIndexVertexMaterialArray::base_InternalProcessAllTriangles(btInternalTriangleIndexCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleIndexVertexMaterialArray::base_InternalProcessAllTriangles(btInternalTriangleIndexCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btTriangleIndexVertexMaterialArray::InternalProcessAllTriangles(callback, aabbMin, aabbMax);
 
@@ -361,15 +350,13 @@ public:
 	// int btTriangleIndexVertexMaterialArray::base_calculateSerializeBufferSize() const
 	static int _bind_base_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_base_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTriangleIndexVertexMaterialArray::base_calculateSerializeBufferSize() const function, expected prototype:\nint btTriangleIndexVertexMaterialArray::base_calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btTriangleIndexVertexMaterialArray::base_calculateSerializeBufferSize() const function, expected prototype:\nint btTriangleIndexVertexMaterialArray::base_calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleIndexVertexMaterialArray* self=Luna< btStridingMeshInterface >::checkSubType< btTriangleIndexVertexMaterialArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTriangleIndexVertexMaterialArray::base_calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btTriangleIndexVertexMaterialArray::base_calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btTriangleIndexVertexMaterialArray::calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);
@@ -380,16 +367,14 @@ public:
 	// void btTriangleIndexVertexMaterialArray::base_unLockVertexBase(int subpart)
 	static int _bind_base_unLockVertexBase(lua_State *L) {
 		if (!_lg_typecheck_base_unLockVertexBase(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleIndexVertexMaterialArray::base_unLockVertexBase(int subpart) function, expected prototype:\nvoid btTriangleIndexVertexMaterialArray::base_unLockVertexBase(int subpart)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleIndexVertexMaterialArray::base_unLockVertexBase(int subpart) function, expected prototype:\nvoid btTriangleIndexVertexMaterialArray::base_unLockVertexBase(int subpart)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int subpart=(int)lua_tointeger(L,2);
 
 		btTriangleIndexVertexMaterialArray* self=Luna< btStridingMeshInterface >::checkSubType< btTriangleIndexVertexMaterialArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleIndexVertexMaterialArray::base_unLockVertexBase(int). Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleIndexVertexMaterialArray::base_unLockVertexBase(int). Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btTriangleIndexVertexMaterialArray::unLockVertexBase(subpart);
 
@@ -399,16 +384,14 @@ public:
 	// void btTriangleIndexVertexMaterialArray::base_unLockReadOnlyVertexBase(int subpart) const
 	static int _bind_base_unLockReadOnlyVertexBase(lua_State *L) {
 		if (!_lg_typecheck_base_unLockReadOnlyVertexBase(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleIndexVertexMaterialArray::base_unLockReadOnlyVertexBase(int subpart) const function, expected prototype:\nvoid btTriangleIndexVertexMaterialArray::base_unLockReadOnlyVertexBase(int subpart) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleIndexVertexMaterialArray::base_unLockReadOnlyVertexBase(int subpart) const function, expected prototype:\nvoid btTriangleIndexVertexMaterialArray::base_unLockReadOnlyVertexBase(int subpart) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int subpart=(int)lua_tointeger(L,2);
 
 		btTriangleIndexVertexMaterialArray* self=Luna< btStridingMeshInterface >::checkSubType< btTriangleIndexVertexMaterialArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleIndexVertexMaterialArray::base_unLockReadOnlyVertexBase(int) const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleIndexVertexMaterialArray::base_unLockReadOnlyVertexBase(int) const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btTriangleIndexVertexMaterialArray::unLockReadOnlyVertexBase(subpart);
 
@@ -418,15 +401,13 @@ public:
 	// int btTriangleIndexVertexMaterialArray::base_getNumSubParts() const
 	static int _bind_base_getNumSubParts(lua_State *L) {
 		if (!_lg_typecheck_base_getNumSubParts(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTriangleIndexVertexMaterialArray::base_getNumSubParts() const function, expected prototype:\nint btTriangleIndexVertexMaterialArray::base_getNumSubParts() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btTriangleIndexVertexMaterialArray::base_getNumSubParts() const function, expected prototype:\nint btTriangleIndexVertexMaterialArray::base_getNumSubParts() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleIndexVertexMaterialArray* self=Luna< btStridingMeshInterface >::checkSubType< btTriangleIndexVertexMaterialArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTriangleIndexVertexMaterialArray::base_getNumSubParts() const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btTriangleIndexVertexMaterialArray::base_getNumSubParts() const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btTriangleIndexVertexMaterialArray::getNumSubParts();
 		lua_pushnumber(L,lret);
@@ -437,16 +418,14 @@ public:
 	// void btTriangleIndexVertexMaterialArray::base_preallocateVertices(int numverts)
 	static int _bind_base_preallocateVertices(lua_State *L) {
 		if (!_lg_typecheck_base_preallocateVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleIndexVertexMaterialArray::base_preallocateVertices(int numverts) function, expected prototype:\nvoid btTriangleIndexVertexMaterialArray::base_preallocateVertices(int numverts)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleIndexVertexMaterialArray::base_preallocateVertices(int numverts) function, expected prototype:\nvoid btTriangleIndexVertexMaterialArray::base_preallocateVertices(int numverts)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int numverts=(int)lua_tointeger(L,2);
 
 		btTriangleIndexVertexMaterialArray* self=Luna< btStridingMeshInterface >::checkSubType< btTriangleIndexVertexMaterialArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleIndexVertexMaterialArray::base_preallocateVertices(int). Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleIndexVertexMaterialArray::base_preallocateVertices(int). Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btTriangleIndexVertexMaterialArray::preallocateVertices(numverts);
 
@@ -456,16 +435,14 @@ public:
 	// void btTriangleIndexVertexMaterialArray::base_preallocateIndices(int numindices)
 	static int _bind_base_preallocateIndices(lua_State *L) {
 		if (!_lg_typecheck_base_preallocateIndices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleIndexVertexMaterialArray::base_preallocateIndices(int numindices) function, expected prototype:\nvoid btTriangleIndexVertexMaterialArray::base_preallocateIndices(int numindices)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleIndexVertexMaterialArray::base_preallocateIndices(int numindices) function, expected prototype:\nvoid btTriangleIndexVertexMaterialArray::base_preallocateIndices(int numindices)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int numindices=(int)lua_tointeger(L,2);
 
 		btTriangleIndexVertexMaterialArray* self=Luna< btStridingMeshInterface >::checkSubType< btTriangleIndexVertexMaterialArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleIndexVertexMaterialArray::base_preallocateIndices(int). Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleIndexVertexMaterialArray::base_preallocateIndices(int). Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btTriangleIndexVertexMaterialArray::preallocateIndices(numindices);
 
@@ -475,15 +452,13 @@ public:
 	// bool btTriangleIndexVertexMaterialArray::base_hasPremadeAabb() const
 	static int _bind_base_hasPremadeAabb(lua_State *L) {
 		if (!_lg_typecheck_base_hasPremadeAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btTriangleIndexVertexMaterialArray::base_hasPremadeAabb() const function, expected prototype:\nbool btTriangleIndexVertexMaterialArray::base_hasPremadeAabb() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btTriangleIndexVertexMaterialArray::base_hasPremadeAabb() const function, expected prototype:\nbool btTriangleIndexVertexMaterialArray::base_hasPremadeAabb() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleIndexVertexMaterialArray* self=Luna< btStridingMeshInterface >::checkSubType< btTriangleIndexVertexMaterialArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btTriangleIndexVertexMaterialArray::base_hasPremadeAabb() const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btTriangleIndexVertexMaterialArray::base_hasPremadeAabb() const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->btTriangleIndexVertexMaterialArray::hasPremadeAabb();
 		lua_pushboolean(L,lret?1:0);
@@ -494,8 +469,7 @@ public:
 	// void btTriangleIndexVertexMaterialArray::base_setPremadeAabb(const btVector3 & aabbMin, const btVector3 & aabbMax) const
 	static int _bind_base_setPremadeAabb(lua_State *L) {
 		if (!_lg_typecheck_base_setPremadeAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleIndexVertexMaterialArray::base_setPremadeAabb(const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btTriangleIndexVertexMaterialArray::base_setPremadeAabb(const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleIndexVertexMaterialArray::base_setPremadeAabb(const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btTriangleIndexVertexMaterialArray::base_setPremadeAabb(const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* aabbMin_ptr=(Luna< btVector3 >::check(L,2));
@@ -511,8 +485,7 @@ public:
 
 		btTriangleIndexVertexMaterialArray* self=Luna< btStridingMeshInterface >::checkSubType< btTriangleIndexVertexMaterialArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleIndexVertexMaterialArray::base_setPremadeAabb(const btVector3 &, const btVector3 &) const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleIndexVertexMaterialArray::base_setPremadeAabb(const btVector3 &, const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btTriangleIndexVertexMaterialArray::setPremadeAabb(aabbMin, aabbMax);
 
@@ -522,8 +495,7 @@ public:
 	// void btTriangleIndexVertexMaterialArray::base_getPremadeAabb(btVector3 * aabbMin, btVector3 * aabbMax) const
 	static int _bind_base_getPremadeAabb(lua_State *L) {
 		if (!_lg_typecheck_base_getPremadeAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleIndexVertexMaterialArray::base_getPremadeAabb(btVector3 * aabbMin, btVector3 * aabbMax) const function, expected prototype:\nvoid btTriangleIndexVertexMaterialArray::base_getPremadeAabb(btVector3 * aabbMin, btVector3 * aabbMax) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleIndexVertexMaterialArray::base_getPremadeAabb(btVector3 * aabbMin, btVector3 * aabbMax) const function, expected prototype:\nvoid btTriangleIndexVertexMaterialArray::base_getPremadeAabb(btVector3 * aabbMin, btVector3 * aabbMax) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* aabbMin=(Luna< btVector3 >::check(L,2));
@@ -531,8 +503,7 @@ public:
 
 		btTriangleIndexVertexMaterialArray* self=Luna< btStridingMeshInterface >::checkSubType< btTriangleIndexVertexMaterialArray >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleIndexVertexMaterialArray::base_getPremadeAabb(btVector3 *, btVector3 *) const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleIndexVertexMaterialArray::base_getPremadeAabb(btVector3 *, btVector3 *) const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btTriangleIndexVertexMaterialArray::getPremadeAabb(aabbMin, aabbMax);
 

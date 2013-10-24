@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ICompound* self=(Luna< ICompound >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IStruct* self= (IStruct*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< ICompound >::check(L,1));
@@ -148,8 +145,7 @@ public:
 	// IStruct::IStruct(lua_Table * data)
 	static IStruct* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IStruct::IStruct(lua_Table * data) function, expected prototype:\nIStruct::IStruct(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IStruct::IStruct(lua_Table * data) function, expected prototype:\nIStruct::IStruct(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -161,15 +157,13 @@ public:
 	// ICompoundIterator * IStruct::nestedCompounds() const
 	static int _bind_nestedCompounds(lua_State *L) {
 		if (!_lg_typecheck_nestedCompounds(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ICompoundIterator * IStruct::nestedCompounds() const function, expected prototype:\nICompoundIterator * IStruct::nestedCompounds() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ICompoundIterator * IStruct::nestedCompounds() const function, expected prototype:\nICompoundIterator * IStruct::nestedCompounds() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IStruct* self=Luna< ICompound >::checkSubType< IStruct >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ICompoundIterator * IStruct::nestedCompounds() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call ICompoundIterator * IStruct::nestedCompounds() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ICompoundIterator * lret = self->nestedCompounds();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -182,15 +176,13 @@ public:
 	// IRelatedCompoundIterator * IStruct::baseCompounds() const
 	static int _bind_baseCompounds(lua_State *L) {
 		if (!_lg_typecheck_baseCompounds(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IRelatedCompoundIterator * IStruct::baseCompounds() const function, expected prototype:\nIRelatedCompoundIterator * IStruct::baseCompounds() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IRelatedCompoundIterator * IStruct::baseCompounds() const function, expected prototype:\nIRelatedCompoundIterator * IStruct::baseCompounds() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IStruct* self=Luna< ICompound >::checkSubType< IStruct >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IRelatedCompoundIterator * IStruct::baseCompounds() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IRelatedCompoundIterator * IStruct::baseCompounds() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IRelatedCompoundIterator * lret = self->baseCompounds();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -203,15 +195,13 @@ public:
 	// IRelatedCompoundIterator * IStruct::derivedCompounds() const
 	static int _bind_derivedCompounds(lua_State *L) {
 		if (!_lg_typecheck_derivedCompounds(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IRelatedCompoundIterator * IStruct::derivedCompounds() const function, expected prototype:\nIRelatedCompoundIterator * IStruct::derivedCompounds() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IRelatedCompoundIterator * IStruct::derivedCompounds() const function, expected prototype:\nIRelatedCompoundIterator * IStruct::derivedCompounds() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IStruct* self=Luna< ICompound >::checkSubType< IStruct >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IRelatedCompoundIterator * IStruct::derivedCompounds() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IRelatedCompoundIterator * IStruct::derivedCompounds() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IRelatedCompoundIterator * lret = self->derivedCompounds();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -224,15 +214,13 @@ public:
 	// const IString * IStruct::locationFile() const
 	static int _bind_locationFile(lua_State *L) {
 		if (!_lg_typecheck_locationFile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const IString * IStruct::locationFile() const function, expected prototype:\nconst IString * IStruct::locationFile() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const IString * IStruct::locationFile() const function, expected prototype:\nconst IString * IStruct::locationFile() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IStruct* self=Luna< ICompound >::checkSubType< IStruct >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const IString * IStruct::locationFile() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const IString * IStruct::locationFile() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const IString * lret = self->locationFile();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -245,15 +233,13 @@ public:
 	// int IStruct::locationLine() const
 	static int _bind_locationLine(lua_State *L) {
 		if (!_lg_typecheck_locationLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int IStruct::locationLine() const function, expected prototype:\nint IStruct::locationLine() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int IStruct::locationLine() const function, expected prototype:\nint IStruct::locationLine() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IStruct* self=Luna< ICompound >::checkSubType< IStruct >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int IStruct::locationLine() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int IStruct::locationLine() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->locationLine();
 		lua_pushnumber(L,lret);
@@ -264,15 +250,13 @@ public:
 	// int IStruct::locationBodyStartLine() const
 	static int _bind_locationBodyStartLine(lua_State *L) {
 		if (!_lg_typecheck_locationBodyStartLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int IStruct::locationBodyStartLine() const function, expected prototype:\nint IStruct::locationBodyStartLine() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int IStruct::locationBodyStartLine() const function, expected prototype:\nint IStruct::locationBodyStartLine() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IStruct* self=Luna< ICompound >::checkSubType< IStruct >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int IStruct::locationBodyStartLine() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int IStruct::locationBodyStartLine() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->locationBodyStartLine();
 		lua_pushnumber(L,lret);
@@ -283,15 +267,13 @@ public:
 	// int IStruct::locationBodyEndLine() const
 	static int _bind_locationBodyEndLine(lua_State *L) {
 		if (!_lg_typecheck_locationBodyEndLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int IStruct::locationBodyEndLine() const function, expected prototype:\nint IStruct::locationBodyEndLine() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int IStruct::locationBodyEndLine() const function, expected prototype:\nint IStruct::locationBodyEndLine() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IStruct* self=Luna< ICompound >::checkSubType< IStruct >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int IStruct::locationBodyEndLine() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int IStruct::locationBodyEndLine() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->locationBodyEndLine();
 		lua_pushnumber(L,lret);

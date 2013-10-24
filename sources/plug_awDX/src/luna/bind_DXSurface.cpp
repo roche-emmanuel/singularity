@@ -79,8 +79,8 @@ public:
 	inline static bool _lg_typecheck_validateClipRect(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,8907551) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,8907551) ) return false;
 		return true;
@@ -89,8 +89,8 @@ public:
 	inline static bool _lg_typecheck_Paint(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,8907551) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,8907551) ) return false;
 		return true;
@@ -99,8 +99,8 @@ public:
 	inline static bool _lg_typecheck_Scroll(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,8907551) ) return false;
 		return true;
 	}

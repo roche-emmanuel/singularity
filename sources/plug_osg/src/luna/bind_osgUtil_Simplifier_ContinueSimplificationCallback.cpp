@@ -105,9 +105,9 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -122,9 +122,9 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,50169651) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 

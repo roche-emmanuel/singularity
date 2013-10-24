@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btCharIndexTripletData*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btCharIndexTripletData*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCharIndexTripletData* rhs =(Luna< btCharIndexTripletData >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCharIndexTripletData* self= (btCharIndexTripletData*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCharIndexTripletData >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -111,7 +107,7 @@ public:
 	inline static bool _lg_typecheck_setPad(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -125,15 +121,13 @@ public:
 	// char btCharIndexTripletData::m_pad()
 	static int _bind_getPad(lua_State *L) {
 		if (!_lg_typecheck_getPad(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in char btCharIndexTripletData::m_pad() function, expected prototype:\nchar btCharIndexTripletData::m_pad()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in char btCharIndexTripletData::m_pad() function, expected prototype:\nchar btCharIndexTripletData::m_pad()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCharIndexTripletData* self=(Luna< btCharIndexTripletData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call char btCharIndexTripletData::m_pad(). Got : '%s'",typeid(Luna< btCharIndexTripletData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call char btCharIndexTripletData::m_pad(). Got : '%s'\n%s",typeid(Luna< btCharIndexTripletData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		char lret = self->m_pad;
 		lua_pushnumber(L,lret);
@@ -144,16 +138,14 @@ public:
 	// void btCharIndexTripletData::m_pad(char value)
 	static int _bind_setPad(lua_State *L) {
 		if (!_lg_typecheck_setPad(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCharIndexTripletData::m_pad(char value) function, expected prototype:\nvoid btCharIndexTripletData::m_pad(char value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btCharIndexTripletData::m_pad(char value) function, expected prototype:\nvoid btCharIndexTripletData::m_pad(char value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		char value=(char)lua_tointeger(L,2);
 
 		btCharIndexTripletData* self=(Luna< btCharIndexTripletData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCharIndexTripletData::m_pad(char). Got : '%s'",typeid(Luna< btCharIndexTripletData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCharIndexTripletData::m_pad(char). Got : '%s'\n%s",typeid(Luna< btCharIndexTripletData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_pad = value;
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2StackAllocator*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2StackAllocator*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2StackAllocator* rhs =(Luna< b2StackAllocator >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2StackAllocator* self= (b2StackAllocator*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2StackAllocator >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -111,7 +107,7 @@ public:
 	inline static bool _lg_typecheck_Allocate(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -136,8 +132,7 @@ public:
 	// b2StackAllocator::b2StackAllocator()
 	static b2StackAllocator* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2StackAllocator::b2StackAllocator() function, expected prototype:\nb2StackAllocator::b2StackAllocator()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2StackAllocator::b2StackAllocator() function, expected prototype:\nb2StackAllocator::b2StackAllocator()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -149,16 +144,14 @@ public:
 	// void * b2StackAllocator::Allocate(signed int size)
 	static int _bind_Allocate(lua_State *L) {
 		if (!_lg_typecheck_Allocate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * b2StackAllocator::Allocate(signed int size) function, expected prototype:\nvoid * b2StackAllocator::Allocate(signed int size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * b2StackAllocator::Allocate(signed int size) function, expected prototype:\nvoid * b2StackAllocator::Allocate(signed int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int size=(signed int)lua_tointeger(L,2);
 
 		b2StackAllocator* self=(Luna< b2StackAllocator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * b2StackAllocator::Allocate(signed int). Got : '%s'",typeid(Luna< b2StackAllocator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * b2StackAllocator::Allocate(signed int). Got : '%s'\n%s",typeid(Luna< b2StackAllocator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->Allocate(size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -171,16 +164,14 @@ public:
 	// void b2StackAllocator::Free(void * p)
 	static int _bind_Free(lua_State *L) {
 		if (!_lg_typecheck_Free(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2StackAllocator::Free(void * p) function, expected prototype:\nvoid b2StackAllocator::Free(void * p)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2StackAllocator::Free(void * p) function, expected prototype:\nvoid b2StackAllocator::Free(void * p)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* p=(Luna< void >::check(L,2));
 
 		b2StackAllocator* self=(Luna< b2StackAllocator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2StackAllocator::Free(void *). Got : '%s'",typeid(Luna< b2StackAllocator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2StackAllocator::Free(void *). Got : '%s'\n%s",typeid(Luna< b2StackAllocator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Free(p);
 
@@ -190,15 +181,13 @@ public:
 	// signed int b2StackAllocator::GetMaxAllocation() const
 	static int _bind_GetMaxAllocation(lua_State *L) {
 		if (!_lg_typecheck_GetMaxAllocation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2StackAllocator::GetMaxAllocation() const function, expected prototype:\nsigned int b2StackAllocator::GetMaxAllocation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2StackAllocator::GetMaxAllocation() const function, expected prototype:\nsigned int b2StackAllocator::GetMaxAllocation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2StackAllocator* self=(Luna< b2StackAllocator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2StackAllocator::GetMaxAllocation() const. Got : '%s'",typeid(Luna< b2StackAllocator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2StackAllocator::GetMaxAllocation() const. Got : '%s'\n%s",typeid(Luna< b2StackAllocator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->GetMaxAllocation();
 		lua_pushnumber(L,lret);

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedObject* self=(Luna< btTypedObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btHingeConstraint* self= (btHingeConstraint*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btTypedObject >::check(L,1));
@@ -282,7 +279,7 @@ public:
 	inline static bool _lg_typecheck_updateRHS(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -341,8 +338,8 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( lua_isboolean(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -356,7 +353,7 @@ public:
 	inline static bool _lg_typecheck_setMaxMotorImpulse(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -365,15 +362,15 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,2139400) ) return false;
 		if( (!(Luna< btQuadWord >::checkSubType< btQuaternion >(L,2))) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setMotorTarget_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -381,11 +378,11 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>6 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -509,9 +506,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -519,8 +516,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -534,9 +531,9 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,36629303) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -545,7 +542,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,65712094) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,65712094) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -573,9 +570,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -583,8 +580,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -602,8 +599,7 @@ public:
 	// btHingeConstraint::btHingeConstraint(btRigidBody & rbA, btRigidBody & rbB, const btVector3 & pivotInA, const btVector3 & pivotInB, const btVector3 & axisInA, const btVector3 & axisInB, bool useReferenceFrameA = false)
 	static btHingeConstraint* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btHingeConstraint::btHingeConstraint(btRigidBody & rbA, btRigidBody & rbB, const btVector3 & pivotInA, const btVector3 & pivotInB, const btVector3 & axisInA, const btVector3 & axisInB, bool useReferenceFrameA = false) function, expected prototype:\nbtHingeConstraint::btHingeConstraint(btRigidBody & rbA, btRigidBody & rbB, const btVector3 & pivotInA, const btVector3 & pivotInB, const btVector3 & axisInA, const btVector3 & axisInB, bool useReferenceFrameA = false)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btHingeConstraint::btHingeConstraint(btRigidBody & rbA, btRigidBody & rbB, const btVector3 & pivotInA, const btVector3 & pivotInB, const btVector3 & axisInA, const btVector3 & axisInB, bool useReferenceFrameA = false) function, expected prototype:\nbtHingeConstraint::btHingeConstraint(btRigidBody & rbA, btRigidBody & rbB, const btVector3 & pivotInA, const btVector3 & pivotInB, const btVector3 & axisInA, const btVector3 & axisInB, bool useReferenceFrameA = false)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -646,8 +642,7 @@ public:
 	// btHingeConstraint::btHingeConstraint(btRigidBody & rbA, const btVector3 & pivotInA, const btVector3 & axisInA, bool useReferenceFrameA = false)
 	static btHingeConstraint* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btHingeConstraint::btHingeConstraint(btRigidBody & rbA, const btVector3 & pivotInA, const btVector3 & axisInA, bool useReferenceFrameA = false) function, expected prototype:\nbtHingeConstraint::btHingeConstraint(btRigidBody & rbA, const btVector3 & pivotInA, const btVector3 & axisInA, bool useReferenceFrameA = false)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btHingeConstraint::btHingeConstraint(btRigidBody & rbA, const btVector3 & pivotInA, const btVector3 & axisInA, bool useReferenceFrameA = false) function, expected prototype:\nbtHingeConstraint::btHingeConstraint(btRigidBody & rbA, const btVector3 & pivotInA, const btVector3 & axisInA, bool useReferenceFrameA = false)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -675,8 +670,7 @@ public:
 	// btHingeConstraint::btHingeConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & rbAFrame, const btTransform & rbBFrame, bool useReferenceFrameA = false)
 	static btHingeConstraint* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btHingeConstraint::btHingeConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & rbAFrame, const btTransform & rbBFrame, bool useReferenceFrameA = false) function, expected prototype:\nbtHingeConstraint::btHingeConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & rbAFrame, const btTransform & rbBFrame, bool useReferenceFrameA = false)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 13247377\narg 4 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btHingeConstraint::btHingeConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & rbAFrame, const btTransform & rbBFrame, bool useReferenceFrameA = false) function, expected prototype:\nbtHingeConstraint::btHingeConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & rbAFrame, const btTransform & rbBFrame, bool useReferenceFrameA = false)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 13247377\narg 4 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -709,8 +703,7 @@ public:
 	// btHingeConstraint::btHingeConstraint(btRigidBody & rbA, const btTransform & rbAFrame, bool useReferenceFrameA = false)
 	static btHingeConstraint* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btHingeConstraint::btHingeConstraint(btRigidBody & rbA, const btTransform & rbAFrame, bool useReferenceFrameA = false) function, expected prototype:\nbtHingeConstraint::btHingeConstraint(btRigidBody & rbA, const btTransform & rbAFrame, bool useReferenceFrameA = false)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btHingeConstraint::btHingeConstraint(btRigidBody & rbA, const btTransform & rbAFrame, bool useReferenceFrameA = false) function, expected prototype:\nbtHingeConstraint::btHingeConstraint(btRigidBody & rbA, const btTransform & rbAFrame, bool useReferenceFrameA = false)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -733,8 +726,7 @@ public:
 	// btHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btVector3 & pivotInA, const btVector3 & pivotInB, const btVector3 & axisInA, const btVector3 & axisInB, bool useReferenceFrameA = false)
 	static btHingeConstraint* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btVector3 & pivotInA, const btVector3 & pivotInB, const btVector3 & axisInA, const btVector3 & axisInB, bool useReferenceFrameA = false) function, expected prototype:\nbtHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btVector3 & pivotInA, const btVector3 & pivotInB, const btVector3 & axisInA, const btVector3 & axisInB, bool useReferenceFrameA = false)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 85758361\narg 4 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 91544891\narg 7 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btVector3 & pivotInA, const btVector3 & pivotInB, const btVector3 & axisInA, const btVector3 & axisInB, bool useReferenceFrameA = false) function, expected prototype:\nbtHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btVector3 & pivotInA, const btVector3 & pivotInB, const btVector3 & axisInA, const btVector3 & axisInB, bool useReferenceFrameA = false)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 85758361\narg 4 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 91544891\narg 7 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -777,8 +769,7 @@ public:
 	// btHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, const btVector3 & pivotInA, const btVector3 & axisInA, bool useReferenceFrameA = false)
 	static btHingeConstraint* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, const btVector3 & pivotInA, const btVector3 & axisInA, bool useReferenceFrameA = false) function, expected prototype:\nbtHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, const btVector3 & pivotInA, const btVector3 & axisInA, bool useReferenceFrameA = false)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, const btVector3 & pivotInA, const btVector3 & axisInA, bool useReferenceFrameA = false) function, expected prototype:\nbtHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, const btVector3 & pivotInA, const btVector3 & axisInA, bool useReferenceFrameA = false)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -806,8 +797,7 @@ public:
 	// btHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & rbAFrame, const btTransform & rbBFrame, bool useReferenceFrameA = false)
 	static btHingeConstraint* _bind_ctor_overload_7(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & rbAFrame, const btTransform & rbBFrame, bool useReferenceFrameA = false) function, expected prototype:\nbtHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & rbAFrame, const btTransform & rbBFrame, bool useReferenceFrameA = false)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 85758361\narg 4 ID = 13247377\narg 5 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & rbAFrame, const btTransform & rbBFrame, bool useReferenceFrameA = false) function, expected prototype:\nbtHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & rbAFrame, const btTransform & rbBFrame, bool useReferenceFrameA = false)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 85758361\narg 4 ID = 13247377\narg 5 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -840,8 +830,7 @@ public:
 	// btHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, const btTransform & rbAFrame, bool useReferenceFrameA = false)
 	static btHingeConstraint* _bind_ctor_overload_8(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, const btTransform & rbAFrame, bool useReferenceFrameA = false) function, expected prototype:\nbtHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, const btTransform & rbAFrame, bool useReferenceFrameA = false)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, const btTransform & rbAFrame, bool useReferenceFrameA = false) function, expected prototype:\nbtHingeConstraint::btHingeConstraint(lua_Table * data, btRigidBody & rbA, const btTransform & rbAFrame, bool useReferenceFrameA = false)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -881,15 +870,13 @@ public:
 	// void btHingeConstraint::buildJacobian()
 	static int _bind_buildJacobian(lua_State *L) {
 		if (!_lg_typecheck_buildJacobian(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::buildJacobian() function, expected prototype:\nvoid btHingeConstraint::buildJacobian()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::buildJacobian() function, expected prototype:\nvoid btHingeConstraint::buildJacobian()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::buildJacobian(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::buildJacobian(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->buildJacobian();
 
@@ -899,16 +886,14 @@ public:
 	// void btHingeConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 * info)
 	static int _bind_getInfo1(lua_State *L) {
 		if (!_lg_typecheck_getInfo1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btHingeConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btHingeConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo1* info=(Luna< btTypedConstraint::btConstraintInfo1 >::check(L,2));
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getInfo1(info);
 
@@ -918,16 +903,14 @@ public:
 	// void btHingeConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 * info)
 	static int _bind_getInfo1NonVirtual(lua_State *L) {
 		if (!_lg_typecheck_getInfo1NonVirtual(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btHingeConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btHingeConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo1* info=(Luna< btTypedConstraint::btConstraintInfo1 >::check(L,2));
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getInfo1NonVirtual(info);
 
@@ -937,16 +920,14 @@ public:
 	// void btHingeConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info)
 	static int _bind_getInfo2(lua_State *L) {
 		if (!_lg_typecheck_getInfo2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info) function, expected prototype:\nvoid btHingeConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info)\nClass arguments details:\narg 1 ID = 17243936\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info) function, expected prototype:\nvoid btHingeConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info)\nClass arguments details:\narg 1 ID = 17243936\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo2* info=(Luna< btTypedConstraint::btConstraintInfo2 >::check(L,2));
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getInfo2(info);
 
@@ -956,8 +937,7 @@ public:
 	// void btHingeConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & angVelA, const btVector3 & angVelB)
 	static int _bind_getInfo2NonVirtual(lua_State *L) {
 		if (!_lg_typecheck_getInfo2NonVirtual(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & angVelA, const btVector3 & angVelB) function, expected prototype:\nvoid btHingeConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & angVelA, const btVector3 & angVelB)\nClass arguments details:\narg 1 ID = 17243936\narg 2 ID = 13247377\narg 3 ID = 13247377\narg 4 ID = 91544891\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & angVelA, const btVector3 & angVelB) function, expected prototype:\nvoid btHingeConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & angVelA, const btVector3 & angVelB)\nClass arguments details:\narg 1 ID = 17243936\narg 2 ID = 13247377\narg 3 ID = 13247377\narg 4 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo2* info=(Luna< btTypedConstraint::btConstraintInfo2 >::check(L,2));
@@ -984,8 +964,7 @@ public:
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 *, const btTransform &, const btTransform &, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 *, const btTransform &, const btTransform &, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getInfo2NonVirtual(info, transA, transB, angVelA, angVelB);
 
@@ -995,8 +974,7 @@ public:
 	// void btHingeConstraint::getInfo2Internal(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & angVelA, const btVector3 & angVelB)
 	static int _bind_getInfo2Internal(lua_State *L) {
 		if (!_lg_typecheck_getInfo2Internal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::getInfo2Internal(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & angVelA, const btVector3 & angVelB) function, expected prototype:\nvoid btHingeConstraint::getInfo2Internal(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & angVelA, const btVector3 & angVelB)\nClass arguments details:\narg 1 ID = 17243936\narg 2 ID = 13247377\narg 3 ID = 13247377\narg 4 ID = 91544891\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::getInfo2Internal(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & angVelA, const btVector3 & angVelB) function, expected prototype:\nvoid btHingeConstraint::getInfo2Internal(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & angVelA, const btVector3 & angVelB)\nClass arguments details:\narg 1 ID = 17243936\narg 2 ID = 13247377\narg 3 ID = 13247377\narg 4 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo2* info=(Luna< btTypedConstraint::btConstraintInfo2 >::check(L,2));
@@ -1023,8 +1001,7 @@ public:
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::getInfo2Internal(btTypedConstraint::btConstraintInfo2 *, const btTransform &, const btTransform &, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::getInfo2Internal(btTypedConstraint::btConstraintInfo2 *, const btTransform &, const btTransform &, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getInfo2Internal(info, transA, transB, angVelA, angVelB);
 
@@ -1034,8 +1011,7 @@ public:
 	// void btHingeConstraint::getInfo2InternalUsingFrameOffset(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & angVelA, const btVector3 & angVelB)
 	static int _bind_getInfo2InternalUsingFrameOffset(lua_State *L) {
 		if (!_lg_typecheck_getInfo2InternalUsingFrameOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::getInfo2InternalUsingFrameOffset(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & angVelA, const btVector3 & angVelB) function, expected prototype:\nvoid btHingeConstraint::getInfo2InternalUsingFrameOffset(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & angVelA, const btVector3 & angVelB)\nClass arguments details:\narg 1 ID = 17243936\narg 2 ID = 13247377\narg 3 ID = 13247377\narg 4 ID = 91544891\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::getInfo2InternalUsingFrameOffset(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & angVelA, const btVector3 & angVelB) function, expected prototype:\nvoid btHingeConstraint::getInfo2InternalUsingFrameOffset(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & angVelA, const btVector3 & angVelB)\nClass arguments details:\narg 1 ID = 17243936\narg 2 ID = 13247377\narg 3 ID = 13247377\narg 4 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo2* info=(Luna< btTypedConstraint::btConstraintInfo2 >::check(L,2));
@@ -1062,8 +1038,7 @@ public:
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::getInfo2InternalUsingFrameOffset(btTypedConstraint::btConstraintInfo2 *, const btTransform &, const btTransform &, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::getInfo2InternalUsingFrameOffset(btTypedConstraint::btConstraintInfo2 *, const btTransform &, const btTransform &, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getInfo2InternalUsingFrameOffset(info, transA, transB, angVelA, angVelB);
 
@@ -1073,16 +1048,14 @@ public:
 	// void btHingeConstraint::updateRHS(float timeStep)
 	static int _bind_updateRHS(lua_State *L) {
 		if (!_lg_typecheck_updateRHS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::updateRHS(float timeStep) function, expected prototype:\nvoid btHingeConstraint::updateRHS(float timeStep)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::updateRHS(float timeStep) function, expected prototype:\nvoid btHingeConstraint::updateRHS(float timeStep)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float timeStep=(float)lua_tonumber(L,2);
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::updateRHS(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::updateRHS(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->updateRHS(timeStep);
 
@@ -1092,15 +1065,13 @@ public:
 	// const btRigidBody & btHingeConstraint::getRigidBodyA() const
 	static int _bind_getRigidBodyA_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getRigidBodyA_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btRigidBody & btHingeConstraint::getRigidBodyA() const function, expected prototype:\nconst btRigidBody & btHingeConstraint::getRigidBodyA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btRigidBody & btHingeConstraint::getRigidBodyA() const function, expected prototype:\nconst btRigidBody & btHingeConstraint::getRigidBodyA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btRigidBody & btHingeConstraint::getRigidBodyA() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btRigidBody & btHingeConstraint::getRigidBodyA() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btRigidBody* lret = &self->getRigidBodyA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1113,15 +1084,13 @@ public:
 	// btRigidBody & btHingeConstraint::getRigidBodyA()
 	static int _bind_getRigidBodyA_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getRigidBodyA_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btRigidBody & btHingeConstraint::getRigidBodyA() function, expected prototype:\nbtRigidBody & btHingeConstraint::getRigidBodyA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btRigidBody & btHingeConstraint::getRigidBodyA() function, expected prototype:\nbtRigidBody & btHingeConstraint::getRigidBodyA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btRigidBody & btHingeConstraint::getRigidBodyA(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btRigidBody & btHingeConstraint::getRigidBodyA(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btRigidBody* lret = &self->getRigidBodyA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1143,15 +1112,13 @@ public:
 	// const btRigidBody & btHingeConstraint::getRigidBodyB() const
 	static int _bind_getRigidBodyB_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getRigidBodyB_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btRigidBody & btHingeConstraint::getRigidBodyB() const function, expected prototype:\nconst btRigidBody & btHingeConstraint::getRigidBodyB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btRigidBody & btHingeConstraint::getRigidBodyB() const function, expected prototype:\nconst btRigidBody & btHingeConstraint::getRigidBodyB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btRigidBody & btHingeConstraint::getRigidBodyB() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btRigidBody & btHingeConstraint::getRigidBodyB() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btRigidBody* lret = &self->getRigidBodyB();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1164,15 +1131,13 @@ public:
 	// btRigidBody & btHingeConstraint::getRigidBodyB()
 	static int _bind_getRigidBodyB_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getRigidBodyB_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btRigidBody & btHingeConstraint::getRigidBodyB() function, expected prototype:\nbtRigidBody & btHingeConstraint::getRigidBodyB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btRigidBody & btHingeConstraint::getRigidBodyB() function, expected prototype:\nbtRigidBody & btHingeConstraint::getRigidBodyB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btRigidBody & btHingeConstraint::getRigidBodyB(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btRigidBody & btHingeConstraint::getRigidBodyB(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btRigidBody* lret = &self->getRigidBodyB();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1194,15 +1159,13 @@ public:
 	// btTransform & btHingeConstraint::getFrameOffsetA()
 	static int _bind_getFrameOffsetA(lua_State *L) {
 		if (!_lg_typecheck_getFrameOffsetA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform & btHingeConstraint::getFrameOffsetA() function, expected prototype:\nbtTransform & btHingeConstraint::getFrameOffsetA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform & btHingeConstraint::getFrameOffsetA() function, expected prototype:\nbtTransform & btHingeConstraint::getFrameOffsetA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform & btHingeConstraint::getFrameOffsetA(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform & btHingeConstraint::getFrameOffsetA(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getFrameOffsetA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1215,15 +1178,13 @@ public:
 	// btTransform & btHingeConstraint::getFrameOffsetB()
 	static int _bind_getFrameOffsetB(lua_State *L) {
 		if (!_lg_typecheck_getFrameOffsetB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform & btHingeConstraint::getFrameOffsetB() function, expected prototype:\nbtTransform & btHingeConstraint::getFrameOffsetB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform & btHingeConstraint::getFrameOffsetB() function, expected prototype:\nbtTransform & btHingeConstraint::getFrameOffsetB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform & btHingeConstraint::getFrameOffsetB(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform & btHingeConstraint::getFrameOffsetB(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getFrameOffsetB();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1236,8 +1197,7 @@ public:
 	// void btHingeConstraint::setFrames(const btTransform & frameA, const btTransform & frameB)
 	static int _bind_setFrames(lua_State *L) {
 		if (!_lg_typecheck_setFrames(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setFrames(const btTransform & frameA, const btTransform & frameB) function, expected prototype:\nvoid btHingeConstraint::setFrames(const btTransform & frameA, const btTransform & frameB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setFrames(const btTransform & frameA, const btTransform & frameB) function, expected prototype:\nvoid btHingeConstraint::setFrames(const btTransform & frameA, const btTransform & frameB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* frameA_ptr=(Luna< btTransform >::check(L,2));
@@ -1253,8 +1213,7 @@ public:
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::setFrames(const btTransform &, const btTransform &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::setFrames(const btTransform &, const btTransform &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFrames(frameA, frameB);
 
@@ -1264,16 +1223,14 @@ public:
 	// void btHingeConstraint::setAngularOnly(bool angularOnly)
 	static int _bind_setAngularOnly(lua_State *L) {
 		if (!_lg_typecheck_setAngularOnly(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setAngularOnly(bool angularOnly) function, expected prototype:\nvoid btHingeConstraint::setAngularOnly(bool angularOnly)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setAngularOnly(bool angularOnly) function, expected prototype:\nvoid btHingeConstraint::setAngularOnly(bool angularOnly)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool angularOnly=(bool)(lua_toboolean(L,2)==1);
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::setAngularOnly(bool). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::setAngularOnly(bool). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAngularOnly(angularOnly);
 
@@ -1283,8 +1240,7 @@ public:
 	// void btHingeConstraint::enableAngularMotor(bool enableMotor, float targetVelocity, float maxMotorImpulse)
 	static int _bind_enableAngularMotor(lua_State *L) {
 		if (!_lg_typecheck_enableAngularMotor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::enableAngularMotor(bool enableMotor, float targetVelocity, float maxMotorImpulse) function, expected prototype:\nvoid btHingeConstraint::enableAngularMotor(bool enableMotor, float targetVelocity, float maxMotorImpulse)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::enableAngularMotor(bool enableMotor, float targetVelocity, float maxMotorImpulse) function, expected prototype:\nvoid btHingeConstraint::enableAngularMotor(bool enableMotor, float targetVelocity, float maxMotorImpulse)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enableMotor=(bool)(lua_toboolean(L,2)==1);
@@ -1293,8 +1249,7 @@ public:
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::enableAngularMotor(bool, float, float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::enableAngularMotor(bool, float, float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->enableAngularMotor(enableMotor, targetVelocity, maxMotorImpulse);
 
@@ -1304,16 +1259,14 @@ public:
 	// void btHingeConstraint::enableMotor(bool enableMotor)
 	static int _bind_enableMotor(lua_State *L) {
 		if (!_lg_typecheck_enableMotor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::enableMotor(bool enableMotor) function, expected prototype:\nvoid btHingeConstraint::enableMotor(bool enableMotor)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::enableMotor(bool enableMotor) function, expected prototype:\nvoid btHingeConstraint::enableMotor(bool enableMotor)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enableMotor=(bool)(lua_toboolean(L,2)==1);
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::enableMotor(bool). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::enableMotor(bool). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->enableMotor(enableMotor);
 
@@ -1323,16 +1276,14 @@ public:
 	// void btHingeConstraint::setMaxMotorImpulse(float maxMotorImpulse)
 	static int _bind_setMaxMotorImpulse(lua_State *L) {
 		if (!_lg_typecheck_setMaxMotorImpulse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setMaxMotorImpulse(float maxMotorImpulse) function, expected prototype:\nvoid btHingeConstraint::setMaxMotorImpulse(float maxMotorImpulse)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setMaxMotorImpulse(float maxMotorImpulse) function, expected prototype:\nvoid btHingeConstraint::setMaxMotorImpulse(float maxMotorImpulse)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float maxMotorImpulse=(float)lua_tonumber(L,2);
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::setMaxMotorImpulse(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::setMaxMotorImpulse(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMaxMotorImpulse(maxMotorImpulse);
 
@@ -1342,8 +1293,7 @@ public:
 	// void btHingeConstraint::setMotorTarget(const btQuaternion & qAinB, float dt)
 	static int _bind_setMotorTarget_overload_1(lua_State *L) {
 		if (!_lg_typecheck_setMotorTarget_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setMotorTarget(const btQuaternion & qAinB, float dt) function, expected prototype:\nvoid btHingeConstraint::setMotorTarget(const btQuaternion & qAinB, float dt)\nClass arguments details:\narg 1 ID = 2139400\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setMotorTarget(const btQuaternion & qAinB, float dt) function, expected prototype:\nvoid btHingeConstraint::setMotorTarget(const btQuaternion & qAinB, float dt)\nClass arguments details:\narg 1 ID = 2139400\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btQuaternion* qAinB_ptr=(Luna< btQuadWord >::checkSubType< btQuaternion >(L,2));
@@ -1355,8 +1305,7 @@ public:
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::setMotorTarget(const btQuaternion &, float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::setMotorTarget(const btQuaternion &, float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMotorTarget(qAinB, dt);
 
@@ -1366,8 +1315,7 @@ public:
 	// void btHingeConstraint::setMotorTarget(float targetAngle, float dt)
 	static int _bind_setMotorTarget_overload_2(lua_State *L) {
 		if (!_lg_typecheck_setMotorTarget_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setMotorTarget(float targetAngle, float dt) function, expected prototype:\nvoid btHingeConstraint::setMotorTarget(float targetAngle, float dt)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setMotorTarget(float targetAngle, float dt) function, expected prototype:\nvoid btHingeConstraint::setMotorTarget(float targetAngle, float dt)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float targetAngle=(float)lua_tonumber(L,2);
@@ -1375,8 +1323,7 @@ public:
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::setMotorTarget(float, float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::setMotorTarget(float, float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMotorTarget(targetAngle, dt);
 
@@ -1395,8 +1342,7 @@ public:
 	// void btHingeConstraint::setLimit(float low, float high, float _softness = 0.9f, float _biasFactor = 0.3f, float _relaxationFactor = 1.0f)
 	static int _bind_setLimit(lua_State *L) {
 		if (!_lg_typecheck_setLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setLimit(float low, float high, float _softness = 0.9f, float _biasFactor = 0.3f, float _relaxationFactor = 1.0f) function, expected prototype:\nvoid btHingeConstraint::setLimit(float low, float high, float _softness = 0.9f, float _biasFactor = 0.3f, float _relaxationFactor = 1.0f)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setLimit(float low, float high, float _softness = 0.9f, float _biasFactor = 0.3f, float _relaxationFactor = 1.0f) function, expected prototype:\nvoid btHingeConstraint::setLimit(float low, float high, float _softness = 0.9f, float _biasFactor = 0.3f, float _relaxationFactor = 1.0f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1409,8 +1355,7 @@ public:
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::setLimit(float, float, float, float, float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::setLimit(float, float, float, float, float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLimit(low, high, _softness, _biasFactor, _relaxationFactor);
 
@@ -1420,8 +1365,7 @@ public:
 	// void btHingeConstraint::setAxis(btVector3 & axisInA)
 	static int _bind_setAxis(lua_State *L) {
 		if (!_lg_typecheck_setAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setAxis(btVector3 & axisInA) function, expected prototype:\nvoid btHingeConstraint::setAxis(btVector3 & axisInA)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setAxis(btVector3 & axisInA) function, expected prototype:\nvoid btHingeConstraint::setAxis(btVector3 & axisInA)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* axisInA_ptr=(Luna< btVector3 >::check(L,2));
@@ -1432,8 +1376,7 @@ public:
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::setAxis(btVector3 &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::setAxis(btVector3 &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAxis(axisInA);
 
@@ -1443,15 +1386,13 @@ public:
 	// float btHingeConstraint::getLowerLimit() const
 	static int _bind_getLowerLimit(lua_State *L) {
 		if (!_lg_typecheck_getLowerLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btHingeConstraint::getLowerLimit() const function, expected prototype:\nfloat btHingeConstraint::getLowerLimit() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btHingeConstraint::getLowerLimit() const function, expected prototype:\nfloat btHingeConstraint::getLowerLimit() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btHingeConstraint::getLowerLimit() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btHingeConstraint::getLowerLimit() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getLowerLimit();
 		lua_pushnumber(L,lret);
@@ -1462,15 +1403,13 @@ public:
 	// float btHingeConstraint::getUpperLimit() const
 	static int _bind_getUpperLimit(lua_State *L) {
 		if (!_lg_typecheck_getUpperLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btHingeConstraint::getUpperLimit() const function, expected prototype:\nfloat btHingeConstraint::getUpperLimit() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btHingeConstraint::getUpperLimit() const function, expected prototype:\nfloat btHingeConstraint::getUpperLimit() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btHingeConstraint::getUpperLimit() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btHingeConstraint::getUpperLimit() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getUpperLimit();
 		lua_pushnumber(L,lret);
@@ -1481,15 +1420,13 @@ public:
 	// float btHingeConstraint::getHingeAngle()
 	static int _bind_getHingeAngle_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getHingeAngle_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btHingeConstraint::getHingeAngle() function, expected prototype:\nfloat btHingeConstraint::getHingeAngle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btHingeConstraint::getHingeAngle() function, expected prototype:\nfloat btHingeConstraint::getHingeAngle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btHingeConstraint::getHingeAngle(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btHingeConstraint::getHingeAngle(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getHingeAngle();
 		lua_pushnumber(L,lret);
@@ -1500,8 +1437,7 @@ public:
 	// float btHingeConstraint::getHingeAngle(const btTransform & transA, const btTransform & transB)
 	static int _bind_getHingeAngle_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getHingeAngle_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btHingeConstraint::getHingeAngle(const btTransform & transA, const btTransform & transB) function, expected prototype:\nfloat btHingeConstraint::getHingeAngle(const btTransform & transA, const btTransform & transB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in float btHingeConstraint::getHingeAngle(const btTransform & transA, const btTransform & transB) function, expected prototype:\nfloat btHingeConstraint::getHingeAngle(const btTransform & transA, const btTransform & transB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* transA_ptr=(Luna< btTransform >::check(L,2));
@@ -1517,8 +1453,7 @@ public:
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btHingeConstraint::getHingeAngle(const btTransform &, const btTransform &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btHingeConstraint::getHingeAngle(const btTransform &, const btTransform &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getHingeAngle(transA, transB);
 		lua_pushnumber(L,lret);
@@ -1538,8 +1473,7 @@ public:
 	// void btHingeConstraint::testLimit(const btTransform & transA, const btTransform & transB)
 	static int _bind_testLimit(lua_State *L) {
 		if (!_lg_typecheck_testLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::testLimit(const btTransform & transA, const btTransform & transB) function, expected prototype:\nvoid btHingeConstraint::testLimit(const btTransform & transA, const btTransform & transB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::testLimit(const btTransform & transA, const btTransform & transB) function, expected prototype:\nvoid btHingeConstraint::testLimit(const btTransform & transA, const btTransform & transB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* transA_ptr=(Luna< btTransform >::check(L,2));
@@ -1555,8 +1489,7 @@ public:
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::testLimit(const btTransform &, const btTransform &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::testLimit(const btTransform &, const btTransform &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->testLimit(transA, transB);
 
@@ -1566,15 +1499,13 @@ public:
 	// const btTransform & btHingeConstraint::getAFrame() const
 	static int _bind_getAFrame_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getAFrame_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btTransform & btHingeConstraint::getAFrame() const function, expected prototype:\nconst btTransform & btHingeConstraint::getAFrame() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btTransform & btHingeConstraint::getAFrame() const function, expected prototype:\nconst btTransform & btHingeConstraint::getAFrame() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btTransform & btHingeConstraint::getAFrame() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btTransform & btHingeConstraint::getAFrame() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getAFrame();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1587,15 +1518,13 @@ public:
 	// btTransform & btHingeConstraint::getAFrame()
 	static int _bind_getAFrame_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getAFrame_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform & btHingeConstraint::getAFrame() function, expected prototype:\nbtTransform & btHingeConstraint::getAFrame()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform & btHingeConstraint::getAFrame() function, expected prototype:\nbtTransform & btHingeConstraint::getAFrame()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform & btHingeConstraint::getAFrame(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform & btHingeConstraint::getAFrame(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getAFrame();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1617,15 +1546,13 @@ public:
 	// const btTransform & btHingeConstraint::getBFrame() const
 	static int _bind_getBFrame_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getBFrame_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btTransform & btHingeConstraint::getBFrame() const function, expected prototype:\nconst btTransform & btHingeConstraint::getBFrame() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btTransform & btHingeConstraint::getBFrame() const function, expected prototype:\nconst btTransform & btHingeConstraint::getBFrame() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btTransform & btHingeConstraint::getBFrame() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btTransform & btHingeConstraint::getBFrame() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getBFrame();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1638,15 +1565,13 @@ public:
 	// btTransform & btHingeConstraint::getBFrame()
 	static int _bind_getBFrame_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getBFrame_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform & btHingeConstraint::getBFrame() function, expected prototype:\nbtTransform & btHingeConstraint::getBFrame()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform & btHingeConstraint::getBFrame() function, expected prototype:\nbtTransform & btHingeConstraint::getBFrame()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform & btHingeConstraint::getBFrame(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform & btHingeConstraint::getBFrame(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getBFrame();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1668,15 +1593,13 @@ public:
 	// int btHingeConstraint::getSolveLimit()
 	static int _bind_getSolveLimit(lua_State *L) {
 		if (!_lg_typecheck_getSolveLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btHingeConstraint::getSolveLimit() function, expected prototype:\nint btHingeConstraint::getSolveLimit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btHingeConstraint::getSolveLimit() function, expected prototype:\nint btHingeConstraint::getSolveLimit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btHingeConstraint::getSolveLimit(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btHingeConstraint::getSolveLimit(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getSolveLimit();
 		lua_pushnumber(L,lret);
@@ -1687,15 +1610,13 @@ public:
 	// float btHingeConstraint::getLimitSign()
 	static int _bind_getLimitSign(lua_State *L) {
 		if (!_lg_typecheck_getLimitSign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btHingeConstraint::getLimitSign() function, expected prototype:\nfloat btHingeConstraint::getLimitSign()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btHingeConstraint::getLimitSign() function, expected prototype:\nfloat btHingeConstraint::getLimitSign()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btHingeConstraint::getLimitSign(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btHingeConstraint::getLimitSign(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getLimitSign();
 		lua_pushnumber(L,lret);
@@ -1706,15 +1627,13 @@ public:
 	// bool btHingeConstraint::getAngularOnly()
 	static int _bind_getAngularOnly(lua_State *L) {
 		if (!_lg_typecheck_getAngularOnly(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btHingeConstraint::getAngularOnly() function, expected prototype:\nbool btHingeConstraint::getAngularOnly()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btHingeConstraint::getAngularOnly() function, expected prototype:\nbool btHingeConstraint::getAngularOnly()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btHingeConstraint::getAngularOnly(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btHingeConstraint::getAngularOnly(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getAngularOnly();
 		lua_pushboolean(L,lret?1:0);
@@ -1725,15 +1644,13 @@ public:
 	// bool btHingeConstraint::getEnableAngularMotor()
 	static int _bind_getEnableAngularMotor(lua_State *L) {
 		if (!_lg_typecheck_getEnableAngularMotor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btHingeConstraint::getEnableAngularMotor() function, expected prototype:\nbool btHingeConstraint::getEnableAngularMotor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btHingeConstraint::getEnableAngularMotor() function, expected prototype:\nbool btHingeConstraint::getEnableAngularMotor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btHingeConstraint::getEnableAngularMotor(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btHingeConstraint::getEnableAngularMotor(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getEnableAngularMotor();
 		lua_pushboolean(L,lret?1:0);
@@ -1744,15 +1661,13 @@ public:
 	// float btHingeConstraint::getMotorTargetVelosity()
 	static int _bind_getMotorTargetVelosity(lua_State *L) {
 		if (!_lg_typecheck_getMotorTargetVelosity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btHingeConstraint::getMotorTargetVelosity() function, expected prototype:\nfloat btHingeConstraint::getMotorTargetVelosity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btHingeConstraint::getMotorTargetVelosity() function, expected prototype:\nfloat btHingeConstraint::getMotorTargetVelosity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btHingeConstraint::getMotorTargetVelosity(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btHingeConstraint::getMotorTargetVelosity(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getMotorTargetVelosity();
 		lua_pushnumber(L,lret);
@@ -1763,15 +1678,13 @@ public:
 	// float btHingeConstraint::getMaxMotorImpulse()
 	static int _bind_getMaxMotorImpulse(lua_State *L) {
 		if (!_lg_typecheck_getMaxMotorImpulse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btHingeConstraint::getMaxMotorImpulse() function, expected prototype:\nfloat btHingeConstraint::getMaxMotorImpulse()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btHingeConstraint::getMaxMotorImpulse() function, expected prototype:\nfloat btHingeConstraint::getMaxMotorImpulse()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btHingeConstraint::getMaxMotorImpulse(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btHingeConstraint::getMaxMotorImpulse(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getMaxMotorImpulse();
 		lua_pushnumber(L,lret);
@@ -1782,15 +1695,13 @@ public:
 	// bool btHingeConstraint::getUseFrameOffset()
 	static int _bind_getUseFrameOffset(lua_State *L) {
 		if (!_lg_typecheck_getUseFrameOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btHingeConstraint::getUseFrameOffset() function, expected prototype:\nbool btHingeConstraint::getUseFrameOffset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btHingeConstraint::getUseFrameOffset() function, expected prototype:\nbool btHingeConstraint::getUseFrameOffset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btHingeConstraint::getUseFrameOffset(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btHingeConstraint::getUseFrameOffset(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getUseFrameOffset();
 		lua_pushboolean(L,lret?1:0);
@@ -1801,16 +1712,14 @@ public:
 	// void btHingeConstraint::setUseFrameOffset(bool frameOffsetOnOff)
 	static int _bind_setUseFrameOffset(lua_State *L) {
 		if (!_lg_typecheck_setUseFrameOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setUseFrameOffset(bool frameOffsetOnOff) function, expected prototype:\nvoid btHingeConstraint::setUseFrameOffset(bool frameOffsetOnOff)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setUseFrameOffset(bool frameOffsetOnOff) function, expected prototype:\nvoid btHingeConstraint::setUseFrameOffset(bool frameOffsetOnOff)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool frameOffsetOnOff=(bool)(lua_toboolean(L,2)==1);
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::setUseFrameOffset(bool). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::setUseFrameOffset(bool). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setUseFrameOffset(frameOffsetOnOff);
 
@@ -1820,8 +1729,7 @@ public:
 	// void btHingeConstraint::setParam(int num, float value, int axis = -1)
 	static int _bind_setParam(lua_State *L) {
 		if (!_lg_typecheck_setParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setParam(int num, float value, int axis = -1) function, expected prototype:\nvoid btHingeConstraint::setParam(int num, float value, int axis = -1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::setParam(int num, float value, int axis = -1) function, expected prototype:\nvoid btHingeConstraint::setParam(int num, float value, int axis = -1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1832,8 +1740,7 @@ public:
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::setParam(int, float, int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::setParam(int, float, int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setParam(num, value, axis);
 
@@ -1843,8 +1750,7 @@ public:
 	// float btHingeConstraint::getParam(int num, int axis = -1) const
 	static int _bind_getParam(lua_State *L) {
 		if (!_lg_typecheck_getParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btHingeConstraint::getParam(int num, int axis = -1) const function, expected prototype:\nfloat btHingeConstraint::getParam(int num, int axis = -1) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btHingeConstraint::getParam(int num, int axis = -1) const function, expected prototype:\nfloat btHingeConstraint::getParam(int num, int axis = -1) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1854,8 +1760,7 @@ public:
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btHingeConstraint::getParam(int, int) const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btHingeConstraint::getParam(int, int) const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getParam(num, axis);
 		lua_pushnumber(L,lret);
@@ -1866,15 +1771,13 @@ public:
 	// int btHingeConstraint::calculateSerializeBufferSize() const
 	static int _bind_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btHingeConstraint::calculateSerializeBufferSize() const function, expected prototype:\nint btHingeConstraint::calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btHingeConstraint::calculateSerializeBufferSize() const function, expected prototype:\nint btHingeConstraint::calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btHingeConstraint::calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btHingeConstraint::calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);
@@ -1885,8 +1788,7 @@ public:
 	// void btHingeConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep)
 	static int _bind_base_setupSolverConstraint(lua_State *L) {
 		if (!_lg_typecheck_base_setupSolverConstraint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep) function, expected prototype:\nvoid btHingeConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep)\nClass arguments details:\narg 1 ID = 1318117\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep) function, expected prototype:\nvoid btHingeConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep)\nClass arguments details:\narg 1 ID = 1318117\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConstraintArray* ca_ptr=(Luna< btAlignedObjectArray< btSolverConstraint > >::checkSubType< btConstraintArray >(L,2));
@@ -1900,8 +1802,7 @@ public:
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::base_setupSolverConstraint(btConstraintArray &, int, int, float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::base_setupSolverConstraint(btConstraintArray &, int, int, float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btHingeConstraint::setupSolverConstraint(ca, solverBodyA, solverBodyB, timeStep);
 
@@ -1911,8 +1812,7 @@ public:
 	// void btHingeConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3)
 	static int _bind_base_solveConstraintObsolete(lua_State *L) {
 		if (!_lg_typecheck_base_solveConstraintObsolete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3) function, expected prototype:\nvoid btHingeConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3) function, expected prototype:\nvoid btHingeConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSolverBody* _arg1_ptr=(Luna< btSolverBody >::check(L,2));
@@ -1929,8 +1829,7 @@ public:
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::base_solveConstraintObsolete(btSolverBody &, btSolverBody &, float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::base_solveConstraintObsolete(btSolverBody &, btSolverBody &, float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btHingeConstraint::solveConstraintObsolete(_arg1, _arg2, _arg3);
 
@@ -1940,15 +1839,13 @@ public:
 	// void btHingeConstraint::base_buildJacobian()
 	static int _bind_base_buildJacobian(lua_State *L) {
 		if (!_lg_typecheck_base_buildJacobian(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::base_buildJacobian() function, expected prototype:\nvoid btHingeConstraint::base_buildJacobian()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::base_buildJacobian() function, expected prototype:\nvoid btHingeConstraint::base_buildJacobian()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::base_buildJacobian(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::base_buildJacobian(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btHingeConstraint::buildJacobian();
 
@@ -1958,16 +1855,14 @@ public:
 	// void btHingeConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info)
 	static int _bind_base_getInfo1(lua_State *L) {
 		if (!_lg_typecheck_base_getInfo1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btHingeConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btHingeConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo1* info=(Luna< btTypedConstraint::btConstraintInfo1 >::check(L,2));
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btHingeConstraint::getInfo1(info);
 
@@ -1977,16 +1872,14 @@ public:
 	// void btHingeConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info)
 	static int _bind_base_getInfo2(lua_State *L) {
 		if (!_lg_typecheck_base_getInfo2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info) function, expected prototype:\nvoid btHingeConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info)\nClass arguments details:\narg 1 ID = 17243936\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info) function, expected prototype:\nvoid btHingeConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info)\nClass arguments details:\narg 1 ID = 17243936\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo2* info=(Luna< btTypedConstraint::btConstraintInfo2 >::check(L,2));
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btHingeConstraint::getInfo2(info);
 
@@ -1996,8 +1889,7 @@ public:
 	// void btHingeConstraint::base_setParam(int num, float value, int axis = -1)
 	static int _bind_base_setParam(lua_State *L) {
 		if (!_lg_typecheck_base_setParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHingeConstraint::base_setParam(int num, float value, int axis = -1) function, expected prototype:\nvoid btHingeConstraint::base_setParam(int num, float value, int axis = -1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btHingeConstraint::base_setParam(int num, float value, int axis = -1) function, expected prototype:\nvoid btHingeConstraint::base_setParam(int num, float value, int axis = -1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2008,8 +1900,7 @@ public:
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHingeConstraint::base_setParam(int, float, int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHingeConstraint::base_setParam(int, float, int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btHingeConstraint::setParam(num, value, axis);
 
@@ -2019,8 +1910,7 @@ public:
 	// float btHingeConstraint::base_getParam(int num, int axis = -1) const
 	static int _bind_base_getParam(lua_State *L) {
 		if (!_lg_typecheck_base_getParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btHingeConstraint::base_getParam(int num, int axis = -1) const function, expected prototype:\nfloat btHingeConstraint::base_getParam(int num, int axis = -1) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btHingeConstraint::base_getParam(int num, int axis = -1) const function, expected prototype:\nfloat btHingeConstraint::base_getParam(int num, int axis = -1) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2030,8 +1920,7 @@ public:
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btHingeConstraint::base_getParam(int, int) const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btHingeConstraint::base_getParam(int, int) const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btHingeConstraint::getParam(num, axis);
 		lua_pushnumber(L,lret);
@@ -2042,15 +1931,13 @@ public:
 	// int btHingeConstraint::base_calculateSerializeBufferSize() const
 	static int _bind_base_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_base_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btHingeConstraint::base_calculateSerializeBufferSize() const function, expected prototype:\nint btHingeConstraint::base_calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btHingeConstraint::base_calculateSerializeBufferSize() const function, expected prototype:\nint btHingeConstraint::base_calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHingeConstraint* self=Luna< btTypedObject >::checkSubType< btHingeConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btHingeConstraint::base_calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btHingeConstraint::base_calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btHingeConstraint::calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);

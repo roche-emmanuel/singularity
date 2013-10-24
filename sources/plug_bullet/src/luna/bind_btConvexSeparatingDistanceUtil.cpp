@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btConvexSeparatingDistanceUtil*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btConvexSeparatingDistanceUtil*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexSeparatingDistanceUtil* rhs =(Luna< btConvexSeparatingDistanceUtil >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexSeparatingDistanceUtil* self= (btConvexSeparatingDistanceUtil*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btConvexSeparatingDistanceUtil >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -103,8 +99,8 @@ public:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -128,7 +124,7 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,13247377) ) return false;
 		return true;
@@ -142,8 +138,7 @@ public:
 	// btConvexSeparatingDistanceUtil::btConvexSeparatingDistanceUtil(float boundingRadiusA, float boundingRadiusB)
 	static btConvexSeparatingDistanceUtil* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConvexSeparatingDistanceUtil::btConvexSeparatingDistanceUtil(float boundingRadiusA, float boundingRadiusB) function, expected prototype:\nbtConvexSeparatingDistanceUtil::btConvexSeparatingDistanceUtil(float boundingRadiusA, float boundingRadiusB)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btConvexSeparatingDistanceUtil::btConvexSeparatingDistanceUtil(float boundingRadiusA, float boundingRadiusB) function, expected prototype:\nbtConvexSeparatingDistanceUtil::btConvexSeparatingDistanceUtil(float boundingRadiusA, float boundingRadiusB)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float boundingRadiusA=(float)lua_tonumber(L,1);
@@ -157,15 +152,13 @@ public:
 	// float btConvexSeparatingDistanceUtil::getConservativeSeparatingDistance()
 	static int _bind_getConservativeSeparatingDistance(lua_State *L) {
 		if (!_lg_typecheck_getConservativeSeparatingDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btConvexSeparatingDistanceUtil::getConservativeSeparatingDistance() function, expected prototype:\nfloat btConvexSeparatingDistanceUtil::getConservativeSeparatingDistance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btConvexSeparatingDistanceUtil::getConservativeSeparatingDistance() function, expected prototype:\nfloat btConvexSeparatingDistanceUtil::getConservativeSeparatingDistance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexSeparatingDistanceUtil* self=(Luna< btConvexSeparatingDistanceUtil >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btConvexSeparatingDistanceUtil::getConservativeSeparatingDistance(). Got : '%s'",typeid(Luna< btConvexSeparatingDistanceUtil >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btConvexSeparatingDistanceUtil::getConservativeSeparatingDistance(). Got : '%s'\n%s",typeid(Luna< btConvexSeparatingDistanceUtil >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getConservativeSeparatingDistance();
 		lua_pushnumber(L,lret);
@@ -176,8 +169,7 @@ public:
 	// void btConvexSeparatingDistanceUtil::updateSeparatingDistance(const btTransform & transA, const btTransform & transB)
 	static int _bind_updateSeparatingDistance(lua_State *L) {
 		if (!_lg_typecheck_updateSeparatingDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexSeparatingDistanceUtil::updateSeparatingDistance(const btTransform & transA, const btTransform & transB) function, expected prototype:\nvoid btConvexSeparatingDistanceUtil::updateSeparatingDistance(const btTransform & transA, const btTransform & transB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btConvexSeparatingDistanceUtil::updateSeparatingDistance(const btTransform & transA, const btTransform & transB) function, expected prototype:\nvoid btConvexSeparatingDistanceUtil::updateSeparatingDistance(const btTransform & transA, const btTransform & transB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* transA_ptr=(Luna< btTransform >::check(L,2));
@@ -193,8 +185,7 @@ public:
 
 		btConvexSeparatingDistanceUtil* self=(Luna< btConvexSeparatingDistanceUtil >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexSeparatingDistanceUtil::updateSeparatingDistance(const btTransform &, const btTransform &). Got : '%s'",typeid(Luna< btConvexSeparatingDistanceUtil >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexSeparatingDistanceUtil::updateSeparatingDistance(const btTransform &, const btTransform &). Got : '%s'\n%s",typeid(Luna< btConvexSeparatingDistanceUtil >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->updateSeparatingDistance(transA, transB);
 
@@ -204,8 +195,7 @@ public:
 	// void btConvexSeparatingDistanceUtil::initSeparatingDistance(const btVector3 & separatingVector, float separatingDistance, const btTransform & transA, const btTransform & transB)
 	static int _bind_initSeparatingDistance(lua_State *L) {
 		if (!_lg_typecheck_initSeparatingDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexSeparatingDistanceUtil::initSeparatingDistance(const btVector3 & separatingVector, float separatingDistance, const btTransform & transA, const btTransform & transB) function, expected prototype:\nvoid btConvexSeparatingDistanceUtil::initSeparatingDistance(const btVector3 & separatingVector, float separatingDistance, const btTransform & transA, const btTransform & transB)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 13247377\narg 4 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btConvexSeparatingDistanceUtil::initSeparatingDistance(const btVector3 & separatingVector, float separatingDistance, const btTransform & transA, const btTransform & transB) function, expected prototype:\nvoid btConvexSeparatingDistanceUtil::initSeparatingDistance(const btVector3 & separatingVector, float separatingDistance, const btTransform & transA, const btTransform & transB)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 13247377\narg 4 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* separatingVector_ptr=(Luna< btVector3 >::check(L,2));
@@ -227,8 +217,7 @@ public:
 
 		btConvexSeparatingDistanceUtil* self=(Luna< btConvexSeparatingDistanceUtil >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexSeparatingDistanceUtil::initSeparatingDistance(const btVector3 &, float, const btTransform &, const btTransform &). Got : '%s'",typeid(Luna< btConvexSeparatingDistanceUtil >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexSeparatingDistanceUtil::initSeparatingDistance(const btVector3 &, float, const btTransform &, const btTransform &). Got : '%s'\n%s",typeid(Luna< btConvexSeparatingDistanceUtil >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->initSeparatingDistance(separatingVector, separatingDistance, transA, transB);
 

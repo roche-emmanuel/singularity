@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(spark::SparkDrawable::DeferredSystemHandler::PosAndRotate*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(spark::SparkDrawable::DeferredSystemHandler::PosAndRotate*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		spark::SparkDrawable::DeferredSystemHandler::PosAndRotate* rhs =(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		spark::SparkDrawable::DeferredSystemHandler::PosAndRotate* self= (spark::SparkDrawable::DeferredSystemHandler::PosAndRotate*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -137,7 +133,7 @@ public:
 	inline static bool _lg_typecheck_setRotationAngle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -151,15 +147,13 @@ public:
 	// SPK::Vector3D spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::position()
 	static int _bind_getPosition(lua_State *L) {
 		if (!_lg_typecheck_getPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Vector3D spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::position() function, expected prototype:\nSPK::Vector3D spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::position()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Vector3D spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::position() function, expected prototype:\nSPK::Vector3D spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::position()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable::DeferredSystemHandler::PosAndRotate* self=(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::position(). Got : '%s'",typeid(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Vector3D spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::position(). Got : '%s'\n%s",typeid(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const SPK::Vector3D* lret = &self->position;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -172,15 +166,13 @@ public:
 	// SPK::Vector3D spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAxis()
 	static int _bind_getRotationAxis(lua_State *L) {
 		if (!_lg_typecheck_getRotationAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Vector3D spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAxis() function, expected prototype:\nSPK::Vector3D spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAxis()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Vector3D spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAxis() function, expected prototype:\nSPK::Vector3D spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAxis()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable::DeferredSystemHandler::PosAndRotate* self=(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAxis(). Got : '%s'",typeid(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Vector3D spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAxis(). Got : '%s'\n%s",typeid(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const SPK::Vector3D* lret = &self->rotationAxis;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -193,15 +185,13 @@ public:
 	// float spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAngle()
 	static int _bind_getRotationAngle(lua_State *L) {
 		if (!_lg_typecheck_getRotationAngle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAngle() function, expected prototype:\nfloat spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAngle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAngle() function, expected prototype:\nfloat spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAngle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable::DeferredSystemHandler::PosAndRotate* self=(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAngle(). Got : '%s'",typeid(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAngle(). Got : '%s'\n%s",typeid(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->rotationAngle;
 		lua_pushnumber(L,lret);
@@ -212,8 +202,7 @@ public:
 	// void spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::position(SPK::Vector3D value)
 	static int _bind_setPosition(lua_State *L) {
 		if (!_lg_typecheck_setPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::position(SPK::Vector3D value) function, expected prototype:\nvoid spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::position(SPK::Vector3D value)\nClass arguments details:\narg 1 ID = 70092749\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::position(SPK::Vector3D value) function, expected prototype:\nvoid spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::position(SPK::Vector3D value)\nClass arguments details:\narg 1 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Vector3D* value_ptr=(Luna< SPK::Vector3D >::check(L,2));
@@ -224,8 +213,7 @@ public:
 
 		spark::SparkDrawable::DeferredSystemHandler::PosAndRotate* self=(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::position(SPK::Vector3D). Got : '%s'",typeid(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::position(SPK::Vector3D). Got : '%s'\n%s",typeid(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->position = value;
 
@@ -235,8 +223,7 @@ public:
 	// void spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAxis(SPK::Vector3D value)
 	static int _bind_setRotationAxis(lua_State *L) {
 		if (!_lg_typecheck_setRotationAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAxis(SPK::Vector3D value) function, expected prototype:\nvoid spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAxis(SPK::Vector3D value)\nClass arguments details:\narg 1 ID = 70092749\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAxis(SPK::Vector3D value) function, expected prototype:\nvoid spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAxis(SPK::Vector3D value)\nClass arguments details:\narg 1 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Vector3D* value_ptr=(Luna< SPK::Vector3D >::check(L,2));
@@ -247,8 +234,7 @@ public:
 
 		spark::SparkDrawable::DeferredSystemHandler::PosAndRotate* self=(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAxis(SPK::Vector3D). Got : '%s'",typeid(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAxis(SPK::Vector3D). Got : '%s'\n%s",typeid(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->rotationAxis = value;
 
@@ -258,16 +244,14 @@ public:
 	// void spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAngle(float value)
 	static int _bind_setRotationAngle(lua_State *L) {
 		if (!_lg_typecheck_setRotationAngle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAngle(float value) function, expected prototype:\nvoid spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAngle(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAngle(float value) function, expected prototype:\nvoid spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAngle(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		spark::SparkDrawable::DeferredSystemHandler::PosAndRotate* self=(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAngle(float). Got : '%s'",typeid(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::DeferredSystemHandler::PosAndRotate::rotationAngle(float). Got : '%s'\n%s",typeid(Luna< spark::SparkDrawable::DeferredSystemHandler::PosAndRotate >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->rotationAngle = value;
 

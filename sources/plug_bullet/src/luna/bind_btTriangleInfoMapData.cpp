@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btTriangleInfoMapData*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btTriangleInfoMapData*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleInfoMapData* rhs =(Luna< btTriangleInfoMapData >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleInfoMapData* self= (btTriangleInfoMapData*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btTriangleInfoMapData >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -211,63 +207,63 @@ public:
 	inline static bool _lg_typecheck_setConvexEpsilon(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setPlanarEpsilon(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setEqualVertexThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setEdgeDistanceThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setZeroAreaThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setNextSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setHashTableSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setNumValues(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setNumKeys(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -281,15 +277,13 @@ public:
 	// int * btTriangleInfoMapData::m_hashTablePtr()
 	static int _bind_getHashTablePtr(lua_State *L) {
 		if (!_lg_typecheck_getHashTablePtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int * btTriangleInfoMapData::m_hashTablePtr() function, expected prototype:\nint * btTriangleInfoMapData::m_hashTablePtr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int * btTriangleInfoMapData::m_hashTablePtr() function, expected prototype:\nint * btTriangleInfoMapData::m_hashTablePtr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int * btTriangleInfoMapData::m_hashTablePtr(). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int * btTriangleInfoMapData::m_hashTablePtr(). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int * lret = self->m_hashTablePtr;
 		lua_pushnumber(L,*lret);
@@ -300,15 +294,13 @@ public:
 	// int * btTriangleInfoMapData::m_nextPtr()
 	static int _bind_getNextPtr(lua_State *L) {
 		if (!_lg_typecheck_getNextPtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int * btTriangleInfoMapData::m_nextPtr() function, expected prototype:\nint * btTriangleInfoMapData::m_nextPtr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int * btTriangleInfoMapData::m_nextPtr() function, expected prototype:\nint * btTriangleInfoMapData::m_nextPtr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int * btTriangleInfoMapData::m_nextPtr(). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int * btTriangleInfoMapData::m_nextPtr(). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int * lret = self->m_nextPtr;
 		lua_pushnumber(L,*lret);
@@ -319,15 +311,13 @@ public:
 	// btTriangleInfoData * btTriangleInfoMapData::m_valueArrayPtr()
 	static int _bind_getValueArrayPtr(lua_State *L) {
 		if (!_lg_typecheck_getValueArrayPtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTriangleInfoData * btTriangleInfoMapData::m_valueArrayPtr() function, expected prototype:\nbtTriangleInfoData * btTriangleInfoMapData::m_valueArrayPtr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTriangleInfoData * btTriangleInfoMapData::m_valueArrayPtr() function, expected prototype:\nbtTriangleInfoData * btTriangleInfoMapData::m_valueArrayPtr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTriangleInfoData * btTriangleInfoMapData::m_valueArrayPtr(). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTriangleInfoData * btTriangleInfoMapData::m_valueArrayPtr(). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btTriangleInfoData * lret = self->m_valueArrayPtr;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -340,15 +330,13 @@ public:
 	// int * btTriangleInfoMapData::m_keyArrayPtr()
 	static int _bind_getKeyArrayPtr(lua_State *L) {
 		if (!_lg_typecheck_getKeyArrayPtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int * btTriangleInfoMapData::m_keyArrayPtr() function, expected prototype:\nint * btTriangleInfoMapData::m_keyArrayPtr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int * btTriangleInfoMapData::m_keyArrayPtr() function, expected prototype:\nint * btTriangleInfoMapData::m_keyArrayPtr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int * btTriangleInfoMapData::m_keyArrayPtr(). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int * btTriangleInfoMapData::m_keyArrayPtr(). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int * lret = self->m_keyArrayPtr;
 		lua_pushnumber(L,*lret);
@@ -359,15 +347,13 @@ public:
 	// float btTriangleInfoMapData::m_convexEpsilon()
 	static int _bind_getConvexEpsilon(lua_State *L) {
 		if (!_lg_typecheck_getConvexEpsilon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTriangleInfoMapData::m_convexEpsilon() function, expected prototype:\nfloat btTriangleInfoMapData::m_convexEpsilon()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTriangleInfoMapData::m_convexEpsilon() function, expected prototype:\nfloat btTriangleInfoMapData::m_convexEpsilon()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTriangleInfoMapData::m_convexEpsilon(). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTriangleInfoMapData::m_convexEpsilon(). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_convexEpsilon;
 		lua_pushnumber(L,lret);
@@ -378,15 +364,13 @@ public:
 	// float btTriangleInfoMapData::m_planarEpsilon()
 	static int _bind_getPlanarEpsilon(lua_State *L) {
 		if (!_lg_typecheck_getPlanarEpsilon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTriangleInfoMapData::m_planarEpsilon() function, expected prototype:\nfloat btTriangleInfoMapData::m_planarEpsilon()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTriangleInfoMapData::m_planarEpsilon() function, expected prototype:\nfloat btTriangleInfoMapData::m_planarEpsilon()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTriangleInfoMapData::m_planarEpsilon(). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTriangleInfoMapData::m_planarEpsilon(). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_planarEpsilon;
 		lua_pushnumber(L,lret);
@@ -397,15 +381,13 @@ public:
 	// float btTriangleInfoMapData::m_equalVertexThreshold()
 	static int _bind_getEqualVertexThreshold(lua_State *L) {
 		if (!_lg_typecheck_getEqualVertexThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTriangleInfoMapData::m_equalVertexThreshold() function, expected prototype:\nfloat btTriangleInfoMapData::m_equalVertexThreshold()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTriangleInfoMapData::m_equalVertexThreshold() function, expected prototype:\nfloat btTriangleInfoMapData::m_equalVertexThreshold()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTriangleInfoMapData::m_equalVertexThreshold(). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTriangleInfoMapData::m_equalVertexThreshold(). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_equalVertexThreshold;
 		lua_pushnumber(L,lret);
@@ -416,15 +398,13 @@ public:
 	// float btTriangleInfoMapData::m_edgeDistanceThreshold()
 	static int _bind_getEdgeDistanceThreshold(lua_State *L) {
 		if (!_lg_typecheck_getEdgeDistanceThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTriangleInfoMapData::m_edgeDistanceThreshold() function, expected prototype:\nfloat btTriangleInfoMapData::m_edgeDistanceThreshold()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTriangleInfoMapData::m_edgeDistanceThreshold() function, expected prototype:\nfloat btTriangleInfoMapData::m_edgeDistanceThreshold()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTriangleInfoMapData::m_edgeDistanceThreshold(). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTriangleInfoMapData::m_edgeDistanceThreshold(). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_edgeDistanceThreshold;
 		lua_pushnumber(L,lret);
@@ -435,15 +415,13 @@ public:
 	// float btTriangleInfoMapData::m_zeroAreaThreshold()
 	static int _bind_getZeroAreaThreshold(lua_State *L) {
 		if (!_lg_typecheck_getZeroAreaThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTriangleInfoMapData::m_zeroAreaThreshold() function, expected prototype:\nfloat btTriangleInfoMapData::m_zeroAreaThreshold()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTriangleInfoMapData::m_zeroAreaThreshold() function, expected prototype:\nfloat btTriangleInfoMapData::m_zeroAreaThreshold()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTriangleInfoMapData::m_zeroAreaThreshold(). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTriangleInfoMapData::m_zeroAreaThreshold(). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_zeroAreaThreshold;
 		lua_pushnumber(L,lret);
@@ -454,15 +432,13 @@ public:
 	// int btTriangleInfoMapData::m_nextSize()
 	static int _bind_getNextSize(lua_State *L) {
 		if (!_lg_typecheck_getNextSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTriangleInfoMapData::m_nextSize() function, expected prototype:\nint btTriangleInfoMapData::m_nextSize()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btTriangleInfoMapData::m_nextSize() function, expected prototype:\nint btTriangleInfoMapData::m_nextSize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTriangleInfoMapData::m_nextSize(). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btTriangleInfoMapData::m_nextSize(). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_nextSize;
 		lua_pushnumber(L,lret);
@@ -473,15 +449,13 @@ public:
 	// int btTriangleInfoMapData::m_hashTableSize()
 	static int _bind_getHashTableSize(lua_State *L) {
 		if (!_lg_typecheck_getHashTableSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTriangleInfoMapData::m_hashTableSize() function, expected prototype:\nint btTriangleInfoMapData::m_hashTableSize()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btTriangleInfoMapData::m_hashTableSize() function, expected prototype:\nint btTriangleInfoMapData::m_hashTableSize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTriangleInfoMapData::m_hashTableSize(). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btTriangleInfoMapData::m_hashTableSize(). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_hashTableSize;
 		lua_pushnumber(L,lret);
@@ -492,15 +466,13 @@ public:
 	// int btTriangleInfoMapData::m_numValues()
 	static int _bind_getNumValues(lua_State *L) {
 		if (!_lg_typecheck_getNumValues(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTriangleInfoMapData::m_numValues() function, expected prototype:\nint btTriangleInfoMapData::m_numValues()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btTriangleInfoMapData::m_numValues() function, expected prototype:\nint btTriangleInfoMapData::m_numValues()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTriangleInfoMapData::m_numValues(). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btTriangleInfoMapData::m_numValues(). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_numValues;
 		lua_pushnumber(L,lret);
@@ -511,15 +483,13 @@ public:
 	// int btTriangleInfoMapData::m_numKeys()
 	static int _bind_getNumKeys(lua_State *L) {
 		if (!_lg_typecheck_getNumKeys(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTriangleInfoMapData::m_numKeys() function, expected prototype:\nint btTriangleInfoMapData::m_numKeys()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btTriangleInfoMapData::m_numKeys() function, expected prototype:\nint btTriangleInfoMapData::m_numKeys()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTriangleInfoMapData::m_numKeys(). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btTriangleInfoMapData::m_numKeys(). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_numKeys;
 		lua_pushnumber(L,lret);
@@ -530,16 +500,14 @@ public:
 	// void btTriangleInfoMapData::m_hashTablePtr(int * value)
 	static int _bind_setHashTablePtr(lua_State *L) {
 		if (!_lg_typecheck_setHashTablePtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_hashTablePtr(int * value) function, expected prototype:\nvoid btTriangleInfoMapData::m_hashTablePtr(int * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_hashTablePtr(int * value) function, expected prototype:\nvoid btTriangleInfoMapData::m_hashTablePtr(int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int* value=(int*)Luna< void >::check(L,2);
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_hashTablePtr(int *). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_hashTablePtr(int *). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_hashTablePtr = value;
 
@@ -549,16 +517,14 @@ public:
 	// void btTriangleInfoMapData::m_nextPtr(int * value)
 	static int _bind_setNextPtr(lua_State *L) {
 		if (!_lg_typecheck_setNextPtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_nextPtr(int * value) function, expected prototype:\nvoid btTriangleInfoMapData::m_nextPtr(int * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_nextPtr(int * value) function, expected prototype:\nvoid btTriangleInfoMapData::m_nextPtr(int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int* value=(int*)Luna< void >::check(L,2);
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_nextPtr(int *). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_nextPtr(int *). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_nextPtr = value;
 
@@ -568,16 +534,14 @@ public:
 	// void btTriangleInfoMapData::m_valueArrayPtr(btTriangleInfoData * value)
 	static int _bind_setValueArrayPtr(lua_State *L) {
 		if (!_lg_typecheck_setValueArrayPtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_valueArrayPtr(btTriangleInfoData * value) function, expected prototype:\nvoid btTriangleInfoMapData::m_valueArrayPtr(btTriangleInfoData * value)\nClass arguments details:\narg 1 ID = 90100326\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_valueArrayPtr(btTriangleInfoData * value) function, expected prototype:\nvoid btTriangleInfoMapData::m_valueArrayPtr(btTriangleInfoData * value)\nClass arguments details:\narg 1 ID = 90100326\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleInfoData* value=(Luna< btTriangleInfoData >::check(L,2));
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_valueArrayPtr(btTriangleInfoData *). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_valueArrayPtr(btTriangleInfoData *). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_valueArrayPtr = value;
 
@@ -587,16 +551,14 @@ public:
 	// void btTriangleInfoMapData::m_keyArrayPtr(int * value)
 	static int _bind_setKeyArrayPtr(lua_State *L) {
 		if (!_lg_typecheck_setKeyArrayPtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_keyArrayPtr(int * value) function, expected prototype:\nvoid btTriangleInfoMapData::m_keyArrayPtr(int * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_keyArrayPtr(int * value) function, expected prototype:\nvoid btTriangleInfoMapData::m_keyArrayPtr(int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int* value=(int*)Luna< void >::check(L,2);
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_keyArrayPtr(int *). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_keyArrayPtr(int *). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_keyArrayPtr = value;
 
@@ -606,16 +568,14 @@ public:
 	// void btTriangleInfoMapData::m_convexEpsilon(float value)
 	static int _bind_setConvexEpsilon(lua_State *L) {
 		if (!_lg_typecheck_setConvexEpsilon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_convexEpsilon(float value) function, expected prototype:\nvoid btTriangleInfoMapData::m_convexEpsilon(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_convexEpsilon(float value) function, expected prototype:\nvoid btTriangleInfoMapData::m_convexEpsilon(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_convexEpsilon(float). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_convexEpsilon(float). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_convexEpsilon = value;
 
@@ -625,16 +585,14 @@ public:
 	// void btTriangleInfoMapData::m_planarEpsilon(float value)
 	static int _bind_setPlanarEpsilon(lua_State *L) {
 		if (!_lg_typecheck_setPlanarEpsilon(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_planarEpsilon(float value) function, expected prototype:\nvoid btTriangleInfoMapData::m_planarEpsilon(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_planarEpsilon(float value) function, expected prototype:\nvoid btTriangleInfoMapData::m_planarEpsilon(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_planarEpsilon(float). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_planarEpsilon(float). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_planarEpsilon = value;
 
@@ -644,16 +602,14 @@ public:
 	// void btTriangleInfoMapData::m_equalVertexThreshold(float value)
 	static int _bind_setEqualVertexThreshold(lua_State *L) {
 		if (!_lg_typecheck_setEqualVertexThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_equalVertexThreshold(float value) function, expected prototype:\nvoid btTriangleInfoMapData::m_equalVertexThreshold(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_equalVertexThreshold(float value) function, expected prototype:\nvoid btTriangleInfoMapData::m_equalVertexThreshold(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_equalVertexThreshold(float). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_equalVertexThreshold(float). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_equalVertexThreshold = value;
 
@@ -663,16 +619,14 @@ public:
 	// void btTriangleInfoMapData::m_edgeDistanceThreshold(float value)
 	static int _bind_setEdgeDistanceThreshold(lua_State *L) {
 		if (!_lg_typecheck_setEdgeDistanceThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_edgeDistanceThreshold(float value) function, expected prototype:\nvoid btTriangleInfoMapData::m_edgeDistanceThreshold(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_edgeDistanceThreshold(float value) function, expected prototype:\nvoid btTriangleInfoMapData::m_edgeDistanceThreshold(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_edgeDistanceThreshold(float). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_edgeDistanceThreshold(float). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_edgeDistanceThreshold = value;
 
@@ -682,16 +636,14 @@ public:
 	// void btTriangleInfoMapData::m_zeroAreaThreshold(float value)
 	static int _bind_setZeroAreaThreshold(lua_State *L) {
 		if (!_lg_typecheck_setZeroAreaThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_zeroAreaThreshold(float value) function, expected prototype:\nvoid btTriangleInfoMapData::m_zeroAreaThreshold(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_zeroAreaThreshold(float value) function, expected prototype:\nvoid btTriangleInfoMapData::m_zeroAreaThreshold(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_zeroAreaThreshold(float). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_zeroAreaThreshold(float). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_zeroAreaThreshold = value;
 
@@ -701,16 +653,14 @@ public:
 	// void btTriangleInfoMapData::m_nextSize(int value)
 	static int _bind_setNextSize(lua_State *L) {
 		if (!_lg_typecheck_setNextSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_nextSize(int value) function, expected prototype:\nvoid btTriangleInfoMapData::m_nextSize(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_nextSize(int value) function, expected prototype:\nvoid btTriangleInfoMapData::m_nextSize(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_nextSize(int). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_nextSize(int). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_nextSize = value;
 
@@ -720,16 +670,14 @@ public:
 	// void btTriangleInfoMapData::m_hashTableSize(int value)
 	static int _bind_setHashTableSize(lua_State *L) {
 		if (!_lg_typecheck_setHashTableSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_hashTableSize(int value) function, expected prototype:\nvoid btTriangleInfoMapData::m_hashTableSize(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_hashTableSize(int value) function, expected prototype:\nvoid btTriangleInfoMapData::m_hashTableSize(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_hashTableSize(int). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_hashTableSize(int). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_hashTableSize = value;
 
@@ -739,16 +687,14 @@ public:
 	// void btTriangleInfoMapData::m_numValues(int value)
 	static int _bind_setNumValues(lua_State *L) {
 		if (!_lg_typecheck_setNumValues(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_numValues(int value) function, expected prototype:\nvoid btTriangleInfoMapData::m_numValues(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_numValues(int value) function, expected prototype:\nvoid btTriangleInfoMapData::m_numValues(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_numValues(int). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_numValues(int). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_numValues = value;
 
@@ -758,16 +704,14 @@ public:
 	// void btTriangleInfoMapData::m_numKeys(int value)
 	static int _bind_setNumKeys(lua_State *L) {
 		if (!_lg_typecheck_setNumKeys(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_numKeys(int value) function, expected prototype:\nvoid btTriangleInfoMapData::m_numKeys(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleInfoMapData::m_numKeys(int value) function, expected prototype:\nvoid btTriangleInfoMapData::m_numKeys(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btTriangleInfoMapData* self=(Luna< btTriangleInfoMapData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_numKeys(int). Got : '%s'",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleInfoMapData::m_numKeys(int). Got : '%s'\n%s",typeid(Luna< btTriangleInfoMapData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_numKeys = value;
 

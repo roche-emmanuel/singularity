@@ -19,13 +19,12 @@
 #include <lua.hpp>
 #include <iostream> 
 
-#include "sgtCommon.h"
+#include "lunaCommon.h"
 #include <d3d9.h>
 #include <d3dx9.h>
 #include <DxErr.h>
+#include <osg/Array>
 
-#define CHECK_RESULT(val,msg) { HRESULT hr = (val); if(FAILED(hr)) { logERROR(msg << ", err=" << DXGetErrorString(hr) << ", desc=" << DXGetErrorDescription(hr)); return; } }
-#define CHECK_RESULT_RET(val,ret,msg) { HRESULT hr = (val); if(FAILED(hr)) { logERROR(msg << ", err=" << DXGetErrorString(hr) << ", desc=" << DXGetErrorDescription(hr)); return ret; } }
 #define SafeRelease(x) if(x) x->Release();
 
 #include "plug_extensions.h"

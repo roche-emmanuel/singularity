@@ -73,7 +73,7 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
@@ -145,21 +145,21 @@ public:
 	inline static bool _lg_typecheck_HasProperty(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_GetProperty(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetProperty(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,36991498) ) return false;
 		return true;
 	}
@@ -167,7 +167,7 @@ public:
 	inline static bool _lg_typecheck_SetPropertyAsync(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,36991498) ) return false;
 		return true;
 	}
@@ -175,7 +175,7 @@ public:
 	inline static bool _lg_typecheck_RemoveProperty(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
 		return true;
 	}
 
@@ -188,14 +188,14 @@ public:
 	inline static bool _lg_typecheck_HasMethod(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_Invoke(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,18109170) ) return false;
 		return true;
 	}
@@ -203,7 +203,7 @@ public:
 	inline static bool _lg_typecheck_InvokeAsync(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,18109170) ) return false;
 		return true;
 	}
@@ -217,7 +217,7 @@ public:
 	inline static bool _lg_typecheck_SetCustomMethod(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
 		if( lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}

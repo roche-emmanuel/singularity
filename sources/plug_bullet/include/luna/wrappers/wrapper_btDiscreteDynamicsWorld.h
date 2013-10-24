@@ -511,28 +511,28 @@ public:
 	inline static bool _lg_typecheck_public_updateActivationState(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_updateActions(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_startProfiling(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_createPredictiveContacts(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -541,16 +541,14 @@ public:
 	// void btDiscreteDynamicsWorld::public_updateActivationState(float timeStep)
 	static int _bind_public_updateActivationState(lua_State *L) {
 		if (!_lg_typecheck_public_updateActivationState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDiscreteDynamicsWorld::public_updateActivationState(float timeStep) function, expected prototype:\nvoid btDiscreteDynamicsWorld::public_updateActivationState(float timeStep)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btDiscreteDynamicsWorld::public_updateActivationState(float timeStep) function, expected prototype:\nvoid btDiscreteDynamicsWorld::public_updateActivationState(float timeStep)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float timeStep=(float)lua_tonumber(L,2);
 
 		wrapper_btDiscreteDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< wrapper_btDiscreteDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDiscreteDynamicsWorld::public_updateActivationState(float). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDiscreteDynamicsWorld::public_updateActivationState(float). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_updateActivationState(timeStep);
 
@@ -560,16 +558,14 @@ public:
 	// void btDiscreteDynamicsWorld::public_updateActions(float timeStep)
 	static int _bind_public_updateActions(lua_State *L) {
 		if (!_lg_typecheck_public_updateActions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDiscreteDynamicsWorld::public_updateActions(float timeStep) function, expected prototype:\nvoid btDiscreteDynamicsWorld::public_updateActions(float timeStep)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btDiscreteDynamicsWorld::public_updateActions(float timeStep) function, expected prototype:\nvoid btDiscreteDynamicsWorld::public_updateActions(float timeStep)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float timeStep=(float)lua_tonumber(L,2);
 
 		wrapper_btDiscreteDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< wrapper_btDiscreteDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDiscreteDynamicsWorld::public_updateActions(float). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDiscreteDynamicsWorld::public_updateActions(float). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_updateActions(timeStep);
 
@@ -579,16 +575,14 @@ public:
 	// void btDiscreteDynamicsWorld::public_startProfiling(float timeStep)
 	static int _bind_public_startProfiling(lua_State *L) {
 		if (!_lg_typecheck_public_startProfiling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDiscreteDynamicsWorld::public_startProfiling(float timeStep) function, expected prototype:\nvoid btDiscreteDynamicsWorld::public_startProfiling(float timeStep)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btDiscreteDynamicsWorld::public_startProfiling(float timeStep) function, expected prototype:\nvoid btDiscreteDynamicsWorld::public_startProfiling(float timeStep)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float timeStep=(float)lua_tonumber(L,2);
 
 		wrapper_btDiscreteDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< wrapper_btDiscreteDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDiscreteDynamicsWorld::public_startProfiling(float). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDiscreteDynamicsWorld::public_startProfiling(float). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_startProfiling(timeStep);
 
@@ -598,16 +592,14 @@ public:
 	// void btDiscreteDynamicsWorld::public_createPredictiveContacts(float timeStep)
 	static int _bind_public_createPredictiveContacts(lua_State *L) {
 		if (!_lg_typecheck_public_createPredictiveContacts(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDiscreteDynamicsWorld::public_createPredictiveContacts(float timeStep) function, expected prototype:\nvoid btDiscreteDynamicsWorld::public_createPredictiveContacts(float timeStep)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btDiscreteDynamicsWorld::public_createPredictiveContacts(float timeStep) function, expected prototype:\nvoid btDiscreteDynamicsWorld::public_createPredictiveContacts(float timeStep)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float timeStep=(float)lua_tonumber(L,2);
 
 		wrapper_btDiscreteDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< wrapper_btDiscreteDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDiscreteDynamicsWorld::public_createPredictiveContacts(float). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDiscreteDynamicsWorld::public_createPredictiveContacts(float). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_createPredictiveContacts(timeStep);
 

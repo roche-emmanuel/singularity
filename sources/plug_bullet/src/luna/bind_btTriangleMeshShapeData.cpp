@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btTriangleMeshShapeData*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btTriangleMeshShapeData*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleMeshShapeData* rhs =(Luna< btTriangleMeshShapeData >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleMeshShapeData* self= (btTriangleMeshShapeData*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btTriangleMeshShapeData >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -176,7 +172,7 @@ public:
 	inline static bool _lg_typecheck_setCollisionMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -190,15 +186,13 @@ public:
 	// btCollisionShapeData btTriangleMeshShapeData::m_collisionShapeData()
 	static int _bind_getCollisionShapeData(lua_State *L) {
 		if (!_lg_typecheck_getCollisionShapeData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionShapeData btTriangleMeshShapeData::m_collisionShapeData() function, expected prototype:\nbtCollisionShapeData btTriangleMeshShapeData::m_collisionShapeData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btCollisionShapeData btTriangleMeshShapeData::m_collisionShapeData() function, expected prototype:\nbtCollisionShapeData btTriangleMeshShapeData::m_collisionShapeData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleMeshShapeData* self=(Luna< btTriangleMeshShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btCollisionShapeData btTriangleMeshShapeData::m_collisionShapeData(). Got : '%s'",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btCollisionShapeData btTriangleMeshShapeData::m_collisionShapeData(). Got : '%s'\n%s",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btCollisionShapeData* lret = &self->m_collisionShapeData;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -211,15 +205,13 @@ public:
 	// btStridingMeshInterfaceData btTriangleMeshShapeData::m_meshInterface()
 	static int _bind_getMeshInterface(lua_State *L) {
 		if (!_lg_typecheck_getMeshInterface(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btStridingMeshInterfaceData btTriangleMeshShapeData::m_meshInterface() function, expected prototype:\nbtStridingMeshInterfaceData btTriangleMeshShapeData::m_meshInterface()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btStridingMeshInterfaceData btTriangleMeshShapeData::m_meshInterface() function, expected prototype:\nbtStridingMeshInterfaceData btTriangleMeshShapeData::m_meshInterface()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleMeshShapeData* self=(Luna< btTriangleMeshShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btStridingMeshInterfaceData btTriangleMeshShapeData::m_meshInterface(). Got : '%s'",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btStridingMeshInterfaceData btTriangleMeshShapeData::m_meshInterface(). Got : '%s'\n%s",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btStridingMeshInterfaceData* lret = &self->m_meshInterface;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -232,15 +224,13 @@ public:
 	// btQuantizedBvhFloatData * btTriangleMeshShapeData::m_quantizedFloatBvh()
 	static int _bind_getQuantizedFloatBvh(lua_State *L) {
 		if (!_lg_typecheck_getQuantizedFloatBvh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btQuantizedBvhFloatData * btTriangleMeshShapeData::m_quantizedFloatBvh() function, expected prototype:\nbtQuantizedBvhFloatData * btTriangleMeshShapeData::m_quantizedFloatBvh()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btQuantizedBvhFloatData * btTriangleMeshShapeData::m_quantizedFloatBvh() function, expected prototype:\nbtQuantizedBvhFloatData * btTriangleMeshShapeData::m_quantizedFloatBvh()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleMeshShapeData* self=(Luna< btTriangleMeshShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btQuantizedBvhFloatData * btTriangleMeshShapeData::m_quantizedFloatBvh(). Got : '%s'",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btQuantizedBvhFloatData * btTriangleMeshShapeData::m_quantizedFloatBvh(). Got : '%s'\n%s",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btQuantizedBvhFloatData * lret = self->m_quantizedFloatBvh;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -253,15 +243,13 @@ public:
 	// btQuantizedBvhDoubleData * btTriangleMeshShapeData::m_quantizedDoubleBvh()
 	static int _bind_getQuantizedDoubleBvh(lua_State *L) {
 		if (!_lg_typecheck_getQuantizedDoubleBvh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btQuantizedBvhDoubleData * btTriangleMeshShapeData::m_quantizedDoubleBvh() function, expected prototype:\nbtQuantizedBvhDoubleData * btTriangleMeshShapeData::m_quantizedDoubleBvh()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btQuantizedBvhDoubleData * btTriangleMeshShapeData::m_quantizedDoubleBvh() function, expected prototype:\nbtQuantizedBvhDoubleData * btTriangleMeshShapeData::m_quantizedDoubleBvh()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleMeshShapeData* self=(Luna< btTriangleMeshShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btQuantizedBvhDoubleData * btTriangleMeshShapeData::m_quantizedDoubleBvh(). Got : '%s'",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btQuantizedBvhDoubleData * btTriangleMeshShapeData::m_quantizedDoubleBvh(). Got : '%s'\n%s",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btQuantizedBvhDoubleData * lret = self->m_quantizedDoubleBvh;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -274,15 +262,13 @@ public:
 	// btTriangleInfoMapData * btTriangleMeshShapeData::m_triangleInfoMap()
 	static int _bind_getTriangleInfoMap(lua_State *L) {
 		if (!_lg_typecheck_getTriangleInfoMap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTriangleInfoMapData * btTriangleMeshShapeData::m_triangleInfoMap() function, expected prototype:\nbtTriangleInfoMapData * btTriangleMeshShapeData::m_triangleInfoMap()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTriangleInfoMapData * btTriangleMeshShapeData::m_triangleInfoMap() function, expected prototype:\nbtTriangleInfoMapData * btTriangleMeshShapeData::m_triangleInfoMap()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleMeshShapeData* self=(Luna< btTriangleMeshShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTriangleInfoMapData * btTriangleMeshShapeData::m_triangleInfoMap(). Got : '%s'",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTriangleInfoMapData * btTriangleMeshShapeData::m_triangleInfoMap(). Got : '%s'\n%s",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btTriangleInfoMapData * lret = self->m_triangleInfoMap;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -295,15 +281,13 @@ public:
 	// float btTriangleMeshShapeData::m_collisionMargin()
 	static int _bind_getCollisionMargin(lua_State *L) {
 		if (!_lg_typecheck_getCollisionMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTriangleMeshShapeData::m_collisionMargin() function, expected prototype:\nfloat btTriangleMeshShapeData::m_collisionMargin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTriangleMeshShapeData::m_collisionMargin() function, expected prototype:\nfloat btTriangleMeshShapeData::m_collisionMargin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleMeshShapeData* self=(Luna< btTriangleMeshShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTriangleMeshShapeData::m_collisionMargin(). Got : '%s'",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTriangleMeshShapeData::m_collisionMargin(). Got : '%s'\n%s",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_collisionMargin;
 		lua_pushnumber(L,lret);
@@ -314,8 +298,7 @@ public:
 	// void btTriangleMeshShapeData::m_collisionShapeData(btCollisionShapeData value)
 	static int _bind_setCollisionShapeData(lua_State *L) {
 		if (!_lg_typecheck_setCollisionShapeData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_collisionShapeData(btCollisionShapeData value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_collisionShapeData(btCollisionShapeData value)\nClass arguments details:\narg 1 ID = 94025107\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_collisionShapeData(btCollisionShapeData value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_collisionShapeData(btCollisionShapeData value)\nClass arguments details:\narg 1 ID = 94025107\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionShapeData* value_ptr=(Luna< btCollisionShapeData >::check(L,2));
@@ -326,8 +309,7 @@ public:
 
 		btTriangleMeshShapeData* self=(Luna< btTriangleMeshShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleMeshShapeData::m_collisionShapeData(btCollisionShapeData). Got : '%s'",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleMeshShapeData::m_collisionShapeData(btCollisionShapeData). Got : '%s'\n%s",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_collisionShapeData = value;
 
@@ -337,8 +319,7 @@ public:
 	// void btTriangleMeshShapeData::m_meshInterface(btStridingMeshInterfaceData value)
 	static int _bind_setMeshInterface(lua_State *L) {
 		if (!_lg_typecheck_setMeshInterface(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_meshInterface(btStridingMeshInterfaceData value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_meshInterface(btStridingMeshInterfaceData value)\nClass arguments details:\narg 1 ID = 5637632\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_meshInterface(btStridingMeshInterfaceData value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_meshInterface(btStridingMeshInterfaceData value)\nClass arguments details:\narg 1 ID = 5637632\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btStridingMeshInterfaceData* value_ptr=(Luna< btStridingMeshInterfaceData >::check(L,2));
@@ -349,8 +330,7 @@ public:
 
 		btTriangleMeshShapeData* self=(Luna< btTriangleMeshShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleMeshShapeData::m_meshInterface(btStridingMeshInterfaceData). Got : '%s'",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleMeshShapeData::m_meshInterface(btStridingMeshInterfaceData). Got : '%s'\n%s",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_meshInterface = value;
 
@@ -360,16 +340,14 @@ public:
 	// void btTriangleMeshShapeData::m_quantizedFloatBvh(btQuantizedBvhFloatData * value)
 	static int _bind_setQuantizedFloatBvh(lua_State *L) {
 		if (!_lg_typecheck_setQuantizedFloatBvh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_quantizedFloatBvh(btQuantizedBvhFloatData * value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_quantizedFloatBvh(btQuantizedBvhFloatData * value)\nClass arguments details:\narg 1 ID = 49199970\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_quantizedFloatBvh(btQuantizedBvhFloatData * value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_quantizedFloatBvh(btQuantizedBvhFloatData * value)\nClass arguments details:\narg 1 ID = 49199970\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btQuantizedBvhFloatData* value=(Luna< btQuantizedBvhFloatData >::check(L,2));
 
 		btTriangleMeshShapeData* self=(Luna< btTriangleMeshShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleMeshShapeData::m_quantizedFloatBvh(btQuantizedBvhFloatData *). Got : '%s'",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleMeshShapeData::m_quantizedFloatBvh(btQuantizedBvhFloatData *). Got : '%s'\n%s",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_quantizedFloatBvh = value;
 
@@ -379,16 +357,14 @@ public:
 	// void btTriangleMeshShapeData::m_quantizedDoubleBvh(btQuantizedBvhDoubleData * value)
 	static int _bind_setQuantizedDoubleBvh(lua_State *L) {
 		if (!_lg_typecheck_setQuantizedDoubleBvh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_quantizedDoubleBvh(btQuantizedBvhDoubleData * value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_quantizedDoubleBvh(btQuantizedBvhDoubleData * value)\nClass arguments details:\narg 1 ID = 27343504\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_quantizedDoubleBvh(btQuantizedBvhDoubleData * value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_quantizedDoubleBvh(btQuantizedBvhDoubleData * value)\nClass arguments details:\narg 1 ID = 27343504\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btQuantizedBvhDoubleData* value=(Luna< btQuantizedBvhDoubleData >::check(L,2));
 
 		btTriangleMeshShapeData* self=(Luna< btTriangleMeshShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleMeshShapeData::m_quantizedDoubleBvh(btQuantizedBvhDoubleData *). Got : '%s'",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleMeshShapeData::m_quantizedDoubleBvh(btQuantizedBvhDoubleData *). Got : '%s'\n%s",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_quantizedDoubleBvh = value;
 
@@ -398,16 +374,14 @@ public:
 	// void btTriangleMeshShapeData::m_triangleInfoMap(btTriangleInfoMapData * value)
 	static int _bind_setTriangleInfoMap(lua_State *L) {
 		if (!_lg_typecheck_setTriangleInfoMap(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_triangleInfoMap(btTriangleInfoMapData * value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_triangleInfoMap(btTriangleInfoMapData * value)\nClass arguments details:\narg 1 ID = 61372357\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_triangleInfoMap(btTriangleInfoMapData * value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_triangleInfoMap(btTriangleInfoMapData * value)\nClass arguments details:\narg 1 ID = 61372357\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleInfoMapData* value=(Luna< btTriangleInfoMapData >::check(L,2));
 
 		btTriangleMeshShapeData* self=(Luna< btTriangleMeshShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleMeshShapeData::m_triangleInfoMap(btTriangleInfoMapData *). Got : '%s'",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleMeshShapeData::m_triangleInfoMap(btTriangleInfoMapData *). Got : '%s'\n%s",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_triangleInfoMap = value;
 
@@ -417,16 +391,14 @@ public:
 	// void btTriangleMeshShapeData::m_collisionMargin(float value)
 	static int _bind_setCollisionMargin(lua_State *L) {
 		if (!_lg_typecheck_setCollisionMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_collisionMargin(float value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_collisionMargin(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleMeshShapeData::m_collisionMargin(float value) function, expected prototype:\nvoid btTriangleMeshShapeData::m_collisionMargin(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTriangleMeshShapeData* self=(Luna< btTriangleMeshShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleMeshShapeData::m_collisionMargin(float). Got : '%s'",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleMeshShapeData::m_collisionMargin(float). Got : '%s'\n%s",typeid(Luna< btTriangleMeshShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_collisionMargin = value;
 

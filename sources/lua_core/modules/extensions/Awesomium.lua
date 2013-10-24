@@ -81,9 +81,9 @@ Awesomium.JSArray.asTable = function(self)
 		elseif item:IsObject() then
 			res = item:ToObject()
 		elseif item:IsNull() then
-			res = awe.JSValue.Null()
+			res = Awesomium.JSValue.Null()
 		elseif item:IsUndefined() then
-			res = awe.JSValue.Undefined()
+			res = Awesomium.JSValue.Undefined()
 		end
 		
 		table.insert(tt,res)

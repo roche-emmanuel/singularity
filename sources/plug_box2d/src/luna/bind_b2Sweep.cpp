@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Sweep*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Sweep*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Sweep* rhs =(Luna< b2Sweep >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Sweep* self= (b2Sweep*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Sweep >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -106,14 +102,14 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,44090970)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_Advance(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -183,21 +179,21 @@ public:
 	inline static bool _lg_typecheck_setA0(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setAlpha0(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -211,8 +207,7 @@ public:
 	// void b2Sweep::GetTransform(b2Transform * xfb, float beta) const
 	static int _bind_GetTransform(lua_State *L) {
 		if (!_lg_typecheck_GetTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Sweep::GetTransform(b2Transform * xfb, float beta) const function, expected prototype:\nvoid b2Sweep::GetTransform(b2Transform * xfb, float beta) const\nClass arguments details:\narg 1 ID = 44090970\n");
+			luaL_error(L, "luna typecheck failed in void b2Sweep::GetTransform(b2Transform * xfb, float beta) const function, expected prototype:\nvoid b2Sweep::GetTransform(b2Transform * xfb, float beta) const\nClass arguments details:\narg 1 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Transform* xfb=(Luna< b2Transform >::check(L,2));
@@ -220,8 +215,7 @@ public:
 
 		b2Sweep* self=(Luna< b2Sweep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Sweep::GetTransform(b2Transform *, float) const. Got : '%s'",typeid(Luna< b2Sweep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Sweep::GetTransform(b2Transform *, float) const. Got : '%s'\n%s",typeid(Luna< b2Sweep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetTransform(xfb, beta);
 
@@ -231,16 +225,14 @@ public:
 	// void b2Sweep::Advance(float alpha)
 	static int _bind_Advance(lua_State *L) {
 		if (!_lg_typecheck_Advance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Sweep::Advance(float alpha) function, expected prototype:\nvoid b2Sweep::Advance(float alpha)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Sweep::Advance(float alpha) function, expected prototype:\nvoid b2Sweep::Advance(float alpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float alpha=(float)lua_tonumber(L,2);
 
 		b2Sweep* self=(Luna< b2Sweep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Sweep::Advance(float). Got : '%s'",typeid(Luna< b2Sweep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Sweep::Advance(float). Got : '%s'\n%s",typeid(Luna< b2Sweep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Advance(alpha);
 
@@ -250,15 +242,13 @@ public:
 	// void b2Sweep::Normalize()
 	static int _bind_Normalize(lua_State *L) {
 		if (!_lg_typecheck_Normalize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Sweep::Normalize() function, expected prototype:\nvoid b2Sweep::Normalize()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Sweep::Normalize() function, expected prototype:\nvoid b2Sweep::Normalize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Sweep* self=(Luna< b2Sweep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Sweep::Normalize(). Got : '%s'",typeid(Luna< b2Sweep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Sweep::Normalize(). Got : '%s'\n%s",typeid(Luna< b2Sweep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Normalize();
 
@@ -268,15 +258,13 @@ public:
 	// b2Vec2 b2Sweep::localCenter()
 	static int _bind_getLocalCenter(lua_State *L) {
 		if (!_lg_typecheck_getLocalCenter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2Sweep::localCenter() function, expected prototype:\nb2Vec2 b2Sweep::localCenter()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2Sweep::localCenter() function, expected prototype:\nb2Vec2 b2Sweep::localCenter()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Sweep* self=(Luna< b2Sweep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2Sweep::localCenter(). Got : '%s'",typeid(Luna< b2Sweep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2Sweep::localCenter(). Got : '%s'\n%s",typeid(Luna< b2Sweep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->localCenter;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -289,15 +277,13 @@ public:
 	// b2Vec2 b2Sweep::c0()
 	static int _bind_getC0(lua_State *L) {
 		if (!_lg_typecheck_getC0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2Sweep::c0() function, expected prototype:\nb2Vec2 b2Sweep::c0()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2Sweep::c0() function, expected prototype:\nb2Vec2 b2Sweep::c0()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Sweep* self=(Luna< b2Sweep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2Sweep::c0(). Got : '%s'",typeid(Luna< b2Sweep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2Sweep::c0(). Got : '%s'\n%s",typeid(Luna< b2Sweep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->c0;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -310,15 +296,13 @@ public:
 	// b2Vec2 b2Sweep::c()
 	static int _bind_getC(lua_State *L) {
 		if (!_lg_typecheck_getC(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2Sweep::c() function, expected prototype:\nb2Vec2 b2Sweep::c()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2Sweep::c() function, expected prototype:\nb2Vec2 b2Sweep::c()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Sweep* self=(Luna< b2Sweep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2Sweep::c(). Got : '%s'",typeid(Luna< b2Sweep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2Sweep::c(). Got : '%s'\n%s",typeid(Luna< b2Sweep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->c;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -331,15 +315,13 @@ public:
 	// float b2Sweep::a0()
 	static int _bind_getA0(lua_State *L) {
 		if (!_lg_typecheck_getA0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Sweep::a0() function, expected prototype:\nfloat b2Sweep::a0()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Sweep::a0() function, expected prototype:\nfloat b2Sweep::a0()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Sweep* self=(Luna< b2Sweep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Sweep::a0(). Got : '%s'",typeid(Luna< b2Sweep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Sweep::a0(). Got : '%s'\n%s",typeid(Luna< b2Sweep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->a0;
 		lua_pushnumber(L,lret);
@@ -350,15 +332,13 @@ public:
 	// float b2Sweep::a()
 	static int _bind_getA(lua_State *L) {
 		if (!_lg_typecheck_getA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Sweep::a() function, expected prototype:\nfloat b2Sweep::a()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Sweep::a() function, expected prototype:\nfloat b2Sweep::a()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Sweep* self=(Luna< b2Sweep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Sweep::a(). Got : '%s'",typeid(Luna< b2Sweep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Sweep::a(). Got : '%s'\n%s",typeid(Luna< b2Sweep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->a;
 		lua_pushnumber(L,lret);
@@ -369,15 +349,13 @@ public:
 	// float b2Sweep::alpha0()
 	static int _bind_getAlpha0(lua_State *L) {
 		if (!_lg_typecheck_getAlpha0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Sweep::alpha0() function, expected prototype:\nfloat b2Sweep::alpha0()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Sweep::alpha0() function, expected prototype:\nfloat b2Sweep::alpha0()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Sweep* self=(Luna< b2Sweep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Sweep::alpha0(). Got : '%s'",typeid(Luna< b2Sweep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Sweep::alpha0(). Got : '%s'\n%s",typeid(Luna< b2Sweep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->alpha0;
 		lua_pushnumber(L,lret);
@@ -388,8 +366,7 @@ public:
 	// void b2Sweep::localCenter(b2Vec2 value)
 	static int _bind_setLocalCenter(lua_State *L) {
 		if (!_lg_typecheck_setLocalCenter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Sweep::localCenter(b2Vec2 value) function, expected prototype:\nvoid b2Sweep::localCenter(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2Sweep::localCenter(b2Vec2 value) function, expected prototype:\nvoid b2Sweep::localCenter(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -400,8 +377,7 @@ public:
 
 		b2Sweep* self=(Luna< b2Sweep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Sweep::localCenter(b2Vec2). Got : '%s'",typeid(Luna< b2Sweep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Sweep::localCenter(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2Sweep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->localCenter = value;
 
@@ -411,8 +387,7 @@ public:
 	// void b2Sweep::c0(b2Vec2 value)
 	static int _bind_setC0(lua_State *L) {
 		if (!_lg_typecheck_setC0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Sweep::c0(b2Vec2 value) function, expected prototype:\nvoid b2Sweep::c0(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2Sweep::c0(b2Vec2 value) function, expected prototype:\nvoid b2Sweep::c0(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -423,8 +398,7 @@ public:
 
 		b2Sweep* self=(Luna< b2Sweep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Sweep::c0(b2Vec2). Got : '%s'",typeid(Luna< b2Sweep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Sweep::c0(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2Sweep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->c0 = value;
 
@@ -434,8 +408,7 @@ public:
 	// void b2Sweep::c(b2Vec2 value)
 	static int _bind_setC(lua_State *L) {
 		if (!_lg_typecheck_setC(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Sweep::c(b2Vec2 value) function, expected prototype:\nvoid b2Sweep::c(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2Sweep::c(b2Vec2 value) function, expected prototype:\nvoid b2Sweep::c(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -446,8 +419,7 @@ public:
 
 		b2Sweep* self=(Luna< b2Sweep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Sweep::c(b2Vec2). Got : '%s'",typeid(Luna< b2Sweep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Sweep::c(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2Sweep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->c = value;
 
@@ -457,16 +429,14 @@ public:
 	// void b2Sweep::a0(float value)
 	static int _bind_setA0(lua_State *L) {
 		if (!_lg_typecheck_setA0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Sweep::a0(float value) function, expected prototype:\nvoid b2Sweep::a0(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Sweep::a0(float value) function, expected prototype:\nvoid b2Sweep::a0(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2Sweep* self=(Luna< b2Sweep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Sweep::a0(float). Got : '%s'",typeid(Luna< b2Sweep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Sweep::a0(float). Got : '%s'\n%s",typeid(Luna< b2Sweep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->a0 = value;
 
@@ -476,16 +446,14 @@ public:
 	// void b2Sweep::a(float value)
 	static int _bind_setA(lua_State *L) {
 		if (!_lg_typecheck_setA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Sweep::a(float value) function, expected prototype:\nvoid b2Sweep::a(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Sweep::a(float value) function, expected prototype:\nvoid b2Sweep::a(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2Sweep* self=(Luna< b2Sweep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Sweep::a(float). Got : '%s'",typeid(Luna< b2Sweep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Sweep::a(float). Got : '%s'\n%s",typeid(Luna< b2Sweep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->a = value;
 
@@ -495,16 +463,14 @@ public:
 	// void b2Sweep::alpha0(float value)
 	static int _bind_setAlpha0(lua_State *L) {
 		if (!_lg_typecheck_setAlpha0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Sweep::alpha0(float value) function, expected prototype:\nvoid b2Sweep::alpha0(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Sweep::alpha0(float value) function, expected prototype:\nvoid b2Sweep::alpha0(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2Sweep* self=(Luna< b2Sweep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Sweep::alpha0(float). Got : '%s'",typeid(Luna< b2Sweep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Sweep::alpha0(float). Got : '%s'\n%s",typeid(Luna< b2Sweep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->alpha0 = value;
 

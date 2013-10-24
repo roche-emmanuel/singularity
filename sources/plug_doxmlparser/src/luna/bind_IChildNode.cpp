@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IChildNode* self=(Luna< IChildNode >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IChildNode*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IChildNode*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IChildNode* rhs =(Luna< IChildNode >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IChildNode* self= (IChildNode*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< IChildNode >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -167,8 +162,7 @@ public:
 	// IChildNode::IChildNode(lua_Table * data)
 	static IChildNode* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IChildNode::IChildNode(lua_Table * data) function, expected prototype:\nIChildNode::IChildNode(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IChildNode::IChildNode(lua_Table * data) function, expected prototype:\nIChildNode::IChildNode(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -180,15 +174,13 @@ public:
 	// INode * IChildNode::node() const
 	static int _bind_node(lua_State *L) {
 		if (!_lg_typecheck_node(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in INode * IChildNode::node() const function, expected prototype:\nINode * IChildNode::node() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in INode * IChildNode::node() const function, expected prototype:\nINode * IChildNode::node() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IChildNode* self=(Luna< IChildNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call INode * IChildNode::node() const. Got : '%s'",typeid(Luna< IChildNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call INode * IChildNode::node() const. Got : '%s'\n%s",typeid(Luna< IChildNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		INode * lret = self->node();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -201,15 +193,13 @@ public:
 	// IChildNode::NodeRelation IChildNode::relation() const
 	static int _bind_relation(lua_State *L) {
 		if (!_lg_typecheck_relation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IChildNode::NodeRelation IChildNode::relation() const function, expected prototype:\nIChildNode::NodeRelation IChildNode::relation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IChildNode::NodeRelation IChildNode::relation() const function, expected prototype:\nIChildNode::NodeRelation IChildNode::relation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IChildNode* self=(Luna< IChildNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IChildNode::NodeRelation IChildNode::relation() const. Got : '%s'",typeid(Luna< IChildNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IChildNode::NodeRelation IChildNode::relation() const. Got : '%s'\n%s",typeid(Luna< IChildNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IChildNode::NodeRelation lret = self->relation();
 		lua_pushnumber(L,lret);
@@ -220,15 +210,13 @@ public:
 	// const IString * IChildNode::relationString() const
 	static int _bind_relationString(lua_State *L) {
 		if (!_lg_typecheck_relationString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const IString * IChildNode::relationString() const function, expected prototype:\nconst IString * IChildNode::relationString() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const IString * IChildNode::relationString() const function, expected prototype:\nconst IString * IChildNode::relationString() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IChildNode* self=(Luna< IChildNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const IString * IChildNode::relationString() const. Got : '%s'",typeid(Luna< IChildNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const IString * IChildNode::relationString() const. Got : '%s'\n%s",typeid(Luna< IChildNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const IString * lret = self->relationString();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -241,15 +229,13 @@ public:
 	// IEdgeLabelIterator * IChildNode::edgeLabels() const
 	static int _bind_edgeLabels(lua_State *L) {
 		if (!_lg_typecheck_edgeLabels(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IEdgeLabelIterator * IChildNode::edgeLabels() const function, expected prototype:\nIEdgeLabelIterator * IChildNode::edgeLabels() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IEdgeLabelIterator * IChildNode::edgeLabels() const function, expected prototype:\nIEdgeLabelIterator * IChildNode::edgeLabels() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IChildNode* self=(Luna< IChildNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IEdgeLabelIterator * IChildNode::edgeLabels() const. Got : '%s'",typeid(Luna< IChildNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IEdgeLabelIterator * IChildNode::edgeLabels() const. Got : '%s'\n%s",typeid(Luna< IChildNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IEdgeLabelIterator * lret = self->edgeLabels();
 		if(!lret) return 0; // Do not write NULL pointers.

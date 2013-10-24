@@ -132,28 +132,28 @@ public:
 	inline static bool _lg_typecheck_public_GetAnchor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_GetLeftLocation(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_GetProtocol(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_GetRightLocation(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		return true;
 	}
 

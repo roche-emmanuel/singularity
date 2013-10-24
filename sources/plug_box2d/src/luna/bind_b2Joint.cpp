@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Joint*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Joint*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Joint* rhs =(Luna< b2Joint >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Joint* self= (b2Joint*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Joint >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -161,14 +156,14 @@ public:
 	inline static bool _lg_typecheck_GetReactionForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_GetReactionTorque(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -231,15 +226,13 @@ public:
 	// b2JointType b2Joint::GetType() const
 	static int _bind_GetType(lua_State *L) {
 		if (!_lg_typecheck_GetType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2JointType b2Joint::GetType() const function, expected prototype:\nb2JointType b2Joint::GetType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2JointType b2Joint::GetType() const function, expected prototype:\nb2JointType b2Joint::GetType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2JointType b2Joint::GetType() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2JointType b2Joint::GetType() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2JointType lret = self->GetType();
 		lua_pushnumber(L,lret);
@@ -250,15 +243,13 @@ public:
 	// b2Body * b2Joint::GetBodyA()
 	static int _bind_GetBodyA(lua_State *L) {
 		if (!_lg_typecheck_GetBodyA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Body * b2Joint::GetBodyA() function, expected prototype:\nb2Body * b2Joint::GetBodyA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Body * b2Joint::GetBodyA() function, expected prototype:\nb2Body * b2Joint::GetBodyA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Body * b2Joint::GetBodyA(). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Body * b2Joint::GetBodyA(). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Body * lret = self->GetBodyA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -271,15 +262,13 @@ public:
 	// b2Body * b2Joint::GetBodyB()
 	static int _bind_GetBodyB(lua_State *L) {
 		if (!_lg_typecheck_GetBodyB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Body * b2Joint::GetBodyB() function, expected prototype:\nb2Body * b2Joint::GetBodyB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Body * b2Joint::GetBodyB() function, expected prototype:\nb2Body * b2Joint::GetBodyB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Body * b2Joint::GetBodyB(). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Body * b2Joint::GetBodyB(). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Body * lret = self->GetBodyB();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -292,15 +281,13 @@ public:
 	// b2Vec2 b2Joint::GetAnchorA() const
 	static int _bind_GetAnchorA(lua_State *L) {
 		if (!_lg_typecheck_GetAnchorA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2Joint::GetAnchorA() const function, expected prototype:\nb2Vec2 b2Joint::GetAnchorA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2Joint::GetAnchorA() const function, expected prototype:\nb2Vec2 b2Joint::GetAnchorA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2Joint::GetAnchorA() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2Joint::GetAnchorA() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->GetAnchorA();
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -314,15 +301,13 @@ public:
 	// b2Vec2 b2Joint::GetAnchorB() const
 	static int _bind_GetAnchorB(lua_State *L) {
 		if (!_lg_typecheck_GetAnchorB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2Joint::GetAnchorB() const function, expected prototype:\nb2Vec2 b2Joint::GetAnchorB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2Joint::GetAnchorB() const function, expected prototype:\nb2Vec2 b2Joint::GetAnchorB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2Joint::GetAnchorB() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2Joint::GetAnchorB() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->GetAnchorB();
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -336,16 +321,14 @@ public:
 	// b2Vec2 b2Joint::GetReactionForce(float inv_dt) const
 	static int _bind_GetReactionForce(lua_State *L) {
 		if (!_lg_typecheck_GetReactionForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2Joint::GetReactionForce(float inv_dt) const function, expected prototype:\nb2Vec2 b2Joint::GetReactionForce(float inv_dt) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2Joint::GetReactionForce(float inv_dt) const function, expected prototype:\nb2Vec2 b2Joint::GetReactionForce(float inv_dt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float inv_dt=(float)lua_tonumber(L,2);
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2Joint::GetReactionForce(float) const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2Joint::GetReactionForce(float) const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->GetReactionForce(inv_dt);
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -359,16 +342,14 @@ public:
 	// float b2Joint::GetReactionTorque(float inv_dt) const
 	static int _bind_GetReactionTorque(lua_State *L) {
 		if (!_lg_typecheck_GetReactionTorque(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Joint::GetReactionTorque(float inv_dt) const function, expected prototype:\nfloat b2Joint::GetReactionTorque(float inv_dt) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Joint::GetReactionTorque(float inv_dt) const function, expected prototype:\nfloat b2Joint::GetReactionTorque(float inv_dt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float inv_dt=(float)lua_tonumber(L,2);
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Joint::GetReactionTorque(float) const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Joint::GetReactionTorque(float) const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetReactionTorque(inv_dt);
 		lua_pushnumber(L,lret);
@@ -379,15 +360,13 @@ public:
 	// b2Joint * b2Joint::GetNext()
 	static int _bind_GetNext_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetNext_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Joint * b2Joint::GetNext() function, expected prototype:\nb2Joint * b2Joint::GetNext()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Joint * b2Joint::GetNext() function, expected prototype:\nb2Joint * b2Joint::GetNext()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Joint * b2Joint::GetNext(). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Joint * b2Joint::GetNext(). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Joint * lret = self->GetNext();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -400,15 +379,13 @@ public:
 	// const b2Joint * b2Joint::GetNext() const
 	static int _bind_GetNext_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetNext_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Joint * b2Joint::GetNext() const function, expected prototype:\nconst b2Joint * b2Joint::GetNext() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2Joint * b2Joint::GetNext() const function, expected prototype:\nconst b2Joint * b2Joint::GetNext() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Joint * b2Joint::GetNext() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Joint * b2Joint::GetNext() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Joint * lret = self->GetNext();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -430,15 +407,13 @@ public:
 	// void * b2Joint::GetUserData() const
 	static int _bind_GetUserData(lua_State *L) {
 		if (!_lg_typecheck_GetUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * b2Joint::GetUserData() const function, expected prototype:\nvoid * b2Joint::GetUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * b2Joint::GetUserData() const function, expected prototype:\nvoid * b2Joint::GetUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * b2Joint::GetUserData() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * b2Joint::GetUserData() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->GetUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -451,16 +426,14 @@ public:
 	// void b2Joint::SetUserData(void * data)
 	static int _bind_SetUserData(lua_State *L) {
 		if (!_lg_typecheck_SetUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Joint::SetUserData(void * data) function, expected prototype:\nvoid b2Joint::SetUserData(void * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Joint::SetUserData(void * data) function, expected prototype:\nvoid b2Joint::SetUserData(void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* data=(Luna< void >::check(L,2));
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Joint::SetUserData(void *). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Joint::SetUserData(void *). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetUserData(data);
 
@@ -470,15 +443,13 @@ public:
 	// bool b2Joint::IsActive() const
 	static int _bind_IsActive(lua_State *L) {
 		if (!_lg_typecheck_IsActive(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2Joint::IsActive() const function, expected prototype:\nbool b2Joint::IsActive() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool b2Joint::IsActive() const function, expected prototype:\nbool b2Joint::IsActive() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2Joint::IsActive() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2Joint::IsActive() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsActive();
 		lua_pushboolean(L,lret?1:0);
@@ -489,15 +460,13 @@ public:
 	// bool b2Joint::GetCollideConnected() const
 	static int _bind_GetCollideConnected(lua_State *L) {
 		if (!_lg_typecheck_GetCollideConnected(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2Joint::GetCollideConnected() const function, expected prototype:\nbool b2Joint::GetCollideConnected() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool b2Joint::GetCollideConnected() const function, expected prototype:\nbool b2Joint::GetCollideConnected() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2Joint::GetCollideConnected() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2Joint::GetCollideConnected() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GetCollideConnected();
 		lua_pushboolean(L,lret?1:0);
@@ -508,15 +477,13 @@ public:
 	// void b2Joint::Dump()
 	static int _bind_Dump(lua_State *L) {
 		if (!_lg_typecheck_Dump(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Joint::Dump() function, expected prototype:\nvoid b2Joint::Dump()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Joint::Dump() function, expected prototype:\nvoid b2Joint::Dump()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Joint::Dump(). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Joint::Dump(). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Dump();
 
@@ -526,15 +493,13 @@ public:
 	// void b2Joint::base_Dump()
 	static int _bind_base_Dump(lua_State *L) {
 		if (!_lg_typecheck_base_Dump(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Joint::base_Dump() function, expected prototype:\nvoid b2Joint::base_Dump()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Joint::base_Dump() function, expected prototype:\nvoid b2Joint::base_Dump()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Joint::base_Dump(). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Joint::base_Dump(). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->b2Joint::Dump();
 

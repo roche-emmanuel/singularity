@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::PointMass* self= (SPK::PointMass*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< SPK::Registerable >::check(L,1));
@@ -119,9 +116,9 @@ public:
 
 		if( lua_istable(L,1)==0 ) return false;
 		if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,31337102)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -143,14 +140,14 @@ public:
 	inline static bool _lg_typecheck_setMass(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setMinDistance(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -183,9 +180,9 @@ public:
 		if( luatop<0 || luatop>4 ) return false;
 
 		if( luatop>0 && (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,31337102)) ) return false;
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
+		if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -206,7 +203,7 @@ public:
 	inline static bool _lg_typecheck_base_findByName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -224,8 +221,7 @@ public:
 	// SPK::PointMass::PointMass(lua_Table * data, SPK::Zone * zone = NULL, SPK::ModifierTrigger trigger = SPK::INSIDE_ZONE, float mass = 1.0f, float minDistance = 0.05f)
 	static SPK::PointMass* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::PointMass::PointMass(lua_Table * data, SPK::Zone * zone = NULL, SPK::ModifierTrigger trigger = SPK::INSIDE_ZONE, float mass = 1.0f, float minDistance = 0.05f) function, expected prototype:\nSPK::PointMass::PointMass(lua_Table * data, SPK::Zone * zone = NULL, SPK::ModifierTrigger trigger = SPK::INSIDE_ZONE, float mass = 1.0f, float minDistance = 0.05f)\nClass arguments details:\narg 2 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in SPK::PointMass::PointMass(lua_Table * data, SPK::Zone * zone = NULL, SPK::ModifierTrigger trigger = SPK::INSIDE_ZONE, float mass = 1.0f, float minDistance = 0.05f) function, expected prototype:\nSPK::PointMass::PointMass(lua_Table * data, SPK::Zone * zone = NULL, SPK::ModifierTrigger trigger = SPK::INSIDE_ZONE, float mass = 1.0f, float minDistance = 0.05f)\nClass arguments details:\narg 2 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -243,15 +239,13 @@ public:
 	// std::string SPK::PointMass::getClassName() const
 	static int _bind_getClassName(lua_State *L) {
 		if (!_lg_typecheck_getClassName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string SPK::PointMass::getClassName() const function, expected prototype:\nstd::string SPK::PointMass::getClassName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string SPK::PointMass::getClassName() const function, expected prototype:\nstd::string SPK::PointMass::getClassName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::PointMass::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string SPK::PointMass::getClassName() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -262,8 +256,7 @@ public:
 	// void SPK::PointMass::setPosition(const SPK::Vector3D & pos)
 	static int _bind_setPosition(lua_State *L) {
 		if (!_lg_typecheck_setPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::PointMass::setPosition(const SPK::Vector3D & pos) function, expected prototype:\nvoid SPK::PointMass::setPosition(const SPK::Vector3D & pos)\nClass arguments details:\narg 1 ID = 70092749\n");
+			luaL_error(L, "luna typecheck failed in void SPK::PointMass::setPosition(const SPK::Vector3D & pos) function, expected prototype:\nvoid SPK::PointMass::setPosition(const SPK::Vector3D & pos)\nClass arguments details:\narg 1 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Vector3D* pos_ptr=(Luna< SPK::Vector3D >::check(L,2));
@@ -274,8 +267,7 @@ public:
 
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::PointMass::setPosition(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::PointMass::setPosition(const SPK::Vector3D &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPosition(pos);
 
@@ -285,16 +277,14 @@ public:
 	// void SPK::PointMass::setMass(float mass)
 	static int _bind_setMass(lua_State *L) {
 		if (!_lg_typecheck_setMass(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::PointMass::setMass(float mass) function, expected prototype:\nvoid SPK::PointMass::setMass(float mass)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::PointMass::setMass(float mass) function, expected prototype:\nvoid SPK::PointMass::setMass(float mass)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float mass=(float)lua_tonumber(L,2);
 
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::PointMass::setMass(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::PointMass::setMass(float). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMass(mass);
 
@@ -304,16 +294,14 @@ public:
 	// void SPK::PointMass::setMinDistance(float minDistance)
 	static int _bind_setMinDistance(lua_State *L) {
 		if (!_lg_typecheck_setMinDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::PointMass::setMinDistance(float minDistance) function, expected prototype:\nvoid SPK::PointMass::setMinDistance(float minDistance)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::PointMass::setMinDistance(float minDistance) function, expected prototype:\nvoid SPK::PointMass::setMinDistance(float minDistance)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float minDistance=(float)lua_tonumber(L,2);
 
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::PointMass::setMinDistance(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::PointMass::setMinDistance(float). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMinDistance(minDistance);
 
@@ -323,15 +311,13 @@ public:
 	// const SPK::Vector3D & SPK::PointMass::getPosition() const
 	static int _bind_getPosition(lua_State *L) {
 		if (!_lg_typecheck_getPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const SPK::Vector3D & SPK::PointMass::getPosition() const function, expected prototype:\nconst SPK::Vector3D & SPK::PointMass::getPosition() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const SPK::Vector3D & SPK::PointMass::getPosition() const function, expected prototype:\nconst SPK::Vector3D & SPK::PointMass::getPosition() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::PointMass::getPosition() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::PointMass::getPosition() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const SPK::Vector3D* lret = &self->getPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -344,15 +330,13 @@ public:
 	// const SPK::Vector3D & SPK::PointMass::getTransformedPosition() const
 	static int _bind_getTransformedPosition(lua_State *L) {
 		if (!_lg_typecheck_getTransformedPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const SPK::Vector3D & SPK::PointMass::getTransformedPosition() const function, expected prototype:\nconst SPK::Vector3D & SPK::PointMass::getTransformedPosition() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const SPK::Vector3D & SPK::PointMass::getTransformedPosition() const function, expected prototype:\nconst SPK::Vector3D & SPK::PointMass::getTransformedPosition() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::PointMass::getTransformedPosition() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::PointMass::getTransformedPosition() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const SPK::Vector3D* lret = &self->getTransformedPosition();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -365,15 +349,13 @@ public:
 	// float SPK::PointMass::getMass() const
 	static int _bind_getMass(lua_State *L) {
 		if (!_lg_typecheck_getMass(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float SPK::PointMass::getMass() const function, expected prototype:\nfloat SPK::PointMass::getMass() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float SPK::PointMass::getMass() const function, expected prototype:\nfloat SPK::PointMass::getMass() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::PointMass::getMass() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float SPK::PointMass::getMass() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getMass();
 		lua_pushnumber(L,lret);
@@ -384,15 +366,13 @@ public:
 	// float SPK::PointMass::getMinDistance() const
 	static int _bind_getMinDistance(lua_State *L) {
 		if (!_lg_typecheck_getMinDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float SPK::PointMass::getMinDistance() const function, expected prototype:\nfloat SPK::PointMass::getMinDistance() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float SPK::PointMass::getMinDistance() const function, expected prototype:\nfloat SPK::PointMass::getMinDistance() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::PointMass::getMinDistance() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float SPK::PointMass::getMinDistance() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getMinDistance();
 		lua_pushnumber(L,lret);
@@ -403,8 +383,7 @@ public:
 	// static SPK::PointMass * SPK::PointMass::create(SPK::Zone * zone = NULL, SPK::ModifierTrigger trigger = SPK::INSIDE_ZONE, float mass = 1.0f, float minDistance = 0.05f)
 	static int _bind_create(lua_State *L) {
 		if (!_lg_typecheck_create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static SPK::PointMass * SPK::PointMass::create(SPK::Zone * zone = NULL, SPK::ModifierTrigger trigger = SPK::INSIDE_ZONE, float mass = 1.0f, float minDistance = 0.05f) function, expected prototype:\nstatic SPK::PointMass * SPK::PointMass::create(SPK::Zone * zone = NULL, SPK::ModifierTrigger trigger = SPK::INSIDE_ZONE, float mass = 1.0f, float minDistance = 0.05f)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in static SPK::PointMass * SPK::PointMass::create(SPK::Zone * zone = NULL, SPK::ModifierTrigger trigger = SPK::INSIDE_ZONE, float mass = 1.0f, float minDistance = 0.05f) function, expected prototype:\nstatic SPK::PointMass * SPK::PointMass::create(SPK::Zone * zone = NULL, SPK::ModifierTrigger trigger = SPK::INSIDE_ZONE, float mass = 1.0f, float minDistance = 0.05f)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -425,8 +404,7 @@ public:
 	// void SPK::PointMass::base_createBuffers(const SPK::Group & group)
 	static int _bind_base_createBuffers(lua_State *L) {
 		if (!_lg_typecheck_base_createBuffers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::PointMass::base_createBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::PointMass::base_createBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::PointMass::base_createBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::PointMass::base_createBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -437,8 +415,7 @@ public:
 
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::PointMass::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::PointMass::base_createBuffers(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PointMass::createBuffers(group);
 
@@ -448,8 +425,7 @@ public:
 	// void SPK::PointMass::base_destroyBuffers(const SPK::Group & group)
 	static int _bind_base_destroyBuffers(lua_State *L) {
 		if (!_lg_typecheck_base_destroyBuffers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::PointMass::base_destroyBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::PointMass::base_destroyBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::PointMass::base_destroyBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::PointMass::base_destroyBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -460,8 +436,7 @@ public:
 
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::PointMass::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::PointMass::base_destroyBuffers(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PointMass::destroyBuffers(group);
 
@@ -471,16 +446,14 @@ public:
 	// SPK::Registerable * SPK::PointMass::base_findByName(const std::string & name)
 	static int _bind_base_findByName(lua_State *L) {
 		if (!_lg_typecheck_base_findByName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::PointMass::base_findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::PointMass::base_findByName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::PointMass::base_findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::PointMass::base_findByName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::PointMass::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::PointMass::base_findByName(const std::string &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::Registerable * lret = self->PointMass::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -493,15 +466,13 @@ public:
 	// std::string SPK::PointMass::base_getClassName() const
 	static int _bind_base_getClassName(lua_State *L) {
 		if (!_lg_typecheck_base_getClassName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string SPK::PointMass::base_getClassName() const function, expected prototype:\nstd::string SPK::PointMass::base_getClassName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string SPK::PointMass::base_getClassName() const function, expected prototype:\nstd::string SPK::PointMass::base_getClassName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::PointMass* self=Luna< SPK::Registerable >::checkSubType< SPK::PointMass >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::PointMass::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string SPK::PointMass::base_getClassName() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->PointMass::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());

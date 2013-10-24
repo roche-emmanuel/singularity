@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		QuatCallback* self= (QuatCallback*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -135,8 +132,7 @@ public:
 	// QuatCallback::QuatCallback(lua_Table * data)
 	static QuatCallback* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in QuatCallback::QuatCallback(lua_Table * data) function, expected prototype:\nQuatCallback::QuatCallback(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in QuatCallback::QuatCallback(lua_Table * data) function, expected prototype:\nQuatCallback::QuatCallback(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -148,11 +144,10 @@ public:
 	// static void QuatCallback::setCallback(const void * value, void * clientData)
 	static int _bind_setCallback(lua_State *L) {
 		if (!_lg_typecheck_setCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void QuatCallback::setCallback(const void * value, void * clientData) function, expected prototype:\nstatic void QuatCallback::setCallback(const void * value, void * clientData)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void QuatCallback::setCallback(const void * value, void * clientData) function, expected prototype:\nstatic void QuatCallback::setCallback(const void * value, void * clientData)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		void* value=(Luna< void >::check(L,1));
+		const void* value=(Luna< void >::check(L,1));
 		void* clientData=(Luna< void >::check(L,2));
 
 		QuatCallback::setCallback(value, clientData);
@@ -163,8 +158,7 @@ public:
 	// static void QuatCallback::getCallback(void * value, void * clientData)
 	static int _bind_getCallback(lua_State *L) {
 		if (!_lg_typecheck_getCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void QuatCallback::getCallback(void * value, void * clientData) function, expected prototype:\nstatic void QuatCallback::getCallback(void * value, void * clientData)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void QuatCallback::getCallback(void * value, void * clientData) function, expected prototype:\nstatic void QuatCallback::getCallback(void * value, void * clientData)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* value=(Luna< void >::check(L,1));
@@ -178,8 +172,7 @@ public:
 	// void QuatCallback::setValue(osg::Quat val)
 	static int _bind_setValue(lua_State *L) {
 		if (!_lg_typecheck_setValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void QuatCallback::setValue(osg::Quat val) function, expected prototype:\nvoid QuatCallback::setValue(osg::Quat val)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void QuatCallback::setValue(osg::Quat val) function, expected prototype:\nvoid QuatCallback::setValue(osg::Quat val)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Quat* val_ptr=(Luna< osg::Quat >::check(L,2));
@@ -190,8 +183,7 @@ public:
 
 		QuatCallback* self=Luna< osg::Referenced >::checkSubType< QuatCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void QuatCallback::setValue(osg::Quat). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void QuatCallback::setValue(osg::Quat). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setValue(val);
 
@@ -201,15 +193,13 @@ public:
 	// osg::Quat QuatCallback::getValue()
 	static int _bind_getValue(lua_State *L) {
 		if (!_lg_typecheck_getValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Quat QuatCallback::getValue() function, expected prototype:\nosg::Quat QuatCallback::getValue()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Quat QuatCallback::getValue() function, expected prototype:\nosg::Quat QuatCallback::getValue()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		QuatCallback* self=Luna< osg::Referenced >::checkSubType< QuatCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Quat QuatCallback::getValue(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Quat QuatCallback::getValue(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Quat stack_lret = self->getValue();
 		osg::Quat* lret = new osg::Quat(stack_lret);

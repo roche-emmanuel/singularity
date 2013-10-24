@@ -2,6 +2,12 @@ local Class = require("classBuilder"){name="GenesisApp",bases="osg.OSGTestApp"};
 
 local awe = require "Awesomium"
 
+local menu_list = { "menu", "menu.gimbal", "menu.EOW", "menu.IR", "menu.ELRF", "menu.AVT",
+				    "menu.illuminator1", "menu.video_io", "menu.operator_gimbal", "menu.operator_payload",
+					"menu.mission", "menu.digital_overlays", "menu.analog_overlays", "menu.steering_modes",
+					"menu.profiles","menu.EOW.misc", "menu.IR.misc","menu.steering_modes.geoscan",
+					"menu.steering_modes.points_of_interest"}
+
 function Class:new(options)
 	self:info("Calling new for GenesisApp.")
 	-- need to create the webtile here as we will use it in 
@@ -33,6 +39,9 @@ function Class:setupInterface(options)
 								  tip="Toggle menu display",handler="toggleMenus",
 								  validItemOnly=true}	
 		intf:addSpacer{prop=1}
+		
+		intf:addSingleChoiceEntry{name="selected_menu",prop=0,caption="Current menu",
+		choices=menu_list, handler="updateCurrentMenu"}
 		
 		intf:addStringEntry{name="field_name",caption="Field"}
 		intf:addStringEntry{name="field_value",caption="Value"}
@@ -102,11 +111,17 @@ function Class:setupEventHandlers()
 end
 
 function Class:toggleOverlays()
-	self._tile:toggleOverlays()
+	self._tile:call("toggleOverlays")
 end
 
 function Class:toggleMenus()
-	self._tile:toggleMenus()
+	self._tile:call("toggleMenus")
+end
+
+function Class:updateCurrentMenu(data)
+	self:info("Showing menu: ",data.value)
+	-- self._tile:call("showMenu",data.value)
+	self._tile:call("setMenuSelection",data.value,"done")
 end
 
 return Class 

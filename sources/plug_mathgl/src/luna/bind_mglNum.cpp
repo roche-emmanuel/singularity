@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglNum*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglNum*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglNum* rhs =(Luna< mglNum >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglNum* self= (mglNum*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< mglNum >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -142,14 +138,14 @@ public:
 	inline static bool _lg_typecheck_setD(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setS(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -175,8 +171,7 @@ public:
 	// mglNum::mglNum()
 	static mglNum* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglNum::mglNum() function, expected prototype:\nmglNum::mglNum()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglNum::mglNum() function, expected prototype:\nmglNum::mglNum()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -188,16 +183,14 @@ public:
 	// void mglNum::MoveAfter(mglNum * var)
 	static int _bind_MoveAfter(lua_State *L) {
 		if (!_lg_typecheck_MoveAfter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglNum::MoveAfter(mglNum * var) function, expected prototype:\nvoid mglNum::MoveAfter(mglNum * var)\nClass arguments details:\narg 1 ID = 18996083\n");
+			luaL_error(L, "luna typecheck failed in void mglNum::MoveAfter(mglNum * var) function, expected prototype:\nvoid mglNum::MoveAfter(mglNum * var)\nClass arguments details:\narg 1 ID = 18996083\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglNum* var=(Luna< mglNum >::check(L,2));
 
 		mglNum* self=(Luna< mglNum >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglNum::MoveAfter(mglNum *). Got : '%s'",typeid(Luna< mglNum >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglNum::MoveAfter(mglNum *). Got : '%s'\n%s",typeid(Luna< mglNum >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MoveAfter(var);
 
@@ -207,15 +200,13 @@ public:
 	// double mglNum::d()
 	static int _bind_getD(lua_State *L) {
 		if (!_lg_typecheck_getD(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double mglNum::d() function, expected prototype:\ndouble mglNum::d()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double mglNum::d() function, expected prototype:\ndouble mglNum::d()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglNum* self=(Luna< mglNum >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double mglNum::d(). Got : '%s'",typeid(Luna< mglNum >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double mglNum::d(). Got : '%s'\n%s",typeid(Luna< mglNum >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->d;
 		lua_pushnumber(L,lret);
@@ -226,15 +217,13 @@ public:
 	// std::wstring mglNum::s()
 	static int _bind_getS(lua_State *L) {
 		if (!_lg_typecheck_getS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::wstring mglNum::s() function, expected prototype:\nstd::wstring mglNum::s()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::wstring mglNum::s() function, expected prototype:\nstd::wstring mglNum::s()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglNum* self=(Luna< mglNum >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::wstring mglNum::s(). Got : '%s'",typeid(Luna< mglNum >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::wstring mglNum::s(). Got : '%s'\n%s",typeid(Luna< mglNum >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::wstring lret = self->s;
 		std::string lret_str = sgt::ws2s(lret);
@@ -246,15 +235,13 @@ public:
 	// mglNum * mglNum::next()
 	static int _bind_getNext(lua_State *L) {
 		if (!_lg_typecheck_getNext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglNum * mglNum::next() function, expected prototype:\nmglNum * mglNum::next()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglNum * mglNum::next() function, expected prototype:\nmglNum * mglNum::next()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglNum* self=(Luna< mglNum >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglNum * mglNum::next(). Got : '%s'",typeid(Luna< mglNum >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglNum * mglNum::next(). Got : '%s'\n%s",typeid(Luna< mglNum >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglNum * lret = self->next;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -267,15 +254,13 @@ public:
 	// mglNum * mglNum::prev()
 	static int _bind_getPrev(lua_State *L) {
 		if (!_lg_typecheck_getPrev(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglNum * mglNum::prev() function, expected prototype:\nmglNum * mglNum::prev()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglNum * mglNum::prev() function, expected prototype:\nmglNum * mglNum::prev()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglNum* self=(Luna< mglNum >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglNum * mglNum::prev(). Got : '%s'",typeid(Luna< mglNum >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglNum * mglNum::prev(). Got : '%s'\n%s",typeid(Luna< mglNum >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglNum * lret = self->prev;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -288,16 +273,14 @@ public:
 	// void mglNum::d(double value)
 	static int _bind_setD(lua_State *L) {
 		if (!_lg_typecheck_setD(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglNum::d(double value) function, expected prototype:\nvoid mglNum::d(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglNum::d(double value) function, expected prototype:\nvoid mglNum::d(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		mglNum* self=(Luna< mglNum >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglNum::d(double). Got : '%s'",typeid(Luna< mglNum >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglNum::d(double). Got : '%s'\n%s",typeid(Luna< mglNum >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->d = value;
 
@@ -307,8 +290,7 @@ public:
 	// void mglNum::s(std::wstring value)
 	static int _bind_setS(lua_State *L) {
 		if (!_lg_typecheck_setS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglNum::s(std::wstring value) function, expected prototype:\nvoid mglNum::s(std::wstring value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglNum::s(std::wstring value) function, expected prototype:\nvoid mglNum::s(std::wstring value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string value_str(lua_tostring(L,2),lua_objlen(L,2));
@@ -316,8 +298,7 @@ public:
 
 		mglNum* self=(Luna< mglNum >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglNum::s(std::wstring). Got : '%s'",typeid(Luna< mglNum >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglNum::s(std::wstring). Got : '%s'\n%s",typeid(Luna< mglNum >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->s = value;
 
@@ -327,16 +308,14 @@ public:
 	// void mglNum::next(mglNum * value)
 	static int _bind_setNext(lua_State *L) {
 		if (!_lg_typecheck_setNext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglNum::next(mglNum * value) function, expected prototype:\nvoid mglNum::next(mglNum * value)\nClass arguments details:\narg 1 ID = 18996083\n");
+			luaL_error(L, "luna typecheck failed in void mglNum::next(mglNum * value) function, expected prototype:\nvoid mglNum::next(mglNum * value)\nClass arguments details:\narg 1 ID = 18996083\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglNum* value=(Luna< mglNum >::check(L,2));
 
 		mglNum* self=(Luna< mglNum >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglNum::next(mglNum *). Got : '%s'",typeid(Luna< mglNum >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglNum::next(mglNum *). Got : '%s'\n%s",typeid(Luna< mglNum >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->next = value;
 
@@ -346,16 +325,14 @@ public:
 	// void mglNum::prev(mglNum * value)
 	static int _bind_setPrev(lua_State *L) {
 		if (!_lg_typecheck_setPrev(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglNum::prev(mglNum * value) function, expected prototype:\nvoid mglNum::prev(mglNum * value)\nClass arguments details:\narg 1 ID = 18996083\n");
+			luaL_error(L, "luna typecheck failed in void mglNum::prev(mglNum * value) function, expected prototype:\nvoid mglNum::prev(mglNum * value)\nClass arguments details:\narg 1 ID = 18996083\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglNum* value=(Luna< mglNum >::check(L,2));
 
 		mglNum* self=(Luna< mglNum >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglNum::prev(mglNum *). Got : '%s'",typeid(Luna< mglNum >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglNum::prev(mglNum *). Got : '%s'\n%s",typeid(Luna< mglNum >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->prev = value;
 

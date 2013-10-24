@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDbvt::IClone* self=(Luna< btDbvt::IClone >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btDbvt::IClone*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btDbvt::IClone*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDbvt::IClone* rhs =(Luna< btDbvt::IClone >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDbvt::IClone* self= (btDbvt::IClone*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btDbvt::IClone >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -163,8 +158,7 @@ public:
 	// btDbvt::IClone::IClone()
 	static btDbvt::IClone* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btDbvt::IClone::IClone() function, expected prototype:\nbtDbvt::IClone::IClone()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btDbvt::IClone::IClone() function, expected prototype:\nbtDbvt::IClone::IClone()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -174,8 +168,7 @@ public:
 	// btDbvt::IClone::IClone(lua_Table * data)
 	static btDbvt::IClone* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btDbvt::IClone::IClone(lua_Table * data) function, expected prototype:\nbtDbvt::IClone::IClone(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btDbvt::IClone::IClone(lua_Table * data) function, expected prototype:\nbtDbvt::IClone::IClone(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -196,16 +189,14 @@ public:
 	// void btDbvt::IClone::CloneLeaf(btDbvtNode * arg1)
 	static int _bind_CloneLeaf(lua_State *L) {
 		if (!_lg_typecheck_CloneLeaf(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDbvt::IClone::CloneLeaf(btDbvtNode * arg1) function, expected prototype:\nvoid btDbvt::IClone::CloneLeaf(btDbvtNode * arg1)\nClass arguments details:\narg 1 ID = 91335778\n");
+			luaL_error(L, "luna typecheck failed in void btDbvt::IClone::CloneLeaf(btDbvtNode * arg1) function, expected prototype:\nvoid btDbvt::IClone::CloneLeaf(btDbvtNode * arg1)\nClass arguments details:\narg 1 ID = 91335778\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDbvtNode* _arg1=(Luna< btDbvtNode >::check(L,2));
 
 		btDbvt::IClone* self=(Luna< btDbvt::IClone >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDbvt::IClone::CloneLeaf(btDbvtNode *). Got : '%s'",typeid(Luna< btDbvt::IClone >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDbvt::IClone::CloneLeaf(btDbvtNode *). Got : '%s'\n%s",typeid(Luna< btDbvt::IClone >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CloneLeaf(_arg1);
 
@@ -215,16 +206,14 @@ public:
 	// void btDbvt::IClone::base_CloneLeaf(btDbvtNode * arg1)
 	static int _bind_base_CloneLeaf(lua_State *L) {
 		if (!_lg_typecheck_base_CloneLeaf(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDbvt::IClone::base_CloneLeaf(btDbvtNode * arg1) function, expected prototype:\nvoid btDbvt::IClone::base_CloneLeaf(btDbvtNode * arg1)\nClass arguments details:\narg 1 ID = 91335778\n");
+			luaL_error(L, "luna typecheck failed in void btDbvt::IClone::base_CloneLeaf(btDbvtNode * arg1) function, expected prototype:\nvoid btDbvt::IClone::base_CloneLeaf(btDbvtNode * arg1)\nClass arguments details:\narg 1 ID = 91335778\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDbvtNode* _arg1=(Luna< btDbvtNode >::check(L,2));
 
 		btDbvt::IClone* self=(Luna< btDbvt::IClone >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDbvt::IClone::base_CloneLeaf(btDbvtNode *). Got : '%s'",typeid(Luna< btDbvt::IClone >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDbvt::IClone::base_CloneLeaf(btDbvtNode *). Got : '%s'\n%s",typeid(Luna< btDbvt::IClone >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->IClone::CloneLeaf(_arg1);
 

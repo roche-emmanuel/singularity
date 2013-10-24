@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglDataA* self=(Luna< mglDataA >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglVar* self= (mglVar*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< mglDataA >::check(L,1));
@@ -144,7 +141,7 @@ public:
 	inline static bool _lg_typecheck_setS(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -214,8 +211,7 @@ public:
 	// mglVar::mglVar()
 	static mglVar* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglVar::mglVar() function, expected prototype:\nmglVar::mglVar()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglVar::mglVar() function, expected prototype:\nmglVar::mglVar()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -225,8 +221,7 @@ public:
 	// mglVar::mglVar(lua_Table * data)
 	static mglVar* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglVar::mglVar(lua_Table * data) function, expected prototype:\nmglVar::mglVar(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglVar::mglVar(lua_Table * data) function, expected prototype:\nmglVar::mglVar(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -247,16 +242,14 @@ public:
 	// void mglVar::MoveAfter(mglVar * var)
 	static int _bind_MoveAfter(lua_State *L) {
 		if (!_lg_typecheck_MoveAfter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglVar::MoveAfter(mglVar * var) function, expected prototype:\nvoid mglVar::MoveAfter(mglVar * var)\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglVar::MoveAfter(mglVar * var) function, expected prototype:\nvoid mglVar::MoveAfter(mglVar * var)\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglVar* var=(Luna< mglDataA >::checkSubType< mglVar >(L,2));
 
 		mglVar* self=Luna< mglDataA >::checkSubType< mglVar >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglVar::MoveAfter(mglVar *). Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglVar::MoveAfter(mglVar *). Got : '%s'\n%s",typeid(Luna< mglDataA >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MoveAfter(var);
 
@@ -266,15 +259,13 @@ public:
 	// std::wstring mglVar::s()
 	static int _bind_getS(lua_State *L) {
 		if (!_lg_typecheck_getS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::wstring mglVar::s() function, expected prototype:\nstd::wstring mglVar::s()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::wstring mglVar::s() function, expected prototype:\nstd::wstring mglVar::s()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglVar* self=Luna< mglDataA >::checkSubType< mglVar >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::wstring mglVar::s(). Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::wstring mglVar::s(). Got : '%s'\n%s",typeid(Luna< mglDataA >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::wstring lret = self->s;
 		std::string lret_str = sgt::ws2s(lret);
@@ -286,15 +277,13 @@ public:
 	// void * mglVar::o()
 	static int _bind_getO(lua_State *L) {
 		if (!_lg_typecheck_getO(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * mglVar::o() function, expected prototype:\nvoid * mglVar::o()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * mglVar::o() function, expected prototype:\nvoid * mglVar::o()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglVar* self=Luna< mglDataA >::checkSubType< mglVar >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * mglVar::o(). Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * mglVar::o(). Got : '%s'\n%s",typeid(Luna< mglDataA >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->o;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -307,15 +296,13 @@ public:
 	// mglVar * mglVar::next()
 	static int _bind_getNext(lua_State *L) {
 		if (!_lg_typecheck_getNext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglVar * mglVar::next() function, expected prototype:\nmglVar * mglVar::next()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglVar * mglVar::next() function, expected prototype:\nmglVar * mglVar::next()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglVar* self=Luna< mglDataA >::checkSubType< mglVar >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglVar * mglVar::next(). Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglVar * mglVar::next(). Got : '%s'\n%s",typeid(Luna< mglDataA >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglVar * lret = self->next;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -328,15 +315,13 @@ public:
 	// mglVar * mglVar::prev()
 	static int _bind_getPrev(lua_State *L) {
 		if (!_lg_typecheck_getPrev(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglVar * mglVar::prev() function, expected prototype:\nmglVar * mglVar::prev()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglVar * mglVar::prev() function, expected prototype:\nmglVar * mglVar::prev()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglVar* self=Luna< mglDataA >::checkSubType< mglVar >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglVar * mglVar::prev(). Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglVar * mglVar::prev(). Got : '%s'\n%s",typeid(Luna< mglDataA >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglVar * lret = self->prev;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -349,15 +334,13 @@ public:
 	// bool mglVar::temp()
 	static int _bind_getTemp(lua_State *L) {
 		if (!_lg_typecheck_getTemp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool mglVar::temp() function, expected prototype:\nbool mglVar::temp()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool mglVar::temp() function, expected prototype:\nbool mglVar::temp()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglVar* self=Luna< mglDataA >::checkSubType< mglVar >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool mglVar::temp(). Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool mglVar::temp(). Got : '%s'\n%s",typeid(Luna< mglDataA >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->temp;
 		lua_pushboolean(L,lret?1:0);
@@ -368,8 +351,7 @@ public:
 	// void mglVar::s(std::wstring value)
 	static int _bind_setS(lua_State *L) {
 		if (!_lg_typecheck_setS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglVar::s(std::wstring value) function, expected prototype:\nvoid mglVar::s(std::wstring value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglVar::s(std::wstring value) function, expected prototype:\nvoid mglVar::s(std::wstring value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string value_str(lua_tostring(L,2),lua_objlen(L,2));
@@ -377,8 +359,7 @@ public:
 
 		mglVar* self=Luna< mglDataA >::checkSubType< mglVar >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglVar::s(std::wstring). Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglVar::s(std::wstring). Got : '%s'\n%s",typeid(Luna< mglDataA >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->s = value;
 
@@ -388,16 +369,14 @@ public:
 	// void mglVar::o(void * value)
 	static int _bind_setO(lua_State *L) {
 		if (!_lg_typecheck_setO(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglVar::o(void * value) function, expected prototype:\nvoid mglVar::o(void * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglVar::o(void * value) function, expected prototype:\nvoid mglVar::o(void * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* value=(Luna< void >::check(L,2));
 
 		mglVar* self=Luna< mglDataA >::checkSubType< mglVar >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglVar::o(void *). Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglVar::o(void *). Got : '%s'\n%s",typeid(Luna< mglDataA >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->o = value;
 
@@ -407,16 +386,14 @@ public:
 	// void mglVar::next(mglVar * value)
 	static int _bind_setNext(lua_State *L) {
 		if (!_lg_typecheck_setNext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglVar::next(mglVar * value) function, expected prototype:\nvoid mglVar::next(mglVar * value)\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglVar::next(mglVar * value) function, expected prototype:\nvoid mglVar::next(mglVar * value)\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglVar* value=(Luna< mglDataA >::checkSubType< mglVar >(L,2));
 
 		mglVar* self=Luna< mglDataA >::checkSubType< mglVar >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglVar::next(mglVar *). Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglVar::next(mglVar *). Got : '%s'\n%s",typeid(Luna< mglDataA >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->next = value;
 
@@ -426,16 +403,14 @@ public:
 	// void mglVar::prev(mglVar * value)
 	static int _bind_setPrev(lua_State *L) {
 		if (!_lg_typecheck_setPrev(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglVar::prev(mglVar * value) function, expected prototype:\nvoid mglVar::prev(mglVar * value)\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglVar::prev(mglVar * value) function, expected prototype:\nvoid mglVar::prev(mglVar * value)\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglVar* value=(Luna< mglDataA >::checkSubType< mglVar >(L,2));
 
 		mglVar* self=Luna< mglDataA >::checkSubType< mglVar >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglVar::prev(mglVar *). Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglVar::prev(mglVar *). Got : '%s'\n%s",typeid(Luna< mglDataA >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->prev = value;
 
@@ -445,16 +420,14 @@ public:
 	// void mglVar::temp(bool value)
 	static int _bind_setTemp(lua_State *L) {
 		if (!_lg_typecheck_setTemp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglVar::temp(bool value) function, expected prototype:\nvoid mglVar::temp(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglVar::temp(bool value) function, expected prototype:\nvoid mglVar::temp(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		mglVar* self=Luna< mglDataA >::checkSubType< mglVar >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglVar::temp(bool). Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglVar::temp(bool). Got : '%s'\n%s",typeid(Luna< mglDataA >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->temp = value;
 
@@ -464,15 +437,13 @@ public:
 	// long mglVar::base_GetNx() const
 	static int _bind_base_GetNx(lua_State *L) {
 		if (!_lg_typecheck_base_GetNx(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long mglVar::base_GetNx() const function, expected prototype:\nlong mglVar::base_GetNx() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long mglVar::base_GetNx() const function, expected prototype:\nlong mglVar::base_GetNx() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglVar* self=Luna< mglDataA >::checkSubType< mglVar >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long mglVar::base_GetNx() const. Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long mglVar::base_GetNx() const. Got : '%s'\n%s",typeid(Luna< mglDataA >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->mglVar::GetNx();
 		lua_pushnumber(L,lret);
@@ -483,15 +454,13 @@ public:
 	// long mglVar::base_GetNy() const
 	static int _bind_base_GetNy(lua_State *L) {
 		if (!_lg_typecheck_base_GetNy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long mglVar::base_GetNy() const function, expected prototype:\nlong mglVar::base_GetNy() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long mglVar::base_GetNy() const function, expected prototype:\nlong mglVar::base_GetNy() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglVar* self=Luna< mglDataA >::checkSubType< mglVar >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long mglVar::base_GetNy() const. Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long mglVar::base_GetNy() const. Got : '%s'\n%s",typeid(Luna< mglDataA >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->mglVar::GetNy();
 		lua_pushnumber(L,lret);
@@ -502,15 +471,13 @@ public:
 	// long mglVar::base_GetNz() const
 	static int _bind_base_GetNz(lua_State *L) {
 		if (!_lg_typecheck_base_GetNz(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long mglVar::base_GetNz() const function, expected prototype:\nlong mglVar::base_GetNz() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long mglVar::base_GetNz() const function, expected prototype:\nlong mglVar::base_GetNz() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglVar* self=Luna< mglDataA >::checkSubType< mglVar >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long mglVar::base_GetNz() const. Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long mglVar::base_GetNz() const. Got : '%s'\n%s",typeid(Luna< mglDataA >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->mglVar::GetNz();
 		lua_pushnumber(L,lret);
@@ -521,15 +488,13 @@ public:
 	// double mglVar::base_Maximal() const
 	static int _bind_base_Maximal(lua_State *L) {
 		if (!_lg_typecheck_base_Maximal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double mglVar::base_Maximal() const function, expected prototype:\ndouble mglVar::base_Maximal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double mglVar::base_Maximal() const function, expected prototype:\ndouble mglVar::base_Maximal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglVar* self=Luna< mglDataA >::checkSubType< mglVar >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double mglVar::base_Maximal() const. Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double mglVar::base_Maximal() const. Got : '%s'\n%s",typeid(Luna< mglDataA >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->mglVar::Maximal();
 		lua_pushnumber(L,lret);
@@ -540,15 +505,13 @@ public:
 	// double mglVar::base_Minimal() const
 	static int _bind_base_Minimal(lua_State *L) {
 		if (!_lg_typecheck_base_Minimal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double mglVar::base_Minimal() const function, expected prototype:\ndouble mglVar::base_Minimal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double mglVar::base_Minimal() const function, expected prototype:\ndouble mglVar::base_Minimal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglVar* self=Luna< mglDataA >::checkSubType< mglVar >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double mglVar::base_Minimal() const. Got : '%s'",typeid(Luna< mglDataA >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double mglVar::base_Minimal() const. Got : '%s'\n%s",typeid(Luna< mglDataA >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->mglVar::Minimal();
 		lua_pushnumber(L,lret);

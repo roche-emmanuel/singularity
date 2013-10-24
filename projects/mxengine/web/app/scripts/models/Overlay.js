@@ -15,9 +15,29 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools"],funct
 				this.on("change:"+list[i],con["set_"+list[i]],con);
 			};
 			
-			this._initialized = false;
+			this._streamFields = {};
+			this._streamHighlights = {};
+			this._currentStream = "VIC"
 		},
 	
+		setCurrentStream: function(sname) {
+			// save the stream highlight state:
+			// log.info("Setting current stream to: '"+sname+"'")
+			this._currentStream = sname
+			
+			var map = this.getStreamMap(this._streamFields,sname);
+			
+			for(var fname in map) {
+				this.setField(fname,map[fname]);
+			}
+			
+			map = this.getStreamMap(this._streamHighlights,sname);
+			
+			for(var fname in map) {
+				this.setHighlight(fname,map[fname]);
+			}
+		},
+		
 		// Setup the default values for the display:
 		setDefaults : function() {
 			log.info("Setting Overlay default values.")
@@ -29,30 +49,54 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools"],funct
 				platform_name: "ACFT",
 				time : "12:22:22",
 			});
-			
-			this._initialized = true
 		},
 		
 		setField : function(field,value) {
-			if (this._initialized == false) {
-				log.info("Cannot call setField when not initialized !!!");
-				return;
-			}
+			tools.setItemContent("#"+field,value)			
+		},
+		
+		setHighlight: function(field, value) {
+			tools.highlightItem("#"+field,value)
+		},
+
+		getStreamMap: function(list,sname) {
+			var map = list[sname]
+			if (typeof map == "undefined") {
+				map = {};
+				list[sname] = map;
+			}		
 			
-			log.info("Calling setField with: field="+field+", value="+value);
-			var obj = {};
-			obj[field] = value;g
-			this.set(obj);
+			return map;
 		},
 		
-		toggleOverlays : function() {
-			tools.toggleVisibility("#overlays");
+		setStreamField: function(sname,	field, value) {
+			// save the stream field value:
+			var map = this.getStreamMap(this._streamFields,sname);
+			map[field] = value;
+			
+			if(this._currentStream == sname) {
+				// log.info("Updating stream field: stream="+sname+", field="+field+", value="+value)
+				this.setField(field,value)
+			}		},
+
+		setStreamHighlight: function(sname,	field, value) {
+			// save the stream highlight state:
+			var map = this.getStreamMap(this._streamHighlights,sname);
+			map[field] = value;
+			
+			if(this._currentStream==sname) {
+				this.setHighlight(field,value)
+			}
 		},
 		
-		toggleMenus : function() {
-			tools.toggleVisibility($("#menus"));
-		},
-		
+		setEnabled : function(visible) {
+			if(visible) {
+				$("#overlays").show();
+			}
+			else {
+				$("#overlays").hide();			
+			}
+		},		
 	});
 	
 	return Overlay;  

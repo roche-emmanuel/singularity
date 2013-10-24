@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Pair*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Pair*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Pair* rhs =(Luna< b2Pair >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Pair* self= (b2Pair*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Pair >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -123,21 +119,21 @@ public:
 	inline static bool _lg_typecheck_setProxyIdA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setProxyIdB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setNext(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -151,15 +147,13 @@ public:
 	// signed int b2Pair::proxyIdA()
 	static int _bind_getProxyIdA(lua_State *L) {
 		if (!_lg_typecheck_getProxyIdA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2Pair::proxyIdA() function, expected prototype:\nsigned int b2Pair::proxyIdA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2Pair::proxyIdA() function, expected prototype:\nsigned int b2Pair::proxyIdA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Pair* self=(Luna< b2Pair >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2Pair::proxyIdA(). Got : '%s'",typeid(Luna< b2Pair >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2Pair::proxyIdA(). Got : '%s'\n%s",typeid(Luna< b2Pair >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->proxyIdA;
 		lua_pushnumber(L,lret);
@@ -170,15 +164,13 @@ public:
 	// signed int b2Pair::proxyIdB()
 	static int _bind_getProxyIdB(lua_State *L) {
 		if (!_lg_typecheck_getProxyIdB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2Pair::proxyIdB() function, expected prototype:\nsigned int b2Pair::proxyIdB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2Pair::proxyIdB() function, expected prototype:\nsigned int b2Pair::proxyIdB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Pair* self=(Luna< b2Pair >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2Pair::proxyIdB(). Got : '%s'",typeid(Luna< b2Pair >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2Pair::proxyIdB(). Got : '%s'\n%s",typeid(Luna< b2Pair >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->proxyIdB;
 		lua_pushnumber(L,lret);
@@ -189,15 +181,13 @@ public:
 	// signed int b2Pair::next()
 	static int _bind_getNext(lua_State *L) {
 		if (!_lg_typecheck_getNext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2Pair::next() function, expected prototype:\nsigned int b2Pair::next()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2Pair::next() function, expected prototype:\nsigned int b2Pair::next()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Pair* self=(Luna< b2Pair >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2Pair::next(). Got : '%s'",typeid(Luna< b2Pair >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2Pair::next(). Got : '%s'\n%s",typeid(Luna< b2Pair >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->next;
 		lua_pushnumber(L,lret);
@@ -208,16 +198,14 @@ public:
 	// void b2Pair::proxyIdA(signed int value)
 	static int _bind_setProxyIdA(lua_State *L) {
 		if (!_lg_typecheck_setProxyIdA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Pair::proxyIdA(signed int value) function, expected prototype:\nvoid b2Pair::proxyIdA(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Pair::proxyIdA(signed int value) function, expected prototype:\nvoid b2Pair::proxyIdA(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2Pair* self=(Luna< b2Pair >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Pair::proxyIdA(signed int). Got : '%s'",typeid(Luna< b2Pair >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Pair::proxyIdA(signed int). Got : '%s'\n%s",typeid(Luna< b2Pair >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->proxyIdA = value;
 
@@ -227,16 +215,14 @@ public:
 	// void b2Pair::proxyIdB(signed int value)
 	static int _bind_setProxyIdB(lua_State *L) {
 		if (!_lg_typecheck_setProxyIdB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Pair::proxyIdB(signed int value) function, expected prototype:\nvoid b2Pair::proxyIdB(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Pair::proxyIdB(signed int value) function, expected prototype:\nvoid b2Pair::proxyIdB(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2Pair* self=(Luna< b2Pair >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Pair::proxyIdB(signed int). Got : '%s'",typeid(Luna< b2Pair >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Pair::proxyIdB(signed int). Got : '%s'\n%s",typeid(Luna< b2Pair >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->proxyIdB = value;
 
@@ -246,16 +232,14 @@ public:
 	// void b2Pair::next(signed int value)
 	static int _bind_setNext(lua_State *L) {
 		if (!_lg_typecheck_setNext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Pair::next(signed int value) function, expected prototype:\nvoid b2Pair::next(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Pair::next(signed int value) function, expected prototype:\nvoid b2Pair::next(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2Pair* self=(Luna< b2Pair >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Pair::next(signed int). Got : '%s'",typeid(Luna< b2Pair >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Pair::next(signed int). Got : '%s'\n%s",typeid(Luna< b2Pair >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->next = value;
 

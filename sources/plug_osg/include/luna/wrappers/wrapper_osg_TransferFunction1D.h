@@ -191,9 +191,9 @@ public:
 	inline static bool _lg_typecheck_public_assignToImage(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303235) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,92303235) ) return false;
 		return true;
 	}

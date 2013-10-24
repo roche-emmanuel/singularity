@@ -75,7 +75,7 @@ inline static bool _lg_typecheck_btRayAabb(lua_State *L) {
 	if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 	if( !Luna<void>::has_uniqueid(L,6,91544891) ) return false;
 	return true;
 }
@@ -85,7 +85,7 @@ inline static bool _lg_typecheck_btTransformAabb_overload_1(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,91544891) ) return false;
 	if( (!(Luna< btVector3 >::check(L,1))) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,13247377) ) return false;
 	if( (!(Luna< btTransform >::check(L,3))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
@@ -102,7 +102,7 @@ inline static bool _lg_typecheck_btTransformAabb_overload_2(lua_State *L) {
 	if( (!(Luna< btVector3 >::check(L,1))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 	if( (!(Luna< btVector3 >::check(L,2))) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	if( !Luna<void>::has_uniqueid(L,4,13247377) ) return false;
 	if( (!(Luna< btTransform >::check(L,4))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,5,91544891) ) return false;
@@ -125,8 +125,8 @@ inline static bool _lg_typecheck_testQuantizedAabbAgainstQuantizedAabb(lua_State
 inline static bool _lg_typecheck_btAlignedAllocInternal(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
@@ -142,7 +142,7 @@ inline static bool _lg_typecheck_bt_mat3_dot_col(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,30394543) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
@@ -168,7 +168,7 @@ inline static bool _lg_typecheck_bt_vec_blend(lua_State *L) {
 	if( !Luna<void>::has_uniqueid(L,1,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -177,10 +177,10 @@ inline static bool _lg_typecheck_bt_plane_clip_polygon_collect(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,91544891)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
 
@@ -189,7 +189,7 @@ inline static bool _lg_typecheck_bt_plane_clip_polygon(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,91544891) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,91544891)) ) return false;
 	return true;
 }
@@ -213,7 +213,7 @@ inline static bool _lg_typecheck_resolveSingleCollision(lua_State *L) {
 	if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,5,5410878) ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
+	if( lua_type(L,6)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -224,10 +224,10 @@ inline static bool _lg_typecheck_resolveSingleBilateral(lua_State *L) {
 	if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,85758361) ) return false;
 	if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 	if( !Luna<void>::has_uniqueid(L,6,91544891) ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
-	if( lua_isnumber(L,8)==0 ) return false;
+	if( lua_type(L,7)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,8)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -288,7 +288,7 @@ inline static bool _lg_typecheck_NotEqual(lua_State *L) {
 inline static bool _lg_typecheck_btPoolAlloc(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
@@ -296,8 +296,8 @@ inline static bool _lg_typecheck_btPoolRealloc(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
@@ -335,9 +335,9 @@ inline static bool _lg_typecheck_bt_line_plane_collision(lua_State *L) {
 	if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,7)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -366,7 +366,7 @@ inline static bool _lg_typecheck_gim_get_point_inertia(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,91544891) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -386,9 +386,9 @@ inline static bool _lg_typecheck_btAdjustInternalEdgeContacts(lua_State *L) {
 	if( !Luna<void>::has_uniqueid(L,1,55239733) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,32391296)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,32391296)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( luatop>5 && (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
 
@@ -409,7 +409,7 @@ inline static bool _lg_typecheck_bt_calc_quantization_parameters(lua_State *L) {
 	if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,5,91544891) ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
+	if( lua_type(L,6)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -480,7 +480,7 @@ inline static bool _lg_typecheck_slerp(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,2139400) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,2139400) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -511,7 +511,7 @@ inline static bool _lg_typecheck_shortestArcQuatNormalize2(lua_State *L) {
 inline static bool _lg_typecheck_GEN_srand(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
@@ -530,155 +530,155 @@ inline static bool _lg_typecheck_btGetVersion(lua_State *L) {
 inline static bool _lg_typecheck_btSqrt(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btFabs(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btCos(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btSin(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btTan(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btAcos(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btAsin(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btAtan(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btAtan2(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btExp(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btLog(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btPow(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btFmod(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btAtan2Fast(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btFuzzyZero(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btEqual(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btGreaterEqual(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btIsNegative(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btRadians(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btDegrees(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btFsel(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -691,98 +691,98 @@ inline static bool _lg_typecheck_btMachineIsLittleEndian(lua_State *L) {
 inline static bool _lg_typecheck_btSelect_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btSelect_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btSelect_overload_3(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btSwapEndian_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btSwapEndian_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btSwapEndian_overload_3(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btSwapEndian_overload_4(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btSwapEndianFloat(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btUnswapEndianFloat(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btSwapEndianDouble(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btUnswapEndianDouble(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btNormalizeAngle(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btStrLen(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -797,9 +797,9 @@ inline static bool _lg_typecheck_btAabbSupport(lua_State *L) {
 inline static bool _lg_typecheck_btAdjustAngleToLimits(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -849,15 +849,15 @@ inline static bool _lg_typecheck_lerp(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,91544891) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_btSwapScalarEndian(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -881,8 +881,7 @@ inline static bool _lg_typecheck_btUnSwapVector3Endian(lua_State *L) {
 // void AabbExpand(btVector3 & aabbMin, btVector3 & aabbMax, const btVector3 & expansionMin, const btVector3 & expansionMax)
 static int _bind_AabbExpand(lua_State *L) {
 	if (!_lg_typecheck_AabbExpand(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void AabbExpand(btVector3 & aabbMin, btVector3 & aabbMax, const btVector3 & expansionMin, const btVector3 & expansionMax) function, expected prototype:\nvoid AabbExpand(btVector3 & aabbMin, btVector3 & aabbMax, const btVector3 & expansionMin, const btVector3 & expansionMax)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in void AabbExpand(btVector3 & aabbMin, btVector3 & aabbMax, const btVector3 & expansionMin, const btVector3 & expansionMax) function, expected prototype:\nvoid AabbExpand(btVector3 & aabbMin, btVector3 & aabbMax, const btVector3 & expansionMin, const btVector3 & expansionMax)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	btVector3* aabbMin_ptr=(Luna< btVector3 >::check(L,1));
@@ -914,8 +913,7 @@ static int _bind_AabbExpand(lua_State *L) {
 // bool TestPointAgainstAabb2(const btVector3 & aabbMin1, const btVector3 & aabbMax1, const btVector3 & point)
 static int _bind_TestPointAgainstAabb2(lua_State *L) {
 	if (!_lg_typecheck_TestPointAgainstAabb2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool TestPointAgainstAabb2(const btVector3 & aabbMin1, const btVector3 & aabbMax1, const btVector3 & point) function, expected prototype:\nbool TestPointAgainstAabb2(const btVector3 & aabbMin1, const btVector3 & aabbMax1, const btVector3 & point)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in bool TestPointAgainstAabb2(const btVector3 & aabbMin1, const btVector3 & aabbMax1, const btVector3 & point) function, expected prototype:\nbool TestPointAgainstAabb2(const btVector3 & aabbMin1, const btVector3 & aabbMax1, const btVector3 & point)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* aabbMin1_ptr=(Luna< btVector3 >::check(L,1));
@@ -943,8 +941,7 @@ static int _bind_TestPointAgainstAabb2(lua_State *L) {
 // bool TestAabbAgainstAabb2(const btVector3 & aabbMin1, const btVector3 & aabbMax1, const btVector3 & aabbMin2, const btVector3 & aabbMax2)
 static int _bind_TestAabbAgainstAabb2(lua_State *L) {
 	if (!_lg_typecheck_TestAabbAgainstAabb2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool TestAabbAgainstAabb2(const btVector3 & aabbMin1, const btVector3 & aabbMax1, const btVector3 & aabbMin2, const btVector3 & aabbMax2) function, expected prototype:\nbool TestAabbAgainstAabb2(const btVector3 & aabbMin1, const btVector3 & aabbMax1, const btVector3 & aabbMin2, const btVector3 & aabbMax2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in bool TestAabbAgainstAabb2(const btVector3 & aabbMin1, const btVector3 & aabbMax1, const btVector3 & aabbMin2, const btVector3 & aabbMax2) function, expected prototype:\nbool TestAabbAgainstAabb2(const btVector3 & aabbMin1, const btVector3 & aabbMax1, const btVector3 & aabbMin2, const btVector3 & aabbMax2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* aabbMin1_ptr=(Luna< btVector3 >::check(L,1));
@@ -977,8 +974,7 @@ static int _bind_TestAabbAgainstAabb2(lua_State *L) {
 // bool TestTriangleAgainstAabb2(const btVector3 * vertices, const btVector3 & aabbMin, const btVector3 & aabbMax)
 static int _bind_TestTriangleAgainstAabb2(lua_State *L) {
 	if (!_lg_typecheck_TestTriangleAgainstAabb2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool TestTriangleAgainstAabb2(const btVector3 * vertices, const btVector3 & aabbMin, const btVector3 & aabbMax) function, expected prototype:\nbool TestTriangleAgainstAabb2(const btVector3 * vertices, const btVector3 & aabbMin, const btVector3 & aabbMax)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in bool TestTriangleAgainstAabb2(const btVector3 * vertices, const btVector3 & aabbMin, const btVector3 & aabbMax) function, expected prototype:\nbool TestTriangleAgainstAabb2(const btVector3 * vertices, const btVector3 & aabbMin, const btVector3 & aabbMax)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* vertices=(Luna< btVector3 >::check(L,1));
@@ -1002,8 +998,7 @@ static int _bind_TestTriangleAgainstAabb2(lua_State *L) {
 // int btOutcode(const btVector3 & p, const btVector3 & halfExtent)
 static int _bind_btOutcode(lua_State *L) {
 	if (!_lg_typecheck_btOutcode(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int btOutcode(const btVector3 & p, const btVector3 & halfExtent) function, expected prototype:\nint btOutcode(const btVector3 & p, const btVector3 & halfExtent)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in int btOutcode(const btVector3 & p, const btVector3 & halfExtent) function, expected prototype:\nint btOutcode(const btVector3 & p, const btVector3 & halfExtent)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* p_ptr=(Luna< btVector3 >::check(L,1));
@@ -1026,8 +1021,7 @@ static int _bind_btOutcode(lua_State *L) {
 // bool btRayAabb(const btVector3 & rayFrom, const btVector3 & rayTo, const btVector3 & aabbMin, const btVector3 & aabbMax, float & param, btVector3 & normal)
 static int _bind_btRayAabb(lua_State *L) {
 	if (!_lg_typecheck_btRayAabb(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool btRayAabb(const btVector3 & rayFrom, const btVector3 & rayTo, const btVector3 & aabbMin, const btVector3 & aabbMax, float & param, btVector3 & normal) function, expected prototype:\nbool btRayAabb(const btVector3 & rayFrom, const btVector3 & rayTo, const btVector3 & aabbMin, const btVector3 & aabbMax, float & param, btVector3 & normal)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 6 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in bool btRayAabb(const btVector3 & rayFrom, const btVector3 & rayTo, const btVector3 & aabbMin, const btVector3 & aabbMax, float & param, btVector3 & normal) function, expected prototype:\nbool btRayAabb(const btVector3 & rayFrom, const btVector3 & rayTo, const btVector3 & aabbMin, const btVector3 & aabbMax, float & param, btVector3 & normal)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 6 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* rayFrom_ptr=(Luna< btVector3 >::check(L,1));
@@ -1060,14 +1054,14 @@ static int _bind_btRayAabb(lua_State *L) {
 	bool lret = ::btRayAabb(rayFrom, rayTo, aabbMin, aabbMax, param, normal);
 	lua_pushboolean(L,lret?1:0);
 
-	return 1;
+	lua_pushnumber(L,param);
+	return 2;
 }
 
 // void btTransformAabb(const btVector3 & halfExtents, float margin, const btTransform & t, btVector3 & aabbMinOut, btVector3 & aabbMaxOut)
 static int _bind_btTransformAabb_overload_1(lua_State *L) {
 	if (!_lg_typecheck_btTransformAabb_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void btTransformAabb(const btVector3 & halfExtents, float margin, const btTransform & t, btVector3 & aabbMinOut, btVector3 & aabbMaxOut) function, expected prototype:\nvoid btTransformAabb(const btVector3 & halfExtents, float margin, const btTransform & t, btVector3 & aabbMinOut, btVector3 & aabbMaxOut)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 13247377\narg 4 ID = 91544891\narg 5 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in void btTransformAabb(const btVector3 & halfExtents, float margin, const btTransform & t, btVector3 & aabbMinOut, btVector3 & aabbMaxOut) function, expected prototype:\nvoid btTransformAabb(const btVector3 & halfExtents, float margin, const btTransform & t, btVector3 & aabbMinOut, btVector3 & aabbMaxOut)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 13247377\narg 4 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* halfExtents_ptr=(Luna< btVector3 >::check(L,1));
@@ -1100,8 +1094,7 @@ static int _bind_btTransformAabb_overload_1(lua_State *L) {
 // void btTransformAabb(const btVector3 & localAabbMin, const btVector3 & localAabbMax, float margin, const btTransform & trans, btVector3 & aabbMinOut, btVector3 & aabbMaxOut)
 static int _bind_btTransformAabb_overload_2(lua_State *L) {
 	if (!_lg_typecheck_btTransformAabb_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void btTransformAabb(const btVector3 & localAabbMin, const btVector3 & localAabbMax, float margin, const btTransform & trans, btVector3 & aabbMinOut, btVector3 & aabbMaxOut) function, expected prototype:\nvoid btTransformAabb(const btVector3 & localAabbMin, const btVector3 & localAabbMax, float margin, const btTransform & trans, btVector3 & aabbMinOut, btVector3 & aabbMaxOut)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 4 ID = 13247377\narg 5 ID = 91544891\narg 6 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in void btTransformAabb(const btVector3 & localAabbMin, const btVector3 & localAabbMax, float margin, const btTransform & trans, btVector3 & aabbMinOut, btVector3 & aabbMaxOut) function, expected prototype:\nvoid btTransformAabb(const btVector3 & localAabbMin, const btVector3 & localAabbMax, float margin, const btTransform & trans, btVector3 & aabbMinOut, btVector3 & aabbMaxOut)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 4 ID = 13247377\narg 5 ID = 91544891\narg 6 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* localAabbMin_ptr=(Luna< btVector3 >::check(L,1));
@@ -1148,8 +1141,7 @@ static int _bind_btTransformAabb(lua_State *L) {
 // unsigned int testQuantizedAabbAgainstQuantizedAabb(const unsigned short int * aabbMin1, const unsigned short int * aabbMax1, const unsigned short int * aabbMin2, const unsigned short int * aabbMax2)
 static int _bind_testQuantizedAabbAgainstQuantizedAabb(lua_State *L) {
 	if (!_lg_typecheck_testQuantizedAabbAgainstQuantizedAabb(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int testQuantizedAabbAgainstQuantizedAabb(const unsigned short int * aabbMin1, const unsigned short int * aabbMax1, const unsigned short int * aabbMin2, const unsigned short int * aabbMax2) function, expected prototype:\nunsigned int testQuantizedAabbAgainstQuantizedAabb(const unsigned short int * aabbMin1, const unsigned short int * aabbMax1, const unsigned short int * aabbMin2, const unsigned short int * aabbMax2)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned int testQuantizedAabbAgainstQuantizedAabb(const unsigned short int * aabbMin1, const unsigned short int * aabbMax1, const unsigned short int * aabbMin2, const unsigned short int * aabbMax2) function, expected prototype:\nunsigned int testQuantizedAabbAgainstQuantizedAabb(const unsigned short int * aabbMin1, const unsigned short int * aabbMax1, const unsigned short int * aabbMin2, const unsigned short int * aabbMax2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const unsigned short int* aabbMin1=(const unsigned short int*)Luna< void >::check(L,1);
@@ -1166,8 +1158,7 @@ static int _bind_testQuantizedAabbAgainstQuantizedAabb(lua_State *L) {
 // void * btAlignedAllocInternal(size_t size, int alignment)
 static int _bind_btAlignedAllocInternal(lua_State *L) {
 	if (!_lg_typecheck_btAlignedAllocInternal(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void * btAlignedAllocInternal(size_t size, int alignment) function, expected prototype:\nvoid * btAlignedAllocInternal(size_t size, int alignment)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void * btAlignedAllocInternal(size_t size, int alignment) function, expected prototype:\nvoid * btAlignedAllocInternal(size_t size, int alignment)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	size_t size=(size_t)lua_tointeger(L,1);
@@ -1184,8 +1175,7 @@ static int _bind_btAlignedAllocInternal(lua_State *L) {
 // void btAlignedFreeInternal(void * ptr)
 static int _bind_btAlignedFreeInternal(lua_State *L) {
 	if (!_lg_typecheck_btAlignedFreeInternal(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void btAlignedFreeInternal(void * ptr) function, expected prototype:\nvoid btAlignedFreeInternal(void * ptr)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void btAlignedFreeInternal(void * ptr) function, expected prototype:\nvoid btAlignedFreeInternal(void * ptr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	void* ptr=(Luna< void >::check(L,1));
@@ -1198,8 +1188,7 @@ static int _bind_btAlignedFreeInternal(lua_State *L) {
 // float bt_mat3_dot_col(const btMatrix3x3 & mat, const btVector3 & vec3, int colindex)
 static int _bind_bt_mat3_dot_col(lua_State *L) {
 	if (!_lg_typecheck_bt_mat3_dot_col(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float bt_mat3_dot_col(const btMatrix3x3 & mat, const btVector3 & vec3, int colindex) function, expected prototype:\nfloat bt_mat3_dot_col(const btMatrix3x3 & mat, const btVector3 & vec3, int colindex)\nClass arguments details:\narg 1 ID = 30394543\narg 2 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in float bt_mat3_dot_col(const btMatrix3x3 & mat, const btVector3 & vec3, int colindex) function, expected prototype:\nfloat bt_mat3_dot_col(const btMatrix3x3 & mat, const btVector3 & vec3, int colindex)\nClass arguments details:\narg 1 ID = 30394543\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btMatrix3x3* mat_ptr=(Luna< btMatrix3x3 >::check(L,1));
@@ -1223,8 +1212,7 @@ static int _bind_bt_mat3_dot_col(lua_State *L) {
 // bool btCompareTransformsEqual(const btTransform & t1, const btTransform & t2)
 static int _bind_btCompareTransformsEqual(lua_State *L) {
 	if (!_lg_typecheck_btCompareTransformsEqual(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool btCompareTransformsEqual(const btTransform & t1, const btTransform & t2) function, expected prototype:\nbool btCompareTransformsEqual(const btTransform & t1, const btTransform & t2)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n");
+		luaL_error(L, "luna typecheck failed in bool btCompareTransformsEqual(const btTransform & t1, const btTransform & t2) function, expected prototype:\nbool btCompareTransformsEqual(const btTransform & t1, const btTransform & t2)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btTransform* t1_ptr=(Luna< btTransform >::check(L,1));
@@ -1247,8 +1235,7 @@ static int _bind_btCompareTransformsEqual(lua_State *L) {
 // float bt_distance_point_plane(const btVector4 & plane, const btVector3 & point)
 static int _bind_bt_distance_point_plane(lua_State *L) {
 	if (!_lg_typecheck_bt_distance_point_plane(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float bt_distance_point_plane(const btVector4 & plane, const btVector3 & point) function, expected prototype:\nfloat bt_distance_point_plane(const btVector4 & plane, const btVector3 & point)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in float bt_distance_point_plane(const btVector4 & plane, const btVector3 & point) function, expected prototype:\nfloat bt_distance_point_plane(const btVector4 & plane, const btVector3 & point)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector4* plane_ptr=(Luna< btVector3 >::checkSubType< btVector4 >(L,1));
@@ -1271,8 +1258,7 @@ static int _bind_bt_distance_point_plane(lua_State *L) {
 // void bt_vec_blend(btVector3 & vr, const btVector3 & va, const btVector3 & vb, float blend_factor)
 static int _bind_bt_vec_blend(lua_State *L) {
 	if (!_lg_typecheck_bt_vec_blend(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void bt_vec_blend(btVector3 & vr, const btVector3 & va, const btVector3 & vb, float blend_factor) function, expected prototype:\nvoid bt_vec_blend(btVector3 & vr, const btVector3 & va, const btVector3 & vb, float blend_factor)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in void bt_vec_blend(btVector3 & vr, const btVector3 & va, const btVector3 & vb, float blend_factor) function, expected prototype:\nvoid bt_vec_blend(btVector3 & vr, const btVector3 & va, const btVector3 & vb, float blend_factor)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	btVector3* vr_ptr=(Luna< btVector3 >::check(L,1));
@@ -1300,8 +1286,7 @@ static int _bind_bt_vec_blend(lua_State *L) {
 // void bt_plane_clip_polygon_collect(const btVector3 & point0, const btVector3 & point1, float dist0, float dist1, btVector3 * clipped, int & clipped_count)
 static int _bind_bt_plane_clip_polygon_collect(lua_State *L) {
 	if (!_lg_typecheck_bt_plane_clip_polygon_collect(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void bt_plane_clip_polygon_collect(const btVector3 & point0, const btVector3 & point1, float dist0, float dist1, btVector3 * clipped, int & clipped_count) function, expected prototype:\nvoid bt_plane_clip_polygon_collect(const btVector3 & point0, const btVector3 & point1, float dist0, float dist1, btVector3 * clipped, int & clipped_count)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 5 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in void bt_plane_clip_polygon_collect(const btVector3 & point0, const btVector3 & point1, float dist0, float dist1, btVector3 * clipped, int & clipped_count) function, expected prototype:\nvoid bt_plane_clip_polygon_collect(const btVector3 & point0, const btVector3 & point1, float dist0, float dist1, btVector3 * clipped, int & clipped_count)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* point0_ptr=(Luna< btVector3 >::check(L,1));
@@ -1321,14 +1306,14 @@ static int _bind_bt_plane_clip_polygon_collect(lua_State *L) {
 
 	::bt_plane_clip_polygon_collect(point0, point1, dist0, dist1, clipped, clipped_count);
 
-	return 0;
+	lua_pushnumber(L,clipped_count);
+	return 1;
 }
 
 // int bt_plane_clip_polygon(const btVector4 & plane, const btVector3 * polygon_points, int polygon_point_count, btVector3 * clipped)
 static int _bind_bt_plane_clip_polygon(lua_State *L) {
 	if (!_lg_typecheck_bt_plane_clip_polygon(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int bt_plane_clip_polygon(const btVector4 & plane, const btVector3 * polygon_points, int polygon_point_count, btVector3 * clipped) function, expected prototype:\nint bt_plane_clip_polygon(const btVector4 & plane, const btVector3 * polygon_points, int polygon_point_count, btVector3 * clipped)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 4 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in int bt_plane_clip_polygon(const btVector4 & plane, const btVector3 * polygon_points, int polygon_point_count, btVector3 * clipped) function, expected prototype:\nint bt_plane_clip_polygon(const btVector4 & plane, const btVector3 * polygon_points, int polygon_point_count, btVector3 * clipped)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector4* plane_ptr=(Luna< btVector3 >::checkSubType< btVector4 >(L,1));
@@ -1349,8 +1334,7 @@ static int _bind_bt_plane_clip_polygon(lua_State *L) {
 // int bt_plane_clip_triangle(const btVector4 & plane, const btVector3 & point0, const btVector3 & point1, const btVector3 & point2, btVector3 * clipped)
 static int _bind_bt_plane_clip_triangle(lua_State *L) {
 	if (!_lg_typecheck_bt_plane_clip_triangle(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int bt_plane_clip_triangle(const btVector4 & plane, const btVector3 & point0, const btVector3 & point1, const btVector3 & point2, btVector3 * clipped) function, expected prototype:\nint bt_plane_clip_triangle(const btVector4 & plane, const btVector3 & point0, const btVector3 & point1, const btVector3 & point2, btVector3 * clipped)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in int bt_plane_clip_triangle(const btVector4 & plane, const btVector3 & point0, const btVector3 & point1, const btVector3 & point2, btVector3 * clipped) function, expected prototype:\nint bt_plane_clip_triangle(const btVector4 & plane, const btVector3 & point0, const btVector3 & point1, const btVector3 & point2, btVector3 * clipped)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector4* plane_ptr=(Luna< btVector3 >::checkSubType< btVector4 >(L,1));
@@ -1384,8 +1368,7 @@ static int _bind_bt_plane_clip_triangle(lua_State *L) {
 // float resolveSingleCollision(btRigidBody * body1, class btCollisionObject * colObj2, const btVector3 & contactPositionWorld, const btVector3 & contactNormalOnB, const btContactSolverInfo & solverInfo, float distance)
 static int _bind_resolveSingleCollision(lua_State *L) {
 	if (!_lg_typecheck_resolveSingleCollision(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float resolveSingleCollision(btRigidBody * body1, class btCollisionObject * colObj2, const btVector3 & contactPositionWorld, const btVector3 & contactNormalOnB, const btContactSolverInfo & solverInfo, float distance) function, expected prototype:\nfloat resolveSingleCollision(btRigidBody * body1, class btCollisionObject * colObj2, const btVector3 & contactPositionWorld, const btVector3 & contactNormalOnB, const btContactSolverInfo & solverInfo, float distance)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 5410878\n");
+		luaL_error(L, "luna typecheck failed in float resolveSingleCollision(btRigidBody * body1, class btCollisionObject * colObj2, const btVector3 & contactPositionWorld, const btVector3 & contactNormalOnB, const btContactSolverInfo & solverInfo, float distance) function, expected prototype:\nfloat resolveSingleCollision(btRigidBody * body1, class btCollisionObject * colObj2, const btVector3 & contactPositionWorld, const btVector3 & contactNormalOnB, const btContactSolverInfo & solverInfo, float distance)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 5410878\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	btRigidBody* body1=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,1));
@@ -1416,8 +1399,7 @@ static int _bind_resolveSingleCollision(lua_State *L) {
 // void resolveSingleBilateral(btRigidBody & body1, const btVector3 & pos1, btRigidBody & body2, const btVector3 & pos2, float distance, const btVector3 & normal, float & impulse, float timeStep)
 static int _bind_resolveSingleBilateral(lua_State *L) {
 	if (!_lg_typecheck_resolveSingleBilateral(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void resolveSingleBilateral(btRigidBody & body1, const btVector3 & pos1, btRigidBody & body2, const btVector3 & pos2, float distance, const btVector3 & normal, float & impulse, float timeStep) function, expected prototype:\nvoid resolveSingleBilateral(btRigidBody & body1, const btVector3 & pos1, btRigidBody & body2, const btVector3 & pos2, float distance, const btVector3 & normal, float & impulse, float timeStep)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 91544891\narg 3 ID = 85758361\narg 4 ID = 91544891\narg 6 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in void resolveSingleBilateral(btRigidBody & body1, const btVector3 & pos1, btRigidBody & body2, const btVector3 & pos2, float distance, const btVector3 & normal, float & impulse, float timeStep) function, expected prototype:\nvoid resolveSingleBilateral(btRigidBody & body1, const btVector3 & pos1, btRigidBody & body2, const btVector3 & pos2, float distance, const btVector3 & normal, float & impulse, float timeStep)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 91544891\narg 3 ID = 85758361\narg 4 ID = 91544891\narg 6 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	btRigidBody* body1_ptr=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,1));
@@ -1451,14 +1433,14 @@ static int _bind_resolveSingleBilateral(lua_State *L) {
 
 	::resolveSingleBilateral(body1, pos1, body2, pos2, distance, normal, impulse, timeStep);
 
-	return 0;
+	lua_pushnumber(L,impulse);
+	return 1;
 }
 
 // bool Intersect(const btDbvtAabbMm & a, const btDbvtAabbMm & b)
 static int _bind_Intersect_overload_1(lua_State *L) {
 	if (!_lg_typecheck_Intersect_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool Intersect(const btDbvtAabbMm & a, const btDbvtAabbMm & b) function, expected prototype:\nbool Intersect(const btDbvtAabbMm & a, const btDbvtAabbMm & b)\nClass arguments details:\narg 1 ID = 88504824\narg 2 ID = 88504824\n");
+		luaL_error(L, "luna typecheck failed in bool Intersect(const btDbvtAabbMm & a, const btDbvtAabbMm & b) function, expected prototype:\nbool Intersect(const btDbvtAabbMm & a, const btDbvtAabbMm & b)\nClass arguments details:\narg 1 ID = 88504824\narg 2 ID = 88504824\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btDbvtAabbMm* a_ptr=(Luna< btDbvtAabbMm >::check(L,1));
@@ -1481,8 +1463,7 @@ static int _bind_Intersect_overload_1(lua_State *L) {
 // bool Intersect(const btDbvtAabbMm & a, const btVector3 & b)
 static int _bind_Intersect_overload_2(lua_State *L) {
 	if (!_lg_typecheck_Intersect_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool Intersect(const btDbvtAabbMm & a, const btVector3 & b) function, expected prototype:\nbool Intersect(const btDbvtAabbMm & a, const btVector3 & b)\nClass arguments details:\narg 1 ID = 88504824\narg 2 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in bool Intersect(const btDbvtAabbMm & a, const btVector3 & b) function, expected prototype:\nbool Intersect(const btDbvtAabbMm & a, const btVector3 & b)\nClass arguments details:\narg 1 ID = 88504824\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btDbvtAabbMm* a_ptr=(Luna< btDbvtAabbMm >::check(L,1));
@@ -1514,8 +1495,7 @@ static int _bind_Intersect(lua_State *L) {
 // float Proximity(const btDbvtAabbMm & a, const btDbvtAabbMm & b)
 static int _bind_Proximity(lua_State *L) {
 	if (!_lg_typecheck_Proximity(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float Proximity(const btDbvtAabbMm & a, const btDbvtAabbMm & b) function, expected prototype:\nfloat Proximity(const btDbvtAabbMm & a, const btDbvtAabbMm & b)\nClass arguments details:\narg 1 ID = 88504824\narg 2 ID = 88504824\n");
+		luaL_error(L, "luna typecheck failed in float Proximity(const btDbvtAabbMm & a, const btDbvtAabbMm & b) function, expected prototype:\nfloat Proximity(const btDbvtAabbMm & a, const btDbvtAabbMm & b)\nClass arguments details:\narg 1 ID = 88504824\narg 2 ID = 88504824\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btDbvtAabbMm* a_ptr=(Luna< btDbvtAabbMm >::check(L,1));
@@ -1538,8 +1518,7 @@ static int _bind_Proximity(lua_State *L) {
 // int Select(const btDbvtAabbMm & o, const btDbvtAabbMm & a, const btDbvtAabbMm & b)
 static int _bind_Select(lua_State *L) {
 	if (!_lg_typecheck_Select(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int Select(const btDbvtAabbMm & o, const btDbvtAabbMm & a, const btDbvtAabbMm & b) function, expected prototype:\nint Select(const btDbvtAabbMm & o, const btDbvtAabbMm & a, const btDbvtAabbMm & b)\nClass arguments details:\narg 1 ID = 88504824\narg 2 ID = 88504824\narg 3 ID = 88504824\n");
+		luaL_error(L, "luna typecheck failed in int Select(const btDbvtAabbMm & o, const btDbvtAabbMm & a, const btDbvtAabbMm & b) function, expected prototype:\nint Select(const btDbvtAabbMm & o, const btDbvtAabbMm & a, const btDbvtAabbMm & b)\nClass arguments details:\narg 1 ID = 88504824\narg 2 ID = 88504824\narg 3 ID = 88504824\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btDbvtAabbMm* o_ptr=(Luna< btDbvtAabbMm >::check(L,1));
@@ -1567,8 +1546,7 @@ static int _bind_Select(lua_State *L) {
 // void Merge(const btDbvtAabbMm & a, const btDbvtAabbMm & b, btDbvtAabbMm & r)
 static int _bind_Merge(lua_State *L) {
 	if (!_lg_typecheck_Merge(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void Merge(const btDbvtAabbMm & a, const btDbvtAabbMm & b, btDbvtAabbMm & r) function, expected prototype:\nvoid Merge(const btDbvtAabbMm & a, const btDbvtAabbMm & b, btDbvtAabbMm & r)\nClass arguments details:\narg 1 ID = 88504824\narg 2 ID = 88504824\narg 3 ID = 88504824\n");
+		luaL_error(L, "luna typecheck failed in void Merge(const btDbvtAabbMm & a, const btDbvtAabbMm & b, btDbvtAabbMm & r) function, expected prototype:\nvoid Merge(const btDbvtAabbMm & a, const btDbvtAabbMm & b, btDbvtAabbMm & r)\nClass arguments details:\narg 1 ID = 88504824\narg 2 ID = 88504824\narg 3 ID = 88504824\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btDbvtAabbMm* a_ptr=(Luna< btDbvtAabbMm >::check(L,1));
@@ -1595,8 +1573,7 @@ static int _bind_Merge(lua_State *L) {
 // bool NotEqual(const btDbvtAabbMm & a, const btDbvtAabbMm & b)
 static int _bind_NotEqual(lua_State *L) {
 	if (!_lg_typecheck_NotEqual(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool NotEqual(const btDbvtAabbMm & a, const btDbvtAabbMm & b) function, expected prototype:\nbool NotEqual(const btDbvtAabbMm & a, const btDbvtAabbMm & b)\nClass arguments details:\narg 1 ID = 88504824\narg 2 ID = 88504824\n");
+		luaL_error(L, "luna typecheck failed in bool NotEqual(const btDbvtAabbMm & a, const btDbvtAabbMm & b) function, expected prototype:\nbool NotEqual(const btDbvtAabbMm & a, const btDbvtAabbMm & b)\nClass arguments details:\narg 1 ID = 88504824\narg 2 ID = 88504824\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btDbvtAabbMm* a_ptr=(Luna< btDbvtAabbMm >::check(L,1));
@@ -1619,8 +1596,7 @@ static int _bind_NotEqual(lua_State *L) {
 // void * btPoolAlloc(size_t size)
 static int _bind_btPoolAlloc(lua_State *L) {
 	if (!_lg_typecheck_btPoolAlloc(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void * btPoolAlloc(size_t size) function, expected prototype:\nvoid * btPoolAlloc(size_t size)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void * btPoolAlloc(size_t size) function, expected prototype:\nvoid * btPoolAlloc(size_t size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	size_t size=(size_t)lua_tointeger(L,1);
@@ -1636,8 +1612,7 @@ static int _bind_btPoolAlloc(lua_State *L) {
 // void * btPoolRealloc(void * ptr, size_t oldsize, size_t newsize)
 static int _bind_btPoolRealloc(lua_State *L) {
 	if (!_lg_typecheck_btPoolRealloc(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void * btPoolRealloc(void * ptr, size_t oldsize, size_t newsize) function, expected prototype:\nvoid * btPoolRealloc(void * ptr, size_t oldsize, size_t newsize)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void * btPoolRealloc(void * ptr, size_t oldsize, size_t newsize) function, expected prototype:\nvoid * btPoolRealloc(void * ptr, size_t oldsize, size_t newsize)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	void* ptr=(Luna< void >::check(L,1));
@@ -1655,8 +1630,7 @@ static int _bind_btPoolRealloc(lua_State *L) {
 // void btPoolFree(void * ptr)
 static int _bind_btPoolFree(lua_State *L) {
 	if (!_lg_typecheck_btPoolFree(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void btPoolFree(void * ptr) function, expected prototype:\nvoid btPoolFree(void * ptr)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void btPoolFree(void * ptr) function, expected prototype:\nvoid btPoolFree(void * ptr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	void* ptr=(Luna< void >::check(L,1));
@@ -1669,8 +1643,7 @@ static int _bind_btPoolFree(lua_State *L) {
 // void bt_edge_plane(const btVector3 & e1, const btVector3 & e2, const btVector3 & normal, btVector4 & plane)
 static int _bind_bt_edge_plane(lua_State *L) {
 	if (!_lg_typecheck_bt_edge_plane(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void bt_edge_plane(const btVector3 & e1, const btVector3 & e2, const btVector3 & normal, btVector4 & plane) function, expected prototype:\nvoid bt_edge_plane(const btVector3 & e1, const btVector3 & e2, const btVector3 & normal, btVector4 & plane)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in void bt_edge_plane(const btVector3 & e1, const btVector3 & e2, const btVector3 & normal, btVector4 & plane) function, expected prototype:\nvoid bt_edge_plane(const btVector3 & e1, const btVector3 & e2, const btVector3 & normal, btVector4 & plane)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* e1_ptr=(Luna< btVector3 >::check(L,1));
@@ -1702,8 +1675,7 @@ static int _bind_bt_edge_plane(lua_State *L) {
 // void bt_closest_point_on_segment(btVector3 & cp, const btVector3 & v, const btVector3 & e1, const btVector3 & e2)
 static int _bind_bt_closest_point_on_segment(lua_State *L) {
 	if (!_lg_typecheck_bt_closest_point_on_segment(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void bt_closest_point_on_segment(btVector3 & cp, const btVector3 & v, const btVector3 & e1, const btVector3 & e2) function, expected prototype:\nvoid bt_closest_point_on_segment(btVector3 & cp, const btVector3 & v, const btVector3 & e1, const btVector3 & e2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in void bt_closest_point_on_segment(btVector3 & cp, const btVector3 & v, const btVector3 & e1, const btVector3 & e2) function, expected prototype:\nvoid bt_closest_point_on_segment(btVector3 & cp, const btVector3 & v, const btVector3 & e1, const btVector3 & e2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	btVector3* cp_ptr=(Luna< btVector3 >::check(L,1));
@@ -1735,8 +1707,7 @@ static int _bind_bt_closest_point_on_segment(lua_State *L) {
 // int bt_line_plane_collision(const btVector4 & plane, const btVector3 & vDir, const btVector3 & vPoint, btVector3 & pout, float & tparam, float tmin, float tmax)
 static int _bind_bt_line_plane_collision(lua_State *L) {
 	if (!_lg_typecheck_bt_line_plane_collision(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int bt_line_plane_collision(const btVector4 & plane, const btVector3 & vDir, const btVector3 & vPoint, btVector3 & pout, float & tparam, float tmin, float tmax) function, expected prototype:\nint bt_line_plane_collision(const btVector4 & plane, const btVector3 & vDir, const btVector3 & vPoint, btVector3 & pout, float & tparam, float tmin, float tmax)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in int bt_line_plane_collision(const btVector4 & plane, const btVector3 & vDir, const btVector3 & vPoint, btVector3 & pout, float & tparam, float tmin, float tmax) function, expected prototype:\nint bt_line_plane_collision(const btVector4 & plane, const btVector3 & vDir, const btVector3 & vPoint, btVector3 & pout, float & tparam, float tmin, float tmax)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector4* plane_ptr=(Luna< btVector3 >::checkSubType< btVector4 >(L,1));
@@ -1766,14 +1737,14 @@ static int _bind_bt_line_plane_collision(lua_State *L) {
 	int lret = ::bt_line_plane_collision(plane, vDir, vPoint, pout, tparam, tmin, tmax);
 	lua_pushnumber(L,lret);
 
-	return 1;
+	lua_pushnumber(L,tparam);
+	return 2;
 }
 
 // void bt_segment_collision(const btVector3 & vA1, const btVector3 & vA2, const btVector3 & vB1, const btVector3 & vB2, btVector3 & vPointA, btVector3 & vPointB)
 static int _bind_bt_segment_collision(lua_State *L) {
 	if (!_lg_typecheck_bt_segment_collision(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void bt_segment_collision(const btVector3 & vA1, const btVector3 & vA2, const btVector3 & vB1, const btVector3 & vB2, btVector3 & vPointA, btVector3 & vPointB) function, expected prototype:\nvoid bt_segment_collision(const btVector3 & vA1, const btVector3 & vA2, const btVector3 & vB1, const btVector3 & vB2, btVector3 & vPointA, btVector3 & vPointB)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in void bt_segment_collision(const btVector3 & vA1, const btVector3 & vA2, const btVector3 & vB1, const btVector3 & vB2, btVector3 & vPointA, btVector3 & vPointB) function, expected prototype:\nvoid bt_segment_collision(const btVector3 & vA1, const btVector3 & vA2, const btVector3 & vB1, const btVector3 & vB2, btVector3 & vPointA, btVector3 & vPointB)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* vA1_ptr=(Luna< btVector3 >::check(L,1));
@@ -1815,8 +1786,7 @@ static int _bind_bt_segment_collision(lua_State *L) {
 // btVector3 gim_inertia_add_transformed(const btVector3 & source_inertia, const btVector3 & added_inertia, const btTransform & transform)
 static int _bind_gim_inertia_add_transformed(lua_State *L) {
 	if (!_lg_typecheck_gim_inertia_add_transformed(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in btVector3 gim_inertia_add_transformed(const btVector3 & source_inertia, const btVector3 & added_inertia, const btTransform & transform) function, expected prototype:\nbtVector3 gim_inertia_add_transformed(const btVector3 & source_inertia, const btVector3 & added_inertia, const btTransform & transform)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 13247377\n");
+		luaL_error(L, "luna typecheck failed in btVector3 gim_inertia_add_transformed(const btVector3 & source_inertia, const btVector3 & added_inertia, const btTransform & transform) function, expected prototype:\nbtVector3 gim_inertia_add_transformed(const btVector3 & source_inertia, const btVector3 & added_inertia, const btTransform & transform)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* source_inertia_ptr=(Luna< btVector3 >::check(L,1));
@@ -1847,8 +1817,7 @@ static int _bind_gim_inertia_add_transformed(lua_State *L) {
 // btVector3 gim_get_point_inertia(const btVector3 & point, float mass)
 static int _bind_gim_get_point_inertia(lua_State *L) {
 	if (!_lg_typecheck_gim_get_point_inertia(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in btVector3 gim_get_point_inertia(const btVector3 & point, float mass) function, expected prototype:\nbtVector3 gim_get_point_inertia(const btVector3 & point, float mass)\nClass arguments details:\narg 1 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in btVector3 gim_get_point_inertia(const btVector3 & point, float mass) function, expected prototype:\nbtVector3 gim_get_point_inertia(const btVector3 & point, float mass)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* point_ptr=(Luna< btVector3 >::check(L,1));
@@ -1870,8 +1839,7 @@ static int _bind_gim_get_point_inertia(lua_State *L) {
 // void GrahamScanConvexHull2D(btAlignedObjectArray< GrahamVector3 > & originalPoints, btAlignedObjectArray< GrahamVector3 > & hull, const btVector3 & normalAxis)
 static int _bind_GrahamScanConvexHull2D(lua_State *L) {
 	if (!_lg_typecheck_GrahamScanConvexHull2D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void GrahamScanConvexHull2D(btAlignedObjectArray< GrahamVector3 > & originalPoints, btAlignedObjectArray< GrahamVector3 > & hull, const btVector3 & normalAxis) function, expected prototype:\nvoid GrahamScanConvexHull2D(btAlignedObjectArray< GrahamVector3 > & originalPoints, btAlignedObjectArray< GrahamVector3 > & hull, const btVector3 & normalAxis)\nClass arguments details:\narg 1 ID = [unknown]\narg 2 ID = [unknown]\narg 3 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in void GrahamScanConvexHull2D(btAlignedObjectArray< GrahamVector3 > & originalPoints, btAlignedObjectArray< GrahamVector3 > & hull, const btVector3 & normalAxis) function, expected prototype:\nvoid GrahamScanConvexHull2D(btAlignedObjectArray< GrahamVector3 > & originalPoints, btAlignedObjectArray< GrahamVector3 > & hull, const btVector3 & normalAxis)\nClass arguments details:\narg 1 ID = [unknown]\narg 2 ID = [unknown]\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	btAlignedObjectArray< GrahamVector3 >* originalPoints_ptr=(Luna< btAlignedObjectArray< GrahamVector3 > >::check(L,1));
@@ -1898,8 +1866,7 @@ static int _bind_GrahamScanConvexHull2D(lua_State *L) {
 // void btAdjustInternalEdgeContacts(btManifoldPoint & cp, const btCollisionObjectWrapper * trimeshColObj0Wrap, const btCollisionObjectWrapper * otherColObj1Wrap, int partId0, int index0, int normalAdjustFlags = 0)
 static int _bind_btAdjustInternalEdgeContacts(lua_State *L) {
 	if (!_lg_typecheck_btAdjustInternalEdgeContacts(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void btAdjustInternalEdgeContacts(btManifoldPoint & cp, const btCollisionObjectWrapper * trimeshColObj0Wrap, const btCollisionObjectWrapper * otherColObj1Wrap, int partId0, int index0, int normalAdjustFlags = 0) function, expected prototype:\nvoid btAdjustInternalEdgeContacts(btManifoldPoint & cp, const btCollisionObjectWrapper * trimeshColObj0Wrap, const btCollisionObjectWrapper * otherColObj1Wrap, int partId0, int index0, int normalAdjustFlags = 0)\nClass arguments details:\narg 1 ID = 55239733\narg 2 ID = 32391296\narg 3 ID = 32391296\n");
+		luaL_error(L, "luna typecheck failed in void btAdjustInternalEdgeContacts(btManifoldPoint & cp, const btCollisionObjectWrapper * trimeshColObj0Wrap, const btCollisionObjectWrapper * otherColObj1Wrap, int partId0, int index0, int normalAdjustFlags = 0) function, expected prototype:\nvoid btAdjustInternalEdgeContacts(btManifoldPoint & cp, const btCollisionObjectWrapper * trimeshColObj0Wrap, const btCollisionObjectWrapper * otherColObj1Wrap, int partId0, int index0, int normalAdjustFlags = 0)\nClass arguments details:\narg 1 ID = 55239733\narg 2 ID = 32391296\narg 3 ID = 32391296\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int luatop = lua_gettop(L);
@@ -1923,8 +1890,7 @@ static int _bind_btAdjustInternalEdgeContacts(lua_State *L) {
 // unsigned int polarDecompose(const btMatrix3x3 & a, btMatrix3x3 & u, btMatrix3x3 & h)
 static int _bind_polarDecompose(lua_State *L) {
 	if (!_lg_typecheck_polarDecompose(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int polarDecompose(const btMatrix3x3 & a, btMatrix3x3 & u, btMatrix3x3 & h) function, expected prototype:\nunsigned int polarDecompose(const btMatrix3x3 & a, btMatrix3x3 & u, btMatrix3x3 & h)\nClass arguments details:\narg 1 ID = 30394543\narg 2 ID = 30394543\narg 3 ID = 30394543\n");
+		luaL_error(L, "luna typecheck failed in unsigned int polarDecompose(const btMatrix3x3 & a, btMatrix3x3 & u, btMatrix3x3 & h) function, expected prototype:\nunsigned int polarDecompose(const btMatrix3x3 & a, btMatrix3x3 & u, btMatrix3x3 & h)\nClass arguments details:\narg 1 ID = 30394543\narg 2 ID = 30394543\narg 3 ID = 30394543\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btMatrix3x3* a_ptr=(Luna< btMatrix3x3 >::check(L,1));
@@ -1952,8 +1918,7 @@ static int _bind_polarDecompose(lua_State *L) {
 // void bt_calc_quantization_parameters(btVector3 & outMinBound, btVector3 & outMaxBound, btVector3 & bvhQuantization, const btVector3 & srcMinBound, const btVector3 & srcMaxBound, float quantizationMargin)
 static int _bind_bt_calc_quantization_parameters(lua_State *L) {
 	if (!_lg_typecheck_bt_calc_quantization_parameters(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void bt_calc_quantization_parameters(btVector3 & outMinBound, btVector3 & outMaxBound, btVector3 & bvhQuantization, const btVector3 & srcMinBound, const btVector3 & srcMaxBound, float quantizationMargin) function, expected prototype:\nvoid bt_calc_quantization_parameters(btVector3 & outMinBound, btVector3 & outMaxBound, btVector3 & bvhQuantization, const btVector3 & srcMinBound, const btVector3 & srcMaxBound, float quantizationMargin)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in void bt_calc_quantization_parameters(btVector3 & outMinBound, btVector3 & outMaxBound, btVector3 & bvhQuantization, const btVector3 & srcMinBound, const btVector3 & srcMaxBound, float quantizationMargin) function, expected prototype:\nvoid bt_calc_quantization_parameters(btVector3 & outMinBound, btVector3 & outMaxBound, btVector3 & bvhQuantization, const btVector3 & srcMinBound, const btVector3 & srcMaxBound, float quantizationMargin)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	btVector3* outMinBound_ptr=(Luna< btVector3 >::check(L,1));
@@ -1991,8 +1956,7 @@ static int _bind_bt_calc_quantization_parameters(lua_State *L) {
 // void bt_quantize_clamp(unsigned short * out, const btVector3 & point, const btVector3 & min_bound, const btVector3 & max_bound, const btVector3 & bvhQuantization)
 static int _bind_bt_quantize_clamp(lua_State *L) {
 	if (!_lg_typecheck_bt_quantize_clamp(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void bt_quantize_clamp(unsigned short * out, const btVector3 & point, const btVector3 & min_bound, const btVector3 & max_bound, const btVector3 & bvhQuantization) function, expected prototype:\nvoid bt_quantize_clamp(unsigned short * out, const btVector3 & point, const btVector3 & min_bound, const btVector3 & max_bound, const btVector3 & bvhQuantization)\nClass arguments details:\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in void bt_quantize_clamp(unsigned short * out, const btVector3 & point, const btVector3 & min_bound, const btVector3 & max_bound, const btVector3 & bvhQuantization) function, expected prototype:\nvoid bt_quantize_clamp(unsigned short * out, const btVector3 & point, const btVector3 & min_bound, const btVector3 & max_bound, const btVector3 & bvhQuantization)\nClass arguments details:\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned short* out=(unsigned short*)Luna< void >::check(L,1);
@@ -2025,8 +1989,7 @@ static int _bind_bt_quantize_clamp(lua_State *L) {
 // btVector3 bt_unquantize(const unsigned short * vecIn, const btVector3 & offset, const btVector3 & bvhQuantization)
 static int _bind_bt_unquantize(lua_State *L) {
 	if (!_lg_typecheck_bt_unquantize(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in btVector3 bt_unquantize(const unsigned short * vecIn, const btVector3 & offset, const btVector3 & bvhQuantization) function, expected prototype:\nbtVector3 bt_unquantize(const unsigned short * vecIn, const btVector3 & offset, const btVector3 & bvhQuantization)\nClass arguments details:\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in btVector3 bt_unquantize(const unsigned short * vecIn, const btVector3 & offset, const btVector3 & bvhQuantization) function, expected prototype:\nbtVector3 bt_unquantize(const unsigned short * vecIn, const btVector3 & offset, const btVector3 & bvhQuantization)\nClass arguments details:\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const unsigned short* vecIn=(const unsigned short*)Luna< void >::check(L,1);
@@ -2053,8 +2016,7 @@ static int _bind_bt_unquantize(lua_State *L) {
 // float dot(const btQuaternion & q1, const btQuaternion & q2)
 static int _bind_dot(lua_State *L) {
 	if (!_lg_typecheck_dot(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float dot(const btQuaternion & q1, const btQuaternion & q2) function, expected prototype:\nfloat dot(const btQuaternion & q1, const btQuaternion & q2)\nClass arguments details:\narg 1 ID = 2139400\narg 2 ID = 2139400\n");
+		luaL_error(L, "luna typecheck failed in float dot(const btQuaternion & q1, const btQuaternion & q2) function, expected prototype:\nfloat dot(const btQuaternion & q1, const btQuaternion & q2)\nClass arguments details:\narg 1 ID = 2139400\narg 2 ID = 2139400\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btQuaternion* q1_ptr=(Luna< btQuadWord >::checkSubType< btQuaternion >(L,1));
@@ -2077,8 +2039,7 @@ static int _bind_dot(lua_State *L) {
 // float length(const btQuaternion & q)
 static int _bind_length(lua_State *L) {
 	if (!_lg_typecheck_length(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float length(const btQuaternion & q) function, expected prototype:\nfloat length(const btQuaternion & q)\nClass arguments details:\narg 1 ID = 2139400\n");
+		luaL_error(L, "luna typecheck failed in float length(const btQuaternion & q) function, expected prototype:\nfloat length(const btQuaternion & q)\nClass arguments details:\narg 1 ID = 2139400\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btQuaternion* q_ptr=(Luna< btQuadWord >::checkSubType< btQuaternion >(L,1));
@@ -2096,8 +2057,7 @@ static int _bind_length(lua_State *L) {
 // float btAngle(const btQuaternion & q1, const btQuaternion & q2)
 static int _bind_btAngle_overload_1(lua_State *L) {
 	if (!_lg_typecheck_btAngle_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btAngle(const btQuaternion & q1, const btQuaternion & q2) function, expected prototype:\nfloat btAngle(const btQuaternion & q1, const btQuaternion & q2)\nClass arguments details:\narg 1 ID = 2139400\narg 2 ID = 2139400\n");
+		luaL_error(L, "luna typecheck failed in float btAngle(const btQuaternion & q1, const btQuaternion & q2) function, expected prototype:\nfloat btAngle(const btQuaternion & q1, const btQuaternion & q2)\nClass arguments details:\narg 1 ID = 2139400\narg 2 ID = 2139400\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btQuaternion* q1_ptr=(Luna< btQuadWord >::checkSubType< btQuaternion >(L,1));
@@ -2120,8 +2080,7 @@ static int _bind_btAngle_overload_1(lua_State *L) {
 // float btAngle(const btVector3 & v1, const btVector3 & v2)
 static int _bind_btAngle_overload_2(lua_State *L) {
 	if (!_lg_typecheck_btAngle_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btAngle(const btVector3 & v1, const btVector3 & v2) function, expected prototype:\nfloat btAngle(const btVector3 & v1, const btVector3 & v2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in float btAngle(const btVector3 & v1, const btVector3 & v2) function, expected prototype:\nfloat btAngle(const btVector3 & v1, const btVector3 & v2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* v1_ptr=(Luna< btVector3 >::check(L,1));
@@ -2153,8 +2112,7 @@ static int _bind_btAngle(lua_State *L) {
 // btQuaternion inverse(const btQuaternion & q)
 static int _bind_inverse(lua_State *L) {
 	if (!_lg_typecheck_inverse(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in btQuaternion inverse(const btQuaternion & q) function, expected prototype:\nbtQuaternion inverse(const btQuaternion & q)\nClass arguments details:\narg 1 ID = 2139400\n");
+		luaL_error(L, "luna typecheck failed in btQuaternion inverse(const btQuaternion & q) function, expected prototype:\nbtQuaternion inverse(const btQuaternion & q)\nClass arguments details:\narg 1 ID = 2139400\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btQuaternion* q_ptr=(Luna< btQuadWord >::checkSubType< btQuaternion >(L,1));
@@ -2175,8 +2133,7 @@ static int _bind_inverse(lua_State *L) {
 // btQuaternion slerp(const btQuaternion & q1, const btQuaternion & q2, const float & t)
 static int _bind_slerp(lua_State *L) {
 	if (!_lg_typecheck_slerp(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in btQuaternion slerp(const btQuaternion & q1, const btQuaternion & q2, const float & t) function, expected prototype:\nbtQuaternion slerp(const btQuaternion & q1, const btQuaternion & q2, const float & t)\nClass arguments details:\narg 1 ID = 2139400\narg 2 ID = 2139400\n");
+		luaL_error(L, "luna typecheck failed in btQuaternion slerp(const btQuaternion & q1, const btQuaternion & q2, const float & t) function, expected prototype:\nbtQuaternion slerp(const btQuaternion & q1, const btQuaternion & q2, const float & t)\nClass arguments details:\narg 1 ID = 2139400\narg 2 ID = 2139400\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btQuaternion* q1_ptr=(Luna< btQuadWord >::checkSubType< btQuaternion >(L,1));
@@ -2203,8 +2160,7 @@ static int _bind_slerp(lua_State *L) {
 // btVector3 quatRotate(const btQuaternion & rotation, const btVector3 & v)
 static int _bind_quatRotate(lua_State *L) {
 	if (!_lg_typecheck_quatRotate(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in btVector3 quatRotate(const btQuaternion & rotation, const btVector3 & v) function, expected prototype:\nbtVector3 quatRotate(const btQuaternion & rotation, const btVector3 & v)\nClass arguments details:\narg 1 ID = 2139400\narg 2 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in btVector3 quatRotate(const btQuaternion & rotation, const btVector3 & v) function, expected prototype:\nbtVector3 quatRotate(const btQuaternion & rotation, const btVector3 & v)\nClass arguments details:\narg 1 ID = 2139400\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btQuaternion* rotation_ptr=(Luna< btQuadWord >::checkSubType< btQuaternion >(L,1));
@@ -2230,8 +2186,7 @@ static int _bind_quatRotate(lua_State *L) {
 // btQuaternion shortestArcQuat(const btVector3 & v0, const btVector3 & v1)
 static int _bind_shortestArcQuat(lua_State *L) {
 	if (!_lg_typecheck_shortestArcQuat(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in btQuaternion shortestArcQuat(const btVector3 & v0, const btVector3 & v1) function, expected prototype:\nbtQuaternion shortestArcQuat(const btVector3 & v0, const btVector3 & v1)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in btQuaternion shortestArcQuat(const btVector3 & v0, const btVector3 & v1) function, expected prototype:\nbtQuaternion shortestArcQuat(const btVector3 & v0, const btVector3 & v1)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* v0_ptr=(Luna< btVector3 >::check(L,1));
@@ -2257,8 +2212,7 @@ static int _bind_shortestArcQuat(lua_State *L) {
 // btQuaternion shortestArcQuatNormalize2(btVector3 & v0, btVector3 & v1)
 static int _bind_shortestArcQuatNormalize2(lua_State *L) {
 	if (!_lg_typecheck_shortestArcQuatNormalize2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in btQuaternion shortestArcQuatNormalize2(btVector3 & v0, btVector3 & v1) function, expected prototype:\nbtQuaternion shortestArcQuatNormalize2(btVector3 & v0, btVector3 & v1)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in btQuaternion shortestArcQuatNormalize2(btVector3 & v0, btVector3 & v1) function, expected prototype:\nbtQuaternion shortestArcQuatNormalize2(btVector3 & v0, btVector3 & v1)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	btVector3* v0_ptr=(Luna< btVector3 >::check(L,1));
@@ -2284,8 +2238,7 @@ static int _bind_shortestArcQuatNormalize2(lua_State *L) {
 // void GEN_srand(unsigned int seed)
 static int _bind_GEN_srand(lua_State *L) {
 	if (!_lg_typecheck_GEN_srand(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void GEN_srand(unsigned int seed) function, expected prototype:\nvoid GEN_srand(unsigned int seed)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void GEN_srand(unsigned int seed) function, expected prototype:\nvoid GEN_srand(unsigned int seed)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int seed=(unsigned int)lua_tointeger(L,1);
@@ -2298,8 +2251,7 @@ static int _bind_GEN_srand(lua_State *L) {
 // unsigned int GEN_rand()
 static int _bind_GEN_rand(lua_State *L) {
 	if (!_lg_typecheck_GEN_rand(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int GEN_rand() function, expected prototype:\nunsigned int GEN_rand()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned int GEN_rand() function, expected prototype:\nunsigned int GEN_rand()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2312,8 +2264,7 @@ static int _bind_GEN_rand(lua_State *L) {
 // int btGetVersion()
 static int _bind_btGetVersion(lua_State *L) {
 	if (!_lg_typecheck_btGetVersion(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int btGetVersion() function, expected prototype:\nint btGetVersion()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int btGetVersion() function, expected prototype:\nint btGetVersion()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2326,8 +2277,7 @@ static int _bind_btGetVersion(lua_State *L) {
 // float btSqrt(float y)
 static int _bind_btSqrt(lua_State *L) {
 	if (!_lg_typecheck_btSqrt(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btSqrt(float y) function, expected prototype:\nfloat btSqrt(float y)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btSqrt(float y) function, expected prototype:\nfloat btSqrt(float y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float y=(float)lua_tonumber(L,1);
@@ -2341,8 +2291,7 @@ static int _bind_btSqrt(lua_State *L) {
 // float btFabs(float x)
 static int _bind_btFabs(lua_State *L) {
 	if (!_lg_typecheck_btFabs(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btFabs(float x) function, expected prototype:\nfloat btFabs(float x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btFabs(float x) function, expected prototype:\nfloat btFabs(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -2356,8 +2305,7 @@ static int _bind_btFabs(lua_State *L) {
 // float btCos(float x)
 static int _bind_btCos(lua_State *L) {
 	if (!_lg_typecheck_btCos(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btCos(float x) function, expected prototype:\nfloat btCos(float x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btCos(float x) function, expected prototype:\nfloat btCos(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -2371,8 +2319,7 @@ static int _bind_btCos(lua_State *L) {
 // float btSin(float x)
 static int _bind_btSin(lua_State *L) {
 	if (!_lg_typecheck_btSin(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btSin(float x) function, expected prototype:\nfloat btSin(float x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btSin(float x) function, expected prototype:\nfloat btSin(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -2386,8 +2333,7 @@ static int _bind_btSin(lua_State *L) {
 // float btTan(float x)
 static int _bind_btTan(lua_State *L) {
 	if (!_lg_typecheck_btTan(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btTan(float x) function, expected prototype:\nfloat btTan(float x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btTan(float x) function, expected prototype:\nfloat btTan(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -2401,8 +2347,7 @@ static int _bind_btTan(lua_State *L) {
 // float btAcos(float x)
 static int _bind_btAcos(lua_State *L) {
 	if (!_lg_typecheck_btAcos(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btAcos(float x) function, expected prototype:\nfloat btAcos(float x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btAcos(float x) function, expected prototype:\nfloat btAcos(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -2416,8 +2361,7 @@ static int _bind_btAcos(lua_State *L) {
 // float btAsin(float x)
 static int _bind_btAsin(lua_State *L) {
 	if (!_lg_typecheck_btAsin(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btAsin(float x) function, expected prototype:\nfloat btAsin(float x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btAsin(float x) function, expected prototype:\nfloat btAsin(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -2431,8 +2375,7 @@ static int _bind_btAsin(lua_State *L) {
 // float btAtan(float x)
 static int _bind_btAtan(lua_State *L) {
 	if (!_lg_typecheck_btAtan(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btAtan(float x) function, expected prototype:\nfloat btAtan(float x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btAtan(float x) function, expected prototype:\nfloat btAtan(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -2446,8 +2389,7 @@ static int _bind_btAtan(lua_State *L) {
 // float btAtan2(float x, float y)
 static int _bind_btAtan2(lua_State *L) {
 	if (!_lg_typecheck_btAtan2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btAtan2(float x, float y) function, expected prototype:\nfloat btAtan2(float x, float y)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btAtan2(float x, float y) function, expected prototype:\nfloat btAtan2(float x, float y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -2462,8 +2404,7 @@ static int _bind_btAtan2(lua_State *L) {
 // float btExp(float x)
 static int _bind_btExp(lua_State *L) {
 	if (!_lg_typecheck_btExp(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btExp(float x) function, expected prototype:\nfloat btExp(float x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btExp(float x) function, expected prototype:\nfloat btExp(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -2477,8 +2418,7 @@ static int _bind_btExp(lua_State *L) {
 // float btLog(float x)
 static int _bind_btLog(lua_State *L) {
 	if (!_lg_typecheck_btLog(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btLog(float x) function, expected prototype:\nfloat btLog(float x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btLog(float x) function, expected prototype:\nfloat btLog(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -2492,8 +2432,7 @@ static int _bind_btLog(lua_State *L) {
 // float btPow(float x, float y)
 static int _bind_btPow(lua_State *L) {
 	if (!_lg_typecheck_btPow(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btPow(float x, float y) function, expected prototype:\nfloat btPow(float x, float y)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btPow(float x, float y) function, expected prototype:\nfloat btPow(float x, float y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -2508,8 +2447,7 @@ static int _bind_btPow(lua_State *L) {
 // float btFmod(float x, float y)
 static int _bind_btFmod(lua_State *L) {
 	if (!_lg_typecheck_btFmod(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btFmod(float x, float y) function, expected prototype:\nfloat btFmod(float x, float y)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btFmod(float x, float y) function, expected prototype:\nfloat btFmod(float x, float y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -2524,8 +2462,7 @@ static int _bind_btFmod(lua_State *L) {
 // float btAtan2Fast(float y, float x)
 static int _bind_btAtan2Fast(lua_State *L) {
 	if (!_lg_typecheck_btAtan2Fast(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btAtan2Fast(float y, float x) function, expected prototype:\nfloat btAtan2Fast(float y, float x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btAtan2Fast(float y, float x) function, expected prototype:\nfloat btAtan2Fast(float y, float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float y=(float)lua_tonumber(L,1);
@@ -2540,8 +2477,7 @@ static int _bind_btAtan2Fast(lua_State *L) {
 // bool btFuzzyZero(float x)
 static int _bind_btFuzzyZero(lua_State *L) {
 	if (!_lg_typecheck_btFuzzyZero(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool btFuzzyZero(float x) function, expected prototype:\nbool btFuzzyZero(float x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool btFuzzyZero(float x) function, expected prototype:\nbool btFuzzyZero(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -2555,8 +2491,7 @@ static int _bind_btFuzzyZero(lua_State *L) {
 // bool btEqual(float a, float eps)
 static int _bind_btEqual(lua_State *L) {
 	if (!_lg_typecheck_btEqual(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool btEqual(float a, float eps) function, expected prototype:\nbool btEqual(float a, float eps)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool btEqual(float a, float eps) function, expected prototype:\nbool btEqual(float a, float eps)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float a=(float)lua_tonumber(L,1);
@@ -2571,8 +2506,7 @@ static int _bind_btEqual(lua_State *L) {
 // bool btGreaterEqual(float a, float eps)
 static int _bind_btGreaterEqual(lua_State *L) {
 	if (!_lg_typecheck_btGreaterEqual(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool btGreaterEqual(float a, float eps) function, expected prototype:\nbool btGreaterEqual(float a, float eps)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool btGreaterEqual(float a, float eps) function, expected prototype:\nbool btGreaterEqual(float a, float eps)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float a=(float)lua_tonumber(L,1);
@@ -2587,8 +2521,7 @@ static int _bind_btGreaterEqual(lua_State *L) {
 // int btIsNegative(float x)
 static int _bind_btIsNegative(lua_State *L) {
 	if (!_lg_typecheck_btIsNegative(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int btIsNegative(float x) function, expected prototype:\nint btIsNegative(float x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int btIsNegative(float x) function, expected prototype:\nint btIsNegative(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -2602,8 +2535,7 @@ static int _bind_btIsNegative(lua_State *L) {
 // float btRadians(float x)
 static int _bind_btRadians(lua_State *L) {
 	if (!_lg_typecheck_btRadians(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btRadians(float x) function, expected prototype:\nfloat btRadians(float x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btRadians(float x) function, expected prototype:\nfloat btRadians(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -2617,8 +2549,7 @@ static int _bind_btRadians(lua_State *L) {
 // float btDegrees(float x)
 static int _bind_btDegrees(lua_State *L) {
 	if (!_lg_typecheck_btDegrees(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btDegrees(float x) function, expected prototype:\nfloat btDegrees(float x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btDegrees(float x) function, expected prototype:\nfloat btDegrees(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -2632,8 +2563,7 @@ static int _bind_btDegrees(lua_State *L) {
 // float btFsel(float a, float b, float c)
 static int _bind_btFsel(lua_State *L) {
 	if (!_lg_typecheck_btFsel(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btFsel(float a, float b, float c) function, expected prototype:\nfloat btFsel(float a, float b, float c)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btFsel(float a, float b, float c) function, expected prototype:\nfloat btFsel(float a, float b, float c)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float a=(float)lua_tonumber(L,1);
@@ -2649,8 +2579,7 @@ static int _bind_btFsel(lua_State *L) {
 // bool btMachineIsLittleEndian()
 static int _bind_btMachineIsLittleEndian(lua_State *L) {
 	if (!_lg_typecheck_btMachineIsLittleEndian(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool btMachineIsLittleEndian() function, expected prototype:\nbool btMachineIsLittleEndian()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool btMachineIsLittleEndian() function, expected prototype:\nbool btMachineIsLittleEndian()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -2663,8 +2592,7 @@ static int _bind_btMachineIsLittleEndian(lua_State *L) {
 // unsigned int btSelect(unsigned int condition, unsigned int valueIfConditionNonZero, unsigned int valueIfConditionZero)
 static int _bind_btSelect_overload_1(lua_State *L) {
 	if (!_lg_typecheck_btSelect_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int btSelect(unsigned int condition, unsigned int valueIfConditionNonZero, unsigned int valueIfConditionZero) function, expected prototype:\nunsigned int btSelect(unsigned int condition, unsigned int valueIfConditionNonZero, unsigned int valueIfConditionZero)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned int btSelect(unsigned int condition, unsigned int valueIfConditionNonZero, unsigned int valueIfConditionZero) function, expected prototype:\nunsigned int btSelect(unsigned int condition, unsigned int valueIfConditionNonZero, unsigned int valueIfConditionZero)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned condition=(unsigned)lua_tointeger(L,1);
@@ -2680,8 +2608,7 @@ static int _bind_btSelect_overload_1(lua_State *L) {
 // int btSelect(unsigned int condition, int valueIfConditionNonZero, int valueIfConditionZero)
 static int _bind_btSelect_overload_2(lua_State *L) {
 	if (!_lg_typecheck_btSelect_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int btSelect(unsigned int condition, int valueIfConditionNonZero, int valueIfConditionZero) function, expected prototype:\nint btSelect(unsigned int condition, int valueIfConditionNonZero, int valueIfConditionZero)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int btSelect(unsigned int condition, int valueIfConditionNonZero, int valueIfConditionZero) function, expected prototype:\nint btSelect(unsigned int condition, int valueIfConditionNonZero, int valueIfConditionZero)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned condition=(unsigned)lua_tointeger(L,1);
@@ -2697,8 +2624,7 @@ static int _bind_btSelect_overload_2(lua_State *L) {
 // float btSelect(unsigned int condition, float valueIfConditionNonZero, float valueIfConditionZero)
 static int _bind_btSelect_overload_3(lua_State *L) {
 	if (!_lg_typecheck_btSelect_overload_3(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btSelect(unsigned int condition, float valueIfConditionNonZero, float valueIfConditionZero) function, expected prototype:\nfloat btSelect(unsigned int condition, float valueIfConditionNonZero, float valueIfConditionZero)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btSelect(unsigned int condition, float valueIfConditionNonZero, float valueIfConditionZero) function, expected prototype:\nfloat btSelect(unsigned int condition, float valueIfConditionNonZero, float valueIfConditionZero)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned condition=(unsigned)lua_tointeger(L,1);
@@ -2724,8 +2650,7 @@ static int _bind_btSelect(lua_State *L) {
 // unsigned int btSwapEndian(unsigned int val)
 static int _bind_btSwapEndian_overload_1(lua_State *L) {
 	if (!_lg_typecheck_btSwapEndian_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int btSwapEndian(unsigned int val) function, expected prototype:\nunsigned int btSwapEndian(unsigned int val)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned int btSwapEndian(unsigned int val) function, expected prototype:\nunsigned int btSwapEndian(unsigned int val)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned val=(unsigned)lua_tointeger(L,1);
@@ -2739,8 +2664,7 @@ static int _bind_btSwapEndian_overload_1(lua_State *L) {
 // unsigned short btSwapEndian(unsigned short val)
 static int _bind_btSwapEndian_overload_2(lua_State *L) {
 	if (!_lg_typecheck_btSwapEndian_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned short btSwapEndian(unsigned short val) function, expected prototype:\nunsigned short btSwapEndian(unsigned short val)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned short btSwapEndian(unsigned short val) function, expected prototype:\nunsigned short btSwapEndian(unsigned short val)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned short val=(unsigned short)lua_tointeger(L,1);
@@ -2754,8 +2678,7 @@ static int _bind_btSwapEndian_overload_2(lua_State *L) {
 // unsigned int btSwapEndian(int val)
 static int _bind_btSwapEndian_overload_3(lua_State *L) {
 	if (!_lg_typecheck_btSwapEndian_overload_3(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int btSwapEndian(int val) function, expected prototype:\nunsigned int btSwapEndian(int val)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned int btSwapEndian(int val) function, expected prototype:\nunsigned int btSwapEndian(int val)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int val=(int)lua_tointeger(L,1);
@@ -2769,8 +2692,7 @@ static int _bind_btSwapEndian_overload_3(lua_State *L) {
 // unsigned short btSwapEndian(short val)
 static int _bind_btSwapEndian_overload_4(lua_State *L) {
 	if (!_lg_typecheck_btSwapEndian_overload_4(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned short btSwapEndian(short val) function, expected prototype:\nunsigned short btSwapEndian(short val)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned short btSwapEndian(short val) function, expected prototype:\nunsigned short btSwapEndian(short val)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	short val=(short)lua_tointeger(L,1);
@@ -2795,8 +2717,7 @@ static int _bind_btSwapEndian(lua_State *L) {
 // unsigned int btSwapEndianFloat(float d)
 static int _bind_btSwapEndianFloat(lua_State *L) {
 	if (!_lg_typecheck_btSwapEndianFloat(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int btSwapEndianFloat(float d) function, expected prototype:\nunsigned int btSwapEndianFloat(float d)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned int btSwapEndianFloat(float d) function, expected prototype:\nunsigned int btSwapEndianFloat(float d)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float d=(float)lua_tonumber(L,1);
@@ -2810,8 +2731,7 @@ static int _bind_btSwapEndianFloat(lua_State *L) {
 // float btUnswapEndianFloat(unsigned int a)
 static int _bind_btUnswapEndianFloat(lua_State *L) {
 	if (!_lg_typecheck_btUnswapEndianFloat(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btUnswapEndianFloat(unsigned int a) function, expected prototype:\nfloat btUnswapEndianFloat(unsigned int a)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btUnswapEndianFloat(unsigned int a) function, expected prototype:\nfloat btUnswapEndianFloat(unsigned int a)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int a=(unsigned int)lua_tointeger(L,1);
@@ -2825,8 +2745,7 @@ static int _bind_btUnswapEndianFloat(lua_State *L) {
 // void btSwapEndianDouble(double d, unsigned char * dst)
 static int _bind_btSwapEndianDouble(lua_State *L) {
 	if (!_lg_typecheck_btSwapEndianDouble(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void btSwapEndianDouble(double d, unsigned char * dst) function, expected prototype:\nvoid btSwapEndianDouble(double d, unsigned char * dst)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void btSwapEndianDouble(double d, unsigned char * dst) function, expected prototype:\nvoid btSwapEndianDouble(double d, unsigned char * dst)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	double d=(double)lua_tonumber(L,1);
@@ -2840,8 +2759,7 @@ static int _bind_btSwapEndianDouble(lua_State *L) {
 // double btUnswapEndianDouble(const unsigned char * src)
 static int _bind_btUnswapEndianDouble(lua_State *L) {
 	if (!_lg_typecheck_btUnswapEndianDouble(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in double btUnswapEndianDouble(const unsigned char * src) function, expected prototype:\ndouble btUnswapEndianDouble(const unsigned char * src)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in double btUnswapEndianDouble(const unsigned char * src) function, expected prototype:\ndouble btUnswapEndianDouble(const unsigned char * src)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned char src = (unsigned char)(lua_tointeger(L,1));
@@ -2855,8 +2773,7 @@ static int _bind_btUnswapEndianDouble(lua_State *L) {
 // float btNormalizeAngle(float angleInRadians)
 static int _bind_btNormalizeAngle(lua_State *L) {
 	if (!_lg_typecheck_btNormalizeAngle(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btNormalizeAngle(float angleInRadians) function, expected prototype:\nfloat btNormalizeAngle(float angleInRadians)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btNormalizeAngle(float angleInRadians) function, expected prototype:\nfloat btNormalizeAngle(float angleInRadians)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float angleInRadians=(float)lua_tonumber(L,1);
@@ -2870,8 +2787,7 @@ static int _bind_btNormalizeAngle(lua_State *L) {
 // int btStrLen(const char * str)
 static int _bind_btStrLen(lua_State *L) {
 	if (!_lg_typecheck_btStrLen(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int btStrLen(const char * str) function, expected prototype:\nint btStrLen(const char * str)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int btStrLen(const char * str) function, expected prototype:\nint btStrLen(const char * str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * str=(const char *)lua_tostring(L,1);
@@ -2885,8 +2801,7 @@ static int _bind_btStrLen(lua_State *L) {
 // btVector3 btAabbSupport(const btVector3 & halfExtents, const btVector3 & supportDir)
 static int _bind_btAabbSupport(lua_State *L) {
 	if (!_lg_typecheck_btAabbSupport(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in btVector3 btAabbSupport(const btVector3 & halfExtents, const btVector3 & supportDir) function, expected prototype:\nbtVector3 btAabbSupport(const btVector3 & halfExtents, const btVector3 & supportDir)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in btVector3 btAabbSupport(const btVector3 & halfExtents, const btVector3 & supportDir) function, expected prototype:\nbtVector3 btAabbSupport(const btVector3 & halfExtents, const btVector3 & supportDir)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* halfExtents_ptr=(Luna< btVector3 >::check(L,1));
@@ -2912,8 +2827,7 @@ static int _bind_btAabbSupport(lua_State *L) {
 // float btAdjustAngleToLimits(float angleInRadians, float angleLowerLimitInRadians, float angleUpperLimitInRadians)
 static int _bind_btAdjustAngleToLimits(lua_State *L) {
 	if (!_lg_typecheck_btAdjustAngleToLimits(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btAdjustAngleToLimits(float angleInRadians, float angleLowerLimitInRadians, float angleUpperLimitInRadians) function, expected prototype:\nfloat btAdjustAngleToLimits(float angleInRadians, float angleLowerLimitInRadians, float angleUpperLimitInRadians)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float btAdjustAngleToLimits(float angleInRadians, float angleLowerLimitInRadians, float angleUpperLimitInRadians) function, expected prototype:\nfloat btAdjustAngleToLimits(float angleInRadians, float angleLowerLimitInRadians, float angleUpperLimitInRadians)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float angleInRadians=(float)lua_tonumber(L,1);
@@ -2929,8 +2843,7 @@ static int _bind_btAdjustAngleToLimits(lua_State *L) {
 // float btDot(const btVector3 & v1, const btVector3 & v2)
 static int _bind_btDot(lua_State *L) {
 	if (!_lg_typecheck_btDot(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btDot(const btVector3 & v1, const btVector3 & v2) function, expected prototype:\nfloat btDot(const btVector3 & v1, const btVector3 & v2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in float btDot(const btVector3 & v1, const btVector3 & v2) function, expected prototype:\nfloat btDot(const btVector3 & v1, const btVector3 & v2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* v1_ptr=(Luna< btVector3 >::check(L,1));
@@ -2953,8 +2866,7 @@ static int _bind_btDot(lua_State *L) {
 // float btDistance2(const btVector3 & v1, const btVector3 & v2)
 static int _bind_btDistance2(lua_State *L) {
 	if (!_lg_typecheck_btDistance2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btDistance2(const btVector3 & v1, const btVector3 & v2) function, expected prototype:\nfloat btDistance2(const btVector3 & v1, const btVector3 & v2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in float btDistance2(const btVector3 & v1, const btVector3 & v2) function, expected prototype:\nfloat btDistance2(const btVector3 & v1, const btVector3 & v2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* v1_ptr=(Luna< btVector3 >::check(L,1));
@@ -2977,8 +2889,7 @@ static int _bind_btDistance2(lua_State *L) {
 // float btDistance(const btVector3 & v1, const btVector3 & v2)
 static int _bind_btDistance(lua_State *L) {
 	if (!_lg_typecheck_btDistance(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btDistance(const btVector3 & v1, const btVector3 & v2) function, expected prototype:\nfloat btDistance(const btVector3 & v1, const btVector3 & v2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in float btDistance(const btVector3 & v1, const btVector3 & v2) function, expected prototype:\nfloat btDistance(const btVector3 & v1, const btVector3 & v2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* v1_ptr=(Luna< btVector3 >::check(L,1));
@@ -3001,8 +2912,7 @@ static int _bind_btDistance(lua_State *L) {
 // btVector3 btCross(const btVector3 & v1, const btVector3 & v2)
 static int _bind_btCross(lua_State *L) {
 	if (!_lg_typecheck_btCross(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in btVector3 btCross(const btVector3 & v1, const btVector3 & v2) function, expected prototype:\nbtVector3 btCross(const btVector3 & v1, const btVector3 & v2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in btVector3 btCross(const btVector3 & v1, const btVector3 & v2) function, expected prototype:\nbtVector3 btCross(const btVector3 & v1, const btVector3 & v2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* v1_ptr=(Luna< btVector3 >::check(L,1));
@@ -3028,8 +2938,7 @@ static int _bind_btCross(lua_State *L) {
 // float btTriple(const btVector3 & v1, const btVector3 & v2, const btVector3 & v3)
 static int _bind_btTriple(lua_State *L) {
 	if (!_lg_typecheck_btTriple(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float btTriple(const btVector3 & v1, const btVector3 & v2, const btVector3 & v3) function, expected prototype:\nfloat btTriple(const btVector3 & v1, const btVector3 & v2, const btVector3 & v3)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in float btTriple(const btVector3 & v1, const btVector3 & v2, const btVector3 & v3) function, expected prototype:\nfloat btTriple(const btVector3 & v1, const btVector3 & v2, const btVector3 & v3)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* v1_ptr=(Luna< btVector3 >::check(L,1));
@@ -3057,8 +2966,7 @@ static int _bind_btTriple(lua_State *L) {
 // btVector3 lerp(const btVector3 & v1, const btVector3 & v2, const float & t)
 static int _bind_lerp(lua_State *L) {
 	if (!_lg_typecheck_lerp(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in btVector3 lerp(const btVector3 & v1, const btVector3 & v2, const float & t) function, expected prototype:\nbtVector3 lerp(const btVector3 & v1, const btVector3 & v2, const float & t)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in btVector3 lerp(const btVector3 & v1, const btVector3 & v2, const float & t) function, expected prototype:\nbtVector3 lerp(const btVector3 & v1, const btVector3 & v2, const float & t)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* v1_ptr=(Luna< btVector3 >::check(L,1));
@@ -3085,8 +2993,7 @@ static int _bind_lerp(lua_State *L) {
 // void btSwapScalarEndian(const float & sourceVal, float & destVal)
 static int _bind_btSwapScalarEndian(lua_State *L) {
 	if (!_lg_typecheck_btSwapScalarEndian(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void btSwapScalarEndian(const float & sourceVal, float & destVal) function, expected prototype:\nvoid btSwapScalarEndian(const float & sourceVal, float & destVal)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void btSwapScalarEndian(const float & sourceVal, float & destVal) function, expected prototype:\nvoid btSwapScalarEndian(const float & sourceVal, float & destVal)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const float sourceVal=(const float)lua_tonumber(L,1);
@@ -3094,14 +3001,14 @@ static int _bind_btSwapScalarEndian(lua_State *L) {
 
 	::btSwapScalarEndian(sourceVal, destVal);
 
-	return 0;
+	lua_pushnumber(L,destVal);
+	return 1;
 }
 
 // void btSwapVector3Endian(const btVector3 & sourceVec, btVector3 & destVec)
 static int _bind_btSwapVector3Endian(lua_State *L) {
 	if (!_lg_typecheck_btSwapVector3Endian(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void btSwapVector3Endian(const btVector3 & sourceVec, btVector3 & destVec) function, expected prototype:\nvoid btSwapVector3Endian(const btVector3 & sourceVec, btVector3 & destVec)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in void btSwapVector3Endian(const btVector3 & sourceVec, btVector3 & destVec) function, expected prototype:\nvoid btSwapVector3Endian(const btVector3 & sourceVec, btVector3 & destVec)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const btVector3* sourceVec_ptr=(Luna< btVector3 >::check(L,1));
@@ -3123,8 +3030,7 @@ static int _bind_btSwapVector3Endian(lua_State *L) {
 // void btUnSwapVector3Endian(btVector3 & vector)
 static int _bind_btUnSwapVector3Endian(lua_State *L) {
 	if (!_lg_typecheck_btUnSwapVector3Endian(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void btUnSwapVector3Endian(btVector3 & vector) function, expected prototype:\nvoid btUnSwapVector3Endian(btVector3 & vector)\nClass arguments details:\narg 1 ID = 91544891\n");
+		luaL_error(L, "luna typecheck failed in void btUnSwapVector3Endian(btVector3 & vector) function, expected prototype:\nvoid btUnSwapVector3Endian(btVector3 & vector)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	btVector3* vector_ptr=(Luna< btVector3 >::check(L,1));

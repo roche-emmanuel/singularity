@@ -142,7 +142,7 @@ public:
 	inline static bool _lg_typecheck_public_setInternalNodeAabbMin(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		return true;
 	}
@@ -150,7 +150,7 @@ public:
 	inline static bool _lg_typecheck_public_setInternalNodeAabbMax(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		return true;
 	}
@@ -158,29 +158,29 @@ public:
 	inline static bool _lg_typecheck_public_getAabbMin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_getAabbMax(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_setInternalNodeEscapeIndex(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_mergeInternalNodeAabb(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 		return true;
@@ -189,41 +189,41 @@ public:
 	inline static bool _lg_typecheck_public_swapLeafNodes(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_assignInternalNodeFromLeafNode(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_buildTree(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_calcSplittingAxis(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_sortAndCalcSplittingIndex(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -244,8 +244,8 @@ public:
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,91544891) ) return false;
-		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 		return true;
 	}
 
@@ -255,8 +255,8 @@ public:
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,47895716)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		return true;
 	}
 
@@ -268,8 +268,8 @@ public:
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,91544891) ) return false;
-		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 		return true;
 	}
 
@@ -295,8 +295,8 @@ public:
 	inline static bool _lg_typecheck_public_updateSubtreeHeaders(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -305,8 +305,7 @@ public:
 	// void btQuantizedBvh::public_setInternalNodeAabbMin(int nodeIndex, const btVector3 & aabbMin)
 	static int _bind_public_setInternalNodeAabbMin(lua_State *L) {
 		if (!_lg_typecheck_public_setInternalNodeAabbMin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_setInternalNodeAabbMin(int nodeIndex, const btVector3 & aabbMin) function, expected prototype:\nvoid btQuantizedBvh::public_setInternalNodeAabbMin(int nodeIndex, const btVector3 & aabbMin)\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_setInternalNodeAabbMin(int nodeIndex, const btVector3 & aabbMin) function, expected prototype:\nvoid btQuantizedBvh::public_setInternalNodeAabbMin(int nodeIndex, const btVector3 & aabbMin)\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeIndex=(int)lua_tointeger(L,2);
@@ -318,8 +317,7 @@ public:
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_setInternalNodeAabbMin(int, const btVector3 &). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_setInternalNodeAabbMin(int, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setInternalNodeAabbMin(nodeIndex, aabbMin);
 
@@ -329,8 +327,7 @@ public:
 	// void btQuantizedBvh::public_setInternalNodeAabbMax(int nodeIndex, const btVector3 & aabbMax)
 	static int _bind_public_setInternalNodeAabbMax(lua_State *L) {
 		if (!_lg_typecheck_public_setInternalNodeAabbMax(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_setInternalNodeAabbMax(int nodeIndex, const btVector3 & aabbMax) function, expected prototype:\nvoid btQuantizedBvh::public_setInternalNodeAabbMax(int nodeIndex, const btVector3 & aabbMax)\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_setInternalNodeAabbMax(int nodeIndex, const btVector3 & aabbMax) function, expected prototype:\nvoid btQuantizedBvh::public_setInternalNodeAabbMax(int nodeIndex, const btVector3 & aabbMax)\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeIndex=(int)lua_tointeger(L,2);
@@ -342,8 +339,7 @@ public:
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_setInternalNodeAabbMax(int, const btVector3 &). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_setInternalNodeAabbMax(int, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setInternalNodeAabbMax(nodeIndex, aabbMax);
 
@@ -353,16 +349,14 @@ public:
 	// btVector3 btQuantizedBvh::public_getAabbMin(int nodeIndex) const
 	static int _bind_public_getAabbMin(lua_State *L) {
 		if (!_lg_typecheck_public_getAabbMin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btQuantizedBvh::public_getAabbMin(int nodeIndex) const function, expected prototype:\nbtVector3 btQuantizedBvh::public_getAabbMin(int nodeIndex) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btQuantizedBvh::public_getAabbMin(int nodeIndex) const function, expected prototype:\nbtVector3 btQuantizedBvh::public_getAabbMin(int nodeIndex) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeIndex=(int)lua_tointeger(L,2);
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btQuantizedBvh::public_getAabbMin(int) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btQuantizedBvh::public_getAabbMin(int) const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->public_getAabbMin(nodeIndex);
 		btVector3* lret = new btVector3(stack_lret);
@@ -376,16 +370,14 @@ public:
 	// btVector3 btQuantizedBvh::public_getAabbMax(int nodeIndex) const
 	static int _bind_public_getAabbMax(lua_State *L) {
 		if (!_lg_typecheck_public_getAabbMax(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btQuantizedBvh::public_getAabbMax(int nodeIndex) const function, expected prototype:\nbtVector3 btQuantizedBvh::public_getAabbMax(int nodeIndex) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btQuantizedBvh::public_getAabbMax(int nodeIndex) const function, expected prototype:\nbtVector3 btQuantizedBvh::public_getAabbMax(int nodeIndex) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeIndex=(int)lua_tointeger(L,2);
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btQuantizedBvh::public_getAabbMax(int) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btQuantizedBvh::public_getAabbMax(int) const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->public_getAabbMax(nodeIndex);
 		btVector3* lret = new btVector3(stack_lret);
@@ -399,8 +391,7 @@ public:
 	// void btQuantizedBvh::public_setInternalNodeEscapeIndex(int nodeIndex, int escapeIndex)
 	static int _bind_public_setInternalNodeEscapeIndex(lua_State *L) {
 		if (!_lg_typecheck_public_setInternalNodeEscapeIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_setInternalNodeEscapeIndex(int nodeIndex, int escapeIndex) function, expected prototype:\nvoid btQuantizedBvh::public_setInternalNodeEscapeIndex(int nodeIndex, int escapeIndex)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_setInternalNodeEscapeIndex(int nodeIndex, int escapeIndex) function, expected prototype:\nvoid btQuantizedBvh::public_setInternalNodeEscapeIndex(int nodeIndex, int escapeIndex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeIndex=(int)lua_tointeger(L,2);
@@ -408,8 +399,7 @@ public:
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_setInternalNodeEscapeIndex(int, int). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_setInternalNodeEscapeIndex(int, int). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setInternalNodeEscapeIndex(nodeIndex, escapeIndex);
 
@@ -419,8 +409,7 @@ public:
 	// void btQuantizedBvh::public_mergeInternalNodeAabb(int nodeIndex, const btVector3 & newAabbMin, const btVector3 & newAabbMax)
 	static int _bind_public_mergeInternalNodeAabb(lua_State *L) {
 		if (!_lg_typecheck_public_mergeInternalNodeAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_mergeInternalNodeAabb(int nodeIndex, const btVector3 & newAabbMin, const btVector3 & newAabbMax) function, expected prototype:\nvoid btQuantizedBvh::public_mergeInternalNodeAabb(int nodeIndex, const btVector3 & newAabbMin, const btVector3 & newAabbMax)\nClass arguments details:\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_mergeInternalNodeAabb(int nodeIndex, const btVector3 & newAabbMin, const btVector3 & newAabbMax) function, expected prototype:\nvoid btQuantizedBvh::public_mergeInternalNodeAabb(int nodeIndex, const btVector3 & newAabbMin, const btVector3 & newAabbMax)\nClass arguments details:\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeIndex=(int)lua_tointeger(L,2);
@@ -437,8 +426,7 @@ public:
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_mergeInternalNodeAabb(int, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_mergeInternalNodeAabb(int, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_mergeInternalNodeAabb(nodeIndex, newAabbMin, newAabbMax);
 
@@ -448,8 +436,7 @@ public:
 	// void btQuantizedBvh::public_swapLeafNodes(int firstIndex, int secondIndex)
 	static int _bind_public_swapLeafNodes(lua_State *L) {
 		if (!_lg_typecheck_public_swapLeafNodes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_swapLeafNodes(int firstIndex, int secondIndex) function, expected prototype:\nvoid btQuantizedBvh::public_swapLeafNodes(int firstIndex, int secondIndex)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_swapLeafNodes(int firstIndex, int secondIndex) function, expected prototype:\nvoid btQuantizedBvh::public_swapLeafNodes(int firstIndex, int secondIndex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int firstIndex=(int)lua_tointeger(L,2);
@@ -457,8 +444,7 @@ public:
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_swapLeafNodes(int, int). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_swapLeafNodes(int, int). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_swapLeafNodes(firstIndex, secondIndex);
 
@@ -468,8 +454,7 @@ public:
 	// void btQuantizedBvh::public_assignInternalNodeFromLeafNode(int internalNode, int leafNodeIndex)
 	static int _bind_public_assignInternalNodeFromLeafNode(lua_State *L) {
 		if (!_lg_typecheck_public_assignInternalNodeFromLeafNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_assignInternalNodeFromLeafNode(int internalNode, int leafNodeIndex) function, expected prototype:\nvoid btQuantizedBvh::public_assignInternalNodeFromLeafNode(int internalNode, int leafNodeIndex)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_assignInternalNodeFromLeafNode(int internalNode, int leafNodeIndex) function, expected prototype:\nvoid btQuantizedBvh::public_assignInternalNodeFromLeafNode(int internalNode, int leafNodeIndex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int internalNode=(int)lua_tointeger(L,2);
@@ -477,8 +462,7 @@ public:
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_assignInternalNodeFromLeafNode(int, int). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_assignInternalNodeFromLeafNode(int, int). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_assignInternalNodeFromLeafNode(internalNode, leafNodeIndex);
 
@@ -488,8 +472,7 @@ public:
 	// void btQuantizedBvh::public_buildTree(int startIndex, int endIndex)
 	static int _bind_public_buildTree(lua_State *L) {
 		if (!_lg_typecheck_public_buildTree(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_buildTree(int startIndex, int endIndex) function, expected prototype:\nvoid btQuantizedBvh::public_buildTree(int startIndex, int endIndex)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_buildTree(int startIndex, int endIndex) function, expected prototype:\nvoid btQuantizedBvh::public_buildTree(int startIndex, int endIndex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int startIndex=(int)lua_tointeger(L,2);
@@ -497,8 +480,7 @@ public:
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_buildTree(int, int). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_buildTree(int, int). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_buildTree(startIndex, endIndex);
 
@@ -508,8 +490,7 @@ public:
 	// int btQuantizedBvh::public_calcSplittingAxis(int startIndex, int endIndex)
 	static int _bind_public_calcSplittingAxis(lua_State *L) {
 		if (!_lg_typecheck_public_calcSplittingAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btQuantizedBvh::public_calcSplittingAxis(int startIndex, int endIndex) function, expected prototype:\nint btQuantizedBvh::public_calcSplittingAxis(int startIndex, int endIndex)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btQuantizedBvh::public_calcSplittingAxis(int startIndex, int endIndex) function, expected prototype:\nint btQuantizedBvh::public_calcSplittingAxis(int startIndex, int endIndex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int startIndex=(int)lua_tointeger(L,2);
@@ -517,8 +498,7 @@ public:
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btQuantizedBvh::public_calcSplittingAxis(int, int). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btQuantizedBvh::public_calcSplittingAxis(int, int). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->public_calcSplittingAxis(startIndex, endIndex);
 		lua_pushnumber(L,lret);
@@ -529,8 +509,7 @@ public:
 	// int btQuantizedBvh::public_sortAndCalcSplittingIndex(int startIndex, int endIndex, int splitAxis)
 	static int _bind_public_sortAndCalcSplittingIndex(lua_State *L) {
 		if (!_lg_typecheck_public_sortAndCalcSplittingIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btQuantizedBvh::public_sortAndCalcSplittingIndex(int startIndex, int endIndex, int splitAxis) function, expected prototype:\nint btQuantizedBvh::public_sortAndCalcSplittingIndex(int startIndex, int endIndex, int splitAxis)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btQuantizedBvh::public_sortAndCalcSplittingIndex(int startIndex, int endIndex, int splitAxis) function, expected prototype:\nint btQuantizedBvh::public_sortAndCalcSplittingIndex(int startIndex, int endIndex, int splitAxis)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int startIndex=(int)lua_tointeger(L,2);
@@ -539,8 +518,7 @@ public:
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btQuantizedBvh::public_sortAndCalcSplittingIndex(int, int, int). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btQuantizedBvh::public_sortAndCalcSplittingIndex(int, int, int). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->public_sortAndCalcSplittingIndex(startIndex, endIndex, splitAxis);
 		lua_pushnumber(L,lret);
@@ -551,8 +529,7 @@ public:
 	// void btQuantizedBvh::public_walkStacklessTree(btNodeOverlapCallback * nodeCallback, const btVector3 & aabbMin, const btVector3 & aabbMax) const
 	static int _bind_public_walkStacklessTree(lua_State *L) {
 		if (!_lg_typecheck_public_walkStacklessTree(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_walkStacklessTree(btNodeOverlapCallback * nodeCallback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btQuantizedBvh::public_walkStacklessTree(btNodeOverlapCallback * nodeCallback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 47895716\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_walkStacklessTree(btNodeOverlapCallback * nodeCallback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btQuantizedBvh::public_walkStacklessTree(btNodeOverlapCallback * nodeCallback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 47895716\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btNodeOverlapCallback* nodeCallback=(Luna< btNodeOverlapCallback >::check(L,2));
@@ -569,8 +546,7 @@ public:
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_walkStacklessTree(btNodeOverlapCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_walkStacklessTree(btNodeOverlapCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_walkStacklessTree(nodeCallback, aabbMin, aabbMax);
 
@@ -580,8 +556,7 @@ public:
 	// void btQuantizedBvh::public_walkStacklessQuantizedTreeAgainstRay(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget, const btVector3 & aabbMin, const btVector3 & aabbMax, int startNodeIndex, int endNodeIndex) const
 	static int _bind_public_walkStacklessQuantizedTreeAgainstRay(lua_State *L) {
 		if (!_lg_typecheck_public_walkStacklessQuantizedTreeAgainstRay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_walkStacklessQuantizedTreeAgainstRay(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget, const btVector3 & aabbMin, const btVector3 & aabbMax, int startNodeIndex, int endNodeIndex) const function, expected prototype:\nvoid btQuantizedBvh::public_walkStacklessQuantizedTreeAgainstRay(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget, const btVector3 & aabbMin, const btVector3 & aabbMax, int startNodeIndex, int endNodeIndex) const\nClass arguments details:\narg 1 ID = 47895716\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_walkStacklessQuantizedTreeAgainstRay(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget, const btVector3 & aabbMin, const btVector3 & aabbMax, int startNodeIndex, int endNodeIndex) const function, expected prototype:\nvoid btQuantizedBvh::public_walkStacklessQuantizedTreeAgainstRay(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget, const btVector3 & aabbMin, const btVector3 & aabbMax, int startNodeIndex, int endNodeIndex) const\nClass arguments details:\narg 1 ID = 47895716\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btNodeOverlapCallback* nodeCallback=(Luna< btNodeOverlapCallback >::check(L,2));
@@ -610,8 +585,7 @@ public:
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_walkStacklessQuantizedTreeAgainstRay(btNodeOverlapCallback *, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, int, int) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_walkStacklessQuantizedTreeAgainstRay(btNodeOverlapCallback *, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, int, int) const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_walkStacklessQuantizedTreeAgainstRay(nodeCallback, raySource, rayTarget, aabbMin, aabbMax, startNodeIndex, endNodeIndex);
 
@@ -621,8 +595,7 @@ public:
 	// void btQuantizedBvh::public_walkStacklessQuantizedTree(btNodeOverlapCallback * nodeCallback, unsigned short int * quantizedQueryAabbMin, unsigned short int * quantizedQueryAabbMax, int startNodeIndex, int endNodeIndex) const
 	static int _bind_public_walkStacklessQuantizedTree(lua_State *L) {
 		if (!_lg_typecheck_public_walkStacklessQuantizedTree(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_walkStacklessQuantizedTree(btNodeOverlapCallback * nodeCallback, unsigned short int * quantizedQueryAabbMin, unsigned short int * quantizedQueryAabbMax, int startNodeIndex, int endNodeIndex) const function, expected prototype:\nvoid btQuantizedBvh::public_walkStacklessQuantizedTree(btNodeOverlapCallback * nodeCallback, unsigned short int * quantizedQueryAabbMin, unsigned short int * quantizedQueryAabbMax, int startNodeIndex, int endNodeIndex) const\nClass arguments details:\narg 1 ID = 47895716\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_walkStacklessQuantizedTree(btNodeOverlapCallback * nodeCallback, unsigned short int * quantizedQueryAabbMin, unsigned short int * quantizedQueryAabbMax, int startNodeIndex, int endNodeIndex) const function, expected prototype:\nvoid btQuantizedBvh::public_walkStacklessQuantizedTree(btNodeOverlapCallback * nodeCallback, unsigned short int * quantizedQueryAabbMin, unsigned short int * quantizedQueryAabbMax, int startNodeIndex, int endNodeIndex) const\nClass arguments details:\narg 1 ID = 47895716\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btNodeOverlapCallback* nodeCallback=(Luna< btNodeOverlapCallback >::check(L,2));
@@ -633,8 +606,7 @@ public:
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_walkStacklessQuantizedTree(btNodeOverlapCallback *, unsigned short int *, unsigned short int *, int, int) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_walkStacklessQuantizedTree(btNodeOverlapCallback *, unsigned short int *, unsigned short int *, int, int) const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_walkStacklessQuantizedTree(nodeCallback, quantizedQueryAabbMin, quantizedQueryAabbMax, startNodeIndex, endNodeIndex);
 
@@ -644,8 +616,7 @@ public:
 	// void btQuantizedBvh::public_walkStacklessTreeAgainstRay(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget, const btVector3 & aabbMin, const btVector3 & aabbMax, int startNodeIndex, int endNodeIndex) const
 	static int _bind_public_walkStacklessTreeAgainstRay(lua_State *L) {
 		if (!_lg_typecheck_public_walkStacklessTreeAgainstRay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_walkStacklessTreeAgainstRay(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget, const btVector3 & aabbMin, const btVector3 & aabbMax, int startNodeIndex, int endNodeIndex) const function, expected prototype:\nvoid btQuantizedBvh::public_walkStacklessTreeAgainstRay(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget, const btVector3 & aabbMin, const btVector3 & aabbMax, int startNodeIndex, int endNodeIndex) const\nClass arguments details:\narg 1 ID = 47895716\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_walkStacklessTreeAgainstRay(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget, const btVector3 & aabbMin, const btVector3 & aabbMax, int startNodeIndex, int endNodeIndex) const function, expected prototype:\nvoid btQuantizedBvh::public_walkStacklessTreeAgainstRay(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget, const btVector3 & aabbMin, const btVector3 & aabbMax, int startNodeIndex, int endNodeIndex) const\nClass arguments details:\narg 1 ID = 47895716\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btNodeOverlapCallback* nodeCallback=(Luna< btNodeOverlapCallback >::check(L,2));
@@ -674,8 +645,7 @@ public:
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_walkStacklessTreeAgainstRay(btNodeOverlapCallback *, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, int, int) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_walkStacklessTreeAgainstRay(btNodeOverlapCallback *, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, int, int) const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_walkStacklessTreeAgainstRay(nodeCallback, raySource, rayTarget, aabbMin, aabbMax, startNodeIndex, endNodeIndex);
 
@@ -685,8 +655,7 @@ public:
 	// void btQuantizedBvh::public_walkStacklessQuantizedTreeCacheFriendly(btNodeOverlapCallback * nodeCallback, unsigned short int * quantizedQueryAabbMin, unsigned short int * quantizedQueryAabbMax) const
 	static int _bind_public_walkStacklessQuantizedTreeCacheFriendly(lua_State *L) {
 		if (!_lg_typecheck_public_walkStacklessQuantizedTreeCacheFriendly(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_walkStacklessQuantizedTreeCacheFriendly(btNodeOverlapCallback * nodeCallback, unsigned short int * quantizedQueryAabbMin, unsigned short int * quantizedQueryAabbMax) const function, expected prototype:\nvoid btQuantizedBvh::public_walkStacklessQuantizedTreeCacheFriendly(btNodeOverlapCallback * nodeCallback, unsigned short int * quantizedQueryAabbMin, unsigned short int * quantizedQueryAabbMax) const\nClass arguments details:\narg 1 ID = 47895716\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_walkStacklessQuantizedTreeCacheFriendly(btNodeOverlapCallback * nodeCallback, unsigned short int * quantizedQueryAabbMin, unsigned short int * quantizedQueryAabbMax) const function, expected prototype:\nvoid btQuantizedBvh::public_walkStacklessQuantizedTreeCacheFriendly(btNodeOverlapCallback * nodeCallback, unsigned short int * quantizedQueryAabbMin, unsigned short int * quantizedQueryAabbMax) const\nClass arguments details:\narg 1 ID = 47895716\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btNodeOverlapCallback* nodeCallback=(Luna< btNodeOverlapCallback >::check(L,2));
@@ -695,8 +664,7 @@ public:
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_walkStacklessQuantizedTreeCacheFriendly(btNodeOverlapCallback *, unsigned short int *, unsigned short int *) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_walkStacklessQuantizedTreeCacheFriendly(btNodeOverlapCallback *, unsigned short int *, unsigned short int *) const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_walkStacklessQuantizedTreeCacheFriendly(nodeCallback, quantizedQueryAabbMin, quantizedQueryAabbMax);
 
@@ -706,8 +674,7 @@ public:
 	// void btQuantizedBvh::public_walkRecursiveQuantizedTreeAgainstQueryAabb(const btQuantizedBvhNode * currentNode, btNodeOverlapCallback * nodeCallback, unsigned short int * quantizedQueryAabbMin, unsigned short int * quantizedQueryAabbMax) const
 	static int _bind_public_walkRecursiveQuantizedTreeAgainstQueryAabb(lua_State *L) {
 		if (!_lg_typecheck_public_walkRecursiveQuantizedTreeAgainstQueryAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_walkRecursiveQuantizedTreeAgainstQueryAabb(const btQuantizedBvhNode * currentNode, btNodeOverlapCallback * nodeCallback, unsigned short int * quantizedQueryAabbMin, unsigned short int * quantizedQueryAabbMax) const function, expected prototype:\nvoid btQuantizedBvh::public_walkRecursiveQuantizedTreeAgainstQueryAabb(const btQuantizedBvhNode * currentNode, btNodeOverlapCallback * nodeCallback, unsigned short int * quantizedQueryAabbMin, unsigned short int * quantizedQueryAabbMax) const\nClass arguments details:\narg 1 ID = 59813041\narg 2 ID = 47895716\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_walkRecursiveQuantizedTreeAgainstQueryAabb(const btQuantizedBvhNode * currentNode, btNodeOverlapCallback * nodeCallback, unsigned short int * quantizedQueryAabbMin, unsigned short int * quantizedQueryAabbMax) const function, expected prototype:\nvoid btQuantizedBvh::public_walkRecursiveQuantizedTreeAgainstQueryAabb(const btQuantizedBvhNode * currentNode, btNodeOverlapCallback * nodeCallback, unsigned short int * quantizedQueryAabbMin, unsigned short int * quantizedQueryAabbMax) const\nClass arguments details:\narg 1 ID = 59813041\narg 2 ID = 47895716\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btQuantizedBvhNode* currentNode=(Luna< btQuantizedBvhNode >::check(L,2));
@@ -717,8 +684,7 @@ public:
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_walkRecursiveQuantizedTreeAgainstQueryAabb(const btQuantizedBvhNode *, btNodeOverlapCallback *, unsigned short int *, unsigned short int *) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_walkRecursiveQuantizedTreeAgainstQueryAabb(const btQuantizedBvhNode *, btNodeOverlapCallback *, unsigned short int *, unsigned short int *) const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_walkRecursiveQuantizedTreeAgainstQueryAabb(currentNode, nodeCallback, quantizedQueryAabbMin, quantizedQueryAabbMax);
 
@@ -728,8 +694,7 @@ public:
 	// void btQuantizedBvh::public_updateSubtreeHeaders(int leftChildNodexIndex, int rightChildNodexIndex)
 	static int _bind_public_updateSubtreeHeaders(lua_State *L) {
 		if (!_lg_typecheck_public_updateSubtreeHeaders(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_updateSubtreeHeaders(int leftChildNodexIndex, int rightChildNodexIndex) function, expected prototype:\nvoid btQuantizedBvh::public_updateSubtreeHeaders(int leftChildNodexIndex, int rightChildNodexIndex)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::public_updateSubtreeHeaders(int leftChildNodexIndex, int rightChildNodexIndex) function, expected prototype:\nvoid btQuantizedBvh::public_updateSubtreeHeaders(int leftChildNodexIndex, int rightChildNodexIndex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int leftChildNodexIndex=(int)lua_tointeger(L,2);
@@ -737,8 +702,7 @@ public:
 
 		wrapper_btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< wrapper_btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_updateSubtreeHeaders(int, int). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::public_updateSubtreeHeaders(int, int). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_updateSubtreeHeaders(leftChildNodexIndex, rightChildNodexIndex);
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::StraightEmitter* self= (SPK::StraightEmitter*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< SPK::Registerable >::check(L,1));
@@ -148,7 +145,7 @@ public:
 	inline static bool _lg_typecheck_base_findByName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -166,8 +163,7 @@ public:
 	// SPK::StraightEmitter::StraightEmitter(lua_Table * data, const SPK::Vector3D & direction = SPK::Vector3D (0.0f, 0.0f,-1.0f))
 	static SPK::StraightEmitter* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::StraightEmitter::StraightEmitter(lua_Table * data, const SPK::Vector3D & direction = SPK::Vector3D (0.0f, 0.0f,-1.0f)) function, expected prototype:\nSPK::StraightEmitter::StraightEmitter(lua_Table * data, const SPK::Vector3D & direction = SPK::Vector3D (0.0f, 0.0f,-1.0f))\nClass arguments details:\narg 2 ID = 70092749\n");
+			luaL_error(L, "luna typecheck failed in SPK::StraightEmitter::StraightEmitter(lua_Table * data, const SPK::Vector3D & direction = SPK::Vector3D (0.0f, 0.0f,-1.0f)) function, expected prototype:\nSPK::StraightEmitter::StraightEmitter(lua_Table * data, const SPK::Vector3D & direction = SPK::Vector3D (0.0f, 0.0f,-1.0f))\nClass arguments details:\narg 2 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -186,15 +182,13 @@ public:
 	// std::string SPK::StraightEmitter::getClassName() const
 	static int _bind_getClassName(lua_State *L) {
 		if (!_lg_typecheck_getClassName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string SPK::StraightEmitter::getClassName() const function, expected prototype:\nstd::string SPK::StraightEmitter::getClassName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string SPK::StraightEmitter::getClassName() const function, expected prototype:\nstd::string SPK::StraightEmitter::getClassName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::StraightEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::StraightEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::StraightEmitter::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string SPK::StraightEmitter::getClassName() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -205,8 +199,7 @@ public:
 	// void SPK::StraightEmitter::setDirection(const SPK::Vector3D & direction)
 	static int _bind_setDirection(lua_State *L) {
 		if (!_lg_typecheck_setDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::StraightEmitter::setDirection(const SPK::Vector3D & direction) function, expected prototype:\nvoid SPK::StraightEmitter::setDirection(const SPK::Vector3D & direction)\nClass arguments details:\narg 1 ID = 70092749\n");
+			luaL_error(L, "luna typecheck failed in void SPK::StraightEmitter::setDirection(const SPK::Vector3D & direction) function, expected prototype:\nvoid SPK::StraightEmitter::setDirection(const SPK::Vector3D & direction)\nClass arguments details:\narg 1 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Vector3D* direction_ptr=(Luna< SPK::Vector3D >::check(L,2));
@@ -217,8 +210,7 @@ public:
 
 		SPK::StraightEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::StraightEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::StraightEmitter::setDirection(const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::StraightEmitter::setDirection(const SPK::Vector3D &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDirection(direction);
 
@@ -228,15 +220,13 @@ public:
 	// const SPK::Vector3D & SPK::StraightEmitter::getDirection() const
 	static int _bind_getDirection(lua_State *L) {
 		if (!_lg_typecheck_getDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const SPK::Vector3D & SPK::StraightEmitter::getDirection() const function, expected prototype:\nconst SPK::Vector3D & SPK::StraightEmitter::getDirection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const SPK::Vector3D & SPK::StraightEmitter::getDirection() const function, expected prototype:\nconst SPK::Vector3D & SPK::StraightEmitter::getDirection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::StraightEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::StraightEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::StraightEmitter::getDirection() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::StraightEmitter::getDirection() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const SPK::Vector3D* lret = &self->getDirection();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -249,15 +239,13 @@ public:
 	// const SPK::Vector3D & SPK::StraightEmitter::getTransformedDirection() const
 	static int _bind_getTransformedDirection(lua_State *L) {
 		if (!_lg_typecheck_getTransformedDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const SPK::Vector3D & SPK::StraightEmitter::getTransformedDirection() const function, expected prototype:\nconst SPK::Vector3D & SPK::StraightEmitter::getTransformedDirection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const SPK::Vector3D & SPK::StraightEmitter::getTransformedDirection() const function, expected prototype:\nconst SPK::Vector3D & SPK::StraightEmitter::getTransformedDirection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::StraightEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::StraightEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::StraightEmitter::getTransformedDirection() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::StraightEmitter::getTransformedDirection() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const SPK::Vector3D* lret = &self->getTransformedDirection();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -270,8 +258,7 @@ public:
 	// static SPK::StraightEmitter * SPK::StraightEmitter::create(const SPK::Vector3D & direction = SPK::Vector3D (0.0f, 0.0f,-1.0f))
 	static int _bind_create(lua_State *L) {
 		if (!_lg_typecheck_create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static SPK::StraightEmitter * SPK::StraightEmitter::create(const SPK::Vector3D & direction = SPK::Vector3D (0.0f, 0.0f,-1.0f)) function, expected prototype:\nstatic SPK::StraightEmitter * SPK::StraightEmitter::create(const SPK::Vector3D & direction = SPK::Vector3D (0.0f, 0.0f,-1.0f))\nClass arguments details:\narg 1 ID = 70092749\n");
+			luaL_error(L, "luna typecheck failed in static SPK::StraightEmitter * SPK::StraightEmitter::create(const SPK::Vector3D & direction = SPK::Vector3D (0.0f, 0.0f,-1.0f)) function, expected prototype:\nstatic SPK::StraightEmitter * SPK::StraightEmitter::create(const SPK::Vector3D & direction = SPK::Vector3D (0.0f, 0.0f,-1.0f))\nClass arguments details:\narg 1 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -293,16 +280,14 @@ public:
 	// SPK::Registerable * SPK::StraightEmitter::base_findByName(const std::string & name)
 	static int _bind_base_findByName(lua_State *L) {
 		if (!_lg_typecheck_base_findByName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::StraightEmitter::base_findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::StraightEmitter::base_findByName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::StraightEmitter::base_findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::StraightEmitter::base_findByName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		SPK::StraightEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::StraightEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::StraightEmitter::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::StraightEmitter::base_findByName(const std::string &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::Registerable * lret = self->StraightEmitter::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -315,15 +300,13 @@ public:
 	// std::string SPK::StraightEmitter::base_getClassName() const
 	static int _bind_base_getClassName(lua_State *L) {
 		if (!_lg_typecheck_base_getClassName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string SPK::StraightEmitter::base_getClassName() const function, expected prototype:\nstd::string SPK::StraightEmitter::base_getClassName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string SPK::StraightEmitter::base_getClassName() const function, expected prototype:\nstd::string SPK::StraightEmitter::base_getClassName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::StraightEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::StraightEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::StraightEmitter::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string SPK::StraightEmitter::base_getClassName() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->StraightEmitter::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());

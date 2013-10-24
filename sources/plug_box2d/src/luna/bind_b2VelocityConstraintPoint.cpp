@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2VelocityConstraintPoint*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2VelocityConstraintPoint*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2VelocityConstraintPoint* rhs =(Luna< b2VelocityConstraintPoint >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2VelocityConstraintPoint* self= (b2VelocityConstraintPoint*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2VelocityConstraintPoint >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -161,35 +157,35 @@ public:
 	inline static bool _lg_typecheck_setNormalImpulse(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setTangentImpulse(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setNormalMass(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setTangentMass(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setVelocityBias(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -203,15 +199,13 @@ public:
 	// b2Vec2 b2VelocityConstraintPoint::rA()
 	static int _bind_getRA(lua_State *L) {
 		if (!_lg_typecheck_getRA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2VelocityConstraintPoint::rA() function, expected prototype:\nb2Vec2 b2VelocityConstraintPoint::rA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2VelocityConstraintPoint::rA() function, expected prototype:\nb2Vec2 b2VelocityConstraintPoint::rA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2VelocityConstraintPoint* self=(Luna< b2VelocityConstraintPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2VelocityConstraintPoint::rA(). Got : '%s'",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2VelocityConstraintPoint::rA(). Got : '%s'\n%s",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->rA;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -224,15 +218,13 @@ public:
 	// b2Vec2 b2VelocityConstraintPoint::rB()
 	static int _bind_getRB(lua_State *L) {
 		if (!_lg_typecheck_getRB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2VelocityConstraintPoint::rB() function, expected prototype:\nb2Vec2 b2VelocityConstraintPoint::rB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2VelocityConstraintPoint::rB() function, expected prototype:\nb2Vec2 b2VelocityConstraintPoint::rB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2VelocityConstraintPoint* self=(Luna< b2VelocityConstraintPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2VelocityConstraintPoint::rB(). Got : '%s'",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2VelocityConstraintPoint::rB(). Got : '%s'\n%s",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->rB;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -245,15 +237,13 @@ public:
 	// float b2VelocityConstraintPoint::normalImpulse()
 	static int _bind_getNormalImpulse(lua_State *L) {
 		if (!_lg_typecheck_getNormalImpulse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2VelocityConstraintPoint::normalImpulse() function, expected prototype:\nfloat b2VelocityConstraintPoint::normalImpulse()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2VelocityConstraintPoint::normalImpulse() function, expected prototype:\nfloat b2VelocityConstraintPoint::normalImpulse()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2VelocityConstraintPoint* self=(Luna< b2VelocityConstraintPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2VelocityConstraintPoint::normalImpulse(). Got : '%s'",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2VelocityConstraintPoint::normalImpulse(). Got : '%s'\n%s",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->normalImpulse;
 		lua_pushnumber(L,lret);
@@ -264,15 +254,13 @@ public:
 	// float b2VelocityConstraintPoint::tangentImpulse()
 	static int _bind_getTangentImpulse(lua_State *L) {
 		if (!_lg_typecheck_getTangentImpulse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2VelocityConstraintPoint::tangentImpulse() function, expected prototype:\nfloat b2VelocityConstraintPoint::tangentImpulse()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2VelocityConstraintPoint::tangentImpulse() function, expected prototype:\nfloat b2VelocityConstraintPoint::tangentImpulse()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2VelocityConstraintPoint* self=(Luna< b2VelocityConstraintPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2VelocityConstraintPoint::tangentImpulse(). Got : '%s'",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2VelocityConstraintPoint::tangentImpulse(). Got : '%s'\n%s",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->tangentImpulse;
 		lua_pushnumber(L,lret);
@@ -283,15 +271,13 @@ public:
 	// float b2VelocityConstraintPoint::normalMass()
 	static int _bind_getNormalMass(lua_State *L) {
 		if (!_lg_typecheck_getNormalMass(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2VelocityConstraintPoint::normalMass() function, expected prototype:\nfloat b2VelocityConstraintPoint::normalMass()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2VelocityConstraintPoint::normalMass() function, expected prototype:\nfloat b2VelocityConstraintPoint::normalMass()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2VelocityConstraintPoint* self=(Luna< b2VelocityConstraintPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2VelocityConstraintPoint::normalMass(). Got : '%s'",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2VelocityConstraintPoint::normalMass(). Got : '%s'\n%s",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->normalMass;
 		lua_pushnumber(L,lret);
@@ -302,15 +288,13 @@ public:
 	// float b2VelocityConstraintPoint::tangentMass()
 	static int _bind_getTangentMass(lua_State *L) {
 		if (!_lg_typecheck_getTangentMass(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2VelocityConstraintPoint::tangentMass() function, expected prototype:\nfloat b2VelocityConstraintPoint::tangentMass()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2VelocityConstraintPoint::tangentMass() function, expected prototype:\nfloat b2VelocityConstraintPoint::tangentMass()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2VelocityConstraintPoint* self=(Luna< b2VelocityConstraintPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2VelocityConstraintPoint::tangentMass(). Got : '%s'",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2VelocityConstraintPoint::tangentMass(). Got : '%s'\n%s",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->tangentMass;
 		lua_pushnumber(L,lret);
@@ -321,15 +305,13 @@ public:
 	// float b2VelocityConstraintPoint::velocityBias()
 	static int _bind_getVelocityBias(lua_State *L) {
 		if (!_lg_typecheck_getVelocityBias(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2VelocityConstraintPoint::velocityBias() function, expected prototype:\nfloat b2VelocityConstraintPoint::velocityBias()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2VelocityConstraintPoint::velocityBias() function, expected prototype:\nfloat b2VelocityConstraintPoint::velocityBias()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2VelocityConstraintPoint* self=(Luna< b2VelocityConstraintPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2VelocityConstraintPoint::velocityBias(). Got : '%s'",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2VelocityConstraintPoint::velocityBias(). Got : '%s'\n%s",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->velocityBias;
 		lua_pushnumber(L,lret);
@@ -340,8 +322,7 @@ public:
 	// void b2VelocityConstraintPoint::rA(b2Vec2 value)
 	static int _bind_setRA(lua_State *L) {
 		if (!_lg_typecheck_setRA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2VelocityConstraintPoint::rA(b2Vec2 value) function, expected prototype:\nvoid b2VelocityConstraintPoint::rA(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2VelocityConstraintPoint::rA(b2Vec2 value) function, expected prototype:\nvoid b2VelocityConstraintPoint::rA(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -352,8 +333,7 @@ public:
 
 		b2VelocityConstraintPoint* self=(Luna< b2VelocityConstraintPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2VelocityConstraintPoint::rA(b2Vec2). Got : '%s'",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2VelocityConstraintPoint::rA(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->rA = value;
 
@@ -363,8 +343,7 @@ public:
 	// void b2VelocityConstraintPoint::rB(b2Vec2 value)
 	static int _bind_setRB(lua_State *L) {
 		if (!_lg_typecheck_setRB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2VelocityConstraintPoint::rB(b2Vec2 value) function, expected prototype:\nvoid b2VelocityConstraintPoint::rB(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2VelocityConstraintPoint::rB(b2Vec2 value) function, expected prototype:\nvoid b2VelocityConstraintPoint::rB(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -375,8 +354,7 @@ public:
 
 		b2VelocityConstraintPoint* self=(Luna< b2VelocityConstraintPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2VelocityConstraintPoint::rB(b2Vec2). Got : '%s'",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2VelocityConstraintPoint::rB(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->rB = value;
 
@@ -386,16 +364,14 @@ public:
 	// void b2VelocityConstraintPoint::normalImpulse(float value)
 	static int _bind_setNormalImpulse(lua_State *L) {
 		if (!_lg_typecheck_setNormalImpulse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2VelocityConstraintPoint::normalImpulse(float value) function, expected prototype:\nvoid b2VelocityConstraintPoint::normalImpulse(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2VelocityConstraintPoint::normalImpulse(float value) function, expected prototype:\nvoid b2VelocityConstraintPoint::normalImpulse(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2VelocityConstraintPoint* self=(Luna< b2VelocityConstraintPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2VelocityConstraintPoint::normalImpulse(float). Got : '%s'",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2VelocityConstraintPoint::normalImpulse(float). Got : '%s'\n%s",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->normalImpulse = value;
 
@@ -405,16 +381,14 @@ public:
 	// void b2VelocityConstraintPoint::tangentImpulse(float value)
 	static int _bind_setTangentImpulse(lua_State *L) {
 		if (!_lg_typecheck_setTangentImpulse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2VelocityConstraintPoint::tangentImpulse(float value) function, expected prototype:\nvoid b2VelocityConstraintPoint::tangentImpulse(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2VelocityConstraintPoint::tangentImpulse(float value) function, expected prototype:\nvoid b2VelocityConstraintPoint::tangentImpulse(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2VelocityConstraintPoint* self=(Luna< b2VelocityConstraintPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2VelocityConstraintPoint::tangentImpulse(float). Got : '%s'",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2VelocityConstraintPoint::tangentImpulse(float). Got : '%s'\n%s",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->tangentImpulse = value;
 
@@ -424,16 +398,14 @@ public:
 	// void b2VelocityConstraintPoint::normalMass(float value)
 	static int _bind_setNormalMass(lua_State *L) {
 		if (!_lg_typecheck_setNormalMass(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2VelocityConstraintPoint::normalMass(float value) function, expected prototype:\nvoid b2VelocityConstraintPoint::normalMass(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2VelocityConstraintPoint::normalMass(float value) function, expected prototype:\nvoid b2VelocityConstraintPoint::normalMass(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2VelocityConstraintPoint* self=(Luna< b2VelocityConstraintPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2VelocityConstraintPoint::normalMass(float). Got : '%s'",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2VelocityConstraintPoint::normalMass(float). Got : '%s'\n%s",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->normalMass = value;
 
@@ -443,16 +415,14 @@ public:
 	// void b2VelocityConstraintPoint::tangentMass(float value)
 	static int _bind_setTangentMass(lua_State *L) {
 		if (!_lg_typecheck_setTangentMass(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2VelocityConstraintPoint::tangentMass(float value) function, expected prototype:\nvoid b2VelocityConstraintPoint::tangentMass(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2VelocityConstraintPoint::tangentMass(float value) function, expected prototype:\nvoid b2VelocityConstraintPoint::tangentMass(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2VelocityConstraintPoint* self=(Luna< b2VelocityConstraintPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2VelocityConstraintPoint::tangentMass(float). Got : '%s'",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2VelocityConstraintPoint::tangentMass(float). Got : '%s'\n%s",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->tangentMass = value;
 
@@ -462,16 +432,14 @@ public:
 	// void b2VelocityConstraintPoint::velocityBias(float value)
 	static int _bind_setVelocityBias(lua_State *L) {
 		if (!_lg_typecheck_setVelocityBias(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2VelocityConstraintPoint::velocityBias(float value) function, expected prototype:\nvoid b2VelocityConstraintPoint::velocityBias(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2VelocityConstraintPoint::velocityBias(float value) function, expected prototype:\nvoid b2VelocityConstraintPoint::velocityBias(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2VelocityConstraintPoint* self=(Luna< b2VelocityConstraintPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2VelocityConstraintPoint::velocityBias(float). Got : '%s'",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2VelocityConstraintPoint::velocityBias(float). Got : '%s'\n%s",typeid(Luna< b2VelocityConstraintPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->velocityBias = value;
 

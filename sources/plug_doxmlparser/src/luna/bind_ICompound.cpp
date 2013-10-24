@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ICompound* self=(Luna< ICompound >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(ICompound*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(ICompound*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ICompound* rhs =(Luna< ICompound >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ICompound* self= (ICompound*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< ICompound >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -186,14 +181,14 @@ public:
 	inline static bool _lg_typecheck_memberById(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_memberByName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -211,8 +206,7 @@ public:
 	// ICompound::ICompound(lua_Table * data)
 	static ICompound* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ICompound::ICompound(lua_Table * data) function, expected prototype:\nICompound::ICompound(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ICompound::ICompound(lua_Table * data) function, expected prototype:\nICompound::ICompound(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -224,15 +218,13 @@ public:
 	// const IString * ICompound::protection() const
 	static int _bind_protection(lua_State *L) {
 		if (!_lg_typecheck_protection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const IString * ICompound::protection() const function, expected prototype:\nconst IString * ICompound::protection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const IString * ICompound::protection() const function, expected prototype:\nconst IString * ICompound::protection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ICompound* self=(Luna< ICompound >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const IString * ICompound::protection() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const IString * ICompound::protection() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const IString * lret = self->protection();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -245,15 +237,13 @@ public:
 	// const IString * ICompound::name() const
 	static int _bind_name(lua_State *L) {
 		if (!_lg_typecheck_name(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const IString * ICompound::name() const function, expected prototype:\nconst IString * ICompound::name() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const IString * ICompound::name() const function, expected prototype:\nconst IString * ICompound::name() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ICompound* self=(Luna< ICompound >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const IString * ICompound::name() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const IString * ICompound::name() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const IString * lret = self->name();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -266,15 +256,13 @@ public:
 	// const IString * ICompound::id() const
 	static int _bind_id(lua_State *L) {
 		if (!_lg_typecheck_id(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const IString * ICompound::id() const function, expected prototype:\nconst IString * ICompound::id() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const IString * ICompound::id() const function, expected prototype:\nconst IString * ICompound::id() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ICompound* self=(Luna< ICompound >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const IString * ICompound::id() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const IString * ICompound::id() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const IString * lret = self->id();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -287,15 +275,13 @@ public:
 	// ICompound::CompoundKind ICompound::kind() const
 	static int _bind_kind(lua_State *L) {
 		if (!_lg_typecheck_kind(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ICompound::CompoundKind ICompound::kind() const function, expected prototype:\nICompound::CompoundKind ICompound::kind() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ICompound::CompoundKind ICompound::kind() const function, expected prototype:\nICompound::CompoundKind ICompound::kind() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ICompound* self=(Luna< ICompound >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ICompound::CompoundKind ICompound::kind() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call ICompound::CompoundKind ICompound::kind() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ICompound::CompoundKind lret = self->kind();
 		lua_pushnumber(L,lret);
@@ -306,15 +292,13 @@ public:
 	// const IString * ICompound::kindString() const
 	static int _bind_kindString(lua_State *L) {
 		if (!_lg_typecheck_kindString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const IString * ICompound::kindString() const function, expected prototype:\nconst IString * ICompound::kindString() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const IString * ICompound::kindString() const function, expected prototype:\nconst IString * ICompound::kindString() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ICompound* self=(Luna< ICompound >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const IString * ICompound::kindString() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const IString * ICompound::kindString() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const IString * lret = self->kindString();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -327,15 +311,13 @@ public:
 	// ISectionIterator * ICompound::sections() const
 	static int _bind_sections(lua_State *L) {
 		if (!_lg_typecheck_sections(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ISectionIterator * ICompound::sections() const function, expected prototype:\nISectionIterator * ICompound::sections() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ISectionIterator * ICompound::sections() const function, expected prototype:\nISectionIterator * ICompound::sections() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ICompound* self=(Luna< ICompound >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ISectionIterator * ICompound::sections() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call ISectionIterator * ICompound::sections() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ISectionIterator * lret = self->sections();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -348,15 +330,13 @@ public:
 	// IDocRoot * ICompound::briefDescription() const
 	static int _bind_briefDescription(lua_State *L) {
 		if (!_lg_typecheck_briefDescription(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocRoot * ICompound::briefDescription() const function, expected prototype:\nIDocRoot * ICompound::briefDescription() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocRoot * ICompound::briefDescription() const function, expected prototype:\nIDocRoot * ICompound::briefDescription() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ICompound* self=(Luna< ICompound >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IDocRoot * ICompound::briefDescription() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IDocRoot * ICompound::briefDescription() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IDocRoot * lret = self->briefDescription();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -369,15 +349,13 @@ public:
 	// IDocRoot * ICompound::detailedDescription() const
 	static int _bind_detailedDescription(lua_State *L) {
 		if (!_lg_typecheck_detailedDescription(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocRoot * ICompound::detailedDescription() const function, expected prototype:\nIDocRoot * ICompound::detailedDescription() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocRoot * ICompound::detailedDescription() const function, expected prototype:\nIDocRoot * ICompound::detailedDescription() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ICompound* self=(Luna< ICompound >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IDocRoot * ICompound::detailedDescription() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IDocRoot * ICompound::detailedDescription() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IDocRoot * lret = self->detailedDescription();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -390,16 +368,14 @@ public:
 	// IMember * ICompound::memberById(const char * id) const
 	static int _bind_memberById(lua_State *L) {
 		if (!_lg_typecheck_memberById(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IMember * ICompound::memberById(const char * id) const function, expected prototype:\nIMember * ICompound::memberById(const char * id) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IMember * ICompound::memberById(const char * id) const function, expected prototype:\nIMember * ICompound::memberById(const char * id) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * id=(const char *)lua_tostring(L,2);
 
 		ICompound* self=(Luna< ICompound >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IMember * ICompound::memberById(const char *) const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IMember * ICompound::memberById(const char *) const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IMember * lret = self->memberById(id);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -412,16 +388,14 @@ public:
 	// IMemberIterator * ICompound::memberByName(const char * name) const
 	static int _bind_memberByName(lua_State *L) {
 		if (!_lg_typecheck_memberByName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IMemberIterator * ICompound::memberByName(const char * name) const function, expected prototype:\nIMemberIterator * ICompound::memberByName(const char * name) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IMemberIterator * ICompound::memberByName(const char * name) const function, expected prototype:\nIMemberIterator * ICompound::memberByName(const char * name) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * name=(const char *)lua_tostring(L,2);
 
 		ICompound* self=(Luna< ICompound >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IMemberIterator * ICompound::memberByName(const char *) const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IMemberIterator * ICompound::memberByName(const char *) const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IMemberIterator * lret = self->memberByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -434,15 +408,13 @@ public:
 	// void ICompound::release()
 	static int _bind_release(lua_State *L) {
 		if (!_lg_typecheck_release(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void ICompound::release() function, expected prototype:\nvoid ICompound::release()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void ICompound::release() function, expected prototype:\nvoid ICompound::release()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ICompound* self=(Luna< ICompound >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void ICompound::release(). Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void ICompound::release(). Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->release();
 

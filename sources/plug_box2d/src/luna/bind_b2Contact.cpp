@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Contact*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Contact*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Contact* rhs =(Luna< b2Contact >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Contact* self= (b2Contact*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Contact >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -217,7 +212,7 @@ public:
 	inline static bool _lg_typecheck_SetFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -236,7 +231,7 @@ public:
 	inline static bool _lg_typecheck_SetRestitution(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -271,15 +266,13 @@ public:
 	// b2Manifold * b2Contact::GetManifold()
 	static int _bind_GetManifold_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetManifold_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Manifold * b2Contact::GetManifold() function, expected prototype:\nb2Manifold * b2Contact::GetManifold()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Manifold * b2Contact::GetManifold() function, expected prototype:\nb2Manifold * b2Contact::GetManifold()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Manifold * b2Contact::GetManifold(). Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Manifold * b2Contact::GetManifold(). Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Manifold * lret = self->GetManifold();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -292,15 +285,13 @@ public:
 	// const b2Manifold * b2Contact::GetManifold() const
 	static int _bind_GetManifold_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetManifold_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Manifold * b2Contact::GetManifold() const function, expected prototype:\nconst b2Manifold * b2Contact::GetManifold() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2Manifold * b2Contact::GetManifold() const function, expected prototype:\nconst b2Manifold * b2Contact::GetManifold() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Manifold * b2Contact::GetManifold() const. Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Manifold * b2Contact::GetManifold() const. Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Manifold * lret = self->GetManifold();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -322,16 +313,14 @@ public:
 	// void b2Contact::GetWorldManifold(b2WorldManifold * worldManifold) const
 	static int _bind_GetWorldManifold(lua_State *L) {
 		if (!_lg_typecheck_GetWorldManifold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Contact::GetWorldManifold(b2WorldManifold * worldManifold) const function, expected prototype:\nvoid b2Contact::GetWorldManifold(b2WorldManifold * worldManifold) const\nClass arguments details:\narg 1 ID = 57338608\n");
+			luaL_error(L, "luna typecheck failed in void b2Contact::GetWorldManifold(b2WorldManifold * worldManifold) const function, expected prototype:\nvoid b2Contact::GetWorldManifold(b2WorldManifold * worldManifold) const\nClass arguments details:\narg 1 ID = 57338608\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2WorldManifold* worldManifold=(Luna< b2WorldManifold >::check(L,2));
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Contact::GetWorldManifold(b2WorldManifold *) const. Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Contact::GetWorldManifold(b2WorldManifold *) const. Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetWorldManifold(worldManifold);
 
@@ -341,15 +330,13 @@ public:
 	// bool b2Contact::IsTouching() const
 	static int _bind_IsTouching(lua_State *L) {
 		if (!_lg_typecheck_IsTouching(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2Contact::IsTouching() const function, expected prototype:\nbool b2Contact::IsTouching() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool b2Contact::IsTouching() const function, expected prototype:\nbool b2Contact::IsTouching() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2Contact::IsTouching() const. Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2Contact::IsTouching() const. Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsTouching();
 		lua_pushboolean(L,lret?1:0);
@@ -360,16 +347,14 @@ public:
 	// void b2Contact::SetEnabled(bool flag)
 	static int _bind_SetEnabled(lua_State *L) {
 		if (!_lg_typecheck_SetEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Contact::SetEnabled(bool flag) function, expected prototype:\nvoid b2Contact::SetEnabled(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Contact::SetEnabled(bool flag) function, expected prototype:\nvoid b2Contact::SetEnabled(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Contact::SetEnabled(bool). Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Contact::SetEnabled(bool). Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetEnabled(flag);
 
@@ -379,15 +364,13 @@ public:
 	// bool b2Contact::IsEnabled() const
 	static int _bind_IsEnabled(lua_State *L) {
 		if (!_lg_typecheck_IsEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2Contact::IsEnabled() const function, expected prototype:\nbool b2Contact::IsEnabled() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool b2Contact::IsEnabled() const function, expected prototype:\nbool b2Contact::IsEnabled() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2Contact::IsEnabled() const. Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2Contact::IsEnabled() const. Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -398,15 +381,13 @@ public:
 	// b2Contact * b2Contact::GetNext()
 	static int _bind_GetNext_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetNext_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Contact * b2Contact::GetNext() function, expected prototype:\nb2Contact * b2Contact::GetNext()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Contact * b2Contact::GetNext() function, expected prototype:\nb2Contact * b2Contact::GetNext()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Contact * b2Contact::GetNext(). Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Contact * b2Contact::GetNext(). Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Contact * lret = self->GetNext();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -419,15 +400,13 @@ public:
 	// const b2Contact * b2Contact::GetNext() const
 	static int _bind_GetNext_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetNext_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Contact * b2Contact::GetNext() const function, expected prototype:\nconst b2Contact * b2Contact::GetNext() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2Contact * b2Contact::GetNext() const function, expected prototype:\nconst b2Contact * b2Contact::GetNext() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Contact * b2Contact::GetNext() const. Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Contact * b2Contact::GetNext() const. Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Contact * lret = self->GetNext();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -449,15 +428,13 @@ public:
 	// b2Fixture * b2Contact::GetFixtureA()
 	static int _bind_GetFixtureA_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetFixtureA_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Fixture * b2Contact::GetFixtureA() function, expected prototype:\nb2Fixture * b2Contact::GetFixtureA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Fixture * b2Contact::GetFixtureA() function, expected prototype:\nb2Fixture * b2Contact::GetFixtureA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Fixture * b2Contact::GetFixtureA(). Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Fixture * b2Contact::GetFixtureA(). Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Fixture * lret = self->GetFixtureA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -470,15 +447,13 @@ public:
 	// const b2Fixture * b2Contact::GetFixtureA() const
 	static int _bind_GetFixtureA_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetFixtureA_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Fixture * b2Contact::GetFixtureA() const function, expected prototype:\nconst b2Fixture * b2Contact::GetFixtureA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2Fixture * b2Contact::GetFixtureA() const function, expected prototype:\nconst b2Fixture * b2Contact::GetFixtureA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Fixture * b2Contact::GetFixtureA() const. Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Fixture * b2Contact::GetFixtureA() const. Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Fixture * lret = self->GetFixtureA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -500,15 +475,13 @@ public:
 	// signed int b2Contact::GetChildIndexA() const
 	static int _bind_GetChildIndexA(lua_State *L) {
 		if (!_lg_typecheck_GetChildIndexA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2Contact::GetChildIndexA() const function, expected prototype:\nsigned int b2Contact::GetChildIndexA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2Contact::GetChildIndexA() const function, expected prototype:\nsigned int b2Contact::GetChildIndexA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2Contact::GetChildIndexA() const. Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2Contact::GetChildIndexA() const. Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->GetChildIndexA();
 		lua_pushnumber(L,lret);
@@ -519,15 +492,13 @@ public:
 	// b2Fixture * b2Contact::GetFixtureB()
 	static int _bind_GetFixtureB_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetFixtureB_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Fixture * b2Contact::GetFixtureB() function, expected prototype:\nb2Fixture * b2Contact::GetFixtureB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Fixture * b2Contact::GetFixtureB() function, expected prototype:\nb2Fixture * b2Contact::GetFixtureB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Fixture * b2Contact::GetFixtureB(). Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Fixture * b2Contact::GetFixtureB(). Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Fixture * lret = self->GetFixtureB();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -540,15 +511,13 @@ public:
 	// const b2Fixture * b2Contact::GetFixtureB() const
 	static int _bind_GetFixtureB_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetFixtureB_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Fixture * b2Contact::GetFixtureB() const function, expected prototype:\nconst b2Fixture * b2Contact::GetFixtureB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2Fixture * b2Contact::GetFixtureB() const function, expected prototype:\nconst b2Fixture * b2Contact::GetFixtureB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Fixture * b2Contact::GetFixtureB() const. Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Fixture * b2Contact::GetFixtureB() const. Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Fixture * lret = self->GetFixtureB();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -570,15 +539,13 @@ public:
 	// signed int b2Contact::GetChildIndexB() const
 	static int _bind_GetChildIndexB(lua_State *L) {
 		if (!_lg_typecheck_GetChildIndexB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2Contact::GetChildIndexB() const function, expected prototype:\nsigned int b2Contact::GetChildIndexB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2Contact::GetChildIndexB() const function, expected prototype:\nsigned int b2Contact::GetChildIndexB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2Contact::GetChildIndexB() const. Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2Contact::GetChildIndexB() const. Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->GetChildIndexB();
 		lua_pushnumber(L,lret);
@@ -589,16 +556,14 @@ public:
 	// void b2Contact::SetFriction(float friction)
 	static int _bind_SetFriction(lua_State *L) {
 		if (!_lg_typecheck_SetFriction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Contact::SetFriction(float friction) function, expected prototype:\nvoid b2Contact::SetFriction(float friction)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Contact::SetFriction(float friction) function, expected prototype:\nvoid b2Contact::SetFriction(float friction)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float friction=(float)lua_tonumber(L,2);
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Contact::SetFriction(float). Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Contact::SetFriction(float). Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFriction(friction);
 
@@ -608,15 +573,13 @@ public:
 	// float b2Contact::GetFriction() const
 	static int _bind_GetFriction(lua_State *L) {
 		if (!_lg_typecheck_GetFriction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Contact::GetFriction() const function, expected prototype:\nfloat b2Contact::GetFriction() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Contact::GetFriction() const function, expected prototype:\nfloat b2Contact::GetFriction() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Contact::GetFriction() const. Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Contact::GetFriction() const. Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetFriction();
 		lua_pushnumber(L,lret);
@@ -627,15 +590,13 @@ public:
 	// void b2Contact::ResetFriction()
 	static int _bind_ResetFriction(lua_State *L) {
 		if (!_lg_typecheck_ResetFriction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Contact::ResetFriction() function, expected prototype:\nvoid b2Contact::ResetFriction()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Contact::ResetFriction() function, expected prototype:\nvoid b2Contact::ResetFriction()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Contact::ResetFriction(). Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Contact::ResetFriction(). Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ResetFriction();
 
@@ -645,16 +606,14 @@ public:
 	// void b2Contact::SetRestitution(float restitution)
 	static int _bind_SetRestitution(lua_State *L) {
 		if (!_lg_typecheck_SetRestitution(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Contact::SetRestitution(float restitution) function, expected prototype:\nvoid b2Contact::SetRestitution(float restitution)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Contact::SetRestitution(float restitution) function, expected prototype:\nvoid b2Contact::SetRestitution(float restitution)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float restitution=(float)lua_tonumber(L,2);
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Contact::SetRestitution(float). Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Contact::SetRestitution(float). Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRestitution(restitution);
 
@@ -664,15 +623,13 @@ public:
 	// float b2Contact::GetRestitution() const
 	static int _bind_GetRestitution(lua_State *L) {
 		if (!_lg_typecheck_GetRestitution(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Contact::GetRestitution() const function, expected prototype:\nfloat b2Contact::GetRestitution() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Contact::GetRestitution() const function, expected prototype:\nfloat b2Contact::GetRestitution() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Contact::GetRestitution() const. Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Contact::GetRestitution() const. Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetRestitution();
 		lua_pushnumber(L,lret);
@@ -683,15 +640,13 @@ public:
 	// void b2Contact::ResetRestitution()
 	static int _bind_ResetRestitution(lua_State *L) {
 		if (!_lg_typecheck_ResetRestitution(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Contact::ResetRestitution() function, expected prototype:\nvoid b2Contact::ResetRestitution()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Contact::ResetRestitution() function, expected prototype:\nvoid b2Contact::ResetRestitution()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Contact::ResetRestitution(). Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Contact::ResetRestitution(). Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ResetRestitution();
 
@@ -701,8 +656,7 @@ public:
 	// void b2Contact::Evaluate(b2Manifold * manifold, const b2Transform & xfA, const b2Transform & xfB)
 	static int _bind_Evaluate(lua_State *L) {
 		if (!_lg_typecheck_Evaluate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Contact::Evaluate(b2Manifold * manifold, const b2Transform & xfA, const b2Transform & xfB) function, expected prototype:\nvoid b2Contact::Evaluate(b2Manifold * manifold, const b2Transform & xfA, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 73405450\narg 2 ID = 44090970\narg 3 ID = 44090970\n");
+			luaL_error(L, "luna typecheck failed in void b2Contact::Evaluate(b2Manifold * manifold, const b2Transform & xfA, const b2Transform & xfB) function, expected prototype:\nvoid b2Contact::Evaluate(b2Manifold * manifold, const b2Transform & xfA, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 73405450\narg 2 ID = 44090970\narg 3 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Manifold* manifold=(Luna< b2Manifold >::check(L,2));
@@ -719,8 +673,7 @@ public:
 
 		b2Contact* self=(Luna< b2Contact >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Contact::Evaluate(b2Manifold *, const b2Transform &, const b2Transform &). Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Contact::Evaluate(b2Manifold *, const b2Transform &, const b2Transform &). Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Evaluate(manifold, xfA, xfB);
 

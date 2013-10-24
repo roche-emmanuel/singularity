@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btMultiSphereShapeData*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btMultiSphereShapeData*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMultiSphereShapeData* rhs =(Luna< btMultiSphereShapeData >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMultiSphereShapeData* self= (btMultiSphereShapeData*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btMultiSphereShapeData >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -137,7 +133,7 @@ public:
 	inline static bool _lg_typecheck_setLocalPositionArraySize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -151,15 +147,13 @@ public:
 	// btConvexInternalShapeData btMultiSphereShapeData::m_convexInternalShapeData()
 	static int _bind_getConvexInternalShapeData(lua_State *L) {
 		if (!_lg_typecheck_getConvexInternalShapeData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConvexInternalShapeData btMultiSphereShapeData::m_convexInternalShapeData() function, expected prototype:\nbtConvexInternalShapeData btMultiSphereShapeData::m_convexInternalShapeData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btConvexInternalShapeData btMultiSphereShapeData::m_convexInternalShapeData() function, expected prototype:\nbtConvexInternalShapeData btMultiSphereShapeData::m_convexInternalShapeData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMultiSphereShapeData* self=(Luna< btMultiSphereShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btConvexInternalShapeData btMultiSphereShapeData::m_convexInternalShapeData(). Got : '%s'",typeid(Luna< btMultiSphereShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btConvexInternalShapeData btMultiSphereShapeData::m_convexInternalShapeData(). Got : '%s'\n%s",typeid(Luna< btMultiSphereShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btConvexInternalShapeData* lret = &self->m_convexInternalShapeData;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -172,15 +166,13 @@ public:
 	// btPositionAndRadius * btMultiSphereShapeData::m_localPositionArrayPtr()
 	static int _bind_getLocalPositionArrayPtr(lua_State *L) {
 		if (!_lg_typecheck_getLocalPositionArrayPtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btPositionAndRadius * btMultiSphereShapeData::m_localPositionArrayPtr() function, expected prototype:\nbtPositionAndRadius * btMultiSphereShapeData::m_localPositionArrayPtr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btPositionAndRadius * btMultiSphereShapeData::m_localPositionArrayPtr() function, expected prototype:\nbtPositionAndRadius * btMultiSphereShapeData::m_localPositionArrayPtr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMultiSphereShapeData* self=(Luna< btMultiSphereShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btPositionAndRadius * btMultiSphereShapeData::m_localPositionArrayPtr(). Got : '%s'",typeid(Luna< btMultiSphereShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btPositionAndRadius * btMultiSphereShapeData::m_localPositionArrayPtr(). Got : '%s'\n%s",typeid(Luna< btMultiSphereShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btPositionAndRadius * lret = self->m_localPositionArrayPtr;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -193,15 +185,13 @@ public:
 	// int btMultiSphereShapeData::m_localPositionArraySize()
 	static int _bind_getLocalPositionArraySize(lua_State *L) {
 		if (!_lg_typecheck_getLocalPositionArraySize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btMultiSphereShapeData::m_localPositionArraySize() function, expected prototype:\nint btMultiSphereShapeData::m_localPositionArraySize()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btMultiSphereShapeData::m_localPositionArraySize() function, expected prototype:\nint btMultiSphereShapeData::m_localPositionArraySize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMultiSphereShapeData* self=(Luna< btMultiSphereShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btMultiSphereShapeData::m_localPositionArraySize(). Got : '%s'",typeid(Luna< btMultiSphereShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btMultiSphereShapeData::m_localPositionArraySize(). Got : '%s'\n%s",typeid(Luna< btMultiSphereShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_localPositionArraySize;
 		lua_pushnumber(L,lret);
@@ -212,8 +202,7 @@ public:
 	// void btMultiSphereShapeData::m_convexInternalShapeData(btConvexInternalShapeData value)
 	static int _bind_setConvexInternalShapeData(lua_State *L) {
 		if (!_lg_typecheck_setConvexInternalShapeData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMultiSphereShapeData::m_convexInternalShapeData(btConvexInternalShapeData value) function, expected prototype:\nvoid btMultiSphereShapeData::m_convexInternalShapeData(btConvexInternalShapeData value)\nClass arguments details:\narg 1 ID = 7968673\n");
+			luaL_error(L, "luna typecheck failed in void btMultiSphereShapeData::m_convexInternalShapeData(btConvexInternalShapeData value) function, expected prototype:\nvoid btMultiSphereShapeData::m_convexInternalShapeData(btConvexInternalShapeData value)\nClass arguments details:\narg 1 ID = 7968673\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexInternalShapeData* value_ptr=(Luna< btConvexInternalShapeData >::check(L,2));
@@ -224,8 +213,7 @@ public:
 
 		btMultiSphereShapeData* self=(Luna< btMultiSphereShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMultiSphereShapeData::m_convexInternalShapeData(btConvexInternalShapeData). Got : '%s'",typeid(Luna< btMultiSphereShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMultiSphereShapeData::m_convexInternalShapeData(btConvexInternalShapeData). Got : '%s'\n%s",typeid(Luna< btMultiSphereShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_convexInternalShapeData = value;
 
@@ -235,16 +223,14 @@ public:
 	// void btMultiSphereShapeData::m_localPositionArrayPtr(btPositionAndRadius * value)
 	static int _bind_setLocalPositionArrayPtr(lua_State *L) {
 		if (!_lg_typecheck_setLocalPositionArrayPtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMultiSphereShapeData::m_localPositionArrayPtr(btPositionAndRadius * value) function, expected prototype:\nvoid btMultiSphereShapeData::m_localPositionArrayPtr(btPositionAndRadius * value)\nClass arguments details:\narg 1 ID = 22563878\n");
+			luaL_error(L, "luna typecheck failed in void btMultiSphereShapeData::m_localPositionArrayPtr(btPositionAndRadius * value) function, expected prototype:\nvoid btMultiSphereShapeData::m_localPositionArrayPtr(btPositionAndRadius * value)\nClass arguments details:\narg 1 ID = 22563878\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPositionAndRadius* value=(Luna< btPositionAndRadius >::check(L,2));
 
 		btMultiSphereShapeData* self=(Luna< btMultiSphereShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMultiSphereShapeData::m_localPositionArrayPtr(btPositionAndRadius *). Got : '%s'",typeid(Luna< btMultiSphereShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMultiSphereShapeData::m_localPositionArrayPtr(btPositionAndRadius *). Got : '%s'\n%s",typeid(Luna< btMultiSphereShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_localPositionArrayPtr = value;
 
@@ -254,16 +240,14 @@ public:
 	// void btMultiSphereShapeData::m_localPositionArraySize(int value)
 	static int _bind_setLocalPositionArraySize(lua_State *L) {
 		if (!_lg_typecheck_setLocalPositionArraySize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMultiSphereShapeData::m_localPositionArraySize(int value) function, expected prototype:\nvoid btMultiSphereShapeData::m_localPositionArraySize(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMultiSphereShapeData::m_localPositionArraySize(int value) function, expected prototype:\nvoid btMultiSphereShapeData::m_localPositionArraySize(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btMultiSphereShapeData* self=(Luna< btMultiSphereShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMultiSphereShapeData::m_localPositionArraySize(int). Got : '%s'",typeid(Luna< btMultiSphereShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMultiSphereShapeData::m_localPositionArraySize(int). Got : '%s'\n%s",typeid(Luna< btMultiSphereShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_localPositionArraySize = value;
 

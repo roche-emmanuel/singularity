@@ -98,46 +98,46 @@ public:
 	inline static bool _lg_typecheck_AddFile_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		if( (!(Luna< wxObject >::checkSubType< wxImage >(L,2))) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_AddFile_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		if( (!(Luna< wxObject >::checkSubType< wxBitmap >(L,2))) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_AddFileWithMimeType_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
-		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_AddFileWithMimeType_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_RemoveFile(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -151,8 +151,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(spark::SparkDrawable::ImageAttribute*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(spark::SparkDrawable::ImageAttribute*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		spark::SparkDrawable::ImageAttribute* rhs =(Luna< spark::SparkDrawable::ImageAttribute >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		spark::SparkDrawable::ImageAttribute* self= (spark::SparkDrawable::ImageAttribute*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -130,14 +126,14 @@ public:
 	inline static bool _lg_typecheck_setType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setClamp(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -151,15 +147,13 @@ public:
 	// osg::ref_ptr< osg::Image > spark::SparkDrawable::ImageAttribute::image()
 	static int _bind_getImage(lua_State *L) {
 		if (!_lg_typecheck_getImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Image > spark::SparkDrawable::ImageAttribute::image() function, expected prototype:\nosg::ref_ptr< osg::Image > spark::SparkDrawable::ImageAttribute::image()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::ref_ptr< osg::Image > spark::SparkDrawable::ImageAttribute::image() function, expected prototype:\nosg::ref_ptr< osg::Image > spark::SparkDrawable::ImageAttribute::image()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable::ImageAttribute* self=(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Image > spark::SparkDrawable::ImageAttribute::image(). Got : '%s'",typeid(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::ref_ptr< osg::Image > spark::SparkDrawable::ImageAttribute::image(). Got : '%s'\n%s",typeid(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::ref_ptr< osg::Image > lret = self->image;
 		Luna< osg::Image >::push(L,lret.get(),false);
@@ -170,15 +164,13 @@ public:
 	// unsigned int spark::SparkDrawable::ImageAttribute::type()
 	static int _bind_getType(lua_State *L) {
 		if (!_lg_typecheck_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int spark::SparkDrawable::ImageAttribute::type() function, expected prototype:\nunsigned int spark::SparkDrawable::ImageAttribute::type()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int spark::SparkDrawable::ImageAttribute::type() function, expected prototype:\nunsigned int spark::SparkDrawable::ImageAttribute::type()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable::ImageAttribute* self=(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int spark::SparkDrawable::ImageAttribute::type(). Got : '%s'",typeid(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int spark::SparkDrawable::ImageAttribute::type(). Got : '%s'\n%s",typeid(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->type;
 		lua_pushnumber(L,lret);
@@ -189,15 +181,13 @@ public:
 	// unsigned int spark::SparkDrawable::ImageAttribute::clamp()
 	static int _bind_getClamp(lua_State *L) {
 		if (!_lg_typecheck_getClamp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int spark::SparkDrawable::ImageAttribute::clamp() function, expected prototype:\nunsigned int spark::SparkDrawable::ImageAttribute::clamp()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int spark::SparkDrawable::ImageAttribute::clamp() function, expected prototype:\nunsigned int spark::SparkDrawable::ImageAttribute::clamp()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable::ImageAttribute* self=(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int spark::SparkDrawable::ImageAttribute::clamp(). Got : '%s'",typeid(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int spark::SparkDrawable::ImageAttribute::clamp(). Got : '%s'\n%s",typeid(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->clamp;
 		lua_pushnumber(L,lret);
@@ -208,16 +198,14 @@ public:
 	// void spark::SparkDrawable::ImageAttribute::image(osg::ref_ptr< osg::Image > value)
 	static int _bind_setImage(lua_State *L) {
 		if (!_lg_typecheck_setImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::ImageAttribute::image(osg::ref_ptr< osg::Image > value) function, expected prototype:\nvoid spark::SparkDrawable::ImageAttribute::image(osg::ref_ptr< osg::Image > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::ImageAttribute::image(osg::ref_ptr< osg::Image > value) function, expected prototype:\nvoid spark::SparkDrawable::ImageAttribute::image(osg::ref_ptr< osg::Image > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::ref_ptr< osg::Image > value = dynamic_cast< osg::Image* >(Luna< osg::Referenced >::check(L,2));
 
 		spark::SparkDrawable::ImageAttribute* self=(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::ImageAttribute::image(osg::ref_ptr< osg::Image >). Got : '%s'",typeid(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::ImageAttribute::image(osg::ref_ptr< osg::Image >). Got : '%s'\n%s",typeid(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->image = value;
 
@@ -227,16 +215,14 @@ public:
 	// void spark::SparkDrawable::ImageAttribute::type(unsigned int value)
 	static int _bind_setType(lua_State *L) {
 		if (!_lg_typecheck_setType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::ImageAttribute::type(unsigned int value) function, expected prototype:\nvoid spark::SparkDrawable::ImageAttribute::type(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::ImageAttribute::type(unsigned int value) function, expected prototype:\nvoid spark::SparkDrawable::ImageAttribute::type(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		spark::SparkDrawable::ImageAttribute* self=(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::ImageAttribute::type(unsigned int). Got : '%s'",typeid(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::ImageAttribute::type(unsigned int). Got : '%s'\n%s",typeid(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->type = value;
 
@@ -246,16 +232,14 @@ public:
 	// void spark::SparkDrawable::ImageAttribute::clamp(unsigned int value)
 	static int _bind_setClamp(lua_State *L) {
 		if (!_lg_typecheck_setClamp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::ImageAttribute::clamp(unsigned int value) function, expected prototype:\nvoid spark::SparkDrawable::ImageAttribute::clamp(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::ImageAttribute::clamp(unsigned int value) function, expected prototype:\nvoid spark::SparkDrawable::ImageAttribute::clamp(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		spark::SparkDrawable::ImageAttribute* self=(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::ImageAttribute::clamp(unsigned int). Got : '%s'",typeid(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::ImageAttribute::clamp(unsigned int). Got : '%s'\n%s",typeid(Luna< spark::SparkDrawable::ImageAttribute >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->clamp = value;
 

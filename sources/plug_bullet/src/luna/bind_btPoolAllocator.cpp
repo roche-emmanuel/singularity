@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btPoolAllocator*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btPoolAllocator*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPoolAllocator* rhs =(Luna< btPoolAllocator >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPoolAllocator* self= (btPoolAllocator*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btPoolAllocator >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -103,8 +99,8 @@ public:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -131,7 +127,7 @@ public:
 	inline static bool _lg_typecheck_allocate(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -175,8 +171,7 @@ public:
 	// btPoolAllocator::btPoolAllocator(int elemSize, int maxElements)
 	static btPoolAllocator* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btPoolAllocator::btPoolAllocator(int elemSize, int maxElements) function, expected prototype:\nbtPoolAllocator::btPoolAllocator(int elemSize, int maxElements)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btPoolAllocator::btPoolAllocator(int elemSize, int maxElements) function, expected prototype:\nbtPoolAllocator::btPoolAllocator(int elemSize, int maxElements)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int elemSize=(int)lua_tointeger(L,1);
@@ -190,15 +185,13 @@ public:
 	// int btPoolAllocator::getFreeCount() const
 	static int _bind_getFreeCount(lua_State *L) {
 		if (!_lg_typecheck_getFreeCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btPoolAllocator::getFreeCount() const function, expected prototype:\nint btPoolAllocator::getFreeCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btPoolAllocator::getFreeCount() const function, expected prototype:\nint btPoolAllocator::getFreeCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPoolAllocator* self=(Luna< btPoolAllocator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btPoolAllocator::getFreeCount() const. Got : '%s'",typeid(Luna< btPoolAllocator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btPoolAllocator::getFreeCount() const. Got : '%s'\n%s",typeid(Luna< btPoolAllocator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getFreeCount();
 		lua_pushnumber(L,lret);
@@ -209,15 +202,13 @@ public:
 	// int btPoolAllocator::getUsedCount() const
 	static int _bind_getUsedCount(lua_State *L) {
 		if (!_lg_typecheck_getUsedCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btPoolAllocator::getUsedCount() const function, expected prototype:\nint btPoolAllocator::getUsedCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btPoolAllocator::getUsedCount() const function, expected prototype:\nint btPoolAllocator::getUsedCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPoolAllocator* self=(Luna< btPoolAllocator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btPoolAllocator::getUsedCount() const. Got : '%s'",typeid(Luna< btPoolAllocator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btPoolAllocator::getUsedCount() const. Got : '%s'\n%s",typeid(Luna< btPoolAllocator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getUsedCount();
 		lua_pushnumber(L,lret);
@@ -228,15 +219,13 @@ public:
 	// int btPoolAllocator::getMaxCount() const
 	static int _bind_getMaxCount(lua_State *L) {
 		if (!_lg_typecheck_getMaxCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btPoolAllocator::getMaxCount() const function, expected prototype:\nint btPoolAllocator::getMaxCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btPoolAllocator::getMaxCount() const function, expected prototype:\nint btPoolAllocator::getMaxCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPoolAllocator* self=(Luna< btPoolAllocator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btPoolAllocator::getMaxCount() const. Got : '%s'",typeid(Luna< btPoolAllocator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btPoolAllocator::getMaxCount() const. Got : '%s'\n%s",typeid(Luna< btPoolAllocator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getMaxCount();
 		lua_pushnumber(L,lret);
@@ -247,16 +236,14 @@ public:
 	// void * btPoolAllocator::allocate(int size)
 	static int _bind_allocate(lua_State *L) {
 		if (!_lg_typecheck_allocate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * btPoolAllocator::allocate(int size) function, expected prototype:\nvoid * btPoolAllocator::allocate(int size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * btPoolAllocator::allocate(int size) function, expected prototype:\nvoid * btPoolAllocator::allocate(int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int size=(int)lua_tointeger(L,2);
 
 		btPoolAllocator* self=(Luna< btPoolAllocator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * btPoolAllocator::allocate(int). Got : '%s'",typeid(Luna< btPoolAllocator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * btPoolAllocator::allocate(int). Got : '%s'\n%s",typeid(Luna< btPoolAllocator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->allocate(size);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -269,16 +256,14 @@ public:
 	// bool btPoolAllocator::validPtr(void * ptr)
 	static int _bind_validPtr(lua_State *L) {
 		if (!_lg_typecheck_validPtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btPoolAllocator::validPtr(void * ptr) function, expected prototype:\nbool btPoolAllocator::validPtr(void * ptr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btPoolAllocator::validPtr(void * ptr) function, expected prototype:\nbool btPoolAllocator::validPtr(void * ptr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* ptr=(Luna< void >::check(L,2));
 
 		btPoolAllocator* self=(Luna< btPoolAllocator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btPoolAllocator::validPtr(void *). Got : '%s'",typeid(Luna< btPoolAllocator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btPoolAllocator::validPtr(void *). Got : '%s'\n%s",typeid(Luna< btPoolAllocator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->validPtr(ptr);
 		lua_pushboolean(L,lret?1:0);
@@ -289,16 +274,14 @@ public:
 	// void btPoolAllocator::freeMemory(void * ptr)
 	static int _bind_freeMemory(lua_State *L) {
 		if (!_lg_typecheck_freeMemory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPoolAllocator::freeMemory(void * ptr) function, expected prototype:\nvoid btPoolAllocator::freeMemory(void * ptr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btPoolAllocator::freeMemory(void * ptr) function, expected prototype:\nvoid btPoolAllocator::freeMemory(void * ptr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* ptr=(Luna< void >::check(L,2));
 
 		btPoolAllocator* self=(Luna< btPoolAllocator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPoolAllocator::freeMemory(void *). Got : '%s'",typeid(Luna< btPoolAllocator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPoolAllocator::freeMemory(void *). Got : '%s'\n%s",typeid(Luna< btPoolAllocator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->freeMemory(ptr);
 
@@ -308,15 +291,13 @@ public:
 	// int btPoolAllocator::getElementSize() const
 	static int _bind_getElementSize(lua_State *L) {
 		if (!_lg_typecheck_getElementSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btPoolAllocator::getElementSize() const function, expected prototype:\nint btPoolAllocator::getElementSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btPoolAllocator::getElementSize() const function, expected prototype:\nint btPoolAllocator::getElementSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPoolAllocator* self=(Luna< btPoolAllocator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btPoolAllocator::getElementSize() const. Got : '%s'",typeid(Luna< btPoolAllocator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btPoolAllocator::getElementSize() const. Got : '%s'\n%s",typeid(Luna< btPoolAllocator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getElementSize();
 		lua_pushnumber(L,lret);
@@ -327,15 +308,13 @@ public:
 	// unsigned char * btPoolAllocator::getPoolAddress()
 	static int _bind_getPoolAddress_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getPoolAddress_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char * btPoolAllocator::getPoolAddress() function, expected prototype:\nunsigned char * btPoolAllocator::getPoolAddress()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char * btPoolAllocator::getPoolAddress() function, expected prototype:\nunsigned char * btPoolAllocator::getPoolAddress()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPoolAllocator* self=(Luna< btPoolAllocator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char * btPoolAllocator::getPoolAddress(). Got : '%s'",typeid(Luna< btPoolAllocator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char * btPoolAllocator::getPoolAddress(). Got : '%s'\n%s",typeid(Luna< btPoolAllocator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char * lret = self->getPoolAddress();
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
@@ -346,15 +325,13 @@ public:
 	// const unsigned char * btPoolAllocator::getPoolAddress() const
 	static int _bind_getPoolAddress_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getPoolAddress_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const unsigned char * btPoolAllocator::getPoolAddress() const function, expected prototype:\nconst unsigned char * btPoolAllocator::getPoolAddress() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const unsigned char * btPoolAllocator::getPoolAddress() const function, expected prototype:\nconst unsigned char * btPoolAllocator::getPoolAddress() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPoolAllocator* self=(Luna< btPoolAllocator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const unsigned char * btPoolAllocator::getPoolAddress() const. Got : '%s'",typeid(Luna< btPoolAllocator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const unsigned char * btPoolAllocator::getPoolAddress() const. Got : '%s'\n%s",typeid(Luna< btPoolAllocator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const unsigned char * lret = self->getPoolAddress();
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Modifier* self= (SPK::Modifier*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< SPK::Registerable >::check(L,1));
@@ -118,8 +115,8 @@ public:
 		if( luatop<1 || luatop>6 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
 		if( luatop>4 && lua_isboolean(L,5)==0 ) return false;
 		if( luatop>5 && (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,31337102)) ) return false;
@@ -147,7 +144,7 @@ public:
 	inline static bool _lg_typecheck_setTrigger(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -197,7 +194,7 @@ public:
 	inline static bool _lg_typecheck_findByName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -218,7 +215,7 @@ public:
 	inline static bool _lg_typecheck_base_findByName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -230,8 +227,7 @@ public:
 	// SPK::Modifier::Modifier(lua_Table * data, int availableTriggers = SPK::ALWAYS, SPK::ModifierTrigger trigger = SPK::ALWAYS, bool needsIntersection = false, bool needsNormal = false, SPK::Zone * zone = NULL)
 	static SPK::Modifier* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Modifier::Modifier(lua_Table * data, int availableTriggers = SPK::ALWAYS, SPK::ModifierTrigger trigger = SPK::ALWAYS, bool needsIntersection = false, bool needsNormal = false, SPK::Zone * zone = NULL) function, expected prototype:\nSPK::Modifier::Modifier(lua_Table * data, int availableTriggers = SPK::ALWAYS, SPK::ModifierTrigger trigger = SPK::ALWAYS, bool needsIntersection = false, bool needsNormal = false, SPK::Zone * zone = NULL)\nClass arguments details:\narg 6 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in SPK::Modifier::Modifier(lua_Table * data, int availableTriggers = SPK::ALWAYS, SPK::ModifierTrigger trigger = SPK::ALWAYS, bool needsIntersection = false, bool needsNormal = false, SPK::Zone * zone = NULL) function, expected prototype:\nSPK::Modifier::Modifier(lua_Table * data, int availableTriggers = SPK::ALWAYS, SPK::ModifierTrigger trigger = SPK::ALWAYS, bool needsIntersection = false, bool needsNormal = false, SPK::Zone * zone = NULL)\nClass arguments details:\narg 6 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -250,16 +246,14 @@ public:
 	// void SPK::Modifier::setActive(bool active)
 	static int _bind_setActive(lua_State *L) {
 		if (!_lg_typecheck_setActive(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Modifier::setActive(bool active) function, expected prototype:\nvoid SPK::Modifier::setActive(bool active)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Modifier::setActive(bool active) function, expected prototype:\nvoid SPK::Modifier::setActive(bool active)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool active=(bool)(lua_toboolean(L,2)==1);
 
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Modifier::setActive(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Modifier::setActive(bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setActive(active);
 
@@ -269,8 +263,7 @@ public:
 	// void SPK::Modifier::setZone(SPK::Zone * zone, bool full = false)
 	static int _bind_setZone(lua_State *L) {
 		if (!_lg_typecheck_setZone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Modifier::setZone(SPK::Zone * zone, bool full = false) function, expected prototype:\nvoid SPK::Modifier::setZone(SPK::Zone * zone, bool full = false)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Modifier::setZone(SPK::Zone * zone, bool full = false) function, expected prototype:\nvoid SPK::Modifier::setZone(SPK::Zone * zone, bool full = false)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -280,8 +273,7 @@ public:
 
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Modifier::setZone(SPK::Zone *, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Modifier::setZone(SPK::Zone *, bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setZone(zone, full);
 
@@ -291,16 +283,14 @@ public:
 	// bool SPK::Modifier::setTrigger(SPK::ModifierTrigger trigger)
 	static int _bind_setTrigger(lua_State *L) {
 		if (!_lg_typecheck_setTrigger(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::Modifier::setTrigger(SPK::ModifierTrigger trigger) function, expected prototype:\nbool SPK::Modifier::setTrigger(SPK::ModifierTrigger trigger)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::Modifier::setTrigger(SPK::ModifierTrigger trigger) function, expected prototype:\nbool SPK::Modifier::setTrigger(SPK::ModifierTrigger trigger)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::ModifierTrigger trigger=(SPK::ModifierTrigger)lua_tointeger(L,2);
 
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Modifier::setTrigger(SPK::ModifierTrigger). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::Modifier::setTrigger(SPK::ModifierTrigger). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->setTrigger(trigger);
 		lua_pushboolean(L,lret?1:0);
@@ -311,16 +301,14 @@ public:
 	// void SPK::Modifier::setLocalToSystem(bool local)
 	static int _bind_setLocalToSystem(lua_State *L) {
 		if (!_lg_typecheck_setLocalToSystem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Modifier::setLocalToSystem(bool local) function, expected prototype:\nvoid SPK::Modifier::setLocalToSystem(bool local)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Modifier::setLocalToSystem(bool local) function, expected prototype:\nvoid SPK::Modifier::setLocalToSystem(bool local)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool local=(bool)(lua_toboolean(L,2)==1);
 
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Modifier::setLocalToSystem(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Modifier::setLocalToSystem(bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLocalToSystem(local);
 
@@ -330,15 +318,13 @@ public:
 	// bool SPK::Modifier::isActive() const
 	static int _bind_isActive(lua_State *L) {
 		if (!_lg_typecheck_isActive(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::Modifier::isActive() const function, expected prototype:\nbool SPK::Modifier::isActive() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::Modifier::isActive() const function, expected prototype:\nbool SPK::Modifier::isActive() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Modifier::isActive() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::Modifier::isActive() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isActive();
 		lua_pushboolean(L,lret?1:0);
@@ -349,15 +335,13 @@ public:
 	// SPK::Zone * SPK::Modifier::getZone() const
 	static int _bind_getZone(lua_State *L) {
 		if (!_lg_typecheck_getZone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Zone * SPK::Modifier::getZone() const function, expected prototype:\nSPK::Zone * SPK::Modifier::getZone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Zone * SPK::Modifier::getZone() const function, expected prototype:\nSPK::Zone * SPK::Modifier::getZone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Zone * SPK::Modifier::getZone() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Zone * SPK::Modifier::getZone() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::Zone * lret = self->getZone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -370,15 +354,13 @@ public:
 	// SPK::ModifierTrigger SPK::Modifier::getTrigger() const
 	static int _bind_getTrigger(lua_State *L) {
 		if (!_lg_typecheck_getTrigger(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::ModifierTrigger SPK::Modifier::getTrigger() const function, expected prototype:\nSPK::ModifierTrigger SPK::Modifier::getTrigger() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::ModifierTrigger SPK::Modifier::getTrigger() const function, expected prototype:\nSPK::ModifierTrigger SPK::Modifier::getTrigger() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::ModifierTrigger SPK::Modifier::getTrigger() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::ModifierTrigger SPK::Modifier::getTrigger() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::ModifierTrigger lret = self->getTrigger();
 		lua_pushnumber(L,lret);
@@ -389,15 +371,13 @@ public:
 	// int SPK::Modifier::getAvailableTriggers() const
 	static int _bind_getAvailableTriggers(lua_State *L) {
 		if (!_lg_typecheck_getAvailableTriggers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int SPK::Modifier::getAvailableTriggers() const function, expected prototype:\nint SPK::Modifier::getAvailableTriggers() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int SPK::Modifier::getAvailableTriggers() const function, expected prototype:\nint SPK::Modifier::getAvailableTriggers() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int SPK::Modifier::getAvailableTriggers() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int SPK::Modifier::getAvailableTriggers() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getAvailableTriggers();
 		lua_pushnumber(L,lret);
@@ -408,15 +388,13 @@ public:
 	// bool SPK::Modifier::isFullZone() const
 	static int _bind_isFullZone(lua_State *L) {
 		if (!_lg_typecheck_isFullZone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::Modifier::isFullZone() const function, expected prototype:\nbool SPK::Modifier::isFullZone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::Modifier::isFullZone() const function, expected prototype:\nbool SPK::Modifier::isFullZone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Modifier::isFullZone() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::Modifier::isFullZone() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isFullZone();
 		lua_pushboolean(L,lret?1:0);
@@ -427,15 +405,13 @@ public:
 	// bool SPK::Modifier::isLocalToSystem() const
 	static int _bind_isLocalToSystem(lua_State *L) {
 		if (!_lg_typecheck_isLocalToSystem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::Modifier::isLocalToSystem() const function, expected prototype:\nbool SPK::Modifier::isLocalToSystem() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::Modifier::isLocalToSystem() const function, expected prototype:\nbool SPK::Modifier::isLocalToSystem() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Modifier::isLocalToSystem() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::Modifier::isLocalToSystem() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isLocalToSystem();
 		lua_pushboolean(L,lret?1:0);
@@ -446,16 +422,14 @@ public:
 	// SPK::Registerable * SPK::Modifier::findByName(const std::string & name)
 	static int _bind_findByName(lua_State *L) {
 		if (!_lg_typecheck_findByName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::Modifier::findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::Modifier::findByName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::Modifier::findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::Modifier::findByName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Modifier::findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Modifier::findByName(const std::string &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::Registerable * lret = self->findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -468,8 +442,7 @@ public:
 	// void SPK::Modifier::base_createBuffers(const SPK::Group & group)
 	static int _bind_base_createBuffers(lua_State *L) {
 		if (!_lg_typecheck_base_createBuffers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Modifier::base_createBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::Modifier::base_createBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Modifier::base_createBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::Modifier::base_createBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -480,8 +453,7 @@ public:
 
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Modifier::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Modifier::base_createBuffers(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Modifier::createBuffers(group);
 
@@ -491,8 +463,7 @@ public:
 	// void SPK::Modifier::base_destroyBuffers(const SPK::Group & group)
 	static int _bind_base_destroyBuffers(lua_State *L) {
 		if (!_lg_typecheck_base_destroyBuffers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Modifier::base_destroyBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::Modifier::base_destroyBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Modifier::base_destroyBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::Modifier::base_destroyBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -503,8 +474,7 @@ public:
 
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Modifier::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Modifier::base_destroyBuffers(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Modifier::destroyBuffers(group);
 
@@ -514,16 +484,14 @@ public:
 	// SPK::Registerable * SPK::Modifier::base_findByName(const std::string & name)
 	static int _bind_base_findByName(lua_State *L) {
 		if (!_lg_typecheck_base_findByName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::Modifier::base_findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::Modifier::base_findByName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::Modifier::base_findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::Modifier::base_findByName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		SPK::Modifier* self=Luna< SPK::Registerable >::checkSubType< SPK::Modifier >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Modifier::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Modifier::base_findByName(const std::string &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::Registerable * lret = self->Modifier::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -544,8 +512,7 @@ public:
 
 	static int _bind_baseCast_SPK_Transformable(lua_State *L) {
 		if (!_lg_typecheck_baseCast_SPK_Transformable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in baseCast_SPK_Transformable function, expected prototype:\nbaseCast()");
+			luaL_error(L, "luna typecheck failed in baseCast_SPK_Transformable function, expected prototype:\nbaseCast(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
@@ -570,8 +537,7 @@ public:
 
 	static int _bind_baseCast_SPK_BufferHandler(lua_State *L) {
 		if (!_lg_typecheck_baseCast_SPK_BufferHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in baseCast_SPK_BufferHandler function, expected prototype:\nbaseCast()");
+			luaL_error(L, "luna typecheck failed in baseCast_SPK_BufferHandler function, expected prototype:\nbaseCast(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));

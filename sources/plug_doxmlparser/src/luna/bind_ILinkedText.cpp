@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ILinkedText* self=(Luna< ILinkedText >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(ILinkedText*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(ILinkedText*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ILinkedText* rhs =(Luna< ILinkedText >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ILinkedText* self= (ILinkedText*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< ILinkedText >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -149,8 +144,7 @@ public:
 	// ILinkedText::ILinkedText(lua_Table * data)
 	static ILinkedText* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ILinkedText::ILinkedText(lua_Table * data) function, expected prototype:\nILinkedText::ILinkedText(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ILinkedText::ILinkedText(lua_Table * data) function, expected prototype:\nILinkedText::ILinkedText(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -162,15 +156,13 @@ public:
 	// ILinkedText::Kind ILinkedText::kind() const
 	static int _bind_kind(lua_State *L) {
 		if (!_lg_typecheck_kind(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ILinkedText::Kind ILinkedText::kind() const function, expected prototype:\nILinkedText::Kind ILinkedText::kind() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ILinkedText::Kind ILinkedText::kind() const function, expected prototype:\nILinkedText::Kind ILinkedText::kind() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ILinkedText* self=(Luna< ILinkedText >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ILinkedText::Kind ILinkedText::kind() const. Got : '%s'",typeid(Luna< ILinkedText >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call ILinkedText::Kind ILinkedText::kind() const. Got : '%s'\n%s",typeid(Luna< ILinkedText >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ILinkedText::Kind lret = self->kind();
 		lua_pushnumber(L,lret);

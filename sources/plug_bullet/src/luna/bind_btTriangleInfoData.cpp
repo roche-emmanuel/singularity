@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btTriangleInfoData*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btTriangleInfoData*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleInfoData* rhs =(Luna< btTriangleInfoData >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleInfoData* self= (btTriangleInfoData*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btTriangleInfoData >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -129,28 +125,28 @@ public:
 	inline static bool _lg_typecheck_setFlags(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setEdgeV0V1Angle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setEdgeV1V2Angle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setEdgeV2V0Angle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -164,15 +160,13 @@ public:
 	// int btTriangleInfoData::m_flags()
 	static int _bind_getFlags(lua_State *L) {
 		if (!_lg_typecheck_getFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTriangleInfoData::m_flags() function, expected prototype:\nint btTriangleInfoData::m_flags()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btTriangleInfoData::m_flags() function, expected prototype:\nint btTriangleInfoData::m_flags()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleInfoData* self=(Luna< btTriangleInfoData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTriangleInfoData::m_flags(). Got : '%s'",typeid(Luna< btTriangleInfoData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btTriangleInfoData::m_flags(). Got : '%s'\n%s",typeid(Luna< btTriangleInfoData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_flags;
 		lua_pushnumber(L,lret);
@@ -183,15 +177,13 @@ public:
 	// float btTriangleInfoData::m_edgeV0V1Angle()
 	static int _bind_getEdgeV0V1Angle(lua_State *L) {
 		if (!_lg_typecheck_getEdgeV0V1Angle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTriangleInfoData::m_edgeV0V1Angle() function, expected prototype:\nfloat btTriangleInfoData::m_edgeV0V1Angle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTriangleInfoData::m_edgeV0V1Angle() function, expected prototype:\nfloat btTriangleInfoData::m_edgeV0V1Angle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleInfoData* self=(Luna< btTriangleInfoData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTriangleInfoData::m_edgeV0V1Angle(). Got : '%s'",typeid(Luna< btTriangleInfoData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTriangleInfoData::m_edgeV0V1Angle(). Got : '%s'\n%s",typeid(Luna< btTriangleInfoData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_edgeV0V1Angle;
 		lua_pushnumber(L,lret);
@@ -202,15 +194,13 @@ public:
 	// float btTriangleInfoData::m_edgeV1V2Angle()
 	static int _bind_getEdgeV1V2Angle(lua_State *L) {
 		if (!_lg_typecheck_getEdgeV1V2Angle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTriangleInfoData::m_edgeV1V2Angle() function, expected prototype:\nfloat btTriangleInfoData::m_edgeV1V2Angle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTriangleInfoData::m_edgeV1V2Angle() function, expected prototype:\nfloat btTriangleInfoData::m_edgeV1V2Angle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleInfoData* self=(Luna< btTriangleInfoData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTriangleInfoData::m_edgeV1V2Angle(). Got : '%s'",typeid(Luna< btTriangleInfoData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTriangleInfoData::m_edgeV1V2Angle(). Got : '%s'\n%s",typeid(Luna< btTriangleInfoData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_edgeV1V2Angle;
 		lua_pushnumber(L,lret);
@@ -221,15 +211,13 @@ public:
 	// float btTriangleInfoData::m_edgeV2V0Angle()
 	static int _bind_getEdgeV2V0Angle(lua_State *L) {
 		if (!_lg_typecheck_getEdgeV2V0Angle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTriangleInfoData::m_edgeV2V0Angle() function, expected prototype:\nfloat btTriangleInfoData::m_edgeV2V0Angle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTriangleInfoData::m_edgeV2V0Angle() function, expected prototype:\nfloat btTriangleInfoData::m_edgeV2V0Angle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleInfoData* self=(Luna< btTriangleInfoData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTriangleInfoData::m_edgeV2V0Angle(). Got : '%s'",typeid(Luna< btTriangleInfoData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTriangleInfoData::m_edgeV2V0Angle(). Got : '%s'\n%s",typeid(Luna< btTriangleInfoData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_edgeV2V0Angle;
 		lua_pushnumber(L,lret);
@@ -240,16 +228,14 @@ public:
 	// void btTriangleInfoData::m_flags(int value)
 	static int _bind_setFlags(lua_State *L) {
 		if (!_lg_typecheck_setFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleInfoData::m_flags(int value) function, expected prototype:\nvoid btTriangleInfoData::m_flags(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleInfoData::m_flags(int value) function, expected prototype:\nvoid btTriangleInfoData::m_flags(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btTriangleInfoData* self=(Luna< btTriangleInfoData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleInfoData::m_flags(int). Got : '%s'",typeid(Luna< btTriangleInfoData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleInfoData::m_flags(int). Got : '%s'\n%s",typeid(Luna< btTriangleInfoData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_flags = value;
 
@@ -259,16 +245,14 @@ public:
 	// void btTriangleInfoData::m_edgeV0V1Angle(float value)
 	static int _bind_setEdgeV0V1Angle(lua_State *L) {
 		if (!_lg_typecheck_setEdgeV0V1Angle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleInfoData::m_edgeV0V1Angle(float value) function, expected prototype:\nvoid btTriangleInfoData::m_edgeV0V1Angle(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleInfoData::m_edgeV0V1Angle(float value) function, expected prototype:\nvoid btTriangleInfoData::m_edgeV0V1Angle(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTriangleInfoData* self=(Luna< btTriangleInfoData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleInfoData::m_edgeV0V1Angle(float). Got : '%s'",typeid(Luna< btTriangleInfoData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleInfoData::m_edgeV0V1Angle(float). Got : '%s'\n%s",typeid(Luna< btTriangleInfoData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_edgeV0V1Angle = value;
 
@@ -278,16 +262,14 @@ public:
 	// void btTriangleInfoData::m_edgeV1V2Angle(float value)
 	static int _bind_setEdgeV1V2Angle(lua_State *L) {
 		if (!_lg_typecheck_setEdgeV1V2Angle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleInfoData::m_edgeV1V2Angle(float value) function, expected prototype:\nvoid btTriangleInfoData::m_edgeV1V2Angle(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleInfoData::m_edgeV1V2Angle(float value) function, expected prototype:\nvoid btTriangleInfoData::m_edgeV1V2Angle(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTriangleInfoData* self=(Luna< btTriangleInfoData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleInfoData::m_edgeV1V2Angle(float). Got : '%s'",typeid(Luna< btTriangleInfoData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleInfoData::m_edgeV1V2Angle(float). Got : '%s'\n%s",typeid(Luna< btTriangleInfoData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_edgeV1V2Angle = value;
 
@@ -297,16 +279,14 @@ public:
 	// void btTriangleInfoData::m_edgeV2V0Angle(float value)
 	static int _bind_setEdgeV2V0Angle(lua_State *L) {
 		if (!_lg_typecheck_setEdgeV2V0Angle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleInfoData::m_edgeV2V0Angle(float value) function, expected prototype:\nvoid btTriangleInfoData::m_edgeV2V0Angle(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleInfoData::m_edgeV2V0Angle(float value) function, expected prototype:\nvoid btTriangleInfoData::m_edgeV2V0Angle(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTriangleInfoData* self=(Luna< btTriangleInfoData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleInfoData::m_edgeV2V0Angle(float). Got : '%s'",typeid(Luna< btTriangleInfoData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleInfoData::m_edgeV2V0Angle(float). Got : '%s'\n%s",typeid(Luna< btTriangleInfoData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_edgeV2V0Angle = value;
 

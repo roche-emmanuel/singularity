@@ -36,7 +36,7 @@ function Class:buildComponent(intf)
 		end}		
 	end}
 
-	require "gui.DebugPanel" {intf};
+	require "gui.TurretDebugPanel" {intf};
 	
 	-- self._grid = intf:addGrid{prop=1,flags=wx.wxALL+wx.wxEXPAND}
 	
@@ -68,6 +68,10 @@ end
 
 function Class:updateTurretList()
 	-- retrieve the turret Manager:
+	if not self:getMission():asMXMission() then
+		return -- nothing to do here.
+	end
+	
 	local tman = self:getTurretManager()
 	local DataMap = require "utils.DataMap"
 	

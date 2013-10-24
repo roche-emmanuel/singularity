@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(BT_QUANTIZED_BVH_NODE*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(BT_QUANTIZED_BVH_NODE*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		BT_QUANTIZED_BVH_NODE* rhs =(Luna< BT_QUANTIZED_BVH_NODE >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		BT_QUANTIZED_BVH_NODE* self= (BT_QUANTIZED_BVH_NODE*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -123,7 +119,7 @@ public:
 	inline static bool _lg_typecheck_setEscapeIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -136,7 +132,7 @@ public:
 	inline static bool _lg_typecheck_setDataIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -157,7 +153,7 @@ public:
 	inline static bool _lg_typecheck_setEscapeIndexOrDataIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -169,8 +165,7 @@ public:
 	// BT_QUANTIZED_BVH_NODE::BT_QUANTIZED_BVH_NODE()
 	static BT_QUANTIZED_BVH_NODE* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in BT_QUANTIZED_BVH_NODE::BT_QUANTIZED_BVH_NODE() function, expected prototype:\nBT_QUANTIZED_BVH_NODE::BT_QUANTIZED_BVH_NODE()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in BT_QUANTIZED_BVH_NODE::BT_QUANTIZED_BVH_NODE() function, expected prototype:\nBT_QUANTIZED_BVH_NODE::BT_QUANTIZED_BVH_NODE()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -182,15 +177,13 @@ public:
 	// bool BT_QUANTIZED_BVH_NODE::isLeafNode() const
 	static int _bind_isLeafNode(lua_State *L) {
 		if (!_lg_typecheck_isLeafNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool BT_QUANTIZED_BVH_NODE::isLeafNode() const function, expected prototype:\nbool BT_QUANTIZED_BVH_NODE::isLeafNode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool BT_QUANTIZED_BVH_NODE::isLeafNode() const function, expected prototype:\nbool BT_QUANTIZED_BVH_NODE::isLeafNode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		BT_QUANTIZED_BVH_NODE* self=(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool BT_QUANTIZED_BVH_NODE::isLeafNode() const. Got : '%s'",typeid(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool BT_QUANTIZED_BVH_NODE::isLeafNode() const. Got : '%s'\n%s",typeid(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isLeafNode();
 		lua_pushboolean(L,lret?1:0);
@@ -201,15 +194,13 @@ public:
 	// int BT_QUANTIZED_BVH_NODE::getEscapeIndex() const
 	static int _bind_getEscapeIndex(lua_State *L) {
 		if (!_lg_typecheck_getEscapeIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int BT_QUANTIZED_BVH_NODE::getEscapeIndex() const function, expected prototype:\nint BT_QUANTIZED_BVH_NODE::getEscapeIndex() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int BT_QUANTIZED_BVH_NODE::getEscapeIndex() const function, expected prototype:\nint BT_QUANTIZED_BVH_NODE::getEscapeIndex() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		BT_QUANTIZED_BVH_NODE* self=(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int BT_QUANTIZED_BVH_NODE::getEscapeIndex() const. Got : '%s'",typeid(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int BT_QUANTIZED_BVH_NODE::getEscapeIndex() const. Got : '%s'\n%s",typeid(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getEscapeIndex();
 		lua_pushnumber(L,lret);
@@ -220,16 +211,14 @@ public:
 	// void BT_QUANTIZED_BVH_NODE::setEscapeIndex(int index)
 	static int _bind_setEscapeIndex(lua_State *L) {
 		if (!_lg_typecheck_setEscapeIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void BT_QUANTIZED_BVH_NODE::setEscapeIndex(int index) function, expected prototype:\nvoid BT_QUANTIZED_BVH_NODE::setEscapeIndex(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void BT_QUANTIZED_BVH_NODE::setEscapeIndex(int index) function, expected prototype:\nvoid BT_QUANTIZED_BVH_NODE::setEscapeIndex(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		BT_QUANTIZED_BVH_NODE* self=(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void BT_QUANTIZED_BVH_NODE::setEscapeIndex(int). Got : '%s'",typeid(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void BT_QUANTIZED_BVH_NODE::setEscapeIndex(int). Got : '%s'\n%s",typeid(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setEscapeIndex(index);
 
@@ -239,15 +228,13 @@ public:
 	// int BT_QUANTIZED_BVH_NODE::getDataIndex() const
 	static int _bind_getDataIndex(lua_State *L) {
 		if (!_lg_typecheck_getDataIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int BT_QUANTIZED_BVH_NODE::getDataIndex() const function, expected prototype:\nint BT_QUANTIZED_BVH_NODE::getDataIndex() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int BT_QUANTIZED_BVH_NODE::getDataIndex() const function, expected prototype:\nint BT_QUANTIZED_BVH_NODE::getDataIndex() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		BT_QUANTIZED_BVH_NODE* self=(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int BT_QUANTIZED_BVH_NODE::getDataIndex() const. Got : '%s'",typeid(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int BT_QUANTIZED_BVH_NODE::getDataIndex() const. Got : '%s'\n%s",typeid(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getDataIndex();
 		lua_pushnumber(L,lret);
@@ -258,16 +245,14 @@ public:
 	// void BT_QUANTIZED_BVH_NODE::setDataIndex(int index)
 	static int _bind_setDataIndex(lua_State *L) {
 		if (!_lg_typecheck_setDataIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void BT_QUANTIZED_BVH_NODE::setDataIndex(int index) function, expected prototype:\nvoid BT_QUANTIZED_BVH_NODE::setDataIndex(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void BT_QUANTIZED_BVH_NODE::setDataIndex(int index) function, expected prototype:\nvoid BT_QUANTIZED_BVH_NODE::setDataIndex(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		BT_QUANTIZED_BVH_NODE* self=(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void BT_QUANTIZED_BVH_NODE::setDataIndex(int). Got : '%s'",typeid(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void BT_QUANTIZED_BVH_NODE::setDataIndex(int). Got : '%s'\n%s",typeid(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDataIndex(index);
 
@@ -277,8 +262,7 @@ public:
 	// bool BT_QUANTIZED_BVH_NODE::testQuantizedBoxOverlapp(unsigned short * quantizedMin, unsigned short * quantizedMax) const
 	static int _bind_testQuantizedBoxOverlapp(lua_State *L) {
 		if (!_lg_typecheck_testQuantizedBoxOverlapp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool BT_QUANTIZED_BVH_NODE::testQuantizedBoxOverlapp(unsigned short * quantizedMin, unsigned short * quantizedMax) const function, expected prototype:\nbool BT_QUANTIZED_BVH_NODE::testQuantizedBoxOverlapp(unsigned short * quantizedMin, unsigned short * quantizedMax) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool BT_QUANTIZED_BVH_NODE::testQuantizedBoxOverlapp(unsigned short * quantizedMin, unsigned short * quantizedMax) const function, expected prototype:\nbool BT_QUANTIZED_BVH_NODE::testQuantizedBoxOverlapp(unsigned short * quantizedMin, unsigned short * quantizedMax) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short* quantizedMin=(unsigned short*)Luna< void >::check(L,2);
@@ -286,8 +270,7 @@ public:
 
 		BT_QUANTIZED_BVH_NODE* self=(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool BT_QUANTIZED_BVH_NODE::testQuantizedBoxOverlapp(unsigned short *, unsigned short *) const. Got : '%s'",typeid(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool BT_QUANTIZED_BVH_NODE::testQuantizedBoxOverlapp(unsigned short *, unsigned short *) const. Got : '%s'\n%s",typeid(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->testQuantizedBoxOverlapp(quantizedMin, quantizedMax);
 		lua_pushboolean(L,lret?1:0);
@@ -298,15 +281,13 @@ public:
 	// int BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex()
 	static int _bind_getEscapeIndexOrDataIndex(lua_State *L) {
 		if (!_lg_typecheck_getEscapeIndexOrDataIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex() function, expected prototype:\nint BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex() function, expected prototype:\nint BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		BT_QUANTIZED_BVH_NODE* self=(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex(). Got : '%s'",typeid(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex(). Got : '%s'\n%s",typeid(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_escapeIndexOrDataIndex;
 		lua_pushnumber(L,lret);
@@ -317,16 +298,14 @@ public:
 	// void BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex(int value)
 	static int _bind_setEscapeIndexOrDataIndex(lua_State *L) {
 		if (!_lg_typecheck_setEscapeIndexOrDataIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex(int value) function, expected prototype:\nvoid BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex(int value) function, expected prototype:\nvoid BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		BT_QUANTIZED_BVH_NODE* self=(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex(int). Got : '%s'",typeid(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void BT_QUANTIZED_BVH_NODE::m_escapeIndexOrDataIndex(int). Got : '%s'\n%s",typeid(Luna< BT_QUANTIZED_BVH_NODE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_escapeIndexOrDataIndex = value;
 

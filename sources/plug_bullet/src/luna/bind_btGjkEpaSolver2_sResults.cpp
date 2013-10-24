@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btGjkEpaSolver2::sResults*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btGjkEpaSolver2::sResults*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGjkEpaSolver2::sResults* rhs =(Luna< btGjkEpaSolver2::sResults >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGjkEpaSolver2::sResults* self= (btGjkEpaSolver2::sResults*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btGjkEpaSolver2::sResults >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -123,7 +119,7 @@ public:
 	inline static bool _lg_typecheck_setStatus(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -137,7 +133,7 @@ public:
 	inline static bool _lg_typecheck_setDistance(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -151,15 +147,13 @@ public:
 	// enum btGjkEpaSolver2::sResults::eStatus btGjkEpaSolver2::sResults::status()
 	static int _bind_getStatus(lua_State *L) {
 		if (!_lg_typecheck_getStatus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in enum btGjkEpaSolver2::sResults::eStatus btGjkEpaSolver2::sResults::status() function, expected prototype:\nenum btGjkEpaSolver2::sResults::eStatus btGjkEpaSolver2::sResults::status()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in enum btGjkEpaSolver2::sResults::eStatus btGjkEpaSolver2::sResults::status() function, expected prototype:\nenum btGjkEpaSolver2::sResults::eStatus btGjkEpaSolver2::sResults::status()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGjkEpaSolver2::sResults* self=(Luna< btGjkEpaSolver2::sResults >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call enum btGjkEpaSolver2::sResults::eStatus btGjkEpaSolver2::sResults::status(). Got : '%s'",typeid(Luna< btGjkEpaSolver2::sResults >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call enum btGjkEpaSolver2::sResults::eStatus btGjkEpaSolver2::sResults::status(). Got : '%s'\n%s",typeid(Luna< btGjkEpaSolver2::sResults >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		enum btGjkEpaSolver2::sResults::eStatus lret = self->status;
 		lua_pushnumber(L,lret);
@@ -170,15 +164,13 @@ public:
 	// btVector3 btGjkEpaSolver2::sResults::normal()
 	static int _bind_getNormal(lua_State *L) {
 		if (!_lg_typecheck_getNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btGjkEpaSolver2::sResults::normal() function, expected prototype:\nbtVector3 btGjkEpaSolver2::sResults::normal()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btGjkEpaSolver2::sResults::normal() function, expected prototype:\nbtVector3 btGjkEpaSolver2::sResults::normal()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGjkEpaSolver2::sResults* self=(Luna< btGjkEpaSolver2::sResults >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btGjkEpaSolver2::sResults::normal(). Got : '%s'",typeid(Luna< btGjkEpaSolver2::sResults >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btGjkEpaSolver2::sResults::normal(). Got : '%s'\n%s",typeid(Luna< btGjkEpaSolver2::sResults >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->normal;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -191,15 +183,13 @@ public:
 	// float btGjkEpaSolver2::sResults::distance()
 	static int _bind_getDistance(lua_State *L) {
 		if (!_lg_typecheck_getDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btGjkEpaSolver2::sResults::distance() function, expected prototype:\nfloat btGjkEpaSolver2::sResults::distance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btGjkEpaSolver2::sResults::distance() function, expected prototype:\nfloat btGjkEpaSolver2::sResults::distance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGjkEpaSolver2::sResults* self=(Luna< btGjkEpaSolver2::sResults >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btGjkEpaSolver2::sResults::distance(). Got : '%s'",typeid(Luna< btGjkEpaSolver2::sResults >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btGjkEpaSolver2::sResults::distance(). Got : '%s'\n%s",typeid(Luna< btGjkEpaSolver2::sResults >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->distance;
 		lua_pushnumber(L,lret);
@@ -210,16 +200,14 @@ public:
 	// void btGjkEpaSolver2::sResults::status(enum btGjkEpaSolver2::sResults::eStatus value)
 	static int _bind_setStatus(lua_State *L) {
 		if (!_lg_typecheck_setStatus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGjkEpaSolver2::sResults::status(enum btGjkEpaSolver2::sResults::eStatus value) function, expected prototype:\nvoid btGjkEpaSolver2::sResults::status(enum btGjkEpaSolver2::sResults::eStatus value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGjkEpaSolver2::sResults::status(enum btGjkEpaSolver2::sResults::eStatus value) function, expected prototype:\nvoid btGjkEpaSolver2::sResults::status(enum btGjkEpaSolver2::sResults::eStatus value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGjkEpaSolver2::sResults::eStatus value=(btGjkEpaSolver2::sResults::eStatus)lua_tointeger(L,2);
 
 		btGjkEpaSolver2::sResults* self=(Luna< btGjkEpaSolver2::sResults >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGjkEpaSolver2::sResults::status(enum btGjkEpaSolver2::sResults::eStatus). Got : '%s'",typeid(Luna< btGjkEpaSolver2::sResults >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGjkEpaSolver2::sResults::status(enum btGjkEpaSolver2::sResults::eStatus). Got : '%s'\n%s",typeid(Luna< btGjkEpaSolver2::sResults >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->status = value;
 
@@ -229,8 +217,7 @@ public:
 	// void btGjkEpaSolver2::sResults::normal(btVector3 value)
 	static int _bind_setNormal(lua_State *L) {
 		if (!_lg_typecheck_setNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGjkEpaSolver2::sResults::normal(btVector3 value) function, expected prototype:\nvoid btGjkEpaSolver2::sResults::normal(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGjkEpaSolver2::sResults::normal(btVector3 value) function, expected prototype:\nvoid btGjkEpaSolver2::sResults::normal(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -241,8 +228,7 @@ public:
 
 		btGjkEpaSolver2::sResults* self=(Luna< btGjkEpaSolver2::sResults >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGjkEpaSolver2::sResults::normal(btVector3). Got : '%s'",typeid(Luna< btGjkEpaSolver2::sResults >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGjkEpaSolver2::sResults::normal(btVector3). Got : '%s'\n%s",typeid(Luna< btGjkEpaSolver2::sResults >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->normal = value;
 
@@ -252,16 +238,14 @@ public:
 	// void btGjkEpaSolver2::sResults::distance(float value)
 	static int _bind_setDistance(lua_State *L) {
 		if (!_lg_typecheck_setDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGjkEpaSolver2::sResults::distance(float value) function, expected prototype:\nvoid btGjkEpaSolver2::sResults::distance(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGjkEpaSolver2::sResults::distance(float value) function, expected prototype:\nvoid btGjkEpaSolver2::sResults::distance(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btGjkEpaSolver2::sResults* self=(Luna< btGjkEpaSolver2::sResults >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGjkEpaSolver2::sResults::distance(float). Got : '%s'",typeid(Luna< btGjkEpaSolver2::sResults >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGjkEpaSolver2::sResults::distance(float). Got : '%s'\n%s",typeid(Luna< btGjkEpaSolver2::sResults >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->distance = value;
 

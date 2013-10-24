@@ -90,7 +90,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}

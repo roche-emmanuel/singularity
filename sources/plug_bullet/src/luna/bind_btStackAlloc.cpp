@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btStackAlloc*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btStackAlloc*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btStackAlloc* rhs =(Luna< btStackAlloc >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btStackAlloc* self= (btStackAlloc*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btStackAlloc >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -103,7 +99,7 @@ public:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		return true;
 	}
 
@@ -112,7 +108,7 @@ public:
 	inline static bool _lg_typecheck_create(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -131,7 +127,7 @@ public:
 	inline static bool _lg_typecheck_allocate(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -156,8 +152,7 @@ public:
 	// btStackAlloc::btStackAlloc(unsigned int size)
 	static btStackAlloc* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btStackAlloc::btStackAlloc(unsigned int size) function, expected prototype:\nbtStackAlloc::btStackAlloc(unsigned int size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btStackAlloc::btStackAlloc(unsigned int size) function, expected prototype:\nbtStackAlloc::btStackAlloc(unsigned int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int size=(unsigned int)lua_tointeger(L,1);
@@ -170,16 +165,14 @@ public:
 	// void btStackAlloc::create(unsigned int size)
 	static int _bind_create(lua_State *L) {
 		if (!_lg_typecheck_create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStackAlloc::create(unsigned int size) function, expected prototype:\nvoid btStackAlloc::create(unsigned int size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btStackAlloc::create(unsigned int size) function, expected prototype:\nvoid btStackAlloc::create(unsigned int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int size=(unsigned int)lua_tointeger(L,2);
 
 		btStackAlloc* self=(Luna< btStackAlloc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStackAlloc::create(unsigned int). Got : '%s'",typeid(Luna< btStackAlloc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStackAlloc::create(unsigned int). Got : '%s'\n%s",typeid(Luna< btStackAlloc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->create(size);
 
@@ -189,15 +182,13 @@ public:
 	// void btStackAlloc::destroy()
 	static int _bind_destroy(lua_State *L) {
 		if (!_lg_typecheck_destroy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStackAlloc::destroy() function, expected prototype:\nvoid btStackAlloc::destroy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btStackAlloc::destroy() function, expected prototype:\nvoid btStackAlloc::destroy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btStackAlloc* self=(Luna< btStackAlloc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStackAlloc::destroy(). Got : '%s'",typeid(Luna< btStackAlloc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStackAlloc::destroy(). Got : '%s'\n%s",typeid(Luna< btStackAlloc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->destroy();
 
@@ -207,15 +198,13 @@ public:
 	// int btStackAlloc::getAvailableMemory() const
 	static int _bind_getAvailableMemory(lua_State *L) {
 		if (!_lg_typecheck_getAvailableMemory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btStackAlloc::getAvailableMemory() const function, expected prototype:\nint btStackAlloc::getAvailableMemory() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btStackAlloc::getAvailableMemory() const function, expected prototype:\nint btStackAlloc::getAvailableMemory() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btStackAlloc* self=(Luna< btStackAlloc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btStackAlloc::getAvailableMemory() const. Got : '%s'",typeid(Luna< btStackAlloc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btStackAlloc::getAvailableMemory() const. Got : '%s'\n%s",typeid(Luna< btStackAlloc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getAvailableMemory();
 		lua_pushnumber(L,lret);
@@ -226,16 +215,14 @@ public:
 	// unsigned char * btStackAlloc::allocate(unsigned int size)
 	static int _bind_allocate(lua_State *L) {
 		if (!_lg_typecheck_allocate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char * btStackAlloc::allocate(unsigned int size) function, expected prototype:\nunsigned char * btStackAlloc::allocate(unsigned int size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char * btStackAlloc::allocate(unsigned int size) function, expected prototype:\nunsigned char * btStackAlloc::allocate(unsigned int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int size=(unsigned int)lua_tointeger(L,2);
 
 		btStackAlloc* self=(Luna< btStackAlloc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char * btStackAlloc::allocate(unsigned int). Got : '%s'",typeid(Luna< btStackAlloc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char * btStackAlloc::allocate(unsigned int). Got : '%s'\n%s",typeid(Luna< btStackAlloc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char * lret = self->allocate(size);
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
@@ -246,15 +233,13 @@ public:
 	// btBlock * btStackAlloc::beginBlock()
 	static int _bind_beginBlock(lua_State *L) {
 		if (!_lg_typecheck_beginBlock(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBlock * btStackAlloc::beginBlock() function, expected prototype:\nbtBlock * btStackAlloc::beginBlock()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btBlock * btStackAlloc::beginBlock() function, expected prototype:\nbtBlock * btStackAlloc::beginBlock()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btStackAlloc* self=(Luna< btStackAlloc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btBlock * btStackAlloc::beginBlock(). Got : '%s'",typeid(Luna< btStackAlloc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btBlock * btStackAlloc::beginBlock(). Got : '%s'\n%s",typeid(Luna< btStackAlloc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btBlock * lret = self->beginBlock();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -267,16 +252,14 @@ public:
 	// void btStackAlloc::endBlock(btBlock * block)
 	static int _bind_endBlock(lua_State *L) {
 		if (!_lg_typecheck_endBlock(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStackAlloc::endBlock(btBlock * block) function, expected prototype:\nvoid btStackAlloc::endBlock(btBlock * block)\nClass arguments details:\narg 1 ID = 60616493\n");
+			luaL_error(L, "luna typecheck failed in void btStackAlloc::endBlock(btBlock * block) function, expected prototype:\nvoid btStackAlloc::endBlock(btBlock * block)\nClass arguments details:\narg 1 ID = 60616493\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBlock* block=(Luna< btBlock >::check(L,2));
 
 		btStackAlloc* self=(Luna< btStackAlloc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStackAlloc::endBlock(btBlock *). Got : '%s'",typeid(Luna< btStackAlloc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStackAlloc::endBlock(btBlock *). Got : '%s'\n%s",typeid(Luna< btStackAlloc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->endBlock(block);
 

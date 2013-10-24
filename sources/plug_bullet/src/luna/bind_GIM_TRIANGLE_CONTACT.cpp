@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(GIM_TRIANGLE_CONTACT*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(GIM_TRIANGLE_CONTACT*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		GIM_TRIANGLE_CONTACT* rhs =(Luna< GIM_TRIANGLE_CONTACT >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		GIM_TRIANGLE_CONTACT* self= (GIM_TRIANGLE_CONTACT*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< GIM_TRIANGLE_CONTACT >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -127,9 +123,9 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,91544891)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -154,14 +150,14 @@ public:
 	inline static bool _lg_typecheck_set_penetration_depth(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_set_point_count(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -180,8 +176,7 @@ public:
 	// GIM_TRIANGLE_CONTACT::GIM_TRIANGLE_CONTACT()
 	static GIM_TRIANGLE_CONTACT* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in GIM_TRIANGLE_CONTACT::GIM_TRIANGLE_CONTACT() function, expected prototype:\nGIM_TRIANGLE_CONTACT::GIM_TRIANGLE_CONTACT()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in GIM_TRIANGLE_CONTACT::GIM_TRIANGLE_CONTACT() function, expected prototype:\nGIM_TRIANGLE_CONTACT::GIM_TRIANGLE_CONTACT()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -191,8 +186,7 @@ public:
 	// GIM_TRIANGLE_CONTACT::GIM_TRIANGLE_CONTACT(const GIM_TRIANGLE_CONTACT & other)
 	static GIM_TRIANGLE_CONTACT* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in GIM_TRIANGLE_CONTACT::GIM_TRIANGLE_CONTACT(const GIM_TRIANGLE_CONTACT & other) function, expected prototype:\nGIM_TRIANGLE_CONTACT::GIM_TRIANGLE_CONTACT(const GIM_TRIANGLE_CONTACT & other)\nClass arguments details:\narg 1 ID = 87059149\n");
+			luaL_error(L, "luna typecheck failed in GIM_TRIANGLE_CONTACT::GIM_TRIANGLE_CONTACT(const GIM_TRIANGLE_CONTACT & other) function, expected prototype:\nGIM_TRIANGLE_CONTACT::GIM_TRIANGLE_CONTACT(const GIM_TRIANGLE_CONTACT & other)\nClass arguments details:\narg 1 ID = 87059149\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const GIM_TRIANGLE_CONTACT* other_ptr=(Luna< GIM_TRIANGLE_CONTACT >::check(L,1));
@@ -218,8 +212,7 @@ public:
 	// void GIM_TRIANGLE_CONTACT::copy_from(const GIM_TRIANGLE_CONTACT & other)
 	static int _bind_copy_from(lua_State *L) {
 		if (!_lg_typecheck_copy_from(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GIM_TRIANGLE_CONTACT::copy_from(const GIM_TRIANGLE_CONTACT & other) function, expected prototype:\nvoid GIM_TRIANGLE_CONTACT::copy_from(const GIM_TRIANGLE_CONTACT & other)\nClass arguments details:\narg 1 ID = 87059149\n");
+			luaL_error(L, "luna typecheck failed in void GIM_TRIANGLE_CONTACT::copy_from(const GIM_TRIANGLE_CONTACT & other) function, expected prototype:\nvoid GIM_TRIANGLE_CONTACT::copy_from(const GIM_TRIANGLE_CONTACT & other)\nClass arguments details:\narg 1 ID = 87059149\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const GIM_TRIANGLE_CONTACT* other_ptr=(Luna< GIM_TRIANGLE_CONTACT >::check(L,2));
@@ -230,8 +223,7 @@ public:
 
 		GIM_TRIANGLE_CONTACT* self=(Luna< GIM_TRIANGLE_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GIM_TRIANGLE_CONTACT::copy_from(const GIM_TRIANGLE_CONTACT &). Got : '%s'",typeid(Luna< GIM_TRIANGLE_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GIM_TRIANGLE_CONTACT::copy_from(const GIM_TRIANGLE_CONTACT &). Got : '%s'\n%s",typeid(Luna< GIM_TRIANGLE_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->copy_from(other);
 
@@ -241,8 +233,7 @@ public:
 	// void GIM_TRIANGLE_CONTACT::merge_points(const btVector4 & plane, float margin, const btVector3 * points, int point_count)
 	static int _bind_merge_points(lua_State *L) {
 		if (!_lg_typecheck_merge_points(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GIM_TRIANGLE_CONTACT::merge_points(const btVector4 & plane, float margin, const btVector3 * points, int point_count) function, expected prototype:\nvoid GIM_TRIANGLE_CONTACT::merge_points(const btVector4 & plane, float margin, const btVector3 * points, int point_count)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void GIM_TRIANGLE_CONTACT::merge_points(const btVector4 & plane, float margin, const btVector3 * points, int point_count) function, expected prototype:\nvoid GIM_TRIANGLE_CONTACT::merge_points(const btVector4 & plane, float margin, const btVector3 * points, int point_count)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector4* plane_ptr=(Luna< btVector3 >::checkSubType< btVector4 >(L,2));
@@ -256,8 +247,7 @@ public:
 
 		GIM_TRIANGLE_CONTACT* self=(Luna< GIM_TRIANGLE_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GIM_TRIANGLE_CONTACT::merge_points(const btVector4 &, float, const btVector3 *, int). Got : '%s'",typeid(Luna< GIM_TRIANGLE_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GIM_TRIANGLE_CONTACT::merge_points(const btVector4 &, float, const btVector3 *, int). Got : '%s'\n%s",typeid(Luna< GIM_TRIANGLE_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->merge_points(plane, margin, points, point_count);
 
@@ -267,15 +257,13 @@ public:
 	// float GIM_TRIANGLE_CONTACT::m_penetration_depth()
 	static int _bind_get_penetration_depth(lua_State *L) {
 		if (!_lg_typecheck_get_penetration_depth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float GIM_TRIANGLE_CONTACT::m_penetration_depth() function, expected prototype:\nfloat GIM_TRIANGLE_CONTACT::m_penetration_depth()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float GIM_TRIANGLE_CONTACT::m_penetration_depth() function, expected prototype:\nfloat GIM_TRIANGLE_CONTACT::m_penetration_depth()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GIM_TRIANGLE_CONTACT* self=(Luna< GIM_TRIANGLE_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float GIM_TRIANGLE_CONTACT::m_penetration_depth(). Got : '%s'",typeid(Luna< GIM_TRIANGLE_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float GIM_TRIANGLE_CONTACT::m_penetration_depth(). Got : '%s'\n%s",typeid(Luna< GIM_TRIANGLE_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_penetration_depth;
 		lua_pushnumber(L,lret);
@@ -286,15 +274,13 @@ public:
 	// int GIM_TRIANGLE_CONTACT::m_point_count()
 	static int _bind_get_point_count(lua_State *L) {
 		if (!_lg_typecheck_get_point_count(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int GIM_TRIANGLE_CONTACT::m_point_count() function, expected prototype:\nint GIM_TRIANGLE_CONTACT::m_point_count()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int GIM_TRIANGLE_CONTACT::m_point_count() function, expected prototype:\nint GIM_TRIANGLE_CONTACT::m_point_count()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GIM_TRIANGLE_CONTACT* self=(Luna< GIM_TRIANGLE_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int GIM_TRIANGLE_CONTACT::m_point_count(). Got : '%s'",typeid(Luna< GIM_TRIANGLE_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int GIM_TRIANGLE_CONTACT::m_point_count(). Got : '%s'\n%s",typeid(Luna< GIM_TRIANGLE_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_point_count;
 		lua_pushnumber(L,lret);
@@ -305,15 +291,13 @@ public:
 	// btVector4 GIM_TRIANGLE_CONTACT::m_separating_normal()
 	static int _bind_get_separating_normal(lua_State *L) {
 		if (!_lg_typecheck_get_separating_normal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector4 GIM_TRIANGLE_CONTACT::m_separating_normal() function, expected prototype:\nbtVector4 GIM_TRIANGLE_CONTACT::m_separating_normal()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector4 GIM_TRIANGLE_CONTACT::m_separating_normal() function, expected prototype:\nbtVector4 GIM_TRIANGLE_CONTACT::m_separating_normal()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GIM_TRIANGLE_CONTACT* self=(Luna< GIM_TRIANGLE_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector4 GIM_TRIANGLE_CONTACT::m_separating_normal(). Got : '%s'",typeid(Luna< GIM_TRIANGLE_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector4 GIM_TRIANGLE_CONTACT::m_separating_normal(). Got : '%s'\n%s",typeid(Luna< GIM_TRIANGLE_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector4* lret = &self->m_separating_normal;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -326,16 +310,14 @@ public:
 	// void GIM_TRIANGLE_CONTACT::m_penetration_depth(float value)
 	static int _bind_set_penetration_depth(lua_State *L) {
 		if (!_lg_typecheck_set_penetration_depth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GIM_TRIANGLE_CONTACT::m_penetration_depth(float value) function, expected prototype:\nvoid GIM_TRIANGLE_CONTACT::m_penetration_depth(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GIM_TRIANGLE_CONTACT::m_penetration_depth(float value) function, expected prototype:\nvoid GIM_TRIANGLE_CONTACT::m_penetration_depth(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		GIM_TRIANGLE_CONTACT* self=(Luna< GIM_TRIANGLE_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GIM_TRIANGLE_CONTACT::m_penetration_depth(float). Got : '%s'",typeid(Luna< GIM_TRIANGLE_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GIM_TRIANGLE_CONTACT::m_penetration_depth(float). Got : '%s'\n%s",typeid(Luna< GIM_TRIANGLE_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_penetration_depth = value;
 
@@ -345,16 +327,14 @@ public:
 	// void GIM_TRIANGLE_CONTACT::m_point_count(int value)
 	static int _bind_set_point_count(lua_State *L) {
 		if (!_lg_typecheck_set_point_count(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GIM_TRIANGLE_CONTACT::m_point_count(int value) function, expected prototype:\nvoid GIM_TRIANGLE_CONTACT::m_point_count(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GIM_TRIANGLE_CONTACT::m_point_count(int value) function, expected prototype:\nvoid GIM_TRIANGLE_CONTACT::m_point_count(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		GIM_TRIANGLE_CONTACT* self=(Luna< GIM_TRIANGLE_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GIM_TRIANGLE_CONTACT::m_point_count(int). Got : '%s'",typeid(Luna< GIM_TRIANGLE_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GIM_TRIANGLE_CONTACT::m_point_count(int). Got : '%s'\n%s",typeid(Luna< GIM_TRIANGLE_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_point_count = value;
 
@@ -364,8 +344,7 @@ public:
 	// void GIM_TRIANGLE_CONTACT::m_separating_normal(btVector4 value)
 	static int _bind_set_separating_normal(lua_State *L) {
 		if (!_lg_typecheck_set_separating_normal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GIM_TRIANGLE_CONTACT::m_separating_normal(btVector4 value) function, expected prototype:\nvoid GIM_TRIANGLE_CONTACT::m_separating_normal(btVector4 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void GIM_TRIANGLE_CONTACT::m_separating_normal(btVector4 value) function, expected prototype:\nvoid GIM_TRIANGLE_CONTACT::m_separating_normal(btVector4 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector4* value_ptr=(Luna< btVector3 >::checkSubType< btVector4 >(L,2));
@@ -376,8 +355,7 @@ public:
 
 		GIM_TRIANGLE_CONTACT* self=(Luna< GIM_TRIANGLE_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GIM_TRIANGLE_CONTACT::m_separating_normal(btVector4). Got : '%s'",typeid(Luna< GIM_TRIANGLE_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GIM_TRIANGLE_CONTACT::m_separating_normal(btVector4). Got : '%s'\n%s",typeid(Luna< GIM_TRIANGLE_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_separating_normal = value;
 

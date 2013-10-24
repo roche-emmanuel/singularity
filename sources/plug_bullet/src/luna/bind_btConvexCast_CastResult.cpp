@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btConvexCast::CastResult*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btConvexCast::CastResult*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexCast::CastResult* rhs =(Luna< btConvexCast::CastResult >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexCast::CastResult* self= (btConvexCast::CastResult*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btConvexCast::CastResult >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -144,7 +139,7 @@ public:
 	inline static bool _lg_typecheck_DebugDraw(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -158,8 +153,8 @@ public:
 	inline static bool _lg_typecheck_reportFailure(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -236,7 +231,7 @@ public:
 	inline static bool _lg_typecheck_setFraction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -250,14 +245,14 @@ public:
 	inline static bool _lg_typecheck_setAllowedPenetration(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_DebugDraw(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -271,8 +266,8 @@ public:
 	inline static bool _lg_typecheck_base_reportFailure(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -284,8 +279,7 @@ public:
 	// btConvexCast::CastResult::CastResult()
 	static btConvexCast::CastResult* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConvexCast::CastResult::CastResult() function, expected prototype:\nbtConvexCast::CastResult::CastResult()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btConvexCast::CastResult::CastResult() function, expected prototype:\nbtConvexCast::CastResult::CastResult()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -295,8 +289,7 @@ public:
 	// btConvexCast::CastResult::CastResult(lua_Table * data)
 	static btConvexCast::CastResult* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConvexCast::CastResult::CastResult(lua_Table * data) function, expected prototype:\nbtConvexCast::CastResult::CastResult(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btConvexCast::CastResult::CastResult(lua_Table * data) function, expected prototype:\nbtConvexCast::CastResult::CastResult(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -317,16 +310,14 @@ public:
 	// void btConvexCast::CastResult::DebugDraw(float fraction)
 	static int _bind_DebugDraw(lua_State *L) {
 		if (!_lg_typecheck_DebugDraw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::DebugDraw(float fraction) function, expected prototype:\nvoid btConvexCast::CastResult::DebugDraw(float fraction)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::DebugDraw(float fraction) function, expected prototype:\nvoid btConvexCast::CastResult::DebugDraw(float fraction)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float fraction=(float)lua_tonumber(L,2);
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::DebugDraw(float). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::DebugDraw(float). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DebugDraw(fraction);
 
@@ -336,8 +327,7 @@ public:
 	// void btConvexCast::CastResult::drawCoordSystem(const btTransform & trans)
 	static int _bind_drawCoordSystem(lua_State *L) {
 		if (!_lg_typecheck_drawCoordSystem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::drawCoordSystem(const btTransform & trans) function, expected prototype:\nvoid btConvexCast::CastResult::drawCoordSystem(const btTransform & trans)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::drawCoordSystem(const btTransform & trans) function, expected prototype:\nvoid btConvexCast::CastResult::drawCoordSystem(const btTransform & trans)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* trans_ptr=(Luna< btTransform >::check(L,2));
@@ -348,8 +338,7 @@ public:
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::drawCoordSystem(const btTransform &). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::drawCoordSystem(const btTransform &). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawCoordSystem(trans);
 
@@ -359,8 +348,7 @@ public:
 	// void btConvexCast::CastResult::reportFailure(int errNo, int numIterations)
 	static int _bind_reportFailure(lua_State *L) {
 		if (!_lg_typecheck_reportFailure(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::reportFailure(int errNo, int numIterations) function, expected prototype:\nvoid btConvexCast::CastResult::reportFailure(int errNo, int numIterations)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::reportFailure(int errNo, int numIterations) function, expected prototype:\nvoid btConvexCast::CastResult::reportFailure(int errNo, int numIterations)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int errNo=(int)lua_tointeger(L,2);
@@ -368,8 +356,7 @@ public:
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::reportFailure(int, int). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::reportFailure(int, int). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reportFailure(errNo, numIterations);
 
@@ -379,15 +366,13 @@ public:
 	// btTransform btConvexCast::CastResult::m_hitTransformA()
 	static int _bind_getHitTransformA(lua_State *L) {
 		if (!_lg_typecheck_getHitTransformA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btConvexCast::CastResult::m_hitTransformA() function, expected prototype:\nbtTransform btConvexCast::CastResult::m_hitTransformA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform btConvexCast::CastResult::m_hitTransformA() function, expected prototype:\nbtTransform btConvexCast::CastResult::m_hitTransformA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btConvexCast::CastResult::m_hitTransformA(). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btConvexCast::CastResult::m_hitTransformA(). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->m_hitTransformA;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -400,15 +385,13 @@ public:
 	// btTransform btConvexCast::CastResult::m_hitTransformB()
 	static int _bind_getHitTransformB(lua_State *L) {
 		if (!_lg_typecheck_getHitTransformB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btConvexCast::CastResult::m_hitTransformB() function, expected prototype:\nbtTransform btConvexCast::CastResult::m_hitTransformB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform btConvexCast::CastResult::m_hitTransformB() function, expected prototype:\nbtTransform btConvexCast::CastResult::m_hitTransformB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btConvexCast::CastResult::m_hitTransformB(). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btConvexCast::CastResult::m_hitTransformB(). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->m_hitTransformB;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -421,15 +404,13 @@ public:
 	// btVector3 btConvexCast::CastResult::m_normal()
 	static int _bind_getNormal(lua_State *L) {
 		if (!_lg_typecheck_getNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btConvexCast::CastResult::m_normal() function, expected prototype:\nbtVector3 btConvexCast::CastResult::m_normal()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btConvexCast::CastResult::m_normal() function, expected prototype:\nbtVector3 btConvexCast::CastResult::m_normal()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btConvexCast::CastResult::m_normal(). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btConvexCast::CastResult::m_normal(). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_normal;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -442,15 +423,13 @@ public:
 	// btVector3 btConvexCast::CastResult::m_hitPoint()
 	static int _bind_getHitPoint(lua_State *L) {
 		if (!_lg_typecheck_getHitPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btConvexCast::CastResult::m_hitPoint() function, expected prototype:\nbtVector3 btConvexCast::CastResult::m_hitPoint()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btConvexCast::CastResult::m_hitPoint() function, expected prototype:\nbtVector3 btConvexCast::CastResult::m_hitPoint()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btConvexCast::CastResult::m_hitPoint(). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btConvexCast::CastResult::m_hitPoint(). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_hitPoint;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -463,15 +442,13 @@ public:
 	// float btConvexCast::CastResult::m_fraction()
 	static int _bind_getFraction(lua_State *L) {
 		if (!_lg_typecheck_getFraction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btConvexCast::CastResult::m_fraction() function, expected prototype:\nfloat btConvexCast::CastResult::m_fraction()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btConvexCast::CastResult::m_fraction() function, expected prototype:\nfloat btConvexCast::CastResult::m_fraction()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btConvexCast::CastResult::m_fraction(). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btConvexCast::CastResult::m_fraction(). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_fraction;
 		lua_pushnumber(L,lret);
@@ -482,15 +459,13 @@ public:
 	// btIDebugDraw * btConvexCast::CastResult::m_debugDrawer()
 	static int _bind_getDebugDrawer(lua_State *L) {
 		if (!_lg_typecheck_getDebugDrawer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btIDebugDraw * btConvexCast::CastResult::m_debugDrawer() function, expected prototype:\nbtIDebugDraw * btConvexCast::CastResult::m_debugDrawer()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btIDebugDraw * btConvexCast::CastResult::m_debugDrawer() function, expected prototype:\nbtIDebugDraw * btConvexCast::CastResult::m_debugDrawer()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btIDebugDraw * btConvexCast::CastResult::m_debugDrawer(). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btIDebugDraw * btConvexCast::CastResult::m_debugDrawer(). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btIDebugDraw * lret = self->m_debugDrawer;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -503,15 +478,13 @@ public:
 	// float btConvexCast::CastResult::m_allowedPenetration()
 	static int _bind_getAllowedPenetration(lua_State *L) {
 		if (!_lg_typecheck_getAllowedPenetration(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btConvexCast::CastResult::m_allowedPenetration() function, expected prototype:\nfloat btConvexCast::CastResult::m_allowedPenetration()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btConvexCast::CastResult::m_allowedPenetration() function, expected prototype:\nfloat btConvexCast::CastResult::m_allowedPenetration()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btConvexCast::CastResult::m_allowedPenetration(). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btConvexCast::CastResult::m_allowedPenetration(). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_allowedPenetration;
 		lua_pushnumber(L,lret);
@@ -522,8 +495,7 @@ public:
 	// void btConvexCast::CastResult::m_hitTransformA(btTransform value)
 	static int _bind_setHitTransformA(lua_State *L) {
 		if (!_lg_typecheck_setHitTransformA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_hitTransformA(btTransform value) function, expected prototype:\nvoid btConvexCast::CastResult::m_hitTransformA(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_hitTransformA(btTransform value) function, expected prototype:\nvoid btConvexCast::CastResult::m_hitTransformA(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTransform* value_ptr=(Luna< btTransform >::check(L,2));
@@ -534,8 +506,7 @@ public:
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::m_hitTransformA(btTransform). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::m_hitTransformA(btTransform). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_hitTransformA = value;
 
@@ -545,8 +516,7 @@ public:
 	// void btConvexCast::CastResult::m_hitTransformB(btTransform value)
 	static int _bind_setHitTransformB(lua_State *L) {
 		if (!_lg_typecheck_setHitTransformB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_hitTransformB(btTransform value) function, expected prototype:\nvoid btConvexCast::CastResult::m_hitTransformB(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_hitTransformB(btTransform value) function, expected prototype:\nvoid btConvexCast::CastResult::m_hitTransformB(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTransform* value_ptr=(Luna< btTransform >::check(L,2));
@@ -557,8 +527,7 @@ public:
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::m_hitTransformB(btTransform). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::m_hitTransformB(btTransform). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_hitTransformB = value;
 
@@ -568,8 +537,7 @@ public:
 	// void btConvexCast::CastResult::m_normal(btVector3 value)
 	static int _bind_setNormal(lua_State *L) {
 		if (!_lg_typecheck_setNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_normal(btVector3 value) function, expected prototype:\nvoid btConvexCast::CastResult::m_normal(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_normal(btVector3 value) function, expected prototype:\nvoid btConvexCast::CastResult::m_normal(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -580,8 +548,7 @@ public:
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::m_normal(btVector3). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::m_normal(btVector3). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_normal = value;
 
@@ -591,8 +558,7 @@ public:
 	// void btConvexCast::CastResult::m_hitPoint(btVector3 value)
 	static int _bind_setHitPoint(lua_State *L) {
 		if (!_lg_typecheck_setHitPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_hitPoint(btVector3 value) function, expected prototype:\nvoid btConvexCast::CastResult::m_hitPoint(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_hitPoint(btVector3 value) function, expected prototype:\nvoid btConvexCast::CastResult::m_hitPoint(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -603,8 +569,7 @@ public:
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::m_hitPoint(btVector3). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::m_hitPoint(btVector3). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_hitPoint = value;
 
@@ -614,16 +579,14 @@ public:
 	// void btConvexCast::CastResult::m_fraction(float value)
 	static int _bind_setFraction(lua_State *L) {
 		if (!_lg_typecheck_setFraction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_fraction(float value) function, expected prototype:\nvoid btConvexCast::CastResult::m_fraction(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_fraction(float value) function, expected prototype:\nvoid btConvexCast::CastResult::m_fraction(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::m_fraction(float). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::m_fraction(float). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_fraction = value;
 
@@ -633,16 +596,14 @@ public:
 	// void btConvexCast::CastResult::m_debugDrawer(btIDebugDraw * value)
 	static int _bind_setDebugDrawer(lua_State *L) {
 		if (!_lg_typecheck_setDebugDrawer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_debugDrawer(btIDebugDraw * value) function, expected prototype:\nvoid btConvexCast::CastResult::m_debugDrawer(btIDebugDraw * value)\nClass arguments details:\narg 1 ID = 63441741\n");
+			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_debugDrawer(btIDebugDraw * value) function, expected prototype:\nvoid btConvexCast::CastResult::m_debugDrawer(btIDebugDraw * value)\nClass arguments details:\narg 1 ID = 63441741\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btIDebugDraw* value=(Luna< btIDebugDraw >::check(L,2));
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::m_debugDrawer(btIDebugDraw *). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::m_debugDrawer(btIDebugDraw *). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_debugDrawer = value;
 
@@ -652,16 +613,14 @@ public:
 	// void btConvexCast::CastResult::m_allowedPenetration(float value)
 	static int _bind_setAllowedPenetration(lua_State *L) {
 		if (!_lg_typecheck_setAllowedPenetration(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_allowedPenetration(float value) function, expected prototype:\nvoid btConvexCast::CastResult::m_allowedPenetration(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::m_allowedPenetration(float value) function, expected prototype:\nvoid btConvexCast::CastResult::m_allowedPenetration(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::m_allowedPenetration(float). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::m_allowedPenetration(float). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_allowedPenetration = value;
 
@@ -671,16 +630,14 @@ public:
 	// void btConvexCast::CastResult::base_DebugDraw(float fraction)
 	static int _bind_base_DebugDraw(lua_State *L) {
 		if (!_lg_typecheck_base_DebugDraw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::base_DebugDraw(float fraction) function, expected prototype:\nvoid btConvexCast::CastResult::base_DebugDraw(float fraction)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::base_DebugDraw(float fraction) function, expected prototype:\nvoid btConvexCast::CastResult::base_DebugDraw(float fraction)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float fraction=(float)lua_tonumber(L,2);
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::base_DebugDraw(float). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::base_DebugDraw(float). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CastResult::DebugDraw(fraction);
 
@@ -690,8 +647,7 @@ public:
 	// void btConvexCast::CastResult::base_drawCoordSystem(const btTransform & trans)
 	static int _bind_base_drawCoordSystem(lua_State *L) {
 		if (!_lg_typecheck_base_drawCoordSystem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::base_drawCoordSystem(const btTransform & trans) function, expected prototype:\nvoid btConvexCast::CastResult::base_drawCoordSystem(const btTransform & trans)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::base_drawCoordSystem(const btTransform & trans) function, expected prototype:\nvoid btConvexCast::CastResult::base_drawCoordSystem(const btTransform & trans)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* trans_ptr=(Luna< btTransform >::check(L,2));
@@ -702,8 +658,7 @@ public:
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::base_drawCoordSystem(const btTransform &). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::base_drawCoordSystem(const btTransform &). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CastResult::drawCoordSystem(trans);
 
@@ -713,8 +668,7 @@ public:
 	// void btConvexCast::CastResult::base_reportFailure(int errNo, int numIterations)
 	static int _bind_base_reportFailure(lua_State *L) {
 		if (!_lg_typecheck_base_reportFailure(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::base_reportFailure(int errNo, int numIterations) function, expected prototype:\nvoid btConvexCast::CastResult::base_reportFailure(int errNo, int numIterations)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConvexCast::CastResult::base_reportFailure(int errNo, int numIterations) function, expected prototype:\nvoid btConvexCast::CastResult::base_reportFailure(int errNo, int numIterations)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int errNo=(int)lua_tointeger(L,2);
@@ -722,8 +676,7 @@ public:
 
 		btConvexCast::CastResult* self=(Luna< btConvexCast::CastResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::base_reportFailure(int, int). Got : '%s'",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexCast::CastResult::base_reportFailure(int, int). Got : '%s'\n%s",typeid(Luna< btConvexCast::CastResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CastResult::reportFailure(errNo, numIterations);
 

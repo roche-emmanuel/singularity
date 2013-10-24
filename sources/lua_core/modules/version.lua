@@ -4,7 +4,7 @@ version.major = 0
 version.minor = 3
 version.patch = 0
 
-version.build = 1320
-version.date = "10/02/13 17:36:36"
+version.build = 1432
+version.date = "10/24/13 15:21:47"
 
 return version;

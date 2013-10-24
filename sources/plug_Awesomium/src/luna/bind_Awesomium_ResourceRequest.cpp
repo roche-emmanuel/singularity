@@ -98,7 +98,7 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
@@ -163,7 +163,7 @@ public:
 	inline static bool _lg_typecheck_set_method(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
 		return true;
 	}
 
@@ -176,7 +176,7 @@ public:
 	inline static bool _lg_typecheck_set_referrer(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
 		return true;
 	}
 
@@ -189,15 +189,15 @@ public:
 	inline static bool _lg_typecheck_set_extra_headers(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_AppendExtraHeader(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
-		if( (lua_isstring(L,3)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
+		if( (lua_type(L,3)!=LUA_TSTRING) ) return false;
 		return true;
 	}
 
@@ -210,7 +210,7 @@ public:
 	inline static bool _lg_typecheck_GetUploadElement(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -223,15 +223,15 @@ public:
 	inline static bool _lg_typecheck_AppendUploadFilePath(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_AppendUploadBytes(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 

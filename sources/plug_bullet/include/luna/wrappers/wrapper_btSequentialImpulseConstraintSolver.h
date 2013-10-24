@@ -160,16 +160,16 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,67106554) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,55239733) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,91544891) ) return false;
 		if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,85758361)) ) return false;
 		if( (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,85758361)) ) return false;
-		if( lua_isnumber(L,11)==0 ) return false;
-		if( luatop>11 && lua_isnumber(L,12)==0 ) return false;
-		if( luatop>12 && lua_isnumber(L,13)==0 ) return false;
+		if( lua_type(L,11)!=LUA_TNUMBER ) return false;
+		if( luatop>11 && lua_type(L,12)!=LUA_TNUMBER ) return false;
+		if( luatop>12 && lua_type(L,13)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -179,16 +179,16 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,67106554) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,55239733) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,91544891) ) return false;
 		if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,85758361)) ) return false;
 		if( (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,85758361)) ) return false;
-		if( lua_isnumber(L,11)==0 ) return false;
-		if( luatop>11 && lua_isnumber(L,12)==0 ) return false;
-		if( luatop>12 && lua_isnumber(L,13)==0 ) return false;
+		if( lua_type(L,11)!=LUA_TNUMBER ) return false;
+		if( luatop>11 && lua_type(L,12)!=LUA_TNUMBER ) return false;
+		if( luatop>12 && lua_type(L,13)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -197,17 +197,17 @@ public:
 		if( luatop<11 || luatop>13 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,55239733) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,91544891) ) return false;
 		if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,85758361)) ) return false;
 		if( (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,85758361)) ) return false;
-		if( lua_isnumber(L,11)==0 ) return false;
-		if( luatop>11 && lua_isnumber(L,12)==0 ) return false;
-		if( luatop>12 && lua_isnumber(L,13)==0 ) return false;
+		if( lua_type(L,11)!=LUA_TNUMBER ) return false;
+		if( luatop>11 && lua_type(L,12)!=LUA_TNUMBER ) return false;
+		if( luatop>12 && lua_type(L,13)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -216,17 +216,17 @@ public:
 		if( luatop<11 || luatop>13 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,55239733) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,91544891) ) return false;
 		if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,85758361)) ) return false;
 		if( (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,85758361)) ) return false;
-		if( lua_isnumber(L,11)==0 ) return false;
-		if( luatop>11 && lua_isnumber(L,12)==0 ) return false;
-		if( luatop>12 && lua_isnumber(L,13)==0 ) return false;
+		if( lua_type(L,11)!=LUA_TNUMBER ) return false;
+		if( luatop>11 && lua_type(L,12)!=LUA_TNUMBER ) return false;
+		if( luatop>12 && lua_type(L,13)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -234,13 +234,13 @@ public:
 		if( lua_gettop(L)!=11 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,67106554) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,55239733) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,5410878) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,91544891) ) return false;
-		if( lua_isnumber(L,8)==0 ) return false;
-		if( lua_isnumber(L,9)==0 ) return false;
+		if( lua_type(L,8)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,9)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,10,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,11,91544891) ) return false;
 		return true;
@@ -250,8 +250,8 @@ public:
 		if( lua_gettop(L)!=6 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,67106554) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,55239733) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,5410878) ) return false;
 		return true;
@@ -260,8 +260,8 @@ public:
 	inline static bool _lg_typecheck_public_restitutionCurve(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -347,8 +347,7 @@ public:
 	// void btSequentialImpulseConstraintSolver::public_setupFrictionConstraint(btSolverConstraint & solverConstraint, const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0., float cfmSlip = 0.)
 	static int _bind_public_setupFrictionConstraint(lua_State *L) {
 		if (!_lg_typecheck_public_setupFrictionConstraint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_setupFrictionConstraint(btSolverConstraint & solverConstraint, const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0., float cfmSlip = 0.) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_setupFrictionConstraint(btSolverConstraint & solverConstraint, const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0., float cfmSlip = 0.)\nClass arguments details:\narg 1 ID = 67106554\narg 2 ID = 91544891\narg 5 ID = 55239733\narg 6 ID = 91544891\narg 7 ID = 91544891\narg 8 ID = 85758361\narg 9 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_setupFrictionConstraint(btSolverConstraint & solverConstraint, const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0., float cfmSlip = 0.) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_setupFrictionConstraint(btSolverConstraint & solverConstraint, const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0., float cfmSlip = 0.)\nClass arguments details:\narg 1 ID = 67106554\narg 2 ID = 91544891\narg 5 ID = 55239733\narg 6 ID = 91544891\narg 7 ID = 91544891\narg 8 ID = 85758361\narg 9 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -388,8 +387,7 @@ public:
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_setupFrictionConstraint(btSolverConstraint &, const btVector3 &, int, int, btManifoldPoint &, const btVector3 &, const btVector3 &, btCollisionObject *, btCollisionObject *, float, float, float). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_setupFrictionConstraint(btSolverConstraint &, const btVector3 &, int, int, btManifoldPoint &, const btVector3 &, const btVector3 &, btCollisionObject *, btCollisionObject *, float, float, float). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setupFrictionConstraint(solverConstraint, normalAxis, solverBodyIdA, solverBodyIdB, cp, rel_pos1, rel_pos2, colObj0, colObj1, relaxation, desiredVelocity, cfmSlip);
 
@@ -399,8 +397,7 @@ public:
 	// void btSequentialImpulseConstraintSolver::public_setupRollingFrictionConstraint(btSolverConstraint & solverConstraint, const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0., float cfmSlip = 0.)
 	static int _bind_public_setupRollingFrictionConstraint(lua_State *L) {
 		if (!_lg_typecheck_public_setupRollingFrictionConstraint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_setupRollingFrictionConstraint(btSolverConstraint & solverConstraint, const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0., float cfmSlip = 0.) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_setupRollingFrictionConstraint(btSolverConstraint & solverConstraint, const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0., float cfmSlip = 0.)\nClass arguments details:\narg 1 ID = 67106554\narg 2 ID = 91544891\narg 5 ID = 55239733\narg 6 ID = 91544891\narg 7 ID = 91544891\narg 8 ID = 85758361\narg 9 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_setupRollingFrictionConstraint(btSolverConstraint & solverConstraint, const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0., float cfmSlip = 0.) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_setupRollingFrictionConstraint(btSolverConstraint & solverConstraint, const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0., float cfmSlip = 0.)\nClass arguments details:\narg 1 ID = 67106554\narg 2 ID = 91544891\narg 5 ID = 55239733\narg 6 ID = 91544891\narg 7 ID = 91544891\narg 8 ID = 85758361\narg 9 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -440,8 +437,7 @@ public:
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_setupRollingFrictionConstraint(btSolverConstraint &, const btVector3 &, int, int, btManifoldPoint &, const btVector3 &, const btVector3 &, btCollisionObject *, btCollisionObject *, float, float, float). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_setupRollingFrictionConstraint(btSolverConstraint &, const btVector3 &, int, int, btManifoldPoint &, const btVector3 &, const btVector3 &, btCollisionObject *, btCollisionObject *, float, float, float). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setupRollingFrictionConstraint(solverConstraint, normalAxis, solverBodyIdA, solverBodyIdB, cp, rel_pos1, rel_pos2, colObj0, colObj1, relaxation, desiredVelocity, cfmSlip);
 
@@ -451,8 +447,7 @@ public:
 	// btSolverConstraint & btSequentialImpulseConstraintSolver::public_addFrictionConstraint(const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, int frictionIndex, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0., float cfmSlip = 0.)
 	static int _bind_public_addFrictionConstraint(lua_State *L) {
 		if (!_lg_typecheck_public_addFrictionConstraint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSolverConstraint & btSequentialImpulseConstraintSolver::public_addFrictionConstraint(const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, int frictionIndex, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0., float cfmSlip = 0.) function, expected prototype:\nbtSolverConstraint & btSequentialImpulseConstraintSolver::public_addFrictionConstraint(const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, int frictionIndex, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0., float cfmSlip = 0.)\nClass arguments details:\narg 1 ID = 91544891\narg 5 ID = 55239733\narg 6 ID = 91544891\narg 7 ID = 91544891\narg 8 ID = 85758361\narg 9 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in btSolverConstraint & btSequentialImpulseConstraintSolver::public_addFrictionConstraint(const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, int frictionIndex, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0., float cfmSlip = 0.) function, expected prototype:\nbtSolverConstraint & btSequentialImpulseConstraintSolver::public_addFrictionConstraint(const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, int frictionIndex, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0., float cfmSlip = 0.)\nClass arguments details:\narg 1 ID = 91544891\narg 5 ID = 55239733\narg 6 ID = 91544891\narg 7 ID = 91544891\narg 8 ID = 85758361\narg 9 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -488,8 +483,7 @@ public:
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btSolverConstraint & btSequentialImpulseConstraintSolver::public_addFrictionConstraint(const btVector3 &, int, int, int, btManifoldPoint &, const btVector3 &, const btVector3 &, btCollisionObject *, btCollisionObject *, float, float, float). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btSolverConstraint & btSequentialImpulseConstraintSolver::public_addFrictionConstraint(const btVector3 &, int, int, int, btManifoldPoint &, const btVector3 &, const btVector3 &, btCollisionObject *, btCollisionObject *, float, float, float). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btSolverConstraint* lret = &self->public_addFrictionConstraint(normalAxis, solverBodyIdA, solverBodyIdB, frictionIndex, cp, rel_pos1, rel_pos2, colObj0, colObj1, relaxation, desiredVelocity, cfmSlip);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -502,8 +496,7 @@ public:
 	// btSolverConstraint & btSequentialImpulseConstraintSolver::public_addRollingFrictionConstraint(const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, int frictionIndex, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0, float cfmSlip = 0.f)
 	static int _bind_public_addRollingFrictionConstraint(lua_State *L) {
 		if (!_lg_typecheck_public_addRollingFrictionConstraint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSolverConstraint & btSequentialImpulseConstraintSolver::public_addRollingFrictionConstraint(const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, int frictionIndex, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0, float cfmSlip = 0.f) function, expected prototype:\nbtSolverConstraint & btSequentialImpulseConstraintSolver::public_addRollingFrictionConstraint(const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, int frictionIndex, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0, float cfmSlip = 0.f)\nClass arguments details:\narg 1 ID = 91544891\narg 5 ID = 55239733\narg 6 ID = 91544891\narg 7 ID = 91544891\narg 8 ID = 85758361\narg 9 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in btSolverConstraint & btSequentialImpulseConstraintSolver::public_addRollingFrictionConstraint(const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, int frictionIndex, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0, float cfmSlip = 0.f) function, expected prototype:\nbtSolverConstraint & btSequentialImpulseConstraintSolver::public_addRollingFrictionConstraint(const btVector3 & normalAxis, int solverBodyIdA, int solverBodyIdB, int frictionIndex, btManifoldPoint & cp, const btVector3 & rel_pos1, const btVector3 & rel_pos2, btCollisionObject * colObj0, btCollisionObject * colObj1, float relaxation, float desiredVelocity = 0, float cfmSlip = 0.f)\nClass arguments details:\narg 1 ID = 91544891\narg 5 ID = 55239733\narg 6 ID = 91544891\narg 7 ID = 91544891\narg 8 ID = 85758361\narg 9 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -539,8 +532,7 @@ public:
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btSolverConstraint & btSequentialImpulseConstraintSolver::public_addRollingFrictionConstraint(const btVector3 &, int, int, int, btManifoldPoint &, const btVector3 &, const btVector3 &, btCollisionObject *, btCollisionObject *, float, float, float). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btSolverConstraint & btSequentialImpulseConstraintSolver::public_addRollingFrictionConstraint(const btVector3 &, int, int, int, btManifoldPoint &, const btVector3 &, const btVector3 &, btCollisionObject *, btCollisionObject *, float, float, float). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btSolverConstraint* lret = &self->public_addRollingFrictionConstraint(normalAxis, solverBodyIdA, solverBodyIdB, frictionIndex, cp, rel_pos1, rel_pos2, colObj0, colObj1, relaxation, desiredVelocity, cfmSlip);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -553,8 +545,7 @@ public:
 	// void btSequentialImpulseConstraintSolver::public_setupContactConstraint(btSolverConstraint & solverConstraint, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btContactSolverInfo & infoGlobal, btVector3 & vel, float & rel_vel, float & relaxation, btVector3 & rel_pos1, btVector3 & rel_pos2)
 	static int _bind_public_setupContactConstraint(lua_State *L) {
 		if (!_lg_typecheck_public_setupContactConstraint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_setupContactConstraint(btSolverConstraint & solverConstraint, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btContactSolverInfo & infoGlobal, btVector3 & vel, float & rel_vel, float & relaxation, btVector3 & rel_pos1, btVector3 & rel_pos2) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_setupContactConstraint(btSolverConstraint & solverConstraint, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btContactSolverInfo & infoGlobal, btVector3 & vel, float & rel_vel, float & relaxation, btVector3 & rel_pos1, btVector3 & rel_pos2)\nClass arguments details:\narg 1 ID = 67106554\narg 4 ID = 55239733\narg 5 ID = 5410878\narg 6 ID = 91544891\narg 9 ID = 91544891\narg 10 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_setupContactConstraint(btSolverConstraint & solverConstraint, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btContactSolverInfo & infoGlobal, btVector3 & vel, float & rel_vel, float & relaxation, btVector3 & rel_pos1, btVector3 & rel_pos2) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_setupContactConstraint(btSolverConstraint & solverConstraint, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btContactSolverInfo & infoGlobal, btVector3 & vel, float & rel_vel, float & relaxation, btVector3 & rel_pos1, btVector3 & rel_pos2)\nClass arguments details:\narg 1 ID = 67106554\narg 4 ID = 55239733\narg 5 ID = 5410878\narg 6 ID = 91544891\narg 9 ID = 91544891\narg 10 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSolverConstraint* solverConstraint_ptr=(Luna< btSolverConstraint >::check(L,2));
@@ -594,19 +585,19 @@ public:
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_setupContactConstraint(btSolverConstraint &, int, int, btManifoldPoint &, const btContactSolverInfo &, btVector3 &, float &, float &, btVector3 &, btVector3 &). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_setupContactConstraint(btSolverConstraint &, int, int, btManifoldPoint &, const btContactSolverInfo &, btVector3 &, float &, float &, btVector3 &, btVector3 &). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setupContactConstraint(solverConstraint, solverBodyIdA, solverBodyIdB, cp, infoGlobal, vel, rel_vel, relaxation, rel_pos1, rel_pos2);
 
-		return 0;
+		lua_pushnumber(L,rel_vel);
+		lua_pushnumber(L,relaxation);
+		return 2;
 	}
 
 	// void btSequentialImpulseConstraintSolver::public_setFrictionConstraintImpulse(btSolverConstraint & solverConstraint, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btContactSolverInfo & infoGlobal)
 	static int _bind_public_setFrictionConstraintImpulse(lua_State *L) {
 		if (!_lg_typecheck_public_setFrictionConstraintImpulse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_setFrictionConstraintImpulse(btSolverConstraint & solverConstraint, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btContactSolverInfo & infoGlobal) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_setFrictionConstraintImpulse(btSolverConstraint & solverConstraint, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btContactSolverInfo & infoGlobal)\nClass arguments details:\narg 1 ID = 67106554\narg 4 ID = 55239733\narg 5 ID = 5410878\n");
+			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_setFrictionConstraintImpulse(btSolverConstraint & solverConstraint, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btContactSolverInfo & infoGlobal) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_setFrictionConstraintImpulse(btSolverConstraint & solverConstraint, int solverBodyIdA, int solverBodyIdB, btManifoldPoint & cp, const btContactSolverInfo & infoGlobal)\nClass arguments details:\narg 1 ID = 67106554\narg 4 ID = 55239733\narg 5 ID = 5410878\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSolverConstraint* solverConstraint_ptr=(Luna< btSolverConstraint >::check(L,2));
@@ -629,8 +620,7 @@ public:
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_setFrictionConstraintImpulse(btSolverConstraint &, int, int, btManifoldPoint &, const btContactSolverInfo &). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_setFrictionConstraintImpulse(btSolverConstraint &, int, int, btManifoldPoint &, const btContactSolverInfo &). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setFrictionConstraintImpulse(solverConstraint, solverBodyIdA, solverBodyIdB, cp, infoGlobal);
 
@@ -640,8 +630,7 @@ public:
 	// float btSequentialImpulseConstraintSolver::public_restitutionCurve(float rel_vel, float restitution)
 	static int _bind_public_restitutionCurve(lua_State *L) {
 		if (!_lg_typecheck_public_restitutionCurve(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSequentialImpulseConstraintSolver::public_restitutionCurve(float rel_vel, float restitution) function, expected prototype:\nfloat btSequentialImpulseConstraintSolver::public_restitutionCurve(float rel_vel, float restitution)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSequentialImpulseConstraintSolver::public_restitutionCurve(float rel_vel, float restitution) function, expected prototype:\nfloat btSequentialImpulseConstraintSolver::public_restitutionCurve(float rel_vel, float restitution)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float rel_vel=(float)lua_tonumber(L,2);
@@ -649,8 +638,7 @@ public:
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSequentialImpulseConstraintSolver::public_restitutionCurve(float, float). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSequentialImpulseConstraintSolver::public_restitutionCurve(float, float). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->public_restitutionCurve(rel_vel, restitution);
 		lua_pushnumber(L,lret);
@@ -661,8 +649,7 @@ public:
 	// void btSequentialImpulseConstraintSolver::public_convertContact(btPersistentManifold * manifold, const btContactSolverInfo & infoGlobal)
 	static int _bind_public_convertContact(lua_State *L) {
 		if (!_lg_typecheck_public_convertContact(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_convertContact(btPersistentManifold * manifold, const btContactSolverInfo & infoGlobal) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_convertContact(btPersistentManifold * manifold, const btContactSolverInfo & infoGlobal)\nClass arguments details:\narg 1 ID = 66271199\narg 2 ID = 5410878\n");
+			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_convertContact(btPersistentManifold * manifold, const btContactSolverInfo & infoGlobal) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_convertContact(btPersistentManifold * manifold, const btContactSolverInfo & infoGlobal)\nClass arguments details:\narg 1 ID = 66271199\narg 2 ID = 5410878\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPersistentManifold* manifold=(Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,2));
@@ -674,8 +661,7 @@ public:
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_convertContact(btPersistentManifold *, const btContactSolverInfo &). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_convertContact(btPersistentManifold *, const btContactSolverInfo &). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_convertContact(manifold, infoGlobal);
 
@@ -685,8 +671,7 @@ public:
 	// void btSequentialImpulseConstraintSolver::public_resolveSplitPenetrationSIMD(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)
 	static int _bind_public_resolveSplitPenetrationSIMD(lua_State *L) {
 		if (!_lg_typecheck_public_resolveSplitPenetrationSIMD(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_resolveSplitPenetrationSIMD(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_resolveSplitPenetrationSIMD(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\narg 3 ID = 67106554\n");
+			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_resolveSplitPenetrationSIMD(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_resolveSplitPenetrationSIMD(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\narg 3 ID = 67106554\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSolverBody* bodyA_ptr=(Luna< btSolverBody >::check(L,2));
@@ -707,8 +692,7 @@ public:
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_resolveSplitPenetrationSIMD(btSolverBody &, btSolverBody &, const btSolverConstraint &). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_resolveSplitPenetrationSIMD(btSolverBody &, btSolverBody &, const btSolverConstraint &). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_resolveSplitPenetrationSIMD(bodyA, bodyB, contactConstraint);
 
@@ -718,8 +702,7 @@ public:
 	// void btSequentialImpulseConstraintSolver::public_resolveSplitPenetrationImpulseCacheFriendly(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)
 	static int _bind_public_resolveSplitPenetrationImpulseCacheFriendly(lua_State *L) {
 		if (!_lg_typecheck_public_resolveSplitPenetrationImpulseCacheFriendly(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_resolveSplitPenetrationImpulseCacheFriendly(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_resolveSplitPenetrationImpulseCacheFriendly(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\narg 3 ID = 67106554\n");
+			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_resolveSplitPenetrationImpulseCacheFriendly(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_resolveSplitPenetrationImpulseCacheFriendly(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\narg 3 ID = 67106554\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSolverBody* bodyA_ptr=(Luna< btSolverBody >::check(L,2));
@@ -740,8 +723,7 @@ public:
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_resolveSplitPenetrationImpulseCacheFriendly(btSolverBody &, btSolverBody &, const btSolverConstraint &). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_resolveSplitPenetrationImpulseCacheFriendly(btSolverBody &, btSolverBody &, const btSolverConstraint &). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_resolveSplitPenetrationImpulseCacheFriendly(bodyA, bodyB, contactConstraint);
 
@@ -751,8 +733,7 @@ public:
 	// int btSequentialImpulseConstraintSolver::public_getOrInitSolverBody(btCollisionObject & body)
 	static int _bind_public_getOrInitSolverBody(lua_State *L) {
 		if (!_lg_typecheck_public_getOrInitSolverBody(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btSequentialImpulseConstraintSolver::public_getOrInitSolverBody(btCollisionObject & body) function, expected prototype:\nint btSequentialImpulseConstraintSolver::public_getOrInitSolverBody(btCollisionObject & body)\nClass arguments details:\narg 1 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in int btSequentialImpulseConstraintSolver::public_getOrInitSolverBody(btCollisionObject & body) function, expected prototype:\nint btSequentialImpulseConstraintSolver::public_getOrInitSolverBody(btCollisionObject & body)\nClass arguments details:\narg 1 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionObject* body_ptr=(Luna< btCollisionObject >::check(L,2));
@@ -763,8 +744,7 @@ public:
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btSequentialImpulseConstraintSolver::public_getOrInitSolverBody(btCollisionObject &). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btSequentialImpulseConstraintSolver::public_getOrInitSolverBody(btCollisionObject &). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->public_getOrInitSolverBody(body);
 		lua_pushnumber(L,lret);
@@ -775,8 +755,7 @@ public:
 	// void btSequentialImpulseConstraintSolver::public_initSolverBody(btSolverBody * solverBody, btCollisionObject * collisionObject)
 	static int _bind_public_initSolverBody(lua_State *L) {
 		if (!_lg_typecheck_public_initSolverBody(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_initSolverBody(btSolverBody * solverBody, btCollisionObject * collisionObject) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_initSolverBody(btSolverBody * solverBody, btCollisionObject * collisionObject)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_initSolverBody(btSolverBody * solverBody, btCollisionObject * collisionObject) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_initSolverBody(btSolverBody * solverBody, btCollisionObject * collisionObject)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSolverBody* solverBody=(Luna< btSolverBody >::check(L,2));
@@ -784,8 +763,7 @@ public:
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_initSolverBody(btSolverBody *, btCollisionObject *). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_initSolverBody(btSolverBody *, btCollisionObject *). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_initSolverBody(solverBody, collisionObject);
 
@@ -795,8 +773,7 @@ public:
 	// void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowGeneric(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)
 	static int _bind_public_resolveSingleConstraintRowGeneric(lua_State *L) {
 		if (!_lg_typecheck_public_resolveSingleConstraintRowGeneric(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowGeneric(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowGeneric(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\narg 3 ID = 67106554\n");
+			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowGeneric(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowGeneric(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\narg 3 ID = 67106554\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSolverBody* bodyA_ptr=(Luna< btSolverBody >::check(L,2));
@@ -817,8 +794,7 @@ public:
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowGeneric(btSolverBody &, btSolverBody &, const btSolverConstraint &). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowGeneric(btSolverBody &, btSolverBody &, const btSolverConstraint &). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_resolveSingleConstraintRowGeneric(bodyA, bodyB, contactConstraint);
 
@@ -828,8 +804,7 @@ public:
 	// void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowGenericSIMD(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)
 	static int _bind_public_resolveSingleConstraintRowGenericSIMD(lua_State *L) {
 		if (!_lg_typecheck_public_resolveSingleConstraintRowGenericSIMD(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowGenericSIMD(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowGenericSIMD(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\narg 3 ID = 67106554\n");
+			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowGenericSIMD(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowGenericSIMD(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\narg 3 ID = 67106554\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSolverBody* bodyA_ptr=(Luna< btSolverBody >::check(L,2));
@@ -850,8 +825,7 @@ public:
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowGenericSIMD(btSolverBody &, btSolverBody &, const btSolverConstraint &). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowGenericSIMD(btSolverBody &, btSolverBody &, const btSolverConstraint &). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_resolveSingleConstraintRowGenericSIMD(bodyA, bodyB, contactConstraint);
 
@@ -861,8 +835,7 @@ public:
 	// void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowLowerLimit(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)
 	static int _bind_public_resolveSingleConstraintRowLowerLimit(lua_State *L) {
 		if (!_lg_typecheck_public_resolveSingleConstraintRowLowerLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowLowerLimit(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowLowerLimit(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\narg 3 ID = 67106554\n");
+			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowLowerLimit(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowLowerLimit(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\narg 3 ID = 67106554\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSolverBody* bodyA_ptr=(Luna< btSolverBody >::check(L,2));
@@ -883,8 +856,7 @@ public:
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowLowerLimit(btSolverBody &, btSolverBody &, const btSolverConstraint &). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowLowerLimit(btSolverBody &, btSolverBody &, const btSolverConstraint &). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_resolveSingleConstraintRowLowerLimit(bodyA, bodyB, contactConstraint);
 
@@ -894,8 +866,7 @@ public:
 	// void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowLowerLimitSIMD(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)
 	static int _bind_public_resolveSingleConstraintRowLowerLimitSIMD(lua_State *L) {
 		if (!_lg_typecheck_public_resolveSingleConstraintRowLowerLimitSIMD(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowLowerLimitSIMD(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowLowerLimitSIMD(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\narg 3 ID = 67106554\n");
+			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowLowerLimitSIMD(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowLowerLimitSIMD(btSolverBody & bodyA, btSolverBody & bodyB, const btSolverConstraint & contactConstraint)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\narg 3 ID = 67106554\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSolverBody* bodyA_ptr=(Luna< btSolverBody >::check(L,2));
@@ -916,8 +887,7 @@ public:
 
 		wrapper_btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< wrapper_btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowLowerLimitSIMD(btSolverBody &, btSolverBody &, const btSolverConstraint &). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::public_resolveSingleConstraintRowLowerLimitSIMD(btSolverBody &, btSolverBody &, const btSolverConstraint &). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_resolveSingleConstraintRowLowerLimitSIMD(bodyA, bodyB, contactConstraint);
 

@@ -139,7 +139,7 @@ public:
 	inline static bool _lg_typecheck_readObject_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -152,7 +152,7 @@ public:
 	inline static bool _lg_typecheck_readImage_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -183,7 +183,7 @@ public:
 	inline static bool _lg_typecheck_readNode_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -196,21 +196,21 @@ public:
 	inline static bool _lg_typecheck_readShader_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getObjectForUniqueID(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_registerUniqueIDForObject(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 		return true;
 	}
@@ -338,14 +338,14 @@ public:
 	inline static bool _lg_typecheck_read_overload_9(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_read_overload_10(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
 		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		return true;
@@ -354,7 +354,7 @@ public:
 	inline static bool _lg_typecheck_read_overload_11(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
 		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
@@ -365,7 +365,7 @@ public:
 	inline static bool _lg_typecheck_read_overload_12(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
 		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
@@ -378,7 +378,7 @@ public:
 	inline static bool _lg_typecheck_read_overload_13(lua_State *L) {
 		if( lua_gettop(L)!=6 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
 		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
@@ -393,7 +393,7 @@ public:
 	inline static bool _lg_typecheck_read_overload_14(lua_State *L) {
 		if( lua_gettop(L)!=7 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
 		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
@@ -410,7 +410,7 @@ public:
 	inline static bool _lg_typecheck_read_overload_15(lua_State *L) {
 		if( lua_gettop(L)!=8 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
 		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
@@ -429,7 +429,7 @@ public:
 	inline static bool _lg_typecheck_read_overload_16(lua_State *L) {
 		if( lua_gettop(L)!=9 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
 		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
@@ -450,7 +450,7 @@ public:
 	inline static bool _lg_typecheck_read_overload_17(lua_State *L) {
 		if( lua_gettop(L)!=10 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,67360031) ) return false;
 		if( (!(Luna< osg::ArgumentParser::Parameter >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,67360031) ) return false;
@@ -501,7 +501,7 @@ public:
 	inline static bool _lg_typecheck_base_readObject_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -514,7 +514,7 @@ public:
 	inline static bool _lg_typecheck_base_readImage_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -545,7 +545,7 @@ public:
 	inline static bool _lg_typecheck_base_readNode_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -558,21 +558,21 @@ public:
 	inline static bool _lg_typecheck_base_readShader_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_getObjectForUniqueID(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_registerUniqueIDForObject(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 		return true;
 	}

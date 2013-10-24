@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		spark::SparkDrawable* self= (spark::SparkDrawable*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -183,7 +180,7 @@ public:
 	inline static bool _lg_typecheck_setBaseSystemID(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -234,14 +231,14 @@ public:
 	inline static bool _lg_typecheck_getParticleSystem_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getParticleSystem_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -283,7 +280,7 @@ public:
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,31337102)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,70092749) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,70092749) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		if( luatop>5 && lua_isboolean(L,6)==0 ) return false;
 		return true;
 	}
@@ -301,17 +298,17 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>5 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_update(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
 		return true;
 	}
@@ -364,7 +361,7 @@ public:
 	inline static bool _lg_typecheck_base_update(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
 		return true;
 	}
@@ -390,8 +387,7 @@ public:
 	// spark::SparkDrawable::SparkDrawable()
 	static spark::SparkDrawable* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in spark::SparkDrawable::SparkDrawable() function, expected prototype:\nspark::SparkDrawable::SparkDrawable()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in spark::SparkDrawable::SparkDrawable() function, expected prototype:\nspark::SparkDrawable::SparkDrawable()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -401,8 +397,7 @@ public:
 	// spark::SparkDrawable::SparkDrawable(const spark::SparkDrawable & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static spark::SparkDrawable* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in spark::SparkDrawable::SparkDrawable(const spark::SparkDrawable & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nspark::SparkDrawable::SparkDrawable(const spark::SparkDrawable & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 20484188\n");
+			luaL_error(L, "luna typecheck failed in spark::SparkDrawable::SparkDrawable(const spark::SparkDrawable & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nspark::SparkDrawable::SparkDrawable(const spark::SparkDrawable & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 1 ID = 20484188\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -424,8 +419,7 @@ public:
 	// spark::SparkDrawable::SparkDrawable(lua_Table * data)
 	static spark::SparkDrawable* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in spark::SparkDrawable::SparkDrawable(lua_Table * data) function, expected prototype:\nspark::SparkDrawable::SparkDrawable(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in spark::SparkDrawable::SparkDrawable(lua_Table * data) function, expected prototype:\nspark::SparkDrawable::SparkDrawable(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -435,8 +429,7 @@ public:
 	// spark::SparkDrawable::SparkDrawable(lua_Table * data, const spark::SparkDrawable & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)
 	static spark::SparkDrawable* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in spark::SparkDrawable::SparkDrawable(lua_Table * data, const spark::SparkDrawable & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nspark::SparkDrawable::SparkDrawable(lua_Table * data, const spark::SparkDrawable & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 20484188\n");
+			luaL_error(L, "luna typecheck failed in spark::SparkDrawable::SparkDrawable(lua_Table * data, const spark::SparkDrawable & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY) function, expected prototype:\nspark::SparkDrawable::SparkDrawable(lua_Table * data, const spark::SparkDrawable & copy, const osg::CopyOp & copyop = osg::CopyOp::SHALLOW_COPY)\nClass arguments details:\narg 2 ID = 20484188\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -471,15 +464,13 @@ public:
 	// osg::Object * spark::SparkDrawable::cloneType() const
 	static int _bind_cloneType(lua_State *L) {
 		if (!_lg_typecheck_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * spark::SparkDrawable::cloneType() const function, expected prototype:\nosg::Object * spark::SparkDrawable::cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * spark::SparkDrawable::cloneType() const function, expected prototype:\nosg::Object * spark::SparkDrawable::cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * spark::SparkDrawable::cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * spark::SparkDrawable::cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -492,8 +483,7 @@ public:
 	// osg::Object * spark::SparkDrawable::clone(const osg::CopyOp & copyop) const
 	static int _bind_clone(lua_State *L) {
 		if (!_lg_typecheck_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * spark::SparkDrawable::clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * spark::SparkDrawable::clone(const osg::CopyOp & copyop) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * spark::SparkDrawable::clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * spark::SparkDrawable::clone(const osg::CopyOp & copyop) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -504,8 +494,7 @@ public:
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * spark::SparkDrawable::clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * spark::SparkDrawable::clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -518,16 +507,14 @@ public:
 	// bool spark::SparkDrawable::isSameKindAs(const osg::Object * obj) const
 	static int _bind_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool spark::SparkDrawable::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool spark::SparkDrawable::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool spark::SparkDrawable::isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool spark::SparkDrawable::isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -538,15 +525,13 @@ public:
 	// const char * spark::SparkDrawable::libraryName() const
 	static int _bind_libraryName(lua_State *L) {
 		if (!_lg_typecheck_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * spark::SparkDrawable::libraryName() const function, expected prototype:\nconst char * spark::SparkDrawable::libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * spark::SparkDrawable::libraryName() const function, expected prototype:\nconst char * spark::SparkDrawable::libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * spark::SparkDrawable::libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * spark::SparkDrawable::libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->libraryName();
 		lua_pushstring(L,lret);
@@ -557,15 +542,13 @@ public:
 	// const char * spark::SparkDrawable::className() const
 	static int _bind_className(lua_State *L) {
 		if (!_lg_typecheck_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * spark::SparkDrawable::className() const function, expected prototype:\nconst char * spark::SparkDrawable::className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * spark::SparkDrawable::className() const function, expected prototype:\nconst char * spark::SparkDrawable::className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * spark::SparkDrawable::className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * spark::SparkDrawable::className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->className();
 		lua_pushstring(L,lret);
@@ -576,15 +559,13 @@ public:
 	// bool spark::SparkDrawable::isValid() const
 	static int _bind_isValid(lua_State *L) {
 		if (!_lg_typecheck_isValid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool spark::SparkDrawable::isValid() const function, expected prototype:\nbool spark::SparkDrawable::isValid() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool spark::SparkDrawable::isValid() const function, expected prototype:\nbool spark::SparkDrawable::isValid() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::isValid() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::isValid() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isValid();
 		lua_pushboolean(L,lret?1:0);
@@ -595,15 +576,13 @@ public:
 	// unsigned int spark::SparkDrawable::getNumParticles() const
 	static int _bind_getNumParticles(lua_State *L) {
 		if (!_lg_typecheck_getNumParticles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int spark::SparkDrawable::getNumParticles() const function, expected prototype:\nunsigned int spark::SparkDrawable::getNumParticles() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int spark::SparkDrawable::getNumParticles() const function, expected prototype:\nunsigned int spark::SparkDrawable::getNumParticles() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int spark::SparkDrawable::getNumParticles() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int spark::SparkDrawable::getNumParticles() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getNumParticles();
 		lua_pushnumber(L,lret);
@@ -614,8 +593,7 @@ public:
 	// void spark::SparkDrawable::setBaseSystemCreator(spark::SparkDrawable::BaseSystemCreator * func, bool useProtoSystem = false)
 	static int _bind_setBaseSystemCreator(lua_State *L) {
 		if (!_lg_typecheck_setBaseSystemCreator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::setBaseSystemCreator(spark::SparkDrawable::BaseSystemCreator * func, bool useProtoSystem = false) function, expected prototype:\nvoid spark::SparkDrawable::setBaseSystemCreator(spark::SparkDrawable::BaseSystemCreator * func, bool useProtoSystem = false)\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::setBaseSystemCreator(spark::SparkDrawable::BaseSystemCreator * func, bool useProtoSystem = false) function, expected prototype:\nvoid spark::SparkDrawable::setBaseSystemCreator(spark::SparkDrawable::BaseSystemCreator * func, bool useProtoSystem = false)\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -625,8 +603,7 @@ public:
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::setBaseSystemCreator(spark::SparkDrawable::BaseSystemCreator *, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::setBaseSystemCreator(spark::SparkDrawable::BaseSystemCreator *, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setBaseSystemCreator(func, useProtoSystem);
 
@@ -636,16 +613,14 @@ public:
 	// void spark::SparkDrawable::setBaseSystemID(unsigned long id)
 	static int _bind_setBaseSystemID(lua_State *L) {
 		if (!_lg_typecheck_setBaseSystemID(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::setBaseSystemID(unsigned long id) function, expected prototype:\nvoid spark::SparkDrawable::setBaseSystemID(unsigned long id)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::setBaseSystemID(unsigned long id) function, expected prototype:\nvoid spark::SparkDrawable::setBaseSystemID(unsigned long id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long id=(unsigned long)lua_tointeger(L,2);
+		unsigned long id=(unsigned long)lua_tonumber(L,2);
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::setBaseSystemID(unsigned long). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::setBaseSystemID(unsigned long). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setBaseSystemID(id);
 
@@ -655,15 +630,13 @@ public:
 	// unsigned long spark::SparkDrawable::getBaseSystemID() const
 	static int _bind_getBaseSystemID(lua_State *L) {
 		if (!_lg_typecheck_getBaseSystemID(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned long spark::SparkDrawable::getBaseSystemID() const function, expected prototype:\nunsigned long spark::SparkDrawable::getBaseSystemID() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned long spark::SparkDrawable::getBaseSystemID() const function, expected prototype:\nunsigned long spark::SparkDrawable::getBaseSystemID() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned long spark::SparkDrawable::getBaseSystemID() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned long spark::SparkDrawable::getBaseSystemID() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned long lret = self->getBaseSystemID();
 		lua_pushnumber(L,lret);
@@ -674,16 +647,14 @@ public:
 	// void spark::SparkDrawable::setSortParticles(bool b)
 	static int _bind_setSortParticles(lua_State *L) {
 		if (!_lg_typecheck_setSortParticles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::setSortParticles(bool b) function, expected prototype:\nvoid spark::SparkDrawable::setSortParticles(bool b)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::setSortParticles(bool b) function, expected prototype:\nvoid spark::SparkDrawable::setSortParticles(bool b)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool b=(bool)(lua_toboolean(L,2)==1);
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::setSortParticles(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::setSortParticles(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSortParticles(b);
 
@@ -693,15 +664,13 @@ public:
 	// bool spark::SparkDrawable::getSortParticles() const
 	static int _bind_getSortParticles(lua_State *L) {
 		if (!_lg_typecheck_getSortParticles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool spark::SparkDrawable::getSortParticles() const function, expected prototype:\nbool spark::SparkDrawable::getSortParticles() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool spark::SparkDrawable::getSortParticles() const function, expected prototype:\nbool spark::SparkDrawable::getSortParticles() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::getSortParticles() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::getSortParticles() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getSortParticles();
 		lua_pushboolean(L,lret?1:0);
@@ -712,16 +681,14 @@ public:
 	// void spark::SparkDrawable::setAutoUpdateBound(bool b)
 	static int _bind_setAutoUpdateBound(lua_State *L) {
 		if (!_lg_typecheck_setAutoUpdateBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::setAutoUpdateBound(bool b) function, expected prototype:\nvoid spark::SparkDrawable::setAutoUpdateBound(bool b)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::setAutoUpdateBound(bool b) function, expected prototype:\nvoid spark::SparkDrawable::setAutoUpdateBound(bool b)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool b=(bool)(lua_toboolean(L,2)==1);
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::setAutoUpdateBound(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::setAutoUpdateBound(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAutoUpdateBound(b);
 
@@ -731,15 +698,13 @@ public:
 	// bool spark::SparkDrawable::getAutoUpdateBound() const
 	static int _bind_getAutoUpdateBound(lua_State *L) {
 		if (!_lg_typecheck_getAutoUpdateBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool spark::SparkDrawable::getAutoUpdateBound() const function, expected prototype:\nbool spark::SparkDrawable::getAutoUpdateBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool spark::SparkDrawable::getAutoUpdateBound() const function, expected prototype:\nbool spark::SparkDrawable::getAutoUpdateBound() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::getAutoUpdateBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::getAutoUpdateBound() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getAutoUpdateBound();
 		lua_pushboolean(L,lret?1:0);
@@ -750,15 +715,13 @@ public:
 	// SPK::System * spark::SparkDrawable::getProtoSystem()
 	static int _bind_getProtoSystem_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getProtoSystem_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::System * spark::SparkDrawable::getProtoSystem() function, expected prototype:\nSPK::System * spark::SparkDrawable::getProtoSystem()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::System * spark::SparkDrawable::getProtoSystem() function, expected prototype:\nSPK::System * spark::SparkDrawable::getProtoSystem()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::System * spark::SparkDrawable::getProtoSystem(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::System * spark::SparkDrawable::getProtoSystem(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::System * lret = self->getProtoSystem();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -771,15 +734,13 @@ public:
 	// const SPK::System * spark::SparkDrawable::getProtoSystem() const
 	static int _bind_getProtoSystem_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getProtoSystem_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const SPK::System * spark::SparkDrawable::getProtoSystem() const function, expected prototype:\nconst SPK::System * spark::SparkDrawable::getProtoSystem() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const SPK::System * spark::SparkDrawable::getProtoSystem() const function, expected prototype:\nconst SPK::System * spark::SparkDrawable::getProtoSystem() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::System * spark::SparkDrawable::getProtoSystem() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const SPK::System * spark::SparkDrawable::getProtoSystem() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const SPK::System * lret = self->getProtoSystem();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -801,16 +762,14 @@ public:
 	// SPK::System * spark::SparkDrawable::getParticleSystem(unsigned int i)
 	static int _bind_getParticleSystem_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getParticleSystem_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::System * spark::SparkDrawable::getParticleSystem(unsigned int i) function, expected prototype:\nSPK::System * spark::SparkDrawable::getParticleSystem(unsigned int i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::System * spark::SparkDrawable::getParticleSystem(unsigned int i) function, expected prototype:\nSPK::System * spark::SparkDrawable::getParticleSystem(unsigned int i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::System * spark::SparkDrawable::getParticleSystem(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::System * spark::SparkDrawable::getParticleSystem(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::System * lret = self->getParticleSystem(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -823,16 +782,14 @@ public:
 	// const SPK::System * spark::SparkDrawable::getParticleSystem(unsigned int i) const
 	static int _bind_getParticleSystem_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getParticleSystem_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const SPK::System * spark::SparkDrawable::getParticleSystem(unsigned int i) const function, expected prototype:\nconst SPK::System * spark::SparkDrawable::getParticleSystem(unsigned int i) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const SPK::System * spark::SparkDrawable::getParticleSystem(unsigned int i) const function, expected prototype:\nconst SPK::System * spark::SparkDrawable::getParticleSystem(unsigned int i) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::System * spark::SparkDrawable::getParticleSystem(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const SPK::System * spark::SparkDrawable::getParticleSystem(unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const SPK::System * lret = self->getParticleSystem(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -854,15 +811,13 @@ public:
 	// unsigned int spark::SparkDrawable::getNumParticleSystems() const
 	static int _bind_getNumParticleSystems(lua_State *L) {
 		if (!_lg_typecheck_getNumParticleSystems(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int spark::SparkDrawable::getNumParticleSystems() const function, expected prototype:\nunsigned int spark::SparkDrawable::getNumParticleSystems() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int spark::SparkDrawable::getNumParticleSystems() const function, expected prototype:\nunsigned int spark::SparkDrawable::getNumParticleSystems() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int spark::SparkDrawable::getNumParticleSystems() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int spark::SparkDrawable::getNumParticleSystems() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getNumParticleSystems();
 		lua_pushnumber(L,lret);
@@ -873,16 +828,14 @@ public:
 	// void spark::SparkDrawable::addExternalParticleSystem(SPK::System * system)
 	static int _bind_addExternalParticleSystem(lua_State *L) {
 		if (!_lg_typecheck_addExternalParticleSystem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::addExternalParticleSystem(SPK::System * system) function, expected prototype:\nvoid spark::SparkDrawable::addExternalParticleSystem(SPK::System * system)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::addExternalParticleSystem(SPK::System * system) function, expected prototype:\nvoid spark::SparkDrawable::addExternalParticleSystem(SPK::System * system)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::System* system=(Luna< SPK::Registerable >::checkSubType< SPK::System >(L,2));
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::addExternalParticleSystem(SPK::System *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::addExternalParticleSystem(SPK::System *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addExternalParticleSystem(system);
 
@@ -892,8 +845,7 @@ public:
 	// void spark::SparkDrawable::destroyParticleSystem(SPK::System * system, bool removeFromList = true)
 	static int _bind_destroyParticleSystem(lua_State *L) {
 		if (!_lg_typecheck_destroyParticleSystem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::destroyParticleSystem(SPK::System * system, bool removeFromList = true) function, expected prototype:\nvoid spark::SparkDrawable::destroyParticleSystem(SPK::System * system, bool removeFromList = true)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::destroyParticleSystem(SPK::System * system, bool removeFromList = true) function, expected prototype:\nvoid spark::SparkDrawable::destroyParticleSystem(SPK::System * system, bool removeFromList = true)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -903,8 +855,7 @@ public:
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::destroyParticleSystem(SPK::System *, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::destroyParticleSystem(SPK::System *, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->destroyParticleSystem(system, removeFromList);
 
@@ -914,8 +865,7 @@ public:
 	// void spark::SparkDrawable::setGlobalTransformMatrix(const osg::Matrix & matrix, bool useOffset = false)
 	static int _bind_setGlobalTransformMatrix(lua_State *L) {
 		if (!_lg_typecheck_setGlobalTransformMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::setGlobalTransformMatrix(const osg::Matrix & matrix, bool useOffset = false) function, expected prototype:\nvoid spark::SparkDrawable::setGlobalTransformMatrix(const osg::Matrix & matrix, bool useOffset = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::setGlobalTransformMatrix(const osg::Matrix & matrix, bool useOffset = false) function, expected prototype:\nvoid spark::SparkDrawable::setGlobalTransformMatrix(const osg::Matrix & matrix, bool useOffset = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -929,8 +879,7 @@ public:
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::setGlobalTransformMatrix(const osg::Matrix &, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::setGlobalTransformMatrix(const osg::Matrix &, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setGlobalTransformMatrix(matrix, useOffset);
 
@@ -940,8 +889,7 @@ public:
 	// void spark::SparkDrawable::setTransformMatrix(SPK::System * system, const SPK::Vector3D & pos, const SPK::Vector3D & rot, float angle, bool useOffset = false)
 	static int _bind_setTransformMatrix(lua_State *L) {
 		if (!_lg_typecheck_setTransformMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::setTransformMatrix(SPK::System * system, const SPK::Vector3D & pos, const SPK::Vector3D & rot, float angle, bool useOffset = false) function, expected prototype:\nvoid spark::SparkDrawable::setTransformMatrix(SPK::System * system, const SPK::Vector3D & pos, const SPK::Vector3D & rot, float angle, bool useOffset = false)\nClass arguments details:\narg 1 ID = 31337102\narg 2 ID = 70092749\narg 3 ID = 70092749\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::setTransformMatrix(SPK::System * system, const SPK::Vector3D & pos, const SPK::Vector3D & rot, float angle, bool useOffset = false) function, expected prototype:\nvoid spark::SparkDrawable::setTransformMatrix(SPK::System * system, const SPK::Vector3D & pos, const SPK::Vector3D & rot, float angle, bool useOffset = false)\nClass arguments details:\narg 1 ID = 31337102\narg 2 ID = 70092749\narg 3 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -962,8 +910,7 @@ public:
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::setTransformMatrix(SPK::System *, const SPK::Vector3D &, const SPK::Vector3D &, float, bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::setTransformMatrix(SPK::System *, const SPK::Vector3D &, const SPK::Vector3D &, float, bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTransformMatrix(system, pos, rot, angle, useOffset);
 
@@ -973,8 +920,7 @@ public:
 	// unsigned int spark::SparkDrawable::addParticleSystem(const osg::Vec3 & p = osg::Vec3(), const osg::Quat & r = osg::Quat())
 	static int _bind_addParticleSystem(lua_State *L) {
 		if (!_lg_typecheck_addParticleSystem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int spark::SparkDrawable::addParticleSystem(const osg::Vec3 & p = osg::Vec3(), const osg::Quat & r = osg::Quat()) function, expected prototype:\nunsigned int spark::SparkDrawable::addParticleSystem(const osg::Vec3 & p = osg::Vec3(), const osg::Quat & r = osg::Quat())\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int spark::SparkDrawable::addParticleSystem(const osg::Vec3 & p = osg::Vec3(), const osg::Quat & r = osg::Quat()) function, expected prototype:\nunsigned int spark::SparkDrawable::addParticleSystem(const osg::Vec3 & p = osg::Vec3(), const osg::Quat & r = osg::Quat())\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -992,8 +938,7 @@ public:
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int spark::SparkDrawable::addParticleSystem(const osg::Vec3 &, const osg::Quat &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int spark::SparkDrawable::addParticleSystem(const osg::Vec3 &, const osg::Quat &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->addParticleSystem(p, r);
 		lua_pushnumber(L,lret);
@@ -1004,8 +949,7 @@ public:
 	// void spark::SparkDrawable::addImage(const std::string & name, osg::Image * image, unsigned int type = GL_RGB, unsigned int clamp = 0x2900)
 	static int _bind_addImage(lua_State *L) {
 		if (!_lg_typecheck_addImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::addImage(const std::string & name, osg::Image * image, unsigned int type = GL_RGB, unsigned int clamp = 0x2900) function, expected prototype:\nvoid spark::SparkDrawable::addImage(const std::string & name, osg::Image * image, unsigned int type = GL_RGB, unsigned int clamp = 0x2900)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::addImage(const std::string & name, osg::Image * image, unsigned int type = GL_RGB, unsigned int clamp = 0x2900) function, expected prototype:\nvoid spark::SparkDrawable::addImage(const std::string & name, osg::Image * image, unsigned int type = GL_RGB, unsigned int clamp = 0x2900)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1017,8 +961,7 @@ public:
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::addImage(const std::string &, osg::Image *, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::addImage(const std::string &, osg::Image *, unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addImage(name, image, type, clamp);
 
@@ -1028,8 +971,7 @@ public:
 	// bool spark::SparkDrawable::update(double currentTime, const osg::Vec3d & eye)
 	static int _bind_update(lua_State *L) {
 		if (!_lg_typecheck_update(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool spark::SparkDrawable::update(double currentTime, const osg::Vec3d & eye) function, expected prototype:\nbool spark::SparkDrawable::update(double currentTime, const osg::Vec3d & eye)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool spark::SparkDrawable::update(double currentTime, const osg::Vec3d & eye) function, expected prototype:\nbool spark::SparkDrawable::update(double currentTime, const osg::Vec3d & eye)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double currentTime=(double)lua_tonumber(L,2);
@@ -1041,8 +983,7 @@ public:
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::update(double, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::update(double, const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->update(currentTime, eye);
 		lua_pushboolean(L,lret?1:0);
@@ -1053,15 +994,13 @@ public:
 	// osg::BoundingBox spark::SparkDrawable::computeBound() const
 	static int _bind_computeBound(lua_State *L) {
 		if (!_lg_typecheck_computeBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingBox spark::SparkDrawable::computeBound() const function, expected prototype:\nosg::BoundingBox spark::SparkDrawable::computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingBox spark::SparkDrawable::computeBound() const function, expected prototype:\nosg::BoundingBox spark::SparkDrawable::computeBound() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBox spark::SparkDrawable::computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::BoundingBox spark::SparkDrawable::computeBound() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::BoundingBox stack_lret = self->computeBound();
 		osg::BoundingBox* lret = new osg::BoundingBox(stack_lret);
@@ -1075,8 +1014,7 @@ public:
 	// void spark::SparkDrawable::drawImplementation(osg::RenderInfo & renderInfo) const
 	static int _bind_drawImplementation(lua_State *L) {
 		if (!_lg_typecheck_drawImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::drawImplementation(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid spark::SparkDrawable::drawImplementation(osg::RenderInfo & renderInfo) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::drawImplementation(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid spark::SparkDrawable::drawImplementation(osg::RenderInfo & renderInfo) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,2));
@@ -1087,8 +1025,7 @@ public:
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::drawImplementation(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::drawImplementation(osg::RenderInfo &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawImplementation(renderInfo);
 
@@ -1098,15 +1035,13 @@ public:
 	// osg::Object * spark::SparkDrawable::base_cloneType() const
 	static int _bind_base_cloneType(lua_State *L) {
 		if (!_lg_typecheck_base_cloneType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * spark::SparkDrawable::base_cloneType() const function, expected prototype:\nosg::Object * spark::SparkDrawable::base_cloneType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * spark::SparkDrawable::base_cloneType() const function, expected prototype:\nosg::Object * spark::SparkDrawable::base_cloneType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * spark::SparkDrawable::base_cloneType() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * spark::SparkDrawable::base_cloneType() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->SparkDrawable::cloneType();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1119,8 +1054,7 @@ public:
 	// osg::Object * spark::SparkDrawable::base_clone(const osg::CopyOp & copyop) const
 	static int _bind_base_clone(lua_State *L) {
 		if (!_lg_typecheck_base_clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Object * spark::SparkDrawable::base_clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * spark::SparkDrawable::base_clone(const osg::CopyOp & copyop) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Object * spark::SparkDrawable::base_clone(const osg::CopyOp & copyop) const function, expected prototype:\nosg::Object * spark::SparkDrawable::base_clone(const osg::CopyOp & copyop) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::CopyOp* copyop_ptr=(Luna< osg::CopyOp >::check(L,2));
@@ -1131,8 +1065,7 @@ public:
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Object * spark::SparkDrawable::base_clone(const osg::CopyOp &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Object * spark::SparkDrawable::base_clone(const osg::CopyOp &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Object * lret = self->SparkDrawable::clone(copyop);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1145,16 +1078,14 @@ public:
 	// bool spark::SparkDrawable::base_isSameKindAs(const osg::Object * obj) const
 	static int _bind_base_isSameKindAs(lua_State *L) {
 		if (!_lg_typecheck_base_isSameKindAs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool spark::SparkDrawable::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool spark::SparkDrawable::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in bool spark::SparkDrawable::base_isSameKindAs(const osg::Object * obj) const function, expected prototype:\nbool spark::SparkDrawable::base_isSameKindAs(const osg::Object * obj) const\nClass arguments details:\narg 1 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Object* obj=(Luna< osg::Referenced >::checkSubType< osg::Object >(L,2));
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::base_isSameKindAs(const osg::Object *) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::base_isSameKindAs(const osg::Object *) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SparkDrawable::isSameKindAs(obj);
 		lua_pushboolean(L,lret?1:0);
@@ -1165,15 +1096,13 @@ public:
 	// const char * spark::SparkDrawable::base_libraryName() const
 	static int _bind_base_libraryName(lua_State *L) {
 		if (!_lg_typecheck_base_libraryName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * spark::SparkDrawable::base_libraryName() const function, expected prototype:\nconst char * spark::SparkDrawable::base_libraryName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * spark::SparkDrawable::base_libraryName() const function, expected prototype:\nconst char * spark::SparkDrawable::base_libraryName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * spark::SparkDrawable::base_libraryName() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * spark::SparkDrawable::base_libraryName() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->SparkDrawable::libraryName();
 		lua_pushstring(L,lret);
@@ -1184,15 +1113,13 @@ public:
 	// const char * spark::SparkDrawable::base_className() const
 	static int _bind_base_className(lua_State *L) {
 		if (!_lg_typecheck_base_className(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * spark::SparkDrawable::base_className() const function, expected prototype:\nconst char * spark::SparkDrawable::base_className() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * spark::SparkDrawable::base_className() const function, expected prototype:\nconst char * spark::SparkDrawable::base_className() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * spark::SparkDrawable::base_className() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * spark::SparkDrawable::base_className() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->SparkDrawable::className();
 		lua_pushstring(L,lret);
@@ -1203,8 +1130,7 @@ public:
 	// bool spark::SparkDrawable::base_update(double currentTime, const osg::Vec3d & eye)
 	static int _bind_base_update(lua_State *L) {
 		if (!_lg_typecheck_base_update(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool spark::SparkDrawable::base_update(double currentTime, const osg::Vec3d & eye) function, expected prototype:\nbool spark::SparkDrawable::base_update(double currentTime, const osg::Vec3d & eye)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool spark::SparkDrawable::base_update(double currentTime, const osg::Vec3d & eye) function, expected prototype:\nbool spark::SparkDrawable::base_update(double currentTime, const osg::Vec3d & eye)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double currentTime=(double)lua_tonumber(L,2);
@@ -1216,8 +1142,7 @@ public:
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::base_update(double, const osg::Vec3d &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::base_update(double, const osg::Vec3d &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SparkDrawable::update(currentTime, eye);
 		lua_pushboolean(L,lret?1:0);
@@ -1228,15 +1153,13 @@ public:
 	// osg::BoundingBox spark::SparkDrawable::base_computeBound() const
 	static int _bind_base_computeBound(lua_State *L) {
 		if (!_lg_typecheck_base_computeBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::BoundingBox spark::SparkDrawable::base_computeBound() const function, expected prototype:\nosg::BoundingBox spark::SparkDrawable::base_computeBound() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::BoundingBox spark::SparkDrawable::base_computeBound() const function, expected prototype:\nosg::BoundingBox spark::SparkDrawable::base_computeBound() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::BoundingBox spark::SparkDrawable::base_computeBound() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::BoundingBox spark::SparkDrawable::base_computeBound() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::BoundingBox stack_lret = self->SparkDrawable::computeBound();
 		osg::BoundingBox* lret = new osg::BoundingBox(stack_lret);
@@ -1250,8 +1173,7 @@ public:
 	// void spark::SparkDrawable::base_drawImplementation(osg::RenderInfo & renderInfo) const
 	static int _bind_base_drawImplementation(lua_State *L) {
 		if (!_lg_typecheck_base_drawImplementation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::base_drawImplementation(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid spark::SparkDrawable::base_drawImplementation(osg::RenderInfo & renderInfo) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::base_drawImplementation(osg::RenderInfo & renderInfo) const function, expected prototype:\nvoid spark::SparkDrawable::base_drawImplementation(osg::RenderInfo & renderInfo) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::RenderInfo* renderInfo_ptr=(Luna< osg::RenderInfo >::check(L,2));
@@ -1262,8 +1184,7 @@ public:
 
 		spark::SparkDrawable* self=Luna< osg::Referenced >::checkSubType< spark::SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::base_drawImplementation(osg::RenderInfo &) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::base_drawImplementation(osg::RenderInfo &) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SparkDrawable::drawImplementation(renderInfo);
 

@@ -130,7 +130,7 @@ public:
 	inline static bool _lg_typecheck_op_call(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -173,7 +173,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::AttributeDispatch::assign(const void * arg1, const osg::IndexArray * arg2) function, expected prototype:\nvoid osg::AttributeDispatch::assign(const void * arg1, const osg::IndexArray * arg2)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		void* _arg1=(Luna< void >::check(L,2));
+		const void* _arg1=(Luna< void >::check(L,2));
 		const osg::IndexArray* _arg2=(Luna< osg::Referenced >::checkSubType< osg::IndexArray >(L,3));
 
 		osg::AttributeDispatch* self=Luna< osg::Referenced >::checkSubType< osg::AttributeDispatch >(L,1);
@@ -208,7 +208,7 @@ public:
 			luaL_error(L, "luna typecheck failed in void osg::AttributeDispatch::base_assign(const void * arg1, const osg::IndexArray * arg2) function, expected prototype:\nvoid osg::AttributeDispatch::base_assign(const void * arg1, const osg::IndexArray * arg2)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		void* _arg1=(Luna< void >::check(L,2));
+		const void* _arg1=(Luna< void >::check(L,2));
 		const osg::IndexArray* _arg2=(Luna< osg::Referenced >::checkSubType< osg::IndexArray >(L,3));
 
 		osg::AttributeDispatch* self=Luna< osg::Referenced >::checkSubType< osg::AttributeDispatch >(L,1);

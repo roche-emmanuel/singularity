@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		spark::SparkUpdatingHandler* self= (spark::SparkUpdatingHandler*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -116,14 +113,14 @@ public:
 	inline static bool _lg_typecheck_removeSpark(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setTrackee(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 		return true;
 	}
@@ -131,28 +128,28 @@ public:
 	inline static bool _lg_typecheck_getTrackee_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getTrackee_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getSpark_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getSpark_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -186,8 +183,7 @@ public:
 	// spark::SparkUpdatingHandler::SparkUpdatingHandler()
 	static spark::SparkUpdatingHandler* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in spark::SparkUpdatingHandler::SparkUpdatingHandler() function, expected prototype:\nspark::SparkUpdatingHandler::SparkUpdatingHandler()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in spark::SparkUpdatingHandler::SparkUpdatingHandler() function, expected prototype:\nspark::SparkUpdatingHandler::SparkUpdatingHandler()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -197,8 +193,7 @@ public:
 	// spark::SparkUpdatingHandler::SparkUpdatingHandler(lua_Table * data)
 	static spark::SparkUpdatingHandler* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in spark::SparkUpdatingHandler::SparkUpdatingHandler(lua_Table * data) function, expected prototype:\nspark::SparkUpdatingHandler::SparkUpdatingHandler(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in spark::SparkUpdatingHandler::SparkUpdatingHandler(lua_Table * data) function, expected prototype:\nspark::SparkUpdatingHandler::SparkUpdatingHandler(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -219,8 +214,7 @@ public:
 	// void spark::SparkUpdatingHandler::addSpark(spark::SparkDrawable * spark, osg::Transform * trackee = 0)
 	static int _bind_addSpark(lua_State *L) {
 		if (!_lg_typecheck_addSpark(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkUpdatingHandler::addSpark(spark::SparkDrawable * spark, osg::Transform * trackee = 0) function, expected prototype:\nvoid spark::SparkUpdatingHandler::addSpark(spark::SparkDrawable * spark, osg::Transform * trackee = 0)\nClass arguments details:\narg 1 ID = 20484188\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkUpdatingHandler::addSpark(spark::SparkDrawable * spark, osg::Transform * trackee = 0) function, expected prototype:\nvoid spark::SparkUpdatingHandler::addSpark(spark::SparkDrawable * spark, osg::Transform * trackee = 0)\nClass arguments details:\narg 1 ID = 20484188\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -230,8 +224,7 @@ public:
 
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkUpdatingHandler::addSpark(spark::SparkDrawable *, osg::Transform *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkUpdatingHandler::addSpark(spark::SparkDrawable *, osg::Transform *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addSpark(spark, trackee);
 
@@ -241,16 +234,14 @@ public:
 	// void spark::SparkUpdatingHandler::removeSpark(unsigned int i)
 	static int _bind_removeSpark(lua_State *L) {
 		if (!_lg_typecheck_removeSpark(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkUpdatingHandler::removeSpark(unsigned int i) function, expected prototype:\nvoid spark::SparkUpdatingHandler::removeSpark(unsigned int i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkUpdatingHandler::removeSpark(unsigned int i) function, expected prototype:\nvoid spark::SparkUpdatingHandler::removeSpark(unsigned int i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkUpdatingHandler::removeSpark(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkUpdatingHandler::removeSpark(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->removeSpark(i);
 
@@ -260,8 +251,7 @@ public:
 	// void spark::SparkUpdatingHandler::setTrackee(unsigned int i, osg::Transform * t)
 	static int _bind_setTrackee(lua_State *L) {
 		if (!_lg_typecheck_setTrackee(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkUpdatingHandler::setTrackee(unsigned int i, osg::Transform * t) function, expected prototype:\nvoid spark::SparkUpdatingHandler::setTrackee(unsigned int i, osg::Transform * t)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkUpdatingHandler::setTrackee(unsigned int i, osg::Transform * t) function, expected prototype:\nvoid spark::SparkUpdatingHandler::setTrackee(unsigned int i, osg::Transform * t)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
@@ -269,8 +259,7 @@ public:
 
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkUpdatingHandler::setTrackee(unsigned int, osg::Transform *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkUpdatingHandler::setTrackee(unsigned int, osg::Transform *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTrackee(i, t);
 
@@ -280,16 +269,14 @@ public:
 	// osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int i)
 	static int _bind_getTrackee_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getTrackee_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int i) function, expected prototype:\nosg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int i) function, expected prototype:\nosg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Transform * lret = self->getTrackee(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -302,16 +289,14 @@ public:
 	// const osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int i) const
 	static int _bind_getTrackee_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getTrackee_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int i) const function, expected prototype:\nconst osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int i) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int i) const function, expected prototype:\nconst osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int i) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const osg::Transform * spark::SparkUpdatingHandler::getTrackee(unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const osg::Transform * lret = self->getTrackee(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -333,16 +318,14 @@ public:
 	// spark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int i)
 	static int _bind_getSpark_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getSpark_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in spark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int i) function, expected prototype:\nspark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in spark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int i) function, expected prototype:\nspark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call spark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call spark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		spark::SparkDrawable * lret = self->getSpark(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -355,16 +338,14 @@ public:
 	// const spark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int i) const
 	static int _bind_getSpark_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getSpark_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const spark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int i) const function, expected prototype:\nconst spark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int i) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const spark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int i) const function, expected prototype:\nconst spark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int i) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int i=(unsigned int)lua_tointeger(L,2);
 
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const spark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const spark::SparkDrawable * spark::SparkUpdatingHandler::getSpark(unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const spark::SparkDrawable * lret = self->getSpark(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -386,15 +367,13 @@ public:
 	// unsigned int spark::SparkUpdatingHandler::getNumSparks() const
 	static int _bind_getNumSparks(lua_State *L) {
 		if (!_lg_typecheck_getNumSparks(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int spark::SparkUpdatingHandler::getNumSparks() const function, expected prototype:\nunsigned int spark::SparkUpdatingHandler::getNumSparks() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int spark::SparkUpdatingHandler::getNumSparks() const function, expected prototype:\nunsigned int spark::SparkUpdatingHandler::getNumSparks() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int spark::SparkUpdatingHandler::getNumSparks() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int spark::SparkUpdatingHandler::getNumSparks() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getNumSparks();
 		lua_pushnumber(L,lret);
@@ -405,8 +384,7 @@ public:
 	// bool spark::SparkUpdatingHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)
 	static int _bind_handle(lua_State *L) {
 		if (!_lg_typecheck_handle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool spark::SparkUpdatingHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa) function, expected prototype:\nbool spark::SparkUpdatingHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool spark::SparkUpdatingHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa) function, expected prototype:\nbool spark::SparkUpdatingHandler::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* ea_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -422,8 +400,7 @@ public:
 
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool spark::SparkUpdatingHandler::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool spark::SparkUpdatingHandler::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->handle(ea, aa);
 		lua_pushboolean(L,lret?1:0);
@@ -434,8 +411,7 @@ public:
 	// bool spark::SparkUpdatingHandler::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)
 	static int _bind_base_handle(lua_State *L) {
 		if (!_lg_typecheck_base_handle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool spark::SparkUpdatingHandler::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa) function, expected prototype:\nbool spark::SparkUpdatingHandler::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool spark::SparkUpdatingHandler::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa) function, expected prototype:\nbool spark::SparkUpdatingHandler::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* ea_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -451,8 +427,7 @@ public:
 
 		spark::SparkUpdatingHandler* self=Luna< osg::Referenced >::checkSubType< spark::SparkUpdatingHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool spark::SparkUpdatingHandler::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool spark::SparkUpdatingHandler::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SparkUpdatingHandler::handle(ea, aa);
 		lua_pushboolean(L,lret?1:0);

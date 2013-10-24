@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexPenetrationDepthSolver* self=(Luna< btConvexPenetrationDepthSolver >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btConvexPenetrationDepthSolver*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btConvexPenetrationDepthSolver*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexPenetrationDepthSolver* rhs =(Luna< btConvexPenetrationDepthSolver >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexPenetrationDepthSolver* self= (btConvexPenetrationDepthSolver*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btConvexPenetrationDepthSolver >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -159,8 +154,7 @@ public:
 	// btConvexPenetrationDepthSolver::btConvexPenetrationDepthSolver(lua_Table * data)
 	static btConvexPenetrationDepthSolver* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConvexPenetrationDepthSolver::btConvexPenetrationDepthSolver(lua_Table * data) function, expected prototype:\nbtConvexPenetrationDepthSolver::btConvexPenetrationDepthSolver(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btConvexPenetrationDepthSolver::btConvexPenetrationDepthSolver(lua_Table * data) function, expected prototype:\nbtConvexPenetrationDepthSolver::btConvexPenetrationDepthSolver(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -172,8 +166,7 @@ public:
 	// bool btConvexPenetrationDepthSolver::calcPenDepth(btVoronoiSimplexSolver & simplexSolver, const btConvexShape * convexA, const btConvexShape * convexB, const btTransform & transA, const btTransform & transB, btVector3 & v, btVector3 & pa, btVector3 & pb, class btIDebugDraw * debugDraw, btStackAlloc * stackAlloc)
 	static int _bind_calcPenDepth(lua_State *L) {
 		if (!_lg_typecheck_calcPenDepth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btConvexPenetrationDepthSolver::calcPenDepth(btVoronoiSimplexSolver & simplexSolver, const btConvexShape * convexA, const btConvexShape * convexB, const btTransform & transA, const btTransform & transB, btVector3 & v, btVector3 & pa, btVector3 & pb, class btIDebugDraw * debugDraw, btStackAlloc * stackAlloc) function, expected prototype:\nbool btConvexPenetrationDepthSolver::calcPenDepth(btVoronoiSimplexSolver & simplexSolver, const btConvexShape * convexA, const btConvexShape * convexB, const btTransform & transA, const btTransform & transB, btVector3 & v, btVector3 & pa, btVector3 & pb, class btIDebugDraw * debugDraw, btStackAlloc * stackAlloc)\nClass arguments details:\narg 1 ID = 95428271\narg 2 ID = 58243831\narg 3 ID = 58243831\narg 4 ID = 13247377\narg 5 ID = 13247377\narg 6 ID = 91544891\narg 7 ID = 91544891\narg 8 ID = 91544891\narg 9 ID = 63441741\narg 10 ID = 46980417\n");
+			luaL_error(L, "luna typecheck failed in bool btConvexPenetrationDepthSolver::calcPenDepth(btVoronoiSimplexSolver & simplexSolver, const btConvexShape * convexA, const btConvexShape * convexB, const btTransform & transA, const btTransform & transB, btVector3 & v, btVector3 & pa, btVector3 & pb, class btIDebugDraw * debugDraw, btStackAlloc * stackAlloc) function, expected prototype:\nbool btConvexPenetrationDepthSolver::calcPenDepth(btVoronoiSimplexSolver & simplexSolver, const btConvexShape * convexA, const btConvexShape * convexB, const btTransform & transA, const btTransform & transB, btVector3 & v, btVector3 & pa, btVector3 & pb, class btIDebugDraw * debugDraw, btStackAlloc * stackAlloc)\nClass arguments details:\narg 1 ID = 95428271\narg 2 ID = 58243831\narg 3 ID = 58243831\narg 4 ID = 13247377\narg 5 ID = 13247377\narg 6 ID = 91544891\narg 7 ID = 91544891\narg 8 ID = 91544891\narg 9 ID = 63441741\narg 10 ID = 46980417\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVoronoiSimplexSolver* simplexSolver_ptr=(Luna< btVoronoiSimplexSolver >::check(L,2));
@@ -213,8 +206,7 @@ public:
 
 		btConvexPenetrationDepthSolver* self=(Luna< btConvexPenetrationDepthSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btConvexPenetrationDepthSolver::calcPenDepth(btVoronoiSimplexSolver &, const btConvexShape *, const btConvexShape *, const btTransform &, const btTransform &, btVector3 &, btVector3 &, btVector3 &, class btIDebugDraw *, btStackAlloc *). Got : '%s'",typeid(Luna< btConvexPenetrationDepthSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btConvexPenetrationDepthSolver::calcPenDepth(btVoronoiSimplexSolver &, const btConvexShape *, const btConvexShape *, const btTransform &, const btTransform &, btVector3 &, btVector3 &, btVector3 &, class btIDebugDraw *, btStackAlloc *). Got : '%s'\n%s",typeid(Luna< btConvexPenetrationDepthSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->calcPenDepth(simplexSolver, convexA, convexB, transA, transB, v, pa, pb, debugDraw, stackAlloc);
 		lua_pushboolean(L,lret?1:0);

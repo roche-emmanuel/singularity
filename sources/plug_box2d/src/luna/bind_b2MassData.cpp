@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2MassData*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2MassData*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2MassData* rhs =(Luna< b2MassData >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2MassData* self= (b2MassData*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2MassData >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -123,7 +119,7 @@ public:
 	inline static bool _lg_typecheck_setMass(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -137,7 +133,7 @@ public:
 	inline static bool _lg_typecheck_setI(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -151,15 +147,13 @@ public:
 	// float b2MassData::mass()
 	static int _bind_getMass(lua_State *L) {
 		if (!_lg_typecheck_getMass(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2MassData::mass() function, expected prototype:\nfloat b2MassData::mass()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2MassData::mass() function, expected prototype:\nfloat b2MassData::mass()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2MassData* self=(Luna< b2MassData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2MassData::mass(). Got : '%s'",typeid(Luna< b2MassData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2MassData::mass(). Got : '%s'\n%s",typeid(Luna< b2MassData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->mass;
 		lua_pushnumber(L,lret);
@@ -170,15 +164,13 @@ public:
 	// b2Vec2 b2MassData::center()
 	static int _bind_getCenter(lua_State *L) {
 		if (!_lg_typecheck_getCenter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2MassData::center() function, expected prototype:\nb2Vec2 b2MassData::center()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2MassData::center() function, expected prototype:\nb2Vec2 b2MassData::center()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2MassData* self=(Luna< b2MassData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2MassData::center(). Got : '%s'",typeid(Luna< b2MassData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2MassData::center(). Got : '%s'\n%s",typeid(Luna< b2MassData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->center;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -191,15 +183,13 @@ public:
 	// float b2MassData::I()
 	static int _bind_getI(lua_State *L) {
 		if (!_lg_typecheck_getI(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2MassData::I() function, expected prototype:\nfloat b2MassData::I()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2MassData::I() function, expected prototype:\nfloat b2MassData::I()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2MassData* self=(Luna< b2MassData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2MassData::I(). Got : '%s'",typeid(Luna< b2MassData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2MassData::I(). Got : '%s'\n%s",typeid(Luna< b2MassData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->I;
 		lua_pushnumber(L,lret);
@@ -210,16 +200,14 @@ public:
 	// void b2MassData::mass(float value)
 	static int _bind_setMass(lua_State *L) {
 		if (!_lg_typecheck_setMass(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2MassData::mass(float value) function, expected prototype:\nvoid b2MassData::mass(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2MassData::mass(float value) function, expected prototype:\nvoid b2MassData::mass(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2MassData* self=(Luna< b2MassData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2MassData::mass(float). Got : '%s'",typeid(Luna< b2MassData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2MassData::mass(float). Got : '%s'\n%s",typeid(Luna< b2MassData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mass = value;
 
@@ -229,8 +217,7 @@ public:
 	// void b2MassData::center(b2Vec2 value)
 	static int _bind_setCenter(lua_State *L) {
 		if (!_lg_typecheck_setCenter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2MassData::center(b2Vec2 value) function, expected prototype:\nvoid b2MassData::center(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2MassData::center(b2Vec2 value) function, expected prototype:\nvoid b2MassData::center(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -241,8 +228,7 @@ public:
 
 		b2MassData* self=(Luna< b2MassData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2MassData::center(b2Vec2). Got : '%s'",typeid(Luna< b2MassData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2MassData::center(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2MassData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->center = value;
 
@@ -252,16 +238,14 @@ public:
 	// void b2MassData::I(float value)
 	static int _bind_setI(lua_State *L) {
 		if (!_lg_typecheck_setI(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2MassData::I(float value) function, expected prototype:\nvoid b2MassData::I(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2MassData::I(float value) function, expected prototype:\nvoid b2MassData::I(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2MassData* self=(Luna< b2MassData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2MassData::I(float). Got : '%s'",typeid(Luna< b2MassData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2MassData::I(float). Got : '%s'\n%s",typeid(Luna< b2MassData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->I = value;
 

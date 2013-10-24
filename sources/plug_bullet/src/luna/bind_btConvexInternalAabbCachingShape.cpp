@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionShape* self=(Luna< btCollisionShape >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexInternalAabbCachingShape* self= (btConvexInternalAabbCachingShape*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCollisionShape >::check(L,1));
@@ -117,7 +114,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -130,7 +127,7 @@ public:
 	inline static bool _lg_typecheck_base_getContactBreakingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -145,8 +142,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -175,7 +172,7 @@ public:
 	inline static bool _lg_typecheck_base_setMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -194,7 +191,7 @@ public:
 	inline static bool _lg_typecheck_base_getPreferredPenetrationDirection(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		return true;
 	}
@@ -231,8 +228,7 @@ public:
 	// void btConvexInternalAabbCachingShape::setLocalScaling(const btVector3 & scaling)
 	static int _bind_setLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_setLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btConvexInternalAabbCachingShape::setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btConvexInternalAabbCachingShape::setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* scaling_ptr=(Luna< btVector3 >::check(L,2));
@@ -243,8 +239,7 @@ public:
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::setLocalScaling(const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::setLocalScaling(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLocalScaling(scaling);
 
@@ -254,8 +249,7 @@ public:
 	// void btConvexInternalAabbCachingShape::getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_getAabb(lua_State *L) {
 		if (!_lg_typecheck_getAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btConvexInternalAabbCachingShape::getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btConvexInternalAabbCachingShape::getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* t_ptr=(Luna< btTransform >::check(L,2));
@@ -276,8 +270,7 @@ public:
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getAabb(t, aabbMin, aabbMax);
 
@@ -287,15 +280,13 @@ public:
 	// void btConvexInternalAabbCachingShape::recalcLocalAabb()
 	static int _bind_recalcLocalAabb(lua_State *L) {
 		if (!_lg_typecheck_recalcLocalAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::recalcLocalAabb() function, expected prototype:\nvoid btConvexInternalAabbCachingShape::recalcLocalAabb()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::recalcLocalAabb() function, expected prototype:\nvoid btConvexInternalAabbCachingShape::recalcLocalAabb()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::recalcLocalAabb(). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::recalcLocalAabb(). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->recalcLocalAabb();
 
@@ -305,8 +296,7 @@ public:
 	// void btConvexInternalAabbCachingShape::base_getBoundingSphere(btVector3 & center, float & radius) const
 	static int _bind_base_getBoundingSphere(lua_State *L) {
 		if (!_lg_typecheck_base_getBoundingSphere(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::base_getBoundingSphere(btVector3 & center, float & radius) const function, expected prototype:\nvoid btConvexInternalAabbCachingShape::base_getBoundingSphere(btVector3 & center, float & radius) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::base_getBoundingSphere(btVector3 & center, float & radius) const function, expected prototype:\nvoid btConvexInternalAabbCachingShape::base_getBoundingSphere(btVector3 & center, float & radius) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* center_ptr=(Luna< btVector3 >::check(L,2));
@@ -318,26 +308,24 @@ public:
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::base_getBoundingSphere(btVector3 &, float &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::base_getBoundingSphere(btVector3 &, float &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexInternalAabbCachingShape::getBoundingSphere(center, radius);
 
-		return 0;
+		lua_pushnumber(L,radius);
+		return 1;
 	}
 
 	// float btConvexInternalAabbCachingShape::base_getAngularMotionDisc() const
 	static int _bind_base_getAngularMotionDisc(lua_State *L) {
 		if (!_lg_typecheck_base_getAngularMotionDisc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btConvexInternalAabbCachingShape::base_getAngularMotionDisc() const function, expected prototype:\nfloat btConvexInternalAabbCachingShape::base_getAngularMotionDisc() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btConvexInternalAabbCachingShape::base_getAngularMotionDisc() const function, expected prototype:\nfloat btConvexInternalAabbCachingShape::base_getAngularMotionDisc() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btConvexInternalAabbCachingShape::base_getAngularMotionDisc() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btConvexInternalAabbCachingShape::base_getAngularMotionDisc() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btConvexInternalAabbCachingShape::getAngularMotionDisc();
 		lua_pushnumber(L,lret);
@@ -348,16 +336,14 @@ public:
 	// float btConvexInternalAabbCachingShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const
 	static int _bind_base_getContactBreakingThreshold(lua_State *L) {
 		if (!_lg_typecheck_base_getContactBreakingThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btConvexInternalAabbCachingShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const function, expected prototype:\nfloat btConvexInternalAabbCachingShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btConvexInternalAabbCachingShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const function, expected prototype:\nfloat btConvexInternalAabbCachingShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float defaultContactThresholdFactor=(float)lua_tonumber(L,2);
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btConvexInternalAabbCachingShape::base_getContactBreakingThreshold(float) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btConvexInternalAabbCachingShape::base_getContactBreakingThreshold(float) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btConvexInternalAabbCachingShape::getContactBreakingThreshold(defaultContactThresholdFactor);
 		lua_pushnumber(L,lret);
@@ -368,15 +354,13 @@ public:
 	// btVector3 btConvexInternalAabbCachingShape::base_getAnisotropicRollingFrictionDirection() const
 	static int _bind_base_getAnisotropicRollingFrictionDirection(lua_State *L) {
 		if (!_lg_typecheck_base_getAnisotropicRollingFrictionDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btConvexInternalAabbCachingShape::base_getAnisotropicRollingFrictionDirection() const function, expected prototype:\nbtVector3 btConvexInternalAabbCachingShape::base_getAnisotropicRollingFrictionDirection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btConvexInternalAabbCachingShape::base_getAnisotropicRollingFrictionDirection() const function, expected prototype:\nbtVector3 btConvexInternalAabbCachingShape::base_getAnisotropicRollingFrictionDirection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btConvexInternalAabbCachingShape::base_getAnisotropicRollingFrictionDirection() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btConvexInternalAabbCachingShape::base_getAnisotropicRollingFrictionDirection() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->btConvexInternalAabbCachingShape::getAnisotropicRollingFrictionDirection();
 		btVector3* lret = new btVector3(stack_lret);
@@ -390,8 +374,7 @@ public:
 	// void btConvexInternalAabbCachingShape::base_project(const btTransform & trans, const btVector3 & dir, float & min, float & max) const
 	static int _bind_base_project(lua_State *L) {
 		if (!_lg_typecheck_base_project(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::base_project(const btTransform & trans, const btVector3 & dir, float & min, float & max) const function, expected prototype:\nvoid btConvexInternalAabbCachingShape::base_project(const btTransform & trans, const btVector3 & dir, float & min, float & max) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::base_project(const btTransform & trans, const btVector3 & dir, float & min, float & max) const function, expected prototype:\nvoid btConvexInternalAabbCachingShape::base_project(const btTransform & trans, const btVector3 & dir, float & min, float & max) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* trans_ptr=(Luna< btTransform >::check(L,2));
@@ -409,19 +392,19 @@ public:
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::base_project(const btTransform &, const btVector3 &, float &, float &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::base_project(const btTransform &, const btVector3 &, float &, float &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexInternalAabbCachingShape::project(trans, dir, min, max);
 
-		return 0;
+		lua_pushnumber(L,min);
+		lua_pushnumber(L,max);
+		return 2;
 	}
 
 	// btVector3 btConvexInternalAabbCachingShape::base_localGetSupportingVertex(const btVector3 & vec) const
 	static int _bind_base_localGetSupportingVertex(lua_State *L) {
 		if (!_lg_typecheck_base_localGetSupportingVertex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btConvexInternalAabbCachingShape::base_localGetSupportingVertex(const btVector3 & vec) const function, expected prototype:\nbtVector3 btConvexInternalAabbCachingShape::base_localGetSupportingVertex(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btConvexInternalAabbCachingShape::base_localGetSupportingVertex(const btVector3 & vec) const function, expected prototype:\nbtVector3 btConvexInternalAabbCachingShape::base_localGetSupportingVertex(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* vec_ptr=(Luna< btVector3 >::check(L,2));
@@ -432,8 +415,7 @@ public:
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btConvexInternalAabbCachingShape::base_localGetSupportingVertex(const btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btConvexInternalAabbCachingShape::base_localGetSupportingVertex(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->btConvexInternalAabbCachingShape::localGetSupportingVertex(vec);
 		btVector3* lret = new btVector3(stack_lret);
@@ -447,8 +429,7 @@ public:
 	// void btConvexInternalAabbCachingShape::base_getAabbSlow(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_base_getAabbSlow(lua_State *L) {
 		if (!_lg_typecheck_base_getAabbSlow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::base_getAabbSlow(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btConvexInternalAabbCachingShape::base_getAabbSlow(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::base_getAabbSlow(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btConvexInternalAabbCachingShape::base_getAabbSlow(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* t_ptr=(Luna< btTransform >::check(L,2));
@@ -469,8 +450,7 @@ public:
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::base_getAabbSlow(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::base_getAabbSlow(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexInternalAabbCachingShape::getAabbSlow(t, aabbMin, aabbMax);
 
@@ -480,15 +460,13 @@ public:
 	// const btVector3 & btConvexInternalAabbCachingShape::base_getLocalScaling() const
 	static int _bind_base_getLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_base_getLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 & btConvexInternalAabbCachingShape::base_getLocalScaling() const function, expected prototype:\nconst btVector3 & btConvexInternalAabbCachingShape::base_getLocalScaling() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 & btConvexInternalAabbCachingShape::base_getLocalScaling() const function, expected prototype:\nconst btVector3 & btConvexInternalAabbCachingShape::base_getLocalScaling() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 & btConvexInternalAabbCachingShape::base_getLocalScaling() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 & btConvexInternalAabbCachingShape::base_getLocalScaling() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->btConvexInternalAabbCachingShape::getLocalScaling();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -501,16 +479,14 @@ public:
 	// void btConvexInternalAabbCachingShape::base_setMargin(float margin)
 	static int _bind_base_setMargin(lua_State *L) {
 		if (!_lg_typecheck_base_setMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::base_setMargin(float margin) function, expected prototype:\nvoid btConvexInternalAabbCachingShape::base_setMargin(float margin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::base_setMargin(float margin) function, expected prototype:\nvoid btConvexInternalAabbCachingShape::base_setMargin(float margin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float margin=(float)lua_tonumber(L,2);
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::base_setMargin(float). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::base_setMargin(float). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexInternalAabbCachingShape::setMargin(margin);
 
@@ -520,15 +496,13 @@ public:
 	// float btConvexInternalAabbCachingShape::base_getMargin() const
 	static int _bind_base_getMargin(lua_State *L) {
 		if (!_lg_typecheck_base_getMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btConvexInternalAabbCachingShape::base_getMargin() const function, expected prototype:\nfloat btConvexInternalAabbCachingShape::base_getMargin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btConvexInternalAabbCachingShape::base_getMargin() const function, expected prototype:\nfloat btConvexInternalAabbCachingShape::base_getMargin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btConvexInternalAabbCachingShape::base_getMargin() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btConvexInternalAabbCachingShape::base_getMargin() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btConvexInternalAabbCachingShape::getMargin();
 		lua_pushnumber(L,lret);
@@ -539,15 +513,13 @@ public:
 	// int btConvexInternalAabbCachingShape::base_getNumPreferredPenetrationDirections() const
 	static int _bind_base_getNumPreferredPenetrationDirections(lua_State *L) {
 		if (!_lg_typecheck_base_getNumPreferredPenetrationDirections(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btConvexInternalAabbCachingShape::base_getNumPreferredPenetrationDirections() const function, expected prototype:\nint btConvexInternalAabbCachingShape::base_getNumPreferredPenetrationDirections() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btConvexInternalAabbCachingShape::base_getNumPreferredPenetrationDirections() const function, expected prototype:\nint btConvexInternalAabbCachingShape::base_getNumPreferredPenetrationDirections() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btConvexInternalAabbCachingShape::base_getNumPreferredPenetrationDirections() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btConvexInternalAabbCachingShape::base_getNumPreferredPenetrationDirections() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btConvexInternalAabbCachingShape::getNumPreferredPenetrationDirections();
 		lua_pushnumber(L,lret);
@@ -558,8 +530,7 @@ public:
 	// void btConvexInternalAabbCachingShape::base_getPreferredPenetrationDirection(int index, btVector3 & penetrationVector) const
 	static int _bind_base_getPreferredPenetrationDirection(lua_State *L) {
 		if (!_lg_typecheck_base_getPreferredPenetrationDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::base_getPreferredPenetrationDirection(int index, btVector3 & penetrationVector) const function, expected prototype:\nvoid btConvexInternalAabbCachingShape::base_getPreferredPenetrationDirection(int index, btVector3 & penetrationVector) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::base_getPreferredPenetrationDirection(int index, btVector3 & penetrationVector) const function, expected prototype:\nvoid btConvexInternalAabbCachingShape::base_getPreferredPenetrationDirection(int index, btVector3 & penetrationVector) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -571,8 +542,7 @@ public:
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::base_getPreferredPenetrationDirection(int, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::base_getPreferredPenetrationDirection(int, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexInternalAabbCachingShape::getPreferredPenetrationDirection(index, penetrationVector);
 
@@ -582,15 +552,13 @@ public:
 	// int btConvexInternalAabbCachingShape::base_calculateSerializeBufferSize() const
 	static int _bind_base_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_base_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btConvexInternalAabbCachingShape::base_calculateSerializeBufferSize() const function, expected prototype:\nint btConvexInternalAabbCachingShape::base_calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btConvexInternalAabbCachingShape::base_calculateSerializeBufferSize() const function, expected prototype:\nint btConvexInternalAabbCachingShape::base_calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btConvexInternalAabbCachingShape::base_calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btConvexInternalAabbCachingShape::base_calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btConvexInternalAabbCachingShape::calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);
@@ -601,8 +569,7 @@ public:
 	// void btConvexInternalAabbCachingShape::base_setLocalScaling(const btVector3 & scaling)
 	static int _bind_base_setLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_base_setLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::base_setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btConvexInternalAabbCachingShape::base_setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::base_setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btConvexInternalAabbCachingShape::base_setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* scaling_ptr=(Luna< btVector3 >::check(L,2));
@@ -613,8 +580,7 @@ public:
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::base_setLocalScaling(const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::base_setLocalScaling(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexInternalAabbCachingShape::setLocalScaling(scaling);
 
@@ -624,8 +590,7 @@ public:
 	// void btConvexInternalAabbCachingShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_base_getAabb(lua_State *L) {
 		if (!_lg_typecheck_base_getAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btConvexInternalAabbCachingShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexInternalAabbCachingShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btConvexInternalAabbCachingShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* t_ptr=(Luna< btTransform >::check(L,2));
@@ -646,8 +611,7 @@ public:
 
 		btConvexInternalAabbCachingShape* self=Luna< btCollisionShape >::checkSubType< btConvexInternalAabbCachingShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::base_getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexInternalAabbCachingShape::base_getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexInternalAabbCachingShape::getAabb(t, aabbMin, aabbMax);
 

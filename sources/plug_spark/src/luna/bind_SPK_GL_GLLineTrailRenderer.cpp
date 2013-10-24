@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::GL::GLLineTrailRenderer* self= (SPK::GL::GLLineTrailRenderer*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< SPK::Registerable >::check(L,1));
@@ -119,31 +116,31 @@ public:
 	inline static bool _lg_typecheck_setNbSamples(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setWidth(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDuration(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDegeneratedLines(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -209,14 +206,14 @@ public:
 	inline static bool _lg_typecheck_base_findByName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_enableRenderingHint(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -224,21 +221,21 @@ public:
 	inline static bool _lg_typecheck_base_setAlphaTestThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_isRenderingHintEnabled(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_setBlending(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -284,8 +281,7 @@ public:
 	// SPK::GL::GLLineTrailRenderer::GLLineTrailRenderer(lua_Table * data)
 	static SPK::GL::GLLineTrailRenderer* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::GL::GLLineTrailRenderer::GLLineTrailRenderer(lua_Table * data) function, expected prototype:\nSPK::GL::GLLineTrailRenderer::GLLineTrailRenderer(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::GL::GLLineTrailRenderer::GLLineTrailRenderer(lua_Table * data) function, expected prototype:\nSPK::GL::GLLineTrailRenderer::GLLineTrailRenderer(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -297,15 +293,13 @@ public:
 	// std::string SPK::GL::GLLineTrailRenderer::getClassName() const
 	static int _bind_getClassName(lua_State *L) {
 		if (!_lg_typecheck_getClassName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string SPK::GL::GLLineTrailRenderer::getClassName() const function, expected prototype:\nstd::string SPK::GL::GLLineTrailRenderer::getClassName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string SPK::GL::GLLineTrailRenderer::getClassName() const function, expected prototype:\nstd::string SPK::GL::GLLineTrailRenderer::getClassName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::GL::GLLineTrailRenderer::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string SPK::GL::GLLineTrailRenderer::getClassName() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -316,16 +310,14 @@ public:
 	// void SPK::GL::GLLineTrailRenderer::setNbSamples(size_t nbSamples)
 	static int _bind_setNbSamples(lua_State *L) {
 		if (!_lg_typecheck_setNbSamples(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::setNbSamples(size_t nbSamples) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::setNbSamples(size_t nbSamples)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::setNbSamples(size_t nbSamples) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::setNbSamples(size_t nbSamples)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t nbSamples=(size_t)lua_tointeger(L,2);
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::setNbSamples(size_t). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::setNbSamples(size_t). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setNbSamples(nbSamples);
 
@@ -335,16 +327,14 @@ public:
 	// void SPK::GL::GLLineTrailRenderer::setWidth(float width)
 	static int _bind_setWidth(lua_State *L) {
 		if (!_lg_typecheck_setWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::setWidth(float width) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::setWidth(float width)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::setWidth(float width) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::setWidth(float width)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float width=(float)lua_tonumber(L,2);
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::setWidth(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::setWidth(float). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setWidth(width);
 
@@ -354,16 +344,14 @@ public:
 	// void SPK::GL::GLLineTrailRenderer::setDuration(float duration)
 	static int _bind_setDuration(lua_State *L) {
 		if (!_lg_typecheck_setDuration(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::setDuration(float duration) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::setDuration(float duration)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::setDuration(float duration) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::setDuration(float duration)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float duration=(float)lua_tonumber(L,2);
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::setDuration(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::setDuration(float). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDuration(duration);
 
@@ -373,8 +361,7 @@ public:
 	// void SPK::GL::GLLineTrailRenderer::setDegeneratedLines(float r, float g, float b, float a)
 	static int _bind_setDegeneratedLines(lua_State *L) {
 		if (!_lg_typecheck_setDegeneratedLines(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::setDegeneratedLines(float r, float g, float b, float a) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::setDegeneratedLines(float r, float g, float b, float a)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::setDegeneratedLines(float r, float g, float b, float a) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::setDegeneratedLines(float r, float g, float b, float a)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float r=(float)lua_tonumber(L,2);
@@ -384,8 +371,7 @@ public:
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::setDegeneratedLines(float, float, float, float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::setDegeneratedLines(float, float, float, float). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDegeneratedLines(r, g, b, a);
 
@@ -395,16 +381,14 @@ public:
 	// void SPK::GL::GLLineTrailRenderer::enableBlending(bool blendingEnabled)
 	static int _bind_enableBlending(lua_State *L) {
 		if (!_lg_typecheck_enableBlending(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::enableBlending(bool blendingEnabled) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::enableBlending(bool blendingEnabled)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::enableBlending(bool blendingEnabled) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::enableBlending(bool blendingEnabled)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool blendingEnabled=(bool)(lua_toboolean(L,2)==1);
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::enableBlending(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::enableBlending(bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->enableBlending(blendingEnabled);
 
@@ -414,15 +398,13 @@ public:
 	// size_t SPK::GL::GLLineTrailRenderer::getNbSamples() const
 	static int _bind_getNbSamples(lua_State *L) {
 		if (!_lg_typecheck_getNbSamples(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t SPK::GL::GLLineTrailRenderer::getNbSamples() const function, expected prototype:\nsize_t SPK::GL::GLLineTrailRenderer::getNbSamples() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t SPK::GL::GLLineTrailRenderer::getNbSamples() const function, expected prototype:\nsize_t SPK::GL::GLLineTrailRenderer::getNbSamples() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::GL::GLLineTrailRenderer::getNbSamples() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t SPK::GL::GLLineTrailRenderer::getNbSamples() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->getNbSamples();
 		lua_pushnumber(L,lret);
@@ -433,15 +415,13 @@ public:
 	// float SPK::GL::GLLineTrailRenderer::getWidth() const
 	static int _bind_getWidth(lua_State *L) {
 		if (!_lg_typecheck_getWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float SPK::GL::GLLineTrailRenderer::getWidth() const function, expected prototype:\nfloat SPK::GL::GLLineTrailRenderer::getWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float SPK::GL::GLLineTrailRenderer::getWidth() const function, expected prototype:\nfloat SPK::GL::GLLineTrailRenderer::getWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::GL::GLLineTrailRenderer::getWidth() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float SPK::GL::GLLineTrailRenderer::getWidth() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getWidth();
 		lua_pushnumber(L,lret);
@@ -452,15 +432,13 @@ public:
 	// float SPK::GL::GLLineTrailRenderer::getDuration() const
 	static int _bind_getDuration(lua_State *L) {
 		if (!_lg_typecheck_getDuration(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float SPK::GL::GLLineTrailRenderer::getDuration() const function, expected prototype:\nfloat SPK::GL::GLLineTrailRenderer::getDuration() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float SPK::GL::GLLineTrailRenderer::getDuration() const function, expected prototype:\nfloat SPK::GL::GLLineTrailRenderer::getDuration() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::GL::GLLineTrailRenderer::getDuration() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float SPK::GL::GLLineTrailRenderer::getDuration() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getDuration();
 		lua_pushnumber(L,lret);
@@ -471,8 +449,7 @@ public:
 	// void SPK::GL::GLLineTrailRenderer::createBuffers(const SPK::Group & group)
 	static int _bind_createBuffers(lua_State *L) {
 		if (!_lg_typecheck_createBuffers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::createBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::createBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::createBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::createBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -483,8 +460,7 @@ public:
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::createBuffers(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->createBuffers(group);
 
@@ -494,8 +470,7 @@ public:
 	// void SPK::GL::GLLineTrailRenderer::destroyBuffers(const SPK::Group & group)
 	static int _bind_destroyBuffers(lua_State *L) {
 		if (!_lg_typecheck_destroyBuffers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::destroyBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::destroyBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::destroyBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::destroyBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -506,8 +481,7 @@ public:
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::destroyBuffers(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->destroyBuffers(group);
 
@@ -517,8 +491,7 @@ public:
 	// void SPK::GL::GLLineTrailRenderer::init(const SPK::Group & group)
 	static int _bind_init(lua_State *L) {
 		if (!_lg_typecheck_init(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::init(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::init(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::init(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::init(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -529,8 +502,7 @@ public:
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::init(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::init(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->init(group);
 
@@ -540,8 +512,7 @@ public:
 	// void SPK::GL::GLLineTrailRenderer::render(const SPK::Group & group)
 	static int _bind_render(lua_State *L) {
 		if (!_lg_typecheck_render(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::render(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::render(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::render(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::render(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -552,8 +523,7 @@ public:
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::render(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::render(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->render(group);
 
@@ -563,8 +533,7 @@ public:
 	// static SPK::GL::GLLineTrailRenderer * SPK::GL::GLLineTrailRenderer::create()
 	static int _bind_create(lua_State *L) {
 		if (!_lg_typecheck_create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static SPK::GL::GLLineTrailRenderer * SPK::GL::GLLineTrailRenderer::create() function, expected prototype:\nstatic SPK::GL::GLLineTrailRenderer * SPK::GL::GLLineTrailRenderer::create()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static SPK::GL::GLLineTrailRenderer * SPK::GL::GLLineTrailRenderer::create() function, expected prototype:\nstatic SPK::GL::GLLineTrailRenderer * SPK::GL::GLLineTrailRenderer::create()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -579,16 +548,14 @@ public:
 	// SPK::Registerable * SPK::GL::GLLineTrailRenderer::base_findByName(const std::string & name)
 	static int _bind_base_findByName(lua_State *L) {
 		if (!_lg_typecheck_base_findByName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::GL::GLLineTrailRenderer::base_findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::GL::GLLineTrailRenderer::base_findByName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::GL::GLLineTrailRenderer::base_findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::GL::GLLineTrailRenderer::base_findByName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::GL::GLLineTrailRenderer::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::GL::GLLineTrailRenderer::base_findByName(const std::string &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::Registerable * lret = self->GLLineTrailRenderer::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -601,8 +568,7 @@ public:
 	// void SPK::GL::GLLineTrailRenderer::base_enableRenderingHint(SPK::RenderingHint renderingHint, bool enable)
 	static int _bind_base_enableRenderingHint(lua_State *L) {
 		if (!_lg_typecheck_base_enableRenderingHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::base_enableRenderingHint(SPK::RenderingHint renderingHint, bool enable) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::base_enableRenderingHint(SPK::RenderingHint renderingHint, bool enable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::base_enableRenderingHint(SPK::RenderingHint renderingHint, bool enable) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::base_enableRenderingHint(SPK::RenderingHint renderingHint, bool enable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::RenderingHint renderingHint=(SPK::RenderingHint)lua_tointeger(L,2);
@@ -610,8 +576,7 @@ public:
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::base_enableRenderingHint(SPK::RenderingHint, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::base_enableRenderingHint(SPK::RenderingHint, bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLLineTrailRenderer::enableRenderingHint(renderingHint, enable);
 
@@ -621,16 +586,14 @@ public:
 	// void SPK::GL::GLLineTrailRenderer::base_setAlphaTestThreshold(float alphaThreshold)
 	static int _bind_base_setAlphaTestThreshold(lua_State *L) {
 		if (!_lg_typecheck_base_setAlphaTestThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::base_setAlphaTestThreshold(float alphaThreshold) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::base_setAlphaTestThreshold(float alphaThreshold)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::base_setAlphaTestThreshold(float alphaThreshold) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::base_setAlphaTestThreshold(float alphaThreshold)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float alphaThreshold=(float)lua_tonumber(L,2);
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::base_setAlphaTestThreshold(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::base_setAlphaTestThreshold(float). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLLineTrailRenderer::setAlphaTestThreshold(alphaThreshold);
 
@@ -640,16 +603,14 @@ public:
 	// bool SPK::GL::GLLineTrailRenderer::base_isRenderingHintEnabled(SPK::RenderingHint renderingHint) const
 	static int _bind_base_isRenderingHintEnabled(lua_State *L) {
 		if (!_lg_typecheck_base_isRenderingHintEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::GL::GLLineTrailRenderer::base_isRenderingHintEnabled(SPK::RenderingHint renderingHint) const function, expected prototype:\nbool SPK::GL::GLLineTrailRenderer::base_isRenderingHintEnabled(SPK::RenderingHint renderingHint) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::GL::GLLineTrailRenderer::base_isRenderingHintEnabled(SPK::RenderingHint renderingHint) const function, expected prototype:\nbool SPK::GL::GLLineTrailRenderer::base_isRenderingHintEnabled(SPK::RenderingHint renderingHint) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::RenderingHint renderingHint=(SPK::RenderingHint)lua_tointeger(L,2);
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::GL::GLLineTrailRenderer::base_isRenderingHintEnabled(SPK::RenderingHint) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::GL::GLLineTrailRenderer::base_isRenderingHintEnabled(SPK::RenderingHint) const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GLLineTrailRenderer::isRenderingHintEnabled(renderingHint);
 		lua_pushboolean(L,lret?1:0);
@@ -660,16 +621,14 @@ public:
 	// void SPK::GL::GLLineTrailRenderer::base_setBlending(SPK::BlendingMode blendMode)
 	static int _bind_base_setBlending(lua_State *L) {
 		if (!_lg_typecheck_base_setBlending(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::base_setBlending(SPK::BlendingMode blendMode) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::base_setBlending(SPK::BlendingMode blendMode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::base_setBlending(SPK::BlendingMode blendMode) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::base_setBlending(SPK::BlendingMode blendMode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::BlendingMode blendMode=(SPK::BlendingMode)lua_tointeger(L,2);
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::base_setBlending(SPK::BlendingMode). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::base_setBlending(SPK::BlendingMode). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLLineTrailRenderer::setBlending(blendMode);
 
@@ -679,15 +638,13 @@ public:
 	// std::string SPK::GL::GLLineTrailRenderer::base_getClassName() const
 	static int _bind_base_getClassName(lua_State *L) {
 		if (!_lg_typecheck_base_getClassName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string SPK::GL::GLLineTrailRenderer::base_getClassName() const function, expected prototype:\nstd::string SPK::GL::GLLineTrailRenderer::base_getClassName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string SPK::GL::GLLineTrailRenderer::base_getClassName() const function, expected prototype:\nstd::string SPK::GL::GLLineTrailRenderer::base_getClassName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::GL::GLLineTrailRenderer::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string SPK::GL::GLLineTrailRenderer::base_getClassName() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->GLLineTrailRenderer::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -698,16 +655,14 @@ public:
 	// void SPK::GL::GLLineTrailRenderer::base_enableBlending(bool blendingEnabled)
 	static int _bind_base_enableBlending(lua_State *L) {
 		if (!_lg_typecheck_base_enableBlending(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::base_enableBlending(bool blendingEnabled) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::base_enableBlending(bool blendingEnabled)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::base_enableBlending(bool blendingEnabled) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::base_enableBlending(bool blendingEnabled)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool blendingEnabled=(bool)(lua_toboolean(L,2)==1);
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::base_enableBlending(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::base_enableBlending(bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLLineTrailRenderer::enableBlending(blendingEnabled);
 
@@ -717,8 +672,7 @@ public:
 	// void SPK::GL::GLLineTrailRenderer::base_createBuffers(const SPK::Group & group)
 	static int _bind_base_createBuffers(lua_State *L) {
 		if (!_lg_typecheck_base_createBuffers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::base_createBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::base_createBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::base_createBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::base_createBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -729,8 +683,7 @@ public:
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::base_createBuffers(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLLineTrailRenderer::createBuffers(group);
 
@@ -740,8 +693,7 @@ public:
 	// void SPK::GL::GLLineTrailRenderer::base_destroyBuffers(const SPK::Group & group)
 	static int _bind_base_destroyBuffers(lua_State *L) {
 		if (!_lg_typecheck_base_destroyBuffers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::base_destroyBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::base_destroyBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::base_destroyBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::base_destroyBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -752,8 +704,7 @@ public:
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::base_destroyBuffers(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLLineTrailRenderer::destroyBuffers(group);
 
@@ -763,8 +714,7 @@ public:
 	// void SPK::GL::GLLineTrailRenderer::base_render(const SPK::Group & group)
 	static int _bind_base_render(lua_State *L) {
 		if (!_lg_typecheck_base_render(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::base_render(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::base_render(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLLineTrailRenderer::base_render(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLLineTrailRenderer::base_render(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -775,8 +725,7 @@ public:
 
 		SPK::GL::GLLineTrailRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLLineTrailRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::base_render(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLLineTrailRenderer::base_render(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLLineTrailRenderer::render(group);
 

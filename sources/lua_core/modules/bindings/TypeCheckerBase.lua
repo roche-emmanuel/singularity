@@ -64,10 +64,10 @@ function TypeCheckerBase:handle(writer,func,name, completeCheck)
 			if checker then
 				isPointer = checker(writer,index,pt,defStr)	
 			elseif pt:isInteger() and not ptr then
-				writer:writeSubLine("if( ${2}(lua_isnumber(L,${1})==0 || lua_tointeger(L,${1}) != lua_tonumber(L,${1})) ) return false;",index,defStr)
+				writer:writeSubLine("if( ${2}(lua_type(L,${1})!=LUA_TNUMBER || lua_tointeger(L,${1}) != lua_tonumber(L,${1})) ) return false;",index,defStr)
 			elseif pt:isNumber() and not ptr then
 				-- check if we have a number:
-				writer:writeSubLine("if( ${2}lua_isnumber(L,${1})==0 ) return false;",index,defStr)
+				writer:writeSubLine("if( ${2}lua_type(L,${1})!=LUA_TNUMBER ) return false;",index,defStr)
 			elseif pt:isLuaFunction() then
 				-- check if we have a function:
 				writer:writeSubLine("if( ${2}lua_isfunction(L,${1})==0 ) return false;",index,defStr)
@@ -79,7 +79,7 @@ function TypeCheckerBase:handle(writer,func,name, completeCheck)
 			elseif pt:isBoolean() and not ptr then
 				writer:writeSubLine("if( ${2}lua_isboolean(L,${1})==0 ) return false;",index,defStr)
 			elseif pt:isString() then
-				writer:writeSubLine("if( ${2}lua_isstring(L,${1})==0 ) return false;",index,defStr)
+				writer:writeSubLine("if( ${2}lua_type(L,${1})!=LUA_TSTRING ) return false;",index,defStr)
 			elseif (pt:isVoid() or pt:isInteger() or pt:isNumber() or pt:isBoolean()) and ptr then
 				-- We may consider void as a base class:
 				local bhash = utils.getHash("void")

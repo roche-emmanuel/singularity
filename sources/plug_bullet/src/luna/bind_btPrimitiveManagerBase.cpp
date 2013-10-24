@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPrimitiveManagerBase* self=(Luna< btPrimitiveManagerBase >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btPrimitiveManagerBase*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btPrimitiveManagerBase*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPrimitiveManagerBase* rhs =(Luna< btPrimitiveManagerBase >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPrimitiveManagerBase* self= (btPrimitiveManagerBase*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btPrimitiveManagerBase >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -150,7 +145,7 @@ public:
 	inline static bool _lg_typecheck_get_primitive_box(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,14786052) ) return false;
 		return true;
 	}
@@ -158,7 +153,7 @@ public:
 	inline static bool _lg_typecheck_get_primitive_triangle(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,79712881) ) return false;
 		return true;
 	}
@@ -171,8 +166,7 @@ public:
 	// btPrimitiveManagerBase::btPrimitiveManagerBase(lua_Table * data)
 	static btPrimitiveManagerBase* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btPrimitiveManagerBase::btPrimitiveManagerBase(lua_Table * data) function, expected prototype:\nbtPrimitiveManagerBase::btPrimitiveManagerBase(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btPrimitiveManagerBase::btPrimitiveManagerBase(lua_Table * data) function, expected prototype:\nbtPrimitiveManagerBase::btPrimitiveManagerBase(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -184,15 +178,13 @@ public:
 	// bool btPrimitiveManagerBase::is_trimesh() const
 	static int _bind_is_trimesh(lua_State *L) {
 		if (!_lg_typecheck_is_trimesh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btPrimitiveManagerBase::is_trimesh() const function, expected prototype:\nbool btPrimitiveManagerBase::is_trimesh() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btPrimitiveManagerBase::is_trimesh() const function, expected prototype:\nbool btPrimitiveManagerBase::is_trimesh() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPrimitiveManagerBase* self=(Luna< btPrimitiveManagerBase >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btPrimitiveManagerBase::is_trimesh() const. Got : '%s'",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btPrimitiveManagerBase::is_trimesh() const. Got : '%s'\n%s",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->is_trimesh();
 		lua_pushboolean(L,lret?1:0);
@@ -203,15 +195,13 @@ public:
 	// int btPrimitiveManagerBase::get_primitive_count() const
 	static int _bind_get_primitive_count(lua_State *L) {
 		if (!_lg_typecheck_get_primitive_count(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btPrimitiveManagerBase::get_primitive_count() const function, expected prototype:\nint btPrimitiveManagerBase::get_primitive_count() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btPrimitiveManagerBase::get_primitive_count() const function, expected prototype:\nint btPrimitiveManagerBase::get_primitive_count() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPrimitiveManagerBase* self=(Luna< btPrimitiveManagerBase >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btPrimitiveManagerBase::get_primitive_count() const. Got : '%s'",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btPrimitiveManagerBase::get_primitive_count() const. Got : '%s'\n%s",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->get_primitive_count();
 		lua_pushnumber(L,lret);
@@ -222,8 +212,7 @@ public:
 	// void btPrimitiveManagerBase::get_primitive_box(int prim_index, btAABB & primbox) const
 	static int _bind_get_primitive_box(lua_State *L) {
 		if (!_lg_typecheck_get_primitive_box(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPrimitiveManagerBase::get_primitive_box(int prim_index, btAABB & primbox) const function, expected prototype:\nvoid btPrimitiveManagerBase::get_primitive_box(int prim_index, btAABB & primbox) const\nClass arguments details:\narg 2 ID = 14786052\n");
+			luaL_error(L, "luna typecheck failed in void btPrimitiveManagerBase::get_primitive_box(int prim_index, btAABB & primbox) const function, expected prototype:\nvoid btPrimitiveManagerBase::get_primitive_box(int prim_index, btAABB & primbox) const\nClass arguments details:\narg 2 ID = 14786052\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int prim_index=(int)lua_tointeger(L,2);
@@ -235,8 +224,7 @@ public:
 
 		btPrimitiveManagerBase* self=(Luna< btPrimitiveManagerBase >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPrimitiveManagerBase::get_primitive_box(int, btAABB &) const. Got : '%s'",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPrimitiveManagerBase::get_primitive_box(int, btAABB &) const. Got : '%s'\n%s",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->get_primitive_box(prim_index, primbox);
 
@@ -246,8 +234,7 @@ public:
 	// void btPrimitiveManagerBase::get_primitive_triangle(int prim_index, btPrimitiveTriangle & triangle) const
 	static int _bind_get_primitive_triangle(lua_State *L) {
 		if (!_lg_typecheck_get_primitive_triangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPrimitiveManagerBase::get_primitive_triangle(int prim_index, btPrimitiveTriangle & triangle) const function, expected prototype:\nvoid btPrimitiveManagerBase::get_primitive_triangle(int prim_index, btPrimitiveTriangle & triangle) const\nClass arguments details:\narg 2 ID = 79712881\n");
+			luaL_error(L, "luna typecheck failed in void btPrimitiveManagerBase::get_primitive_triangle(int prim_index, btPrimitiveTriangle & triangle) const function, expected prototype:\nvoid btPrimitiveManagerBase::get_primitive_triangle(int prim_index, btPrimitiveTriangle & triangle) const\nClass arguments details:\narg 2 ID = 79712881\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int prim_index=(int)lua_tointeger(L,2);
@@ -259,8 +246,7 @@ public:
 
 		btPrimitiveManagerBase* self=(Luna< btPrimitiveManagerBase >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPrimitiveManagerBase::get_primitive_triangle(int, btPrimitiveTriangle &) const. Got : '%s'",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPrimitiveManagerBase::get_primitive_triangle(int, btPrimitiveTriangle &) const. Got : '%s'\n%s",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->get_primitive_triangle(prim_index, triangle);
 

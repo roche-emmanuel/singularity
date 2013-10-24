@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglDraw* self=(Luna< mglDraw >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglDraw*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglDraw*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglDraw* rhs =(Luna< mglDraw >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglDraw* self= (mglDraw*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< mglDraw >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -174,8 +169,7 @@ public:
 	// mglDraw::mglDraw(lua_Table * data)
 	static mglDraw* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglDraw::mglDraw(lua_Table * data) function, expected prototype:\nmglDraw::mglDraw(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglDraw::mglDraw(lua_Table * data) function, expected prototype:\nmglDraw::mglDraw(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -187,16 +181,14 @@ public:
 	// int mglDraw::Draw(mglGraph * arg1)
 	static int _bind_Draw(lua_State *L) {
 		if (!_lg_typecheck_Draw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int mglDraw::Draw(mglGraph * arg1) function, expected prototype:\nint mglDraw::Draw(mglGraph * arg1)\nClass arguments details:\narg 1 ID = 48672486\n");
+			luaL_error(L, "luna typecheck failed in int mglDraw::Draw(mglGraph * arg1) function, expected prototype:\nint mglDraw::Draw(mglGraph * arg1)\nClass arguments details:\narg 1 ID = 48672486\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglGraph* _arg1=(Luna< mglGraph >::check(L,2));
 
 		mglDraw* self=(Luna< mglDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int mglDraw::Draw(mglGraph *). Got : '%s'",typeid(Luna< mglDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int mglDraw::Draw(mglGraph *). Got : '%s'\n%s",typeid(Luna< mglDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Draw(_arg1);
 		lua_pushnumber(L,lret);
@@ -207,15 +199,13 @@ public:
 	// void mglDraw::Reload()
 	static int _bind_Reload(lua_State *L) {
 		if (!_lg_typecheck_Reload(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglDraw::Reload() function, expected prototype:\nvoid mglDraw::Reload()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglDraw::Reload() function, expected prototype:\nvoid mglDraw::Reload()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglDraw* self=(Luna< mglDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglDraw::Reload(). Got : '%s'",typeid(Luna< mglDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglDraw::Reload(). Got : '%s'\n%s",typeid(Luna< mglDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Reload();
 
@@ -225,15 +215,13 @@ public:
 	// void mglDraw::Click()
 	static int _bind_Click(lua_State *L) {
 		if (!_lg_typecheck_Click(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglDraw::Click() function, expected prototype:\nvoid mglDraw::Click()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglDraw::Click() function, expected prototype:\nvoid mglDraw::Click()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglDraw* self=(Luna< mglDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglDraw::Click(). Got : '%s'",typeid(Luna< mglDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglDraw::Click(). Got : '%s'\n%s",typeid(Luna< mglDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Click();
 
@@ -243,15 +231,13 @@ public:
 	// void mglDraw::base_Reload()
 	static int _bind_base_Reload(lua_State *L) {
 		if (!_lg_typecheck_base_Reload(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglDraw::base_Reload() function, expected prototype:\nvoid mglDraw::base_Reload()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglDraw::base_Reload() function, expected prototype:\nvoid mglDraw::base_Reload()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglDraw* self=(Luna< mglDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglDraw::base_Reload(). Got : '%s'",typeid(Luna< mglDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglDraw::base_Reload(). Got : '%s'\n%s",typeid(Luna< mglDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mglDraw::Reload();
 
@@ -261,15 +247,13 @@ public:
 	// void mglDraw::base_Click()
 	static int _bind_base_Click(lua_State *L) {
 		if (!_lg_typecheck_base_Click(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglDraw::base_Click() function, expected prototype:\nvoid mglDraw::base_Click()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglDraw::base_Click() function, expected prototype:\nvoid mglDraw::base_Click()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglDraw* self=(Luna< mglDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglDraw::base_Click(). Got : '%s'",typeid(Luna< mglDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglDraw::base_Click(). Got : '%s'\n%s",typeid(Luna< mglDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mglDraw::Click();
 

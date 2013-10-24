@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2ContactRegister*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2ContactRegister*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2ContactRegister* rhs =(Luna< b2ContactRegister >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2ContactRegister* self= (b2ContactRegister*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2ContactRegister >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -125,15 +121,13 @@ public:
 	// bool b2ContactRegister::primary()
 	static int _bind_getPrimary(lua_State *L) {
 		if (!_lg_typecheck_getPrimary(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2ContactRegister::primary() function, expected prototype:\nbool b2ContactRegister::primary()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool b2ContactRegister::primary() function, expected prototype:\nbool b2ContactRegister::primary()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactRegister* self=(Luna< b2ContactRegister >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2ContactRegister::primary(). Got : '%s'",typeid(Luna< b2ContactRegister >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2ContactRegister::primary(). Got : '%s'\n%s",typeid(Luna< b2ContactRegister >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->primary;
 		lua_pushboolean(L,lret?1:0);
@@ -144,16 +138,14 @@ public:
 	// void b2ContactRegister::primary(bool value)
 	static int _bind_setPrimary(lua_State *L) {
 		if (!_lg_typecheck_setPrimary(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactRegister::primary(bool value) function, expected prototype:\nvoid b2ContactRegister::primary(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactRegister::primary(bool value) function, expected prototype:\nvoid b2ContactRegister::primary(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		b2ContactRegister* self=(Luna< b2ContactRegister >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactRegister::primary(bool). Got : '%s'",typeid(Luna< b2ContactRegister >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactRegister::primary(bool). Got : '%s'\n%s",typeid(Luna< b2ContactRegister >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->primary = value;
 

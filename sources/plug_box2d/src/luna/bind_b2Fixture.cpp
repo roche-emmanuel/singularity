@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Fixture*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Fixture*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Fixture* rhs =(Luna< b2Fixture >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Fixture* self= (b2Fixture*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Fixture >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -201,7 +197,7 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,78839054)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,74209205) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -215,7 +211,7 @@ public:
 	inline static bool _lg_typecheck_SetDensity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -234,7 +230,7 @@ public:
 	inline static bool _lg_typecheck_SetFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -247,21 +243,21 @@ public:
 	inline static bool _lg_typecheck_SetRestitution(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_GetAABB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_Dump(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -275,15 +271,13 @@ public:
 	// b2Shape::Type b2Fixture::GetType() const
 	static int _bind_GetType(lua_State *L) {
 		if (!_lg_typecheck_GetType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Shape::Type b2Fixture::GetType() const function, expected prototype:\nb2Shape::Type b2Fixture::GetType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Shape::Type b2Fixture::GetType() const function, expected prototype:\nb2Shape::Type b2Fixture::GetType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Shape::Type b2Fixture::GetType() const. Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Shape::Type b2Fixture::GetType() const. Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Shape::Type lret = self->GetType();
 		lua_pushnumber(L,lret);
@@ -294,15 +288,13 @@ public:
 	// b2Shape * b2Fixture::GetShape()
 	static int _bind_GetShape_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetShape_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Shape * b2Fixture::GetShape() function, expected prototype:\nb2Shape * b2Fixture::GetShape()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Shape * b2Fixture::GetShape() function, expected prototype:\nb2Shape * b2Fixture::GetShape()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Shape * b2Fixture::GetShape(). Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Shape * b2Fixture::GetShape(). Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Shape * lret = self->GetShape();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -315,15 +307,13 @@ public:
 	// const b2Shape * b2Fixture::GetShape() const
 	static int _bind_GetShape_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetShape_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Shape * b2Fixture::GetShape() const function, expected prototype:\nconst b2Shape * b2Fixture::GetShape() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2Shape * b2Fixture::GetShape() const function, expected prototype:\nconst b2Shape * b2Fixture::GetShape() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Shape * b2Fixture::GetShape() const. Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Shape * b2Fixture::GetShape() const. Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Shape * lret = self->GetShape();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -345,16 +335,14 @@ public:
 	// void b2Fixture::SetSensor(bool sensor)
 	static int _bind_SetSensor(lua_State *L) {
 		if (!_lg_typecheck_SetSensor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Fixture::SetSensor(bool sensor) function, expected prototype:\nvoid b2Fixture::SetSensor(bool sensor)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Fixture::SetSensor(bool sensor) function, expected prototype:\nvoid b2Fixture::SetSensor(bool sensor)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool sensor=(bool)(lua_toboolean(L,2)==1);
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Fixture::SetSensor(bool). Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Fixture::SetSensor(bool). Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSensor(sensor);
 
@@ -364,15 +352,13 @@ public:
 	// bool b2Fixture::IsSensor() const
 	static int _bind_IsSensor(lua_State *L) {
 		if (!_lg_typecheck_IsSensor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2Fixture::IsSensor() const function, expected prototype:\nbool b2Fixture::IsSensor() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool b2Fixture::IsSensor() const function, expected prototype:\nbool b2Fixture::IsSensor() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2Fixture::IsSensor() const. Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2Fixture::IsSensor() const. Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsSensor();
 		lua_pushboolean(L,lret?1:0);
@@ -383,8 +369,7 @@ public:
 	// void b2Fixture::SetFilterData(const b2Filter & filter)
 	static int _bind_SetFilterData(lua_State *L) {
 		if (!_lg_typecheck_SetFilterData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Fixture::SetFilterData(const b2Filter & filter) function, expected prototype:\nvoid b2Fixture::SetFilterData(const b2Filter & filter)\nClass arguments details:\narg 1 ID = 15544248\n");
+			luaL_error(L, "luna typecheck failed in void b2Fixture::SetFilterData(const b2Filter & filter) function, expected prototype:\nvoid b2Fixture::SetFilterData(const b2Filter & filter)\nClass arguments details:\narg 1 ID = 15544248\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2Filter* filter_ptr=(Luna< b2Filter >::check(L,2));
@@ -395,8 +380,7 @@ public:
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Fixture::SetFilterData(const b2Filter &). Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Fixture::SetFilterData(const b2Filter &). Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFilterData(filter);
 
@@ -406,15 +390,13 @@ public:
 	// const b2Filter & b2Fixture::GetFilterData() const
 	static int _bind_GetFilterData(lua_State *L) {
 		if (!_lg_typecheck_GetFilterData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Filter & b2Fixture::GetFilterData() const function, expected prototype:\nconst b2Filter & b2Fixture::GetFilterData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2Filter & b2Fixture::GetFilterData() const function, expected prototype:\nconst b2Filter & b2Fixture::GetFilterData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Filter & b2Fixture::GetFilterData() const. Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Filter & b2Fixture::GetFilterData() const. Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Filter* lret = &self->GetFilterData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -427,15 +409,13 @@ public:
 	// void b2Fixture::Refilter()
 	static int _bind_Refilter(lua_State *L) {
 		if (!_lg_typecheck_Refilter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Fixture::Refilter() function, expected prototype:\nvoid b2Fixture::Refilter()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Fixture::Refilter() function, expected prototype:\nvoid b2Fixture::Refilter()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Fixture::Refilter(). Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Fixture::Refilter(). Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Refilter();
 
@@ -445,15 +425,13 @@ public:
 	// b2Body * b2Fixture::GetBody()
 	static int _bind_GetBody_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetBody_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Body * b2Fixture::GetBody() function, expected prototype:\nb2Body * b2Fixture::GetBody()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Body * b2Fixture::GetBody() function, expected prototype:\nb2Body * b2Fixture::GetBody()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Body * b2Fixture::GetBody(). Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Body * b2Fixture::GetBody(). Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Body * lret = self->GetBody();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -466,15 +444,13 @@ public:
 	// const b2Body * b2Fixture::GetBody() const
 	static int _bind_GetBody_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetBody_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Body * b2Fixture::GetBody() const function, expected prototype:\nconst b2Body * b2Fixture::GetBody() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2Body * b2Fixture::GetBody() const function, expected prototype:\nconst b2Body * b2Fixture::GetBody() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Body * b2Fixture::GetBody() const. Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Body * b2Fixture::GetBody() const. Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Body * lret = self->GetBody();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -496,15 +472,13 @@ public:
 	// b2Fixture * b2Fixture::GetNext()
 	static int _bind_GetNext_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetNext_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Fixture * b2Fixture::GetNext() function, expected prototype:\nb2Fixture * b2Fixture::GetNext()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Fixture * b2Fixture::GetNext() function, expected prototype:\nb2Fixture * b2Fixture::GetNext()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Fixture * b2Fixture::GetNext(). Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Fixture * b2Fixture::GetNext(). Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Fixture * lret = self->GetNext();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -517,15 +491,13 @@ public:
 	// const b2Fixture * b2Fixture::GetNext() const
 	static int _bind_GetNext_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetNext_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Fixture * b2Fixture::GetNext() const function, expected prototype:\nconst b2Fixture * b2Fixture::GetNext() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2Fixture * b2Fixture::GetNext() const function, expected prototype:\nconst b2Fixture * b2Fixture::GetNext() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Fixture * b2Fixture::GetNext() const. Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Fixture * b2Fixture::GetNext() const. Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Fixture * lret = self->GetNext();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -547,15 +519,13 @@ public:
 	// void * b2Fixture::GetUserData() const
 	static int _bind_GetUserData(lua_State *L) {
 		if (!_lg_typecheck_GetUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * b2Fixture::GetUserData() const function, expected prototype:\nvoid * b2Fixture::GetUserData() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * b2Fixture::GetUserData() const function, expected prototype:\nvoid * b2Fixture::GetUserData() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * b2Fixture::GetUserData() const. Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * b2Fixture::GetUserData() const. Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->GetUserData();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -568,16 +538,14 @@ public:
 	// void b2Fixture::SetUserData(void * data)
 	static int _bind_SetUserData(lua_State *L) {
 		if (!_lg_typecheck_SetUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Fixture::SetUserData(void * data) function, expected prototype:\nvoid b2Fixture::SetUserData(void * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Fixture::SetUserData(void * data) function, expected prototype:\nvoid b2Fixture::SetUserData(void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* data=(Luna< void >::check(L,2));
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Fixture::SetUserData(void *). Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Fixture::SetUserData(void *). Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetUserData(data);
 
@@ -587,8 +555,7 @@ public:
 	// bool b2Fixture::TestPoint(const b2Vec2 & p) const
 	static int _bind_TestPoint(lua_State *L) {
 		if (!_lg_typecheck_TestPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2Fixture::TestPoint(const b2Vec2 & p) const function, expected prototype:\nbool b2Fixture::TestPoint(const b2Vec2 & p) const\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in bool b2Fixture::TestPoint(const b2Vec2 & p) const function, expected prototype:\nbool b2Fixture::TestPoint(const b2Vec2 & p) const\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2Vec2* p_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -599,8 +566,7 @@ public:
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2Fixture::TestPoint(const b2Vec2 &) const. Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2Fixture::TestPoint(const b2Vec2 &) const. Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->TestPoint(p);
 		lua_pushboolean(L,lret?1:0);
@@ -611,8 +577,7 @@ public:
 	// bool b2Fixture::RayCast(b2RayCastOutput * output, const b2RayCastInput & input, signed int childIndex) const
 	static int _bind_RayCast(lua_State *L) {
 		if (!_lg_typecheck_RayCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2Fixture::RayCast(b2RayCastOutput * output, const b2RayCastInput & input, signed int childIndex) const function, expected prototype:\nbool b2Fixture::RayCast(b2RayCastOutput * output, const b2RayCastInput & input, signed int childIndex) const\nClass arguments details:\narg 1 ID = 78839054\narg 2 ID = 74209205\n");
+			luaL_error(L, "luna typecheck failed in bool b2Fixture::RayCast(b2RayCastOutput * output, const b2RayCastInput & input, signed int childIndex) const function, expected prototype:\nbool b2Fixture::RayCast(b2RayCastOutput * output, const b2RayCastInput & input, signed int childIndex) const\nClass arguments details:\narg 1 ID = 78839054\narg 2 ID = 74209205\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2RayCastOutput* output=(Luna< b2RayCastOutput >::check(L,2));
@@ -625,8 +590,7 @@ public:
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2Fixture::RayCast(b2RayCastOutput *, const b2RayCastInput &, signed int) const. Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2Fixture::RayCast(b2RayCastOutput *, const b2RayCastInput &, signed int) const. Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RayCast(output, input, childIndex);
 		lua_pushboolean(L,lret?1:0);
@@ -637,16 +601,14 @@ public:
 	// void b2Fixture::GetMassData(b2MassData * massData) const
 	static int _bind_GetMassData(lua_State *L) {
 		if (!_lg_typecheck_GetMassData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Fixture::GetMassData(b2MassData * massData) const function, expected prototype:\nvoid b2Fixture::GetMassData(b2MassData * massData) const\nClass arguments details:\narg 1 ID = 24760292\n");
+			luaL_error(L, "luna typecheck failed in void b2Fixture::GetMassData(b2MassData * massData) const function, expected prototype:\nvoid b2Fixture::GetMassData(b2MassData * massData) const\nClass arguments details:\narg 1 ID = 24760292\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2MassData* massData=(Luna< b2MassData >::check(L,2));
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Fixture::GetMassData(b2MassData *) const. Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Fixture::GetMassData(b2MassData *) const. Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetMassData(massData);
 
@@ -656,16 +618,14 @@ public:
 	// void b2Fixture::SetDensity(float density)
 	static int _bind_SetDensity(lua_State *L) {
 		if (!_lg_typecheck_SetDensity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Fixture::SetDensity(float density) function, expected prototype:\nvoid b2Fixture::SetDensity(float density)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Fixture::SetDensity(float density) function, expected prototype:\nvoid b2Fixture::SetDensity(float density)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float density=(float)lua_tonumber(L,2);
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Fixture::SetDensity(float). Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Fixture::SetDensity(float). Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetDensity(density);
 
@@ -675,15 +635,13 @@ public:
 	// float b2Fixture::GetDensity() const
 	static int _bind_GetDensity(lua_State *L) {
 		if (!_lg_typecheck_GetDensity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Fixture::GetDensity() const function, expected prototype:\nfloat b2Fixture::GetDensity() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Fixture::GetDensity() const function, expected prototype:\nfloat b2Fixture::GetDensity() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Fixture::GetDensity() const. Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Fixture::GetDensity() const. Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetDensity();
 		lua_pushnumber(L,lret);
@@ -694,15 +652,13 @@ public:
 	// float b2Fixture::GetFriction() const
 	static int _bind_GetFriction(lua_State *L) {
 		if (!_lg_typecheck_GetFriction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Fixture::GetFriction() const function, expected prototype:\nfloat b2Fixture::GetFriction() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Fixture::GetFriction() const function, expected prototype:\nfloat b2Fixture::GetFriction() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Fixture::GetFriction() const. Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Fixture::GetFriction() const. Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetFriction();
 		lua_pushnumber(L,lret);
@@ -713,16 +669,14 @@ public:
 	// void b2Fixture::SetFriction(float friction)
 	static int _bind_SetFriction(lua_State *L) {
 		if (!_lg_typecheck_SetFriction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Fixture::SetFriction(float friction) function, expected prototype:\nvoid b2Fixture::SetFriction(float friction)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Fixture::SetFriction(float friction) function, expected prototype:\nvoid b2Fixture::SetFriction(float friction)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float friction=(float)lua_tonumber(L,2);
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Fixture::SetFriction(float). Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Fixture::SetFriction(float). Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFriction(friction);
 
@@ -732,15 +686,13 @@ public:
 	// float b2Fixture::GetRestitution() const
 	static int _bind_GetRestitution(lua_State *L) {
 		if (!_lg_typecheck_GetRestitution(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Fixture::GetRestitution() const function, expected prototype:\nfloat b2Fixture::GetRestitution() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Fixture::GetRestitution() const function, expected prototype:\nfloat b2Fixture::GetRestitution() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Fixture::GetRestitution() const. Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Fixture::GetRestitution() const. Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetRestitution();
 		lua_pushnumber(L,lret);
@@ -751,16 +703,14 @@ public:
 	// void b2Fixture::SetRestitution(float restitution)
 	static int _bind_SetRestitution(lua_State *L) {
 		if (!_lg_typecheck_SetRestitution(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Fixture::SetRestitution(float restitution) function, expected prototype:\nvoid b2Fixture::SetRestitution(float restitution)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Fixture::SetRestitution(float restitution) function, expected prototype:\nvoid b2Fixture::SetRestitution(float restitution)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float restitution=(float)lua_tonumber(L,2);
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Fixture::SetRestitution(float). Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Fixture::SetRestitution(float). Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRestitution(restitution);
 
@@ -770,16 +720,14 @@ public:
 	// const b2AABB & b2Fixture::GetAABB(signed int childIndex) const
 	static int _bind_GetAABB(lua_State *L) {
 		if (!_lg_typecheck_GetAABB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2AABB & b2Fixture::GetAABB(signed int childIndex) const function, expected prototype:\nconst b2AABB & b2Fixture::GetAABB(signed int childIndex) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2AABB & b2Fixture::GetAABB(signed int childIndex) const function, expected prototype:\nconst b2AABB & b2Fixture::GetAABB(signed int childIndex) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int childIndex=(signed int)lua_tointeger(L,2);
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2AABB & b2Fixture::GetAABB(signed int) const. Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2AABB & b2Fixture::GetAABB(signed int) const. Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2AABB* lret = &self->GetAABB(childIndex);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -792,16 +740,14 @@ public:
 	// void b2Fixture::Dump(signed int bodyIndex)
 	static int _bind_Dump(lua_State *L) {
 		if (!_lg_typecheck_Dump(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Fixture::Dump(signed int bodyIndex) function, expected prototype:\nvoid b2Fixture::Dump(signed int bodyIndex)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Fixture::Dump(signed int bodyIndex) function, expected prototype:\nvoid b2Fixture::Dump(signed int bodyIndex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int bodyIndex=(signed int)lua_tointeger(L,2);
 
 		b2Fixture* self=(Luna< b2Fixture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Fixture::Dump(signed int). Got : '%s'",typeid(Luna< b2Fixture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Fixture::Dump(signed int). Got : '%s'\n%s",typeid(Luna< b2Fixture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Dump(bodyIndex);
 

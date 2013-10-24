@@ -35,13 +35,17 @@ local createClass = function(options)
 	
 	-- Retrieve the actual bases tables:
 	local bases = {}
+	local bases_inv = {}
 	for _,base in ipairs(options.bases) do
 		table.insert(bases,type(base)=="string" and require(base) or base)
+	end
+	for _,base in ipairs(bases) do
+		table.insert(bases_inv, 1, base)
 	end
 	
 	-- Create the new class table
 	log.debug_v("Generating class for ",options.name)
-	local result = oo.class({},unpack(bases))
+	local result = oo.class({},unpack(bases_inv))
 	result._CLASSNAME_ = options.name
 	result._TRACE_ = options.name
 
@@ -94,10 +98,17 @@ local createClass = function(options)
 		
 		if class.new and not done[class.new] then
 			done[class.new]=true
-			class.new(obj,opt)
+			class.new(self,opt)
 		end
 		
+		-- We have to invert the order of the super classes
+		-- to respect the initialization order:
+		local bases = {}
 		for _,base in oo.supers(class) do
+			table.insert(bases, 1, base)
+		end
+		
+		for _,base in ipairs(bases) do
 			if base.doInitialize then
 				base.doInitialize(self,opt,base,done)
 			end

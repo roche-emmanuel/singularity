@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::GL::GLRenderer* self= (SPK::GL::GLRenderer*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< SPK::Registerable >::check(L,1));
@@ -120,22 +117,22 @@ public:
 	inline static bool _lg_typecheck_setBlendingFunctions(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setBlending(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setTextureBlending(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -178,7 +175,7 @@ public:
 	inline static bool _lg_typecheck_base_findByName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -199,7 +196,7 @@ public:
 	inline static bool _lg_typecheck_base_enableRenderingHint(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -207,14 +204,14 @@ public:
 	inline static bool _lg_typecheck_base_setAlphaTestThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_isRenderingHintEnabled(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -228,7 +225,7 @@ public:
 	inline static bool _lg_typecheck_base_setBlending(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -240,8 +237,7 @@ public:
 	// SPK::GL::GLRenderer::GLRenderer(lua_Table * data)
 	static SPK::GL::GLRenderer* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::GL::GLRenderer::GLRenderer(lua_Table * data) function, expected prototype:\nSPK::GL::GLRenderer::GLRenderer(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::GL::GLRenderer::GLRenderer(lua_Table * data) function, expected prototype:\nSPK::GL::GLRenderer::GLRenderer(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -253,16 +249,14 @@ public:
 	// void SPK::GL::GLRenderer::enableBlending(bool blendingEnabled)
 	static int _bind_enableBlending(lua_State *L) {
 		if (!_lg_typecheck_enableBlending(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::enableBlending(bool blendingEnabled) function, expected prototype:\nvoid SPK::GL::GLRenderer::enableBlending(bool blendingEnabled)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::enableBlending(bool blendingEnabled) function, expected prototype:\nvoid SPK::GL::GLRenderer::enableBlending(bool blendingEnabled)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool blendingEnabled=(bool)(lua_toboolean(L,2)==1);
 
 		SPK::GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::enableBlending(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::enableBlending(bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->enableBlending(blendingEnabled);
 
@@ -272,8 +266,7 @@ public:
 	// void SPK::GL::GLRenderer::setBlendingFunctions(unsigned int src, unsigned int dest)
 	static int _bind_setBlendingFunctions(lua_State *L) {
 		if (!_lg_typecheck_setBlendingFunctions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::setBlendingFunctions(unsigned int src, unsigned int dest) function, expected prototype:\nvoid SPK::GL::GLRenderer::setBlendingFunctions(unsigned int src, unsigned int dest)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::setBlendingFunctions(unsigned int src, unsigned int dest) function, expected prototype:\nvoid SPK::GL::GLRenderer::setBlendingFunctions(unsigned int src, unsigned int dest)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int src=(unsigned int)lua_tointeger(L,2);
@@ -281,8 +274,7 @@ public:
 
 		SPK::GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::setBlendingFunctions(unsigned int, unsigned int). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::setBlendingFunctions(unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setBlendingFunctions(src, dest);
 
@@ -292,16 +284,14 @@ public:
 	// void SPK::GL::GLRenderer::setBlending(SPK::BlendingMode blendMode)
 	static int _bind_setBlending(lua_State *L) {
 		if (!_lg_typecheck_setBlending(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::setBlending(SPK::BlendingMode blendMode) function, expected prototype:\nvoid SPK::GL::GLRenderer::setBlending(SPK::BlendingMode blendMode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::setBlending(SPK::BlendingMode blendMode) function, expected prototype:\nvoid SPK::GL::GLRenderer::setBlending(SPK::BlendingMode blendMode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::BlendingMode blendMode=(SPK::BlendingMode)lua_tointeger(L,2);
 
 		SPK::GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::setBlending(SPK::BlendingMode). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::setBlending(SPK::BlendingMode). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setBlending(blendMode);
 
@@ -311,16 +301,14 @@ public:
 	// void SPK::GL::GLRenderer::setTextureBlending(unsigned int textureBlending)
 	static int _bind_setTextureBlending(lua_State *L) {
 		if (!_lg_typecheck_setTextureBlending(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::setTextureBlending(unsigned int textureBlending) function, expected prototype:\nvoid SPK::GL::GLRenderer::setTextureBlending(unsigned int textureBlending)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::setTextureBlending(unsigned int textureBlending) function, expected prototype:\nvoid SPK::GL::GLRenderer::setTextureBlending(unsigned int textureBlending)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int textureBlending=(unsigned int)lua_tointeger(L,2);
 
 		SPK::GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::setTextureBlending(unsigned int). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::setTextureBlending(unsigned int). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTextureBlending(textureBlending);
 
@@ -330,15 +318,13 @@ public:
 	// bool SPK::GL::GLRenderer::isBlendingEnabled() const
 	static int _bind_isBlendingEnabled(lua_State *L) {
 		if (!_lg_typecheck_isBlendingEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::GL::GLRenderer::isBlendingEnabled() const function, expected prototype:\nbool SPK::GL::GLRenderer::isBlendingEnabled() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::GL::GLRenderer::isBlendingEnabled() const function, expected prototype:\nbool SPK::GL::GLRenderer::isBlendingEnabled() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::GL::GLRenderer::isBlendingEnabled() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::GL::GLRenderer::isBlendingEnabled() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isBlendingEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -349,15 +335,13 @@ public:
 	// unsigned int SPK::GL::GLRenderer::getSrcBlendingFunction() const
 	static int _bind_getSrcBlendingFunction(lua_State *L) {
 		if (!_lg_typecheck_getSrcBlendingFunction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int SPK::GL::GLRenderer::getSrcBlendingFunction() const function, expected prototype:\nunsigned int SPK::GL::GLRenderer::getSrcBlendingFunction() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int SPK::GL::GLRenderer::getSrcBlendingFunction() const function, expected prototype:\nunsigned int SPK::GL::GLRenderer::getSrcBlendingFunction() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int SPK::GL::GLRenderer::getSrcBlendingFunction() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int SPK::GL::GLRenderer::getSrcBlendingFunction() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getSrcBlendingFunction();
 		lua_pushnumber(L,lret);
@@ -368,15 +352,13 @@ public:
 	// unsigned int SPK::GL::GLRenderer::getDestBlendingFunction() const
 	static int _bind_getDestBlendingFunction(lua_State *L) {
 		if (!_lg_typecheck_getDestBlendingFunction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int SPK::GL::GLRenderer::getDestBlendingFunction() const function, expected prototype:\nunsigned int SPK::GL::GLRenderer::getDestBlendingFunction() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int SPK::GL::GLRenderer::getDestBlendingFunction() const function, expected prototype:\nunsigned int SPK::GL::GLRenderer::getDestBlendingFunction() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int SPK::GL::GLRenderer::getDestBlendingFunction() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int SPK::GL::GLRenderer::getDestBlendingFunction() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getDestBlendingFunction();
 		lua_pushnumber(L,lret);
@@ -387,15 +369,13 @@ public:
 	// unsigned int SPK::GL::GLRenderer::getTextureBlending() const
 	static int _bind_getTextureBlending(lua_State *L) {
 		if (!_lg_typecheck_getTextureBlending(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int SPK::GL::GLRenderer::getTextureBlending() const function, expected prototype:\nunsigned int SPK::GL::GLRenderer::getTextureBlending() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int SPK::GL::GLRenderer::getTextureBlending() const function, expected prototype:\nunsigned int SPK::GL::GLRenderer::getTextureBlending() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int SPK::GL::GLRenderer::getTextureBlending() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int SPK::GL::GLRenderer::getTextureBlending() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getTextureBlending();
 		lua_pushnumber(L,lret);
@@ -406,8 +386,7 @@ public:
 	// static void SPK::GL::GLRenderer::saveGLStates()
 	static int _bind_saveGLStates(lua_State *L) {
 		if (!_lg_typecheck_saveGLStates(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void SPK::GL::GLRenderer::saveGLStates() function, expected prototype:\nstatic void SPK::GL::GLRenderer::saveGLStates()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void SPK::GL::GLRenderer::saveGLStates() function, expected prototype:\nstatic void SPK::GL::GLRenderer::saveGLStates()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -419,8 +398,7 @@ public:
 	// static void SPK::GL::GLRenderer::restoreGLStates()
 	static int _bind_restoreGLStates(lua_State *L) {
 		if (!_lg_typecheck_restoreGLStates(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void SPK::GL::GLRenderer::restoreGLStates() function, expected prototype:\nstatic void SPK::GL::GLRenderer::restoreGLStates()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void SPK::GL::GLRenderer::restoreGLStates() function, expected prototype:\nstatic void SPK::GL::GLRenderer::restoreGLStates()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -432,16 +410,14 @@ public:
 	// SPK::Registerable * SPK::GL::GLRenderer::base_findByName(const std::string & name)
 	static int _bind_base_findByName(lua_State *L) {
 		if (!_lg_typecheck_base_findByName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::GL::GLRenderer::base_findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::GL::GLRenderer::base_findByName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::GL::GLRenderer::base_findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::GL::GLRenderer::base_findByName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		SPK::GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::GL::GLRenderer::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::GL::GLRenderer::base_findByName(const std::string &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::Registerable * lret = self->GLRenderer::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -454,8 +430,7 @@ public:
 	// void SPK::GL::GLRenderer::base_createBuffers(const SPK::Group & group)
 	static int _bind_base_createBuffers(lua_State *L) {
 		if (!_lg_typecheck_base_createBuffers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::base_createBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLRenderer::base_createBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::base_createBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLRenderer::base_createBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -466,8 +441,7 @@ public:
 
 		SPK::GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::base_createBuffers(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLRenderer::createBuffers(group);
 
@@ -477,8 +451,7 @@ public:
 	// void SPK::GL::GLRenderer::base_destroyBuffers(const SPK::Group & group)
 	static int _bind_base_destroyBuffers(lua_State *L) {
 		if (!_lg_typecheck_base_destroyBuffers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::base_destroyBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLRenderer::base_destroyBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::base_destroyBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLRenderer::base_destroyBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -489,8 +462,7 @@ public:
 
 		SPK::GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::base_destroyBuffers(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLRenderer::destroyBuffers(group);
 
@@ -500,8 +472,7 @@ public:
 	// void SPK::GL::GLRenderer::base_enableRenderingHint(SPK::RenderingHint renderingHint, bool enable)
 	static int _bind_base_enableRenderingHint(lua_State *L) {
 		if (!_lg_typecheck_base_enableRenderingHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::base_enableRenderingHint(SPK::RenderingHint renderingHint, bool enable) function, expected prototype:\nvoid SPK::GL::GLRenderer::base_enableRenderingHint(SPK::RenderingHint renderingHint, bool enable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::base_enableRenderingHint(SPK::RenderingHint renderingHint, bool enable) function, expected prototype:\nvoid SPK::GL::GLRenderer::base_enableRenderingHint(SPK::RenderingHint renderingHint, bool enable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::RenderingHint renderingHint=(SPK::RenderingHint)lua_tointeger(L,2);
@@ -509,8 +480,7 @@ public:
 
 		SPK::GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::base_enableRenderingHint(SPK::RenderingHint, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::base_enableRenderingHint(SPK::RenderingHint, bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLRenderer::enableRenderingHint(renderingHint, enable);
 
@@ -520,16 +490,14 @@ public:
 	// void SPK::GL::GLRenderer::base_setAlphaTestThreshold(float alphaThreshold)
 	static int _bind_base_setAlphaTestThreshold(lua_State *L) {
 		if (!_lg_typecheck_base_setAlphaTestThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::base_setAlphaTestThreshold(float alphaThreshold) function, expected prototype:\nvoid SPK::GL::GLRenderer::base_setAlphaTestThreshold(float alphaThreshold)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::base_setAlphaTestThreshold(float alphaThreshold) function, expected prototype:\nvoid SPK::GL::GLRenderer::base_setAlphaTestThreshold(float alphaThreshold)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float alphaThreshold=(float)lua_tonumber(L,2);
 
 		SPK::GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::base_setAlphaTestThreshold(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::base_setAlphaTestThreshold(float). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLRenderer::setAlphaTestThreshold(alphaThreshold);
 
@@ -539,16 +507,14 @@ public:
 	// bool SPK::GL::GLRenderer::base_isRenderingHintEnabled(SPK::RenderingHint renderingHint) const
 	static int _bind_base_isRenderingHintEnabled(lua_State *L) {
 		if (!_lg_typecheck_base_isRenderingHintEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::GL::GLRenderer::base_isRenderingHintEnabled(SPK::RenderingHint renderingHint) const function, expected prototype:\nbool SPK::GL::GLRenderer::base_isRenderingHintEnabled(SPK::RenderingHint renderingHint) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::GL::GLRenderer::base_isRenderingHintEnabled(SPK::RenderingHint renderingHint) const function, expected prototype:\nbool SPK::GL::GLRenderer::base_isRenderingHintEnabled(SPK::RenderingHint renderingHint) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::RenderingHint renderingHint=(SPK::RenderingHint)lua_tointeger(L,2);
 
 		SPK::GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::GL::GLRenderer::base_isRenderingHintEnabled(SPK::RenderingHint) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::GL::GLRenderer::base_isRenderingHintEnabled(SPK::RenderingHint) const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GLRenderer::isRenderingHintEnabled(renderingHint);
 		lua_pushboolean(L,lret?1:0);
@@ -559,16 +525,14 @@ public:
 	// void SPK::GL::GLRenderer::base_enableBlending(bool blendingEnabled)
 	static int _bind_base_enableBlending(lua_State *L) {
 		if (!_lg_typecheck_base_enableBlending(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::base_enableBlending(bool blendingEnabled) function, expected prototype:\nvoid SPK::GL::GLRenderer::base_enableBlending(bool blendingEnabled)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::base_enableBlending(bool blendingEnabled) function, expected prototype:\nvoid SPK::GL::GLRenderer::base_enableBlending(bool blendingEnabled)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool blendingEnabled=(bool)(lua_toboolean(L,2)==1);
 
 		SPK::GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::base_enableBlending(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::base_enableBlending(bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLRenderer::enableBlending(blendingEnabled);
 
@@ -578,16 +542,14 @@ public:
 	// void SPK::GL::GLRenderer::base_setBlending(SPK::BlendingMode blendMode)
 	static int _bind_base_setBlending(lua_State *L) {
 		if (!_lg_typecheck_base_setBlending(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::base_setBlending(SPK::BlendingMode blendMode) function, expected prototype:\nvoid SPK::GL::GLRenderer::base_setBlending(SPK::BlendingMode blendMode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::base_setBlending(SPK::BlendingMode blendMode) function, expected prototype:\nvoid SPK::GL::GLRenderer::base_setBlending(SPK::BlendingMode blendMode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::BlendingMode blendMode=(SPK::BlendingMode)lua_tointeger(L,2);
 
 		SPK::GL::GLRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::base_setBlending(SPK::BlendingMode). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::base_setBlending(SPK::BlendingMode). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLRenderer::setBlending(blendMode);
 

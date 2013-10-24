@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2FrictionJointDef* self= (b2FrictionJointDef*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2JointDef >::check(L,1));
@@ -121,14 +119,14 @@ public:
 	inline static bool _lg_typecheck_setMaxForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setMaxTorque(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -140,8 +138,7 @@ public:
 	// b2FrictionJointDef::b2FrictionJointDef()
 	static b2FrictionJointDef* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2FrictionJointDef::b2FrictionJointDef() function, expected prototype:\nb2FrictionJointDef::b2FrictionJointDef()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2FrictionJointDef::b2FrictionJointDef() function, expected prototype:\nb2FrictionJointDef::b2FrictionJointDef()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -153,8 +150,7 @@ public:
 	// void b2FrictionJointDef::Initialize(b2Body * bodyA, b2Body * bodyB, const b2Vec2 & anchor)
 	static int _bind_Initialize(lua_State *L) {
 		if (!_lg_typecheck_Initialize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2FrictionJointDef::Initialize(b2Body * bodyA, b2Body * bodyB, const b2Vec2 & anchor) function, expected prototype:\nvoid b2FrictionJointDef::Initialize(b2Body * bodyA, b2Body * bodyB, const b2Vec2 & anchor)\nClass arguments details:\narg 1 ID = 53908778\narg 2 ID = 53908778\narg 3 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2FrictionJointDef::Initialize(b2Body * bodyA, b2Body * bodyB, const b2Vec2 & anchor) function, expected prototype:\nvoid b2FrictionJointDef::Initialize(b2Body * bodyA, b2Body * bodyB, const b2Vec2 & anchor)\nClass arguments details:\narg 1 ID = 53908778\narg 2 ID = 53908778\narg 3 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Body* bodyA=(Luna< b2Body >::check(L,2));
@@ -167,8 +163,7 @@ public:
 
 		b2FrictionJointDef* self=Luna< b2JointDef >::checkSubType< b2FrictionJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2FrictionJointDef::Initialize(b2Body *, b2Body *, const b2Vec2 &). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2FrictionJointDef::Initialize(b2Body *, b2Body *, const b2Vec2 &). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Initialize(bodyA, bodyB, anchor);
 
@@ -178,15 +173,13 @@ public:
 	// b2Vec2 b2FrictionJointDef::localAnchorA()
 	static int _bind_getLocalAnchorA(lua_State *L) {
 		if (!_lg_typecheck_getLocalAnchorA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2FrictionJointDef::localAnchorA() function, expected prototype:\nb2Vec2 b2FrictionJointDef::localAnchorA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2FrictionJointDef::localAnchorA() function, expected prototype:\nb2Vec2 b2FrictionJointDef::localAnchorA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2FrictionJointDef* self=Luna< b2JointDef >::checkSubType< b2FrictionJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2FrictionJointDef::localAnchorA(). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2FrictionJointDef::localAnchorA(). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->localAnchorA;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -199,15 +192,13 @@ public:
 	// b2Vec2 b2FrictionJointDef::localAnchorB()
 	static int _bind_getLocalAnchorB(lua_State *L) {
 		if (!_lg_typecheck_getLocalAnchorB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2FrictionJointDef::localAnchorB() function, expected prototype:\nb2Vec2 b2FrictionJointDef::localAnchorB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2FrictionJointDef::localAnchorB() function, expected prototype:\nb2Vec2 b2FrictionJointDef::localAnchorB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2FrictionJointDef* self=Luna< b2JointDef >::checkSubType< b2FrictionJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2FrictionJointDef::localAnchorB(). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2FrictionJointDef::localAnchorB(). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->localAnchorB;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -220,15 +211,13 @@ public:
 	// float b2FrictionJointDef::maxForce()
 	static int _bind_getMaxForce(lua_State *L) {
 		if (!_lg_typecheck_getMaxForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2FrictionJointDef::maxForce() function, expected prototype:\nfloat b2FrictionJointDef::maxForce()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2FrictionJointDef::maxForce() function, expected prototype:\nfloat b2FrictionJointDef::maxForce()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2FrictionJointDef* self=Luna< b2JointDef >::checkSubType< b2FrictionJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2FrictionJointDef::maxForce(). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2FrictionJointDef::maxForce(). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->maxForce;
 		lua_pushnumber(L,lret);
@@ -239,15 +228,13 @@ public:
 	// float b2FrictionJointDef::maxTorque()
 	static int _bind_getMaxTorque(lua_State *L) {
 		if (!_lg_typecheck_getMaxTorque(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2FrictionJointDef::maxTorque() function, expected prototype:\nfloat b2FrictionJointDef::maxTorque()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2FrictionJointDef::maxTorque() function, expected prototype:\nfloat b2FrictionJointDef::maxTorque()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2FrictionJointDef* self=Luna< b2JointDef >::checkSubType< b2FrictionJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2FrictionJointDef::maxTorque(). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2FrictionJointDef::maxTorque(). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->maxTorque;
 		lua_pushnumber(L,lret);
@@ -258,8 +245,7 @@ public:
 	// void b2FrictionJointDef::localAnchorA(b2Vec2 value)
 	static int _bind_setLocalAnchorA(lua_State *L) {
 		if (!_lg_typecheck_setLocalAnchorA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2FrictionJointDef::localAnchorA(b2Vec2 value) function, expected prototype:\nvoid b2FrictionJointDef::localAnchorA(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2FrictionJointDef::localAnchorA(b2Vec2 value) function, expected prototype:\nvoid b2FrictionJointDef::localAnchorA(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -270,8 +256,7 @@ public:
 
 		b2FrictionJointDef* self=Luna< b2JointDef >::checkSubType< b2FrictionJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2FrictionJointDef::localAnchorA(b2Vec2). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2FrictionJointDef::localAnchorA(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->localAnchorA = value;
 
@@ -281,8 +266,7 @@ public:
 	// void b2FrictionJointDef::localAnchorB(b2Vec2 value)
 	static int _bind_setLocalAnchorB(lua_State *L) {
 		if (!_lg_typecheck_setLocalAnchorB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2FrictionJointDef::localAnchorB(b2Vec2 value) function, expected prototype:\nvoid b2FrictionJointDef::localAnchorB(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2FrictionJointDef::localAnchorB(b2Vec2 value) function, expected prototype:\nvoid b2FrictionJointDef::localAnchorB(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -293,8 +277,7 @@ public:
 
 		b2FrictionJointDef* self=Luna< b2JointDef >::checkSubType< b2FrictionJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2FrictionJointDef::localAnchorB(b2Vec2). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2FrictionJointDef::localAnchorB(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->localAnchorB = value;
 
@@ -304,16 +287,14 @@ public:
 	// void b2FrictionJointDef::maxForce(float value)
 	static int _bind_setMaxForce(lua_State *L) {
 		if (!_lg_typecheck_setMaxForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2FrictionJointDef::maxForce(float value) function, expected prototype:\nvoid b2FrictionJointDef::maxForce(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2FrictionJointDef::maxForce(float value) function, expected prototype:\nvoid b2FrictionJointDef::maxForce(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2FrictionJointDef* self=Luna< b2JointDef >::checkSubType< b2FrictionJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2FrictionJointDef::maxForce(float). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2FrictionJointDef::maxForce(float). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->maxForce = value;
 
@@ -323,16 +304,14 @@ public:
 	// void b2FrictionJointDef::maxTorque(float value)
 	static int _bind_setMaxTorque(lua_State *L) {
 		if (!_lg_typecheck_setMaxTorque(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2FrictionJointDef::maxTorque(float value) function, expected prototype:\nvoid b2FrictionJointDef::maxTorque(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2FrictionJointDef::maxTorque(float value) function, expected prototype:\nvoid b2FrictionJointDef::maxTorque(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2FrictionJointDef* self=Luna< b2JointDef >::checkSubType< b2FrictionJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2FrictionJointDef::maxTorque(float). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2FrictionJointDef::maxTorque(float). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->maxTorque = value;
 

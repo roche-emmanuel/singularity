@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		gizmo::GizmoDrawable::GizmoEventCallback* self= (gizmo::GizmoDrawable::GizmoEventCallback*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -128,8 +125,7 @@ public:
 	// gizmo::GizmoDrawable::GizmoEventCallback::GizmoEventCallback()
 	static gizmo::GizmoDrawable::GizmoEventCallback* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in gizmo::GizmoDrawable::GizmoEventCallback::GizmoEventCallback() function, expected prototype:\ngizmo::GizmoDrawable::GizmoEventCallback::GizmoEventCallback()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in gizmo::GizmoDrawable::GizmoEventCallback::GizmoEventCallback() function, expected prototype:\ngizmo::GizmoDrawable::GizmoEventCallback::GizmoEventCallback()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -139,8 +135,7 @@ public:
 	// gizmo::GizmoDrawable::GizmoEventCallback::GizmoEventCallback(lua_Table * data)
 	static gizmo::GizmoDrawable::GizmoEventCallback* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in gizmo::GizmoDrawable::GizmoEventCallback::GizmoEventCallback(lua_Table * data) function, expected prototype:\ngizmo::GizmoDrawable::GizmoEventCallback::GizmoEventCallback(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in gizmo::GizmoDrawable::GizmoEventCallback::GizmoEventCallback(lua_Table * data) function, expected prototype:\ngizmo::GizmoDrawable::GizmoEventCallback::GizmoEventCallback(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -161,8 +156,7 @@ public:
 	// void gizmo::GizmoDrawable::GizmoEventCallback::event(osg::NodeVisitor * nv, osg::Drawable * drawable)
 	static int _bind_event(lua_State *L) {
 		if (!_lg_typecheck_event(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void gizmo::GizmoDrawable::GizmoEventCallback::event(osg::NodeVisitor * nv, osg::Drawable * drawable) function, expected prototype:\nvoid gizmo::GizmoDrawable::GizmoEventCallback::event(osg::NodeVisitor * nv, osg::Drawable * drawable)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void gizmo::GizmoDrawable::GizmoEventCallback::event(osg::NodeVisitor * nv, osg::Drawable * drawable) function, expected prototype:\nvoid gizmo::GizmoDrawable::GizmoEventCallback::event(osg::NodeVisitor * nv, osg::Drawable * drawable)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -170,8 +164,7 @@ public:
 
 		gizmo::GizmoDrawable::GizmoEventCallback* self=Luna< osg::Referenced >::checkSubType< gizmo::GizmoDrawable::GizmoEventCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void gizmo::GizmoDrawable::GizmoEventCallback::event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void gizmo::GizmoDrawable::GizmoEventCallback::event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->event(nv, drawable);
 
@@ -181,8 +174,7 @@ public:
 	// void gizmo::GizmoDrawable::GizmoEventCallback::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable)
 	static int _bind_base_event(lua_State *L) {
 		if (!_lg_typecheck_base_event(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void gizmo::GizmoDrawable::GizmoEventCallback::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable) function, expected prototype:\nvoid gizmo::GizmoDrawable::GizmoEventCallback::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable)\nClass arguments details:\narg 2 ID = 50169651\n");
+			luaL_error(L, "luna typecheck failed in void gizmo::GizmoDrawable::GizmoEventCallback::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable) function, expected prototype:\nvoid gizmo::GizmoDrawable::GizmoEventCallback::base_event(osg::NodeVisitor * nv, osg::Drawable * drawable)\nClass arguments details:\narg 2 ID = 50169651\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::NodeVisitor* nv=(Luna< osg::Referenced >::checkSubType< osg::NodeVisitor >(L,2));
@@ -190,8 +182,7 @@ public:
 
 		gizmo::GizmoDrawable::GizmoEventCallback* self=Luna< osg::Referenced >::checkSubType< gizmo::GizmoDrawable::GizmoEventCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void gizmo::GizmoDrawable::GizmoEventCallback::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void gizmo::GizmoDrawable::GizmoEventCallback::base_event(osg::NodeVisitor *, osg::Drawable *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GizmoEventCallback::event(nv, drawable);
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btBroadphaseProxy*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btBroadphaseProxy*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* rhs =(Luna< btBroadphaseProxy >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* self= (btBroadphaseProxy*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btBroadphaseProxy >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -115,8 +111,8 @@ public:
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( (!(Luna< btVector3 >::check(L,2))) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( luatop>5 && (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 		return true;
 	}
@@ -132,56 +128,56 @@ public:
 	inline static bool _lg_typecheck_isPolyhedral(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_isConvex(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_isNonMoving(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_isConcave(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_isCompound(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_isSoftBody(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_isInfinite(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_isConvex2d(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		return true;
 	}
 
@@ -237,14 +233,14 @@ public:
 	inline static bool _lg_typecheck_setCollisionFilterGroup(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setCollisionFilterMask(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -258,7 +254,7 @@ public:
 	inline static bool _lg_typecheck_setUniqueId(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -284,8 +280,7 @@ public:
 	// btBroadphaseProxy::btBroadphaseProxy()
 	static btBroadphaseProxy* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBroadphaseProxy::btBroadphaseProxy() function, expected prototype:\nbtBroadphaseProxy::btBroadphaseProxy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btBroadphaseProxy::btBroadphaseProxy() function, expected prototype:\nbtBroadphaseProxy::btBroadphaseProxy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -295,8 +290,7 @@ public:
 	// btBroadphaseProxy::btBroadphaseProxy(const btVector3 & aabbMin, const btVector3 & aabbMax, void * userPtr, short int collisionFilterGroup, short int collisionFilterMask, void * multiSapParentProxy = 0)
 	static btBroadphaseProxy* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBroadphaseProxy::btBroadphaseProxy(const btVector3 & aabbMin, const btVector3 & aabbMax, void * userPtr, short int collisionFilterGroup, short int collisionFilterMask, void * multiSapParentProxy = 0) function, expected prototype:\nbtBroadphaseProxy::btBroadphaseProxy(const btVector3 & aabbMin, const btVector3 & aabbMax, void * userPtr, short int collisionFilterGroup, short int collisionFilterMask, void * multiSapParentProxy = 0)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btBroadphaseProxy::btBroadphaseProxy(const btVector3 & aabbMin, const btVector3 & aabbMax, void * userPtr, short int collisionFilterGroup, short int collisionFilterMask, void * multiSapParentProxy = 0) function, expected prototype:\nbtBroadphaseProxy::btBroadphaseProxy(const btVector3 & aabbMin, const btVector3 & aabbMax, void * userPtr, short int collisionFilterGroup, short int collisionFilterMask, void * multiSapParentProxy = 0)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -333,15 +327,13 @@ public:
 	// int btBroadphaseProxy::getUid() const
 	static int _bind_getUid(lua_State *L) {
 		if (!_lg_typecheck_getUid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btBroadphaseProxy::getUid() const function, expected prototype:\nint btBroadphaseProxy::getUid() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btBroadphaseProxy::getUid() const function, expected prototype:\nint btBroadphaseProxy::getUid() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBroadphaseProxy* self=(Luna< btBroadphaseProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btBroadphaseProxy::getUid() const. Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btBroadphaseProxy::getUid() const. Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getUid();
 		lua_pushnumber(L,lret);
@@ -352,8 +344,7 @@ public:
 	// static bool btBroadphaseProxy::isPolyhedral(int proxyType)
 	static int _bind_isPolyhedral(lua_State *L) {
 		if (!_lg_typecheck_isPolyhedral(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool btBroadphaseProxy::isPolyhedral(int proxyType) function, expected prototype:\nstatic bool btBroadphaseProxy::isPolyhedral(int proxyType)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool btBroadphaseProxy::isPolyhedral(int proxyType) function, expected prototype:\nstatic bool btBroadphaseProxy::isPolyhedral(int proxyType)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int proxyType=(int)lua_tointeger(L,1);
@@ -367,8 +358,7 @@ public:
 	// static bool btBroadphaseProxy::isConvex(int proxyType)
 	static int _bind_isConvex(lua_State *L) {
 		if (!_lg_typecheck_isConvex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool btBroadphaseProxy::isConvex(int proxyType) function, expected prototype:\nstatic bool btBroadphaseProxy::isConvex(int proxyType)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool btBroadphaseProxy::isConvex(int proxyType) function, expected prototype:\nstatic bool btBroadphaseProxy::isConvex(int proxyType)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int proxyType=(int)lua_tointeger(L,1);
@@ -382,8 +372,7 @@ public:
 	// static bool btBroadphaseProxy::isNonMoving(int proxyType)
 	static int _bind_isNonMoving(lua_State *L) {
 		if (!_lg_typecheck_isNonMoving(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool btBroadphaseProxy::isNonMoving(int proxyType) function, expected prototype:\nstatic bool btBroadphaseProxy::isNonMoving(int proxyType)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool btBroadphaseProxy::isNonMoving(int proxyType) function, expected prototype:\nstatic bool btBroadphaseProxy::isNonMoving(int proxyType)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int proxyType=(int)lua_tointeger(L,1);
@@ -397,8 +386,7 @@ public:
 	// static bool btBroadphaseProxy::isConcave(int proxyType)
 	static int _bind_isConcave(lua_State *L) {
 		if (!_lg_typecheck_isConcave(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool btBroadphaseProxy::isConcave(int proxyType) function, expected prototype:\nstatic bool btBroadphaseProxy::isConcave(int proxyType)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool btBroadphaseProxy::isConcave(int proxyType) function, expected prototype:\nstatic bool btBroadphaseProxy::isConcave(int proxyType)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int proxyType=(int)lua_tointeger(L,1);
@@ -412,8 +400,7 @@ public:
 	// static bool btBroadphaseProxy::isCompound(int proxyType)
 	static int _bind_isCompound(lua_State *L) {
 		if (!_lg_typecheck_isCompound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool btBroadphaseProxy::isCompound(int proxyType) function, expected prototype:\nstatic bool btBroadphaseProxy::isCompound(int proxyType)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool btBroadphaseProxy::isCompound(int proxyType) function, expected prototype:\nstatic bool btBroadphaseProxy::isCompound(int proxyType)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int proxyType=(int)lua_tointeger(L,1);
@@ -427,8 +414,7 @@ public:
 	// static bool btBroadphaseProxy::isSoftBody(int proxyType)
 	static int _bind_isSoftBody(lua_State *L) {
 		if (!_lg_typecheck_isSoftBody(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool btBroadphaseProxy::isSoftBody(int proxyType) function, expected prototype:\nstatic bool btBroadphaseProxy::isSoftBody(int proxyType)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool btBroadphaseProxy::isSoftBody(int proxyType) function, expected prototype:\nstatic bool btBroadphaseProxy::isSoftBody(int proxyType)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int proxyType=(int)lua_tointeger(L,1);
@@ -442,8 +428,7 @@ public:
 	// static bool btBroadphaseProxy::isInfinite(int proxyType)
 	static int _bind_isInfinite(lua_State *L) {
 		if (!_lg_typecheck_isInfinite(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool btBroadphaseProxy::isInfinite(int proxyType) function, expected prototype:\nstatic bool btBroadphaseProxy::isInfinite(int proxyType)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool btBroadphaseProxy::isInfinite(int proxyType) function, expected prototype:\nstatic bool btBroadphaseProxy::isInfinite(int proxyType)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int proxyType=(int)lua_tointeger(L,1);
@@ -457,8 +442,7 @@ public:
 	// static bool btBroadphaseProxy::isConvex2d(int proxyType)
 	static int _bind_isConvex2d(lua_State *L) {
 		if (!_lg_typecheck_isConvex2d(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool btBroadphaseProxy::isConvex2d(int proxyType) function, expected prototype:\nstatic bool btBroadphaseProxy::isConvex2d(int proxyType)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool btBroadphaseProxy::isConvex2d(int proxyType) function, expected prototype:\nstatic bool btBroadphaseProxy::isConvex2d(int proxyType)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int proxyType=(int)lua_tointeger(L,1);
@@ -472,15 +456,13 @@ public:
 	// void * btBroadphaseProxy::m_clientObject()
 	static int _bind_getClientObject(lua_State *L) {
 		if (!_lg_typecheck_getClientObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * btBroadphaseProxy::m_clientObject() function, expected prototype:\nvoid * btBroadphaseProxy::m_clientObject()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * btBroadphaseProxy::m_clientObject() function, expected prototype:\nvoid * btBroadphaseProxy::m_clientObject()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBroadphaseProxy* self=(Luna< btBroadphaseProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * btBroadphaseProxy::m_clientObject(). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * btBroadphaseProxy::m_clientObject(). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->m_clientObject;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -493,15 +475,13 @@ public:
 	// short int btBroadphaseProxy::m_collisionFilterGroup()
 	static int _bind_getCollisionFilterGroup(lua_State *L) {
 		if (!_lg_typecheck_getCollisionFilterGroup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short int btBroadphaseProxy::m_collisionFilterGroup() function, expected prototype:\nshort int btBroadphaseProxy::m_collisionFilterGroup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short int btBroadphaseProxy::m_collisionFilterGroup() function, expected prototype:\nshort int btBroadphaseProxy::m_collisionFilterGroup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBroadphaseProxy* self=(Luna< btBroadphaseProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short int btBroadphaseProxy::m_collisionFilterGroup(). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short int btBroadphaseProxy::m_collisionFilterGroup(). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short int lret = self->m_collisionFilterGroup;
 		lua_pushnumber(L,lret);
@@ -512,15 +492,13 @@ public:
 	// short int btBroadphaseProxy::m_collisionFilterMask()
 	static int _bind_getCollisionFilterMask(lua_State *L) {
 		if (!_lg_typecheck_getCollisionFilterMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short int btBroadphaseProxy::m_collisionFilterMask() function, expected prototype:\nshort int btBroadphaseProxy::m_collisionFilterMask()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short int btBroadphaseProxy::m_collisionFilterMask() function, expected prototype:\nshort int btBroadphaseProxy::m_collisionFilterMask()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBroadphaseProxy* self=(Luna< btBroadphaseProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short int btBroadphaseProxy::m_collisionFilterMask(). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short int btBroadphaseProxy::m_collisionFilterMask(). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short int lret = self->m_collisionFilterMask;
 		lua_pushnumber(L,lret);
@@ -531,15 +509,13 @@ public:
 	// void * btBroadphaseProxy::m_multiSapParentProxy()
 	static int _bind_getMultiSapParentProxy(lua_State *L) {
 		if (!_lg_typecheck_getMultiSapParentProxy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * btBroadphaseProxy::m_multiSapParentProxy() function, expected prototype:\nvoid * btBroadphaseProxy::m_multiSapParentProxy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * btBroadphaseProxy::m_multiSapParentProxy() function, expected prototype:\nvoid * btBroadphaseProxy::m_multiSapParentProxy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBroadphaseProxy* self=(Luna< btBroadphaseProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * btBroadphaseProxy::m_multiSapParentProxy(). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * btBroadphaseProxy::m_multiSapParentProxy(). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->m_multiSapParentProxy;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -552,15 +528,13 @@ public:
 	// int btBroadphaseProxy::m_uniqueId()
 	static int _bind_getUniqueId(lua_State *L) {
 		if (!_lg_typecheck_getUniqueId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btBroadphaseProxy::m_uniqueId() function, expected prototype:\nint btBroadphaseProxy::m_uniqueId()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btBroadphaseProxy::m_uniqueId() function, expected prototype:\nint btBroadphaseProxy::m_uniqueId()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBroadphaseProxy* self=(Luna< btBroadphaseProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btBroadphaseProxy::m_uniqueId(). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btBroadphaseProxy::m_uniqueId(). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_uniqueId;
 		lua_pushnumber(L,lret);
@@ -571,15 +545,13 @@ public:
 	// btVector3 btBroadphaseProxy::m_aabbMin()
 	static int _bind_getAabbMin(lua_State *L) {
 		if (!_lg_typecheck_getAabbMin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btBroadphaseProxy::m_aabbMin() function, expected prototype:\nbtVector3 btBroadphaseProxy::m_aabbMin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btBroadphaseProxy::m_aabbMin() function, expected prototype:\nbtVector3 btBroadphaseProxy::m_aabbMin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBroadphaseProxy* self=(Luna< btBroadphaseProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btBroadphaseProxy::m_aabbMin(). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btBroadphaseProxy::m_aabbMin(). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_aabbMin;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -592,15 +564,13 @@ public:
 	// btVector3 btBroadphaseProxy::m_aabbMax()
 	static int _bind_getAabbMax(lua_State *L) {
 		if (!_lg_typecheck_getAabbMax(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btBroadphaseProxy::m_aabbMax() function, expected prototype:\nbtVector3 btBroadphaseProxy::m_aabbMax()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btBroadphaseProxy::m_aabbMax() function, expected prototype:\nbtVector3 btBroadphaseProxy::m_aabbMax()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBroadphaseProxy* self=(Luna< btBroadphaseProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btBroadphaseProxy::m_aabbMax(). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btBroadphaseProxy::m_aabbMax(). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_aabbMax;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -613,16 +583,14 @@ public:
 	// void btBroadphaseProxy::m_clientObject(void * value)
 	static int _bind_setClientObject(lua_State *L) {
 		if (!_lg_typecheck_setClientObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_clientObject(void * value) function, expected prototype:\nvoid btBroadphaseProxy::m_clientObject(void * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_clientObject(void * value) function, expected prototype:\nvoid btBroadphaseProxy::m_clientObject(void * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* value=(Luna< void >::check(L,2));
 
 		btBroadphaseProxy* self=(Luna< btBroadphaseProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseProxy::m_clientObject(void *). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseProxy::m_clientObject(void *). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_clientObject = value;
 
@@ -632,16 +600,14 @@ public:
 	// void btBroadphaseProxy::m_collisionFilterGroup(short int value)
 	static int _bind_setCollisionFilterGroup(lua_State *L) {
 		if (!_lg_typecheck_setCollisionFilterGroup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_collisionFilterGroup(short int value) function, expected prototype:\nvoid btBroadphaseProxy::m_collisionFilterGroup(short int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_collisionFilterGroup(short int value) function, expected prototype:\nvoid btBroadphaseProxy::m_collisionFilterGroup(short int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		short int value=(short int)lua_tointeger(L,2);
 
 		btBroadphaseProxy* self=(Luna< btBroadphaseProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseProxy::m_collisionFilterGroup(short int). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseProxy::m_collisionFilterGroup(short int). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_collisionFilterGroup = value;
 
@@ -651,16 +617,14 @@ public:
 	// void btBroadphaseProxy::m_collisionFilterMask(short int value)
 	static int _bind_setCollisionFilterMask(lua_State *L) {
 		if (!_lg_typecheck_setCollisionFilterMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_collisionFilterMask(short int value) function, expected prototype:\nvoid btBroadphaseProxy::m_collisionFilterMask(short int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_collisionFilterMask(short int value) function, expected prototype:\nvoid btBroadphaseProxy::m_collisionFilterMask(short int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		short int value=(short int)lua_tointeger(L,2);
 
 		btBroadphaseProxy* self=(Luna< btBroadphaseProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseProxy::m_collisionFilterMask(short int). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseProxy::m_collisionFilterMask(short int). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_collisionFilterMask = value;
 
@@ -670,16 +634,14 @@ public:
 	// void btBroadphaseProxy::m_multiSapParentProxy(void * value)
 	static int _bind_setMultiSapParentProxy(lua_State *L) {
 		if (!_lg_typecheck_setMultiSapParentProxy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_multiSapParentProxy(void * value) function, expected prototype:\nvoid btBroadphaseProxy::m_multiSapParentProxy(void * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_multiSapParentProxy(void * value) function, expected prototype:\nvoid btBroadphaseProxy::m_multiSapParentProxy(void * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* value=(Luna< void >::check(L,2));
 
 		btBroadphaseProxy* self=(Luna< btBroadphaseProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseProxy::m_multiSapParentProxy(void *). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseProxy::m_multiSapParentProxy(void *). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_multiSapParentProxy = value;
 
@@ -689,16 +651,14 @@ public:
 	// void btBroadphaseProxy::m_uniqueId(int value)
 	static int _bind_setUniqueId(lua_State *L) {
 		if (!_lg_typecheck_setUniqueId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_uniqueId(int value) function, expected prototype:\nvoid btBroadphaseProxy::m_uniqueId(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_uniqueId(int value) function, expected prototype:\nvoid btBroadphaseProxy::m_uniqueId(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btBroadphaseProxy* self=(Luna< btBroadphaseProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseProxy::m_uniqueId(int). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseProxy::m_uniqueId(int). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_uniqueId = value;
 
@@ -708,8 +668,7 @@ public:
 	// void btBroadphaseProxy::m_aabbMin(btVector3 value)
 	static int _bind_setAabbMin(lua_State *L) {
 		if (!_lg_typecheck_setAabbMin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_aabbMin(btVector3 value) function, expected prototype:\nvoid btBroadphaseProxy::m_aabbMin(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_aabbMin(btVector3 value) function, expected prototype:\nvoid btBroadphaseProxy::m_aabbMin(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -720,8 +679,7 @@ public:
 
 		btBroadphaseProxy* self=(Luna< btBroadphaseProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseProxy::m_aabbMin(btVector3). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseProxy::m_aabbMin(btVector3). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_aabbMin = value;
 
@@ -731,8 +689,7 @@ public:
 	// void btBroadphaseProxy::m_aabbMax(btVector3 value)
 	static int _bind_setAabbMax(lua_State *L) {
 		if (!_lg_typecheck_setAabbMax(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_aabbMax(btVector3 value) function, expected prototype:\nvoid btBroadphaseProxy::m_aabbMax(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseProxy::m_aabbMax(btVector3 value) function, expected prototype:\nvoid btBroadphaseProxy::m_aabbMax(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -743,8 +700,7 @@ public:
 
 		btBroadphaseProxy* self=(Luna< btBroadphaseProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseProxy::m_aabbMax(btVector3). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseProxy::m_aabbMax(btVector3). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_aabbMax = value;
 

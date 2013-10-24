@@ -98,9 +98,9 @@ public:
 	inline static bool _lg_typecheck_handle(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -183,7 +183,7 @@ void LunaTraits< sgt::LogManager::LogHandler >::_bind_dtor(sgt::LogManager::LogH
 const char LunaTraits< sgt::LogManager::LogHandler >::className[] = "LogManager_LogHandler";
 const char LunaTraits< sgt::LogManager::LogHandler >::fullName[] = "sgt::LogManager::LogHandler";
 const char LunaTraits< sgt::LogManager::LogHandler >::moduleName[] = "sgt";
-const char* LunaTraits< sgt::LogManager::LogHandler >::parents[] = {"sgt.Referenced", 0};
+const char* LunaTraits< sgt::LogManager::LogHandler >::parents[] = {"osg.Referenced", 0};
 const int LunaTraits< sgt::LogManager::LogHandler >::hash = 84005267;
 const int LunaTraits< sgt::LogManager::LogHandler >::uniqueIDs[] = {50169651,0};
 

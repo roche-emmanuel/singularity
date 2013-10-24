@@ -104,9 +104,6 @@ namespace sgt {
 	class RefPtr {
 	};
 
-	class sgtLock {
-	};
-
 	class Object: public osg::Object {
 	};
 
@@ -119,7 +116,7 @@ namespace sgt {
 	class TimeManager {
 	};
 
-	class ModuleProvider: public sgt::Object {
+	class ModuleProvider: public osg::Referenced {
 	};
 
 	class ModuleManager {
@@ -128,7 +125,7 @@ namespace sgt {
 	class FileLogger: public sgt::LogSink {
 	};
 
-	class LogManager: public sgt::Referenced {
+	class LogManager: public osg::Referenced {
 	public:
 		class SinkVector {
 		};
@@ -139,7 +136,7 @@ namespace sgt {
 		class TraceFlagMap {
 		};
 
-		class LogHandler: public sgt::Referenced {
+		class LogHandler: public osg::Referenced {
 		};
 
 	};
@@ -147,7 +144,7 @@ namespace sgt {
 	class LogRecord {
 	};
 
-	class LogSink: public sgt::Referenced {
+	class LogSink: public osg::Referenced {
 	public:
 		class StringSet {
 		};
@@ -169,6 +166,9 @@ namespace std {
 	class ostream {
 	};
 
+};
+
+class sgtLock {
 };
 
 

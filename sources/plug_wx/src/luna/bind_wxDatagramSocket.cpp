@@ -92,7 +92,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
 		if( (!(Luna< wxObject >::checkSubType< wxSockAddress >(L,1))) ) return false;
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -103,7 +103,7 @@ public:
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		if( (!(Luna< wxObject >::checkSubType< wxSockAddress >(L,2))) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -114,7 +114,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 

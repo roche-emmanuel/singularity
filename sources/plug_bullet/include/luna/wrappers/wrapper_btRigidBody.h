@@ -96,8 +96,7 @@ public:
 	// void btRigidBody::public_setupRigidBody(const btRigidBody::btRigidBodyConstructionInfo & constructionInfo)
 	static int _bind_public_setupRigidBody(lua_State *L) {
 		if (!_lg_typecheck_public_setupRigidBody(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBody::public_setupRigidBody(const btRigidBody::btRigidBodyConstructionInfo & constructionInfo) function, expected prototype:\nvoid btRigidBody::public_setupRigidBody(const btRigidBody::btRigidBodyConstructionInfo & constructionInfo)\nClass arguments details:\narg 1 ID = 13789036\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBody::public_setupRigidBody(const btRigidBody::btRigidBodyConstructionInfo & constructionInfo) function, expected prototype:\nvoid btRigidBody::public_setupRigidBody(const btRigidBody::btRigidBodyConstructionInfo & constructionInfo)\nClass arguments details:\narg 1 ID = 13789036\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btRigidBody::btRigidBodyConstructionInfo* constructionInfo_ptr=(Luna< btRigidBody::btRigidBodyConstructionInfo >::check(L,2));
@@ -108,8 +107,7 @@ public:
 
 		wrapper_btRigidBody* self=Luna< btCollisionObject >::checkSubType< wrapper_btRigidBody >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBody::public_setupRigidBody(const btRigidBody::btRigidBodyConstructionInfo &). Got : '%s'",typeid(Luna< btCollisionObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBody::public_setupRigidBody(const btRigidBody::btRigidBodyConstructionInfo &). Got : '%s'\n%s",typeid(Luna< btCollisionObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_setupRigidBody(constructionInfo);
 

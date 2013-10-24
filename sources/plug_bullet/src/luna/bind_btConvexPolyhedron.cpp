@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btConvexPolyhedron*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btConvexPolyhedron*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexPolyhedron* rhs =(Luna< btConvexPolyhedron >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexPolyhedron* self= (btConvexPolyhedron*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btConvexPolyhedron >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -158,8 +153,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,91544891) ) return false;
 		return true;
@@ -251,7 +246,7 @@ public:
 	inline static bool _lg_typecheck_setRadius(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -277,8 +272,7 @@ public:
 	// btConvexPolyhedron::btConvexPolyhedron()
 	static btConvexPolyhedron* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConvexPolyhedron::btConvexPolyhedron() function, expected prototype:\nbtConvexPolyhedron::btConvexPolyhedron()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btConvexPolyhedron::btConvexPolyhedron() function, expected prototype:\nbtConvexPolyhedron::btConvexPolyhedron()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -288,8 +282,7 @@ public:
 	// btConvexPolyhedron::btConvexPolyhedron(lua_Table * data)
 	static btConvexPolyhedron* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConvexPolyhedron::btConvexPolyhedron(lua_Table * data) function, expected prototype:\nbtConvexPolyhedron::btConvexPolyhedron(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btConvexPolyhedron::btConvexPolyhedron(lua_Table * data) function, expected prototype:\nbtConvexPolyhedron::btConvexPolyhedron(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -310,15 +303,13 @@ public:
 	// void btConvexPolyhedron::initialize()
 	static int _bind_initialize(lua_State *L) {
 		if (!_lg_typecheck_initialize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::initialize() function, expected prototype:\nvoid btConvexPolyhedron::initialize()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::initialize() function, expected prototype:\nvoid btConvexPolyhedron::initialize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::initialize(). Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::initialize(). Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->initialize();
 
@@ -328,15 +319,13 @@ public:
 	// bool btConvexPolyhedron::testContainment() const
 	static int _bind_testContainment(lua_State *L) {
 		if (!_lg_typecheck_testContainment(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btConvexPolyhedron::testContainment() const function, expected prototype:\nbool btConvexPolyhedron::testContainment() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btConvexPolyhedron::testContainment() const function, expected prototype:\nbool btConvexPolyhedron::testContainment() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btConvexPolyhedron::testContainment() const. Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btConvexPolyhedron::testContainment() const. Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->testContainment();
 		lua_pushboolean(L,lret?1:0);
@@ -347,8 +336,7 @@ public:
 	// void btConvexPolyhedron::project(const btTransform & trans, const btVector3 & dir, float & minProj, float & maxProj, btVector3 & witnesPtMin, btVector3 & witnesPtMax) const
 	static int _bind_project(lua_State *L) {
 		if (!_lg_typecheck_project(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::project(const btTransform & trans, const btVector3 & dir, float & minProj, float & maxProj, btVector3 & witnesPtMin, btVector3 & witnesPtMax) const function, expected prototype:\nvoid btConvexPolyhedron::project(const btTransform & trans, const btVector3 & dir, float & minProj, float & maxProj, btVector3 & witnesPtMin, btVector3 & witnesPtMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::project(const btTransform & trans, const btVector3 & dir, float & minProj, float & maxProj, btVector3 & witnesPtMin, btVector3 & witnesPtMax) const function, expected prototype:\nvoid btConvexPolyhedron::project(const btTransform & trans, const btVector3 & dir, float & minProj, float & maxProj, btVector3 & witnesPtMin, btVector3 & witnesPtMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* trans_ptr=(Luna< btTransform >::check(L,2));
@@ -376,26 +364,25 @@ public:
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::project(const btTransform &, const btVector3 &, float &, float &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::project(const btTransform &, const btVector3 &, float &, float &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->project(trans, dir, minProj, maxProj, witnesPtMin, witnesPtMax);
 
-		return 0;
+		lua_pushnumber(L,minProj);
+		lua_pushnumber(L,maxProj);
+		return 2;
 	}
 
 	// btAlignedObjectArray< btVector3 > btConvexPolyhedron::m_vertices()
 	static int _bind_getVertices(lua_State *L) {
 		if (!_lg_typecheck_getVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btVector3 > btConvexPolyhedron::m_vertices() function, expected prototype:\nbtAlignedObjectArray< btVector3 > btConvexPolyhedron::m_vertices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btVector3 > btConvexPolyhedron::m_vertices() function, expected prototype:\nbtAlignedObjectArray< btVector3 > btConvexPolyhedron::m_vertices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btVector3 > btConvexPolyhedron::m_vertices(). Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btVector3 > btConvexPolyhedron::m_vertices(). Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< btVector3 >* lret = &self->m_vertices;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -408,15 +395,13 @@ public:
 	// btAlignedObjectArray< btFace > btConvexPolyhedron::m_faces()
 	static int _bind_getFaces(lua_State *L) {
 		if (!_lg_typecheck_getFaces(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btFace > btConvexPolyhedron::m_faces() function, expected prototype:\nbtAlignedObjectArray< btFace > btConvexPolyhedron::m_faces()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btFace > btConvexPolyhedron::m_faces() function, expected prototype:\nbtAlignedObjectArray< btFace > btConvexPolyhedron::m_faces()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btFace > btConvexPolyhedron::m_faces(). Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btFace > btConvexPolyhedron::m_faces(). Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< btFace >* lret = &self->m_faces;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -429,15 +414,13 @@ public:
 	// btAlignedObjectArray< btVector3 > btConvexPolyhedron::m_uniqueEdges()
 	static int _bind_getUniqueEdges(lua_State *L) {
 		if (!_lg_typecheck_getUniqueEdges(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btVector3 > btConvexPolyhedron::m_uniqueEdges() function, expected prototype:\nbtAlignedObjectArray< btVector3 > btConvexPolyhedron::m_uniqueEdges()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btVector3 > btConvexPolyhedron::m_uniqueEdges() function, expected prototype:\nbtAlignedObjectArray< btVector3 > btConvexPolyhedron::m_uniqueEdges()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btVector3 > btConvexPolyhedron::m_uniqueEdges(). Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btVector3 > btConvexPolyhedron::m_uniqueEdges(). Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< btVector3 >* lret = &self->m_uniqueEdges;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -450,15 +433,13 @@ public:
 	// btVector3 btConvexPolyhedron::m_localCenter()
 	static int _bind_getLocalCenter(lua_State *L) {
 		if (!_lg_typecheck_getLocalCenter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btConvexPolyhedron::m_localCenter() function, expected prototype:\nbtVector3 btConvexPolyhedron::m_localCenter()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btConvexPolyhedron::m_localCenter() function, expected prototype:\nbtVector3 btConvexPolyhedron::m_localCenter()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btConvexPolyhedron::m_localCenter(). Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btConvexPolyhedron::m_localCenter(). Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_localCenter;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -471,15 +452,13 @@ public:
 	// btVector3 btConvexPolyhedron::m_extents()
 	static int _bind_getExtents(lua_State *L) {
 		if (!_lg_typecheck_getExtents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btConvexPolyhedron::m_extents() function, expected prototype:\nbtVector3 btConvexPolyhedron::m_extents()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btConvexPolyhedron::m_extents() function, expected prototype:\nbtVector3 btConvexPolyhedron::m_extents()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btConvexPolyhedron::m_extents(). Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btConvexPolyhedron::m_extents(). Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_extents;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -492,15 +471,13 @@ public:
 	// float btConvexPolyhedron::m_radius()
 	static int _bind_getRadius(lua_State *L) {
 		if (!_lg_typecheck_getRadius(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btConvexPolyhedron::m_radius() function, expected prototype:\nfloat btConvexPolyhedron::m_radius()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btConvexPolyhedron::m_radius() function, expected prototype:\nfloat btConvexPolyhedron::m_radius()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btConvexPolyhedron::m_radius(). Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btConvexPolyhedron::m_radius(). Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_radius;
 		lua_pushnumber(L,lret);
@@ -511,15 +488,13 @@ public:
 	// btVector3 btConvexPolyhedron::mC()
 	static int _bind_getC(lua_State *L) {
 		if (!_lg_typecheck_getC(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btConvexPolyhedron::mC() function, expected prototype:\nbtVector3 btConvexPolyhedron::mC()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btConvexPolyhedron::mC() function, expected prototype:\nbtVector3 btConvexPolyhedron::mC()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btConvexPolyhedron::mC(). Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btConvexPolyhedron::mC(). Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->mC;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -532,15 +507,13 @@ public:
 	// btVector3 btConvexPolyhedron::mE()
 	static int _bind_getE(lua_State *L) {
 		if (!_lg_typecheck_getE(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btConvexPolyhedron::mE() function, expected prototype:\nbtVector3 btConvexPolyhedron::mE()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btConvexPolyhedron::mE() function, expected prototype:\nbtVector3 btConvexPolyhedron::mE()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btConvexPolyhedron::mE(). Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btConvexPolyhedron::mE(). Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->mE;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -553,8 +526,7 @@ public:
 	// void btConvexPolyhedron::m_vertices(btAlignedObjectArray< btVector3 > value)
 	static int _bind_setVertices(lua_State *L) {
 		if (!_lg_typecheck_setVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_vertices(btAlignedObjectArray< btVector3 > value) function, expected prototype:\nvoid btConvexPolyhedron::m_vertices(btAlignedObjectArray< btVector3 > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_vertices(btAlignedObjectArray< btVector3 > value) function, expected prototype:\nvoid btConvexPolyhedron::m_vertices(btAlignedObjectArray< btVector3 > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< btVector3 >* value_ptr=(Luna< btAlignedObjectArray< btVector3 > >::check(L,2));
@@ -565,8 +537,7 @@ public:
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::m_vertices(btAlignedObjectArray< btVector3 >). Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::m_vertices(btAlignedObjectArray< btVector3 >). Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_vertices = value;
 
@@ -576,8 +547,7 @@ public:
 	// void btConvexPolyhedron::m_faces(btAlignedObjectArray< btFace > value)
 	static int _bind_setFaces(lua_State *L) {
 		if (!_lg_typecheck_setFaces(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_faces(btAlignedObjectArray< btFace > value) function, expected prototype:\nvoid btConvexPolyhedron::m_faces(btAlignedObjectArray< btFace > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_faces(btAlignedObjectArray< btFace > value) function, expected prototype:\nvoid btConvexPolyhedron::m_faces(btAlignedObjectArray< btFace > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< btFace >* value_ptr=(Luna< btAlignedObjectArray< btFace > >::check(L,2));
@@ -588,8 +558,7 @@ public:
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::m_faces(btAlignedObjectArray< btFace >). Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::m_faces(btAlignedObjectArray< btFace >). Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_faces = value;
 
@@ -599,8 +568,7 @@ public:
 	// void btConvexPolyhedron::m_uniqueEdges(btAlignedObjectArray< btVector3 > value)
 	static int _bind_setUniqueEdges(lua_State *L) {
 		if (!_lg_typecheck_setUniqueEdges(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_uniqueEdges(btAlignedObjectArray< btVector3 > value) function, expected prototype:\nvoid btConvexPolyhedron::m_uniqueEdges(btAlignedObjectArray< btVector3 > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_uniqueEdges(btAlignedObjectArray< btVector3 > value) function, expected prototype:\nvoid btConvexPolyhedron::m_uniqueEdges(btAlignedObjectArray< btVector3 > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< btVector3 >* value_ptr=(Luna< btAlignedObjectArray< btVector3 > >::check(L,2));
@@ -611,8 +579,7 @@ public:
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::m_uniqueEdges(btAlignedObjectArray< btVector3 >). Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::m_uniqueEdges(btAlignedObjectArray< btVector3 >). Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_uniqueEdges = value;
 
@@ -622,8 +589,7 @@ public:
 	// void btConvexPolyhedron::m_localCenter(btVector3 value)
 	static int _bind_setLocalCenter(lua_State *L) {
 		if (!_lg_typecheck_setLocalCenter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_localCenter(btVector3 value) function, expected prototype:\nvoid btConvexPolyhedron::m_localCenter(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_localCenter(btVector3 value) function, expected prototype:\nvoid btConvexPolyhedron::m_localCenter(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -634,8 +600,7 @@ public:
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::m_localCenter(btVector3). Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::m_localCenter(btVector3). Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_localCenter = value;
 
@@ -645,8 +610,7 @@ public:
 	// void btConvexPolyhedron::m_extents(btVector3 value)
 	static int _bind_setExtents(lua_State *L) {
 		if (!_lg_typecheck_setExtents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_extents(btVector3 value) function, expected prototype:\nvoid btConvexPolyhedron::m_extents(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_extents(btVector3 value) function, expected prototype:\nvoid btConvexPolyhedron::m_extents(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -657,8 +621,7 @@ public:
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::m_extents(btVector3). Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::m_extents(btVector3). Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_extents = value;
 
@@ -668,16 +631,14 @@ public:
 	// void btConvexPolyhedron::m_radius(float value)
 	static int _bind_setRadius(lua_State *L) {
 		if (!_lg_typecheck_setRadius(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_radius(float value) function, expected prototype:\nvoid btConvexPolyhedron::m_radius(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::m_radius(float value) function, expected prototype:\nvoid btConvexPolyhedron::m_radius(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::m_radius(float). Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::m_radius(float). Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_radius = value;
 
@@ -687,8 +648,7 @@ public:
 	// void btConvexPolyhedron::mC(btVector3 value)
 	static int _bind_setC(lua_State *L) {
 		if (!_lg_typecheck_setC(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::mC(btVector3 value) function, expected prototype:\nvoid btConvexPolyhedron::mC(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::mC(btVector3 value) function, expected prototype:\nvoid btConvexPolyhedron::mC(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -699,8 +659,7 @@ public:
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::mC(btVector3). Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::mC(btVector3). Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mC = value;
 
@@ -710,8 +669,7 @@ public:
 	// void btConvexPolyhedron::mE(btVector3 value)
 	static int _bind_setE(lua_State *L) {
 		if (!_lg_typecheck_setE(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::mE(btVector3 value) function, expected prototype:\nvoid btConvexPolyhedron::mE(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPolyhedron::mE(btVector3 value) function, expected prototype:\nvoid btConvexPolyhedron::mE(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -722,8 +680,7 @@ public:
 
 		btConvexPolyhedron* self=(Luna< btConvexPolyhedron >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::mE(btVector3). Got : '%s'",typeid(Luna< btConvexPolyhedron >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPolyhedron::mE(btVector3). Got : '%s'\n%s",typeid(Luna< btConvexPolyhedron >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mE = value;
 

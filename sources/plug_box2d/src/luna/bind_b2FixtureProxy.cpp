@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2FixtureProxy*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2FixtureProxy*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2FixtureProxy* rhs =(Luna< b2FixtureProxy >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2FixtureProxy* self= (b2FixtureProxy*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2FixtureProxy >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -143,14 +139,14 @@ public:
 	inline static bool _lg_typecheck_setChildIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setProxyId(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -164,15 +160,13 @@ public:
 	// b2AABB b2FixtureProxy::aabb()
 	static int _bind_getAabb(lua_State *L) {
 		if (!_lg_typecheck_getAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2AABB b2FixtureProxy::aabb() function, expected prototype:\nb2AABB b2FixtureProxy::aabb()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2AABB b2FixtureProxy::aabb() function, expected prototype:\nb2AABB b2FixtureProxy::aabb()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2FixtureProxy* self=(Luna< b2FixtureProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2AABB b2FixtureProxy::aabb(). Got : '%s'",typeid(Luna< b2FixtureProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2AABB b2FixtureProxy::aabb(). Got : '%s'\n%s",typeid(Luna< b2FixtureProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2AABB* lret = &self->aabb;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -185,15 +179,13 @@ public:
 	// b2Fixture * b2FixtureProxy::fixture()
 	static int _bind_getFixture(lua_State *L) {
 		if (!_lg_typecheck_getFixture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Fixture * b2FixtureProxy::fixture() function, expected prototype:\nb2Fixture * b2FixtureProxy::fixture()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Fixture * b2FixtureProxy::fixture() function, expected prototype:\nb2Fixture * b2FixtureProxy::fixture()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2FixtureProxy* self=(Luna< b2FixtureProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Fixture * b2FixtureProxy::fixture(). Got : '%s'",typeid(Luna< b2FixtureProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Fixture * b2FixtureProxy::fixture(). Got : '%s'\n%s",typeid(Luna< b2FixtureProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Fixture * lret = self->fixture;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -206,15 +198,13 @@ public:
 	// signed int b2FixtureProxy::childIndex()
 	static int _bind_getChildIndex(lua_State *L) {
 		if (!_lg_typecheck_getChildIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2FixtureProxy::childIndex() function, expected prototype:\nsigned int b2FixtureProxy::childIndex()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2FixtureProxy::childIndex() function, expected prototype:\nsigned int b2FixtureProxy::childIndex()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2FixtureProxy* self=(Luna< b2FixtureProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2FixtureProxy::childIndex(). Got : '%s'",typeid(Luna< b2FixtureProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2FixtureProxy::childIndex(). Got : '%s'\n%s",typeid(Luna< b2FixtureProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->childIndex;
 		lua_pushnumber(L,lret);
@@ -225,15 +215,13 @@ public:
 	// signed int b2FixtureProxy::proxyId()
 	static int _bind_getProxyId(lua_State *L) {
 		if (!_lg_typecheck_getProxyId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2FixtureProxy::proxyId() function, expected prototype:\nsigned int b2FixtureProxy::proxyId()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2FixtureProxy::proxyId() function, expected prototype:\nsigned int b2FixtureProxy::proxyId()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2FixtureProxy* self=(Luna< b2FixtureProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2FixtureProxy::proxyId(). Got : '%s'",typeid(Luna< b2FixtureProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2FixtureProxy::proxyId(). Got : '%s'\n%s",typeid(Luna< b2FixtureProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->proxyId;
 		lua_pushnumber(L,lret);
@@ -244,8 +232,7 @@ public:
 	// void b2FixtureProxy::aabb(b2AABB value)
 	static int _bind_setAabb(lua_State *L) {
 		if (!_lg_typecheck_setAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2FixtureProxy::aabb(b2AABB value) function, expected prototype:\nvoid b2FixtureProxy::aabb(b2AABB value)\nClass arguments details:\narg 1 ID = 53833672\n");
+			luaL_error(L, "luna typecheck failed in void b2FixtureProxy::aabb(b2AABB value) function, expected prototype:\nvoid b2FixtureProxy::aabb(b2AABB value)\nClass arguments details:\narg 1 ID = 53833672\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2AABB* value_ptr=(Luna< b2AABB >::check(L,2));
@@ -256,8 +243,7 @@ public:
 
 		b2FixtureProxy* self=(Luna< b2FixtureProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2FixtureProxy::aabb(b2AABB). Got : '%s'",typeid(Luna< b2FixtureProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2FixtureProxy::aabb(b2AABB). Got : '%s'\n%s",typeid(Luna< b2FixtureProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->aabb = value;
 
@@ -267,16 +253,14 @@ public:
 	// void b2FixtureProxy::fixture(b2Fixture * value)
 	static int _bind_setFixture(lua_State *L) {
 		if (!_lg_typecheck_setFixture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2FixtureProxy::fixture(b2Fixture * value) function, expected prototype:\nvoid b2FixtureProxy::fixture(b2Fixture * value)\nClass arguments details:\narg 1 ID = 92969381\n");
+			luaL_error(L, "luna typecheck failed in void b2FixtureProxy::fixture(b2Fixture * value) function, expected prototype:\nvoid b2FixtureProxy::fixture(b2Fixture * value)\nClass arguments details:\narg 1 ID = 92969381\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Fixture* value=(Luna< b2Fixture >::check(L,2));
 
 		b2FixtureProxy* self=(Luna< b2FixtureProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2FixtureProxy::fixture(b2Fixture *). Got : '%s'",typeid(Luna< b2FixtureProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2FixtureProxy::fixture(b2Fixture *). Got : '%s'\n%s",typeid(Luna< b2FixtureProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->fixture = value;
 
@@ -286,16 +270,14 @@ public:
 	// void b2FixtureProxy::childIndex(signed int value)
 	static int _bind_setChildIndex(lua_State *L) {
 		if (!_lg_typecheck_setChildIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2FixtureProxy::childIndex(signed int value) function, expected prototype:\nvoid b2FixtureProxy::childIndex(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2FixtureProxy::childIndex(signed int value) function, expected prototype:\nvoid b2FixtureProxy::childIndex(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2FixtureProxy* self=(Luna< b2FixtureProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2FixtureProxy::childIndex(signed int). Got : '%s'",typeid(Luna< b2FixtureProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2FixtureProxy::childIndex(signed int). Got : '%s'\n%s",typeid(Luna< b2FixtureProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->childIndex = value;
 
@@ -305,16 +287,14 @@ public:
 	// void b2FixtureProxy::proxyId(signed int value)
 	static int _bind_setProxyId(lua_State *L) {
 		if (!_lg_typecheck_setProxyId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2FixtureProxy::proxyId(signed int value) function, expected prototype:\nvoid b2FixtureProxy::proxyId(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2FixtureProxy::proxyId(signed int value) function, expected prototype:\nvoid b2FixtureProxy::proxyId(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2FixtureProxy* self=(Luna< b2FixtureProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2FixtureProxy::proxyId(signed int). Got : '%s'",typeid(Luna< b2FixtureProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2FixtureProxy::proxyId(signed int). Got : '%s'\n%s",typeid(Luna< b2FixtureProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->proxyId = value;
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btGEN_List*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btGEN_List*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGEN_List* rhs =(Luna< btGEN_List >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGEN_List* self= (btGEN_List*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btGEN_List >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -142,8 +138,7 @@ public:
 	// btGEN_List::btGEN_List()
 	static btGEN_List* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGEN_List::btGEN_List() function, expected prototype:\nbtGEN_List::btGEN_List()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGEN_List::btGEN_List() function, expected prototype:\nbtGEN_List::btGEN_List()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -155,15 +150,13 @@ public:
 	// btGEN_Link * btGEN_List::getHead() const
 	static int _bind_getHead(lua_State *L) {
 		if (!_lg_typecheck_getHead(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGEN_Link * btGEN_List::getHead() const function, expected prototype:\nbtGEN_Link * btGEN_List::getHead() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGEN_Link * btGEN_List::getHead() const function, expected prototype:\nbtGEN_Link * btGEN_List::getHead() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGEN_List* self=(Luna< btGEN_List >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btGEN_Link * btGEN_List::getHead() const. Got : '%s'",typeid(Luna< btGEN_List >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btGEN_Link * btGEN_List::getHead() const. Got : '%s'\n%s",typeid(Luna< btGEN_List >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btGEN_Link * lret = self->getHead();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -176,15 +169,13 @@ public:
 	// btGEN_Link * btGEN_List::getTail() const
 	static int _bind_getTail(lua_State *L) {
 		if (!_lg_typecheck_getTail(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGEN_Link * btGEN_List::getTail() const function, expected prototype:\nbtGEN_Link * btGEN_List::getTail() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGEN_Link * btGEN_List::getTail() const function, expected prototype:\nbtGEN_Link * btGEN_List::getTail() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGEN_List* self=(Luna< btGEN_List >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btGEN_Link * btGEN_List::getTail() const. Got : '%s'",typeid(Luna< btGEN_List >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btGEN_Link * btGEN_List::getTail() const. Got : '%s'\n%s",typeid(Luna< btGEN_List >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btGEN_Link * lret = self->getTail();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -197,16 +188,14 @@ public:
 	// void btGEN_List::addHead(btGEN_Link * link)
 	static int _bind_addHead(lua_State *L) {
 		if (!_lg_typecheck_addHead(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGEN_List::addHead(btGEN_Link * link) function, expected prototype:\nvoid btGEN_List::addHead(btGEN_Link * link)\nClass arguments details:\narg 1 ID = 26941337\n");
+			luaL_error(L, "luna typecheck failed in void btGEN_List::addHead(btGEN_Link * link) function, expected prototype:\nvoid btGEN_List::addHead(btGEN_Link * link)\nClass arguments details:\narg 1 ID = 26941337\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGEN_Link* link=(Luna< btGEN_Link >::check(L,2));
 
 		btGEN_List* self=(Luna< btGEN_List >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGEN_List::addHead(btGEN_Link *). Got : '%s'",typeid(Luna< btGEN_List >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGEN_List::addHead(btGEN_Link *). Got : '%s'\n%s",typeid(Luna< btGEN_List >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addHead(link);
 
@@ -216,16 +205,14 @@ public:
 	// void btGEN_List::addTail(btGEN_Link * link)
 	static int _bind_addTail(lua_State *L) {
 		if (!_lg_typecheck_addTail(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGEN_List::addTail(btGEN_Link * link) function, expected prototype:\nvoid btGEN_List::addTail(btGEN_Link * link)\nClass arguments details:\narg 1 ID = 26941337\n");
+			luaL_error(L, "luna typecheck failed in void btGEN_List::addTail(btGEN_Link * link) function, expected prototype:\nvoid btGEN_List::addTail(btGEN_Link * link)\nClass arguments details:\narg 1 ID = 26941337\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGEN_Link* link=(Luna< btGEN_Link >::check(L,2));
 
 		btGEN_List* self=(Luna< btGEN_List >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGEN_List::addTail(btGEN_Link *). Got : '%s'",typeid(Luna< btGEN_List >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGEN_List::addTail(btGEN_Link *). Got : '%s'\n%s",typeid(Luna< btGEN_List >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addTail(link);
 

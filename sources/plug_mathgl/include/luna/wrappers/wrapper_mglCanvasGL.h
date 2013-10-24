@@ -618,8 +618,8 @@ public:
 	inline static bool _lg_typecheck_public_set_pen(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -644,9 +644,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,88494129) ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -687,9 +687,9 @@ public:
 	inline static bool _lg_typecheck_public_mark_draw(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,11934656)) ) return false;
 		return true;
 	}
@@ -697,10 +697,10 @@ public:
 	inline static bool _lg_typecheck_public_arrow_plot_3d(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -731,8 +731,8 @@ public:
 	inline static bool _lg_typecheck_public_pxl_combine(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
@@ -740,8 +740,8 @@ public:
 	inline static bool _lg_typecheck_public_pxl_memcpy(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
@@ -749,8 +749,8 @@ public:
 	inline static bool _lg_typecheck_public_pxl_backgr(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
@@ -758,8 +758,8 @@ public:
 	inline static bool _lg_typecheck_public_pxl_primdr(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
@@ -767,8 +767,8 @@ public:
 	inline static bool _lg_typecheck_public_pxl_transform(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
@@ -776,8 +776,8 @@ public:
 	inline static bool _lg_typecheck_public_pxl_setz(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
@@ -785,8 +785,8 @@ public:
 	inline static bool _lg_typecheck_public_pxl_setz_adv(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
@@ -794,8 +794,8 @@ public:
 	inline static bool _lg_typecheck_public_pxl_other(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
@@ -813,8 +813,7 @@ public:
 	// void mglCanvasGL::public_set_pen(unsigned int style, double width)
 	static int _bind_public_set_pen(lua_State *L) {
 		if (!_lg_typecheck_public_set_pen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvasGL::public_set_pen(unsigned int style, double width) function, expected prototype:\nvoid mglCanvasGL::public_set_pen(unsigned int style, double width)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvasGL::public_set_pen(unsigned int style, double width) function, expected prototype:\nvoid mglCanvasGL::public_set_pen(unsigned int style, double width)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned style=(unsigned)lua_tointeger(L,2);
@@ -822,8 +821,7 @@ public:
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvasGL::public_set_pen(unsigned int, double). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvasGL::public_set_pen(unsigned int, double). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_set_pen(style, width);
 
@@ -833,8 +831,7 @@ public:
 	// void mglCanvas::public_AdjustTicks(mglAxis & aa, bool ff)
 	static int _bind_public_AdjustTicks(lua_State *L) {
 		if (!_lg_typecheck_public_AdjustTicks(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_AdjustTicks(mglAxis & aa, bool ff) function, expected prototype:\nvoid mglCanvas::public_AdjustTicks(mglAxis & aa, bool ff)\nClass arguments details:\narg 1 ID = 88494129\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_AdjustTicks(mglAxis & aa, bool ff) function, expected prototype:\nvoid mglCanvas::public_AdjustTicks(mglAxis & aa, bool ff)\nClass arguments details:\narg 1 ID = 88494129\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglAxis* aa_ptr=(Luna< mglAxis >::check(L,2));
@@ -846,8 +843,7 @@ public:
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_AdjustTicks(mglAxis &, bool). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_AdjustTicks(mglAxis &, bool). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_AdjustTicks(aa, ff);
 
@@ -857,8 +853,7 @@ public:
 	// void mglCanvas::public_LabelTicks(mglAxis & aa)
 	static int _bind_public_LabelTicks(lua_State *L) {
 		if (!_lg_typecheck_public_LabelTicks(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_LabelTicks(mglAxis & aa) function, expected prototype:\nvoid mglCanvas::public_LabelTicks(mglAxis & aa)\nClass arguments details:\narg 1 ID = 88494129\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_LabelTicks(mglAxis & aa) function, expected prototype:\nvoid mglCanvas::public_LabelTicks(mglAxis & aa)\nClass arguments details:\narg 1 ID = 88494129\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglAxis* aa_ptr=(Luna< mglAxis >::check(L,2));
@@ -869,8 +864,7 @@ public:
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_LabelTicks(mglAxis &). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_LabelTicks(mglAxis &). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_LabelTicks(aa);
 
@@ -880,8 +874,7 @@ public:
 	// void mglCanvas::public_DrawAxis(mglAxis & aa, bool text = true, char arr = 0, const char * stl = "", const char * opt = "")
 	static int _bind_public_DrawAxis(lua_State *L) {
 		if (!_lg_typecheck_public_DrawAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_DrawAxis(mglAxis & aa, bool text = true, char arr = 0, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglCanvas::public_DrawAxis(mglAxis & aa, bool text = true, char arr = 0, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 88494129\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_DrawAxis(mglAxis & aa, bool text = true, char arr = 0, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglCanvas::public_DrawAxis(mglAxis & aa, bool text = true, char arr = 0, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 88494129\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -898,8 +891,7 @@ public:
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_DrawAxis(mglAxis &, bool, char, const char *, const char *). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_DrawAxis(mglAxis &, bool, char, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_DrawAxis(aa, text, arr, stl, opt);
 
@@ -909,8 +901,7 @@ public:
 	// void mglCanvas::public_DrawGrid(mglAxis & aa)
 	static int _bind_public_DrawGrid(lua_State *L) {
 		if (!_lg_typecheck_public_DrawGrid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_DrawGrid(mglAxis & aa) function, expected prototype:\nvoid mglCanvas::public_DrawGrid(mglAxis & aa)\nClass arguments details:\narg 1 ID = 88494129\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_DrawGrid(mglAxis & aa) function, expected prototype:\nvoid mglCanvas::public_DrawGrid(mglAxis & aa)\nClass arguments details:\narg 1 ID = 88494129\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglAxis* aa_ptr=(Luna< mglAxis >::check(L,2));
@@ -921,8 +912,7 @@ public:
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_DrawGrid(mglAxis &). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_DrawGrid(mglAxis &). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_DrawGrid(aa);
 
@@ -932,15 +922,13 @@ public:
 	// void mglCanvas::public_UpdateAxis()
 	static int _bind_public_UpdateAxis(lua_State *L) {
 		if (!_lg_typecheck_public_UpdateAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_UpdateAxis() function, expected prototype:\nvoid mglCanvas::public_UpdateAxis()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_UpdateAxis() function, expected prototype:\nvoid mglCanvas::public_UpdateAxis()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_UpdateAxis(). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_UpdateAxis(). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_UpdateAxis();
 
@@ -950,8 +938,7 @@ public:
 	// void mglCanvas::public_ClfZB(bool force = false)
 	static int _bind_public_ClfZB(lua_State *L) {
 		if (!_lg_typecheck_public_ClfZB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_ClfZB(bool force = false) function, expected prototype:\nvoid mglCanvas::public_ClfZB(bool force = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_ClfZB(bool force = false) function, expected prototype:\nvoid mglCanvas::public_ClfZB(bool force = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -960,8 +947,7 @@ public:
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_ClfZB(bool). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_ClfZB(bool). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_ClfZB(force);
 
@@ -971,15 +957,13 @@ public:
 	// long mglCanvas::public_PushDrwDat()
 	static int _bind_public_PushDrwDat(lua_State *L) {
 		if (!_lg_typecheck_public_PushDrwDat(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long mglCanvas::public_PushDrwDat() function, expected prototype:\nlong mglCanvas::public_PushDrwDat()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long mglCanvas::public_PushDrwDat() function, expected prototype:\nlong mglCanvas::public_PushDrwDat()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long mglCanvas::public_PushDrwDat(). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long mglCanvas::public_PushDrwDat(). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->public_PushDrwDat();
 		lua_pushnumber(L,lret);
@@ -990,8 +974,7 @@ public:
 	// void mglCanvas::public_add_prim(mglPrim & a)
 	static int _bind_public_add_prim(lua_State *L) {
 		if (!_lg_typecheck_public_add_prim(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_add_prim(mglPrim & a) function, expected prototype:\nvoid mglCanvas::public_add_prim(mglPrim & a)\nClass arguments details:\narg 1 ID = 88935222\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_add_prim(mglPrim & a) function, expected prototype:\nvoid mglCanvas::public_add_prim(mglPrim & a)\nClass arguments details:\narg 1 ID = 88935222\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglPrim* a_ptr=(Luna< mglPrim >::check(L,2));
@@ -1002,8 +985,7 @@ public:
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_add_prim(mglPrim &). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_add_prim(mglPrim &). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_add_prim(a);
 
@@ -1013,19 +995,17 @@ public:
 	// void mglCanvas::public_mark_draw(long p, char type, double size, mglDrawReg * d)
 	static int _bind_public_mark_draw(lua_State *L) {
 		if (!_lg_typecheck_public_mark_draw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_mark_draw(long p, char type, double size, mglDrawReg * d) function, expected prototype:\nvoid mglCanvas::public_mark_draw(long p, char type, double size, mglDrawReg * d)\nClass arguments details:\narg 4 ID = 11934656\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_mark_draw(long p, char type, double size, mglDrawReg * d) function, expected prototype:\nvoid mglCanvas::public_mark_draw(long p, char type, double size, mglDrawReg * d)\nClass arguments details:\narg 4 ID = 11934656\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long p=(long)lua_tointeger(L,2);
+		long p=(long)lua_tonumber(L,2);
 		char type=(char)lua_tointeger(L,3);
 		double size=(double)lua_tonumber(L,4);
 		mglDrawReg* d=(Luna< mglDrawReg >::check(L,5));
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_mark_draw(long, char, double, mglDrawReg *). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_mark_draw(long, char, double, mglDrawReg *). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_mark_draw(p, type, size, d);
 
@@ -1035,19 +1015,17 @@ public:
 	// void mglCanvas::public_arrow_plot_3d(long p1, long p2, char st, float ll)
 	static int _bind_public_arrow_plot_3d(lua_State *L) {
 		if (!_lg_typecheck_public_arrow_plot_3d(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_arrow_plot_3d(long p1, long p2, char st, float ll) function, expected prototype:\nvoid mglCanvas::public_arrow_plot_3d(long p1, long p2, char st, float ll)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_arrow_plot_3d(long p1, long p2, char st, float ll) function, expected prototype:\nvoid mglCanvas::public_arrow_plot_3d(long p1, long p2, char st, float ll)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long p1=(long)lua_tointeger(L,2);
-		long p2=(long)lua_tointeger(L,3);
+		long p1=(long)lua_tonumber(L,2);
+		long p2=(long)lua_tonumber(L,3);
 		char st=(char)lua_tointeger(L,4);
 		float ll=(float)lua_tonumber(L,5);
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_arrow_plot_3d(long, long, char, float). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_arrow_plot_3d(long, long, char, float). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_arrow_plot_3d(p1, p2, st, ll);
 
@@ -1057,8 +1035,7 @@ public:
 	// void mglCanvas::public_glyph_draw(const mglPrim * P, mglDrawReg * d)
 	static int _bind_public_glyph_draw(lua_State *L) {
 		if (!_lg_typecheck_public_glyph_draw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_glyph_draw(const mglPrim * P, mglDrawReg * d) function, expected prototype:\nvoid mglCanvas::public_glyph_draw(const mglPrim * P, mglDrawReg * d)\nClass arguments details:\narg 1 ID = 88935222\narg 2 ID = 11934656\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_glyph_draw(const mglPrim * P, mglDrawReg * d) function, expected prototype:\nvoid mglCanvas::public_glyph_draw(const mglPrim * P, mglDrawReg * d)\nClass arguments details:\narg 1 ID = 88935222\narg 2 ID = 11934656\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const mglPrim* P=(Luna< mglPrim >::check(L,2));
@@ -1066,8 +1043,7 @@ public:
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_glyph_draw(const mglPrim *, mglDrawReg *). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_glyph_draw(const mglPrim *, mglDrawReg *). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_glyph_draw(P, d);
 
@@ -1077,8 +1053,7 @@ public:
 	// mglPoint mglCanvas::public_RestorePnt(mglPoint ps, bool norm = false) const
 	static int _bind_public_RestorePnt(lua_State *L) {
 		if (!_lg_typecheck_public_RestorePnt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglPoint mglCanvas::public_RestorePnt(mglPoint ps, bool norm = false) const function, expected prototype:\nmglPoint mglCanvas::public_RestorePnt(mglPoint ps, bool norm = false) const\nClass arguments details:\narg 1 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in mglPoint mglCanvas::public_RestorePnt(mglPoint ps, bool norm = false) const function, expected prototype:\nmglPoint mglCanvas::public_RestorePnt(mglPoint ps, bool norm = false) const\nClass arguments details:\narg 1 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1092,8 +1067,7 @@ public:
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglPoint mglCanvas::public_RestorePnt(mglPoint, bool) const. Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglPoint mglCanvas::public_RestorePnt(mglPoint, bool) const. Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglPoint stack_lret = self->public_RestorePnt(ps, norm);
 		mglPoint* lret = new mglPoint(stack_lret);
@@ -1107,16 +1081,14 @@ public:
 	// void mglCanvas::public_PreparePrim(bool fast)
 	static int _bind_public_PreparePrim(lua_State *L) {
 		if (!_lg_typecheck_public_PreparePrim(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_PreparePrim(bool fast) function, expected prototype:\nvoid mglCanvas::public_PreparePrim(bool fast)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_PreparePrim(bool fast) function, expected prototype:\nvoid mglCanvas::public_PreparePrim(bool fast)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool fast=(bool)(lua_toboolean(L,2)==1);
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_PreparePrim(bool). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_PreparePrim(bool). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_PreparePrim(fast);
 
@@ -1126,18 +1098,16 @@ public:
 	// void mglCanvas::public_pxl_combine(size_t id, size_t n, const void * arg3)
 	static int _bind_public_pxl_combine(lua_State *L) {
 		if (!_lg_typecheck_public_pxl_combine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_pxl_combine(size_t id, size_t n, const void * arg3) function, expected prototype:\nvoid mglCanvas::public_pxl_combine(size_t id, size_t n, const void * arg3)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_pxl_combine(size_t id, size_t n, const void * arg3) function, expected prototype:\nvoid mglCanvas::public_pxl_combine(size_t id, size_t n, const void * arg3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t id=(size_t)lua_tointeger(L,2);
 		size_t n=(size_t)lua_tointeger(L,3);
-		void* _arg3=(Luna< void >::check(L,4));
+		const void* _arg3=(Luna< void >::check(L,4));
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_pxl_combine(size_t, size_t, const void *). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_pxl_combine(size_t, size_t, const void *). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_pxl_combine(id, n, _arg3);
 
@@ -1147,18 +1117,16 @@ public:
 	// void mglCanvas::public_pxl_memcpy(size_t id, size_t n, const void * arg3)
 	static int _bind_public_pxl_memcpy(lua_State *L) {
 		if (!_lg_typecheck_public_pxl_memcpy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_pxl_memcpy(size_t id, size_t n, const void * arg3) function, expected prototype:\nvoid mglCanvas::public_pxl_memcpy(size_t id, size_t n, const void * arg3)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_pxl_memcpy(size_t id, size_t n, const void * arg3) function, expected prototype:\nvoid mglCanvas::public_pxl_memcpy(size_t id, size_t n, const void * arg3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t id=(size_t)lua_tointeger(L,2);
 		size_t n=(size_t)lua_tointeger(L,3);
-		void* _arg3=(Luna< void >::check(L,4));
+		const void* _arg3=(Luna< void >::check(L,4));
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_pxl_memcpy(size_t, size_t, const void *). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_pxl_memcpy(size_t, size_t, const void *). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_pxl_memcpy(id, n, _arg3);
 
@@ -1168,18 +1136,16 @@ public:
 	// void mglCanvas::public_pxl_backgr(size_t id, size_t n, const void * arg3)
 	static int _bind_public_pxl_backgr(lua_State *L) {
 		if (!_lg_typecheck_public_pxl_backgr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_pxl_backgr(size_t id, size_t n, const void * arg3) function, expected prototype:\nvoid mglCanvas::public_pxl_backgr(size_t id, size_t n, const void * arg3)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_pxl_backgr(size_t id, size_t n, const void * arg3) function, expected prototype:\nvoid mglCanvas::public_pxl_backgr(size_t id, size_t n, const void * arg3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t id=(size_t)lua_tointeger(L,2);
 		size_t n=(size_t)lua_tointeger(L,3);
-		void* _arg3=(Luna< void >::check(L,4));
+		const void* _arg3=(Luna< void >::check(L,4));
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_pxl_backgr(size_t, size_t, const void *). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_pxl_backgr(size_t, size_t, const void *). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_pxl_backgr(id, n, _arg3);
 
@@ -1189,18 +1155,16 @@ public:
 	// void mglCanvas::public_pxl_primdr(size_t id, size_t n, const void * arg3)
 	static int _bind_public_pxl_primdr(lua_State *L) {
 		if (!_lg_typecheck_public_pxl_primdr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_pxl_primdr(size_t id, size_t n, const void * arg3) function, expected prototype:\nvoid mglCanvas::public_pxl_primdr(size_t id, size_t n, const void * arg3)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_pxl_primdr(size_t id, size_t n, const void * arg3) function, expected prototype:\nvoid mglCanvas::public_pxl_primdr(size_t id, size_t n, const void * arg3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t id=(size_t)lua_tointeger(L,2);
 		size_t n=(size_t)lua_tointeger(L,3);
-		void* _arg3=(Luna< void >::check(L,4));
+		const void* _arg3=(Luna< void >::check(L,4));
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_pxl_primdr(size_t, size_t, const void *). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_pxl_primdr(size_t, size_t, const void *). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_pxl_primdr(id, n, _arg3);
 
@@ -1210,18 +1174,16 @@ public:
 	// void mglCanvas::public_pxl_transform(size_t id, size_t n, const void * arg3)
 	static int _bind_public_pxl_transform(lua_State *L) {
 		if (!_lg_typecheck_public_pxl_transform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_pxl_transform(size_t id, size_t n, const void * arg3) function, expected prototype:\nvoid mglCanvas::public_pxl_transform(size_t id, size_t n, const void * arg3)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_pxl_transform(size_t id, size_t n, const void * arg3) function, expected prototype:\nvoid mglCanvas::public_pxl_transform(size_t id, size_t n, const void * arg3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t id=(size_t)lua_tointeger(L,2);
 		size_t n=(size_t)lua_tointeger(L,3);
-		void* _arg3=(Luna< void >::check(L,4));
+		const void* _arg3=(Luna< void >::check(L,4));
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_pxl_transform(size_t, size_t, const void *). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_pxl_transform(size_t, size_t, const void *). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_pxl_transform(id, n, _arg3);
 
@@ -1231,18 +1193,16 @@ public:
 	// void mglCanvas::public_pxl_setz(size_t id, size_t n, const void * arg3)
 	static int _bind_public_pxl_setz(lua_State *L) {
 		if (!_lg_typecheck_public_pxl_setz(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_pxl_setz(size_t id, size_t n, const void * arg3) function, expected prototype:\nvoid mglCanvas::public_pxl_setz(size_t id, size_t n, const void * arg3)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_pxl_setz(size_t id, size_t n, const void * arg3) function, expected prototype:\nvoid mglCanvas::public_pxl_setz(size_t id, size_t n, const void * arg3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t id=(size_t)lua_tointeger(L,2);
 		size_t n=(size_t)lua_tointeger(L,3);
-		void* _arg3=(Luna< void >::check(L,4));
+		const void* _arg3=(Luna< void >::check(L,4));
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_pxl_setz(size_t, size_t, const void *). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_pxl_setz(size_t, size_t, const void *). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_pxl_setz(id, n, _arg3);
 
@@ -1252,18 +1212,16 @@ public:
 	// void mglCanvas::public_pxl_setz_adv(size_t id, size_t n, const void * arg3)
 	static int _bind_public_pxl_setz_adv(lua_State *L) {
 		if (!_lg_typecheck_public_pxl_setz_adv(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_pxl_setz_adv(size_t id, size_t n, const void * arg3) function, expected prototype:\nvoid mglCanvas::public_pxl_setz_adv(size_t id, size_t n, const void * arg3)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_pxl_setz_adv(size_t id, size_t n, const void * arg3) function, expected prototype:\nvoid mglCanvas::public_pxl_setz_adv(size_t id, size_t n, const void * arg3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t id=(size_t)lua_tointeger(L,2);
 		size_t n=(size_t)lua_tointeger(L,3);
-		void* _arg3=(Luna< void >::check(L,4));
+		const void* _arg3=(Luna< void >::check(L,4));
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_pxl_setz_adv(size_t, size_t, const void *). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_pxl_setz_adv(size_t, size_t, const void *). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_pxl_setz_adv(id, n, _arg3);
 
@@ -1273,18 +1231,16 @@ public:
 	// void mglCanvas::public_pxl_other(size_t id, size_t n, const void * p)
 	static int _bind_public_pxl_other(lua_State *L) {
 		if (!_lg_typecheck_public_pxl_other(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_pxl_other(size_t id, size_t n, const void * p) function, expected prototype:\nvoid mglCanvas::public_pxl_other(size_t id, size_t n, const void * p)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_pxl_other(size_t id, size_t n, const void * p) function, expected prototype:\nvoid mglCanvas::public_pxl_other(size_t id, size_t n, const void * p)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t id=(size_t)lua_tointeger(L,2);
 		size_t n=(size_t)lua_tointeger(L,3);
-		void* p=(Luna< void >::check(L,4));
+		const void* p=(Luna< void >::check(L,4));
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_pxl_other(size_t, size_t, const void *). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_pxl_other(size_t, size_t, const void *). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_pxl_other(id, n, p);
 
@@ -1294,8 +1250,7 @@ public:
 	// void mglCanvas::public_PutDrawReg(mglDrawReg * d, const mglCanvas * gr)
 	static int _bind_public_PutDrawReg(lua_State *L) {
 		if (!_lg_typecheck_public_PutDrawReg(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglCanvas::public_PutDrawReg(mglDrawReg * d, const mglCanvas * gr) function, expected prototype:\nvoid mglCanvas::public_PutDrawReg(mglDrawReg * d, const mglCanvas * gr)\nClass arguments details:\narg 1 ID = 11934656\narg 2 ID = 88502113\n");
+			luaL_error(L, "luna typecheck failed in void mglCanvas::public_PutDrawReg(mglDrawReg * d, const mglCanvas * gr) function, expected prototype:\nvoid mglCanvas::public_PutDrawReg(mglDrawReg * d, const mglCanvas * gr)\nClass arguments details:\narg 1 ID = 11934656\narg 2 ID = 88502113\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglDrawReg* d=(Luna< mglDrawReg >::check(L,2));
@@ -1303,8 +1258,7 @@ public:
 
 		wrapper_mglCanvasGL* self=Luna< mglBase >::checkSubType< wrapper_mglCanvasGL >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglCanvas::public_PutDrawReg(mglDrawReg *, const mglCanvas *). Got : '%s'",typeid(Luna< mglBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglCanvas::public_PutDrawReg(mglDrawReg *, const mglCanvas *). Got : '%s'\n%s",typeid(Luna< mglBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_PutDrawReg(d, gr);
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btDiscreteCollisionDetectorInterface::ClosestPointInput*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btDiscreteCollisionDetectorInterface::ClosestPointInput*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDiscreteCollisionDetectorInterface::ClosestPointInput* rhs =(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDiscreteCollisionDetectorInterface::ClosestPointInput* self= (btDiscreteCollisionDetectorInterface::ClosestPointInput*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -149,7 +145,7 @@ public:
 	inline static bool _lg_typecheck_setMaximumDistanceSquared(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -168,8 +164,7 @@ public:
 	// btDiscreteCollisionDetectorInterface::ClosestPointInput::ClosestPointInput()
 	static btDiscreteCollisionDetectorInterface::ClosestPointInput* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btDiscreteCollisionDetectorInterface::ClosestPointInput::ClosestPointInput() function, expected prototype:\nbtDiscreteCollisionDetectorInterface::ClosestPointInput::ClosestPointInput()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btDiscreteCollisionDetectorInterface::ClosestPointInput::ClosestPointInput() function, expected prototype:\nbtDiscreteCollisionDetectorInterface::ClosestPointInput::ClosestPointInput()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -181,15 +176,13 @@ public:
 	// btTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA()
 	static int _bind_getTransformA(lua_State *L) {
 		if (!_lg_typecheck_getTransformA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA() function, expected prototype:\nbtTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA() function, expected prototype:\nbtTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDiscreteCollisionDetectorInterface::ClosestPointInput* self=(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA(). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA(). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->m_transformA;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -202,15 +195,13 @@ public:
 	// btTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB()
 	static int _bind_getTransformB(lua_State *L) {
 		if (!_lg_typecheck_getTransformB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB() function, expected prototype:\nbtTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB() function, expected prototype:\nbtTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDiscreteCollisionDetectorInterface::ClosestPointInput* self=(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB(). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB(). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->m_transformB;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -223,15 +214,13 @@ public:
 	// float btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared()
 	static int _bind_getMaximumDistanceSquared(lua_State *L) {
 		if (!_lg_typecheck_getMaximumDistanceSquared(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared() function, expected prototype:\nfloat btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared() function, expected prototype:\nfloat btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDiscreteCollisionDetectorInterface::ClosestPointInput* self=(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared(). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared(). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_maximumDistanceSquared;
 		lua_pushnumber(L,lret);
@@ -242,15 +231,13 @@ public:
 	// btStackAlloc * btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc()
 	static int _bind_getStackAlloc(lua_State *L) {
 		if (!_lg_typecheck_getStackAlloc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btStackAlloc * btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc() function, expected prototype:\nbtStackAlloc * btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btStackAlloc * btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc() function, expected prototype:\nbtStackAlloc * btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDiscreteCollisionDetectorInterface::ClosestPointInput* self=(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btStackAlloc * btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc(). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btStackAlloc * btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc(). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btStackAlloc * lret = self->m_stackAlloc;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -263,8 +250,7 @@ public:
 	// void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA(btTransform value)
 	static int _bind_setTransformA(lua_State *L) {
 		if (!_lg_typecheck_setTransformA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA(btTransform value) function, expected prototype:\nvoid btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA(btTransform value) function, expected prototype:\nvoid btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTransform* value_ptr=(Luna< btTransform >::check(L,2));
@@ -275,8 +261,7 @@ public:
 
 		btDiscreteCollisionDetectorInterface::ClosestPointInput* self=(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA(btTransform). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformA(btTransform). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_transformA = value;
 
@@ -286,8 +271,7 @@ public:
 	// void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB(btTransform value)
 	static int _bind_setTransformB(lua_State *L) {
 		if (!_lg_typecheck_setTransformB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB(btTransform value) function, expected prototype:\nvoid btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB(btTransform value) function, expected prototype:\nvoid btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTransform* value_ptr=(Luna< btTransform >::check(L,2));
@@ -298,8 +282,7 @@ public:
 
 		btDiscreteCollisionDetectorInterface::ClosestPointInput* self=(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB(btTransform). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_transformB(btTransform). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_transformB = value;
 
@@ -309,16 +292,14 @@ public:
 	// void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared(float value)
 	static int _bind_setMaximumDistanceSquared(lua_State *L) {
 		if (!_lg_typecheck_setMaximumDistanceSquared(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared(float value) function, expected prototype:\nvoid btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared(float value) function, expected prototype:\nvoid btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btDiscreteCollisionDetectorInterface::ClosestPointInput* self=(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared(float). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_maximumDistanceSquared(float). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_maximumDistanceSquared = value;
 
@@ -328,16 +309,14 @@ public:
 	// void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc(btStackAlloc * value)
 	static int _bind_setStackAlloc(lua_State *L) {
 		if (!_lg_typecheck_setStackAlloc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc(btStackAlloc * value) function, expected prototype:\nvoid btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc(btStackAlloc * value)\nClass arguments details:\narg 1 ID = 46980417\n");
+			luaL_error(L, "luna typecheck failed in void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc(btStackAlloc * value) function, expected prototype:\nvoid btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc(btStackAlloc * value)\nClass arguments details:\narg 1 ID = 46980417\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btStackAlloc* value=(Luna< btStackAlloc >::check(L,2));
 
 		btDiscreteCollisionDetectorInterface::ClosestPointInput* self=(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc(btStackAlloc *). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDiscreteCollisionDetectorInterface::ClosestPointInput::m_stackAlloc(btStackAlloc *). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface::ClosestPointInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_stackAlloc = value;
 

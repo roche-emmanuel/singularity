@@ -111,7 +111,7 @@ public:
 	inline static bool _lg_typecheck_setCreaseAngle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -126,7 +126,7 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
-		if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
+		if( luatop>1 && lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 

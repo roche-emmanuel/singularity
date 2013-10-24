@@ -1,12 +1,8 @@
 define(["backbone","underscore","base/LayoutManager",
-		"models/Overlay",
 		"text!templates/overlay/default.html",
-		"models/MenuManager"],
-function(Backbone,_,lman,OverlayModel,tpl,MenuManager) {
-	
-	var model = new OverlayModel;
-	var mm = new MenuManager();
-	
+		"models/OverlayManager"],
+function(Backbone,_,lman,tpl,manager) {
+		
 	var Overlay = Backbone.View.extend({
 		el: $('#overlays'),
 		
@@ -22,14 +18,8 @@ function(Backbone,_,lman,OverlayModel,tpl,MenuManager) {
 			lman.setup();
 			
 			// setup the default Overlay values:
-			model.setDefaults();
-		},
-		
-		// Retrieve the overlay model used for this display:
-		getModel : function() {
-			return model;
-		},
-	
+			manager.setDefaults();
+		},	
 	});
 	
 	return Overlay;  

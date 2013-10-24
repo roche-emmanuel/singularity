@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btOverlappingPairCallback* self=(Luna< btOverlappingPairCallback >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSortedOverlappingPairCache* self= (btSortedOverlappingPairCache*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btOverlappingPairCallback >::check(L,1));
@@ -348,8 +345,7 @@ public:
 	// btSortedOverlappingPairCache::btSortedOverlappingPairCache()
 	static btSortedOverlappingPairCache* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSortedOverlappingPairCache::btSortedOverlappingPairCache() function, expected prototype:\nbtSortedOverlappingPairCache::btSortedOverlappingPairCache()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btSortedOverlappingPairCache::btSortedOverlappingPairCache() function, expected prototype:\nbtSortedOverlappingPairCache::btSortedOverlappingPairCache()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -359,8 +355,7 @@ public:
 	// btSortedOverlappingPairCache::btSortedOverlappingPairCache(lua_Table * data)
 	static btSortedOverlappingPairCache* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSortedOverlappingPairCache::btSortedOverlappingPairCache(lua_Table * data) function, expected prototype:\nbtSortedOverlappingPairCache::btSortedOverlappingPairCache(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btSortedOverlappingPairCache::btSortedOverlappingPairCache(lua_Table * data) function, expected prototype:\nbtSortedOverlappingPairCache::btSortedOverlappingPairCache(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -381,8 +376,7 @@ public:
 	// void btSortedOverlappingPairCache::processAllOverlappingPairs(btOverlapCallback * arg1, btDispatcher * dispatcher)
 	static int _bind_processAllOverlappingPairs(lua_State *L) {
 		if (!_lg_typecheck_processAllOverlappingPairs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::processAllOverlappingPairs(btOverlapCallback * arg1, btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::processAllOverlappingPairs(btOverlapCallback * arg1, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 83643253\narg 2 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::processAllOverlappingPairs(btOverlapCallback * arg1, btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::processAllOverlappingPairs(btOverlapCallback * arg1, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 83643253\narg 2 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btOverlapCallback* _arg1=(Luna< btOverlapCallback >::check(L,2));
@@ -390,8 +384,7 @@ public:
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::processAllOverlappingPairs(btOverlapCallback *, btDispatcher *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::processAllOverlappingPairs(btOverlapCallback *, btDispatcher *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->processAllOverlappingPairs(_arg1, dispatcher);
 
@@ -401,8 +394,7 @@ public:
 	// void * btSortedOverlappingPairCache::removeOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1, btDispatcher * dispatcher)
 	static int _bind_removeOverlappingPair(lua_State *L) {
 		if (!_lg_typecheck_removeOverlappingPair(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * btSortedOverlappingPairCache::removeOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1, btDispatcher * dispatcher) function, expected prototype:\nvoid * btSortedOverlappingPairCache::removeOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\narg 3 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void * btSortedOverlappingPairCache::removeOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1, btDispatcher * dispatcher) function, expected prototype:\nvoid * btSortedOverlappingPairCache::removeOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\narg 3 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy0=(Luna< btBroadphaseProxy >::check(L,2));
@@ -411,8 +403,7 @@ public:
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * btSortedOverlappingPairCache::removeOverlappingPair(btBroadphaseProxy *, btBroadphaseProxy *, btDispatcher *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * btSortedOverlappingPairCache::removeOverlappingPair(btBroadphaseProxy *, btBroadphaseProxy *, btDispatcher *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->removeOverlappingPair(proxy0, proxy1, dispatcher);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -425,8 +416,7 @@ public:
 	// void btSortedOverlappingPairCache::cleanOverlappingPair(btBroadphasePair & pair, btDispatcher * dispatcher)
 	static int _bind_cleanOverlappingPair(lua_State *L) {
 		if (!_lg_typecheck_cleanOverlappingPair(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::cleanOverlappingPair(btBroadphasePair & pair, btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::cleanOverlappingPair(btBroadphasePair & pair, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 82050774\narg 2 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::cleanOverlappingPair(btBroadphasePair & pair, btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::cleanOverlappingPair(btBroadphasePair & pair, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 82050774\narg 2 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphasePair* pair_ptr=(Luna< btBroadphasePair >::check(L,2));
@@ -438,8 +428,7 @@ public:
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::cleanOverlappingPair(btBroadphasePair &, btDispatcher *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::cleanOverlappingPair(btBroadphasePair &, btDispatcher *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->cleanOverlappingPair(pair, dispatcher);
 
@@ -449,8 +438,7 @@ public:
 	// btBroadphasePair * btSortedOverlappingPairCache::addOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1)
 	static int _bind_addOverlappingPair(lua_State *L) {
 		if (!_lg_typecheck_addOverlappingPair(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBroadphasePair * btSortedOverlappingPairCache::addOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1) function, expected prototype:\nbtBroadphasePair * btSortedOverlappingPairCache::addOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\n");
+			luaL_error(L, "luna typecheck failed in btBroadphasePair * btSortedOverlappingPairCache::addOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1) function, expected prototype:\nbtBroadphasePair * btSortedOverlappingPairCache::addOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy0=(Luna< btBroadphaseProxy >::check(L,2));
@@ -458,8 +446,7 @@ public:
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btBroadphasePair * btSortedOverlappingPairCache::addOverlappingPair(btBroadphaseProxy *, btBroadphaseProxy *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btBroadphasePair * btSortedOverlappingPairCache::addOverlappingPair(btBroadphaseProxy *, btBroadphaseProxy *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btBroadphasePair * lret = self->addOverlappingPair(proxy0, proxy1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -472,8 +459,7 @@ public:
 	// btBroadphasePair * btSortedOverlappingPairCache::findPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1)
 	static int _bind_findPair(lua_State *L) {
 		if (!_lg_typecheck_findPair(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBroadphasePair * btSortedOverlappingPairCache::findPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1) function, expected prototype:\nbtBroadphasePair * btSortedOverlappingPairCache::findPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\n");
+			luaL_error(L, "luna typecheck failed in btBroadphasePair * btSortedOverlappingPairCache::findPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1) function, expected prototype:\nbtBroadphasePair * btSortedOverlappingPairCache::findPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy0=(Luna< btBroadphaseProxy >::check(L,2));
@@ -481,8 +467,7 @@ public:
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btBroadphasePair * btSortedOverlappingPairCache::findPair(btBroadphaseProxy *, btBroadphaseProxy *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btBroadphasePair * btSortedOverlappingPairCache::findPair(btBroadphaseProxy *, btBroadphaseProxy *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btBroadphasePair * lret = self->findPair(proxy0, proxy1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -495,8 +480,7 @@ public:
 	// void btSortedOverlappingPairCache::cleanProxyFromPairs(btBroadphaseProxy * proxy, btDispatcher * dispatcher)
 	static int _bind_cleanProxyFromPairs(lua_State *L) {
 		if (!_lg_typecheck_cleanProxyFromPairs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::cleanProxyFromPairs(btBroadphaseProxy * proxy, btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::cleanProxyFromPairs(btBroadphaseProxy * proxy, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::cleanProxyFromPairs(btBroadphaseProxy * proxy, btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::cleanProxyFromPairs(btBroadphaseProxy * proxy, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy=(Luna< btBroadphaseProxy >::check(L,2));
@@ -504,8 +488,7 @@ public:
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::cleanProxyFromPairs(btBroadphaseProxy *, btDispatcher *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::cleanProxyFromPairs(btBroadphaseProxy *, btDispatcher *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->cleanProxyFromPairs(proxy, dispatcher);
 
@@ -515,8 +498,7 @@ public:
 	// void btSortedOverlappingPairCache::removeOverlappingPairsContainingProxy(btBroadphaseProxy * proxy, btDispatcher * dispatcher)
 	static int _bind_removeOverlappingPairsContainingProxy(lua_State *L) {
 		if (!_lg_typecheck_removeOverlappingPairsContainingProxy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::removeOverlappingPairsContainingProxy(btBroadphaseProxy * proxy, btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::removeOverlappingPairsContainingProxy(btBroadphaseProxy * proxy, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::removeOverlappingPairsContainingProxy(btBroadphaseProxy * proxy, btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::removeOverlappingPairsContainingProxy(btBroadphaseProxy * proxy, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy=(Luna< btBroadphaseProxy >::check(L,2));
@@ -524,8 +506,7 @@ public:
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::removeOverlappingPairsContainingProxy(btBroadphaseProxy *, btDispatcher *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::removeOverlappingPairsContainingProxy(btBroadphaseProxy *, btDispatcher *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->removeOverlappingPairsContainingProxy(proxy, dispatcher);
 
@@ -535,8 +516,7 @@ public:
 	// bool btSortedOverlappingPairCache::needsBroadphaseCollision(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1) const
 	static int _bind_needsBroadphaseCollision(lua_State *L) {
 		if (!_lg_typecheck_needsBroadphaseCollision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btSortedOverlappingPairCache::needsBroadphaseCollision(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1) const function, expected prototype:\nbool btSortedOverlappingPairCache::needsBroadphaseCollision(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1) const\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\n");
+			luaL_error(L, "luna typecheck failed in bool btSortedOverlappingPairCache::needsBroadphaseCollision(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1) const function, expected prototype:\nbool btSortedOverlappingPairCache::needsBroadphaseCollision(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1) const\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy0=(Luna< btBroadphaseProxy >::check(L,2));
@@ -544,8 +524,7 @@ public:
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btSortedOverlappingPairCache::needsBroadphaseCollision(btBroadphaseProxy *, btBroadphaseProxy *) const. Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btSortedOverlappingPairCache::needsBroadphaseCollision(btBroadphaseProxy *, btBroadphaseProxy *) const. Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->needsBroadphaseCollision(proxy0, proxy1);
 		lua_pushboolean(L,lret?1:0);
@@ -556,15 +535,13 @@ public:
 	// btBroadphasePairArray & btSortedOverlappingPairCache::getOverlappingPairArray()
 	static int _bind_getOverlappingPairArray_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getOverlappingPairArray_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBroadphasePairArray & btSortedOverlappingPairCache::getOverlappingPairArray() function, expected prototype:\nbtBroadphasePairArray & btSortedOverlappingPairCache::getOverlappingPairArray()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btBroadphasePairArray & btSortedOverlappingPairCache::getOverlappingPairArray() function, expected prototype:\nbtBroadphasePairArray & btSortedOverlappingPairCache::getOverlappingPairArray()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btBroadphasePairArray & btSortedOverlappingPairCache::getOverlappingPairArray(). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btBroadphasePairArray & btSortedOverlappingPairCache::getOverlappingPairArray(). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btBroadphasePairArray* lret = &self->getOverlappingPairArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -577,15 +554,13 @@ public:
 	// const btBroadphasePairArray & btSortedOverlappingPairCache::getOverlappingPairArray() const
 	static int _bind_getOverlappingPairArray_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getOverlappingPairArray_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btBroadphasePairArray & btSortedOverlappingPairCache::getOverlappingPairArray() const function, expected prototype:\nconst btBroadphasePairArray & btSortedOverlappingPairCache::getOverlappingPairArray() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btBroadphasePairArray & btSortedOverlappingPairCache::getOverlappingPairArray() const function, expected prototype:\nconst btBroadphasePairArray & btSortedOverlappingPairCache::getOverlappingPairArray() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btBroadphasePairArray & btSortedOverlappingPairCache::getOverlappingPairArray() const. Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btBroadphasePairArray & btSortedOverlappingPairCache::getOverlappingPairArray() const. Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btBroadphasePairArray* lret = &self->getOverlappingPairArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -607,15 +582,13 @@ public:
 	// btBroadphasePair * btSortedOverlappingPairCache::getOverlappingPairArrayPtr()
 	static int _bind_getOverlappingPairArrayPtr_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getOverlappingPairArrayPtr_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBroadphasePair * btSortedOverlappingPairCache::getOverlappingPairArrayPtr() function, expected prototype:\nbtBroadphasePair * btSortedOverlappingPairCache::getOverlappingPairArrayPtr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btBroadphasePair * btSortedOverlappingPairCache::getOverlappingPairArrayPtr() function, expected prototype:\nbtBroadphasePair * btSortedOverlappingPairCache::getOverlappingPairArrayPtr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btBroadphasePair * btSortedOverlappingPairCache::getOverlappingPairArrayPtr(). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btBroadphasePair * btSortedOverlappingPairCache::getOverlappingPairArrayPtr(). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btBroadphasePair * lret = self->getOverlappingPairArrayPtr();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -628,15 +601,13 @@ public:
 	// const btBroadphasePair * btSortedOverlappingPairCache::getOverlappingPairArrayPtr() const
 	static int _bind_getOverlappingPairArrayPtr_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getOverlappingPairArrayPtr_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btBroadphasePair * btSortedOverlappingPairCache::getOverlappingPairArrayPtr() const function, expected prototype:\nconst btBroadphasePair * btSortedOverlappingPairCache::getOverlappingPairArrayPtr() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btBroadphasePair * btSortedOverlappingPairCache::getOverlappingPairArrayPtr() const function, expected prototype:\nconst btBroadphasePair * btSortedOverlappingPairCache::getOverlappingPairArrayPtr() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btBroadphasePair * btSortedOverlappingPairCache::getOverlappingPairArrayPtr() const. Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btBroadphasePair * btSortedOverlappingPairCache::getOverlappingPairArrayPtr() const. Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btBroadphasePair * lret = self->getOverlappingPairArrayPtr();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -658,15 +629,13 @@ public:
 	// int btSortedOverlappingPairCache::getNumOverlappingPairs() const
 	static int _bind_getNumOverlappingPairs(lua_State *L) {
 		if (!_lg_typecheck_getNumOverlappingPairs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btSortedOverlappingPairCache::getNumOverlappingPairs() const function, expected prototype:\nint btSortedOverlappingPairCache::getNumOverlappingPairs() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btSortedOverlappingPairCache::getNumOverlappingPairs() const function, expected prototype:\nint btSortedOverlappingPairCache::getNumOverlappingPairs() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btSortedOverlappingPairCache::getNumOverlappingPairs() const. Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btSortedOverlappingPairCache::getNumOverlappingPairs() const. Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNumOverlappingPairs();
 		lua_pushnumber(L,lret);
@@ -677,15 +646,13 @@ public:
 	// btOverlapFilterCallback * btSortedOverlappingPairCache::getOverlapFilterCallback()
 	static int _bind_getOverlapFilterCallback(lua_State *L) {
 		if (!_lg_typecheck_getOverlapFilterCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btOverlapFilterCallback * btSortedOverlappingPairCache::getOverlapFilterCallback() function, expected prototype:\nbtOverlapFilterCallback * btSortedOverlappingPairCache::getOverlapFilterCallback()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btOverlapFilterCallback * btSortedOverlappingPairCache::getOverlapFilterCallback() function, expected prototype:\nbtOverlapFilterCallback * btSortedOverlappingPairCache::getOverlapFilterCallback()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btOverlapFilterCallback * btSortedOverlappingPairCache::getOverlapFilterCallback(). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btOverlapFilterCallback * btSortedOverlappingPairCache::getOverlapFilterCallback(). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btOverlapFilterCallback * lret = self->getOverlapFilterCallback();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -698,16 +665,14 @@ public:
 	// void btSortedOverlappingPairCache::setOverlapFilterCallback(btOverlapFilterCallback * callback)
 	static int _bind_setOverlapFilterCallback(lua_State *L) {
 		if (!_lg_typecheck_setOverlapFilterCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::setOverlapFilterCallback(btOverlapFilterCallback * callback) function, expected prototype:\nvoid btSortedOverlappingPairCache::setOverlapFilterCallback(btOverlapFilterCallback * callback)\nClass arguments details:\narg 1 ID = 50236777\n");
+			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::setOverlapFilterCallback(btOverlapFilterCallback * callback) function, expected prototype:\nvoid btSortedOverlappingPairCache::setOverlapFilterCallback(btOverlapFilterCallback * callback)\nClass arguments details:\narg 1 ID = 50236777\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btOverlapFilterCallback* callback=(Luna< btOverlapFilterCallback >::check(L,2));
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::setOverlapFilterCallback(btOverlapFilterCallback *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::setOverlapFilterCallback(btOverlapFilterCallback *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setOverlapFilterCallback(callback);
 
@@ -717,15 +682,13 @@ public:
 	// bool btSortedOverlappingPairCache::hasDeferredRemoval()
 	static int _bind_hasDeferredRemoval(lua_State *L) {
 		if (!_lg_typecheck_hasDeferredRemoval(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btSortedOverlappingPairCache::hasDeferredRemoval() function, expected prototype:\nbool btSortedOverlappingPairCache::hasDeferredRemoval()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btSortedOverlappingPairCache::hasDeferredRemoval() function, expected prototype:\nbool btSortedOverlappingPairCache::hasDeferredRemoval()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btSortedOverlappingPairCache::hasDeferredRemoval(). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btSortedOverlappingPairCache::hasDeferredRemoval(). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->hasDeferredRemoval();
 		lua_pushboolean(L,lret?1:0);
@@ -736,16 +699,14 @@ public:
 	// void btSortedOverlappingPairCache::setInternalGhostPairCallback(btOverlappingPairCallback * ghostPairCallback)
 	static int _bind_setInternalGhostPairCallback(lua_State *L) {
 		if (!_lg_typecheck_setInternalGhostPairCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::setInternalGhostPairCallback(btOverlappingPairCallback * ghostPairCallback) function, expected prototype:\nvoid btSortedOverlappingPairCache::setInternalGhostPairCallback(btOverlappingPairCallback * ghostPairCallback)\nClass arguments details:\narg 1 ID = 78133027\n");
+			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::setInternalGhostPairCallback(btOverlappingPairCallback * ghostPairCallback) function, expected prototype:\nvoid btSortedOverlappingPairCache::setInternalGhostPairCallback(btOverlappingPairCallback * ghostPairCallback)\nClass arguments details:\narg 1 ID = 78133027\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btOverlappingPairCallback* ghostPairCallback=(Luna< btOverlappingPairCallback >::check(L,2));
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::setInternalGhostPairCallback(btOverlappingPairCallback *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::setInternalGhostPairCallback(btOverlappingPairCallback *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setInternalGhostPairCallback(ghostPairCallback);
 
@@ -755,16 +716,14 @@ public:
 	// void btSortedOverlappingPairCache::sortOverlappingPairs(btDispatcher * dispatcher)
 	static int _bind_sortOverlappingPairs(lua_State *L) {
 		if (!_lg_typecheck_sortOverlappingPairs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::sortOverlappingPairs(btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::sortOverlappingPairs(btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::sortOverlappingPairs(btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::sortOverlappingPairs(btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDispatcher* dispatcher=(Luna< btDispatcher >::check(L,2));
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::sortOverlappingPairs(btDispatcher *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::sortOverlappingPairs(btDispatcher *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->sortOverlappingPairs(dispatcher);
 
@@ -774,8 +733,7 @@ public:
 	// void btSortedOverlappingPairCache::base_processAllOverlappingPairs(btOverlapCallback * arg1, btDispatcher * dispatcher)
 	static int _bind_base_processAllOverlappingPairs(lua_State *L) {
 		if (!_lg_typecheck_base_processAllOverlappingPairs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::base_processAllOverlappingPairs(btOverlapCallback * arg1, btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::base_processAllOverlappingPairs(btOverlapCallback * arg1, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 83643253\narg 2 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::base_processAllOverlappingPairs(btOverlapCallback * arg1, btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::base_processAllOverlappingPairs(btOverlapCallback * arg1, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 83643253\narg 2 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btOverlapCallback* _arg1=(Luna< btOverlapCallback >::check(L,2));
@@ -783,8 +741,7 @@ public:
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::base_processAllOverlappingPairs(btOverlapCallback *, btDispatcher *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::base_processAllOverlappingPairs(btOverlapCallback *, btDispatcher *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSortedOverlappingPairCache::processAllOverlappingPairs(_arg1, dispatcher);
 
@@ -794,8 +751,7 @@ public:
 	// void * btSortedOverlappingPairCache::base_removeOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1, btDispatcher * dispatcher)
 	static int _bind_base_removeOverlappingPair(lua_State *L) {
 		if (!_lg_typecheck_base_removeOverlappingPair(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * btSortedOverlappingPairCache::base_removeOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1, btDispatcher * dispatcher) function, expected prototype:\nvoid * btSortedOverlappingPairCache::base_removeOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\narg 3 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void * btSortedOverlappingPairCache::base_removeOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1, btDispatcher * dispatcher) function, expected prototype:\nvoid * btSortedOverlappingPairCache::base_removeOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\narg 3 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy0=(Luna< btBroadphaseProxy >::check(L,2));
@@ -804,8 +760,7 @@ public:
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * btSortedOverlappingPairCache::base_removeOverlappingPair(btBroadphaseProxy *, btBroadphaseProxy *, btDispatcher *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * btSortedOverlappingPairCache::base_removeOverlappingPair(btBroadphaseProxy *, btBroadphaseProxy *, btDispatcher *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->btSortedOverlappingPairCache::removeOverlappingPair(proxy0, proxy1, dispatcher);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -818,8 +773,7 @@ public:
 	// void btSortedOverlappingPairCache::base_cleanOverlappingPair(btBroadphasePair & pair, btDispatcher * dispatcher)
 	static int _bind_base_cleanOverlappingPair(lua_State *L) {
 		if (!_lg_typecheck_base_cleanOverlappingPair(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::base_cleanOverlappingPair(btBroadphasePair & pair, btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::base_cleanOverlappingPair(btBroadphasePair & pair, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 82050774\narg 2 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::base_cleanOverlappingPair(btBroadphasePair & pair, btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::base_cleanOverlappingPair(btBroadphasePair & pair, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 82050774\narg 2 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphasePair* pair_ptr=(Luna< btBroadphasePair >::check(L,2));
@@ -831,8 +785,7 @@ public:
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::base_cleanOverlappingPair(btBroadphasePair &, btDispatcher *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::base_cleanOverlappingPair(btBroadphasePair &, btDispatcher *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSortedOverlappingPairCache::cleanOverlappingPair(pair, dispatcher);
 
@@ -842,8 +795,7 @@ public:
 	// btBroadphasePair * btSortedOverlappingPairCache::base_addOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1)
 	static int _bind_base_addOverlappingPair(lua_State *L) {
 		if (!_lg_typecheck_base_addOverlappingPair(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBroadphasePair * btSortedOverlappingPairCache::base_addOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1) function, expected prototype:\nbtBroadphasePair * btSortedOverlappingPairCache::base_addOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\n");
+			luaL_error(L, "luna typecheck failed in btBroadphasePair * btSortedOverlappingPairCache::base_addOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1) function, expected prototype:\nbtBroadphasePair * btSortedOverlappingPairCache::base_addOverlappingPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy0=(Luna< btBroadphaseProxy >::check(L,2));
@@ -851,8 +803,7 @@ public:
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btBroadphasePair * btSortedOverlappingPairCache::base_addOverlappingPair(btBroadphaseProxy *, btBroadphaseProxy *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btBroadphasePair * btSortedOverlappingPairCache::base_addOverlappingPair(btBroadphaseProxy *, btBroadphaseProxy *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btBroadphasePair * lret = self->btSortedOverlappingPairCache::addOverlappingPair(proxy0, proxy1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -865,8 +816,7 @@ public:
 	// btBroadphasePair * btSortedOverlappingPairCache::base_findPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1)
 	static int _bind_base_findPair(lua_State *L) {
 		if (!_lg_typecheck_base_findPair(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBroadphasePair * btSortedOverlappingPairCache::base_findPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1) function, expected prototype:\nbtBroadphasePair * btSortedOverlappingPairCache::base_findPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\n");
+			luaL_error(L, "luna typecheck failed in btBroadphasePair * btSortedOverlappingPairCache::base_findPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1) function, expected prototype:\nbtBroadphasePair * btSortedOverlappingPairCache::base_findPair(btBroadphaseProxy * proxy0, btBroadphaseProxy * proxy1)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy0=(Luna< btBroadphaseProxy >::check(L,2));
@@ -874,8 +824,7 @@ public:
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btBroadphasePair * btSortedOverlappingPairCache::base_findPair(btBroadphaseProxy *, btBroadphaseProxy *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btBroadphasePair * btSortedOverlappingPairCache::base_findPair(btBroadphaseProxy *, btBroadphaseProxy *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btBroadphasePair * lret = self->btSortedOverlappingPairCache::findPair(proxy0, proxy1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -888,8 +837,7 @@ public:
 	// void btSortedOverlappingPairCache::base_cleanProxyFromPairs(btBroadphaseProxy * proxy, btDispatcher * dispatcher)
 	static int _bind_base_cleanProxyFromPairs(lua_State *L) {
 		if (!_lg_typecheck_base_cleanProxyFromPairs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::base_cleanProxyFromPairs(btBroadphaseProxy * proxy, btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::base_cleanProxyFromPairs(btBroadphaseProxy * proxy, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::base_cleanProxyFromPairs(btBroadphaseProxy * proxy, btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::base_cleanProxyFromPairs(btBroadphaseProxy * proxy, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy=(Luna< btBroadphaseProxy >::check(L,2));
@@ -897,8 +845,7 @@ public:
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::base_cleanProxyFromPairs(btBroadphaseProxy *, btDispatcher *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::base_cleanProxyFromPairs(btBroadphaseProxy *, btDispatcher *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSortedOverlappingPairCache::cleanProxyFromPairs(proxy, dispatcher);
 
@@ -908,8 +855,7 @@ public:
 	// void btSortedOverlappingPairCache::base_removeOverlappingPairsContainingProxy(btBroadphaseProxy * proxy, btDispatcher * dispatcher)
 	static int _bind_base_removeOverlappingPairsContainingProxy(lua_State *L) {
 		if (!_lg_typecheck_base_removeOverlappingPairsContainingProxy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::base_removeOverlappingPairsContainingProxy(btBroadphaseProxy * proxy, btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::base_removeOverlappingPairsContainingProxy(btBroadphaseProxy * proxy, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::base_removeOverlappingPairsContainingProxy(btBroadphaseProxy * proxy, btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::base_removeOverlappingPairsContainingProxy(btBroadphaseProxy * proxy, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy=(Luna< btBroadphaseProxy >::check(L,2));
@@ -917,8 +863,7 @@ public:
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::base_removeOverlappingPairsContainingProxy(btBroadphaseProxy *, btDispatcher *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::base_removeOverlappingPairsContainingProxy(btBroadphaseProxy *, btDispatcher *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSortedOverlappingPairCache::removeOverlappingPairsContainingProxy(proxy, dispatcher);
 
@@ -928,15 +873,13 @@ public:
 	// btBroadphasePairArray & btSortedOverlappingPairCache::base_getOverlappingPairArray()
 	static int _bind_base_getOverlappingPairArray(lua_State *L) {
 		if (!_lg_typecheck_base_getOverlappingPairArray(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBroadphasePairArray & btSortedOverlappingPairCache::base_getOverlappingPairArray() function, expected prototype:\nbtBroadphasePairArray & btSortedOverlappingPairCache::base_getOverlappingPairArray()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btBroadphasePairArray & btSortedOverlappingPairCache::base_getOverlappingPairArray() function, expected prototype:\nbtBroadphasePairArray & btSortedOverlappingPairCache::base_getOverlappingPairArray()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btBroadphasePairArray & btSortedOverlappingPairCache::base_getOverlappingPairArray(). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btBroadphasePairArray & btSortedOverlappingPairCache::base_getOverlappingPairArray(). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btBroadphasePairArray* lret = &self->btSortedOverlappingPairCache::getOverlappingPairArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -949,15 +892,13 @@ public:
 	// btBroadphasePair * btSortedOverlappingPairCache::base_getOverlappingPairArrayPtr()
 	static int _bind_base_getOverlappingPairArrayPtr_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getOverlappingPairArrayPtr_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBroadphasePair * btSortedOverlappingPairCache::base_getOverlappingPairArrayPtr() function, expected prototype:\nbtBroadphasePair * btSortedOverlappingPairCache::base_getOverlappingPairArrayPtr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btBroadphasePair * btSortedOverlappingPairCache::base_getOverlappingPairArrayPtr() function, expected prototype:\nbtBroadphasePair * btSortedOverlappingPairCache::base_getOverlappingPairArrayPtr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btBroadphasePair * btSortedOverlappingPairCache::base_getOverlappingPairArrayPtr(). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btBroadphasePair * btSortedOverlappingPairCache::base_getOverlappingPairArrayPtr(). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btBroadphasePair * lret = self->btSortedOverlappingPairCache::getOverlappingPairArrayPtr();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -970,15 +911,13 @@ public:
 	// const btBroadphasePair * btSortedOverlappingPairCache::base_getOverlappingPairArrayPtr() const
 	static int _bind_base_getOverlappingPairArrayPtr_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getOverlappingPairArrayPtr_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btBroadphasePair * btSortedOverlappingPairCache::base_getOverlappingPairArrayPtr() const function, expected prototype:\nconst btBroadphasePair * btSortedOverlappingPairCache::base_getOverlappingPairArrayPtr() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btBroadphasePair * btSortedOverlappingPairCache::base_getOverlappingPairArrayPtr() const function, expected prototype:\nconst btBroadphasePair * btSortedOverlappingPairCache::base_getOverlappingPairArrayPtr() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btBroadphasePair * btSortedOverlappingPairCache::base_getOverlappingPairArrayPtr() const. Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btBroadphasePair * btSortedOverlappingPairCache::base_getOverlappingPairArrayPtr() const. Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btBroadphasePair * lret = self->btSortedOverlappingPairCache::getOverlappingPairArrayPtr();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1000,15 +939,13 @@ public:
 	// int btSortedOverlappingPairCache::base_getNumOverlappingPairs() const
 	static int _bind_base_getNumOverlappingPairs(lua_State *L) {
 		if (!_lg_typecheck_base_getNumOverlappingPairs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btSortedOverlappingPairCache::base_getNumOverlappingPairs() const function, expected prototype:\nint btSortedOverlappingPairCache::base_getNumOverlappingPairs() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btSortedOverlappingPairCache::base_getNumOverlappingPairs() const function, expected prototype:\nint btSortedOverlappingPairCache::base_getNumOverlappingPairs() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btSortedOverlappingPairCache::base_getNumOverlappingPairs() const. Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btSortedOverlappingPairCache::base_getNumOverlappingPairs() const. Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btSortedOverlappingPairCache::getNumOverlappingPairs();
 		lua_pushnumber(L,lret);
@@ -1019,16 +956,14 @@ public:
 	// void btSortedOverlappingPairCache::base_setOverlapFilterCallback(btOverlapFilterCallback * callback)
 	static int _bind_base_setOverlapFilterCallback(lua_State *L) {
 		if (!_lg_typecheck_base_setOverlapFilterCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::base_setOverlapFilterCallback(btOverlapFilterCallback * callback) function, expected prototype:\nvoid btSortedOverlappingPairCache::base_setOverlapFilterCallback(btOverlapFilterCallback * callback)\nClass arguments details:\narg 1 ID = 50236777\n");
+			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::base_setOverlapFilterCallback(btOverlapFilterCallback * callback) function, expected prototype:\nvoid btSortedOverlappingPairCache::base_setOverlapFilterCallback(btOverlapFilterCallback * callback)\nClass arguments details:\narg 1 ID = 50236777\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btOverlapFilterCallback* callback=(Luna< btOverlapFilterCallback >::check(L,2));
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::base_setOverlapFilterCallback(btOverlapFilterCallback *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::base_setOverlapFilterCallback(btOverlapFilterCallback *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSortedOverlappingPairCache::setOverlapFilterCallback(callback);
 
@@ -1038,15 +973,13 @@ public:
 	// bool btSortedOverlappingPairCache::base_hasDeferredRemoval()
 	static int _bind_base_hasDeferredRemoval(lua_State *L) {
 		if (!_lg_typecheck_base_hasDeferredRemoval(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btSortedOverlappingPairCache::base_hasDeferredRemoval() function, expected prototype:\nbool btSortedOverlappingPairCache::base_hasDeferredRemoval()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btSortedOverlappingPairCache::base_hasDeferredRemoval() function, expected prototype:\nbool btSortedOverlappingPairCache::base_hasDeferredRemoval()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btSortedOverlappingPairCache::base_hasDeferredRemoval(). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btSortedOverlappingPairCache::base_hasDeferredRemoval(). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->btSortedOverlappingPairCache::hasDeferredRemoval();
 		lua_pushboolean(L,lret?1:0);
@@ -1057,16 +990,14 @@ public:
 	// void btSortedOverlappingPairCache::base_setInternalGhostPairCallback(btOverlappingPairCallback * ghostPairCallback)
 	static int _bind_base_setInternalGhostPairCallback(lua_State *L) {
 		if (!_lg_typecheck_base_setInternalGhostPairCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::base_setInternalGhostPairCallback(btOverlappingPairCallback * ghostPairCallback) function, expected prototype:\nvoid btSortedOverlappingPairCache::base_setInternalGhostPairCallback(btOverlappingPairCallback * ghostPairCallback)\nClass arguments details:\narg 1 ID = 78133027\n");
+			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::base_setInternalGhostPairCallback(btOverlappingPairCallback * ghostPairCallback) function, expected prototype:\nvoid btSortedOverlappingPairCache::base_setInternalGhostPairCallback(btOverlappingPairCallback * ghostPairCallback)\nClass arguments details:\narg 1 ID = 78133027\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btOverlappingPairCallback* ghostPairCallback=(Luna< btOverlappingPairCallback >::check(L,2));
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::base_setInternalGhostPairCallback(btOverlappingPairCallback *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::base_setInternalGhostPairCallback(btOverlappingPairCallback *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSortedOverlappingPairCache::setInternalGhostPairCallback(ghostPairCallback);
 
@@ -1076,16 +1007,14 @@ public:
 	// void btSortedOverlappingPairCache::base_sortOverlappingPairs(btDispatcher * dispatcher)
 	static int _bind_base_sortOverlappingPairs(lua_State *L) {
 		if (!_lg_typecheck_base_sortOverlappingPairs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::base_sortOverlappingPairs(btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::base_sortOverlappingPairs(btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btSortedOverlappingPairCache::base_sortOverlappingPairs(btDispatcher * dispatcher) function, expected prototype:\nvoid btSortedOverlappingPairCache::base_sortOverlappingPairs(btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDispatcher* dispatcher=(Luna< btDispatcher >::check(L,2));
 
 		btSortedOverlappingPairCache* self=Luna< btOverlappingPairCallback >::checkSubType< btSortedOverlappingPairCache >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::base_sortOverlappingPairs(btDispatcher *). Got : '%s'",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSortedOverlappingPairCache::base_sortOverlappingPairs(btDispatcher *). Got : '%s'\n%s",typeid(Luna< btOverlappingPairCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSortedOverlappingPairCache::sortOverlappingPairs(dispatcher);
 

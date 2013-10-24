@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(SPK::SPKFactory*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(SPK::SPKFactory*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::SPKFactory* rhs =(Luna< SPK::SPKFactory >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::SPKFactory* self= (SPK::SPKFactory*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< SPK::SPKFactory >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -130,7 +126,7 @@ public:
 	inline static bool _lg_typecheck_copy_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -145,7 +141,7 @@ public:
 	inline static bool _lg_typecheck_get(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -153,7 +149,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -177,7 +173,7 @@ public:
 	inline static bool _lg_typecheck_trace_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -198,7 +194,7 @@ public:
 	inline static bool _lg_typecheck_findByName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -212,8 +208,7 @@ public:
 	// static SPK::SPKFactory & SPK::SPKFactory::getInstance()
 	static int _bind_getInstance(lua_State *L) {
 		if (!_lg_typecheck_getInstance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static SPK::SPKFactory & SPK::SPKFactory::getInstance() function, expected prototype:\nstatic SPK::SPKFactory & SPK::SPKFactory::getInstance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static SPK::SPKFactory & SPK::SPKFactory::getInstance() function, expected prototype:\nstatic SPK::SPKFactory & SPK::SPKFactory::getInstance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -228,8 +223,7 @@ public:
 	// static void SPK::SPKFactory::destroyInstance()
 	static int _bind_destroyInstance(lua_State *L) {
 		if (!_lg_typecheck_destroyInstance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void SPK::SPKFactory::destroyInstance() function, expected prototype:\nstatic void SPK::SPKFactory::destroyInstance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void SPK::SPKFactory::destroyInstance() function, expected prototype:\nstatic void SPK::SPKFactory::destroyInstance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -241,15 +235,13 @@ public:
 	// size_t SPK::SPKFactory::getNbObjects() const
 	static int _bind_getNbObjects(lua_State *L) {
 		if (!_lg_typecheck_getNbObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t SPK::SPKFactory::getNbObjects() const function, expected prototype:\nsize_t SPK::SPKFactory::getNbObjects() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t SPK::SPKFactory::getNbObjects() const function, expected prototype:\nsize_t SPK::SPKFactory::getNbObjects() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t SPK::SPKFactory::getNbObjects() const. Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t SPK::SPKFactory::getNbObjects() const. Got : '%s'\n%s",typeid(Luna< SPK::SPKFactory >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->getNbObjects();
 		lua_pushnumber(L,lret);
@@ -260,8 +252,7 @@ public:
 	// unsigned long SPK::SPKFactory::create(const SPK::Registerable & base)
 	static int _bind_create(lua_State *L) {
 		if (!_lg_typecheck_create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned long SPK::SPKFactory::create(const SPK::Registerable & base) function, expected prototype:\nunsigned long SPK::SPKFactory::create(const SPK::Registerable & base)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in unsigned long SPK::SPKFactory::create(const SPK::Registerable & base) function, expected prototype:\nunsigned long SPK::SPKFactory::create(const SPK::Registerable & base)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Registerable* base_ptr=(Luna< SPK::Registerable >::check(L,2));
@@ -272,8 +263,7 @@ public:
 
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned long SPK::SPKFactory::create(const SPK::Registerable &). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned long SPK::SPKFactory::create(const SPK::Registerable &). Got : '%s'\n%s",typeid(Luna< SPK::SPKFactory >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned long lret = self->create(base);
 		lua_pushnumber(L,lret);
@@ -284,16 +274,14 @@ public:
 	// SPK::Registerable * SPK::SPKFactory::copy(unsigned long ID)
 	static int _bind_copy_overload_1(lua_State *L) {
 		if (!_lg_typecheck_copy_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::SPKFactory::copy(unsigned long ID) function, expected prototype:\nSPK::Registerable * SPK::SPKFactory::copy(unsigned long ID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::SPKFactory::copy(unsigned long ID) function, expected prototype:\nSPK::Registerable * SPK::SPKFactory::copy(unsigned long ID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long ID=(unsigned long)lua_tointeger(L,2);
+		unsigned long ID=(unsigned long)lua_tonumber(L,2);
 
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SPKFactory::copy(unsigned long). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SPKFactory::copy(unsigned long). Got : '%s'\n%s",typeid(Luna< SPK::SPKFactory >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::Registerable * lret = self->copy(ID);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -306,16 +294,14 @@ public:
 	// SPK::Registerable * SPK::SPKFactory::copy(const SPK::Registerable * registerable)
 	static int _bind_copy_overload_2(lua_State *L) {
 		if (!_lg_typecheck_copy_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::SPKFactory::copy(const SPK::Registerable * registerable) function, expected prototype:\nSPK::Registerable * SPK::SPKFactory::copy(const SPK::Registerable * registerable)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::SPKFactory::copy(const SPK::Registerable * registerable) function, expected prototype:\nSPK::Registerable * SPK::SPKFactory::copy(const SPK::Registerable * registerable)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Registerable* registerable=(Luna< SPK::Registerable >::check(L,2));
 
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SPKFactory::copy(const SPK::Registerable *). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SPKFactory::copy(const SPK::Registerable *). Got : '%s'\n%s",typeid(Luna< SPK::SPKFactory >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::Registerable * lret = self->copy(registerable);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -337,16 +323,14 @@ public:
 	// SPK::Registerable * SPK::SPKFactory::get(unsigned long ID)
 	static int _bind_get(lua_State *L) {
 		if (!_lg_typecheck_get(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::SPKFactory::get(unsigned long ID) function, expected prototype:\nSPK::Registerable * SPK::SPKFactory::get(unsigned long ID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::SPKFactory::get(unsigned long ID) function, expected prototype:\nSPK::Registerable * SPK::SPKFactory::get(unsigned long ID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long ID=(unsigned long)lua_tointeger(L,2);
+		unsigned long ID=(unsigned long)lua_tonumber(L,2);
 
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SPKFactory::get(unsigned long). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SPKFactory::get(unsigned long). Got : '%s'\n%s",typeid(Luna< SPK::SPKFactory >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::Registerable * lret = self->get(ID);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -359,19 +343,17 @@ public:
 	// bool SPK::SPKFactory::destroy(unsigned long ID, bool checkNbReferences = true)
 	static int _bind_destroy_overload_1(lua_State *L) {
 		if (!_lg_typecheck_destroy_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::SPKFactory::destroy(unsigned long ID, bool checkNbReferences = true) function, expected prototype:\nbool SPK::SPKFactory::destroy(unsigned long ID, bool checkNbReferences = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::SPKFactory::destroy(unsigned long ID, bool checkNbReferences = true) function, expected prototype:\nbool SPK::SPKFactory::destroy(unsigned long ID, bool checkNbReferences = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
 
-		unsigned long ID=(unsigned long)lua_tointeger(L,2);
+		unsigned long ID=(unsigned long)lua_tonumber(L,2);
 		bool checkNbReferences=luatop>2 ? (bool)(lua_toboolean(L,3)==1) : (bool)true;
 
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::SPKFactory::destroy(unsigned long, bool). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::SPKFactory::destroy(unsigned long, bool). Got : '%s'\n%s",typeid(Luna< SPK::SPKFactory >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->destroy(ID, checkNbReferences);
 		lua_pushboolean(L,lret?1:0);
@@ -382,8 +364,7 @@ public:
 	// bool SPK::SPKFactory::destroy(SPK::Registerable * registerable, bool checkNbReferences = true)
 	static int _bind_destroy_overload_2(lua_State *L) {
 		if (!_lg_typecheck_destroy_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::SPKFactory::destroy(SPK::Registerable * registerable, bool checkNbReferences = true) function, expected prototype:\nbool SPK::SPKFactory::destroy(SPK::Registerable * registerable, bool checkNbReferences = true)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::SPKFactory::destroy(SPK::Registerable * registerable, bool checkNbReferences = true) function, expected prototype:\nbool SPK::SPKFactory::destroy(SPK::Registerable * registerable, bool checkNbReferences = true)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -393,8 +374,7 @@ public:
 
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::SPKFactory::destroy(SPK::Registerable *, bool). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::SPKFactory::destroy(SPK::Registerable *, bool). Got : '%s'\n%s",typeid(Luna< SPK::SPKFactory >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->destroy(registerable, checkNbReferences);
 		lua_pushboolean(L,lret?1:0);
@@ -414,15 +394,13 @@ public:
 	// void SPK::SPKFactory::destroyAll()
 	static int _bind_destroyAll(lua_State *L) {
 		if (!_lg_typecheck_destroyAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::SPKFactory::destroyAll() function, expected prototype:\nvoid SPK::SPKFactory::destroyAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::SPKFactory::destroyAll() function, expected prototype:\nvoid SPK::SPKFactory::destroyAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::SPKFactory::destroyAll(). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::SPKFactory::destroyAll(). Got : '%s'\n%s",typeid(Luna< SPK::SPKFactory >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->destroyAll();
 
@@ -432,16 +410,14 @@ public:
 	// void SPK::SPKFactory::trace(unsigned long ID)
 	static int _bind_trace_overload_1(lua_State *L) {
 		if (!_lg_typecheck_trace_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::SPKFactory::trace(unsigned long ID) function, expected prototype:\nvoid SPK::SPKFactory::trace(unsigned long ID)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::SPKFactory::trace(unsigned long ID) function, expected prototype:\nvoid SPK::SPKFactory::trace(unsigned long ID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long ID=(unsigned long)lua_tointeger(L,2);
+		unsigned long ID=(unsigned long)lua_tonumber(L,2);
 
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::SPKFactory::trace(unsigned long). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::SPKFactory::trace(unsigned long). Got : '%s'\n%s",typeid(Luna< SPK::SPKFactory >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->trace(ID);
 
@@ -451,16 +427,14 @@ public:
 	// void SPK::SPKFactory::trace(const SPK::Registerable * registerable)
 	static int _bind_trace_overload_2(lua_State *L) {
 		if (!_lg_typecheck_trace_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::SPKFactory::trace(const SPK::Registerable * registerable) function, expected prototype:\nvoid SPK::SPKFactory::trace(const SPK::Registerable * registerable)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::SPKFactory::trace(const SPK::Registerable * registerable) function, expected prototype:\nvoid SPK::SPKFactory::trace(const SPK::Registerable * registerable)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Registerable* registerable=(Luna< SPK::Registerable >::check(L,2));
 
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::SPKFactory::trace(const SPK::Registerable *). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::SPKFactory::trace(const SPK::Registerable *). Got : '%s'\n%s",typeid(Luna< SPK::SPKFactory >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->trace(registerable);
 
@@ -479,15 +453,13 @@ public:
 	// void SPK::SPKFactory::traceAll()
 	static int _bind_traceAll(lua_State *L) {
 		if (!_lg_typecheck_traceAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::SPKFactory::traceAll() function, expected prototype:\nvoid SPK::SPKFactory::traceAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::SPKFactory::traceAll() function, expected prototype:\nvoid SPK::SPKFactory::traceAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::SPKFactory::traceAll(). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::SPKFactory::traceAll(). Got : '%s'\n%s",typeid(Luna< SPK::SPKFactory >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->traceAll();
 
@@ -497,16 +469,14 @@ public:
 	// SPK::Registerable * SPK::SPKFactory::findByName(const std::string & name)
 	static int _bind_findByName(lua_State *L) {
 		if (!_lg_typecheck_findByName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::SPKFactory::findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::SPKFactory::findByName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::SPKFactory::findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::SPKFactory::findByName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		SPK::SPKFactory* self=(Luna< SPK::SPKFactory >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SPKFactory::findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::SPKFactory >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::SPKFactory::findByName(const std::string &). Got : '%s'\n%s",typeid(Luna< SPK::SPKFactory >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::Registerable * lret = self->findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btContactSolverInfo* self= (btContactSolverInfo*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btContactSolverInfoData >::check(L,1));
@@ -79,8 +77,7 @@ public:
 	// btContactSolverInfo::btContactSolverInfo()
 	static btContactSolverInfo* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btContactSolverInfo::btContactSolverInfo() function, expected prototype:\nbtContactSolverInfo::btContactSolverInfo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btContactSolverInfo::btContactSolverInfo() function, expected prototype:\nbtContactSolverInfo::btContactSolverInfo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 

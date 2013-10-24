@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btCollisionWorld::LocalShapeInfo*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btCollisionWorld::LocalShapeInfo*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld::LocalShapeInfo* rhs =(Luna< btCollisionWorld::LocalShapeInfo >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld::LocalShapeInfo* self= (btCollisionWorld::LocalShapeInfo*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCollisionWorld::LocalShapeInfo >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -117,14 +113,14 @@ public:
 	inline static bool _lg_typecheck_setShapePart(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setTriangleIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -138,15 +134,13 @@ public:
 	// int btCollisionWorld::LocalShapeInfo::m_shapePart()
 	static int _bind_getShapePart(lua_State *L) {
 		if (!_lg_typecheck_getShapePart(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btCollisionWorld::LocalShapeInfo::m_shapePart() function, expected prototype:\nint btCollisionWorld::LocalShapeInfo::m_shapePart()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btCollisionWorld::LocalShapeInfo::m_shapePart() function, expected prototype:\nint btCollisionWorld::LocalShapeInfo::m_shapePart()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCollisionWorld::LocalShapeInfo* self=(Luna< btCollisionWorld::LocalShapeInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btCollisionWorld::LocalShapeInfo::m_shapePart(). Got : '%s'",typeid(Luna< btCollisionWorld::LocalShapeInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btCollisionWorld::LocalShapeInfo::m_shapePart(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::LocalShapeInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_shapePart;
 		lua_pushnumber(L,lret);
@@ -157,15 +151,13 @@ public:
 	// int btCollisionWorld::LocalShapeInfo::m_triangleIndex()
 	static int _bind_getTriangleIndex(lua_State *L) {
 		if (!_lg_typecheck_getTriangleIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btCollisionWorld::LocalShapeInfo::m_triangleIndex() function, expected prototype:\nint btCollisionWorld::LocalShapeInfo::m_triangleIndex()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btCollisionWorld::LocalShapeInfo::m_triangleIndex() function, expected prototype:\nint btCollisionWorld::LocalShapeInfo::m_triangleIndex()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCollisionWorld::LocalShapeInfo* self=(Luna< btCollisionWorld::LocalShapeInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btCollisionWorld::LocalShapeInfo::m_triangleIndex(). Got : '%s'",typeid(Luna< btCollisionWorld::LocalShapeInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btCollisionWorld::LocalShapeInfo::m_triangleIndex(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::LocalShapeInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_triangleIndex;
 		lua_pushnumber(L,lret);
@@ -176,16 +168,14 @@ public:
 	// void btCollisionWorld::LocalShapeInfo::m_shapePart(int value)
 	static int _bind_setShapePart(lua_State *L) {
 		if (!_lg_typecheck_setShapePart(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCollisionWorld::LocalShapeInfo::m_shapePart(int value) function, expected prototype:\nvoid btCollisionWorld::LocalShapeInfo::m_shapePart(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btCollisionWorld::LocalShapeInfo::m_shapePart(int value) function, expected prototype:\nvoid btCollisionWorld::LocalShapeInfo::m_shapePart(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btCollisionWorld::LocalShapeInfo* self=(Luna< btCollisionWorld::LocalShapeInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCollisionWorld::LocalShapeInfo::m_shapePart(int). Got : '%s'",typeid(Luna< btCollisionWorld::LocalShapeInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCollisionWorld::LocalShapeInfo::m_shapePart(int). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::LocalShapeInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_shapePart = value;
 
@@ -195,16 +185,14 @@ public:
 	// void btCollisionWorld::LocalShapeInfo::m_triangleIndex(int value)
 	static int _bind_setTriangleIndex(lua_State *L) {
 		if (!_lg_typecheck_setTriangleIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCollisionWorld::LocalShapeInfo::m_triangleIndex(int value) function, expected prototype:\nvoid btCollisionWorld::LocalShapeInfo::m_triangleIndex(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btCollisionWorld::LocalShapeInfo::m_triangleIndex(int value) function, expected prototype:\nvoid btCollisionWorld::LocalShapeInfo::m_triangleIndex(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btCollisionWorld::LocalShapeInfo* self=(Luna< btCollisionWorld::LocalShapeInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCollisionWorld::LocalShapeInfo::m_triangleIndex(int). Got : '%s'",typeid(Luna< btCollisionWorld::LocalShapeInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCollisionWorld::LocalShapeInfo::m_triangleIndex(int). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::LocalShapeInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_triangleIndex = value;
 

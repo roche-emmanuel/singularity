@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IDoc* self=(Luna< IDoc >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IDocParameterList* self= (IDocParameterList*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< IDoc >::check(L,1));
@@ -118,8 +115,7 @@ public:
 	// IDocParameterList::IDocParameterList(lua_Table * data)
 	static IDocParameterList* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocParameterList::IDocParameterList(lua_Table * data) function, expected prototype:\nIDocParameterList::IDocParameterList(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocParameterList::IDocParameterList(lua_Table * data) function, expected prototype:\nIDocParameterList::IDocParameterList(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -131,15 +127,13 @@ public:
 	// IDocParameterList::Types IDocParameterList::sectType() const
 	static int _bind_sectType(lua_State *L) {
 		if (!_lg_typecheck_sectType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocParameterList::Types IDocParameterList::sectType() const function, expected prototype:\nIDocParameterList::Types IDocParameterList::sectType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocParameterList::Types IDocParameterList::sectType() const function, expected prototype:\nIDocParameterList::Types IDocParameterList::sectType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDocParameterList* self=Luna< IDoc >::checkSubType< IDocParameterList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IDocParameterList::Types IDocParameterList::sectType() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IDocParameterList::Types IDocParameterList::sectType() const. Got : '%s'\n%s",typeid(Luna< IDoc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IDocParameterList::Types lret = self->sectType();
 		lua_pushnumber(L,lret);
@@ -150,15 +144,13 @@ public:
 	// IDocIterator * IDocParameterList::params() const
 	static int _bind_params(lua_State *L) {
 		if (!_lg_typecheck_params(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocIterator * IDocParameterList::params() const function, expected prototype:\nIDocIterator * IDocParameterList::params() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocIterator * IDocParameterList::params() const function, expected prototype:\nIDocIterator * IDocParameterList::params() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDocParameterList* self=Luna< IDoc >::checkSubType< IDocParameterList >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IDocIterator * IDocParameterList::params() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IDocIterator * IDocParameterList::params() const. Got : '%s'\n%s",typeid(Luna< IDoc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IDocIterator * lret = self->params();
 		if(!lret) return 0; // Do not write NULL pointers.

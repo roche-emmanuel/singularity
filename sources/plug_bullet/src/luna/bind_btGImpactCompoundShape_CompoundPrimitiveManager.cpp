@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPrimitiveManagerBase* self=(Luna< btPrimitiveManagerBase >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGImpactCompoundShape::CompoundPrimitiveManager* self= (btGImpactCompoundShape::CompoundPrimitiveManager*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btPrimitiveManagerBase >::check(L,1));
@@ -153,7 +150,7 @@ public:
 	inline static bool _lg_typecheck_get_primitive_box(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,14786052) ) return false;
 		return true;
 	}
@@ -161,7 +158,7 @@ public:
 	inline static bool _lg_typecheck_get_primitive_triangle(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,79712881) ) return false;
 		return true;
 	}
@@ -194,7 +191,7 @@ public:
 	inline static bool _lg_typecheck_base_get_primitive_box(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,14786052) ) return false;
 		return true;
 	}
@@ -202,7 +199,7 @@ public:
 	inline static bool _lg_typecheck_base_get_primitive_triangle(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,79712881) ) return false;
 		return true;
 	}
@@ -215,8 +212,7 @@ public:
 	// btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(const btGImpactCompoundShape::CompoundPrimitiveManager & compound)
 	static btGImpactCompoundShape::CompoundPrimitiveManager* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(const btGImpactCompoundShape::CompoundPrimitiveManager & compound) function, expected prototype:\nbtGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(const btGImpactCompoundShape::CompoundPrimitiveManager & compound)\nClass arguments details:\narg 1 ID = 85935800\n");
+			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(const btGImpactCompoundShape::CompoundPrimitiveManager & compound) function, expected prototype:\nbtGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(const btGImpactCompoundShape::CompoundPrimitiveManager & compound)\nClass arguments details:\narg 1 ID = 85935800\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btGImpactCompoundShape::CompoundPrimitiveManager* compound_ptr=(Luna< btPrimitiveManagerBase >::checkSubType< btGImpactCompoundShape::CompoundPrimitiveManager >(L,1));
@@ -231,8 +227,7 @@ public:
 	// btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(btGImpactCompoundShape * compoundShape)
 	static btGImpactCompoundShape::CompoundPrimitiveManager* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(btGImpactCompoundShape * compoundShape) function, expected prototype:\nbtGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(btGImpactCompoundShape * compoundShape)\nClass arguments details:\narg 1 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(btGImpactCompoundShape * compoundShape) function, expected prototype:\nbtGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(btGImpactCompoundShape * compoundShape)\nClass arguments details:\narg 1 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGImpactCompoundShape* compoundShape=(Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1));
@@ -243,8 +238,7 @@ public:
 	// btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager()
 	static btGImpactCompoundShape::CompoundPrimitiveManager* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager() function, expected prototype:\nbtGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager() function, expected prototype:\nbtGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -254,8 +248,7 @@ public:
 	// btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(lua_Table * data, const btGImpactCompoundShape::CompoundPrimitiveManager & compound)
 	static btGImpactCompoundShape::CompoundPrimitiveManager* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(lua_Table * data, const btGImpactCompoundShape::CompoundPrimitiveManager & compound) function, expected prototype:\nbtGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(lua_Table * data, const btGImpactCompoundShape::CompoundPrimitiveManager & compound)\nClass arguments details:\narg 2 ID = 85935800\n");
+			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(lua_Table * data, const btGImpactCompoundShape::CompoundPrimitiveManager & compound) function, expected prototype:\nbtGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(lua_Table * data, const btGImpactCompoundShape::CompoundPrimitiveManager & compound)\nClass arguments details:\narg 2 ID = 85935800\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btGImpactCompoundShape::CompoundPrimitiveManager* compound_ptr=(Luna< btPrimitiveManagerBase >::checkSubType< btGImpactCompoundShape::CompoundPrimitiveManager >(L,2));
@@ -270,8 +263,7 @@ public:
 	// btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(lua_Table * data, btGImpactCompoundShape * compoundShape)
 	static btGImpactCompoundShape::CompoundPrimitiveManager* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(lua_Table * data, btGImpactCompoundShape * compoundShape) function, expected prototype:\nbtGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(lua_Table * data, btGImpactCompoundShape * compoundShape)\nClass arguments details:\narg 2 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(lua_Table * data, btGImpactCompoundShape * compoundShape) function, expected prototype:\nbtGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(lua_Table * data, btGImpactCompoundShape * compoundShape)\nClass arguments details:\narg 2 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGImpactCompoundShape* compoundShape=(Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,2));
@@ -282,8 +274,7 @@ public:
 	// btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(lua_Table * data)
 	static btGImpactCompoundShape::CompoundPrimitiveManager* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(lua_Table * data) function, expected prototype:\nbtGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(lua_Table * data) function, expected prototype:\nbtGImpactCompoundShape::CompoundPrimitiveManager::CompoundPrimitiveManager(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -308,15 +299,13 @@ public:
 	// bool btGImpactCompoundShape::CompoundPrimitiveManager::is_trimesh() const
 	static int _bind_is_trimesh(lua_State *L) {
 		if (!_lg_typecheck_is_trimesh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactCompoundShape::CompoundPrimitiveManager::is_trimesh() const function, expected prototype:\nbool btGImpactCompoundShape::CompoundPrimitiveManager::is_trimesh() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactCompoundShape::CompoundPrimitiveManager::is_trimesh() const function, expected prototype:\nbool btGImpactCompoundShape::CompoundPrimitiveManager::is_trimesh() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape::CompoundPrimitiveManager* self=Luna< btPrimitiveManagerBase >::checkSubType< btGImpactCompoundShape::CompoundPrimitiveManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactCompoundShape::CompoundPrimitiveManager::is_trimesh() const. Got : '%s'",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactCompoundShape::CompoundPrimitiveManager::is_trimesh() const. Got : '%s'\n%s",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->is_trimesh();
 		lua_pushboolean(L,lret?1:0);
@@ -327,15 +316,13 @@ public:
 	// int btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_count() const
 	static int _bind_get_primitive_count(lua_State *L) {
 		if (!_lg_typecheck_get_primitive_count(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_count() const function, expected prototype:\nint btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_count() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_count() const function, expected prototype:\nint btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_count() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape::CompoundPrimitiveManager* self=Luna< btPrimitiveManagerBase >::checkSubType< btGImpactCompoundShape::CompoundPrimitiveManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_count() const. Got : '%s'",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_count() const. Got : '%s'\n%s",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->get_primitive_count();
 		lua_pushnumber(L,lret);
@@ -346,8 +333,7 @@ public:
 	// void btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_box(int prim_index, btAABB & primbox) const
 	static int _bind_get_primitive_box(lua_State *L) {
 		if (!_lg_typecheck_get_primitive_box(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_box(int prim_index, btAABB & primbox) const function, expected prototype:\nvoid btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_box(int prim_index, btAABB & primbox) const\nClass arguments details:\narg 2 ID = 14786052\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_box(int prim_index, btAABB & primbox) const function, expected prototype:\nvoid btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_box(int prim_index, btAABB & primbox) const\nClass arguments details:\narg 2 ID = 14786052\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int prim_index=(int)lua_tointeger(L,2);
@@ -359,8 +345,7 @@ public:
 
 		btGImpactCompoundShape::CompoundPrimitiveManager* self=Luna< btPrimitiveManagerBase >::checkSubType< btGImpactCompoundShape::CompoundPrimitiveManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_box(int, btAABB &) const. Got : '%s'",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_box(int, btAABB &) const. Got : '%s'\n%s",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->get_primitive_box(prim_index, primbox);
 
@@ -370,8 +355,7 @@ public:
 	// void btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_triangle(int prim_index, btPrimitiveTriangle & triangle) const
 	static int _bind_get_primitive_triangle(lua_State *L) {
 		if (!_lg_typecheck_get_primitive_triangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_triangle(int prim_index, btPrimitiveTriangle & triangle) const function, expected prototype:\nvoid btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_triangle(int prim_index, btPrimitiveTriangle & triangle) const\nClass arguments details:\narg 2 ID = 79712881\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_triangle(int prim_index, btPrimitiveTriangle & triangle) const function, expected prototype:\nvoid btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_triangle(int prim_index, btPrimitiveTriangle & triangle) const\nClass arguments details:\narg 2 ID = 79712881\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int prim_index=(int)lua_tointeger(L,2);
@@ -383,8 +367,7 @@ public:
 
 		btGImpactCompoundShape::CompoundPrimitiveManager* self=Luna< btPrimitiveManagerBase >::checkSubType< btGImpactCompoundShape::CompoundPrimitiveManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_triangle(int, btPrimitiveTriangle &) const. Got : '%s'",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::CompoundPrimitiveManager::get_primitive_triangle(int, btPrimitiveTriangle &) const. Got : '%s'\n%s",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->get_primitive_triangle(prim_index, triangle);
 
@@ -394,15 +377,13 @@ public:
 	// btGImpactCompoundShape * btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape()
 	static int _bind_getCompoundShape(lua_State *L) {
 		if (!_lg_typecheck_getCompoundShape(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape * btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape() function, expected prototype:\nbtGImpactCompoundShape * btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape * btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape() function, expected prototype:\nbtGImpactCompoundShape * btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape::CompoundPrimitiveManager* self=Luna< btPrimitiveManagerBase >::checkSubType< btGImpactCompoundShape::CompoundPrimitiveManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btGImpactCompoundShape * btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape(). Got : '%s'",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btGImpactCompoundShape * btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape(). Got : '%s'\n%s",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btGImpactCompoundShape * lret = self->m_compoundShape;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -415,16 +396,14 @@ public:
 	// void btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape(btGImpactCompoundShape * value)
 	static int _bind_setCompoundShape(lua_State *L) {
 		if (!_lg_typecheck_setCompoundShape(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape(btGImpactCompoundShape * value) function, expected prototype:\nvoid btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape(btGImpactCompoundShape * value)\nClass arguments details:\narg 1 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape(btGImpactCompoundShape * value) function, expected prototype:\nvoid btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape(btGImpactCompoundShape * value)\nClass arguments details:\narg 1 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGImpactCompoundShape* value=(Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,2));
 
 		btGImpactCompoundShape::CompoundPrimitiveManager* self=Luna< btPrimitiveManagerBase >::checkSubType< btGImpactCompoundShape::CompoundPrimitiveManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape(btGImpactCompoundShape *). Got : '%s'",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::CompoundPrimitiveManager::m_compoundShape(btGImpactCompoundShape *). Got : '%s'\n%s",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_compoundShape = value;
 
@@ -434,15 +413,13 @@ public:
 	// bool btGImpactCompoundShape::CompoundPrimitiveManager::base_is_trimesh() const
 	static int _bind_base_is_trimesh(lua_State *L) {
 		if (!_lg_typecheck_base_is_trimesh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactCompoundShape::CompoundPrimitiveManager::base_is_trimesh() const function, expected prototype:\nbool btGImpactCompoundShape::CompoundPrimitiveManager::base_is_trimesh() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactCompoundShape::CompoundPrimitiveManager::base_is_trimesh() const function, expected prototype:\nbool btGImpactCompoundShape::CompoundPrimitiveManager::base_is_trimesh() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape::CompoundPrimitiveManager* self=Luna< btPrimitiveManagerBase >::checkSubType< btGImpactCompoundShape::CompoundPrimitiveManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactCompoundShape::CompoundPrimitiveManager::base_is_trimesh() const. Got : '%s'",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactCompoundShape::CompoundPrimitiveManager::base_is_trimesh() const. Got : '%s'\n%s",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->CompoundPrimitiveManager::is_trimesh();
 		lua_pushboolean(L,lret?1:0);
@@ -453,15 +430,13 @@ public:
 	// int btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_count() const
 	static int _bind_base_get_primitive_count(lua_State *L) {
 		if (!_lg_typecheck_base_get_primitive_count(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_count() const function, expected prototype:\nint btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_count() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_count() const function, expected prototype:\nint btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_count() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape::CompoundPrimitiveManager* self=Luna< btPrimitiveManagerBase >::checkSubType< btGImpactCompoundShape::CompoundPrimitiveManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_count() const. Got : '%s'",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_count() const. Got : '%s'\n%s",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->CompoundPrimitiveManager::get_primitive_count();
 		lua_pushnumber(L,lret);
@@ -472,8 +447,7 @@ public:
 	// void btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_box(int prim_index, btAABB & primbox) const
 	static int _bind_base_get_primitive_box(lua_State *L) {
 		if (!_lg_typecheck_base_get_primitive_box(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_box(int prim_index, btAABB & primbox) const function, expected prototype:\nvoid btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_box(int prim_index, btAABB & primbox) const\nClass arguments details:\narg 2 ID = 14786052\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_box(int prim_index, btAABB & primbox) const function, expected prototype:\nvoid btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_box(int prim_index, btAABB & primbox) const\nClass arguments details:\narg 2 ID = 14786052\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int prim_index=(int)lua_tointeger(L,2);
@@ -485,8 +459,7 @@ public:
 
 		btGImpactCompoundShape::CompoundPrimitiveManager* self=Luna< btPrimitiveManagerBase >::checkSubType< btGImpactCompoundShape::CompoundPrimitiveManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_box(int, btAABB &) const. Got : '%s'",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_box(int, btAABB &) const. Got : '%s'\n%s",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CompoundPrimitiveManager::get_primitive_box(prim_index, primbox);
 
@@ -496,8 +469,7 @@ public:
 	// void btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_triangle(int prim_index, btPrimitiveTriangle & triangle) const
 	static int _bind_base_get_primitive_triangle(lua_State *L) {
 		if (!_lg_typecheck_base_get_primitive_triangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_triangle(int prim_index, btPrimitiveTriangle & triangle) const function, expected prototype:\nvoid btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_triangle(int prim_index, btPrimitiveTriangle & triangle) const\nClass arguments details:\narg 2 ID = 79712881\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_triangle(int prim_index, btPrimitiveTriangle & triangle) const function, expected prototype:\nvoid btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_triangle(int prim_index, btPrimitiveTriangle & triangle) const\nClass arguments details:\narg 2 ID = 79712881\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int prim_index=(int)lua_tointeger(L,2);
@@ -509,8 +481,7 @@ public:
 
 		btGImpactCompoundShape::CompoundPrimitiveManager* self=Luna< btPrimitiveManagerBase >::checkSubType< btGImpactCompoundShape::CompoundPrimitiveManager >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_triangle(int, btPrimitiveTriangle &) const. Got : '%s'",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::CompoundPrimitiveManager::base_get_primitive_triangle(int, btPrimitiveTriangle &) const. Got : '%s'\n%s",typeid(Luna< btPrimitiveManagerBase >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CompoundPrimitiveManager::get_primitive_triangle(prim_index, triangle);
 

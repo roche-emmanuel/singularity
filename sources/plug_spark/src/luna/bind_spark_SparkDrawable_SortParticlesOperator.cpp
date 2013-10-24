@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		spark::SparkDrawable::SortParticlesOperator* self=(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(spark::SparkDrawable::SortParticlesOperator*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(spark::SparkDrawable::SortParticlesOperator*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		spark::SparkDrawable::SortParticlesOperator* rhs =(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		spark::SparkDrawable::SortParticlesOperator* self= (spark::SparkDrawable::SortParticlesOperator*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -174,8 +169,7 @@ public:
 	// spark::SparkDrawable::SortParticlesOperator::SortParticlesOperator(const osg::Vec3d & eye)
 	static spark::SparkDrawable::SortParticlesOperator* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in spark::SparkDrawable::SortParticlesOperator::SortParticlesOperator(const osg::Vec3d & eye) function, expected prototype:\nspark::SparkDrawable::SortParticlesOperator::SortParticlesOperator(const osg::Vec3d & eye)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in spark::SparkDrawable::SortParticlesOperator::SortParticlesOperator(const osg::Vec3d & eye) function, expected prototype:\nspark::SparkDrawable::SortParticlesOperator::SortParticlesOperator(const osg::Vec3d & eye)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,1));
@@ -190,8 +184,7 @@ public:
 	// spark::SparkDrawable::SortParticlesOperator::SortParticlesOperator(lua_Table * data, const osg::Vec3d & eye)
 	static spark::SparkDrawable::SortParticlesOperator* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in spark::SparkDrawable::SortParticlesOperator::SortParticlesOperator(lua_Table * data, const osg::Vec3d & eye) function, expected prototype:\nspark::SparkDrawable::SortParticlesOperator::SortParticlesOperator(lua_Table * data, const osg::Vec3d & eye)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in spark::SparkDrawable::SortParticlesOperator::SortParticlesOperator(lua_Table * data, const osg::Vec3d & eye) function, expected prototype:\nspark::SparkDrawable::SortParticlesOperator::SortParticlesOperator(lua_Table * data, const osg::Vec3d & eye)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3d* eye_ptr=(Luna< osg::Vec3d >::check(L,2));
@@ -217,15 +210,13 @@ public:
 	// SPK::Vector3D spark::SparkDrawable::SortParticlesOperator::_eye()
 	static int _bind_getEye(lua_State *L) {
 		if (!_lg_typecheck_getEye(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Vector3D spark::SparkDrawable::SortParticlesOperator::_eye() function, expected prototype:\nSPK::Vector3D spark::SparkDrawable::SortParticlesOperator::_eye()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Vector3D spark::SparkDrawable::SortParticlesOperator::_eye() function, expected prototype:\nSPK::Vector3D spark::SparkDrawable::SortParticlesOperator::_eye()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		spark::SparkDrawable::SortParticlesOperator* self=(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D spark::SparkDrawable::SortParticlesOperator::_eye(). Got : '%s'",typeid(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Vector3D spark::SparkDrawable::SortParticlesOperator::_eye(). Got : '%s'\n%s",typeid(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const SPK::Vector3D* lret = &self->_eye;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -238,8 +229,7 @@ public:
 	// void spark::SparkDrawable::SortParticlesOperator::_eye(SPK::Vector3D value)
 	static int _bind_setEye(lua_State *L) {
 		if (!_lg_typecheck_setEye(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::SortParticlesOperator::_eye(SPK::Vector3D value) function, expected prototype:\nvoid spark::SparkDrawable::SortParticlesOperator::_eye(SPK::Vector3D value)\nClass arguments details:\narg 1 ID = 70092749\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::SortParticlesOperator::_eye(SPK::Vector3D value) function, expected prototype:\nvoid spark::SparkDrawable::SortParticlesOperator::_eye(SPK::Vector3D value)\nClass arguments details:\narg 1 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Vector3D* value_ptr=(Luna< SPK::Vector3D >::check(L,2));
@@ -250,8 +240,7 @@ public:
 
 		spark::SparkDrawable::SortParticlesOperator* self=(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::SortParticlesOperator::_eye(SPK::Vector3D). Got : '%s'",typeid(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::SortParticlesOperator::_eye(SPK::Vector3D). Got : '%s'\n%s",typeid(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->_eye = value;
 
@@ -263,8 +252,7 @@ public:
 	// bool spark::SparkDrawable::SortParticlesOperator::operator()(SPK::System * lhs, SPK::System * rhs)
 	static int _bind_op_call(lua_State *L) {
 		if (!_lg_typecheck_op_call(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool spark::SparkDrawable::SortParticlesOperator::operator()(SPK::System * lhs, SPK::System * rhs) function, expected prototype:\nbool spark::SparkDrawable::SortParticlesOperator::operator()(SPK::System * lhs, SPK::System * rhs)\nClass arguments details:\narg 1 ID = 31337102\narg 2 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in bool spark::SparkDrawable::SortParticlesOperator::operator()(SPK::System * lhs, SPK::System * rhs) function, expected prototype:\nbool spark::SparkDrawable::SortParticlesOperator::operator()(SPK::System * lhs, SPK::System * rhs)\nClass arguments details:\narg 1 ID = 31337102\narg 2 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::System* lhs=(Luna< SPK::Registerable >::checkSubType< SPK::System >(L,2));
@@ -272,8 +260,7 @@ public:
 
 		spark::SparkDrawable::SortParticlesOperator* self=(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::SortParticlesOperator::operator()(SPK::System *, SPK::System *). Got : '%s'",typeid(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool spark::SparkDrawable::SortParticlesOperator::operator()(SPK::System *, SPK::System *). Got : '%s'\n%s",typeid(Luna< spark::SparkDrawable::SortParticlesOperator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator()(lhs, rhs);
 		lua_pushboolean(L,lret?1:0);

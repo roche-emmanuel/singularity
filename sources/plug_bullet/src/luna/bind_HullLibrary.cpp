@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(HullLibrary*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(HullLibrary*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		HullLibrary* rhs =(Luna< HullLibrary >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		HullLibrary* self= (HullLibrary*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< HullLibrary >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -140,8 +136,7 @@ public:
 	// HullError HullLibrary::CreateConvexHull(const HullDesc & desc, HullResult & result)
 	static int _bind_CreateConvexHull(lua_State *L) {
 		if (!_lg_typecheck_CreateConvexHull(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in HullError HullLibrary::CreateConvexHull(const HullDesc & desc, HullResult & result) function, expected prototype:\nHullError HullLibrary::CreateConvexHull(const HullDesc & desc, HullResult & result)\nClass arguments details:\narg 1 ID = 39835770\narg 2 ID = 83000358\n");
+			luaL_error(L, "luna typecheck failed in HullError HullLibrary::CreateConvexHull(const HullDesc & desc, HullResult & result) function, expected prototype:\nHullError HullLibrary::CreateConvexHull(const HullDesc & desc, HullResult & result)\nClass arguments details:\narg 1 ID = 39835770\narg 2 ID = 83000358\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const HullDesc* desc_ptr=(Luna< HullDesc >::check(L,2));
@@ -157,8 +152,7 @@ public:
 
 		HullLibrary* self=(Luna< HullLibrary >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call HullError HullLibrary::CreateConvexHull(const HullDesc &, HullResult &). Got : '%s'",typeid(Luna< HullLibrary >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call HullError HullLibrary::CreateConvexHull(const HullDesc &, HullResult &). Got : '%s'\n%s",typeid(Luna< HullLibrary >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		HullError lret = self->CreateConvexHull(desc, result);
 		lua_pushnumber(L,lret);
@@ -169,8 +163,7 @@ public:
 	// HullError HullLibrary::ReleaseResult(HullResult & result)
 	static int _bind_ReleaseResult(lua_State *L) {
 		if (!_lg_typecheck_ReleaseResult(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in HullError HullLibrary::ReleaseResult(HullResult & result) function, expected prototype:\nHullError HullLibrary::ReleaseResult(HullResult & result)\nClass arguments details:\narg 1 ID = 83000358\n");
+			luaL_error(L, "luna typecheck failed in HullError HullLibrary::ReleaseResult(HullResult & result) function, expected prototype:\nHullError HullLibrary::ReleaseResult(HullResult & result)\nClass arguments details:\narg 1 ID = 83000358\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		HullResult* result_ptr=(Luna< HullResult >::check(L,2));
@@ -181,8 +174,7 @@ public:
 
 		HullLibrary* self=(Luna< HullLibrary >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call HullError HullLibrary::ReleaseResult(HullResult &). Got : '%s'",typeid(Luna< HullLibrary >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call HullError HullLibrary::ReleaseResult(HullResult &). Got : '%s'\n%s",typeid(Luna< HullLibrary >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		HullError lret = self->ReleaseResult(result);
 		lua_pushnumber(L,lret);
@@ -193,15 +185,13 @@ public:
 	// btAlignedObjectArray< int > HullLibrary::m_vertexIndexMapping()
 	static int _bind_getVertexIndexMapping(lua_State *L) {
 		if (!_lg_typecheck_getVertexIndexMapping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< int > HullLibrary::m_vertexIndexMapping() function, expected prototype:\nbtAlignedObjectArray< int > HullLibrary::m_vertexIndexMapping()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< int > HullLibrary::m_vertexIndexMapping() function, expected prototype:\nbtAlignedObjectArray< int > HullLibrary::m_vertexIndexMapping()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		HullLibrary* self=(Luna< HullLibrary >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< int > HullLibrary::m_vertexIndexMapping(). Got : '%s'",typeid(Luna< HullLibrary >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< int > HullLibrary::m_vertexIndexMapping(). Got : '%s'\n%s",typeid(Luna< HullLibrary >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< int >* lret = &self->m_vertexIndexMapping;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -214,8 +204,7 @@ public:
 	// void HullLibrary::m_vertexIndexMapping(btAlignedObjectArray< int > value)
 	static int _bind_setVertexIndexMapping(lua_State *L) {
 		if (!_lg_typecheck_setVertexIndexMapping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void HullLibrary::m_vertexIndexMapping(btAlignedObjectArray< int > value) function, expected prototype:\nvoid HullLibrary::m_vertexIndexMapping(btAlignedObjectArray< int > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void HullLibrary::m_vertexIndexMapping(btAlignedObjectArray< int > value) function, expected prototype:\nvoid HullLibrary::m_vertexIndexMapping(btAlignedObjectArray< int > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< int >* value_ptr=(Luna< btAlignedObjectArray< int > >::check(L,2));
@@ -226,8 +215,7 @@ public:
 
 		HullLibrary* self=(Luna< HullLibrary >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void HullLibrary::m_vertexIndexMapping(btAlignedObjectArray< int >). Got : '%s'",typeid(Luna< HullLibrary >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void HullLibrary::m_vertexIndexMapping(btAlignedObjectArray< int >). Got : '%s'\n%s",typeid(Luna< HullLibrary >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_vertexIndexMapping = value;
 

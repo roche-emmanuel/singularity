@@ -73,7 +73,7 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
@@ -113,7 +113,7 @@ public:
 	inline static bool _lg_typecheck_block_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -176,7 +176,7 @@ public:
 			luaL_error(L, "luna typecheck failed in bool OpenThreads::Block::block(unsigned long timeout) function, expected prototype:\nbool OpenThreads::Block::block(unsigned long timeout)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long timeout=(unsigned long)lua_tointeger(L,2);
+		unsigned long timeout=(unsigned long)lua_tonumber(L,2);
 
 		OpenThreads::Block* self=(Luna< OpenThreads::Block >::check(L,1));
 		if(!self) {

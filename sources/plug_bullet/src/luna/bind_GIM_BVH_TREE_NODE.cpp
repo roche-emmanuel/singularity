@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(GIM_BVH_TREE_NODE*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(GIM_BVH_TREE_NODE*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		GIM_BVH_TREE_NODE* rhs =(Luna< GIM_BVH_TREE_NODE >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		GIM_BVH_TREE_NODE* self= (GIM_BVH_TREE_NODE*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< GIM_BVH_TREE_NODE >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -123,7 +119,7 @@ public:
 	inline static bool _lg_typecheck_setEscapeIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -136,7 +132,7 @@ public:
 	inline static bool _lg_typecheck_setDataIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -161,8 +157,7 @@ public:
 	// GIM_BVH_TREE_NODE::GIM_BVH_TREE_NODE()
 	static GIM_BVH_TREE_NODE* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in GIM_BVH_TREE_NODE::GIM_BVH_TREE_NODE() function, expected prototype:\nGIM_BVH_TREE_NODE::GIM_BVH_TREE_NODE()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in GIM_BVH_TREE_NODE::GIM_BVH_TREE_NODE() function, expected prototype:\nGIM_BVH_TREE_NODE::GIM_BVH_TREE_NODE()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -174,15 +169,13 @@ public:
 	// bool GIM_BVH_TREE_NODE::isLeafNode() const
 	static int _bind_isLeafNode(lua_State *L) {
 		if (!_lg_typecheck_isLeafNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool GIM_BVH_TREE_NODE::isLeafNode() const function, expected prototype:\nbool GIM_BVH_TREE_NODE::isLeafNode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool GIM_BVH_TREE_NODE::isLeafNode() const function, expected prototype:\nbool GIM_BVH_TREE_NODE::isLeafNode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GIM_BVH_TREE_NODE* self=(Luna< GIM_BVH_TREE_NODE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool GIM_BVH_TREE_NODE::isLeafNode() const. Got : '%s'",typeid(Luna< GIM_BVH_TREE_NODE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool GIM_BVH_TREE_NODE::isLeafNode() const. Got : '%s'\n%s",typeid(Luna< GIM_BVH_TREE_NODE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isLeafNode();
 		lua_pushboolean(L,lret?1:0);
@@ -193,15 +186,13 @@ public:
 	// int GIM_BVH_TREE_NODE::getEscapeIndex() const
 	static int _bind_getEscapeIndex(lua_State *L) {
 		if (!_lg_typecheck_getEscapeIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int GIM_BVH_TREE_NODE::getEscapeIndex() const function, expected prototype:\nint GIM_BVH_TREE_NODE::getEscapeIndex() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int GIM_BVH_TREE_NODE::getEscapeIndex() const function, expected prototype:\nint GIM_BVH_TREE_NODE::getEscapeIndex() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GIM_BVH_TREE_NODE* self=(Luna< GIM_BVH_TREE_NODE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int GIM_BVH_TREE_NODE::getEscapeIndex() const. Got : '%s'",typeid(Luna< GIM_BVH_TREE_NODE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int GIM_BVH_TREE_NODE::getEscapeIndex() const. Got : '%s'\n%s",typeid(Luna< GIM_BVH_TREE_NODE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getEscapeIndex();
 		lua_pushnumber(L,lret);
@@ -212,16 +203,14 @@ public:
 	// void GIM_BVH_TREE_NODE::setEscapeIndex(int index)
 	static int _bind_setEscapeIndex(lua_State *L) {
 		if (!_lg_typecheck_setEscapeIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GIM_BVH_TREE_NODE::setEscapeIndex(int index) function, expected prototype:\nvoid GIM_BVH_TREE_NODE::setEscapeIndex(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GIM_BVH_TREE_NODE::setEscapeIndex(int index) function, expected prototype:\nvoid GIM_BVH_TREE_NODE::setEscapeIndex(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		GIM_BVH_TREE_NODE* self=(Luna< GIM_BVH_TREE_NODE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GIM_BVH_TREE_NODE::setEscapeIndex(int). Got : '%s'",typeid(Luna< GIM_BVH_TREE_NODE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GIM_BVH_TREE_NODE::setEscapeIndex(int). Got : '%s'\n%s",typeid(Luna< GIM_BVH_TREE_NODE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setEscapeIndex(index);
 
@@ -231,15 +220,13 @@ public:
 	// int GIM_BVH_TREE_NODE::getDataIndex() const
 	static int _bind_getDataIndex(lua_State *L) {
 		if (!_lg_typecheck_getDataIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int GIM_BVH_TREE_NODE::getDataIndex() const function, expected prototype:\nint GIM_BVH_TREE_NODE::getDataIndex() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int GIM_BVH_TREE_NODE::getDataIndex() const function, expected prototype:\nint GIM_BVH_TREE_NODE::getDataIndex() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GIM_BVH_TREE_NODE* self=(Luna< GIM_BVH_TREE_NODE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int GIM_BVH_TREE_NODE::getDataIndex() const. Got : '%s'",typeid(Luna< GIM_BVH_TREE_NODE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int GIM_BVH_TREE_NODE::getDataIndex() const. Got : '%s'\n%s",typeid(Luna< GIM_BVH_TREE_NODE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getDataIndex();
 		lua_pushnumber(L,lret);
@@ -250,16 +237,14 @@ public:
 	// void GIM_BVH_TREE_NODE::setDataIndex(int index)
 	static int _bind_setDataIndex(lua_State *L) {
 		if (!_lg_typecheck_setDataIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GIM_BVH_TREE_NODE::setDataIndex(int index) function, expected prototype:\nvoid GIM_BVH_TREE_NODE::setDataIndex(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GIM_BVH_TREE_NODE::setDataIndex(int index) function, expected prototype:\nvoid GIM_BVH_TREE_NODE::setDataIndex(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		GIM_BVH_TREE_NODE* self=(Luna< GIM_BVH_TREE_NODE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GIM_BVH_TREE_NODE::setDataIndex(int). Got : '%s'",typeid(Luna< GIM_BVH_TREE_NODE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GIM_BVH_TREE_NODE::setDataIndex(int). Got : '%s'\n%s",typeid(Luna< GIM_BVH_TREE_NODE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDataIndex(index);
 
@@ -269,15 +254,13 @@ public:
 	// btAABB GIM_BVH_TREE_NODE::m_bound()
 	static int _bind_getBound(lua_State *L) {
 		if (!_lg_typecheck_getBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAABB GIM_BVH_TREE_NODE::m_bound() function, expected prototype:\nbtAABB GIM_BVH_TREE_NODE::m_bound()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAABB GIM_BVH_TREE_NODE::m_bound() function, expected prototype:\nbtAABB GIM_BVH_TREE_NODE::m_bound()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GIM_BVH_TREE_NODE* self=(Luna< GIM_BVH_TREE_NODE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAABB GIM_BVH_TREE_NODE::m_bound(). Got : '%s'",typeid(Luna< GIM_BVH_TREE_NODE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAABB GIM_BVH_TREE_NODE::m_bound(). Got : '%s'\n%s",typeid(Luna< GIM_BVH_TREE_NODE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAABB* lret = &self->m_bound;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -290,8 +273,7 @@ public:
 	// void GIM_BVH_TREE_NODE::m_bound(btAABB value)
 	static int _bind_setBound(lua_State *L) {
 		if (!_lg_typecheck_setBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GIM_BVH_TREE_NODE::m_bound(btAABB value) function, expected prototype:\nvoid GIM_BVH_TREE_NODE::m_bound(btAABB value)\nClass arguments details:\narg 1 ID = 14786052\n");
+			luaL_error(L, "luna typecheck failed in void GIM_BVH_TREE_NODE::m_bound(btAABB value) function, expected prototype:\nvoid GIM_BVH_TREE_NODE::m_bound(btAABB value)\nClass arguments details:\narg 1 ID = 14786052\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAABB* value_ptr=(Luna< btAABB >::check(L,2));
@@ -302,8 +284,7 @@ public:
 
 		GIM_BVH_TREE_NODE* self=(Luna< GIM_BVH_TREE_NODE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GIM_BVH_TREE_NODE::m_bound(btAABB). Got : '%s'",typeid(Luna< GIM_BVH_TREE_NODE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GIM_BVH_TREE_NODE::m_bound(btAABB). Got : '%s'\n%s",typeid(Luna< GIM_BVH_TREE_NODE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_bound = value;
 

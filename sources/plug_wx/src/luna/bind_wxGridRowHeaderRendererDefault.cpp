@@ -102,11 +102,11 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,20234418) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 		return true;
 	}
 

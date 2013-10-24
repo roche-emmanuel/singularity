@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Color*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Color*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Color* rhs =(Luna< b2Color >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Color* self= (b2Color*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Color >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -109,9 +105,9 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -120,9 +116,9 @@ public:
 	inline static bool _lg_typecheck_Set(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -147,21 +143,21 @@ public:
 	inline static bool _lg_typecheck_setR(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setG(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -173,8 +169,7 @@ public:
 	// b2Color::b2Color()
 	static b2Color* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Color::b2Color() function, expected prototype:\nb2Color::b2Color()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Color::b2Color() function, expected prototype:\nb2Color::b2Color()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -184,8 +179,7 @@ public:
 	// b2Color::b2Color(float r, float g, float b)
 	static b2Color* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Color::b2Color(float r, float g, float b) function, expected prototype:\nb2Color::b2Color(float r, float g, float b)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Color::b2Color(float r, float g, float b) function, expected prototype:\nb2Color::b2Color(float r, float g, float b)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float r=(float)lua_tonumber(L,1);
@@ -209,8 +203,7 @@ public:
 	// void b2Color::Set(float ri, float gi, float bi)
 	static int _bind_Set(lua_State *L) {
 		if (!_lg_typecheck_Set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Color::Set(float ri, float gi, float bi) function, expected prototype:\nvoid b2Color::Set(float ri, float gi, float bi)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Color::Set(float ri, float gi, float bi) function, expected prototype:\nvoid b2Color::Set(float ri, float gi, float bi)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float ri=(float)lua_tonumber(L,2);
@@ -219,8 +212,7 @@ public:
 
 		b2Color* self=(Luna< b2Color >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Color::Set(float, float, float). Got : '%s'",typeid(Luna< b2Color >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Color::Set(float, float, float). Got : '%s'\n%s",typeid(Luna< b2Color >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Set(ri, gi, bi);
 
@@ -230,15 +222,13 @@ public:
 	// float b2Color::r()
 	static int _bind_getR(lua_State *L) {
 		if (!_lg_typecheck_getR(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Color::r() function, expected prototype:\nfloat b2Color::r()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Color::r() function, expected prototype:\nfloat b2Color::r()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Color* self=(Luna< b2Color >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Color::r(). Got : '%s'",typeid(Luna< b2Color >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Color::r(). Got : '%s'\n%s",typeid(Luna< b2Color >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->r;
 		lua_pushnumber(L,lret);
@@ -249,15 +239,13 @@ public:
 	// float b2Color::g()
 	static int _bind_getG(lua_State *L) {
 		if (!_lg_typecheck_getG(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Color::g() function, expected prototype:\nfloat b2Color::g()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Color::g() function, expected prototype:\nfloat b2Color::g()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Color* self=(Luna< b2Color >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Color::g(). Got : '%s'",typeid(Luna< b2Color >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Color::g(). Got : '%s'\n%s",typeid(Luna< b2Color >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->g;
 		lua_pushnumber(L,lret);
@@ -268,15 +256,13 @@ public:
 	// float b2Color::b()
 	static int _bind_getB(lua_State *L) {
 		if (!_lg_typecheck_getB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Color::b() function, expected prototype:\nfloat b2Color::b()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Color::b() function, expected prototype:\nfloat b2Color::b()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Color* self=(Luna< b2Color >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Color::b(). Got : '%s'",typeid(Luna< b2Color >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Color::b(). Got : '%s'\n%s",typeid(Luna< b2Color >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->b;
 		lua_pushnumber(L,lret);
@@ -287,16 +273,14 @@ public:
 	// void b2Color::r(float value)
 	static int _bind_setR(lua_State *L) {
 		if (!_lg_typecheck_setR(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Color::r(float value) function, expected prototype:\nvoid b2Color::r(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Color::r(float value) function, expected prototype:\nvoid b2Color::r(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2Color* self=(Luna< b2Color >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Color::r(float). Got : '%s'",typeid(Luna< b2Color >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Color::r(float). Got : '%s'\n%s",typeid(Luna< b2Color >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->r = value;
 
@@ -306,16 +290,14 @@ public:
 	// void b2Color::g(float value)
 	static int _bind_setG(lua_State *L) {
 		if (!_lg_typecheck_setG(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Color::g(float value) function, expected prototype:\nvoid b2Color::g(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Color::g(float value) function, expected prototype:\nvoid b2Color::g(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2Color* self=(Luna< b2Color >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Color::g(float). Got : '%s'",typeid(Luna< b2Color >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Color::g(float). Got : '%s'\n%s",typeid(Luna< b2Color >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->g = value;
 
@@ -325,16 +307,14 @@ public:
 	// void b2Color::b(float value)
 	static int _bind_setB(lua_State *L) {
 		if (!_lg_typecheck_setB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Color::b(float value) function, expected prototype:\nvoid b2Color::b(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Color::b(float value) function, expected prototype:\nvoid b2Color::b(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2Color* self=(Luna< b2Color >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Color::b(float). Got : '%s'",typeid(Luna< b2Color >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Color::b(float). Got : '%s'\n%s",typeid(Luna< b2Color >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->b = value;
 

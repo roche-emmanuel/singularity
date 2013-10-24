@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		KinectDataDrawer* self= (KinectDataDrawer*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -125,7 +122,7 @@ public:
 	inline static bool _lg_typecheck_base_initialize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -171,8 +168,7 @@ public:
 	// KinectDataDrawer::KinectDataDrawer()
 	static KinectDataDrawer* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in KinectDataDrawer::KinectDataDrawer() function, expected prototype:\nKinectDataDrawer::KinectDataDrawer()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in KinectDataDrawer::KinectDataDrawer() function, expected prototype:\nKinectDataDrawer::KinectDataDrawer()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -182,8 +178,7 @@ public:
 	// KinectDataDrawer::KinectDataDrawer(lua_Table * data)
 	static KinectDataDrawer* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in KinectDataDrawer::KinectDataDrawer(lua_Table * data) function, expected prototype:\nKinectDataDrawer::KinectDataDrawer(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in KinectDataDrawer::KinectDataDrawer(lua_Table * data) function, expected prototype:\nKinectDataDrawer::KinectDataDrawer(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -204,15 +199,13 @@ public:
 	// void KinectDataDrawer::handleCurrentData()
 	static int _bind_handleCurrentData(lua_State *L) {
 		if (!_lg_typecheck_handleCurrentData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void KinectDataDrawer::handleCurrentData() function, expected prototype:\nvoid KinectDataDrawer::handleCurrentData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void KinectDataDrawer::handleCurrentData() function, expected prototype:\nvoid KinectDataDrawer::handleCurrentData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		KinectDataDrawer* self=Luna< osg::Referenced >::checkSubType< KinectDataDrawer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void KinectDataDrawer::handleCurrentData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void KinectDataDrawer::handleCurrentData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->handleCurrentData();
 
@@ -222,15 +215,13 @@ public:
 	// osg::Image * KinectDataDrawer::getImage()
 	static int _bind_getImage(lua_State *L) {
 		if (!_lg_typecheck_getImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image * KinectDataDrawer::getImage() function, expected prototype:\nosg::Image * KinectDataDrawer::getImage()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Image * KinectDataDrawer::getImage() function, expected prototype:\nosg::Image * KinectDataDrawer::getImage()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		KinectDataDrawer* self=Luna< osg::Referenced >::checkSubType< KinectDataDrawer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Image * KinectDataDrawer::getImage(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Image * KinectDataDrawer::getImage(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Image * lret = self->getImage();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -243,15 +234,13 @@ public:
 	// osg::Geometry * KinectDataDrawer::getSkeleton()
 	static int _bind_getSkeleton(lua_State *L) {
 		if (!_lg_typecheck_getSkeleton(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Geometry * KinectDataDrawer::getSkeleton() function, expected prototype:\nosg::Geometry * KinectDataDrawer::getSkeleton()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Geometry * KinectDataDrawer::getSkeleton() function, expected prototype:\nosg::Geometry * KinectDataDrawer::getSkeleton()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		KinectDataDrawer* self=Luna< osg::Referenced >::checkSubType< KinectDataDrawer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Geometry * KinectDataDrawer::getSkeleton(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Geometry * KinectDataDrawer::getSkeleton(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Geometry * lret = self->getSkeleton();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -264,16 +253,14 @@ public:
 	// bool KinectDataDrawer::base_initialize(int kid)
 	static int _bind_base_initialize(lua_State *L) {
 		if (!_lg_typecheck_base_initialize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool KinectDataDrawer::base_initialize(int kid) function, expected prototype:\nbool KinectDataDrawer::base_initialize(int kid)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool KinectDataDrawer::base_initialize(int kid) function, expected prototype:\nbool KinectDataDrawer::base_initialize(int kid)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int kid=(int)lua_tointeger(L,2);
 
 		KinectDataDrawer* self=Luna< osg::Referenced >::checkSubType< KinectDataDrawer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool KinectDataDrawer::base_initialize(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool KinectDataDrawer::base_initialize(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->KinectDataDrawer::initialize(kid);
 		lua_pushboolean(L,lret?1:0);
@@ -284,15 +271,13 @@ public:
 	// bool KinectDataDrawer::base_quit()
 	static int _bind_base_quit(lua_State *L) {
 		if (!_lg_typecheck_base_quit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool KinectDataDrawer::base_quit() function, expected prototype:\nbool KinectDataDrawer::base_quit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool KinectDataDrawer::base_quit() function, expected prototype:\nbool KinectDataDrawer::base_quit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		KinectDataDrawer* self=Luna< osg::Referenced >::checkSubType< KinectDataDrawer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool KinectDataDrawer::base_quit(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool KinectDataDrawer::base_quit(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->KinectDataDrawer::quit();
 		lua_pushboolean(L,lret?1:0);
@@ -303,8 +288,7 @@ public:
 	// bool KinectDataDrawer::base_handleJoints(NUI_SKELETON_DATA & skeletonData)
 	static int _bind_base_handleJoints(lua_State *L) {
 		if (!_lg_typecheck_base_handleJoints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool KinectDataDrawer::base_handleJoints(NUI_SKELETON_DATA & skeletonData) function, expected prototype:\nbool KinectDataDrawer::base_handleJoints(NUI_SKELETON_DATA & skeletonData)\nClass arguments details:\narg 1 ID = 47569100\n");
+			luaL_error(L, "luna typecheck failed in bool KinectDataDrawer::base_handleJoints(NUI_SKELETON_DATA & skeletonData) function, expected prototype:\nbool KinectDataDrawer::base_handleJoints(NUI_SKELETON_DATA & skeletonData)\nClass arguments details:\narg 1 ID = 47569100\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		NUI_SKELETON_DATA* skeletonData_ptr=(Luna< NUI_SKELETON_DATA >::check(L,2));
@@ -315,8 +299,7 @@ public:
 
 		KinectDataDrawer* self=Luna< osg::Referenced >::checkSubType< KinectDataDrawer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool KinectDataDrawer::base_handleJoints(NUI_SKELETON_DATA &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool KinectDataDrawer::base_handleJoints(NUI_SKELETON_DATA &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->KinectDataDrawer::handleJoints(skeletonData);
 		lua_pushboolean(L,lret?1:0);
@@ -327,8 +310,7 @@ public:
 	// bool KinectDataDrawer::base_handleImages(NUI_IMAGE_FRAME & imageFrame)
 	static int _bind_base_handleImages(lua_State *L) {
 		if (!_lg_typecheck_base_handleImages(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool KinectDataDrawer::base_handleImages(NUI_IMAGE_FRAME & imageFrame) function, expected prototype:\nbool KinectDataDrawer::base_handleImages(NUI_IMAGE_FRAME & imageFrame)\nClass arguments details:\narg 1 ID = 23034412\n");
+			luaL_error(L, "luna typecheck failed in bool KinectDataDrawer::base_handleImages(NUI_IMAGE_FRAME & imageFrame) function, expected prototype:\nbool KinectDataDrawer::base_handleImages(NUI_IMAGE_FRAME & imageFrame)\nClass arguments details:\narg 1 ID = 23034412\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		NUI_IMAGE_FRAME* imageFrame_ptr=(Luna< NUI_IMAGE_FRAME >::check(L,2));
@@ -339,8 +321,7 @@ public:
 
 		KinectDataDrawer* self=Luna< osg::Referenced >::checkSubType< KinectDataDrawer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool KinectDataDrawer::base_handleImages(NUI_IMAGE_FRAME &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool KinectDataDrawer::base_handleImages(NUI_IMAGE_FRAME &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->KinectDataDrawer::handleImages(imageFrame);
 		lua_pushboolean(L,lret?1:0);
@@ -351,8 +332,7 @@ public:
 	// bool KinectDataDrawer::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)
 	static int _bind_base_handle(lua_State *L) {
 		if (!_lg_typecheck_base_handle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool KinectDataDrawer::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa) function, expected prototype:\nbool KinectDataDrawer::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool KinectDataDrawer::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa) function, expected prototype:\nbool KinectDataDrawer::base_handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* ea_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -368,8 +348,7 @@ public:
 
 		KinectDataDrawer* self=Luna< osg::Referenced >::checkSubType< KinectDataDrawer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool KinectDataDrawer::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool KinectDataDrawer::base_handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->KinectDataDrawer::handle(ea, aa);
 		lua_pushboolean(L,lret?1:0);
@@ -380,15 +359,13 @@ public:
 	// void KinectDataDrawer::base_handleCurrentData()
 	static int _bind_base_handleCurrentData(lua_State *L) {
 		if (!_lg_typecheck_base_handleCurrentData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void KinectDataDrawer::base_handleCurrentData() function, expected prototype:\nvoid KinectDataDrawer::base_handleCurrentData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void KinectDataDrawer::base_handleCurrentData() function, expected prototype:\nvoid KinectDataDrawer::base_handleCurrentData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		KinectDataDrawer* self=Luna< osg::Referenced >::checkSubType< KinectDataDrawer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void KinectDataDrawer::base_handleCurrentData(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void KinectDataDrawer::base_handleCurrentData(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->KinectDataDrawer::handleCurrentData();
 

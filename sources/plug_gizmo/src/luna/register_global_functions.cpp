@@ -26,8 +26,7 @@ inline static bool _lg_typecheck_CreateScaleGizmo(lua_State *L) {
 // IGizmo * CreateMoveGizmo()
 static int _bind_CreateMoveGizmo(lua_State *L) {
 	if (!_lg_typecheck_CreateMoveGizmo(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in IGizmo * CreateMoveGizmo() function, expected prototype:\nIGizmo * CreateMoveGizmo()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in IGizmo * CreateMoveGizmo() function, expected prototype:\nIGizmo * CreateMoveGizmo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -42,8 +41,7 @@ static int _bind_CreateMoveGizmo(lua_State *L) {
 // IGizmo * CreateRotateGizmo()
 static int _bind_CreateRotateGizmo(lua_State *L) {
 	if (!_lg_typecheck_CreateRotateGizmo(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in IGizmo * CreateRotateGizmo() function, expected prototype:\nIGizmo * CreateRotateGizmo()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in IGizmo * CreateRotateGizmo() function, expected prototype:\nIGizmo * CreateRotateGizmo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -58,8 +56,7 @@ static int _bind_CreateRotateGizmo(lua_State *L) {
 // IGizmo * CreateScaleGizmo()
 static int _bind_CreateScaleGizmo(lua_State *L) {
 	if (!_lg_typecheck_CreateScaleGizmo(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in IGizmo * CreateScaleGizmo() function, expected prototype:\nIGizmo * CreateScaleGizmo()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in IGizmo * CreateScaleGizmo() function, expected prototype:\nIGizmo * CreateScaleGizmo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 

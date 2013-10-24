@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedObject* self=(Luna< btTypedObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGeneric6DofSpringConstraint* self= (btGeneric6DofSpringConstraint*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btTypedObject >::check(L,1));
@@ -148,7 +145,7 @@ public:
 	inline static bool _lg_typecheck_enableSpring(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -156,16 +153,16 @@ public:
 	inline static bool _lg_typecheck_setStiffness(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDamping(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -178,15 +175,15 @@ public:
 	inline static bool _lg_typecheck_setEquilibriumPoint_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setEquilibriumPoint_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -215,9 +212,9 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,36629303) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -226,7 +223,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,65712094) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,65712094) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -253,9 +250,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -263,8 +260,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -297,8 +294,7 @@ public:
 	// btGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)
 	static btGeneric6DofSpringConstraint* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA) function, expected prototype:\nbtGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 13247377\narg 4 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA) function, expected prototype:\nbtGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 13247377\narg 4 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* rbA_ptr=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,1));
@@ -329,8 +325,7 @@ public:
 	// btGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB)
 	static btGeneric6DofSpringConstraint* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB) function, expected prototype:\nbtGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB) function, expected prototype:\nbtGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* rbB_ptr=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,1));
@@ -351,8 +346,7 @@ public:
 	// btGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)
 	static btGeneric6DofSpringConstraint* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA) function, expected prototype:\nbtGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 85758361\narg 4 ID = 13247377\narg 5 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA) function, expected prototype:\nbtGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 85758361\narg 4 ID = 13247377\narg 5 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* rbA_ptr=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,2));
@@ -383,8 +377,7 @@ public:
 	// btGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(lua_Table * data, btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB)
 	static btGeneric6DofSpringConstraint* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(lua_Table * data, btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB) function, expected prototype:\nbtGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(lua_Table * data, btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(lua_Table * data, btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB) function, expected prototype:\nbtGeneric6DofSpringConstraint::btGeneric6DofSpringConstraint(lua_Table * data, btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* rbB_ptr=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,2));
@@ -418,8 +411,7 @@ public:
 	// void btGeneric6DofSpringConstraint::enableSpring(int index, bool onOff)
 	static int _bind_enableSpring(lua_State *L) {
 		if (!_lg_typecheck_enableSpring(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::enableSpring(int index, bool onOff) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::enableSpring(int index, bool onOff)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::enableSpring(int index, bool onOff) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::enableSpring(int index, bool onOff)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -427,8 +419,7 @@ public:
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::enableSpring(int, bool). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::enableSpring(int, bool). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->enableSpring(index, onOff);
 
@@ -438,8 +429,7 @@ public:
 	// void btGeneric6DofSpringConstraint::setStiffness(int index, float stiffness)
 	static int _bind_setStiffness(lua_State *L) {
 		if (!_lg_typecheck_setStiffness(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::setStiffness(int index, float stiffness) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::setStiffness(int index, float stiffness)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::setStiffness(int index, float stiffness) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::setStiffness(int index, float stiffness)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -447,8 +437,7 @@ public:
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::setStiffness(int, float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::setStiffness(int, float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setStiffness(index, stiffness);
 
@@ -458,8 +447,7 @@ public:
 	// void btGeneric6DofSpringConstraint::setDamping(int index, float damping)
 	static int _bind_setDamping(lua_State *L) {
 		if (!_lg_typecheck_setDamping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::setDamping(int index, float damping) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::setDamping(int index, float damping)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::setDamping(int index, float damping) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::setDamping(int index, float damping)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -467,8 +455,7 @@ public:
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::setDamping(int, float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::setDamping(int, float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDamping(index, damping);
 
@@ -478,15 +465,13 @@ public:
 	// void btGeneric6DofSpringConstraint::setEquilibriumPoint()
 	static int _bind_setEquilibriumPoint_overload_1(lua_State *L) {
 		if (!_lg_typecheck_setEquilibriumPoint_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::setEquilibriumPoint() function, expected prototype:\nvoid btGeneric6DofSpringConstraint::setEquilibriumPoint()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::setEquilibriumPoint() function, expected prototype:\nvoid btGeneric6DofSpringConstraint::setEquilibriumPoint()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::setEquilibriumPoint(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::setEquilibriumPoint(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setEquilibriumPoint();
 
@@ -496,16 +481,14 @@ public:
 	// void btGeneric6DofSpringConstraint::setEquilibriumPoint(int index)
 	static int _bind_setEquilibriumPoint_overload_2(lua_State *L) {
 		if (!_lg_typecheck_setEquilibriumPoint_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::setEquilibriumPoint(int index) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::setEquilibriumPoint(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::setEquilibriumPoint(int index) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::setEquilibriumPoint(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::setEquilibriumPoint(int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::setEquilibriumPoint(int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setEquilibriumPoint(index);
 
@@ -515,8 +498,7 @@ public:
 	// void btGeneric6DofSpringConstraint::setEquilibriumPoint(int index, float val)
 	static int _bind_setEquilibriumPoint_overload_3(lua_State *L) {
 		if (!_lg_typecheck_setEquilibriumPoint_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::setEquilibriumPoint(int index, float val) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::setEquilibriumPoint(int index, float val)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::setEquilibriumPoint(int index, float val) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::setEquilibriumPoint(int index, float val)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -524,8 +506,7 @@ public:
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::setEquilibriumPoint(int, float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::setEquilibriumPoint(int, float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setEquilibriumPoint(index, val);
 
@@ -545,8 +526,7 @@ public:
 	// void btGeneric6DofSpringConstraint::setAxis(const btVector3 & axis1, const btVector3 & axis2)
 	static int _bind_setAxis(lua_State *L) {
 		if (!_lg_typecheck_setAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::setAxis(const btVector3 & axis1, const btVector3 & axis2) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::setAxis(const btVector3 & axis1, const btVector3 & axis2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::setAxis(const btVector3 & axis1, const btVector3 & axis2) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::setAxis(const btVector3 & axis1, const btVector3 & axis2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* axis1_ptr=(Luna< btVector3 >::check(L,2));
@@ -562,8 +542,7 @@ public:
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::setAxis(const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::setAxis(const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAxis(axis1, axis2);
 
@@ -573,16 +552,14 @@ public:
 	// void btGeneric6DofSpringConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info)
 	static int _bind_getInfo2(lua_State *L) {
 		if (!_lg_typecheck_getInfo2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info)\nClass arguments details:\narg 1 ID = 17243936\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info)\nClass arguments details:\narg 1 ID = 17243936\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo2* info=(Luna< btTypedConstraint::btConstraintInfo2 >::check(L,2));
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getInfo2(info);
 
@@ -592,15 +569,13 @@ public:
 	// int btGeneric6DofSpringConstraint::calculateSerializeBufferSize() const
 	static int _bind_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGeneric6DofSpringConstraint::calculateSerializeBufferSize() const function, expected prototype:\nint btGeneric6DofSpringConstraint::calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGeneric6DofSpringConstraint::calculateSerializeBufferSize() const function, expected prototype:\nint btGeneric6DofSpringConstraint::calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGeneric6DofSpringConstraint::calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGeneric6DofSpringConstraint::calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);
@@ -611,8 +586,7 @@ public:
 	// void btGeneric6DofSpringConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep)
 	static int _bind_base_setupSolverConstraint(lua_State *L) {
 		if (!_lg_typecheck_base_setupSolverConstraint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep)\nClass arguments details:\narg 1 ID = 1318117\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep)\nClass arguments details:\narg 1 ID = 1318117\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConstraintArray* ca_ptr=(Luna< btAlignedObjectArray< btSolverConstraint > >::checkSubType< btConstraintArray >(L,2));
@@ -626,8 +600,7 @@ public:
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::base_setupSolverConstraint(btConstraintArray &, int, int, float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::base_setupSolverConstraint(btConstraintArray &, int, int, float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGeneric6DofSpringConstraint::setupSolverConstraint(ca, solverBodyA, solverBodyB, timeStep);
 
@@ -637,8 +610,7 @@ public:
 	// void btGeneric6DofSpringConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3)
 	static int _bind_base_solveConstraintObsolete(lua_State *L) {
 		if (!_lg_typecheck_base_solveConstraintObsolete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSolverBody* _arg1_ptr=(Luna< btSolverBody >::check(L,2));
@@ -655,8 +627,7 @@ public:
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::base_solveConstraintObsolete(btSolverBody &, btSolverBody &, float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::base_solveConstraintObsolete(btSolverBody &, btSolverBody &, float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGeneric6DofSpringConstraint::solveConstraintObsolete(_arg1, _arg2, _arg3);
 
@@ -666,15 +637,13 @@ public:
 	// void btGeneric6DofSpringConstraint::base_buildJacobian()
 	static int _bind_base_buildJacobian(lua_State *L) {
 		if (!_lg_typecheck_base_buildJacobian(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::base_buildJacobian() function, expected prototype:\nvoid btGeneric6DofSpringConstraint::base_buildJacobian()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::base_buildJacobian() function, expected prototype:\nvoid btGeneric6DofSpringConstraint::base_buildJacobian()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::base_buildJacobian(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::base_buildJacobian(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGeneric6DofSpringConstraint::buildJacobian();
 
@@ -684,16 +653,14 @@ public:
 	// void btGeneric6DofSpringConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info)
 	static int _bind_base_getInfo1(lua_State *L) {
 		if (!_lg_typecheck_base_getInfo1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo1* info=(Luna< btTypedConstraint::btConstraintInfo1 >::check(L,2));
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGeneric6DofSpringConstraint::getInfo1(info);
 
@@ -703,15 +670,13 @@ public:
 	// void btGeneric6DofSpringConstraint::base_calcAnchorPos()
 	static int _bind_base_calcAnchorPos(lua_State *L) {
 		if (!_lg_typecheck_base_calcAnchorPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::base_calcAnchorPos() function, expected prototype:\nvoid btGeneric6DofSpringConstraint::base_calcAnchorPos()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::base_calcAnchorPos() function, expected prototype:\nvoid btGeneric6DofSpringConstraint::base_calcAnchorPos()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::base_calcAnchorPos(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::base_calcAnchorPos(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGeneric6DofSpringConstraint::calcAnchorPos();
 
@@ -721,8 +686,7 @@ public:
 	// void btGeneric6DofSpringConstraint::base_setParam(int num, float value, int axis = -1)
 	static int _bind_base_setParam(lua_State *L) {
 		if (!_lg_typecheck_base_setParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::base_setParam(int num, float value, int axis = -1) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::base_setParam(int num, float value, int axis = -1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::base_setParam(int num, float value, int axis = -1) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::base_setParam(int num, float value, int axis = -1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -733,8 +697,7 @@ public:
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::base_setParam(int, float, int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::base_setParam(int, float, int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGeneric6DofSpringConstraint::setParam(num, value, axis);
 
@@ -744,8 +707,7 @@ public:
 	// float btGeneric6DofSpringConstraint::base_getParam(int num, int axis = -1) const
 	static int _bind_base_getParam(lua_State *L) {
 		if (!_lg_typecheck_base_getParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btGeneric6DofSpringConstraint::base_getParam(int num, int axis = -1) const function, expected prototype:\nfloat btGeneric6DofSpringConstraint::base_getParam(int num, int axis = -1) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btGeneric6DofSpringConstraint::base_getParam(int num, int axis = -1) const function, expected prototype:\nfloat btGeneric6DofSpringConstraint::base_getParam(int num, int axis = -1) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -755,8 +717,7 @@ public:
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btGeneric6DofSpringConstraint::base_getParam(int, int) const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btGeneric6DofSpringConstraint::base_getParam(int, int) const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btGeneric6DofSpringConstraint::getParam(num, axis);
 		lua_pushnumber(L,lret);
@@ -767,8 +728,7 @@ public:
 	// void btGeneric6DofSpringConstraint::base_setAxis(const btVector3 & axis1, const btVector3 & axis2)
 	static int _bind_base_setAxis(lua_State *L) {
 		if (!_lg_typecheck_base_setAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::base_setAxis(const btVector3 & axis1, const btVector3 & axis2) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::base_setAxis(const btVector3 & axis1, const btVector3 & axis2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::base_setAxis(const btVector3 & axis1, const btVector3 & axis2) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::base_setAxis(const btVector3 & axis1, const btVector3 & axis2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* axis1_ptr=(Luna< btVector3 >::check(L,2));
@@ -784,8 +744,7 @@ public:
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::base_setAxis(const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::base_setAxis(const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGeneric6DofSpringConstraint::setAxis(axis1, axis2);
 
@@ -795,16 +754,14 @@ public:
 	// void btGeneric6DofSpringConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info)
 	static int _bind_base_getInfo2(lua_State *L) {
 		if (!_lg_typecheck_base_getInfo2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info)\nClass arguments details:\narg 1 ID = 17243936\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofSpringConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info) function, expected prototype:\nvoid btGeneric6DofSpringConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info)\nClass arguments details:\narg 1 ID = 17243936\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo2* info=(Luna< btTypedConstraint::btConstraintInfo2 >::check(L,2));
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofSpringConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGeneric6DofSpringConstraint::getInfo2(info);
 
@@ -814,15 +771,13 @@ public:
 	// int btGeneric6DofSpringConstraint::base_calculateSerializeBufferSize() const
 	static int _bind_base_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_base_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGeneric6DofSpringConstraint::base_calculateSerializeBufferSize() const function, expected prototype:\nint btGeneric6DofSpringConstraint::base_calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGeneric6DofSpringConstraint::base_calculateSerializeBufferSize() const function, expected prototype:\nint btGeneric6DofSpringConstraint::base_calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofSpringConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofSpringConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGeneric6DofSpringConstraint::base_calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGeneric6DofSpringConstraint::base_calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btGeneric6DofSpringConstraint::calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);

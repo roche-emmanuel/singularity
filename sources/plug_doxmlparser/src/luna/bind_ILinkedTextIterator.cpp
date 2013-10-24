@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ILinkedTextIterator* self=(Luna< ILinkedTextIterator >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(ILinkedTextIterator*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(ILinkedTextIterator*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ILinkedTextIterator* rhs =(Luna< ILinkedTextIterator >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ILinkedTextIterator* self= (ILinkedTextIterator*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< ILinkedTextIterator >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -179,8 +174,7 @@ public:
 	// ILinkedTextIterator::ILinkedTextIterator(lua_Table * data)
 	static ILinkedTextIterator* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ILinkedTextIterator::ILinkedTextIterator(lua_Table * data) function, expected prototype:\nILinkedTextIterator::ILinkedTextIterator(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ILinkedTextIterator::ILinkedTextIterator(lua_Table * data) function, expected prototype:\nILinkedTextIterator::ILinkedTextIterator(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -192,15 +186,13 @@ public:
 	// ILinkedText * ILinkedTextIterator::toFirst()
 	static int _bind_toFirst(lua_State *L) {
 		if (!_lg_typecheck_toFirst(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ILinkedText * ILinkedTextIterator::toFirst() function, expected prototype:\nILinkedText * ILinkedTextIterator::toFirst()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ILinkedText * ILinkedTextIterator::toFirst() function, expected prototype:\nILinkedText * ILinkedTextIterator::toFirst()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ILinkedTextIterator* self=(Luna< ILinkedTextIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ILinkedText * ILinkedTextIterator::toFirst(). Got : '%s'",typeid(Luna< ILinkedTextIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call ILinkedText * ILinkedTextIterator::toFirst(). Got : '%s'\n%s",typeid(Luna< ILinkedTextIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ILinkedText * lret = self->toFirst();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -213,15 +205,13 @@ public:
 	// ILinkedText * ILinkedTextIterator::toLast()
 	static int _bind_toLast(lua_State *L) {
 		if (!_lg_typecheck_toLast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ILinkedText * ILinkedTextIterator::toLast() function, expected prototype:\nILinkedText * ILinkedTextIterator::toLast()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ILinkedText * ILinkedTextIterator::toLast() function, expected prototype:\nILinkedText * ILinkedTextIterator::toLast()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ILinkedTextIterator* self=(Luna< ILinkedTextIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ILinkedText * ILinkedTextIterator::toLast(). Got : '%s'",typeid(Luna< ILinkedTextIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call ILinkedText * ILinkedTextIterator::toLast(). Got : '%s'\n%s",typeid(Luna< ILinkedTextIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ILinkedText * lret = self->toLast();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -234,15 +224,13 @@ public:
 	// ILinkedText * ILinkedTextIterator::toNext()
 	static int _bind_toNext(lua_State *L) {
 		if (!_lg_typecheck_toNext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ILinkedText * ILinkedTextIterator::toNext() function, expected prototype:\nILinkedText * ILinkedTextIterator::toNext()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ILinkedText * ILinkedTextIterator::toNext() function, expected prototype:\nILinkedText * ILinkedTextIterator::toNext()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ILinkedTextIterator* self=(Luna< ILinkedTextIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ILinkedText * ILinkedTextIterator::toNext(). Got : '%s'",typeid(Luna< ILinkedTextIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call ILinkedText * ILinkedTextIterator::toNext(). Got : '%s'\n%s",typeid(Luna< ILinkedTextIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ILinkedText * lret = self->toNext();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -255,15 +243,13 @@ public:
 	// ILinkedText * ILinkedTextIterator::toPrev()
 	static int _bind_toPrev(lua_State *L) {
 		if (!_lg_typecheck_toPrev(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ILinkedText * ILinkedTextIterator::toPrev() function, expected prototype:\nILinkedText * ILinkedTextIterator::toPrev()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ILinkedText * ILinkedTextIterator::toPrev() function, expected prototype:\nILinkedText * ILinkedTextIterator::toPrev()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ILinkedTextIterator* self=(Luna< ILinkedTextIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ILinkedText * ILinkedTextIterator::toPrev(). Got : '%s'",typeid(Luna< ILinkedTextIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call ILinkedText * ILinkedTextIterator::toPrev(). Got : '%s'\n%s",typeid(Luna< ILinkedTextIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ILinkedText * lret = self->toPrev();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -276,15 +262,13 @@ public:
 	// ILinkedText * ILinkedTextIterator::current() const
 	static int _bind_current(lua_State *L) {
 		if (!_lg_typecheck_current(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ILinkedText * ILinkedTextIterator::current() const function, expected prototype:\nILinkedText * ILinkedTextIterator::current() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ILinkedText * ILinkedTextIterator::current() const function, expected prototype:\nILinkedText * ILinkedTextIterator::current() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ILinkedTextIterator* self=(Luna< ILinkedTextIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ILinkedText * ILinkedTextIterator::current() const. Got : '%s'",typeid(Luna< ILinkedTextIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call ILinkedText * ILinkedTextIterator::current() const. Got : '%s'\n%s",typeid(Luna< ILinkedTextIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ILinkedText * lret = self->current();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -297,15 +281,13 @@ public:
 	// void ILinkedTextIterator::release()
 	static int _bind_release(lua_State *L) {
 		if (!_lg_typecheck_release(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void ILinkedTextIterator::release() function, expected prototype:\nvoid ILinkedTextIterator::release()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void ILinkedTextIterator::release() function, expected prototype:\nvoid ILinkedTextIterator::release()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ILinkedTextIterator* self=(Luna< ILinkedTextIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void ILinkedTextIterator::release(). Got : '%s'",typeid(Luna< ILinkedTextIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void ILinkedTextIterator::release(). Got : '%s'\n%s",typeid(Luna< ILinkedTextIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->release();
 

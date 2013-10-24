@@ -405,16 +405,14 @@ public:
 	// void btGImpactMeshShape::public_buildMeshParts(btStridingMeshInterface * meshInterface)
 	static int _bind_public_buildMeshParts(lua_State *L) {
 		if (!_lg_typecheck_public_buildMeshParts(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShape::public_buildMeshParts(btStridingMeshInterface * meshInterface) function, expected prototype:\nvoid btGImpactMeshShape::public_buildMeshParts(btStridingMeshInterface * meshInterface)\nClass arguments details:\narg 1 ID = 56402633\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShape::public_buildMeshParts(btStridingMeshInterface * meshInterface) function, expected prototype:\nvoid btGImpactMeshShape::public_buildMeshParts(btStridingMeshInterface * meshInterface)\nClass arguments details:\narg 1 ID = 56402633\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btStridingMeshInterface* meshInterface=(Luna< btStridingMeshInterface >::check(L,2));
 
 		wrapper_btGImpactMeshShape* self=Luna< btCollisionShape >::checkSubType< wrapper_btGImpactMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShape::public_buildMeshParts(btStridingMeshInterface *). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShape::public_buildMeshParts(btStridingMeshInterface *). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_buildMeshParts(meshInterface);
 

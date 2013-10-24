@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglTexture*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglTexture*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglTexture* rhs =(Luna< mglTexture >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglTexture* self= (mglTexture*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< mglTexture >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -110,9 +106,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>3 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
+		if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -127,8 +123,8 @@ public:
 	inline static bool _lg_typecheck_GetC_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,18997795) ) return false;
 		if( (!(Luna< mglPnt >::check(L,4))) ) return false;
 		return true;
@@ -138,8 +134,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -153,14 +149,14 @@ public:
 	inline static bool _lg_typecheck_GetRGBA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_GetRGBAOBJ(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -185,21 +181,21 @@ public:
 	inline static bool _lg_typecheck_setN(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setSmooth(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setAlpha(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -211,8 +207,7 @@ public:
 	// mglTexture::mglTexture()
 	static mglTexture* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglTexture::mglTexture() function, expected prototype:\nmglTexture::mglTexture()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglTexture::mglTexture() function, expected prototype:\nmglTexture::mglTexture()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -222,8 +217,7 @@ public:
 	// mglTexture::mglTexture(const char * cols, int smooth = 0, double alpha = 1)
 	static mglTexture* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglTexture::mglTexture(const char * cols, int smooth = 0, double alpha = 1) function, expected prototype:\nmglTexture::mglTexture(const char * cols, int smooth = 0, double alpha = 1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglTexture::mglTexture(const char * cols, int smooth = 0, double alpha = 1) function, expected prototype:\nmglTexture::mglTexture(const char * cols, int smooth = 0, double alpha = 1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -249,15 +243,13 @@ public:
 	// void mglTexture::Clear()
 	static int _bind_Clear(lua_State *L) {
 		if (!_lg_typecheck_Clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglTexture::Clear() function, expected prototype:\nvoid mglTexture::Clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglTexture::Clear() function, expected prototype:\nvoid mglTexture::Clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglTexture* self=(Luna< mglTexture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglTexture::Clear(). Got : '%s'",typeid(Luna< mglTexture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglTexture::Clear(). Got : '%s'\n%s",typeid(Luna< mglTexture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Clear();
 
@@ -267,8 +259,7 @@ public:
 	// void mglTexture::GetC(double u, double v, mglPnt & p) const
 	static int _bind_GetC_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetC_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglTexture::GetC(double u, double v, mglPnt & p) const function, expected prototype:\nvoid mglTexture::GetC(double u, double v, mglPnt & p) const\nClass arguments details:\narg 3 ID = 18997795\n");
+			luaL_error(L, "luna typecheck failed in void mglTexture::GetC(double u, double v, mglPnt & p) const function, expected prototype:\nvoid mglTexture::GetC(double u, double v, mglPnt & p) const\nClass arguments details:\narg 3 ID = 18997795\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double u=(double)lua_tonumber(L,2);
@@ -281,8 +272,7 @@ public:
 
 		mglTexture* self=(Luna< mglTexture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglTexture::GetC(double, double, mglPnt &) const. Got : '%s'",typeid(Luna< mglTexture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglTexture::GetC(double, double, mglPnt &) const. Got : '%s'\n%s",typeid(Luna< mglTexture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetC(u, v, p);
 
@@ -292,8 +282,7 @@ public:
 	// mglColor mglTexture::GetC(double u, double v = 0) const
 	static int _bind_GetC_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetC_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglColor mglTexture::GetC(double u, double v = 0) const function, expected prototype:\nmglColor mglTexture::GetC(double u, double v = 0) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglColor mglTexture::GetC(double u, double v = 0) const function, expected prototype:\nmglColor mglTexture::GetC(double u, double v = 0) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -303,8 +292,7 @@ public:
 
 		mglTexture* self=(Luna< mglTexture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglColor mglTexture::GetC(double, double) const. Got : '%s'",typeid(Luna< mglTexture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglColor mglTexture::GetC(double, double) const. Got : '%s'\n%s",typeid(Luna< mglTexture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglColor stack_lret = self->GetC(u, v);
 		mglColor* lret = new mglColor(stack_lret);
@@ -327,8 +315,7 @@ public:
 	// bool mglTexture::IsSame(const mglTexture & t) const
 	static int _bind_IsSame(lua_State *L) {
 		if (!_lg_typecheck_IsSame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool mglTexture::IsSame(const mglTexture & t) const function, expected prototype:\nbool mglTexture::IsSame(const mglTexture & t) const\nClass arguments details:\narg 1 ID = 60998979\n");
+			luaL_error(L, "luna typecheck failed in bool mglTexture::IsSame(const mglTexture & t) const function, expected prototype:\nbool mglTexture::IsSame(const mglTexture & t) const\nClass arguments details:\narg 1 ID = 60998979\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const mglTexture* t_ptr=(Luna< mglTexture >::check(L,2));
@@ -339,8 +326,7 @@ public:
 
 		mglTexture* self=(Luna< mglTexture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool mglTexture::IsSame(const mglTexture &) const. Got : '%s'",typeid(Luna< mglTexture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool mglTexture::IsSame(const mglTexture &) const. Got : '%s'\n%s",typeid(Luna< mglTexture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsSame(t);
 		lua_pushboolean(L,lret?1:0);
@@ -351,16 +337,14 @@ public:
 	// void mglTexture::GetRGBA(unsigned char * f) const
 	static int _bind_GetRGBA(lua_State *L) {
 		if (!_lg_typecheck_GetRGBA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglTexture::GetRGBA(unsigned char * f) const function, expected prototype:\nvoid mglTexture::GetRGBA(unsigned char * f) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglTexture::GetRGBA(unsigned char * f) const function, expected prototype:\nvoid mglTexture::GetRGBA(unsigned char * f) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char f = (unsigned char)(lua_tointeger(L,2));
 
 		mglTexture* self=(Luna< mglTexture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglTexture::GetRGBA(unsigned char *) const. Got : '%s'",typeid(Luna< mglTexture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglTexture::GetRGBA(unsigned char *) const. Got : '%s'\n%s",typeid(Luna< mglTexture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetRGBA(&f);
 
@@ -370,16 +354,14 @@ public:
 	// void mglTexture::GetRGBAOBJ(unsigned char * f) const
 	static int _bind_GetRGBAOBJ(lua_State *L) {
 		if (!_lg_typecheck_GetRGBAOBJ(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglTexture::GetRGBAOBJ(unsigned char * f) const function, expected prototype:\nvoid mglTexture::GetRGBAOBJ(unsigned char * f) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglTexture::GetRGBAOBJ(unsigned char * f) const function, expected prototype:\nvoid mglTexture::GetRGBAOBJ(unsigned char * f) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char f = (unsigned char)(lua_tointeger(L,2));
 
 		mglTexture* self=(Luna< mglTexture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglTexture::GetRGBAOBJ(unsigned char *) const. Got : '%s'",typeid(Luna< mglTexture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglTexture::GetRGBAOBJ(unsigned char *) const. Got : '%s'\n%s",typeid(Luna< mglTexture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetRGBAOBJ(&f);
 
@@ -389,15 +371,13 @@ public:
 	// long mglTexture::n()
 	static int _bind_getN(lua_State *L) {
 		if (!_lg_typecheck_getN(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long mglTexture::n() function, expected prototype:\nlong mglTexture::n()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long mglTexture::n() function, expected prototype:\nlong mglTexture::n()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglTexture* self=(Luna< mglTexture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long mglTexture::n(). Got : '%s'",typeid(Luna< mglTexture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long mglTexture::n(). Got : '%s'\n%s",typeid(Luna< mglTexture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->n;
 		lua_pushnumber(L,lret);
@@ -408,15 +388,13 @@ public:
 	// int mglTexture::Smooth()
 	static int _bind_getSmooth(lua_State *L) {
 		if (!_lg_typecheck_getSmooth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int mglTexture::Smooth() function, expected prototype:\nint mglTexture::Smooth()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int mglTexture::Smooth() function, expected prototype:\nint mglTexture::Smooth()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglTexture* self=(Luna< mglTexture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int mglTexture::Smooth(). Got : '%s'",typeid(Luna< mglTexture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int mglTexture::Smooth(). Got : '%s'\n%s",typeid(Luna< mglTexture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Smooth;
 		lua_pushnumber(L,lret);
@@ -427,15 +405,13 @@ public:
 	// double mglTexture::Alpha()
 	static int _bind_getAlpha(lua_State *L) {
 		if (!_lg_typecheck_getAlpha(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double mglTexture::Alpha() function, expected prototype:\ndouble mglTexture::Alpha()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double mglTexture::Alpha() function, expected prototype:\ndouble mglTexture::Alpha()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglTexture* self=(Luna< mglTexture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double mglTexture::Alpha(). Got : '%s'",typeid(Luna< mglTexture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double mglTexture::Alpha(). Got : '%s'\n%s",typeid(Luna< mglTexture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->Alpha;
 		lua_pushnumber(L,lret);
@@ -446,16 +422,14 @@ public:
 	// void mglTexture::n(long value)
 	static int _bind_setN(lua_State *L) {
 		if (!_lg_typecheck_setN(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglTexture::n(long value) function, expected prototype:\nvoid mglTexture::n(long value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglTexture::n(long value) function, expected prototype:\nvoid mglTexture::n(long value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long value=(long)lua_tointeger(L,2);
+		long value=(long)lua_tonumber(L,2);
 
 		mglTexture* self=(Luna< mglTexture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglTexture::n(long). Got : '%s'",typeid(Luna< mglTexture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglTexture::n(long). Got : '%s'\n%s",typeid(Luna< mglTexture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->n = value;
 
@@ -465,16 +439,14 @@ public:
 	// void mglTexture::Smooth(int value)
 	static int _bind_setSmooth(lua_State *L) {
 		if (!_lg_typecheck_setSmooth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglTexture::Smooth(int value) function, expected prototype:\nvoid mglTexture::Smooth(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglTexture::Smooth(int value) function, expected prototype:\nvoid mglTexture::Smooth(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		mglTexture* self=(Luna< mglTexture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglTexture::Smooth(int). Got : '%s'",typeid(Luna< mglTexture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglTexture::Smooth(int). Got : '%s'\n%s",typeid(Luna< mglTexture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Smooth = value;
 
@@ -484,16 +456,14 @@ public:
 	// void mglTexture::Alpha(double value)
 	static int _bind_setAlpha(lua_State *L) {
 		if (!_lg_typecheck_setAlpha(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglTexture::Alpha(double value) function, expected prototype:\nvoid mglTexture::Alpha(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglTexture::Alpha(double value) function, expected prototype:\nvoid mglTexture::Alpha(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		mglTexture* self=(Luna< mglTexture >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglTexture::Alpha(double). Got : '%s'",typeid(Luna< mglTexture >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglTexture::Alpha(double). Got : '%s'\n%s",typeid(Luna< mglTexture >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Alpha = value;
 

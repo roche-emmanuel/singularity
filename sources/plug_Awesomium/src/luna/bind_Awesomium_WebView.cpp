@@ -98,7 +98,7 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
@@ -299,7 +299,7 @@ public:
 	inline static bool _lg_typecheck_GoToHistoryOffset(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -367,8 +367,8 @@ public:
 	inline static bool _lg_typecheck_Resize(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -430,7 +430,7 @@ public:
 	inline static bool _lg_typecheck_SetZoom(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -449,30 +449,30 @@ public:
 	inline static bool _lg_typecheck_InjectMouseMove(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_InjectMouseDown(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_InjectMouseUp(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_InjectMouseWheel(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -500,17 +500,17 @@ public:
 	inline static bool _lg_typecheck_SetIMEComposition(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_ConfirmIMEComposition(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
 		return true;
 	}
 
@@ -547,8 +547,8 @@ public:
 	inline static bool _lg_typecheck_CopyImageAt(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -573,7 +573,7 @@ public:
 	inline static bool _lg_typecheck_PrintToFile(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,23715294) ) return false;
 		return true;
 	}
@@ -587,23 +587,23 @@ public:
 	inline static bool _lg_typecheck_CreateGlobalJavascriptObject(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_ExecuteJavascript(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
-		if( (lua_isstring(L,3)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
+		if( (lua_type(L,3)!=LUA_TSTRING) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_ExecuteJavascriptWithResult(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isstring(L,2)==0) ) return false;
-		if( (lua_isstring(L,3)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TSTRING) ) return false;
+		if( (lua_type(L,3)!=LUA_TSTRING) ) return false;
 		return true;
 	}
 
@@ -623,7 +623,7 @@ public:
 	inline static bool _lg_typecheck_set_sync_message_timeout(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -636,7 +636,7 @@ public:
 	inline static bool _lg_typecheck_DidSelectPopupMenuItem(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -657,31 +657,31 @@ public:
 	inline static bool _lg_typecheck_DidLogin(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isstring(L,3)==0) ) return false;
-		if( (lua_isstring(L,4)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TSTRING) ) return false;
+		if( (lua_type(L,4)!=LUA_TSTRING) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_DidCancelLogin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_DidChooseDownloadPath(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isstring(L,3)==0) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TSTRING) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_DidCancelDownload(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 

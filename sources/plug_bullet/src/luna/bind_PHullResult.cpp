@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(PHullResult*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(PHullResult*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		PHullResult* rhs =(Luna< PHullResult >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		PHullResult* self= (PHullResult*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< PHullResult >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -141,21 +137,21 @@ public:
 	inline static bool _lg_typecheck_setVcount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setIndexCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setFaceCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -181,8 +177,7 @@ public:
 	// PHullResult::PHullResult()
 	static PHullResult* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in PHullResult::PHullResult() function, expected prototype:\nPHullResult::PHullResult()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in PHullResult::PHullResult() function, expected prototype:\nPHullResult::PHullResult()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -194,15 +189,13 @@ public:
 	// unsigned int PHullResult::mVcount()
 	static int _bind_getVcount(lua_State *L) {
 		if (!_lg_typecheck_getVcount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int PHullResult::mVcount() function, expected prototype:\nunsigned int PHullResult::mVcount()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int PHullResult::mVcount() function, expected prototype:\nunsigned int PHullResult::mVcount()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		PHullResult* self=(Luna< PHullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int PHullResult::mVcount(). Got : '%s'",typeid(Luna< PHullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int PHullResult::mVcount(). Got : '%s'\n%s",typeid(Luna< PHullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->mVcount;
 		lua_pushnumber(L,lret);
@@ -213,15 +206,13 @@ public:
 	// unsigned int PHullResult::mIndexCount()
 	static int _bind_getIndexCount(lua_State *L) {
 		if (!_lg_typecheck_getIndexCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int PHullResult::mIndexCount() function, expected prototype:\nunsigned int PHullResult::mIndexCount()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int PHullResult::mIndexCount() function, expected prototype:\nunsigned int PHullResult::mIndexCount()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		PHullResult* self=(Luna< PHullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int PHullResult::mIndexCount(). Got : '%s'",typeid(Luna< PHullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int PHullResult::mIndexCount(). Got : '%s'\n%s",typeid(Luna< PHullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->mIndexCount;
 		lua_pushnumber(L,lret);
@@ -232,15 +223,13 @@ public:
 	// unsigned int PHullResult::mFaceCount()
 	static int _bind_getFaceCount(lua_State *L) {
 		if (!_lg_typecheck_getFaceCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int PHullResult::mFaceCount() function, expected prototype:\nunsigned int PHullResult::mFaceCount()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int PHullResult::mFaceCount() function, expected prototype:\nunsigned int PHullResult::mFaceCount()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		PHullResult* self=(Luna< PHullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int PHullResult::mFaceCount(). Got : '%s'",typeid(Luna< PHullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int PHullResult::mFaceCount(). Got : '%s'\n%s",typeid(Luna< PHullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->mFaceCount;
 		lua_pushnumber(L,lret);
@@ -251,15 +240,13 @@ public:
 	// btVector3 * PHullResult::mVertices()
 	static int _bind_getVertices(lua_State *L) {
 		if (!_lg_typecheck_getVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 * PHullResult::mVertices() function, expected prototype:\nbtVector3 * PHullResult::mVertices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 * PHullResult::mVertices() function, expected prototype:\nbtVector3 * PHullResult::mVertices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		PHullResult* self=(Luna< PHullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 * PHullResult::mVertices(). Got : '%s'",typeid(Luna< PHullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 * PHullResult::mVertices(). Got : '%s'\n%s",typeid(Luna< PHullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 * lret = self->mVertices;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -272,15 +259,13 @@ public:
 	// TUIntArray PHullResult::m_Indices()
 	static int _bind_getIndices(lua_State *L) {
 		if (!_lg_typecheck_getIndices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in TUIntArray PHullResult::m_Indices() function, expected prototype:\nTUIntArray PHullResult::m_Indices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in TUIntArray PHullResult::m_Indices() function, expected prototype:\nTUIntArray PHullResult::m_Indices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		PHullResult* self=(Luna< PHullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call TUIntArray PHullResult::m_Indices(). Got : '%s'",typeid(Luna< PHullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call TUIntArray PHullResult::m_Indices(). Got : '%s'\n%s",typeid(Luna< PHullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const TUIntArray* lret = &self->m_Indices;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -293,16 +278,14 @@ public:
 	// void PHullResult::mVcount(unsigned int value)
 	static int _bind_setVcount(lua_State *L) {
 		if (!_lg_typecheck_setVcount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void PHullResult::mVcount(unsigned int value) function, expected prototype:\nvoid PHullResult::mVcount(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void PHullResult::mVcount(unsigned int value) function, expected prototype:\nvoid PHullResult::mVcount(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		PHullResult* self=(Luna< PHullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void PHullResult::mVcount(unsigned int). Got : '%s'",typeid(Luna< PHullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void PHullResult::mVcount(unsigned int). Got : '%s'\n%s",typeid(Luna< PHullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mVcount = value;
 
@@ -312,16 +295,14 @@ public:
 	// void PHullResult::mIndexCount(unsigned int value)
 	static int _bind_setIndexCount(lua_State *L) {
 		if (!_lg_typecheck_setIndexCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void PHullResult::mIndexCount(unsigned int value) function, expected prototype:\nvoid PHullResult::mIndexCount(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void PHullResult::mIndexCount(unsigned int value) function, expected prototype:\nvoid PHullResult::mIndexCount(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		PHullResult* self=(Luna< PHullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void PHullResult::mIndexCount(unsigned int). Got : '%s'",typeid(Luna< PHullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void PHullResult::mIndexCount(unsigned int). Got : '%s'\n%s",typeid(Luna< PHullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mIndexCount = value;
 
@@ -331,16 +312,14 @@ public:
 	// void PHullResult::mFaceCount(unsigned int value)
 	static int _bind_setFaceCount(lua_State *L) {
 		if (!_lg_typecheck_setFaceCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void PHullResult::mFaceCount(unsigned int value) function, expected prototype:\nvoid PHullResult::mFaceCount(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void PHullResult::mFaceCount(unsigned int value) function, expected prototype:\nvoid PHullResult::mFaceCount(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		PHullResult* self=(Luna< PHullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void PHullResult::mFaceCount(unsigned int). Got : '%s'",typeid(Luna< PHullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void PHullResult::mFaceCount(unsigned int). Got : '%s'\n%s",typeid(Luna< PHullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mFaceCount = value;
 
@@ -350,16 +329,14 @@ public:
 	// void PHullResult::mVertices(btVector3 * value)
 	static int _bind_setVertices(lua_State *L) {
 		if (!_lg_typecheck_setVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void PHullResult::mVertices(btVector3 * value) function, expected prototype:\nvoid PHullResult::mVertices(btVector3 * value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void PHullResult::mVertices(btVector3 * value) function, expected prototype:\nvoid PHullResult::mVertices(btVector3 * value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value=(Luna< btVector3 >::check(L,2));
 
 		PHullResult* self=(Luna< PHullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void PHullResult::mVertices(btVector3 *). Got : '%s'",typeid(Luna< PHullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void PHullResult::mVertices(btVector3 *). Got : '%s'\n%s",typeid(Luna< PHullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mVertices = value;
 
@@ -369,8 +346,7 @@ public:
 	// void PHullResult::m_Indices(TUIntArray value)
 	static int _bind_setIndices(lua_State *L) {
 		if (!_lg_typecheck_setIndices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void PHullResult::m_Indices(TUIntArray value) function, expected prototype:\nvoid PHullResult::m_Indices(TUIntArray value)\nClass arguments details:\narg 1 ID = 91893113\n");
+			luaL_error(L, "luna typecheck failed in void PHullResult::m_Indices(TUIntArray value) function, expected prototype:\nvoid PHullResult::m_Indices(TUIntArray value)\nClass arguments details:\narg 1 ID = 91893113\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		TUIntArray* value_ptr=(Luna< btAlignedObjectArray< unsigned int > >::checkSubType< TUIntArray >(L,2));
@@ -381,8 +357,7 @@ public:
 
 		PHullResult* self=(Luna< PHullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void PHullResult::m_Indices(TUIntArray). Got : '%s'",typeid(Luna< PHullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void PHullResult::m_Indices(TUIntArray). Got : '%s'\n%s",typeid(Luna< PHullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_Indices = value;
 

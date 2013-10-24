@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btAngleCompareFunc*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btAngleCompareFunc*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAngleCompareFunc* rhs =(Luna< btAngleCompareFunc >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAngleCompareFunc* self= (btAngleCompareFunc*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btAngleCompareFunc >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -138,8 +134,7 @@ public:
 	// btAngleCompareFunc::btAngleCompareFunc(const btVector3 & anchor)
 	static btAngleCompareFunc* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAngleCompareFunc::btAngleCompareFunc(const btVector3 & anchor) function, expected prototype:\nbtAngleCompareFunc::btAngleCompareFunc(const btVector3 & anchor)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btAngleCompareFunc::btAngleCompareFunc(const btVector3 & anchor) function, expected prototype:\nbtAngleCompareFunc::btAngleCompareFunc(const btVector3 & anchor)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* anchor_ptr=(Luna< btVector3 >::check(L,1));
@@ -156,15 +151,13 @@ public:
 	// btVector3 btAngleCompareFunc::m_anchor()
 	static int _bind_getAnchor(lua_State *L) {
 		if (!_lg_typecheck_getAnchor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btAngleCompareFunc::m_anchor() function, expected prototype:\nbtVector3 btAngleCompareFunc::m_anchor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btAngleCompareFunc::m_anchor() function, expected prototype:\nbtVector3 btAngleCompareFunc::m_anchor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btAngleCompareFunc* self=(Luna< btAngleCompareFunc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btAngleCompareFunc::m_anchor(). Got : '%s'",typeid(Luna< btAngleCompareFunc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btAngleCompareFunc::m_anchor(). Got : '%s'\n%s",typeid(Luna< btAngleCompareFunc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_anchor;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -177,8 +170,7 @@ public:
 	// void btAngleCompareFunc::m_anchor(btVector3 value)
 	static int _bind_setAnchor(lua_State *L) {
 		if (!_lg_typecheck_setAnchor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btAngleCompareFunc::m_anchor(btVector3 value) function, expected prototype:\nvoid btAngleCompareFunc::m_anchor(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btAngleCompareFunc::m_anchor(btVector3 value) function, expected prototype:\nvoid btAngleCompareFunc::m_anchor(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -189,8 +181,7 @@ public:
 
 		btAngleCompareFunc* self=(Luna< btAngleCompareFunc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btAngleCompareFunc::m_anchor(btVector3). Got : '%s'",typeid(Luna< btAngleCompareFunc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btAngleCompareFunc::m_anchor(btVector3). Got : '%s'\n%s",typeid(Luna< btAngleCompareFunc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_anchor = value;
 
@@ -202,8 +193,7 @@ public:
 	// bool btAngleCompareFunc::operator()(const GrahamVector3 & a, const GrahamVector3 & b) const
 	static int _bind_op_call(lua_State *L) {
 		if (!_lg_typecheck_op_call(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btAngleCompareFunc::operator()(const GrahamVector3 & a, const GrahamVector3 & b) const function, expected prototype:\nbool btAngleCompareFunc::operator()(const GrahamVector3 & a, const GrahamVector3 & b) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in bool btAngleCompareFunc::operator()(const GrahamVector3 & a, const GrahamVector3 & b) const function, expected prototype:\nbool btAngleCompareFunc::operator()(const GrahamVector3 & a, const GrahamVector3 & b) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const GrahamVector3* a_ptr=(Luna< btVector3 >::checkSubType< GrahamVector3 >(L,2));
@@ -219,8 +209,7 @@ public:
 
 		btAngleCompareFunc* self=(Luna< btAngleCompareFunc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btAngleCompareFunc::operator()(const GrahamVector3 &, const GrahamVector3 &) const. Got : '%s'",typeid(Luna< btAngleCompareFunc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btAngleCompareFunc::operator()(const GrahamVector3 &, const GrahamVector3 &) const. Got : '%s'\n%s",typeid(Luna< btAngleCompareFunc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator()(a, b);
 		lua_pushboolean(L,lret?1:0);

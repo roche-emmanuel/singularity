@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPersistentManifold* self= (btPersistentManifold*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btTypedObject >::check(L,1));
@@ -76,9 +74,9 @@ public:
 		if( (lua_isnil(L,1)==0 && !(Luna< btCollisionObject >::check(L,1)) ) ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,85758361)) ) return false;
 		if( (lua_isnil(L,2)==0 && !(Luna< btCollisionObject >::check(L,2)) ) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -120,21 +118,21 @@ public:
 	inline static bool _lg_typecheck_setNumContacts(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getContactPoint_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getContactPoint_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -153,14 +151,14 @@ public:
 	inline static bool _lg_typecheck_setContactBreakingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setContactProcessingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -183,7 +181,7 @@ public:
 	inline static bool _lg_typecheck_removeContactPoint(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -191,7 +189,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,55239733) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -237,21 +235,21 @@ public:
 	inline static bool _lg_typecheck_setCompanionIdA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setCompanionIdB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setIndex1a(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -263,8 +261,7 @@ public:
 	// btPersistentManifold::btPersistentManifold()
 	static btPersistentManifold* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btPersistentManifold::btPersistentManifold() function, expected prototype:\nbtPersistentManifold::btPersistentManifold()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btPersistentManifold::btPersistentManifold() function, expected prototype:\nbtPersistentManifold::btPersistentManifold()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -274,8 +271,7 @@ public:
 	// btPersistentManifold::btPersistentManifold(const btCollisionObject * body0, const btCollisionObject * body1, int arg3, float contactBreakingThreshold, float contactProcessingThreshold)
 	static btPersistentManifold* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btPersistentManifold::btPersistentManifold(const btCollisionObject * body0, const btCollisionObject * body1, int arg3, float contactBreakingThreshold, float contactProcessingThreshold) function, expected prototype:\nbtPersistentManifold::btPersistentManifold(const btCollisionObject * body0, const btCollisionObject * body1, int arg3, float contactBreakingThreshold, float contactProcessingThreshold)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in btPersistentManifold::btPersistentManifold(const btCollisionObject * body0, const btCollisionObject * body1, int arg3, float contactBreakingThreshold, float contactProcessingThreshold) function, expected prototype:\nbtPersistentManifold::btPersistentManifold(const btCollisionObject * body0, const btCollisionObject * body1, int arg3, float contactBreakingThreshold, float contactProcessingThreshold)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObject* body0=(Luna< btCollisionObject >::check(L,1));
@@ -301,15 +297,13 @@ public:
 	// const btCollisionObject * btPersistentManifold::getBody0() const
 	static int _bind_getBody0(lua_State *L) {
 		if (!_lg_typecheck_getBody0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btCollisionObject * btPersistentManifold::getBody0() const function, expected prototype:\nconst btCollisionObject * btPersistentManifold::getBody0() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btCollisionObject * btPersistentManifold::getBody0() const function, expected prototype:\nconst btCollisionObject * btPersistentManifold::getBody0() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btCollisionObject * btPersistentManifold::getBody0() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btCollisionObject * btPersistentManifold::getBody0() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btCollisionObject * lret = self->getBody0();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -322,15 +316,13 @@ public:
 	// const btCollisionObject * btPersistentManifold::getBody1() const
 	static int _bind_getBody1(lua_State *L) {
 		if (!_lg_typecheck_getBody1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btCollisionObject * btPersistentManifold::getBody1() const function, expected prototype:\nconst btCollisionObject * btPersistentManifold::getBody1() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btCollisionObject * btPersistentManifold::getBody1() const function, expected prototype:\nconst btCollisionObject * btPersistentManifold::getBody1() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btCollisionObject * btPersistentManifold::getBody1() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btCollisionObject * btPersistentManifold::getBody1() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btCollisionObject * lret = self->getBody1();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -343,8 +335,7 @@ public:
 	// void btPersistentManifold::setBodies(const btCollisionObject * body0, const btCollisionObject * body1)
 	static int _bind_setBodies(lua_State *L) {
 		if (!_lg_typecheck_setBodies(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPersistentManifold::setBodies(const btCollisionObject * body0, const btCollisionObject * body1) function, expected prototype:\nvoid btPersistentManifold::setBodies(const btCollisionObject * body0, const btCollisionObject * body1)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in void btPersistentManifold::setBodies(const btCollisionObject * body0, const btCollisionObject * body1) function, expected prototype:\nvoid btPersistentManifold::setBodies(const btCollisionObject * body0, const btCollisionObject * body1)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObject* body0=(Luna< btCollisionObject >::check(L,2));
@@ -352,8 +343,7 @@ public:
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPersistentManifold::setBodies(const btCollisionObject *, const btCollisionObject *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPersistentManifold::setBodies(const btCollisionObject *, const btCollisionObject *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setBodies(body0, body1);
 
@@ -363,8 +353,7 @@ public:
 	// void btPersistentManifold::clearUserCache(btManifoldPoint & pt)
 	static int _bind_clearUserCache(lua_State *L) {
 		if (!_lg_typecheck_clearUserCache(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPersistentManifold::clearUserCache(btManifoldPoint & pt) function, expected prototype:\nvoid btPersistentManifold::clearUserCache(btManifoldPoint & pt)\nClass arguments details:\narg 1 ID = 55239733\n");
+			luaL_error(L, "luna typecheck failed in void btPersistentManifold::clearUserCache(btManifoldPoint & pt) function, expected prototype:\nvoid btPersistentManifold::clearUserCache(btManifoldPoint & pt)\nClass arguments details:\narg 1 ID = 55239733\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btManifoldPoint* pt_ptr=(Luna< btManifoldPoint >::check(L,2));
@@ -375,8 +364,7 @@ public:
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPersistentManifold::clearUserCache(btManifoldPoint &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPersistentManifold::clearUserCache(btManifoldPoint &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->clearUserCache(pt);
 
@@ -386,15 +374,13 @@ public:
 	// int btPersistentManifold::getNumContacts() const
 	static int _bind_getNumContacts(lua_State *L) {
 		if (!_lg_typecheck_getNumContacts(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btPersistentManifold::getNumContacts() const function, expected prototype:\nint btPersistentManifold::getNumContacts() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btPersistentManifold::getNumContacts() const function, expected prototype:\nint btPersistentManifold::getNumContacts() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btPersistentManifold::getNumContacts() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btPersistentManifold::getNumContacts() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNumContacts();
 		lua_pushnumber(L,lret);
@@ -405,16 +391,14 @@ public:
 	// void btPersistentManifold::setNumContacts(int cachedPoints)
 	static int _bind_setNumContacts(lua_State *L) {
 		if (!_lg_typecheck_setNumContacts(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPersistentManifold::setNumContacts(int cachedPoints) function, expected prototype:\nvoid btPersistentManifold::setNumContacts(int cachedPoints)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btPersistentManifold::setNumContacts(int cachedPoints) function, expected prototype:\nvoid btPersistentManifold::setNumContacts(int cachedPoints)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int cachedPoints=(int)lua_tointeger(L,2);
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPersistentManifold::setNumContacts(int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPersistentManifold::setNumContacts(int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setNumContacts(cachedPoints);
 
@@ -424,16 +408,14 @@ public:
 	// const btManifoldPoint & btPersistentManifold::getContactPoint(int index) const
 	static int _bind_getContactPoint_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getContactPoint_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btManifoldPoint & btPersistentManifold::getContactPoint(int index) const function, expected prototype:\nconst btManifoldPoint & btPersistentManifold::getContactPoint(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btManifoldPoint & btPersistentManifold::getContactPoint(int index) const function, expected prototype:\nconst btManifoldPoint & btPersistentManifold::getContactPoint(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btManifoldPoint & btPersistentManifold::getContactPoint(int) const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btManifoldPoint & btPersistentManifold::getContactPoint(int) const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btManifoldPoint* lret = &self->getContactPoint(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -446,16 +428,14 @@ public:
 	// btManifoldPoint & btPersistentManifold::getContactPoint(int index)
 	static int _bind_getContactPoint_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getContactPoint_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btManifoldPoint & btPersistentManifold::getContactPoint(int index) function, expected prototype:\nbtManifoldPoint & btPersistentManifold::getContactPoint(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btManifoldPoint & btPersistentManifold::getContactPoint(int index) function, expected prototype:\nbtManifoldPoint & btPersistentManifold::getContactPoint(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btManifoldPoint & btPersistentManifold::getContactPoint(int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btManifoldPoint & btPersistentManifold::getContactPoint(int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btManifoldPoint* lret = &self->getContactPoint(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -477,15 +457,13 @@ public:
 	// float btPersistentManifold::getContactBreakingThreshold() const
 	static int _bind_getContactBreakingThreshold(lua_State *L) {
 		if (!_lg_typecheck_getContactBreakingThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btPersistentManifold::getContactBreakingThreshold() const function, expected prototype:\nfloat btPersistentManifold::getContactBreakingThreshold() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btPersistentManifold::getContactBreakingThreshold() const function, expected prototype:\nfloat btPersistentManifold::getContactBreakingThreshold() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btPersistentManifold::getContactBreakingThreshold() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btPersistentManifold::getContactBreakingThreshold() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getContactBreakingThreshold();
 		lua_pushnumber(L,lret);
@@ -496,15 +474,13 @@ public:
 	// float btPersistentManifold::getContactProcessingThreshold() const
 	static int _bind_getContactProcessingThreshold(lua_State *L) {
 		if (!_lg_typecheck_getContactProcessingThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btPersistentManifold::getContactProcessingThreshold() const function, expected prototype:\nfloat btPersistentManifold::getContactProcessingThreshold() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btPersistentManifold::getContactProcessingThreshold() const function, expected prototype:\nfloat btPersistentManifold::getContactProcessingThreshold() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btPersistentManifold::getContactProcessingThreshold() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btPersistentManifold::getContactProcessingThreshold() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getContactProcessingThreshold();
 		lua_pushnumber(L,lret);
@@ -515,16 +491,14 @@ public:
 	// void btPersistentManifold::setContactBreakingThreshold(float contactBreakingThreshold)
 	static int _bind_setContactBreakingThreshold(lua_State *L) {
 		if (!_lg_typecheck_setContactBreakingThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPersistentManifold::setContactBreakingThreshold(float contactBreakingThreshold) function, expected prototype:\nvoid btPersistentManifold::setContactBreakingThreshold(float contactBreakingThreshold)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btPersistentManifold::setContactBreakingThreshold(float contactBreakingThreshold) function, expected prototype:\nvoid btPersistentManifold::setContactBreakingThreshold(float contactBreakingThreshold)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float contactBreakingThreshold=(float)lua_tonumber(L,2);
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPersistentManifold::setContactBreakingThreshold(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPersistentManifold::setContactBreakingThreshold(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setContactBreakingThreshold(contactBreakingThreshold);
 
@@ -534,16 +508,14 @@ public:
 	// void btPersistentManifold::setContactProcessingThreshold(float contactProcessingThreshold)
 	static int _bind_setContactProcessingThreshold(lua_State *L) {
 		if (!_lg_typecheck_setContactProcessingThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPersistentManifold::setContactProcessingThreshold(float contactProcessingThreshold) function, expected prototype:\nvoid btPersistentManifold::setContactProcessingThreshold(float contactProcessingThreshold)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btPersistentManifold::setContactProcessingThreshold(float contactProcessingThreshold) function, expected prototype:\nvoid btPersistentManifold::setContactProcessingThreshold(float contactProcessingThreshold)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float contactProcessingThreshold=(float)lua_tonumber(L,2);
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPersistentManifold::setContactProcessingThreshold(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPersistentManifold::setContactProcessingThreshold(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setContactProcessingThreshold(contactProcessingThreshold);
 
@@ -553,8 +525,7 @@ public:
 	// int btPersistentManifold::getCacheEntry(const btManifoldPoint & newPoint) const
 	static int _bind_getCacheEntry(lua_State *L) {
 		if (!_lg_typecheck_getCacheEntry(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btPersistentManifold::getCacheEntry(const btManifoldPoint & newPoint) const function, expected prototype:\nint btPersistentManifold::getCacheEntry(const btManifoldPoint & newPoint) const\nClass arguments details:\narg 1 ID = 55239733\n");
+			luaL_error(L, "luna typecheck failed in int btPersistentManifold::getCacheEntry(const btManifoldPoint & newPoint) const function, expected prototype:\nint btPersistentManifold::getCacheEntry(const btManifoldPoint & newPoint) const\nClass arguments details:\narg 1 ID = 55239733\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btManifoldPoint* newPoint_ptr=(Luna< btManifoldPoint >::check(L,2));
@@ -565,8 +536,7 @@ public:
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btPersistentManifold::getCacheEntry(const btManifoldPoint &) const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btPersistentManifold::getCacheEntry(const btManifoldPoint &) const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getCacheEntry(newPoint);
 		lua_pushnumber(L,lret);
@@ -577,8 +547,7 @@ public:
 	// int btPersistentManifold::addManifoldPoint(const btManifoldPoint & newPoint, bool isPredictive = false)
 	static int _bind_addManifoldPoint(lua_State *L) {
 		if (!_lg_typecheck_addManifoldPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btPersistentManifold::addManifoldPoint(const btManifoldPoint & newPoint, bool isPredictive = false) function, expected prototype:\nint btPersistentManifold::addManifoldPoint(const btManifoldPoint & newPoint, bool isPredictive = false)\nClass arguments details:\narg 1 ID = 55239733\n");
+			luaL_error(L, "luna typecheck failed in int btPersistentManifold::addManifoldPoint(const btManifoldPoint & newPoint, bool isPredictive = false) function, expected prototype:\nint btPersistentManifold::addManifoldPoint(const btManifoldPoint & newPoint, bool isPredictive = false)\nClass arguments details:\narg 1 ID = 55239733\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -592,8 +561,7 @@ public:
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btPersistentManifold::addManifoldPoint(const btManifoldPoint &, bool). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btPersistentManifold::addManifoldPoint(const btManifoldPoint &, bool). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->addManifoldPoint(newPoint, isPredictive);
 		lua_pushnumber(L,lret);
@@ -604,16 +572,14 @@ public:
 	// void btPersistentManifold::removeContactPoint(int index)
 	static int _bind_removeContactPoint(lua_State *L) {
 		if (!_lg_typecheck_removeContactPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPersistentManifold::removeContactPoint(int index) function, expected prototype:\nvoid btPersistentManifold::removeContactPoint(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btPersistentManifold::removeContactPoint(int index) function, expected prototype:\nvoid btPersistentManifold::removeContactPoint(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPersistentManifold::removeContactPoint(int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPersistentManifold::removeContactPoint(int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->removeContactPoint(index);
 
@@ -623,8 +589,7 @@ public:
 	// void btPersistentManifold::replaceContactPoint(const btManifoldPoint & newPoint, int insertIndex)
 	static int _bind_replaceContactPoint(lua_State *L) {
 		if (!_lg_typecheck_replaceContactPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPersistentManifold::replaceContactPoint(const btManifoldPoint & newPoint, int insertIndex) function, expected prototype:\nvoid btPersistentManifold::replaceContactPoint(const btManifoldPoint & newPoint, int insertIndex)\nClass arguments details:\narg 1 ID = 55239733\n");
+			luaL_error(L, "luna typecheck failed in void btPersistentManifold::replaceContactPoint(const btManifoldPoint & newPoint, int insertIndex) function, expected prototype:\nvoid btPersistentManifold::replaceContactPoint(const btManifoldPoint & newPoint, int insertIndex)\nClass arguments details:\narg 1 ID = 55239733\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btManifoldPoint* newPoint_ptr=(Luna< btManifoldPoint >::check(L,2));
@@ -636,8 +601,7 @@ public:
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPersistentManifold::replaceContactPoint(const btManifoldPoint &, int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPersistentManifold::replaceContactPoint(const btManifoldPoint &, int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->replaceContactPoint(newPoint, insertIndex);
 
@@ -647,8 +611,7 @@ public:
 	// bool btPersistentManifold::validContactDistance(const btManifoldPoint & pt) const
 	static int _bind_validContactDistance(lua_State *L) {
 		if (!_lg_typecheck_validContactDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btPersistentManifold::validContactDistance(const btManifoldPoint & pt) const function, expected prototype:\nbool btPersistentManifold::validContactDistance(const btManifoldPoint & pt) const\nClass arguments details:\narg 1 ID = 55239733\n");
+			luaL_error(L, "luna typecheck failed in bool btPersistentManifold::validContactDistance(const btManifoldPoint & pt) const function, expected prototype:\nbool btPersistentManifold::validContactDistance(const btManifoldPoint & pt) const\nClass arguments details:\narg 1 ID = 55239733\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btManifoldPoint* pt_ptr=(Luna< btManifoldPoint >::check(L,2));
@@ -659,8 +622,7 @@ public:
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btPersistentManifold::validContactDistance(const btManifoldPoint &) const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btPersistentManifold::validContactDistance(const btManifoldPoint &) const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->validContactDistance(pt);
 		lua_pushboolean(L,lret?1:0);
@@ -671,8 +633,7 @@ public:
 	// void btPersistentManifold::refreshContactPoints(const btTransform & trA, const btTransform & trB)
 	static int _bind_refreshContactPoints(lua_State *L) {
 		if (!_lg_typecheck_refreshContactPoints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPersistentManifold::refreshContactPoints(const btTransform & trA, const btTransform & trB) function, expected prototype:\nvoid btPersistentManifold::refreshContactPoints(const btTransform & trA, const btTransform & trB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btPersistentManifold::refreshContactPoints(const btTransform & trA, const btTransform & trB) function, expected prototype:\nvoid btPersistentManifold::refreshContactPoints(const btTransform & trA, const btTransform & trB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* trA_ptr=(Luna< btTransform >::check(L,2));
@@ -688,8 +649,7 @@ public:
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPersistentManifold::refreshContactPoints(const btTransform &, const btTransform &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPersistentManifold::refreshContactPoints(const btTransform &, const btTransform &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->refreshContactPoints(trA, trB);
 
@@ -699,15 +659,13 @@ public:
 	// void btPersistentManifold::clearManifold()
 	static int _bind_clearManifold(lua_State *L) {
 		if (!_lg_typecheck_clearManifold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPersistentManifold::clearManifold() function, expected prototype:\nvoid btPersistentManifold::clearManifold()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btPersistentManifold::clearManifold() function, expected prototype:\nvoid btPersistentManifold::clearManifold()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPersistentManifold::clearManifold(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPersistentManifold::clearManifold(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->clearManifold();
 
@@ -717,15 +675,13 @@ public:
 	// int btPersistentManifold::m_companionIdA()
 	static int _bind_getCompanionIdA(lua_State *L) {
 		if (!_lg_typecheck_getCompanionIdA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btPersistentManifold::m_companionIdA() function, expected prototype:\nint btPersistentManifold::m_companionIdA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btPersistentManifold::m_companionIdA() function, expected prototype:\nint btPersistentManifold::m_companionIdA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btPersistentManifold::m_companionIdA(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btPersistentManifold::m_companionIdA(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_companionIdA;
 		lua_pushnumber(L,lret);
@@ -736,15 +692,13 @@ public:
 	// int btPersistentManifold::m_companionIdB()
 	static int _bind_getCompanionIdB(lua_State *L) {
 		if (!_lg_typecheck_getCompanionIdB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btPersistentManifold::m_companionIdB() function, expected prototype:\nint btPersistentManifold::m_companionIdB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btPersistentManifold::m_companionIdB() function, expected prototype:\nint btPersistentManifold::m_companionIdB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btPersistentManifold::m_companionIdB(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btPersistentManifold::m_companionIdB(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_companionIdB;
 		lua_pushnumber(L,lret);
@@ -755,15 +709,13 @@ public:
 	// int btPersistentManifold::m_index1a()
 	static int _bind_getIndex1a(lua_State *L) {
 		if (!_lg_typecheck_getIndex1a(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btPersistentManifold::m_index1a() function, expected prototype:\nint btPersistentManifold::m_index1a()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btPersistentManifold::m_index1a() function, expected prototype:\nint btPersistentManifold::m_index1a()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btPersistentManifold::m_index1a(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btPersistentManifold::m_index1a(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_index1a;
 		lua_pushnumber(L,lret);
@@ -774,16 +726,14 @@ public:
 	// void btPersistentManifold::m_companionIdA(int value)
 	static int _bind_setCompanionIdA(lua_State *L) {
 		if (!_lg_typecheck_setCompanionIdA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPersistentManifold::m_companionIdA(int value) function, expected prototype:\nvoid btPersistentManifold::m_companionIdA(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btPersistentManifold::m_companionIdA(int value) function, expected prototype:\nvoid btPersistentManifold::m_companionIdA(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPersistentManifold::m_companionIdA(int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPersistentManifold::m_companionIdA(int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_companionIdA = value;
 
@@ -793,16 +743,14 @@ public:
 	// void btPersistentManifold::m_companionIdB(int value)
 	static int _bind_setCompanionIdB(lua_State *L) {
 		if (!_lg_typecheck_setCompanionIdB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPersistentManifold::m_companionIdB(int value) function, expected prototype:\nvoid btPersistentManifold::m_companionIdB(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btPersistentManifold::m_companionIdB(int value) function, expected prototype:\nvoid btPersistentManifold::m_companionIdB(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPersistentManifold::m_companionIdB(int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPersistentManifold::m_companionIdB(int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_companionIdB = value;
 
@@ -812,16 +760,14 @@ public:
 	// void btPersistentManifold::m_index1a(int value)
 	static int _bind_setIndex1a(lua_State *L) {
 		if (!_lg_typecheck_setIndex1a(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPersistentManifold::m_index1a(int value) function, expected prototype:\nvoid btPersistentManifold::m_index1a(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btPersistentManifold::m_index1a(int value) function, expected prototype:\nvoid btPersistentManifold::m_index1a(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btPersistentManifold* self=Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPersistentManifold::m_index1a(int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPersistentManifold::m_index1a(int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_index1a = value;
 

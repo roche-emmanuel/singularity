@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionShape* self=(Luna< btCollisionShape >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGImpactCompoundShape* self= (btGImpactCompoundShape*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCollisionShape >::check(L,1));
@@ -153,21 +150,21 @@ public:
 	inline static bool _lg_typecheck_getChildShape_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getChildShape_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getChildAabb(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,91544891) ) return false;
@@ -177,14 +174,14 @@ public:
 	inline static bool _lg_typecheck_getChildTransform(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setChildTransform(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,13247377) ) return false;
 		return true;
 	}
@@ -204,7 +201,7 @@ public:
 	inline static bool _lg_typecheck_getBulletTriangle(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,58243831) ) return false;
 		return true;
 	}
@@ -212,7 +209,7 @@ public:
 	inline static bool _lg_typecheck_getBulletTetrahedron(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,58243831) ) return false;
 		return true;
 	}
@@ -220,7 +217,7 @@ public:
 	inline static bool _lg_typecheck_calculateLocalInertia(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		return true;
 	}
@@ -241,7 +238,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -254,7 +251,7 @@ public:
 	inline static bool _lg_typecheck_base_getContactBreakingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -325,7 +322,7 @@ public:
 	inline static bool _lg_typecheck_base_setMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -368,21 +365,21 @@ public:
 	inline static bool _lg_typecheck_base_getChildShape_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_getChildShape_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_getChildAabb(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,91544891) ) return false;
@@ -392,14 +389,14 @@ public:
 	inline static bool _lg_typecheck_base_getChildTransform(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_setChildTransform(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,13247377) ) return false;
 		return true;
 	}
@@ -419,7 +416,7 @@ public:
 	inline static bool _lg_typecheck_base_getBulletTriangle(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,58243831) ) return false;
 		return true;
 	}
@@ -427,7 +424,7 @@ public:
 	inline static bool _lg_typecheck_base_getBulletTetrahedron(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,58243831) ) return false;
 		return true;
 	}
@@ -435,7 +432,7 @@ public:
 	inline static bool _lg_typecheck_base_calculateLocalInertia(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		return true;
 	}
@@ -460,8 +457,7 @@ public:
 	// btGImpactCompoundShape::btGImpactCompoundShape(bool children_has_transform = true)
 	static btGImpactCompoundShape* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::btGImpactCompoundShape(bool children_has_transform = true) function, expected prototype:\nbtGImpactCompoundShape::btGImpactCompoundShape(bool children_has_transform = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::btGImpactCompoundShape(bool children_has_transform = true) function, expected prototype:\nbtGImpactCompoundShape::btGImpactCompoundShape(bool children_has_transform = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -474,8 +470,7 @@ public:
 	// btGImpactCompoundShape::btGImpactCompoundShape(lua_Table * data, bool children_has_transform = true)
 	static btGImpactCompoundShape* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::btGImpactCompoundShape(lua_Table * data, bool children_has_transform = true) function, expected prototype:\nbtGImpactCompoundShape::btGImpactCompoundShape(lua_Table * data, bool children_has_transform = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::btGImpactCompoundShape(lua_Table * data, bool children_has_transform = true) function, expected prototype:\nbtGImpactCompoundShape::btGImpactCompoundShape(lua_Table * data, bool children_has_transform = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -499,15 +494,13 @@ public:
 	// bool btGImpactCompoundShape::childrenHasTransform() const
 	static int _bind_childrenHasTransform(lua_State *L) {
 		if (!_lg_typecheck_childrenHasTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactCompoundShape::childrenHasTransform() const function, expected prototype:\nbool btGImpactCompoundShape::childrenHasTransform() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactCompoundShape::childrenHasTransform() const function, expected prototype:\nbool btGImpactCompoundShape::childrenHasTransform() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactCompoundShape::childrenHasTransform() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactCompoundShape::childrenHasTransform() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->childrenHasTransform();
 		lua_pushboolean(L,lret?1:0);
@@ -518,15 +511,13 @@ public:
 	// const btPrimitiveManagerBase * btGImpactCompoundShape::getPrimitiveManager() const
 	static int _bind_getPrimitiveManager(lua_State *L) {
 		if (!_lg_typecheck_getPrimitiveManager(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btPrimitiveManagerBase * btGImpactCompoundShape::getPrimitiveManager() const function, expected prototype:\nconst btPrimitiveManagerBase * btGImpactCompoundShape::getPrimitiveManager() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btPrimitiveManagerBase * btGImpactCompoundShape::getPrimitiveManager() const function, expected prototype:\nconst btPrimitiveManagerBase * btGImpactCompoundShape::getPrimitiveManager() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btPrimitiveManagerBase * btGImpactCompoundShape::getPrimitiveManager() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btPrimitiveManagerBase * btGImpactCompoundShape::getPrimitiveManager() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btPrimitiveManagerBase * lret = self->getPrimitiveManager();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -539,15 +530,13 @@ public:
 	// btGImpactCompoundShape::CompoundPrimitiveManager * btGImpactCompoundShape::getCompoundPrimitiveManager()
 	static int _bind_getCompoundPrimitiveManager(lua_State *L) {
 		if (!_lg_typecheck_getCompoundPrimitiveManager(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::CompoundPrimitiveManager * btGImpactCompoundShape::getCompoundPrimitiveManager() function, expected prototype:\nbtGImpactCompoundShape::CompoundPrimitiveManager * btGImpactCompoundShape::getCompoundPrimitiveManager()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGImpactCompoundShape::CompoundPrimitiveManager * btGImpactCompoundShape::getCompoundPrimitiveManager() function, expected prototype:\nbtGImpactCompoundShape::CompoundPrimitiveManager * btGImpactCompoundShape::getCompoundPrimitiveManager()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btGImpactCompoundShape::CompoundPrimitiveManager * btGImpactCompoundShape::getCompoundPrimitiveManager(). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btGImpactCompoundShape::CompoundPrimitiveManager * btGImpactCompoundShape::getCompoundPrimitiveManager(). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btGImpactCompoundShape::CompoundPrimitiveManager * lret = self->getCompoundPrimitiveManager();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -560,15 +549,13 @@ public:
 	// int btGImpactCompoundShape::getNumChildShapes() const
 	static int _bind_getNumChildShapes(lua_State *L) {
 		if (!_lg_typecheck_getNumChildShapes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactCompoundShape::getNumChildShapes() const function, expected prototype:\nint btGImpactCompoundShape::getNumChildShapes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactCompoundShape::getNumChildShapes() const function, expected prototype:\nint btGImpactCompoundShape::getNumChildShapes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactCompoundShape::getNumChildShapes() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactCompoundShape::getNumChildShapes() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNumChildShapes();
 		lua_pushnumber(L,lret);
@@ -579,8 +566,7 @@ public:
 	// void btGImpactCompoundShape::addChildShape(const btTransform & localTransform, btCollisionShape * shape)
 	static int _bind_addChildShape_overload_1(lua_State *L) {
 		if (!_lg_typecheck_addChildShape_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::addChildShape(const btTransform & localTransform, btCollisionShape * shape) function, expected prototype:\nvoid btGImpactCompoundShape::addChildShape(const btTransform & localTransform, btCollisionShape * shape)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::addChildShape(const btTransform & localTransform, btCollisionShape * shape) function, expected prototype:\nvoid btGImpactCompoundShape::addChildShape(const btTransform & localTransform, btCollisionShape * shape)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* localTransform_ptr=(Luna< btTransform >::check(L,2));
@@ -592,8 +578,7 @@ public:
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::addChildShape(const btTransform &, btCollisionShape *). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::addChildShape(const btTransform &, btCollisionShape *). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addChildShape(localTransform, shape);
 
@@ -603,16 +588,14 @@ public:
 	// void btGImpactCompoundShape::addChildShape(btCollisionShape * shape)
 	static int _bind_addChildShape_overload_2(lua_State *L) {
 		if (!_lg_typecheck_addChildShape_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::addChildShape(btCollisionShape * shape) function, expected prototype:\nvoid btGImpactCompoundShape::addChildShape(btCollisionShape * shape)\nClass arguments details:\narg 1 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::addChildShape(btCollisionShape * shape) function, expected prototype:\nvoid btGImpactCompoundShape::addChildShape(btCollisionShape * shape)\nClass arguments details:\narg 1 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionShape* shape=(Luna< btCollisionShape >::check(L,2));
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::addChildShape(btCollisionShape *). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::addChildShape(btCollisionShape *). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addChildShape(shape);
 
@@ -631,16 +614,14 @@ public:
 	// btCollisionShape * btGImpactCompoundShape::getChildShape(int index)
 	static int _bind_getChildShape_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getChildShape_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionShape * btGImpactCompoundShape::getChildShape(int index) function, expected prototype:\nbtCollisionShape * btGImpactCompoundShape::getChildShape(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btCollisionShape * btGImpactCompoundShape::getChildShape(int index) function, expected prototype:\nbtCollisionShape * btGImpactCompoundShape::getChildShape(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btCollisionShape * btGImpactCompoundShape::getChildShape(int). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btCollisionShape * btGImpactCompoundShape::getChildShape(int). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btCollisionShape * lret = self->getChildShape(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -653,16 +634,14 @@ public:
 	// const btCollisionShape * btGImpactCompoundShape::getChildShape(int index) const
 	static int _bind_getChildShape_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getChildShape_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btCollisionShape * btGImpactCompoundShape::getChildShape(int index) const function, expected prototype:\nconst btCollisionShape * btGImpactCompoundShape::getChildShape(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btCollisionShape * btGImpactCompoundShape::getChildShape(int index) const function, expected prototype:\nconst btCollisionShape * btGImpactCompoundShape::getChildShape(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btCollisionShape * btGImpactCompoundShape::getChildShape(int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btCollisionShape * btGImpactCompoundShape::getChildShape(int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btCollisionShape * lret = self->getChildShape(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -684,8 +663,7 @@ public:
 	// void btGImpactCompoundShape::getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_getChildAabb(lua_State *L) {
 		if (!_lg_typecheck_getChildAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactCompoundShape::getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 2 ID = 13247377\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactCompoundShape::getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 2 ID = 13247377\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int child_index=(int)lua_tointeger(L,2);
@@ -707,8 +685,7 @@ public:
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::getChildAabb(int, const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::getChildAabb(int, const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getChildAabb(child_index, t, aabbMin, aabbMax);
 
@@ -718,16 +695,14 @@ public:
 	// btTransform btGImpactCompoundShape::getChildTransform(int index) const
 	static int _bind_getChildTransform(lua_State *L) {
 		if (!_lg_typecheck_getChildTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btGImpactCompoundShape::getChildTransform(int index) const function, expected prototype:\nbtTransform btGImpactCompoundShape::getChildTransform(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform btGImpactCompoundShape::getChildTransform(int index) const function, expected prototype:\nbtTransform btGImpactCompoundShape::getChildTransform(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btGImpactCompoundShape::getChildTransform(int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btGImpactCompoundShape::getChildTransform(int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btTransform stack_lret = self->getChildTransform(index);
 		btTransform* lret = new btTransform(stack_lret);
@@ -741,8 +716,7 @@ public:
 	// void btGImpactCompoundShape::setChildTransform(int index, const btTransform & transform)
 	static int _bind_setChildTransform(lua_State *L) {
 		if (!_lg_typecheck_setChildTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::setChildTransform(int index, const btTransform & transform) function, expected prototype:\nvoid btGImpactCompoundShape::setChildTransform(int index, const btTransform & transform)\nClass arguments details:\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::setChildTransform(int index, const btTransform & transform) function, expected prototype:\nvoid btGImpactCompoundShape::setChildTransform(int index, const btTransform & transform)\nClass arguments details:\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -754,8 +728,7 @@ public:
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::setChildTransform(int, const btTransform &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::setChildTransform(int, const btTransform &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setChildTransform(index, transform);
 
@@ -765,15 +738,13 @@ public:
 	// bool btGImpactCompoundShape::needsRetrieveTriangles() const
 	static int _bind_needsRetrieveTriangles(lua_State *L) {
 		if (!_lg_typecheck_needsRetrieveTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactCompoundShape::needsRetrieveTriangles() const function, expected prototype:\nbool btGImpactCompoundShape::needsRetrieveTriangles() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactCompoundShape::needsRetrieveTriangles() const function, expected prototype:\nbool btGImpactCompoundShape::needsRetrieveTriangles() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactCompoundShape::needsRetrieveTriangles() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactCompoundShape::needsRetrieveTriangles() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->needsRetrieveTriangles();
 		lua_pushboolean(L,lret?1:0);
@@ -784,15 +755,13 @@ public:
 	// bool btGImpactCompoundShape::needsRetrieveTetrahedrons() const
 	static int _bind_needsRetrieveTetrahedrons(lua_State *L) {
 		if (!_lg_typecheck_needsRetrieveTetrahedrons(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactCompoundShape::needsRetrieveTetrahedrons() const function, expected prototype:\nbool btGImpactCompoundShape::needsRetrieveTetrahedrons() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactCompoundShape::needsRetrieveTetrahedrons() const function, expected prototype:\nbool btGImpactCompoundShape::needsRetrieveTetrahedrons() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactCompoundShape::needsRetrieveTetrahedrons() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactCompoundShape::needsRetrieveTetrahedrons() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->needsRetrieveTetrahedrons();
 		lua_pushboolean(L,lret?1:0);
@@ -803,8 +772,7 @@ public:
 	// void btGImpactCompoundShape::getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const
 	static int _bind_getBulletTriangle(lua_State *L) {
 		if (!_lg_typecheck_getBulletTriangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const function, expected prototype:\nvoid btGImpactCompoundShape::getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const\nClass arguments details:\narg 2 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const function, expected prototype:\nvoid btGImpactCompoundShape::getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const\nClass arguments details:\narg 2 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int prim_index=(int)lua_tointeger(L,2);
@@ -816,8 +784,7 @@ public:
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::getBulletTriangle(int, btTriangleShapeEx &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::getBulletTriangle(int, btTriangleShapeEx &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getBulletTriangle(prim_index, triangle);
 
@@ -827,8 +794,7 @@ public:
 	// void btGImpactCompoundShape::getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const
 	static int _bind_getBulletTetrahedron(lua_State *L) {
 		if (!_lg_typecheck_getBulletTetrahedron(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const function, expected prototype:\nvoid btGImpactCompoundShape::getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const\nClass arguments details:\narg 2 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const function, expected prototype:\nvoid btGImpactCompoundShape::getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const\nClass arguments details:\narg 2 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int prim_index=(int)lua_tointeger(L,2);
@@ -840,8 +806,7 @@ public:
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::getBulletTetrahedron(int, btTetrahedronShapeEx &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::getBulletTetrahedron(int, btTetrahedronShapeEx &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getBulletTetrahedron(prim_index, tetrahedron);
 
@@ -851,8 +816,7 @@ public:
 	// void btGImpactCompoundShape::calculateLocalInertia(float mass, btVector3 & inertia) const
 	static int _bind_calculateLocalInertia(lua_State *L) {
 		if (!_lg_typecheck_calculateLocalInertia(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::calculateLocalInertia(float mass, btVector3 & inertia) const function, expected prototype:\nvoid btGImpactCompoundShape::calculateLocalInertia(float mass, btVector3 & inertia) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::calculateLocalInertia(float mass, btVector3 & inertia) const function, expected prototype:\nvoid btGImpactCompoundShape::calculateLocalInertia(float mass, btVector3 & inertia) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float mass=(float)lua_tonumber(L,2);
@@ -864,8 +828,7 @@ public:
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::calculateLocalInertia(float, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::calculateLocalInertia(float, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->calculateLocalInertia(mass, inertia);
 
@@ -875,15 +838,13 @@ public:
 	// const char * btGImpactCompoundShape::getName() const
 	static int _bind_getName(lua_State *L) {
 		if (!_lg_typecheck_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * btGImpactCompoundShape::getName() const function, expected prototype:\nconst char * btGImpactCompoundShape::getName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * btGImpactCompoundShape::getName() const function, expected prototype:\nconst char * btGImpactCompoundShape::getName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * btGImpactCompoundShape::getName() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * btGImpactCompoundShape::getName() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->getName();
 		lua_pushstring(L,lret);
@@ -894,15 +855,13 @@ public:
 	// eGIMPACT_SHAPE_TYPE btGImpactCompoundShape::getGImpactShapeType() const
 	static int _bind_getGImpactShapeType(lua_State *L) {
 		if (!_lg_typecheck_getGImpactShapeType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in eGIMPACT_SHAPE_TYPE btGImpactCompoundShape::getGImpactShapeType() const function, expected prototype:\neGIMPACT_SHAPE_TYPE btGImpactCompoundShape::getGImpactShapeType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in eGIMPACT_SHAPE_TYPE btGImpactCompoundShape::getGImpactShapeType() const function, expected prototype:\neGIMPACT_SHAPE_TYPE btGImpactCompoundShape::getGImpactShapeType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call eGIMPACT_SHAPE_TYPE btGImpactCompoundShape::getGImpactShapeType() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call eGIMPACT_SHAPE_TYPE btGImpactCompoundShape::getGImpactShapeType() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		eGIMPACT_SHAPE_TYPE lret = self->getGImpactShapeType();
 		lua_pushnumber(L,lret);
@@ -913,8 +872,7 @@ public:
 	// void btGImpactCompoundShape::base_getBoundingSphere(btVector3 & center, float & radius) const
 	static int _bind_base_getBoundingSphere(lua_State *L) {
 		if (!_lg_typecheck_base_getBoundingSphere(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_getBoundingSphere(btVector3 & center, float & radius) const function, expected prototype:\nvoid btGImpactCompoundShape::base_getBoundingSphere(btVector3 & center, float & radius) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_getBoundingSphere(btVector3 & center, float & radius) const function, expected prototype:\nvoid btGImpactCompoundShape::base_getBoundingSphere(btVector3 & center, float & radius) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* center_ptr=(Luna< btVector3 >::check(L,2));
@@ -926,26 +884,24 @@ public:
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_getBoundingSphere(btVector3 &, float &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_getBoundingSphere(btVector3 &, float &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactCompoundShape::getBoundingSphere(center, radius);
 
-		return 0;
+		lua_pushnumber(L,radius);
+		return 1;
 	}
 
 	// float btGImpactCompoundShape::base_getAngularMotionDisc() const
 	static int _bind_base_getAngularMotionDisc(lua_State *L) {
 		if (!_lg_typecheck_base_getAngularMotionDisc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btGImpactCompoundShape::base_getAngularMotionDisc() const function, expected prototype:\nfloat btGImpactCompoundShape::base_getAngularMotionDisc() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btGImpactCompoundShape::base_getAngularMotionDisc() const function, expected prototype:\nfloat btGImpactCompoundShape::base_getAngularMotionDisc() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btGImpactCompoundShape::base_getAngularMotionDisc() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btGImpactCompoundShape::base_getAngularMotionDisc() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btGImpactCompoundShape::getAngularMotionDisc();
 		lua_pushnumber(L,lret);
@@ -956,16 +912,14 @@ public:
 	// float btGImpactCompoundShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const
 	static int _bind_base_getContactBreakingThreshold(lua_State *L) {
 		if (!_lg_typecheck_base_getContactBreakingThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btGImpactCompoundShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const function, expected prototype:\nfloat btGImpactCompoundShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btGImpactCompoundShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const function, expected prototype:\nfloat btGImpactCompoundShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float defaultContactThresholdFactor=(float)lua_tonumber(L,2);
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btGImpactCompoundShape::base_getContactBreakingThreshold(float) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btGImpactCompoundShape::base_getContactBreakingThreshold(float) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btGImpactCompoundShape::getContactBreakingThreshold(defaultContactThresholdFactor);
 		lua_pushnumber(L,lret);
@@ -976,15 +930,13 @@ public:
 	// btVector3 btGImpactCompoundShape::base_getAnisotropicRollingFrictionDirection() const
 	static int _bind_base_getAnisotropicRollingFrictionDirection(lua_State *L) {
 		if (!_lg_typecheck_base_getAnisotropicRollingFrictionDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btGImpactCompoundShape::base_getAnisotropicRollingFrictionDirection() const function, expected prototype:\nbtVector3 btGImpactCompoundShape::base_getAnisotropicRollingFrictionDirection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btGImpactCompoundShape::base_getAnisotropicRollingFrictionDirection() const function, expected prototype:\nbtVector3 btGImpactCompoundShape::base_getAnisotropicRollingFrictionDirection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btGImpactCompoundShape::base_getAnisotropicRollingFrictionDirection() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btGImpactCompoundShape::base_getAnisotropicRollingFrictionDirection() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->btGImpactCompoundShape::getAnisotropicRollingFrictionDirection();
 		btVector3* lret = new btVector3(stack_lret);
@@ -998,15 +950,13 @@ public:
 	// int btGImpactCompoundShape::base_calculateSerializeBufferSize() const
 	static int _bind_base_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_base_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactCompoundShape::base_calculateSerializeBufferSize() const function, expected prototype:\nint btGImpactCompoundShape::base_calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactCompoundShape::base_calculateSerializeBufferSize() const function, expected prototype:\nint btGImpactCompoundShape::base_calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactCompoundShape::base_calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactCompoundShape::base_calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btGImpactCompoundShape::calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);
@@ -1017,15 +967,13 @@ public:
 	// float btGImpactCompoundShape::base_getMargin() const
 	static int _bind_base_getMargin(lua_State *L) {
 		if (!_lg_typecheck_base_getMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btGImpactCompoundShape::base_getMargin() const function, expected prototype:\nfloat btGImpactCompoundShape::base_getMargin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btGImpactCompoundShape::base_getMargin() const function, expected prototype:\nfloat btGImpactCompoundShape::base_getMargin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btGImpactCompoundShape::base_getMargin() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btGImpactCompoundShape::base_getMargin() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btGImpactCompoundShape::getMargin();
 		lua_pushnumber(L,lret);
@@ -1036,15 +984,13 @@ public:
 	// void btGImpactCompoundShape::base_lockChildShapes() const
 	static int _bind_base_lockChildShapes(lua_State *L) {
 		if (!_lg_typecheck_base_lockChildShapes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_lockChildShapes() const function, expected prototype:\nvoid btGImpactCompoundShape::base_lockChildShapes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_lockChildShapes() const function, expected prototype:\nvoid btGImpactCompoundShape::base_lockChildShapes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_lockChildShapes() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_lockChildShapes() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactCompoundShape::lockChildShapes();
 
@@ -1054,15 +1000,13 @@ public:
 	// void btGImpactCompoundShape::base_unlockChildShapes() const
 	static int _bind_base_unlockChildShapes(lua_State *L) {
 		if (!_lg_typecheck_base_unlockChildShapes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_unlockChildShapes() const function, expected prototype:\nvoid btGImpactCompoundShape::base_unlockChildShapes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_unlockChildShapes() const function, expected prototype:\nvoid btGImpactCompoundShape::base_unlockChildShapes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_unlockChildShapes() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_unlockChildShapes() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactCompoundShape::unlockChildShapes();
 
@@ -1072,8 +1016,7 @@ public:
 	// void btGImpactCompoundShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_base_getAabb(lua_State *L) {
 		if (!_lg_typecheck_base_getAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactCompoundShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactCompoundShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* t_ptr=(Luna< btTransform >::check(L,2));
@@ -1094,8 +1037,7 @@ public:
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactCompoundShape::getAabb(t, aabbMin, aabbMax);
 
@@ -1105,15 +1047,13 @@ public:
 	// void btGImpactCompoundShape::base_postUpdate()
 	static int _bind_base_postUpdate(lua_State *L) {
 		if (!_lg_typecheck_base_postUpdate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_postUpdate() function, expected prototype:\nvoid btGImpactCompoundShape::base_postUpdate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_postUpdate() function, expected prototype:\nvoid btGImpactCompoundShape::base_postUpdate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_postUpdate(). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_postUpdate(). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactCompoundShape::postUpdate();
 
@@ -1123,15 +1063,13 @@ public:
 	// int btGImpactCompoundShape::base_getShapeType() const
 	static int _bind_base_getShapeType(lua_State *L) {
 		if (!_lg_typecheck_base_getShapeType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactCompoundShape::base_getShapeType() const function, expected prototype:\nint btGImpactCompoundShape::base_getShapeType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactCompoundShape::base_getShapeType() const function, expected prototype:\nint btGImpactCompoundShape::base_getShapeType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactCompoundShape::base_getShapeType() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactCompoundShape::base_getShapeType() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btGImpactCompoundShape::getShapeType();
 		lua_pushnumber(L,lret);
@@ -1142,8 +1080,7 @@ public:
 	// void btGImpactCompoundShape::base_setLocalScaling(const btVector3 & scaling)
 	static int _bind_base_setLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_base_setLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btGImpactCompoundShape::base_setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btGImpactCompoundShape::base_setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* scaling_ptr=(Luna< btVector3 >::check(L,2));
@@ -1154,8 +1091,7 @@ public:
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_setLocalScaling(const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_setLocalScaling(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactCompoundShape::setLocalScaling(scaling);
 
@@ -1165,15 +1101,13 @@ public:
 	// const btVector3 & btGImpactCompoundShape::base_getLocalScaling() const
 	static int _bind_base_getLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_base_getLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 & btGImpactCompoundShape::base_getLocalScaling() const function, expected prototype:\nconst btVector3 & btGImpactCompoundShape::base_getLocalScaling() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 & btGImpactCompoundShape::base_getLocalScaling() const function, expected prototype:\nconst btVector3 & btGImpactCompoundShape::base_getLocalScaling() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 & btGImpactCompoundShape::base_getLocalScaling() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 & btGImpactCompoundShape::base_getLocalScaling() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->btGImpactCompoundShape::getLocalScaling();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1186,16 +1120,14 @@ public:
 	// void btGImpactCompoundShape::base_setMargin(float margin)
 	static int _bind_base_setMargin(lua_State *L) {
 		if (!_lg_typecheck_base_setMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_setMargin(float margin) function, expected prototype:\nvoid btGImpactCompoundShape::base_setMargin(float margin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_setMargin(float margin) function, expected prototype:\nvoid btGImpactCompoundShape::base_setMargin(float margin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float margin=(float)lua_tonumber(L,2);
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_setMargin(float). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_setMargin(float). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactCompoundShape::setMargin(margin);
 
@@ -1205,8 +1137,7 @@ public:
 	// void btGImpactCompoundShape::base_rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const
 	static int _bind_base_rayTest(lua_State *L) {
 		if (!_lg_typecheck_base_rayTest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const function, expected prototype:\nvoid btGImpactCompoundShape::base_rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 44790882\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const function, expected prototype:\nvoid btGImpactCompoundShape::base_rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 44790882\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* rayFrom_ptr=(Luna< btVector3 >::check(L,2));
@@ -1227,8 +1158,7 @@ public:
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_rayTest(const btVector3 &, const btVector3 &, btCollisionWorld::RayResultCallback &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_rayTest(const btVector3 &, const btVector3 &, btCollisionWorld::RayResultCallback &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactCompoundShape::rayTest(rayFrom, rayTo, resultCallback);
 
@@ -1238,8 +1168,7 @@ public:
 	// void btGImpactCompoundShape::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const
 	static int _bind_base_processAllTriangles(lua_State *L) {
 		if (!_lg_typecheck_base_processAllTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactCompoundShape::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactCompoundShape::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleCallback* callback=(Luna< btTriangleCallback >::check(L,2));
@@ -1256,8 +1185,7 @@ public:
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_processAllTriangles(btTriangleCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_processAllTriangles(btTriangleCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactCompoundShape::processAllTriangles(callback, aabbMin, aabbMax);
 
@@ -1267,15 +1195,13 @@ public:
 	// bool btGImpactCompoundShape::base_childrenHasTransform() const
 	static int _bind_base_childrenHasTransform(lua_State *L) {
 		if (!_lg_typecheck_base_childrenHasTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactCompoundShape::base_childrenHasTransform() const function, expected prototype:\nbool btGImpactCompoundShape::base_childrenHasTransform() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactCompoundShape::base_childrenHasTransform() const function, expected prototype:\nbool btGImpactCompoundShape::base_childrenHasTransform() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactCompoundShape::base_childrenHasTransform() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactCompoundShape::base_childrenHasTransform() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->btGImpactCompoundShape::childrenHasTransform();
 		lua_pushboolean(L,lret?1:0);
@@ -1286,15 +1212,13 @@ public:
 	// const btPrimitiveManagerBase * btGImpactCompoundShape::base_getPrimitiveManager() const
 	static int _bind_base_getPrimitiveManager(lua_State *L) {
 		if (!_lg_typecheck_base_getPrimitiveManager(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btPrimitiveManagerBase * btGImpactCompoundShape::base_getPrimitiveManager() const function, expected prototype:\nconst btPrimitiveManagerBase * btGImpactCompoundShape::base_getPrimitiveManager() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btPrimitiveManagerBase * btGImpactCompoundShape::base_getPrimitiveManager() const function, expected prototype:\nconst btPrimitiveManagerBase * btGImpactCompoundShape::base_getPrimitiveManager() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btPrimitiveManagerBase * btGImpactCompoundShape::base_getPrimitiveManager() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btPrimitiveManagerBase * btGImpactCompoundShape::base_getPrimitiveManager() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btPrimitiveManagerBase * lret = self->btGImpactCompoundShape::getPrimitiveManager();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1307,15 +1231,13 @@ public:
 	// int btGImpactCompoundShape::base_getNumChildShapes() const
 	static int _bind_base_getNumChildShapes(lua_State *L) {
 		if (!_lg_typecheck_base_getNumChildShapes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactCompoundShape::base_getNumChildShapes() const function, expected prototype:\nint btGImpactCompoundShape::base_getNumChildShapes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactCompoundShape::base_getNumChildShapes() const function, expected prototype:\nint btGImpactCompoundShape::base_getNumChildShapes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactCompoundShape::base_getNumChildShapes() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactCompoundShape::base_getNumChildShapes() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btGImpactCompoundShape::getNumChildShapes();
 		lua_pushnumber(L,lret);
@@ -1326,16 +1248,14 @@ public:
 	// btCollisionShape * btGImpactCompoundShape::base_getChildShape(int index)
 	static int _bind_base_getChildShape_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getChildShape_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionShape * btGImpactCompoundShape::base_getChildShape(int index) function, expected prototype:\nbtCollisionShape * btGImpactCompoundShape::base_getChildShape(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btCollisionShape * btGImpactCompoundShape::base_getChildShape(int index) function, expected prototype:\nbtCollisionShape * btGImpactCompoundShape::base_getChildShape(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btCollisionShape * btGImpactCompoundShape::base_getChildShape(int). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btCollisionShape * btGImpactCompoundShape::base_getChildShape(int). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btCollisionShape * lret = self->btGImpactCompoundShape::getChildShape(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1348,16 +1268,14 @@ public:
 	// const btCollisionShape * btGImpactCompoundShape::base_getChildShape(int index) const
 	static int _bind_base_getChildShape_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getChildShape_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btCollisionShape * btGImpactCompoundShape::base_getChildShape(int index) const function, expected prototype:\nconst btCollisionShape * btGImpactCompoundShape::base_getChildShape(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btCollisionShape * btGImpactCompoundShape::base_getChildShape(int index) const function, expected prototype:\nconst btCollisionShape * btGImpactCompoundShape::base_getChildShape(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btCollisionShape * btGImpactCompoundShape::base_getChildShape(int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btCollisionShape * btGImpactCompoundShape::base_getChildShape(int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btCollisionShape * lret = self->btGImpactCompoundShape::getChildShape(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1379,8 +1297,7 @@ public:
 	// void btGImpactCompoundShape::base_getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_base_getChildAabb(lua_State *L) {
 		if (!_lg_typecheck_base_getChildAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactCompoundShape::base_getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 2 ID = 13247377\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactCompoundShape::base_getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 2 ID = 13247377\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int child_index=(int)lua_tointeger(L,2);
@@ -1402,8 +1319,7 @@ public:
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_getChildAabb(int, const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_getChildAabb(int, const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactCompoundShape::getChildAabb(child_index, t, aabbMin, aabbMax);
 
@@ -1413,16 +1329,14 @@ public:
 	// btTransform btGImpactCompoundShape::base_getChildTransform(int index) const
 	static int _bind_base_getChildTransform(lua_State *L) {
 		if (!_lg_typecheck_base_getChildTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btGImpactCompoundShape::base_getChildTransform(int index) const function, expected prototype:\nbtTransform btGImpactCompoundShape::base_getChildTransform(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform btGImpactCompoundShape::base_getChildTransform(int index) const function, expected prototype:\nbtTransform btGImpactCompoundShape::base_getChildTransform(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btGImpactCompoundShape::base_getChildTransform(int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btGImpactCompoundShape::base_getChildTransform(int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btTransform stack_lret = self->btGImpactCompoundShape::getChildTransform(index);
 		btTransform* lret = new btTransform(stack_lret);
@@ -1436,8 +1350,7 @@ public:
 	// void btGImpactCompoundShape::base_setChildTransform(int index, const btTransform & transform)
 	static int _bind_base_setChildTransform(lua_State *L) {
 		if (!_lg_typecheck_base_setChildTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_setChildTransform(int index, const btTransform & transform) function, expected prototype:\nvoid btGImpactCompoundShape::base_setChildTransform(int index, const btTransform & transform)\nClass arguments details:\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_setChildTransform(int index, const btTransform & transform) function, expected prototype:\nvoid btGImpactCompoundShape::base_setChildTransform(int index, const btTransform & transform)\nClass arguments details:\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -1449,8 +1362,7 @@ public:
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_setChildTransform(int, const btTransform &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_setChildTransform(int, const btTransform &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactCompoundShape::setChildTransform(index, transform);
 
@@ -1460,15 +1372,13 @@ public:
 	// bool btGImpactCompoundShape::base_needsRetrieveTriangles() const
 	static int _bind_base_needsRetrieveTriangles(lua_State *L) {
 		if (!_lg_typecheck_base_needsRetrieveTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactCompoundShape::base_needsRetrieveTriangles() const function, expected prototype:\nbool btGImpactCompoundShape::base_needsRetrieveTriangles() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactCompoundShape::base_needsRetrieveTriangles() const function, expected prototype:\nbool btGImpactCompoundShape::base_needsRetrieveTriangles() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactCompoundShape::base_needsRetrieveTriangles() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactCompoundShape::base_needsRetrieveTriangles() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->btGImpactCompoundShape::needsRetrieveTriangles();
 		lua_pushboolean(L,lret?1:0);
@@ -1479,15 +1389,13 @@ public:
 	// bool btGImpactCompoundShape::base_needsRetrieveTetrahedrons() const
 	static int _bind_base_needsRetrieveTetrahedrons(lua_State *L) {
 		if (!_lg_typecheck_base_needsRetrieveTetrahedrons(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactCompoundShape::base_needsRetrieveTetrahedrons() const function, expected prototype:\nbool btGImpactCompoundShape::base_needsRetrieveTetrahedrons() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactCompoundShape::base_needsRetrieveTetrahedrons() const function, expected prototype:\nbool btGImpactCompoundShape::base_needsRetrieveTetrahedrons() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactCompoundShape::base_needsRetrieveTetrahedrons() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactCompoundShape::base_needsRetrieveTetrahedrons() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->btGImpactCompoundShape::needsRetrieveTetrahedrons();
 		lua_pushboolean(L,lret?1:0);
@@ -1498,8 +1406,7 @@ public:
 	// void btGImpactCompoundShape::base_getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const
 	static int _bind_base_getBulletTriangle(lua_State *L) {
 		if (!_lg_typecheck_base_getBulletTriangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const function, expected prototype:\nvoid btGImpactCompoundShape::base_getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const\nClass arguments details:\narg 2 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const function, expected prototype:\nvoid btGImpactCompoundShape::base_getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const\nClass arguments details:\narg 2 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int prim_index=(int)lua_tointeger(L,2);
@@ -1511,8 +1418,7 @@ public:
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_getBulletTriangle(int, btTriangleShapeEx &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_getBulletTriangle(int, btTriangleShapeEx &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactCompoundShape::getBulletTriangle(prim_index, triangle);
 
@@ -1522,8 +1428,7 @@ public:
 	// void btGImpactCompoundShape::base_getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const
 	static int _bind_base_getBulletTetrahedron(lua_State *L) {
 		if (!_lg_typecheck_base_getBulletTetrahedron(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const function, expected prototype:\nvoid btGImpactCompoundShape::base_getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const\nClass arguments details:\narg 2 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const function, expected prototype:\nvoid btGImpactCompoundShape::base_getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const\nClass arguments details:\narg 2 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int prim_index=(int)lua_tointeger(L,2);
@@ -1535,8 +1440,7 @@ public:
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_getBulletTetrahedron(int, btTetrahedronShapeEx &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_getBulletTetrahedron(int, btTetrahedronShapeEx &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactCompoundShape::getBulletTetrahedron(prim_index, tetrahedron);
 
@@ -1546,8 +1450,7 @@ public:
 	// void btGImpactCompoundShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const
 	static int _bind_base_calculateLocalInertia(lua_State *L) {
 		if (!_lg_typecheck_base_calculateLocalInertia(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const function, expected prototype:\nvoid btGImpactCompoundShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCompoundShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const function, expected prototype:\nvoid btGImpactCompoundShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float mass=(float)lua_tonumber(L,2);
@@ -1559,8 +1462,7 @@ public:
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_calculateLocalInertia(float, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCompoundShape::base_calculateLocalInertia(float, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactCompoundShape::calculateLocalInertia(mass, inertia);
 
@@ -1570,15 +1472,13 @@ public:
 	// const char * btGImpactCompoundShape::base_getName() const
 	static int _bind_base_getName(lua_State *L) {
 		if (!_lg_typecheck_base_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * btGImpactCompoundShape::base_getName() const function, expected prototype:\nconst char * btGImpactCompoundShape::base_getName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * btGImpactCompoundShape::base_getName() const function, expected prototype:\nconst char * btGImpactCompoundShape::base_getName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * btGImpactCompoundShape::base_getName() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * btGImpactCompoundShape::base_getName() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->btGImpactCompoundShape::getName();
 		lua_pushstring(L,lret);
@@ -1589,15 +1489,13 @@ public:
 	// eGIMPACT_SHAPE_TYPE btGImpactCompoundShape::base_getGImpactShapeType() const
 	static int _bind_base_getGImpactShapeType(lua_State *L) {
 		if (!_lg_typecheck_base_getGImpactShapeType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in eGIMPACT_SHAPE_TYPE btGImpactCompoundShape::base_getGImpactShapeType() const function, expected prototype:\neGIMPACT_SHAPE_TYPE btGImpactCompoundShape::base_getGImpactShapeType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in eGIMPACT_SHAPE_TYPE btGImpactCompoundShape::base_getGImpactShapeType() const function, expected prototype:\neGIMPACT_SHAPE_TYPE btGImpactCompoundShape::base_getGImpactShapeType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactCompoundShape* self=Luna< btCollisionShape >::checkSubType< btGImpactCompoundShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call eGIMPACT_SHAPE_TYPE btGImpactCompoundShape::base_getGImpactShapeType() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call eGIMPACT_SHAPE_TYPE btGImpactCompoundShape::base_getGImpactShapeType() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		eGIMPACT_SHAPE_TYPE lret = self->btGImpactCompoundShape::getGImpactShapeType();
 		lua_pushnumber(L,lret);

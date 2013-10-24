@@ -91,7 +91,7 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -107,31 +107,31 @@ public:
 	inline static bool _lg_typecheck_output(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setLevelRange(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_addTrace(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_removeTrace(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -145,9 +145,22 @@ public:
 	inline static bool _lg_typecheck_process(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setName(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_getName(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
 		return true;
 	}
 
@@ -161,9 +174,9 @@ public:
 	inline static bool _lg_typecheck_base_process(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -311,6 +324,40 @@ public:
 		return 0;
 	}
 
+	// void sgt::LogSink::setName(const std::string & name)
+	static int _bind_setName(lua_State *L) {
+		if (!_lg_typecheck_setName(L)) {
+			luaL_error(L, "luna typecheck failed in void sgt::LogSink::setName(const std::string & name) function, expected prototype:\nvoid sgt::LogSink::setName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		std::string name(lua_tostring(L,2),lua_objlen(L,2));
+
+		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call void sgt::LogSink::setName(const std::string &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		self->setName(name);
+
+		return 0;
+	}
+
+	// std::string sgt::LogSink::getName()
+	static int _bind_getName(lua_State *L) {
+		if (!_lg_typecheck_getName(L)) {
+			luaL_error(L, "luna typecheck failed in std::string sgt::LogSink::getName() function, expected prototype:\nstd::string sgt::LogSink::getName()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+
+		sgt::LogSink* self=Luna< osg::Referenced >::checkSubType< sgt::LogSink >(L,1);
+		if(!self) {
+			luaL_error(L, "Invalid object in function call std::string sgt::LogSink::getName(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
+		}
+		std::string lret = self->getName();
+		lua_pushlstring(L,lret.data(),lret.size());
+
+		return 1;
+	}
+
 	// void sgt::LogSink::base_setThreadSafeRefUnref(bool threadSafe)
 	static int _bind_base_setThreadSafeRefUnref(lua_State *L) {
 		if (!_lg_typecheck_base_setThreadSafeRefUnref(L)) {
@@ -366,7 +413,7 @@ void LunaTraits< sgt::LogSink >::_bind_dtor(sgt::LogSink* obj) {
 const char LunaTraits< sgt::LogSink >::className[] = "LogSink";
 const char LunaTraits< sgt::LogSink >::fullName[] = "sgt::LogSink";
 const char LunaTraits< sgt::LogSink >::moduleName[] = "sgt";
-const char* LunaTraits< sgt::LogSink >::parents[] = {"sgt.Referenced", 0};
+const char* LunaTraits< sgt::LogSink >::parents[] = {"osg.Referenced", 0};
 const int LunaTraits< sgt::LogSink >::hash = 81755923;
 const int LunaTraits< sgt::LogSink >::uniqueIDs[] = {50169651,0};
 
@@ -378,6 +425,8 @@ luna_RegType LunaTraits< sgt::LogSink >::methods[] = {
 	{"removeTrace", &luna_wrapper_sgt_LogSink::_bind_removeTrace},
 	{"setLogTraceList", &luna_wrapper_sgt_LogSink::_bind_setLogTraceList},
 	{"process", &luna_wrapper_sgt_LogSink::_bind_process},
+	{"setName", &luna_wrapper_sgt_LogSink::_bind_setName},
+	{"getName", &luna_wrapper_sgt_LogSink::_bind_getName},
 	{"base_setThreadSafeRefUnref", &luna_wrapper_sgt_LogSink::_bind_base_setThreadSafeRefUnref},
 	{"base_process", &luna_wrapper_sgt_LogSink::_bind_base_process},
 	{"fromVoid", &luna_wrapper_sgt_LogSink::_bind_fromVoid},

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglExpr*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglExpr*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglExpr* rhs =(Luna< mglExpr >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglExpr* self= (mglExpr*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< mglExpr >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -103,7 +99,7 @@ public:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -113,9 +109,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -123,10 +119,10 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -138,8 +134,7 @@ public:
 	// mglExpr::mglExpr(const char * expr)
 	static mglExpr* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglExpr::mglExpr(const char * expr) function, expected prototype:\nmglExpr::mglExpr(const char * expr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglExpr::mglExpr(const char * expr) function, expected prototype:\nmglExpr::mglExpr(const char * expr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * expr=(const char *)lua_tostring(L,1);
@@ -152,8 +147,7 @@ public:
 	// double mglExpr::Eval(double x, double y = 0, double z = 0)
 	static int _bind_Eval(lua_State *L) {
 		if (!_lg_typecheck_Eval(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double mglExpr::Eval(double x, double y = 0, double z = 0) function, expected prototype:\ndouble mglExpr::Eval(double x, double y = 0, double z = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double mglExpr::Eval(double x, double y = 0, double z = 0) function, expected prototype:\ndouble mglExpr::Eval(double x, double y = 0, double z = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -164,8 +158,7 @@ public:
 
 		mglExpr* self=(Luna< mglExpr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double mglExpr::Eval(double, double, double). Got : '%s'",typeid(Luna< mglExpr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double mglExpr::Eval(double, double, double). Got : '%s'\n%s",typeid(Luna< mglExpr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->Eval(x, y, z);
 		lua_pushnumber(L,lret);
@@ -176,8 +169,7 @@ public:
 	// double mglExpr::Diff(char dir, double x, double y = 0, double z = 0)
 	static int _bind_Diff(lua_State *L) {
 		if (!_lg_typecheck_Diff(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double mglExpr::Diff(char dir, double x, double y = 0, double z = 0) function, expected prototype:\ndouble mglExpr::Diff(char dir, double x, double y = 0, double z = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double mglExpr::Diff(char dir, double x, double y = 0, double z = 0) function, expected prototype:\ndouble mglExpr::Diff(char dir, double x, double y = 0, double z = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -189,8 +181,7 @@ public:
 
 		mglExpr* self=(Luna< mglExpr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double mglExpr::Diff(char, double, double, double). Got : '%s'",typeid(Luna< mglExpr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double mglExpr::Diff(char, double, double, double). Got : '%s'\n%s",typeid(Luna< mglExpr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->Diff(dir, x, y, z);
 		lua_pushnumber(L,lret);

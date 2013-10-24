@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(TwStructMember*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(TwStructMember*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		TwStructMember* rhs =(Luna< TwStructMember >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		TwStructMember* self= (TwStructMember*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< TwStructMember >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -129,14 +125,14 @@ public:
 	inline static bool _lg_typecheck_setType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setOffset(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -150,15 +146,13 @@ public:
 	// const char * TwStructMember::Name()
 	static int _bind_getName(lua_State *L) {
 		if (!_lg_typecheck_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * TwStructMember::Name() function, expected prototype:\nconst char * TwStructMember::Name()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * TwStructMember::Name() function, expected prototype:\nconst char * TwStructMember::Name()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		TwStructMember* self=(Luna< TwStructMember >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * TwStructMember::Name(). Got : '%s'",typeid(Luna< TwStructMember >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * TwStructMember::Name(). Got : '%s'\n%s",typeid(Luna< TwStructMember >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->Name;
 		lua_pushstring(L,lret);
@@ -169,15 +163,13 @@ public:
 	// TwType TwStructMember::Type()
 	static int _bind_getType(lua_State *L) {
 		if (!_lg_typecheck_getType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in TwType TwStructMember::Type() function, expected prototype:\nTwType TwStructMember::Type()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in TwType TwStructMember::Type() function, expected prototype:\nTwType TwStructMember::Type()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		TwStructMember* self=(Luna< TwStructMember >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call TwType TwStructMember::Type(). Got : '%s'",typeid(Luna< TwStructMember >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call TwType TwStructMember::Type(). Got : '%s'\n%s",typeid(Luna< TwStructMember >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		TwType lret = self->Type;
 		lua_pushnumber(L,lret);
@@ -188,15 +180,13 @@ public:
 	// size_t TwStructMember::Offset()
 	static int _bind_getOffset(lua_State *L) {
 		if (!_lg_typecheck_getOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t TwStructMember::Offset() function, expected prototype:\nsize_t TwStructMember::Offset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t TwStructMember::Offset() function, expected prototype:\nsize_t TwStructMember::Offset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		TwStructMember* self=(Luna< TwStructMember >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t TwStructMember::Offset(). Got : '%s'",typeid(Luna< TwStructMember >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t TwStructMember::Offset(). Got : '%s'\n%s",typeid(Luna< TwStructMember >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->Offset;
 		lua_pushnumber(L,lret);
@@ -207,15 +197,13 @@ public:
 	// const char * TwStructMember::DefString()
 	static int _bind_getDefString(lua_State *L) {
 		if (!_lg_typecheck_getDefString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * TwStructMember::DefString() function, expected prototype:\nconst char * TwStructMember::DefString()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * TwStructMember::DefString() function, expected prototype:\nconst char * TwStructMember::DefString()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		TwStructMember* self=(Luna< TwStructMember >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * TwStructMember::DefString(). Got : '%s'",typeid(Luna< TwStructMember >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * TwStructMember::DefString(). Got : '%s'\n%s",typeid(Luna< TwStructMember >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->DefString;
 		lua_pushstring(L,lret);
@@ -226,16 +214,14 @@ public:
 	// void TwStructMember::Type(TwType value)
 	static int _bind_setType(lua_State *L) {
 		if (!_lg_typecheck_setType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void TwStructMember::Type(TwType value) function, expected prototype:\nvoid TwStructMember::Type(TwType value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void TwStructMember::Type(TwType value) function, expected prototype:\nvoid TwStructMember::Type(TwType value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		TwType value=(TwType)lua_tointeger(L,2);
 
 		TwStructMember* self=(Luna< TwStructMember >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void TwStructMember::Type(TwType). Got : '%s'",typeid(Luna< TwStructMember >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void TwStructMember::Type(TwType). Got : '%s'\n%s",typeid(Luna< TwStructMember >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Type = value;
 
@@ -245,16 +231,14 @@ public:
 	// void TwStructMember::Offset(size_t value)
 	static int _bind_setOffset(lua_State *L) {
 		if (!_lg_typecheck_setOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void TwStructMember::Offset(size_t value) function, expected prototype:\nvoid TwStructMember::Offset(size_t value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void TwStructMember::Offset(size_t value) function, expected prototype:\nvoid TwStructMember::Offset(size_t value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t value=(size_t)lua_tointeger(L,2);
 
 		TwStructMember* self=(Luna< TwStructMember >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void TwStructMember::Offset(size_t). Got : '%s'",typeid(Luna< TwStructMember >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void TwStructMember::Offset(size_t). Got : '%s'\n%s",typeid(Luna< TwStructMember >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Offset = value;
 

@@ -41,8 +41,6 @@ end
 function Class:toggleVerbose(data)
 	self:info("Toggling verbose outputs to : ",data.value)
 	sgt.LogManager.instance():setVerbose(data.value)
-	
-	scLog.LogManager.instance():setVerbose(data.value)
 end
 
 function Class:clearLogConsole()
@@ -65,10 +63,6 @@ function Class:changeLogLevel(data)
 	self:info("Changing log level to : ",data.value)
 	local lvl = sgt.LogManager[data.value:upper()]
 	sgt.LogManager.instance():setNotifyLevel(lvl)
-	if scLog then
-		-- SimCore package is also available:
-		scLog.LogManager.instance():setNotifyLevel(lvl)
-	end
 end
 
 function Class:executeScript()

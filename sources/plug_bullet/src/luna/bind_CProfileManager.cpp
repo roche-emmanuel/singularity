@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(CProfileManager*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(CProfileManager*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		CProfileManager* rhs =(Luna< CProfileManager >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		CProfileManager* self= (CProfileManager*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< CProfileManager >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -105,7 +101,7 @@ public:
 	inline static bool _lg_typecheck_Start_Profile(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -162,7 +158,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,52791109)) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -182,8 +178,7 @@ public:
 	// static void CProfileManager::Start_Profile(const char * name)
 	static int _bind_Start_Profile(lua_State *L) {
 		if (!_lg_typecheck_Start_Profile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void CProfileManager::Start_Profile(const char * name) function, expected prototype:\nstatic void CProfileManager::Start_Profile(const char * name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void CProfileManager::Start_Profile(const char * name) function, expected prototype:\nstatic void CProfileManager::Start_Profile(const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * name=(const char *)lua_tostring(L,1);
@@ -196,8 +191,7 @@ public:
 	// static void CProfileManager::Stop_Profile()
 	static int _bind_Stop_Profile(lua_State *L) {
 		if (!_lg_typecheck_Stop_Profile(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void CProfileManager::Stop_Profile() function, expected prototype:\nstatic void CProfileManager::Stop_Profile()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void CProfileManager::Stop_Profile() function, expected prototype:\nstatic void CProfileManager::Stop_Profile()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -209,8 +203,7 @@ public:
 	// static void CProfileManager::CleanupMemory()
 	static int _bind_CleanupMemory(lua_State *L) {
 		if (!_lg_typecheck_CleanupMemory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void CProfileManager::CleanupMemory() function, expected prototype:\nstatic void CProfileManager::CleanupMemory()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void CProfileManager::CleanupMemory() function, expected prototype:\nstatic void CProfileManager::CleanupMemory()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -222,8 +215,7 @@ public:
 	// static void CProfileManager::Reset()
 	static int _bind_Reset(lua_State *L) {
 		if (!_lg_typecheck_Reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void CProfileManager::Reset() function, expected prototype:\nstatic void CProfileManager::Reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void CProfileManager::Reset() function, expected prototype:\nstatic void CProfileManager::Reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -235,8 +227,7 @@ public:
 	// static void CProfileManager::Increment_Frame_Counter()
 	static int _bind_Increment_Frame_Counter(lua_State *L) {
 		if (!_lg_typecheck_Increment_Frame_Counter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void CProfileManager::Increment_Frame_Counter() function, expected prototype:\nstatic void CProfileManager::Increment_Frame_Counter()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void CProfileManager::Increment_Frame_Counter() function, expected prototype:\nstatic void CProfileManager::Increment_Frame_Counter()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -248,8 +239,7 @@ public:
 	// static int CProfileManager::Get_Frame_Count_Since_Reset()
 	static int _bind_Get_Frame_Count_Since_Reset(lua_State *L) {
 		if (!_lg_typecheck_Get_Frame_Count_Since_Reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static int CProfileManager::Get_Frame_Count_Since_Reset() function, expected prototype:\nstatic int CProfileManager::Get_Frame_Count_Since_Reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static int CProfileManager::Get_Frame_Count_Since_Reset() function, expected prototype:\nstatic int CProfileManager::Get_Frame_Count_Since_Reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -262,8 +252,7 @@ public:
 	// static float CProfileManager::Get_Time_Since_Reset()
 	static int _bind_Get_Time_Since_Reset(lua_State *L) {
 		if (!_lg_typecheck_Get_Time_Since_Reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static float CProfileManager::Get_Time_Since_Reset() function, expected prototype:\nstatic float CProfileManager::Get_Time_Since_Reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static float CProfileManager::Get_Time_Since_Reset() function, expected prototype:\nstatic float CProfileManager::Get_Time_Since_Reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -276,8 +265,7 @@ public:
 	// static CProfileIterator * CProfileManager::Get_Iterator()
 	static int _bind_Get_Iterator(lua_State *L) {
 		if (!_lg_typecheck_Get_Iterator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static CProfileIterator * CProfileManager::Get_Iterator() function, expected prototype:\nstatic CProfileIterator * CProfileManager::Get_Iterator()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static CProfileIterator * CProfileManager::Get_Iterator() function, expected prototype:\nstatic CProfileIterator * CProfileManager::Get_Iterator()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -292,8 +280,7 @@ public:
 	// static void CProfileManager::Release_Iterator(CProfileIterator * iterator)
 	static int _bind_Release_Iterator(lua_State *L) {
 		if (!_lg_typecheck_Release_Iterator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void CProfileManager::Release_Iterator(CProfileIterator * iterator) function, expected prototype:\nstatic void CProfileManager::Release_Iterator(CProfileIterator * iterator)\nClass arguments details:\narg 1 ID = 52791109\n");
+			luaL_error(L, "luna typecheck failed in static void CProfileManager::Release_Iterator(CProfileIterator * iterator) function, expected prototype:\nstatic void CProfileManager::Release_Iterator(CProfileIterator * iterator)\nClass arguments details:\narg 1 ID = 52791109\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		CProfileIterator* iterator=(Luna< CProfileIterator >::check(L,1));
@@ -306,8 +293,7 @@ public:
 	// static void CProfileManager::dumpRecursive(CProfileIterator * profileIterator, int spacing)
 	static int _bind_dumpRecursive(lua_State *L) {
 		if (!_lg_typecheck_dumpRecursive(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void CProfileManager::dumpRecursive(CProfileIterator * profileIterator, int spacing) function, expected prototype:\nstatic void CProfileManager::dumpRecursive(CProfileIterator * profileIterator, int spacing)\nClass arguments details:\narg 1 ID = 52791109\n");
+			luaL_error(L, "luna typecheck failed in static void CProfileManager::dumpRecursive(CProfileIterator * profileIterator, int spacing) function, expected prototype:\nstatic void CProfileManager::dumpRecursive(CProfileIterator * profileIterator, int spacing)\nClass arguments details:\narg 1 ID = 52791109\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		CProfileIterator* profileIterator=(Luna< CProfileIterator >::check(L,1));
@@ -321,8 +307,7 @@ public:
 	// static void CProfileManager::dumpAll()
 	static int _bind_dumpAll(lua_State *L) {
 		if (!_lg_typecheck_dumpAll(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void CProfileManager::dumpAll() function, expected prototype:\nstatic void CProfileManager::dumpAll()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void CProfileManager::dumpAll() function, expected prototype:\nstatic void CProfileManager::dumpAll()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 

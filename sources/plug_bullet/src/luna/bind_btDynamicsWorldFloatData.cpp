@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btDynamicsWorldFloatData*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btDynamicsWorldFloatData*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDynamicsWorldFloatData* rhs =(Luna< btDynamicsWorldFloatData >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDynamicsWorldFloatData* self= (btDynamicsWorldFloatData*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btDynamicsWorldFloatData >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -138,15 +134,13 @@ public:
 	// btContactSolverInfoFloatData btDynamicsWorldFloatData::m_solverInfo()
 	static int _bind_getSolverInfo(lua_State *L) {
 		if (!_lg_typecheck_getSolverInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btContactSolverInfoFloatData btDynamicsWorldFloatData::m_solverInfo() function, expected prototype:\nbtContactSolverInfoFloatData btDynamicsWorldFloatData::m_solverInfo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btContactSolverInfoFloatData btDynamicsWorldFloatData::m_solverInfo() function, expected prototype:\nbtContactSolverInfoFloatData btDynamicsWorldFloatData::m_solverInfo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDynamicsWorldFloatData* self=(Luna< btDynamicsWorldFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btContactSolverInfoFloatData btDynamicsWorldFloatData::m_solverInfo(). Got : '%s'",typeid(Luna< btDynamicsWorldFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btContactSolverInfoFloatData btDynamicsWorldFloatData::m_solverInfo(). Got : '%s'\n%s",typeid(Luna< btDynamicsWorldFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btContactSolverInfoFloatData* lret = &self->m_solverInfo;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -159,15 +153,13 @@ public:
 	// btVector3FloatData btDynamicsWorldFloatData::m_gravity()
 	static int _bind_getGravity(lua_State *L) {
 		if (!_lg_typecheck_getGravity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3FloatData btDynamicsWorldFloatData::m_gravity() function, expected prototype:\nbtVector3FloatData btDynamicsWorldFloatData::m_gravity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3FloatData btDynamicsWorldFloatData::m_gravity() function, expected prototype:\nbtVector3FloatData btDynamicsWorldFloatData::m_gravity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDynamicsWorldFloatData* self=(Luna< btDynamicsWorldFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3FloatData btDynamicsWorldFloatData::m_gravity(). Got : '%s'",typeid(Luna< btDynamicsWorldFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3FloatData btDynamicsWorldFloatData::m_gravity(). Got : '%s'\n%s",typeid(Luna< btDynamicsWorldFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3FloatData* lret = &self->m_gravity;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -180,8 +172,7 @@ public:
 	// void btDynamicsWorldFloatData::m_solverInfo(btContactSolverInfoFloatData value)
 	static int _bind_setSolverInfo(lua_State *L) {
 		if (!_lg_typecheck_setSolverInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDynamicsWorldFloatData::m_solverInfo(btContactSolverInfoFloatData value) function, expected prototype:\nvoid btDynamicsWorldFloatData::m_solverInfo(btContactSolverInfoFloatData value)\nClass arguments details:\narg 1 ID = 97541958\n");
+			luaL_error(L, "luna typecheck failed in void btDynamicsWorldFloatData::m_solverInfo(btContactSolverInfoFloatData value) function, expected prototype:\nvoid btDynamicsWorldFloatData::m_solverInfo(btContactSolverInfoFloatData value)\nClass arguments details:\narg 1 ID = 97541958\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btContactSolverInfoFloatData* value_ptr=(Luna< btContactSolverInfoFloatData >::check(L,2));
@@ -192,8 +183,7 @@ public:
 
 		btDynamicsWorldFloatData* self=(Luna< btDynamicsWorldFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDynamicsWorldFloatData::m_solverInfo(btContactSolverInfoFloatData). Got : '%s'",typeid(Luna< btDynamicsWorldFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDynamicsWorldFloatData::m_solverInfo(btContactSolverInfoFloatData). Got : '%s'\n%s",typeid(Luna< btDynamicsWorldFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_solverInfo = value;
 
@@ -203,8 +193,7 @@ public:
 	// void btDynamicsWorldFloatData::m_gravity(btVector3FloatData value)
 	static int _bind_setGravity(lua_State *L) {
 		if (!_lg_typecheck_setGravity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDynamicsWorldFloatData::m_gravity(btVector3FloatData value) function, expected prototype:\nvoid btDynamicsWorldFloatData::m_gravity(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
+			luaL_error(L, "luna typecheck failed in void btDynamicsWorldFloatData::m_gravity(btVector3FloatData value) function, expected prototype:\nvoid btDynamicsWorldFloatData::m_gravity(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3FloatData* value_ptr=(Luna< btVector3FloatData >::check(L,2));
@@ -215,8 +204,7 @@ public:
 
 		btDynamicsWorldFloatData* self=(Luna< btDynamicsWorldFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDynamicsWorldFloatData::m_gravity(btVector3FloatData). Got : '%s'",typeid(Luna< btDynamicsWorldFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDynamicsWorldFloatData::m_gravity(btVector3FloatData). Got : '%s'\n%s",typeid(Luna< btDynamicsWorldFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_gravity = value;
 

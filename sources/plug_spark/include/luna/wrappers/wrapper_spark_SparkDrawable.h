@@ -152,7 +152,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,70092749) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,70092749) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -160,8 +160,8 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -169,9 +169,9 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -180,8 +180,7 @@ public:
 	// SPK::System * spark::SparkDrawable::public_createParticleSystem(const SPK::Vector3D & pos, const SPK::Vector3D & rot, float angle)
 	static int _bind_public_createParticleSystem(lua_State *L) {
 		if (!_lg_typecheck_public_createParticleSystem(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::System * spark::SparkDrawable::public_createParticleSystem(const SPK::Vector3D & pos, const SPK::Vector3D & rot, float angle) function, expected prototype:\nSPK::System * spark::SparkDrawable::public_createParticleSystem(const SPK::Vector3D & pos, const SPK::Vector3D & rot, float angle)\nClass arguments details:\narg 1 ID = 70092749\narg 2 ID = 70092749\n");
+			luaL_error(L, "luna typecheck failed in SPK::System * spark::SparkDrawable::public_createParticleSystem(const SPK::Vector3D & pos, const SPK::Vector3D & rot, float angle) function, expected prototype:\nSPK::System * spark::SparkDrawable::public_createParticleSystem(const SPK::Vector3D & pos, const SPK::Vector3D & rot, float angle)\nClass arguments details:\narg 1 ID = 70092749\narg 2 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Vector3D* pos_ptr=(Luna< SPK::Vector3D >::check(L,2));
@@ -198,8 +197,7 @@ public:
 
 		wrapper_spark_SparkDrawable* self=Luna< osg::Referenced >::checkSubType< wrapper_spark_SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::System * spark::SparkDrawable::public_createParticleSystem(const SPK::Vector3D &, const SPK::Vector3D &, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::System * spark::SparkDrawable::public_createParticleSystem(const SPK::Vector3D &, const SPK::Vector3D &, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::System * lret = self->public_createParticleSystem(pos, rot, angle);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -212,8 +210,7 @@ public:
 	// unsigned int spark::SparkDrawable::public_compileInternalTexture(osg::Image * image, unsigned int type, unsigned int clamp) const
 	static int _bind_public_compileInternalTexture(lua_State *L) {
 		if (!_lg_typecheck_public_compileInternalTexture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int spark::SparkDrawable::public_compileInternalTexture(osg::Image * image, unsigned int type, unsigned int clamp) const function, expected prototype:\nunsigned int spark::SparkDrawable::public_compileInternalTexture(osg::Image * image, unsigned int type, unsigned int clamp) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int spark::SparkDrawable::public_compileInternalTexture(osg::Image * image, unsigned int type, unsigned int clamp) const function, expected prototype:\nunsigned int spark::SparkDrawable::public_compileInternalTexture(osg::Image * image, unsigned int type, unsigned int clamp) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2));
@@ -222,8 +219,7 @@ public:
 
 		wrapper_spark_SparkDrawable* self=Luna< osg::Referenced >::checkSubType< wrapper_spark_SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int spark::SparkDrawable::public_compileInternalTexture(osg::Image *, unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int spark::SparkDrawable::public_compileInternalTexture(osg::Image *, unsigned int, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->public_compileInternalTexture(image, type, clamp);
 		lua_pushnumber(L,lret);
@@ -234,8 +230,7 @@ public:
 	// void spark::SparkDrawable::public_convertData(osg::Image * image, unsigned int type, unsigned int numCurrent, unsigned int numRequired) const
 	static int _bind_public_convertData(lua_State *L) {
 		if (!_lg_typecheck_public_convertData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::public_convertData(osg::Image * image, unsigned int type, unsigned int numCurrent, unsigned int numRequired) const function, expected prototype:\nvoid spark::SparkDrawable::public_convertData(osg::Image * image, unsigned int type, unsigned int numCurrent, unsigned int numRequired) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void spark::SparkDrawable::public_convertData(osg::Image * image, unsigned int type, unsigned int numCurrent, unsigned int numRequired) const function, expected prototype:\nvoid spark::SparkDrawable::public_convertData(osg::Image * image, unsigned int type, unsigned int numCurrent, unsigned int numRequired) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Image* image=(Luna< osg::Referenced >::checkSubType< osg::Image >(L,2));
@@ -245,8 +240,7 @@ public:
 
 		wrapper_spark_SparkDrawable* self=Luna< osg::Referenced >::checkSubType< wrapper_spark_SparkDrawable >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::public_convertData(osg::Image *, unsigned int, unsigned int, unsigned int) const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void spark::SparkDrawable::public_convertData(osg::Image *, unsigned int, unsigned int, unsigned int) const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_convertData(image, type, numCurrent, numRequired);
 

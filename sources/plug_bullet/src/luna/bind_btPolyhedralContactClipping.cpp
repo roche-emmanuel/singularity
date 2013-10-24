@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btPolyhedralContactClipping*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btPolyhedralContactClipping*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPolyhedralContactClipping* rhs =(Luna< btPolyhedralContactClipping >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPolyhedralContactClipping* self= (btPolyhedralContactClipping*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btPolyhedralContactClipping >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -110,8 +106,8 @@ public:
 		if( !Luna<void>::has_uniqueid(L,3,75798226) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,13247377) ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,25324514) ) return false;
 		return true;
 	}
@@ -123,8 +119,8 @@ public:
 		if( !Luna<void>::has_uniqueid(L,2,75798226) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,89770050) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,25324514) ) return false;
 		return true;
 	}
@@ -147,7 +143,7 @@ public:
 		if( !Luna<void>::has_uniqueid(L,1,89770050) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,89770050) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -161,8 +157,7 @@ public:
 	// static void btPolyhedralContactClipping::clipHullAgainstHull(const btVector3 & separatingNormal, const btConvexPolyhedron & hullA, const btConvexPolyhedron & hullB, const btTransform & transA, const btTransform & transB, const float minDist, float maxDist, btDiscreteCollisionDetectorInterface::Result & resultOut)
 	static int _bind_clipHullAgainstHull(lua_State *L) {
 		if (!_lg_typecheck_clipHullAgainstHull(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void btPolyhedralContactClipping::clipHullAgainstHull(const btVector3 & separatingNormal, const btConvexPolyhedron & hullA, const btConvexPolyhedron & hullB, const btTransform & transA, const btTransform & transB, const float minDist, float maxDist, btDiscreteCollisionDetectorInterface::Result & resultOut) function, expected prototype:\nstatic void btPolyhedralContactClipping::clipHullAgainstHull(const btVector3 & separatingNormal, const btConvexPolyhedron & hullA, const btConvexPolyhedron & hullB, const btTransform & transA, const btTransform & transB, const float minDist, float maxDist, btDiscreteCollisionDetectorInterface::Result & resultOut)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 75798226\narg 3 ID = 75798226\narg 4 ID = 13247377\narg 5 ID = 13247377\narg 8 ID = 25324514\n");
+			luaL_error(L, "luna typecheck failed in static void btPolyhedralContactClipping::clipHullAgainstHull(const btVector3 & separatingNormal, const btConvexPolyhedron & hullA, const btConvexPolyhedron & hullB, const btTransform & transA, const btTransform & transB, const float minDist, float maxDist, btDiscreteCollisionDetectorInterface::Result & resultOut) function, expected prototype:\nstatic void btPolyhedralContactClipping::clipHullAgainstHull(const btVector3 & separatingNormal, const btConvexPolyhedron & hullA, const btConvexPolyhedron & hullB, const btTransform & transA, const btTransform & transB, const float minDist, float maxDist, btDiscreteCollisionDetectorInterface::Result & resultOut)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 75798226\narg 3 ID = 75798226\narg 4 ID = 13247377\narg 5 ID = 13247377\narg 8 ID = 25324514\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* separatingNormal_ptr=(Luna< btVector3 >::check(L,1));
@@ -206,8 +201,7 @@ public:
 	// static void btPolyhedralContactClipping::clipFaceAgainstHull(const btVector3 & separatingNormal, const btConvexPolyhedron & hullA, const btTransform & transA, btVertexArray & worldVertsB1, const float minDist, float maxDist, btDiscreteCollisionDetectorInterface::Result & resultOut)
 	static int _bind_clipFaceAgainstHull(lua_State *L) {
 		if (!_lg_typecheck_clipFaceAgainstHull(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void btPolyhedralContactClipping::clipFaceAgainstHull(const btVector3 & separatingNormal, const btConvexPolyhedron & hullA, const btTransform & transA, btVertexArray & worldVertsB1, const float minDist, float maxDist, btDiscreteCollisionDetectorInterface::Result & resultOut) function, expected prototype:\nstatic void btPolyhedralContactClipping::clipFaceAgainstHull(const btVector3 & separatingNormal, const btConvexPolyhedron & hullA, const btTransform & transA, btVertexArray & worldVertsB1, const float minDist, float maxDist, btDiscreteCollisionDetectorInterface::Result & resultOut)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 75798226\narg 3 ID = 13247377\narg 4 ID = 99189047\narg 7 ID = 25324514\n");
+			luaL_error(L, "luna typecheck failed in static void btPolyhedralContactClipping::clipFaceAgainstHull(const btVector3 & separatingNormal, const btConvexPolyhedron & hullA, const btTransform & transA, btVertexArray & worldVertsB1, const float minDist, float maxDist, btDiscreteCollisionDetectorInterface::Result & resultOut) function, expected prototype:\nstatic void btPolyhedralContactClipping::clipFaceAgainstHull(const btVector3 & separatingNormal, const btConvexPolyhedron & hullA, const btTransform & transA, btVertexArray & worldVertsB1, const float minDist, float maxDist, btDiscreteCollisionDetectorInterface::Result & resultOut)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 75798226\narg 3 ID = 13247377\narg 4 ID = 99189047\narg 7 ID = 25324514\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* separatingNormal_ptr=(Luna< btVector3 >::check(L,1));
@@ -246,8 +240,7 @@ public:
 	// static bool btPolyhedralContactClipping::findSeparatingAxis(const btConvexPolyhedron & hullA, const btConvexPolyhedron & hullB, const btTransform & transA, const btTransform & transB, btVector3 & sep, btDiscreteCollisionDetectorInterface::Result & resultOut)
 	static int _bind_findSeparatingAxis(lua_State *L) {
 		if (!_lg_typecheck_findSeparatingAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool btPolyhedralContactClipping::findSeparatingAxis(const btConvexPolyhedron & hullA, const btConvexPolyhedron & hullB, const btTransform & transA, const btTransform & transB, btVector3 & sep, btDiscreteCollisionDetectorInterface::Result & resultOut) function, expected prototype:\nstatic bool btPolyhedralContactClipping::findSeparatingAxis(const btConvexPolyhedron & hullA, const btConvexPolyhedron & hullB, const btTransform & transA, const btTransform & transB, btVector3 & sep, btDiscreteCollisionDetectorInterface::Result & resultOut)\nClass arguments details:\narg 1 ID = 75798226\narg 2 ID = 75798226\narg 3 ID = 13247377\narg 4 ID = 13247377\narg 5 ID = 91544891\narg 6 ID = 25324514\n");
+			luaL_error(L, "luna typecheck failed in static bool btPolyhedralContactClipping::findSeparatingAxis(const btConvexPolyhedron & hullA, const btConvexPolyhedron & hullB, const btTransform & transA, const btTransform & transB, btVector3 & sep, btDiscreteCollisionDetectorInterface::Result & resultOut) function, expected prototype:\nstatic bool btPolyhedralContactClipping::findSeparatingAxis(const btConvexPolyhedron & hullA, const btConvexPolyhedron & hullB, const btTransform & transA, const btTransform & transB, btVector3 & sep, btDiscreteCollisionDetectorInterface::Result & resultOut)\nClass arguments details:\narg 1 ID = 75798226\narg 2 ID = 75798226\narg 3 ID = 13247377\narg 4 ID = 13247377\narg 5 ID = 91544891\narg 6 ID = 25324514\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btConvexPolyhedron* hullA_ptr=(Luna< btConvexPolyhedron >::check(L,1));
@@ -290,8 +283,7 @@ public:
 	// static void btPolyhedralContactClipping::clipFace(const btVertexArray & pVtxIn, btVertexArray & ppVtxOut, const btVector3 & planeNormalWS, float planeEqWS)
 	static int _bind_clipFace(lua_State *L) {
 		if (!_lg_typecheck_clipFace(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void btPolyhedralContactClipping::clipFace(const btVertexArray & pVtxIn, btVertexArray & ppVtxOut, const btVector3 & planeNormalWS, float planeEqWS) function, expected prototype:\nstatic void btPolyhedralContactClipping::clipFace(const btVertexArray & pVtxIn, btVertexArray & ppVtxOut, const btVector3 & planeNormalWS, float planeEqWS)\nClass arguments details:\narg 1 ID = 99189047\narg 2 ID = 99189047\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in static void btPolyhedralContactClipping::clipFace(const btVertexArray & pVtxIn, btVertexArray & ppVtxOut, const btVector3 & planeNormalWS, float planeEqWS) function, expected prototype:\nstatic void btPolyhedralContactClipping::clipFace(const btVertexArray & pVtxIn, btVertexArray & ppVtxOut, const btVector3 & planeNormalWS, float planeEqWS)\nClass arguments details:\narg 1 ID = 99189047\narg 2 ID = 99189047\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVertexArray* pVtxIn_ptr=(Luna< btAlignedObjectArray< btVector3 > >::checkSubType< btVertexArray >(L,1));

@@ -6,63 +6,21 @@
     #    define SGTCORE_EXPORT
     #  elif defined( SGTCORE_LIB )
     #    define SGTCORE_EXPORT   __declspec(dllexport)
-	#    define EXPIMP_TEMPLATE 
     #  else
     #    define SGTCORE_EXPORT   __declspec(dllimport)
-	#    define EXPIMP_TEMPLATE extern
     #  endif
 #else
     #  define SGTCORE_EXPORT
-	#  define EXPIMP_TEMPLATE
 #endif  
 
 #include "sgtConfig.h"
 
-#ifdef WIN32
-#include <windows.h>
-#endif
-
-// Default includes:
-#include <map>
-#include <vector>
-#include <iostream>
-#include <sstream>
-#include <fstream>
-
-#include <lua.hpp>
-
-#include <boost/any.hpp>
-#include <boost/serialization/serialization.hpp>
-#include <boost/cstdint.hpp>
-#include <boost/type_traits.hpp>
-#include <boost/thread.hpp>
-#include <boost/date_time/posix_time/posix_time.hpp>
-#include <boost/chrono.hpp>
-#include <boost/foreach.hpp>
-#include <boost/tokenizer.hpp>
-#include <boost/variant.hpp>
-
-#include <osg/Object>
-#include <osg/ref_ptr>
-#include <osg/observer_ptr>
-#include <osg/Math>
-#include <OpenThreads/Mutex>
-#include <OpenThreads/ScopedLock>
+#include "lunaCommon.h"
 
 // Smart pointers definitions:
-#define sgtPtr osg::ref_ptr
-#define sgtObserver osg::observer_ptr
-#define AnyCast boost::any_cast 
-
 typedef osg::CopyOp sgtCopyOp;
 typedef osg::Referenced sgtReferencedBase; 
 typedef osg::Object sgtObjectBase; // it is assumed that the object base class is derived from sgtReferenced.
-
-#ifndef _MSC_VER
-typedef boost::int64_t __int64;
-#endif
-
-typedef boost::uint64_t __uint64;
 
 // Core definitions and classes:
 namespace sgt {
@@ -104,12 +62,6 @@ typedef double Double;
 
 typedef sgtPtr<sgtReferencedBase> RefPtr;
 
-typedef OpenThreads::Mutex sgtMutex;
-
-typedef OpenThreads::ScopedLock<sgtMutex> sgtLock;
-
-#define SCOPELOCK(m) sgtLock lock(m); 
-
 //typedef boost::any Any;
 
 #ifdef WIN32
@@ -142,35 +94,7 @@ typedef sgt::RefPtr sgtRefPtr;
 
 #include "base/Referenced.h"
 #include "base/Object.h"
-#include "base/Exception.h"
-#include "sgtLogging.h"
 #include "sgtSerializer.h"
-
-// Helper macros:
-#define FOREACH BOOST_FOREACH
-
-#define REMOVE(cont,item) cont.erase(std::remove(cont.begin(), cont.end(), item), cont.end());
-
-// Removes only if predicate returns true:
-#define REMOVE_IF(cont,pred) cont.erase(std::remove_if(cont.begin(), cont.end(), pred), cont.end());
-
-// Debugging macros:
-#define THROW_IF(cond,msg) if(cond) { std::ostringstream os; os << msg; logERROR("Throwing exception: " << msg); throw sgtException(os.str()); }
-#define CHECK_EQ(val,expected,msg) if((val)!=(expected)) { logERROR(msg << " (Expected: " << (expected) << " and got: " << (val) << ")"); return; }
-#define CHECK_EQ_RET(val,expected,ret,msg) if((val)!=(expected)) { logERROR(msg << " (Expected: " << (expected) << " and got: " << (val) << ")"); return ret; }
-
-#define CHECK(val,msg) if(!(val)) { logERROR(msg); return; }
-#define CHECK_RET(val,ret,msg) if(!(val)) { logERROR(msg); return ret; }
-
-#define DEPRECATED(msg) { logWARN("Deprecated: " << msg); }
-
-#define TRY try
-#define CATCH(msg) catch(const std::exception& e) { \
-		logERROR("Std exception " << msg << ": " << e.what()); \
-	} \
-		catch(...) { \
-		logERROR("Unknown exception " << msg << "."); \
-	}
 
 namespace sgt {
 

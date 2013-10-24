@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Mat22*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Mat22*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Mat22* rhs =(Luna< b2Mat22 >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Mat22* self= (b2Mat22*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Mat22 >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -119,10 +115,10 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -195,8 +191,7 @@ public:
 	// b2Mat22::b2Mat22()
 	static b2Mat22* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Mat22::b2Mat22() function, expected prototype:\nb2Mat22::b2Mat22()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Mat22::b2Mat22() function, expected prototype:\nb2Mat22::b2Mat22()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -206,8 +201,7 @@ public:
 	// b2Mat22::b2Mat22(const b2Vec2 & c1, const b2Vec2 & c2)
 	static b2Mat22* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Mat22::b2Mat22(const b2Vec2 & c1, const b2Vec2 & c2) function, expected prototype:\nb2Mat22::b2Mat22(const b2Vec2 & c1, const b2Vec2 & c2)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in b2Mat22::b2Mat22(const b2Vec2 & c1, const b2Vec2 & c2) function, expected prototype:\nb2Mat22::b2Mat22(const b2Vec2 & c1, const b2Vec2 & c2)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2Vec2* c1_ptr=(Luna< b2Vec2 >::check(L,1));
@@ -227,8 +221,7 @@ public:
 	// b2Mat22::b2Mat22(float a11, float a12, float a21, float a22)
 	static b2Mat22* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Mat22::b2Mat22(float a11, float a12, float a21, float a22) function, expected prototype:\nb2Mat22::b2Mat22(float a11, float a12, float a21, float a22)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Mat22::b2Mat22(float a11, float a12, float a21, float a22) function, expected prototype:\nb2Mat22::b2Mat22(float a11, float a12, float a21, float a22)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float a11=(float)lua_tonumber(L,1);
@@ -254,8 +247,7 @@ public:
 	// void b2Mat22::Set(const b2Vec2 & c1, const b2Vec2 & c2)
 	static int _bind_Set(lua_State *L) {
 		if (!_lg_typecheck_Set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Mat22::Set(const b2Vec2 & c1, const b2Vec2 & c2) function, expected prototype:\nvoid b2Mat22::Set(const b2Vec2 & c1, const b2Vec2 & c2)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2Mat22::Set(const b2Vec2 & c1, const b2Vec2 & c2) function, expected prototype:\nvoid b2Mat22::Set(const b2Vec2 & c1, const b2Vec2 & c2)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2Vec2* c1_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -271,8 +263,7 @@ public:
 
 		b2Mat22* self=(Luna< b2Mat22 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Mat22::Set(const b2Vec2 &, const b2Vec2 &). Got : '%s'",typeid(Luna< b2Mat22 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Mat22::Set(const b2Vec2 &, const b2Vec2 &). Got : '%s'\n%s",typeid(Luna< b2Mat22 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Set(c1, c2);
 
@@ -282,15 +273,13 @@ public:
 	// void b2Mat22::SetIdentity()
 	static int _bind_SetIdentity(lua_State *L) {
 		if (!_lg_typecheck_SetIdentity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Mat22::SetIdentity() function, expected prototype:\nvoid b2Mat22::SetIdentity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Mat22::SetIdentity() function, expected prototype:\nvoid b2Mat22::SetIdentity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Mat22* self=(Luna< b2Mat22 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Mat22::SetIdentity(). Got : '%s'",typeid(Luna< b2Mat22 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Mat22::SetIdentity(). Got : '%s'\n%s",typeid(Luna< b2Mat22 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetIdentity();
 
@@ -300,15 +289,13 @@ public:
 	// void b2Mat22::SetZero()
 	static int _bind_SetZero(lua_State *L) {
 		if (!_lg_typecheck_SetZero(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Mat22::SetZero() function, expected prototype:\nvoid b2Mat22::SetZero()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Mat22::SetZero() function, expected prototype:\nvoid b2Mat22::SetZero()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Mat22* self=(Luna< b2Mat22 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Mat22::SetZero(). Got : '%s'",typeid(Luna< b2Mat22 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Mat22::SetZero(). Got : '%s'\n%s",typeid(Luna< b2Mat22 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetZero();
 
@@ -318,15 +305,13 @@ public:
 	// b2Mat22 b2Mat22::GetInverse() const
 	static int _bind_GetInverse(lua_State *L) {
 		if (!_lg_typecheck_GetInverse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Mat22 b2Mat22::GetInverse() const function, expected prototype:\nb2Mat22 b2Mat22::GetInverse() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Mat22 b2Mat22::GetInverse() const function, expected prototype:\nb2Mat22 b2Mat22::GetInverse() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Mat22* self=(Luna< b2Mat22 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Mat22 b2Mat22::GetInverse() const. Got : '%s'",typeid(Luna< b2Mat22 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Mat22 b2Mat22::GetInverse() const. Got : '%s'\n%s",typeid(Luna< b2Mat22 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Mat22 stack_lret = self->GetInverse();
 		b2Mat22* lret = new b2Mat22(stack_lret);
@@ -340,8 +325,7 @@ public:
 	// b2Vec2 b2Mat22::Solve(const b2Vec2 & b) const
 	static int _bind_Solve(lua_State *L) {
 		if (!_lg_typecheck_Solve(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2Mat22::Solve(const b2Vec2 & b) const function, expected prototype:\nb2Vec2 b2Mat22::Solve(const b2Vec2 & b) const\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2Mat22::Solve(const b2Vec2 & b) const function, expected prototype:\nb2Vec2 b2Mat22::Solve(const b2Vec2 & b) const\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2Vec2* b_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -352,8 +336,7 @@ public:
 
 		b2Mat22* self=(Luna< b2Mat22 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2Mat22::Solve(const b2Vec2 &) const. Got : '%s'",typeid(Luna< b2Mat22 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2Mat22::Solve(const b2Vec2 &) const. Got : '%s'\n%s",typeid(Luna< b2Mat22 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->Solve(b);
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -367,15 +350,13 @@ public:
 	// b2Vec2 b2Mat22::ex()
 	static int _bind_getEx(lua_State *L) {
 		if (!_lg_typecheck_getEx(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2Mat22::ex() function, expected prototype:\nb2Vec2 b2Mat22::ex()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2Mat22::ex() function, expected prototype:\nb2Vec2 b2Mat22::ex()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Mat22* self=(Luna< b2Mat22 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2Mat22::ex(). Got : '%s'",typeid(Luna< b2Mat22 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2Mat22::ex(). Got : '%s'\n%s",typeid(Luna< b2Mat22 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->ex;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -388,15 +369,13 @@ public:
 	// b2Vec2 b2Mat22::ey()
 	static int _bind_getEy(lua_State *L) {
 		if (!_lg_typecheck_getEy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2Mat22::ey() function, expected prototype:\nb2Vec2 b2Mat22::ey()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2Mat22::ey() function, expected prototype:\nb2Vec2 b2Mat22::ey()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Mat22* self=(Luna< b2Mat22 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2Mat22::ey(). Got : '%s'",typeid(Luna< b2Mat22 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2Mat22::ey(). Got : '%s'\n%s",typeid(Luna< b2Mat22 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->ey;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -409,8 +388,7 @@ public:
 	// void b2Mat22::ex(b2Vec2 value)
 	static int _bind_setEx(lua_State *L) {
 		if (!_lg_typecheck_setEx(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Mat22::ex(b2Vec2 value) function, expected prototype:\nvoid b2Mat22::ex(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2Mat22::ex(b2Vec2 value) function, expected prototype:\nvoid b2Mat22::ex(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -421,8 +399,7 @@ public:
 
 		b2Mat22* self=(Luna< b2Mat22 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Mat22::ex(b2Vec2). Got : '%s'",typeid(Luna< b2Mat22 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Mat22::ex(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2Mat22 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ex = value;
 
@@ -432,8 +409,7 @@ public:
 	// void b2Mat22::ey(b2Vec2 value)
 	static int _bind_setEy(lua_State *L) {
 		if (!_lg_typecheck_setEy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Mat22::ey(b2Vec2 value) function, expected prototype:\nvoid b2Mat22::ey(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2Mat22::ey(b2Vec2 value) function, expected prototype:\nvoid b2Mat22::ey(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -444,8 +420,7 @@ public:
 
 		b2Mat22* self=(Luna< b2Mat22 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Mat22::ey(b2Vec2). Got : '%s'",typeid(Luna< b2Mat22 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Mat22::ey(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2Mat22 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ey = value;
 

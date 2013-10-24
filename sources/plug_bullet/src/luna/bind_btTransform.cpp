@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btTransform*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btTransform*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTransform* rhs =(Luna< btTransform >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTransform* self= (btTransform*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btTransform >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -296,8 +292,7 @@ public:
 	// btTransform::btTransform()
 	static btTransform* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform::btTransform() function, expected prototype:\nbtTransform::btTransform()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform::btTransform() function, expected prototype:\nbtTransform::btTransform()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -307,8 +302,7 @@ public:
 	// btTransform::btTransform(const btQuaternion & q, const btVector3 & c = btVector3 ( float (0),  float (0),  float (0)))
 	static btTransform* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform::btTransform(const btQuaternion & q, const btVector3 & c = btVector3 ( float (0),  float (0),  float (0))) function, expected prototype:\nbtTransform::btTransform(const btQuaternion & q, const btVector3 & c = btVector3 ( float (0),  float (0),  float (0)))\nClass arguments details:\narg 1 ID = 2139400\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btTransform::btTransform(const btQuaternion & q, const btVector3 & c = btVector3 ( float (0),  float (0),  float (0))) function, expected prototype:\nbtTransform::btTransform(const btQuaternion & q, const btVector3 & c = btVector3 ( float (0),  float (0),  float (0)))\nClass arguments details:\narg 1 ID = 2139400\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -330,8 +324,7 @@ public:
 	// btTransform::btTransform(const btMatrix3x3 & b, const btVector3 & c = btVector3 ( float (0),  float (0),  float (0)))
 	static btTransform* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform::btTransform(const btMatrix3x3 & b, const btVector3 & c = btVector3 ( float (0),  float (0),  float (0))) function, expected prototype:\nbtTransform::btTransform(const btMatrix3x3 & b, const btVector3 & c = btVector3 ( float (0),  float (0),  float (0)))\nClass arguments details:\narg 1 ID = 30394543\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btTransform::btTransform(const btMatrix3x3 & b, const btVector3 & c = btVector3 ( float (0),  float (0),  float (0))) function, expected prototype:\nbtTransform::btTransform(const btMatrix3x3 & b, const btVector3 & c = btVector3 ( float (0),  float (0),  float (0)))\nClass arguments details:\narg 1 ID = 30394543\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -353,8 +346,7 @@ public:
 	// btTransform::btTransform(const btTransform & other)
 	static btTransform* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform::btTransform(const btTransform & other) function, expected prototype:\nbtTransform::btTransform(const btTransform & other)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btTransform::btTransform(const btTransform & other) function, expected prototype:\nbtTransform::btTransform(const btTransform & other)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* other_ptr=(Luna< btTransform >::check(L,1));
@@ -382,8 +374,7 @@ public:
 	// void btTransform::mult(const btTransform & t1, const btTransform & t2)
 	static int _bind_mult(lua_State *L) {
 		if (!_lg_typecheck_mult(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTransform::mult(const btTransform & t1, const btTransform & t2) function, expected prototype:\nvoid btTransform::mult(const btTransform & t1, const btTransform & t2)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btTransform::mult(const btTransform & t1, const btTransform & t2) function, expected prototype:\nvoid btTransform::mult(const btTransform & t1, const btTransform & t2)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* t1_ptr=(Luna< btTransform >::check(L,2));
@@ -399,8 +390,7 @@ public:
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTransform::mult(const btTransform &, const btTransform &). Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTransform::mult(const btTransform &, const btTransform &). Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mult(t1, t2);
 
@@ -410,15 +400,13 @@ public:
 	// btMatrix3x3 & btTransform::getBasis()
 	static int _bind_getBasis_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getBasis_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3 & btTransform::getBasis() function, expected prototype:\nbtMatrix3x3 & btTransform::getBasis()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3 & btTransform::getBasis() function, expected prototype:\nbtMatrix3x3 & btTransform::getBasis()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btMatrix3x3 & btTransform::getBasis(). Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btMatrix3x3 & btTransform::getBasis(). Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btMatrix3x3* lret = &self->getBasis();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -431,15 +419,13 @@ public:
 	// const btMatrix3x3 & btTransform::getBasis() const
 	static int _bind_getBasis_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getBasis_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btMatrix3x3 & btTransform::getBasis() const function, expected prototype:\nconst btMatrix3x3 & btTransform::getBasis() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btMatrix3x3 & btTransform::getBasis() const function, expected prototype:\nconst btMatrix3x3 & btTransform::getBasis() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btMatrix3x3 & btTransform::getBasis() const. Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btMatrix3x3 & btTransform::getBasis() const. Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btMatrix3x3* lret = &self->getBasis();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -461,15 +447,13 @@ public:
 	// btVector3 & btTransform::getOrigin()
 	static int _bind_getOrigin_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getOrigin_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 & btTransform::getOrigin() function, expected prototype:\nbtVector3 & btTransform::getOrigin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 & btTransform::getOrigin() function, expected prototype:\nbtVector3 & btTransform::getOrigin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 & btTransform::getOrigin(). Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 & btTransform::getOrigin(). Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->getOrigin();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -482,15 +466,13 @@ public:
 	// const btVector3 & btTransform::getOrigin() const
 	static int _bind_getOrigin_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getOrigin_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 & btTransform::getOrigin() const function, expected prototype:\nconst btVector3 & btTransform::getOrigin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 & btTransform::getOrigin() const function, expected prototype:\nconst btVector3 & btTransform::getOrigin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 & btTransform::getOrigin() const. Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 & btTransform::getOrigin() const. Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->getOrigin();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -512,15 +494,13 @@ public:
 	// btQuaternion btTransform::getRotation() const
 	static int _bind_getRotation(lua_State *L) {
 		if (!_lg_typecheck_getRotation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btQuaternion btTransform::getRotation() const function, expected prototype:\nbtQuaternion btTransform::getRotation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btQuaternion btTransform::getRotation() const function, expected prototype:\nbtQuaternion btTransform::getRotation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btQuaternion btTransform::getRotation() const. Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btQuaternion btTransform::getRotation() const. Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btQuaternion stack_lret = self->getRotation();
 		btQuaternion* lret = new btQuaternion(stack_lret);
@@ -534,16 +514,14 @@ public:
 	// void btTransform::setFromOpenGLMatrix(const float * m)
 	static int _bind_setFromOpenGLMatrix(lua_State *L) {
 		if (!_lg_typecheck_setFromOpenGLMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTransform::setFromOpenGLMatrix(const float * m) function, expected prototype:\nvoid btTransform::setFromOpenGLMatrix(const float * m)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTransform::setFromOpenGLMatrix(const float * m) function, expected prototype:\nvoid btTransform::setFromOpenGLMatrix(const float * m)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const float* m=(const float*)Luna< void >::check(L,2);
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTransform::setFromOpenGLMatrix(const float *). Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTransform::setFromOpenGLMatrix(const float *). Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFromOpenGLMatrix(m);
 
@@ -553,16 +531,14 @@ public:
 	// void btTransform::getOpenGLMatrix(float * m) const
 	static int _bind_getOpenGLMatrix(lua_State *L) {
 		if (!_lg_typecheck_getOpenGLMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTransform::getOpenGLMatrix(float * m) const function, expected prototype:\nvoid btTransform::getOpenGLMatrix(float * m) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTransform::getOpenGLMatrix(float * m) const function, expected prototype:\nvoid btTransform::getOpenGLMatrix(float * m) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float* m=(float*)Luna< void >::check(L,2);
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTransform::getOpenGLMatrix(float *) const. Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTransform::getOpenGLMatrix(float *) const. Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getOpenGLMatrix(m);
 
@@ -572,8 +548,7 @@ public:
 	// void btTransform::setOrigin(const btVector3 & origin)
 	static int _bind_setOrigin(lua_State *L) {
 		if (!_lg_typecheck_setOrigin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTransform::setOrigin(const btVector3 & origin) function, expected prototype:\nvoid btTransform::setOrigin(const btVector3 & origin)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTransform::setOrigin(const btVector3 & origin) function, expected prototype:\nvoid btTransform::setOrigin(const btVector3 & origin)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* origin_ptr=(Luna< btVector3 >::check(L,2));
@@ -584,8 +559,7 @@ public:
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTransform::setOrigin(const btVector3 &). Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTransform::setOrigin(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setOrigin(origin);
 
@@ -595,8 +569,7 @@ public:
 	// btVector3 btTransform::invXform(const btVector3 & inVec) const
 	static int _bind_invXform(lua_State *L) {
 		if (!_lg_typecheck_invXform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btTransform::invXform(const btVector3 & inVec) const function, expected prototype:\nbtVector3 btTransform::invXform(const btVector3 & inVec) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btTransform::invXform(const btVector3 & inVec) const function, expected prototype:\nbtVector3 btTransform::invXform(const btVector3 & inVec) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* inVec_ptr=(Luna< btVector3 >::check(L,2));
@@ -607,8 +580,7 @@ public:
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btTransform::invXform(const btVector3 &) const. Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btTransform::invXform(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->invXform(inVec);
 		btVector3* lret = new btVector3(stack_lret);
@@ -622,8 +594,7 @@ public:
 	// void btTransform::setBasis(const btMatrix3x3 & basis)
 	static int _bind_setBasis(lua_State *L) {
 		if (!_lg_typecheck_setBasis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTransform::setBasis(const btMatrix3x3 & basis) function, expected prototype:\nvoid btTransform::setBasis(const btMatrix3x3 & basis)\nClass arguments details:\narg 1 ID = 30394543\n");
+			luaL_error(L, "luna typecheck failed in void btTransform::setBasis(const btMatrix3x3 & basis) function, expected prototype:\nvoid btTransform::setBasis(const btMatrix3x3 & basis)\nClass arguments details:\narg 1 ID = 30394543\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btMatrix3x3* basis_ptr=(Luna< btMatrix3x3 >::check(L,2));
@@ -634,8 +605,7 @@ public:
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTransform::setBasis(const btMatrix3x3 &). Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTransform::setBasis(const btMatrix3x3 &). Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setBasis(basis);
 
@@ -645,8 +615,7 @@ public:
 	// void btTransform::setRotation(const btQuaternion & q)
 	static int _bind_setRotation(lua_State *L) {
 		if (!_lg_typecheck_setRotation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTransform::setRotation(const btQuaternion & q) function, expected prototype:\nvoid btTransform::setRotation(const btQuaternion & q)\nClass arguments details:\narg 1 ID = 2139400\n");
+			luaL_error(L, "luna typecheck failed in void btTransform::setRotation(const btQuaternion & q) function, expected prototype:\nvoid btTransform::setRotation(const btQuaternion & q)\nClass arguments details:\narg 1 ID = 2139400\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btQuaternion* q_ptr=(Luna< btQuadWord >::checkSubType< btQuaternion >(L,2));
@@ -657,8 +626,7 @@ public:
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTransform::setRotation(const btQuaternion &). Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTransform::setRotation(const btQuaternion &). Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRotation(q);
 
@@ -668,15 +636,13 @@ public:
 	// void btTransform::setIdentity()
 	static int _bind_setIdentity(lua_State *L) {
 		if (!_lg_typecheck_setIdentity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTransform::setIdentity() function, expected prototype:\nvoid btTransform::setIdentity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTransform::setIdentity() function, expected prototype:\nvoid btTransform::setIdentity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTransform::setIdentity(). Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTransform::setIdentity(). Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setIdentity();
 
@@ -686,15 +652,13 @@ public:
 	// btTransform btTransform::inverse() const
 	static int _bind_inverse(lua_State *L) {
 		if (!_lg_typecheck_inverse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btTransform::inverse() const function, expected prototype:\nbtTransform btTransform::inverse() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform btTransform::inverse() const function, expected prototype:\nbtTransform btTransform::inverse() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btTransform::inverse() const. Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btTransform::inverse() const. Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btTransform stack_lret = self->inverse();
 		btTransform* lret = new btTransform(stack_lret);
@@ -708,8 +672,7 @@ public:
 	// btTransform btTransform::inverseTimes(const btTransform & t) const
 	static int _bind_inverseTimes(lua_State *L) {
 		if (!_lg_typecheck_inverseTimes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btTransform::inverseTimes(const btTransform & t) const function, expected prototype:\nbtTransform btTransform::inverseTimes(const btTransform & t) const\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btTransform btTransform::inverseTimes(const btTransform & t) const function, expected prototype:\nbtTransform btTransform::inverseTimes(const btTransform & t) const\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* t_ptr=(Luna< btTransform >::check(L,2));
@@ -720,8 +683,7 @@ public:
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btTransform::inverseTimes(const btTransform &) const. Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btTransform::inverseTimes(const btTransform &) const. Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btTransform stack_lret = self->inverseTimes(t);
 		btTransform* lret = new btTransform(stack_lret);
@@ -735,8 +697,7 @@ public:
 	// static const btTransform & btTransform::getIdentity()
 	static int _bind_getIdentity(lua_State *L) {
 		if (!_lg_typecheck_getIdentity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static const btTransform & btTransform::getIdentity() function, expected prototype:\nstatic const btTransform & btTransform::getIdentity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static const btTransform & btTransform::getIdentity() function, expected prototype:\nstatic const btTransform & btTransform::getIdentity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -753,8 +714,7 @@ public:
 	// btTransform & btTransform::operator=(const btTransform & other)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform & btTransform::operator=(const btTransform & other) function, expected prototype:\nbtTransform & btTransform::operator=(const btTransform & other)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btTransform & btTransform::operator=(const btTransform & other) function, expected prototype:\nbtTransform & btTransform::operator=(const btTransform & other)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* other_ptr=(Luna< btTransform >::check(L,2));
@@ -765,8 +725,7 @@ public:
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform & btTransform::operator=(const btTransform &). Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform & btTransform::operator=(const btTransform &). Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->operator=(other);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -779,8 +738,7 @@ public:
 	// btVector3 btTransform::operator()(const btVector3 & x) const
 	static int _bind_op_call(lua_State *L) {
 		if (!_lg_typecheck_op_call(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btTransform::operator()(const btVector3 & x) const function, expected prototype:\nbtVector3 btTransform::operator()(const btVector3 & x) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btTransform::operator()(const btVector3 & x) const function, expected prototype:\nbtVector3 btTransform::operator()(const btVector3 & x) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* x_ptr=(Luna< btVector3 >::check(L,2));
@@ -791,8 +749,7 @@ public:
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btTransform::operator()(const btVector3 &) const. Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btTransform::operator()(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->operator()(x);
 		btVector3* lret = new btVector3(stack_lret);
@@ -806,8 +763,7 @@ public:
 	// btVector3 btTransform::operator*(const btVector3 & x) const
 	static int _bind___mul_overload_1(lua_State *L) {
 		if (!_lg_typecheck___mul_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btTransform::operator*(const btVector3 & x) const function, expected prototype:\nbtVector3 btTransform::operator*(const btVector3 & x) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btTransform::operator*(const btVector3 & x) const function, expected prototype:\nbtVector3 btTransform::operator*(const btVector3 & x) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* x_ptr=(Luna< btVector3 >::check(L,2));
@@ -818,8 +774,7 @@ public:
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btTransform::operator*(const btVector3 &) const. Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btTransform::operator*(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->operator*(x);
 		btVector3* lret = new btVector3(stack_lret);
@@ -833,8 +788,7 @@ public:
 	// btQuaternion btTransform::operator*(const btQuaternion & q) const
 	static int _bind___mul_overload_2(lua_State *L) {
 		if (!_lg_typecheck___mul_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btQuaternion btTransform::operator*(const btQuaternion & q) const function, expected prototype:\nbtQuaternion btTransform::operator*(const btQuaternion & q) const\nClass arguments details:\narg 1 ID = 2139400\n");
+			luaL_error(L, "luna typecheck failed in btQuaternion btTransform::operator*(const btQuaternion & q) const function, expected prototype:\nbtQuaternion btTransform::operator*(const btQuaternion & q) const\nClass arguments details:\narg 1 ID = 2139400\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btQuaternion* q_ptr=(Luna< btQuadWord >::checkSubType< btQuaternion >(L,2));
@@ -845,8 +799,7 @@ public:
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btQuaternion btTransform::operator*(const btQuaternion &) const. Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btQuaternion btTransform::operator*(const btQuaternion &) const. Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btQuaternion stack_lret = self->operator*(q);
 		btQuaternion* lret = new btQuaternion(stack_lret);
@@ -860,8 +813,7 @@ public:
 	// btTransform btTransform::operator*(const btTransform & t) const
 	static int _bind___mul_overload_3(lua_State *L) {
 		if (!_lg_typecheck___mul_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btTransform::operator*(const btTransform & t) const function, expected prototype:\nbtTransform btTransform::operator*(const btTransform & t) const\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btTransform btTransform::operator*(const btTransform & t) const function, expected prototype:\nbtTransform btTransform::operator*(const btTransform & t) const\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* t_ptr=(Luna< btTransform >::check(L,2));
@@ -872,8 +824,7 @@ public:
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btTransform::operator*(const btTransform &) const. Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btTransform::operator*(const btTransform &) const. Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btTransform stack_lret = self->operator*(t);
 		btTransform* lret = new btTransform(stack_lret);
@@ -897,8 +848,7 @@ public:
 	// btTransform & btTransform::operator*=(const btTransform & t)
 	static int _bind_op_mult(lua_State *L) {
 		if (!_lg_typecheck_op_mult(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform & btTransform::operator*=(const btTransform & t) function, expected prototype:\nbtTransform & btTransform::operator*=(const btTransform & t)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btTransform & btTransform::operator*=(const btTransform & t) function, expected prototype:\nbtTransform & btTransform::operator*=(const btTransform & t)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* t_ptr=(Luna< btTransform >::check(L,2));
@@ -909,8 +859,7 @@ public:
 
 		btTransform* self=(Luna< btTransform >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform & btTransform::operator*=(const btTransform &). Got : '%s'",typeid(Luna< btTransform >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform & btTransform::operator*=(const btTransform &). Got : '%s'\n%s",typeid(Luna< btTransform >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->operator*=(t);
 		if(!lret) return 0; // Do not write NULL pointers.

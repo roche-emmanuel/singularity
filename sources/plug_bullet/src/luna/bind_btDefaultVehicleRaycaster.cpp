@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVehicleRaycaster* self=(Luna< btVehicleRaycaster >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDefaultVehicleRaycaster* self= (btDefaultVehicleRaycaster*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btVehicleRaycaster >::check(L,1));
@@ -134,8 +131,7 @@ public:
 	// btDefaultVehicleRaycaster::btDefaultVehicleRaycaster(btDynamicsWorld * world)
 	static btDefaultVehicleRaycaster* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btDefaultVehicleRaycaster::btDefaultVehicleRaycaster(btDynamicsWorld * world) function, expected prototype:\nbtDefaultVehicleRaycaster::btDefaultVehicleRaycaster(btDynamicsWorld * world)\nClass arguments details:\narg 1 ID = 62162664\n");
+			luaL_error(L, "luna typecheck failed in btDefaultVehicleRaycaster::btDefaultVehicleRaycaster(btDynamicsWorld * world) function, expected prototype:\nbtDefaultVehicleRaycaster::btDefaultVehicleRaycaster(btDynamicsWorld * world)\nClass arguments details:\narg 1 ID = 62162664\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDynamicsWorld* world=(Luna< btCollisionWorld >::checkSubType< btDynamicsWorld >(L,1));
@@ -146,8 +142,7 @@ public:
 	// btDefaultVehicleRaycaster::btDefaultVehicleRaycaster(lua_Table * data, btDynamicsWorld * world)
 	static btDefaultVehicleRaycaster* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btDefaultVehicleRaycaster::btDefaultVehicleRaycaster(lua_Table * data, btDynamicsWorld * world) function, expected prototype:\nbtDefaultVehicleRaycaster::btDefaultVehicleRaycaster(lua_Table * data, btDynamicsWorld * world)\nClass arguments details:\narg 2 ID = 62162664\n");
+			luaL_error(L, "luna typecheck failed in btDefaultVehicleRaycaster::btDefaultVehicleRaycaster(lua_Table * data, btDynamicsWorld * world) function, expected prototype:\nbtDefaultVehicleRaycaster::btDefaultVehicleRaycaster(lua_Table * data, btDynamicsWorld * world)\nClass arguments details:\narg 2 ID = 62162664\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDynamicsWorld* world=(Luna< btCollisionWorld >::checkSubType< btDynamicsWorld >(L,2));
@@ -169,8 +164,7 @@ public:
 	// void * btDefaultVehicleRaycaster::castRay(const btVector3 & from, const btVector3 & to, btVehicleRaycaster::btVehicleRaycasterResult & result)
 	static int _bind_castRay(lua_State *L) {
 		if (!_lg_typecheck_castRay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * btDefaultVehicleRaycaster::castRay(const btVector3 & from, const btVector3 & to, btVehicleRaycaster::btVehicleRaycasterResult & result) function, expected prototype:\nvoid * btDefaultVehicleRaycaster::castRay(const btVector3 & from, const btVector3 & to, btVehicleRaycaster::btVehicleRaycasterResult & result)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 50443956\n");
+			luaL_error(L, "luna typecheck failed in void * btDefaultVehicleRaycaster::castRay(const btVector3 & from, const btVector3 & to, btVehicleRaycaster::btVehicleRaycasterResult & result) function, expected prototype:\nvoid * btDefaultVehicleRaycaster::castRay(const btVector3 & from, const btVector3 & to, btVehicleRaycaster::btVehicleRaycasterResult & result)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 50443956\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* from_ptr=(Luna< btVector3 >::check(L,2));
@@ -191,8 +185,7 @@ public:
 
 		btDefaultVehicleRaycaster* self=Luna< btVehicleRaycaster >::checkSubType< btDefaultVehicleRaycaster >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * btDefaultVehicleRaycaster::castRay(const btVector3 &, const btVector3 &, btVehicleRaycaster::btVehicleRaycasterResult &). Got : '%s'",typeid(Luna< btVehicleRaycaster >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * btDefaultVehicleRaycaster::castRay(const btVector3 &, const btVector3 &, btVehicleRaycaster::btVehicleRaycasterResult &). Got : '%s'\n%s",typeid(Luna< btVehicleRaycaster >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->castRay(from, to, result);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -205,8 +198,7 @@ public:
 	// void * btDefaultVehicleRaycaster::base_castRay(const btVector3 & from, const btVector3 & to, btVehicleRaycaster::btVehicleRaycasterResult & result)
 	static int _bind_base_castRay(lua_State *L) {
 		if (!_lg_typecheck_base_castRay(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * btDefaultVehicleRaycaster::base_castRay(const btVector3 & from, const btVector3 & to, btVehicleRaycaster::btVehicleRaycasterResult & result) function, expected prototype:\nvoid * btDefaultVehicleRaycaster::base_castRay(const btVector3 & from, const btVector3 & to, btVehicleRaycaster::btVehicleRaycasterResult & result)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 50443956\n");
+			luaL_error(L, "luna typecheck failed in void * btDefaultVehicleRaycaster::base_castRay(const btVector3 & from, const btVector3 & to, btVehicleRaycaster::btVehicleRaycasterResult & result) function, expected prototype:\nvoid * btDefaultVehicleRaycaster::base_castRay(const btVector3 & from, const btVector3 & to, btVehicleRaycaster::btVehicleRaycasterResult & result)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 50443956\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* from_ptr=(Luna< btVector3 >::check(L,2));
@@ -227,8 +219,7 @@ public:
 
 		btDefaultVehicleRaycaster* self=Luna< btVehicleRaycaster >::checkSubType< btDefaultVehicleRaycaster >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * btDefaultVehicleRaycaster::base_castRay(const btVector3 &, const btVector3 &, btVehicleRaycaster::btVehicleRaycasterResult &). Got : '%s'",typeid(Luna< btVehicleRaycaster >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * btDefaultVehicleRaycaster::base_castRay(const btVector3 &, const btVector3 &, btVehicleRaycaster::btVehicleRaycasterResult &). Got : '%s'\n%s",typeid(Luna< btVehicleRaycaster >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->btDefaultVehicleRaycaster::castRay(from, to, result);
 		if(!lret) return 0; // Do not write NULL pointers.

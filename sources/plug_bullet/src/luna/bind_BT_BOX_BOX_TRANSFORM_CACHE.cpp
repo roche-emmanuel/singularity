@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(BT_BOX_BOX_TRANSFORM_CACHE*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(BT_BOX_BOX_TRANSFORM_CACHE*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		BT_BOX_BOX_TRANSFORM_CACHE* rhs =(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		BT_BOX_BOX_TRANSFORM_CACHE* self= (BT_BOX_BOX_TRANSFORM_CACHE*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -184,8 +180,7 @@ public:
 	// BT_BOX_BOX_TRANSFORM_CACHE::BT_BOX_BOX_TRANSFORM_CACHE()
 	static BT_BOX_BOX_TRANSFORM_CACHE* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in BT_BOX_BOX_TRANSFORM_CACHE::BT_BOX_BOX_TRANSFORM_CACHE() function, expected prototype:\nBT_BOX_BOX_TRANSFORM_CACHE::BT_BOX_BOX_TRANSFORM_CACHE()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in BT_BOX_BOX_TRANSFORM_CACHE::BT_BOX_BOX_TRANSFORM_CACHE() function, expected prototype:\nBT_BOX_BOX_TRANSFORM_CACHE::BT_BOX_BOX_TRANSFORM_CACHE()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -197,15 +192,13 @@ public:
 	// void BT_BOX_BOX_TRANSFORM_CACHE::calc_absolute_matrix()
 	static int _bind_calc_absolute_matrix(lua_State *L) {
 		if (!_lg_typecheck_calc_absolute_matrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void BT_BOX_BOX_TRANSFORM_CACHE::calc_absolute_matrix() function, expected prototype:\nvoid BT_BOX_BOX_TRANSFORM_CACHE::calc_absolute_matrix()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void BT_BOX_BOX_TRANSFORM_CACHE::calc_absolute_matrix() function, expected prototype:\nvoid BT_BOX_BOX_TRANSFORM_CACHE::calc_absolute_matrix()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		BT_BOX_BOX_TRANSFORM_CACHE* self=(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void BT_BOX_BOX_TRANSFORM_CACHE::calc_absolute_matrix(). Got : '%s'",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void BT_BOX_BOX_TRANSFORM_CACHE::calc_absolute_matrix(). Got : '%s'\n%s",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->calc_absolute_matrix();
 
@@ -215,8 +208,7 @@ public:
 	// void BT_BOX_BOX_TRANSFORM_CACHE::calc_from_homogenic(const btTransform & trans0, const btTransform & trans1)
 	static int _bind_calc_from_homogenic(lua_State *L) {
 		if (!_lg_typecheck_calc_from_homogenic(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void BT_BOX_BOX_TRANSFORM_CACHE::calc_from_homogenic(const btTransform & trans0, const btTransform & trans1) function, expected prototype:\nvoid BT_BOX_BOX_TRANSFORM_CACHE::calc_from_homogenic(const btTransform & trans0, const btTransform & trans1)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void BT_BOX_BOX_TRANSFORM_CACHE::calc_from_homogenic(const btTransform & trans0, const btTransform & trans1) function, expected prototype:\nvoid BT_BOX_BOX_TRANSFORM_CACHE::calc_from_homogenic(const btTransform & trans0, const btTransform & trans1)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* trans0_ptr=(Luna< btTransform >::check(L,2));
@@ -232,8 +224,7 @@ public:
 
 		BT_BOX_BOX_TRANSFORM_CACHE* self=(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void BT_BOX_BOX_TRANSFORM_CACHE::calc_from_homogenic(const btTransform &, const btTransform &). Got : '%s'",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void BT_BOX_BOX_TRANSFORM_CACHE::calc_from_homogenic(const btTransform &, const btTransform &). Got : '%s'\n%s",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->calc_from_homogenic(trans0, trans1);
 
@@ -243,8 +234,7 @@ public:
 	// void BT_BOX_BOX_TRANSFORM_CACHE::calc_from_full_invert(const btTransform & trans0, const btTransform & trans1)
 	static int _bind_calc_from_full_invert(lua_State *L) {
 		if (!_lg_typecheck_calc_from_full_invert(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void BT_BOX_BOX_TRANSFORM_CACHE::calc_from_full_invert(const btTransform & trans0, const btTransform & trans1) function, expected prototype:\nvoid BT_BOX_BOX_TRANSFORM_CACHE::calc_from_full_invert(const btTransform & trans0, const btTransform & trans1)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void BT_BOX_BOX_TRANSFORM_CACHE::calc_from_full_invert(const btTransform & trans0, const btTransform & trans1) function, expected prototype:\nvoid BT_BOX_BOX_TRANSFORM_CACHE::calc_from_full_invert(const btTransform & trans0, const btTransform & trans1)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* trans0_ptr=(Luna< btTransform >::check(L,2));
@@ -260,8 +250,7 @@ public:
 
 		BT_BOX_BOX_TRANSFORM_CACHE* self=(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void BT_BOX_BOX_TRANSFORM_CACHE::calc_from_full_invert(const btTransform &, const btTransform &). Got : '%s'",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void BT_BOX_BOX_TRANSFORM_CACHE::calc_from_full_invert(const btTransform &, const btTransform &). Got : '%s'\n%s",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->calc_from_full_invert(trans0, trans1);
 
@@ -271,8 +260,7 @@ public:
 	// btVector3 BT_BOX_BOX_TRANSFORM_CACHE::transform(const btVector3 & point) const
 	static int _bind_transform(lua_State *L) {
 		if (!_lg_typecheck_transform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 BT_BOX_BOX_TRANSFORM_CACHE::transform(const btVector3 & point) const function, expected prototype:\nbtVector3 BT_BOX_BOX_TRANSFORM_CACHE::transform(const btVector3 & point) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btVector3 BT_BOX_BOX_TRANSFORM_CACHE::transform(const btVector3 & point) const function, expected prototype:\nbtVector3 BT_BOX_BOX_TRANSFORM_CACHE::transform(const btVector3 & point) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* point_ptr=(Luna< btVector3 >::check(L,2));
@@ -283,8 +271,7 @@ public:
 
 		BT_BOX_BOX_TRANSFORM_CACHE* self=(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 BT_BOX_BOX_TRANSFORM_CACHE::transform(const btVector3 &) const. Got : '%s'",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 BT_BOX_BOX_TRANSFORM_CACHE::transform(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->transform(point);
 		btVector3* lret = new btVector3(stack_lret);
@@ -298,15 +285,13 @@ public:
 	// btVector3 BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0()
 	static int _bind_getT1to0(lua_State *L) {
 		if (!_lg_typecheck_getT1to0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0() function, expected prototype:\nbtVector3 BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0() function, expected prototype:\nbtVector3 BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		BT_BOX_BOX_TRANSFORM_CACHE* self=(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0(). Got : '%s'",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0(). Got : '%s'\n%s",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_T1to0;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -319,15 +304,13 @@ public:
 	// btMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0()
 	static int _bind_getR1to0(lua_State *L) {
 		if (!_lg_typecheck_getR1to0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0() function, expected prototype:\nbtMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0() function, expected prototype:\nbtMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		BT_BOX_BOX_TRANSFORM_CACHE* self=(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0(). Got : '%s'",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0(). Got : '%s'\n%s",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btMatrix3x3* lret = &self->m_R1to0;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -340,15 +323,13 @@ public:
 	// btMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_AR()
 	static int _bind_getAR(lua_State *L) {
 		if (!_lg_typecheck_getAR(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_AR() function, expected prototype:\nbtMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_AR()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_AR() function, expected prototype:\nbtMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_AR()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		BT_BOX_BOX_TRANSFORM_CACHE* self=(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_AR(). Got : '%s'",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btMatrix3x3 BT_BOX_BOX_TRANSFORM_CACHE::m_AR(). Got : '%s'\n%s",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btMatrix3x3* lret = &self->m_AR;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -361,8 +342,7 @@ public:
 	// void BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0(btVector3 value)
 	static int _bind_setT1to0(lua_State *L) {
 		if (!_lg_typecheck_setT1to0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0(btVector3 value) function, expected prototype:\nvoid BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0(btVector3 value) function, expected prototype:\nvoid BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -373,8 +353,7 @@ public:
 
 		BT_BOX_BOX_TRANSFORM_CACHE* self=(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0(btVector3). Got : '%s'",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void BT_BOX_BOX_TRANSFORM_CACHE::m_T1to0(btVector3). Got : '%s'\n%s",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_T1to0 = value;
 
@@ -384,8 +363,7 @@ public:
 	// void BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0(btMatrix3x3 value)
 	static int _bind_setR1to0(lua_State *L) {
 		if (!_lg_typecheck_setR1to0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0(btMatrix3x3 value) function, expected prototype:\nvoid BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0(btMatrix3x3 value)\nClass arguments details:\narg 1 ID = 30394543\n");
+			luaL_error(L, "luna typecheck failed in void BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0(btMatrix3x3 value) function, expected prototype:\nvoid BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0(btMatrix3x3 value)\nClass arguments details:\narg 1 ID = 30394543\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMatrix3x3* value_ptr=(Luna< btMatrix3x3 >::check(L,2));
@@ -396,8 +374,7 @@ public:
 
 		BT_BOX_BOX_TRANSFORM_CACHE* self=(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0(btMatrix3x3). Got : '%s'",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void BT_BOX_BOX_TRANSFORM_CACHE::m_R1to0(btMatrix3x3). Got : '%s'\n%s",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_R1to0 = value;
 
@@ -407,8 +384,7 @@ public:
 	// void BT_BOX_BOX_TRANSFORM_CACHE::m_AR(btMatrix3x3 value)
 	static int _bind_setAR(lua_State *L) {
 		if (!_lg_typecheck_setAR(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void BT_BOX_BOX_TRANSFORM_CACHE::m_AR(btMatrix3x3 value) function, expected prototype:\nvoid BT_BOX_BOX_TRANSFORM_CACHE::m_AR(btMatrix3x3 value)\nClass arguments details:\narg 1 ID = 30394543\n");
+			luaL_error(L, "luna typecheck failed in void BT_BOX_BOX_TRANSFORM_CACHE::m_AR(btMatrix3x3 value) function, expected prototype:\nvoid BT_BOX_BOX_TRANSFORM_CACHE::m_AR(btMatrix3x3 value)\nClass arguments details:\narg 1 ID = 30394543\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMatrix3x3* value_ptr=(Luna< btMatrix3x3 >::check(L,2));
@@ -419,8 +395,7 @@ public:
 
 		BT_BOX_BOX_TRANSFORM_CACHE* self=(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void BT_BOX_BOX_TRANSFORM_CACHE::m_AR(btMatrix3x3). Got : '%s'",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void BT_BOX_BOX_TRANSFORM_CACHE::m_AR(btMatrix3x3). Got : '%s'\n%s",typeid(Luna< BT_BOX_BOX_TRANSFORM_CACHE >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_AR = value;
 

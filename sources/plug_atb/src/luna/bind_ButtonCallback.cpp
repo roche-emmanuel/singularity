@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ButtonCallback* self= (ButtonCallback*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -119,8 +116,7 @@ public:
 	// ButtonCallback::ButtonCallback(lua_Table * data)
 	static ButtonCallback* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ButtonCallback::ButtonCallback(lua_Table * data) function, expected prototype:\nButtonCallback::ButtonCallback(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ButtonCallback::ButtonCallback(lua_Table * data) function, expected prototype:\nButtonCallback::ButtonCallback(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -132,8 +128,7 @@ public:
 	// static void ButtonCallback::doExecute(void * clientData)
 	static int _bind_doExecute(lua_State *L) {
 		if (!_lg_typecheck_doExecute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void ButtonCallback::doExecute(void * clientData) function, expected prototype:\nstatic void ButtonCallback::doExecute(void * clientData)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void ButtonCallback::doExecute(void * clientData) function, expected prototype:\nstatic void ButtonCallback::doExecute(void * clientData)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* clientData=(Luna< void >::check(L,1));
@@ -146,15 +141,13 @@ public:
 	// void ButtonCallback::execute()
 	static int _bind_execute(lua_State *L) {
 		if (!_lg_typecheck_execute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void ButtonCallback::execute() function, expected prototype:\nvoid ButtonCallback::execute()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void ButtonCallback::execute() function, expected prototype:\nvoid ButtonCallback::execute()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ButtonCallback* self=Luna< osg::Referenced >::checkSubType< ButtonCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void ButtonCallback::execute(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void ButtonCallback::execute(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->execute();
 

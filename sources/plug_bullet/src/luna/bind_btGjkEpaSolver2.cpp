@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btGjkEpaSolver2*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btGjkEpaSolver2*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGjkEpaSolver2* rhs =(Luna< btGjkEpaSolver2 >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGjkEpaSolver2* self= (btGjkEpaSolver2*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btGjkEpaSolver2 >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -139,7 +135,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,91544891) ) return false;
 		if( (!(Luna< btVector3 >::check(L,1))) ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,58243831)) ) return false;
 		if( (lua_isnil(L,3)==0 && !(Luna< btCollisionShape >::checkSubType< btConvexShape >(L,3)) ) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,13247377) ) return false;
@@ -177,8 +173,7 @@ public:
 	// static int btGjkEpaSolver2::StackSizeRequirement()
 	static int _bind_StackSizeRequirement(lua_State *L) {
 		if (!_lg_typecheck_StackSizeRequirement(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static int btGjkEpaSolver2::StackSizeRequirement() function, expected prototype:\nstatic int btGjkEpaSolver2::StackSizeRequirement()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static int btGjkEpaSolver2::StackSizeRequirement() function, expected prototype:\nstatic int btGjkEpaSolver2::StackSizeRequirement()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -191,8 +186,7 @@ public:
 	// static bool btGjkEpaSolver2::Distance(const btConvexShape * shape0, const btTransform & wtrs0, const btConvexShape * shape1, const btTransform & wtrs1, const btVector3 & guess, btGjkEpaSolver2::sResults & results)
 	static int _bind_Distance(lua_State *L) {
 		if (!_lg_typecheck_Distance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool btGjkEpaSolver2::Distance(const btConvexShape * shape0, const btTransform & wtrs0, const btConvexShape * shape1, const btTransform & wtrs1, const btVector3 & guess, btGjkEpaSolver2::sResults & results) function, expected prototype:\nstatic bool btGjkEpaSolver2::Distance(const btConvexShape * shape0, const btTransform & wtrs0, const btConvexShape * shape1, const btTransform & wtrs1, const btVector3 & guess, btGjkEpaSolver2::sResults & results)\nClass arguments details:\narg 1 ID = 58243831\narg 2 ID = 13247377\narg 3 ID = 58243831\narg 4 ID = 13247377\narg 5 ID = 91544891\narg 6 ID = 71238194\n");
+			luaL_error(L, "luna typecheck failed in static bool btGjkEpaSolver2::Distance(const btConvexShape * shape0, const btTransform & wtrs0, const btConvexShape * shape1, const btTransform & wtrs1, const btVector3 & guess, btGjkEpaSolver2::sResults & results) function, expected prototype:\nstatic bool btGjkEpaSolver2::Distance(const btConvexShape * shape0, const btTransform & wtrs0, const btConvexShape * shape1, const btTransform & wtrs1, const btVector3 & guess, btGjkEpaSolver2::sResults & results)\nClass arguments details:\narg 1 ID = 58243831\narg 2 ID = 13247377\narg 3 ID = 58243831\narg 4 ID = 13247377\narg 5 ID = 91544891\narg 6 ID = 71238194\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btConvexShape* shape0=(Luna< btCollisionShape >::checkSubType< btConvexShape >(L,1));
@@ -227,8 +221,7 @@ public:
 	// static bool btGjkEpaSolver2::Penetration(const btConvexShape * shape0, const btTransform & wtrs0, const btConvexShape * shape1, const btTransform & wtrs1, const btVector3 & guess, btGjkEpaSolver2::sResults & results, bool usemargins = true)
 	static int _bind_Penetration(lua_State *L) {
 		if (!_lg_typecheck_Penetration(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool btGjkEpaSolver2::Penetration(const btConvexShape * shape0, const btTransform & wtrs0, const btConvexShape * shape1, const btTransform & wtrs1, const btVector3 & guess, btGjkEpaSolver2::sResults & results, bool usemargins = true) function, expected prototype:\nstatic bool btGjkEpaSolver2::Penetration(const btConvexShape * shape0, const btTransform & wtrs0, const btConvexShape * shape1, const btTransform & wtrs1, const btVector3 & guess, btGjkEpaSolver2::sResults & results, bool usemargins = true)\nClass arguments details:\narg 1 ID = 58243831\narg 2 ID = 13247377\narg 3 ID = 58243831\narg 4 ID = 13247377\narg 5 ID = 91544891\narg 6 ID = 71238194\n");
+			luaL_error(L, "luna typecheck failed in static bool btGjkEpaSolver2::Penetration(const btConvexShape * shape0, const btTransform & wtrs0, const btConvexShape * shape1, const btTransform & wtrs1, const btVector3 & guess, btGjkEpaSolver2::sResults & results, bool usemargins = true) function, expected prototype:\nstatic bool btGjkEpaSolver2::Penetration(const btConvexShape * shape0, const btTransform & wtrs0, const btConvexShape * shape1, const btTransform & wtrs1, const btVector3 & guess, btGjkEpaSolver2::sResults & results, bool usemargins = true)\nClass arguments details:\narg 1 ID = 58243831\narg 2 ID = 13247377\narg 3 ID = 58243831\narg 4 ID = 13247377\narg 5 ID = 91544891\narg 6 ID = 71238194\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -266,8 +259,7 @@ public:
 	// static float btGjkEpaSolver2::SignedDistance(const btVector3 & position, float margin, const btConvexShape * shape, const btTransform & wtrs, btGjkEpaSolver2::sResults & results)
 	static int _bind_SignedDistance_overload_1(lua_State *L) {
 		if (!_lg_typecheck_SignedDistance_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static float btGjkEpaSolver2::SignedDistance(const btVector3 & position, float margin, const btConvexShape * shape, const btTransform & wtrs, btGjkEpaSolver2::sResults & results) function, expected prototype:\nstatic float btGjkEpaSolver2::SignedDistance(const btVector3 & position, float margin, const btConvexShape * shape, const btTransform & wtrs, btGjkEpaSolver2::sResults & results)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 58243831\narg 4 ID = 13247377\narg 5 ID = 71238194\n");
+			luaL_error(L, "luna typecheck failed in static float btGjkEpaSolver2::SignedDistance(const btVector3 & position, float margin, const btConvexShape * shape, const btTransform & wtrs, btGjkEpaSolver2::sResults & results) function, expected prototype:\nstatic float btGjkEpaSolver2::SignedDistance(const btVector3 & position, float margin, const btConvexShape * shape, const btTransform & wtrs, btGjkEpaSolver2::sResults & results)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 58243831\narg 4 ID = 13247377\narg 5 ID = 71238194\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* position_ptr=(Luna< btVector3 >::check(L,1));
@@ -297,8 +289,7 @@ public:
 	// static bool btGjkEpaSolver2::SignedDistance(const btConvexShape * shape0, const btTransform & wtrs0, const btConvexShape * shape1, const btTransform & wtrs1, const btVector3 & guess, btGjkEpaSolver2::sResults & results)
 	static int _bind_SignedDistance_overload_2(lua_State *L) {
 		if (!_lg_typecheck_SignedDistance_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool btGjkEpaSolver2::SignedDistance(const btConvexShape * shape0, const btTransform & wtrs0, const btConvexShape * shape1, const btTransform & wtrs1, const btVector3 & guess, btGjkEpaSolver2::sResults & results) function, expected prototype:\nstatic bool btGjkEpaSolver2::SignedDistance(const btConvexShape * shape0, const btTransform & wtrs0, const btConvexShape * shape1, const btTransform & wtrs1, const btVector3 & guess, btGjkEpaSolver2::sResults & results)\nClass arguments details:\narg 1 ID = 58243831\narg 2 ID = 13247377\narg 3 ID = 58243831\narg 4 ID = 13247377\narg 5 ID = 91544891\narg 6 ID = 71238194\n");
+			luaL_error(L, "luna typecheck failed in static bool btGjkEpaSolver2::SignedDistance(const btConvexShape * shape0, const btTransform & wtrs0, const btConvexShape * shape1, const btTransform & wtrs1, const btVector3 & guess, btGjkEpaSolver2::sResults & results) function, expected prototype:\nstatic bool btGjkEpaSolver2::SignedDistance(const btConvexShape * shape0, const btTransform & wtrs0, const btConvexShape * shape1, const btTransform & wtrs1, const btVector3 & guess, btGjkEpaSolver2::sResults & results)\nClass arguments details:\narg 1 ID = 58243831\narg 2 ID = 13247377\narg 3 ID = 58243831\narg 4 ID = 13247377\narg 5 ID = 91544891\narg 6 ID = 71238194\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btConvexShape* shape0=(Luna< btCollisionShape >::checkSubType< btConvexShape >(L,1));

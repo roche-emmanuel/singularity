@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2TOIInput*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2TOIInput*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2TOIInput* rhs =(Luna< b2TOIInput >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2TOIInput* self= (b2TOIInput*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2TOIInput >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -163,7 +159,7 @@ public:
 	inline static bool _lg_typecheck_setTMax(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -177,15 +173,13 @@ public:
 	// b2DistanceProxy b2TOIInput::proxyA()
 	static int _bind_getProxyA(lua_State *L) {
 		if (!_lg_typecheck_getProxyA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2DistanceProxy b2TOIInput::proxyA() function, expected prototype:\nb2DistanceProxy b2TOIInput::proxyA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2DistanceProxy b2TOIInput::proxyA() function, expected prototype:\nb2DistanceProxy b2TOIInput::proxyA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2TOIInput* self=(Luna< b2TOIInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2DistanceProxy b2TOIInput::proxyA(). Got : '%s'",typeid(Luna< b2TOIInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2DistanceProxy b2TOIInput::proxyA(). Got : '%s'\n%s",typeid(Luna< b2TOIInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2DistanceProxy* lret = &self->proxyA;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -198,15 +192,13 @@ public:
 	// b2DistanceProxy b2TOIInput::proxyB()
 	static int _bind_getProxyB(lua_State *L) {
 		if (!_lg_typecheck_getProxyB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2DistanceProxy b2TOIInput::proxyB() function, expected prototype:\nb2DistanceProxy b2TOIInput::proxyB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2DistanceProxy b2TOIInput::proxyB() function, expected prototype:\nb2DistanceProxy b2TOIInput::proxyB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2TOIInput* self=(Luna< b2TOIInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2DistanceProxy b2TOIInput::proxyB(). Got : '%s'",typeid(Luna< b2TOIInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2DistanceProxy b2TOIInput::proxyB(). Got : '%s'\n%s",typeid(Luna< b2TOIInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2DistanceProxy* lret = &self->proxyB;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -219,15 +211,13 @@ public:
 	// b2Sweep b2TOIInput::sweepA()
 	static int _bind_getSweepA(lua_State *L) {
 		if (!_lg_typecheck_getSweepA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Sweep b2TOIInput::sweepA() function, expected prototype:\nb2Sweep b2TOIInput::sweepA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Sweep b2TOIInput::sweepA() function, expected prototype:\nb2Sweep b2TOIInput::sweepA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2TOIInput* self=(Luna< b2TOIInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Sweep b2TOIInput::sweepA(). Got : '%s'",typeid(Luna< b2TOIInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Sweep b2TOIInput::sweepA(). Got : '%s'\n%s",typeid(Luna< b2TOIInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Sweep* lret = &self->sweepA;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -240,15 +230,13 @@ public:
 	// b2Sweep b2TOIInput::sweepB()
 	static int _bind_getSweepB(lua_State *L) {
 		if (!_lg_typecheck_getSweepB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Sweep b2TOIInput::sweepB() function, expected prototype:\nb2Sweep b2TOIInput::sweepB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Sweep b2TOIInput::sweepB() function, expected prototype:\nb2Sweep b2TOIInput::sweepB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2TOIInput* self=(Luna< b2TOIInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Sweep b2TOIInput::sweepB(). Got : '%s'",typeid(Luna< b2TOIInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Sweep b2TOIInput::sweepB(). Got : '%s'\n%s",typeid(Luna< b2TOIInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Sweep* lret = &self->sweepB;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -261,15 +249,13 @@ public:
 	// float b2TOIInput::tMax()
 	static int _bind_getTMax(lua_State *L) {
 		if (!_lg_typecheck_getTMax(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2TOIInput::tMax() function, expected prototype:\nfloat b2TOIInput::tMax()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2TOIInput::tMax() function, expected prototype:\nfloat b2TOIInput::tMax()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2TOIInput* self=(Luna< b2TOIInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2TOIInput::tMax(). Got : '%s'",typeid(Luna< b2TOIInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2TOIInput::tMax(). Got : '%s'\n%s",typeid(Luna< b2TOIInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->tMax;
 		lua_pushnumber(L,lret);
@@ -280,8 +266,7 @@ public:
 	// void b2TOIInput::proxyA(b2DistanceProxy value)
 	static int _bind_setProxyA(lua_State *L) {
 		if (!_lg_typecheck_setProxyA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2TOIInput::proxyA(b2DistanceProxy value) function, expected prototype:\nvoid b2TOIInput::proxyA(b2DistanceProxy value)\nClass arguments details:\narg 1 ID = 57523462\n");
+			luaL_error(L, "luna typecheck failed in void b2TOIInput::proxyA(b2DistanceProxy value) function, expected prototype:\nvoid b2TOIInput::proxyA(b2DistanceProxy value)\nClass arguments details:\narg 1 ID = 57523462\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2DistanceProxy* value_ptr=(Luna< b2DistanceProxy >::check(L,2));
@@ -292,8 +277,7 @@ public:
 
 		b2TOIInput* self=(Luna< b2TOIInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2TOIInput::proxyA(b2DistanceProxy). Got : '%s'",typeid(Luna< b2TOIInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2TOIInput::proxyA(b2DistanceProxy). Got : '%s'\n%s",typeid(Luna< b2TOIInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->proxyA = value;
 
@@ -303,8 +287,7 @@ public:
 	// void b2TOIInput::proxyB(b2DistanceProxy value)
 	static int _bind_setProxyB(lua_State *L) {
 		if (!_lg_typecheck_setProxyB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2TOIInput::proxyB(b2DistanceProxy value) function, expected prototype:\nvoid b2TOIInput::proxyB(b2DistanceProxy value)\nClass arguments details:\narg 1 ID = 57523462\n");
+			luaL_error(L, "luna typecheck failed in void b2TOIInput::proxyB(b2DistanceProxy value) function, expected prototype:\nvoid b2TOIInput::proxyB(b2DistanceProxy value)\nClass arguments details:\narg 1 ID = 57523462\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2DistanceProxy* value_ptr=(Luna< b2DistanceProxy >::check(L,2));
@@ -315,8 +298,7 @@ public:
 
 		b2TOIInput* self=(Luna< b2TOIInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2TOIInput::proxyB(b2DistanceProxy). Got : '%s'",typeid(Luna< b2TOIInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2TOIInput::proxyB(b2DistanceProxy). Got : '%s'\n%s",typeid(Luna< b2TOIInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->proxyB = value;
 
@@ -326,8 +308,7 @@ public:
 	// void b2TOIInput::sweepA(b2Sweep value)
 	static int _bind_setSweepA(lua_State *L) {
 		if (!_lg_typecheck_setSweepA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2TOIInput::sweepA(b2Sweep value) function, expected prototype:\nvoid b2TOIInput::sweepA(b2Sweep value)\nClass arguments details:\narg 1 ID = 87110644\n");
+			luaL_error(L, "luna typecheck failed in void b2TOIInput::sweepA(b2Sweep value) function, expected prototype:\nvoid b2TOIInput::sweepA(b2Sweep value)\nClass arguments details:\narg 1 ID = 87110644\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Sweep* value_ptr=(Luna< b2Sweep >::check(L,2));
@@ -338,8 +319,7 @@ public:
 
 		b2TOIInput* self=(Luna< b2TOIInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2TOIInput::sweepA(b2Sweep). Got : '%s'",typeid(Luna< b2TOIInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2TOIInput::sweepA(b2Sweep). Got : '%s'\n%s",typeid(Luna< b2TOIInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->sweepA = value;
 
@@ -349,8 +329,7 @@ public:
 	// void b2TOIInput::sweepB(b2Sweep value)
 	static int _bind_setSweepB(lua_State *L) {
 		if (!_lg_typecheck_setSweepB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2TOIInput::sweepB(b2Sweep value) function, expected prototype:\nvoid b2TOIInput::sweepB(b2Sweep value)\nClass arguments details:\narg 1 ID = 87110644\n");
+			luaL_error(L, "luna typecheck failed in void b2TOIInput::sweepB(b2Sweep value) function, expected prototype:\nvoid b2TOIInput::sweepB(b2Sweep value)\nClass arguments details:\narg 1 ID = 87110644\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Sweep* value_ptr=(Luna< b2Sweep >::check(L,2));
@@ -361,8 +340,7 @@ public:
 
 		b2TOIInput* self=(Luna< b2TOIInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2TOIInput::sweepB(b2Sweep). Got : '%s'",typeid(Luna< b2TOIInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2TOIInput::sweepB(b2Sweep). Got : '%s'\n%s",typeid(Luna< b2TOIInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->sweepB = value;
 
@@ -372,16 +350,14 @@ public:
 	// void b2TOIInput::tMax(float value)
 	static int _bind_setTMax(lua_State *L) {
 		if (!_lg_typecheck_setTMax(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2TOIInput::tMax(float value) function, expected prototype:\nvoid b2TOIInput::tMax(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2TOIInput::tMax(float value) function, expected prototype:\nvoid b2TOIInput::tMax(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2TOIInput* self=(Luna< b2TOIInput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2TOIInput::tMax(float). Got : '%s'",typeid(Luna< b2TOIInput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2TOIInput::tMax(float). Got : '%s'\n%s",typeid(Luna< b2TOIInput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->tMax = value;
 

@@ -1,4 +1,4 @@
-#include <sgtCommon.h>
+#include <lunaCommon.h>
 
 #include <osg/ImageStream>
 #include <osg/MatrixTransform>

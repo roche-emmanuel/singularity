@@ -20,11 +20,12 @@ ENDIF()
 # ADD_SUBDIRECTORY(osgdb_assimp)
 # ADD_SUBDIRECTORY(osgdb_freeimage)
 
-ADD_SUBDIRECTORY(sgtCore)
+ADD_SUBDIRECTORY(sgtLuna)
+# ADD_SUBDIRECTORY(sgtCore)
 # ADD_SUBDIRECTORY(sgtLand)
 # ADD_SUBDIRECTORY(sgtProland)
 
-ADD_SUBDIRECTORY(lua_core)
+# ADD_SUBDIRECTORY(lua_core)
 # ADD_SUBDIRECTORY(lua_externals)
 # ADD_SUBDIRECTORY(lua_cog)
 # ADD_SUBDIRECTORY(lua_seed)
@@ -61,18 +62,19 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_bullet)
 # ADD_SUBDIRECTORY(plug_micropather)
 # ADD_SUBDIRECTORY(plug_mathgl)
-# ADD_SUBDIRECTORY(plug_proland)
 # ADD_SUBDIRECTORY(plug_opengl)
-# ADD_SUBDIRECTORY(plug_land)
 # ADD_SUBDIRECTORY(plug_dx9)
 # ADD_SUBDIRECTORY(plug_awDX)
 
+
 # ToDo:
+# ADD_SUBDIRECTORY(plug_proland)
+# ADD_SUBDIRECTORY(plug_land)
 # ADD_SUBDIRECTORY(plug_freenect)
 # ADD_SUBDIRECTORY(plug_spice)
 # ADD_SUBDIRECTORY(plug_norad)
 
-# ADD_SUBDIRECTORY(sgt_launcher)
+ADD_SUBDIRECTORY(sgt_launcher)
 # ADD_SUBDIRECTORY(tests/virtual_base)
 
 # ADD_SUBDIRECTORY(wx)

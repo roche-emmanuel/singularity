@@ -134,8 +134,7 @@ public:
 	// static b2Joint * b2Joint::public_Create(const b2JointDef * def, b2BlockAllocator * allocator)
 	static int _bind_public_Create(lua_State *L) {
 		if (!_lg_typecheck_public_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static b2Joint * b2Joint::public_Create(const b2JointDef * def, b2BlockAllocator * allocator) function, expected prototype:\nstatic b2Joint * b2Joint::public_Create(const b2JointDef * def, b2BlockAllocator * allocator)\nClass arguments details:\narg 1 ID = 22467414\narg 2 ID = 76186022\n");
+			luaL_error(L, "luna typecheck failed in static b2Joint * b2Joint::public_Create(const b2JointDef * def, b2BlockAllocator * allocator) function, expected prototype:\nstatic b2Joint * b2Joint::public_Create(const b2JointDef * def, b2BlockAllocator * allocator)\nClass arguments details:\narg 1 ID = 22467414\narg 2 ID = 76186022\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2JointDef* def=(Luna< b2JointDef >::check(L,1));
@@ -143,8 +142,7 @@ public:
 
 		wrapper_b2Joint* self=Luna< b2Joint >::checkSubType< wrapper_b2Joint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static b2Joint * b2Joint::public_Create(const b2JointDef *, b2BlockAllocator *). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static b2Joint * b2Joint::public_Create(const b2JointDef *, b2BlockAllocator *). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Joint * lret = self->public_Create(def, allocator);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -157,8 +155,7 @@ public:
 	// static void b2Joint::public_Destroy(b2Joint * joint, b2BlockAllocator * allocator)
 	static int _bind_public_Destroy(lua_State *L) {
 		if (!_lg_typecheck_public_Destroy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void b2Joint::public_Destroy(b2Joint * joint, b2BlockAllocator * allocator) function, expected prototype:\nstatic void b2Joint::public_Destroy(b2Joint * joint, b2BlockAllocator * allocator)\nClass arguments details:\narg 1 ID = 78564754\narg 2 ID = 76186022\n");
+			luaL_error(L, "luna typecheck failed in static void b2Joint::public_Destroy(b2Joint * joint, b2BlockAllocator * allocator) function, expected prototype:\nstatic void b2Joint::public_Destroy(b2Joint * joint, b2BlockAllocator * allocator)\nClass arguments details:\narg 1 ID = 78564754\narg 2 ID = 76186022\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Joint* joint=(Luna< b2Joint >::check(L,1));
@@ -166,8 +163,7 @@ public:
 
 		wrapper_b2Joint* self=Luna< b2Joint >::checkSubType< wrapper_b2Joint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void b2Joint::public_Destroy(b2Joint *, b2BlockAllocator *). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static void b2Joint::public_Destroy(b2Joint *, b2BlockAllocator *). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_Destroy(joint, allocator);
 

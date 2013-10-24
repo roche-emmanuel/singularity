@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDiscreteCollisionDetectorInterface::Result* self=(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btStorageResult* self= (btStorageResult*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1));
@@ -103,7 +100,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -142,7 +139,7 @@ public:
 	inline static bool _lg_typecheck_setDistance(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -151,7 +148,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -163,8 +160,7 @@ public:
 	// btStorageResult::btStorageResult(lua_Table * data)
 	static btStorageResult* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btStorageResult::btStorageResult(lua_Table * data) function, expected prototype:\nbtStorageResult::btStorageResult(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btStorageResult::btStorageResult(lua_Table * data) function, expected prototype:\nbtStorageResult::btStorageResult(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -176,8 +172,7 @@ public:
 	// void btStorageResult::addContactPoint(const btVector3 & normalOnBInWorld, const btVector3 & pointInWorld, float depth)
 	static int _bind_addContactPoint(lua_State *L) {
 		if (!_lg_typecheck_addContactPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStorageResult::addContactPoint(const btVector3 & normalOnBInWorld, const btVector3 & pointInWorld, float depth) function, expected prototype:\nvoid btStorageResult::addContactPoint(const btVector3 & normalOnBInWorld, const btVector3 & pointInWorld, float depth)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btStorageResult::addContactPoint(const btVector3 & normalOnBInWorld, const btVector3 & pointInWorld, float depth) function, expected prototype:\nvoid btStorageResult::addContactPoint(const btVector3 & normalOnBInWorld, const btVector3 & pointInWorld, float depth)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* normalOnBInWorld_ptr=(Luna< btVector3 >::check(L,2));
@@ -194,8 +189,7 @@ public:
 
 		btStorageResult* self=Luna< btDiscreteCollisionDetectorInterface::Result >::checkSubType< btStorageResult >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStorageResult::addContactPoint(const btVector3 &, const btVector3 &, float). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStorageResult::addContactPoint(const btVector3 &, const btVector3 &, float). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addContactPoint(normalOnBInWorld, pointInWorld, depth);
 
@@ -205,15 +199,13 @@ public:
 	// btVector3 btStorageResult::m_normalOnSurfaceB()
 	static int _bind_getNormalOnSurfaceB(lua_State *L) {
 		if (!_lg_typecheck_getNormalOnSurfaceB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btStorageResult::m_normalOnSurfaceB() function, expected prototype:\nbtVector3 btStorageResult::m_normalOnSurfaceB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btStorageResult::m_normalOnSurfaceB() function, expected prototype:\nbtVector3 btStorageResult::m_normalOnSurfaceB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btStorageResult* self=Luna< btDiscreteCollisionDetectorInterface::Result >::checkSubType< btStorageResult >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btStorageResult::m_normalOnSurfaceB(). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btStorageResult::m_normalOnSurfaceB(). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_normalOnSurfaceB;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -226,15 +218,13 @@ public:
 	// btVector3 btStorageResult::m_closestPointInB()
 	static int _bind_getClosestPointInB(lua_State *L) {
 		if (!_lg_typecheck_getClosestPointInB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btStorageResult::m_closestPointInB() function, expected prototype:\nbtVector3 btStorageResult::m_closestPointInB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btStorageResult::m_closestPointInB() function, expected prototype:\nbtVector3 btStorageResult::m_closestPointInB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btStorageResult* self=Luna< btDiscreteCollisionDetectorInterface::Result >::checkSubType< btStorageResult >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btStorageResult::m_closestPointInB(). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btStorageResult::m_closestPointInB(). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_closestPointInB;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -247,15 +237,13 @@ public:
 	// float btStorageResult::m_distance()
 	static int _bind_getDistance(lua_State *L) {
 		if (!_lg_typecheck_getDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btStorageResult::m_distance() function, expected prototype:\nfloat btStorageResult::m_distance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btStorageResult::m_distance() function, expected prototype:\nfloat btStorageResult::m_distance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btStorageResult* self=Luna< btDiscreteCollisionDetectorInterface::Result >::checkSubType< btStorageResult >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btStorageResult::m_distance(). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btStorageResult::m_distance(). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_distance;
 		lua_pushnumber(L,lret);
@@ -266,8 +254,7 @@ public:
 	// void btStorageResult::m_normalOnSurfaceB(btVector3 value)
 	static int _bind_setNormalOnSurfaceB(lua_State *L) {
 		if (!_lg_typecheck_setNormalOnSurfaceB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStorageResult::m_normalOnSurfaceB(btVector3 value) function, expected prototype:\nvoid btStorageResult::m_normalOnSurfaceB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btStorageResult::m_normalOnSurfaceB(btVector3 value) function, expected prototype:\nvoid btStorageResult::m_normalOnSurfaceB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -278,8 +265,7 @@ public:
 
 		btStorageResult* self=Luna< btDiscreteCollisionDetectorInterface::Result >::checkSubType< btStorageResult >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStorageResult::m_normalOnSurfaceB(btVector3). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStorageResult::m_normalOnSurfaceB(btVector3). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_normalOnSurfaceB = value;
 
@@ -289,8 +275,7 @@ public:
 	// void btStorageResult::m_closestPointInB(btVector3 value)
 	static int _bind_setClosestPointInB(lua_State *L) {
 		if (!_lg_typecheck_setClosestPointInB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStorageResult::m_closestPointInB(btVector3 value) function, expected prototype:\nvoid btStorageResult::m_closestPointInB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btStorageResult::m_closestPointInB(btVector3 value) function, expected prototype:\nvoid btStorageResult::m_closestPointInB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -301,8 +286,7 @@ public:
 
 		btStorageResult* self=Luna< btDiscreteCollisionDetectorInterface::Result >::checkSubType< btStorageResult >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStorageResult::m_closestPointInB(btVector3). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStorageResult::m_closestPointInB(btVector3). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_closestPointInB = value;
 
@@ -312,16 +296,14 @@ public:
 	// void btStorageResult::m_distance(float value)
 	static int _bind_setDistance(lua_State *L) {
 		if (!_lg_typecheck_setDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStorageResult::m_distance(float value) function, expected prototype:\nvoid btStorageResult::m_distance(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btStorageResult::m_distance(float value) function, expected prototype:\nvoid btStorageResult::m_distance(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btStorageResult* self=Luna< btDiscreteCollisionDetectorInterface::Result >::checkSubType< btStorageResult >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStorageResult::m_distance(float). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStorageResult::m_distance(float). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_distance = value;
 
@@ -331,8 +313,7 @@ public:
 	// void btStorageResult::base_addContactPoint(const btVector3 & normalOnBInWorld, const btVector3 & pointInWorld, float depth)
 	static int _bind_base_addContactPoint(lua_State *L) {
 		if (!_lg_typecheck_base_addContactPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStorageResult::base_addContactPoint(const btVector3 & normalOnBInWorld, const btVector3 & pointInWorld, float depth) function, expected prototype:\nvoid btStorageResult::base_addContactPoint(const btVector3 & normalOnBInWorld, const btVector3 & pointInWorld, float depth)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btStorageResult::base_addContactPoint(const btVector3 & normalOnBInWorld, const btVector3 & pointInWorld, float depth) function, expected prototype:\nvoid btStorageResult::base_addContactPoint(const btVector3 & normalOnBInWorld, const btVector3 & pointInWorld, float depth)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* normalOnBInWorld_ptr=(Luna< btVector3 >::check(L,2));
@@ -349,8 +330,7 @@ public:
 
 		btStorageResult* self=Luna< btDiscreteCollisionDetectorInterface::Result >::checkSubType< btStorageResult >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStorageResult::base_addContactPoint(const btVector3 &, const btVector3 &, float). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStorageResult::base_addContactPoint(const btVector3 &, const btVector3 &, float). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface::Result >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btStorageResult::addContactPoint(normalOnBInWorld, pointInWorld, depth);
 

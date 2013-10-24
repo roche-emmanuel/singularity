@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Timer*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Timer*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Timer* rhs =(Luna< b2Timer >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Timer* self= (b2Timer*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Timer >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -128,8 +124,7 @@ public:
 	// b2Timer::b2Timer()
 	static b2Timer* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Timer::b2Timer() function, expected prototype:\nb2Timer::b2Timer()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Timer::b2Timer() function, expected prototype:\nb2Timer::b2Timer()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -141,15 +136,13 @@ public:
 	// void b2Timer::Reset()
 	static int _bind_Reset(lua_State *L) {
 		if (!_lg_typecheck_Reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Timer::Reset() function, expected prototype:\nvoid b2Timer::Reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Timer::Reset() function, expected prototype:\nvoid b2Timer::Reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Timer* self=(Luna< b2Timer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Timer::Reset(). Got : '%s'",typeid(Luna< b2Timer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Timer::Reset(). Got : '%s'\n%s",typeid(Luna< b2Timer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Reset();
 
@@ -159,15 +152,13 @@ public:
 	// float b2Timer::GetMilliseconds() const
 	static int _bind_GetMilliseconds(lua_State *L) {
 		if (!_lg_typecheck_GetMilliseconds(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Timer::GetMilliseconds() const function, expected prototype:\nfloat b2Timer::GetMilliseconds() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Timer::GetMilliseconds() const function, expected prototype:\nfloat b2Timer::GetMilliseconds() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Timer* self=(Luna< b2Timer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Timer::GetMilliseconds() const. Got : '%s'",typeid(Luna< b2Timer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Timer::GetMilliseconds() const. Got : '%s'\n%s",typeid(Luna< b2Timer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetMilliseconds();
 		lua_pushnumber(L,lret);

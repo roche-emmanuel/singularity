@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IDoc* self=(Luna< IDoc >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IDocAnchor* self= (IDocAnchor*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< IDoc >::check(L,1));
@@ -112,8 +109,7 @@ public:
 	// IDocAnchor::IDocAnchor(lua_Table * data)
 	static IDocAnchor* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocAnchor::IDocAnchor(lua_Table * data) function, expected prototype:\nIDocAnchor::IDocAnchor(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocAnchor::IDocAnchor(lua_Table * data) function, expected prototype:\nIDocAnchor::IDocAnchor(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -125,15 +121,13 @@ public:
 	// const IString * IDocAnchor::id() const
 	static int _bind_id(lua_State *L) {
 		if (!_lg_typecheck_id(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const IString * IDocAnchor::id() const function, expected prototype:\nconst IString * IDocAnchor::id() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const IString * IDocAnchor::id() const function, expected prototype:\nconst IString * IDocAnchor::id() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDocAnchor* self=Luna< IDoc >::checkSubType< IDocAnchor >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const IString * IDocAnchor::id() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const IString * IDocAnchor::id() const. Got : '%s'\n%s",typeid(Luna< IDoc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const IString * lret = self->id();
 		if(!lret) return 0; // Do not write NULL pointers.

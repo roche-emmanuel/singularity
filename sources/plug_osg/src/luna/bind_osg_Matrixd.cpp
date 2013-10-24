@@ -50,7 +50,7 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
@@ -106,22 +106,22 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_5(lua_State *L) {
 		if( lua_gettop(L)!=16 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
-		if( lua_isnumber(L,8)==0 ) return false;
-		if( lua_isnumber(L,9)==0 ) return false;
-		if( lua_isnumber(L,10)==0 ) return false;
-		if( lua_isnumber(L,11)==0 ) return false;
-		if( lua_isnumber(L,12)==0 ) return false;
-		if( lua_isnumber(L,13)==0 ) return false;
-		if( lua_isnumber(L,14)==0 ) return false;
-		if( lua_isnumber(L,15)==0 ) return false;
-		if( lua_isnumber(L,16)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,8)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,9)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,10)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,11)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,12)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,13)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,14)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,15)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,16)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -165,22 +165,22 @@ public:
 	inline static bool _lg_typecheck_set_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=17 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
-		if( lua_isnumber(L,8)==0 ) return false;
-		if( lua_isnumber(L,9)==0 ) return false;
-		if( lua_isnumber(L,10)==0 ) return false;
-		if( lua_isnumber(L,11)==0 ) return false;
-		if( lua_isnumber(L,12)==0 ) return false;
-		if( lua_isnumber(L,13)==0 ) return false;
-		if( lua_isnumber(L,14)==0 ) return false;
-		if( lua_isnumber(L,15)==0 ) return false;
-		if( lua_isnumber(L,16)==0 ) return false;
-		if( lua_isnumber(L,17)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,8)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,9)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,10)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,11)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,12)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,13)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,14)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,15)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,16)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,17)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -235,9 +235,9 @@ public:
 	inline static bool _lg_typecheck_makeScale_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -260,9 +260,9 @@ public:
 	inline static bool _lg_typecheck_makeTranslate_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -289,7 +289,7 @@ public:
 	inline static bool _lg_typecheck_makeRotate_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
 		if( (!(Luna< osg::Vec3f >::check(L,3))) ) return false;
 		return true;
@@ -298,7 +298,7 @@ public:
 	inline static bool _lg_typecheck_makeRotate_overload_4(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
 		if( (!(Luna< osg::Vec3d >::check(L,3))) ) return false;
 		return true;
@@ -307,10 +307,10 @@ public:
 	inline static bool _lg_typecheck_makeRotate_overload_5(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -325,13 +325,13 @@ public:
 	inline static bool _lg_typecheck_makeRotate_overload_7(lua_State *L) {
 		if( lua_gettop(L)!=7 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
 		if( (!(Luna< osg::Vec3f >::check(L,3))) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,92303204) ) return false;
 		if( (!(Luna< osg::Vec3f >::check(L,5))) ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,92303204) ) return false;
 		if( (!(Luna< osg::Vec3f >::check(L,7))) ) return false;
 		return true;
@@ -340,13 +340,13 @@ public:
 	inline static bool _lg_typecheck_makeRotate_overload_8(lua_State *L) {
 		if( lua_gettop(L)!=7 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
 		if( (!(Luna< osg::Vec3d >::check(L,3))) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,92303202) ) return false;
 		if( (!(Luna< osg::Vec3d >::check(L,5))) ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,92303202) ) return false;
 		if( (!(Luna< osg::Vec3d >::check(L,7))) ) return false;
 		return true;
@@ -383,112 +383,112 @@ public:
 	inline static bool _lg_typecheck_makeOrtho(lua_State *L) {
 		if( lua_gettop(L)!=7 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getOrtho_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=7 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getOrtho_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=7 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_makeOrtho2D(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_makeFrustum(lua_State *L) {
 		if( lua_gettop(L)!=7 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getFrustum_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=7 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getFrustum_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=7 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_makePerspective(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getPerspective_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getPerspective_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -511,7 +511,7 @@ public:
 		if( (!(Luna< osg::Vec3f >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,92303204) ) return false;
 		if( (!(Luna< osg::Vec3f >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -525,7 +525,7 @@ public:
 		if( (!(Luna< osg::Vec3d >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,92303202) ) return false;
 		if( (!(Luna< osg::Vec3d >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -660,9 +660,9 @@ public:
 	inline static bool _lg_typecheck_setTrans_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -805,9 +805,9 @@ public:
 	inline static bool _lg_typecheck_scale_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -830,9 +830,9 @@ public:
 	inline static bool _lg_typecheck_translate_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -859,17 +859,17 @@ public:
 	inline static bool _lg_typecheck_rotate_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_rotate_overload_4(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
 		if( (!(Luna< osg::Vec3f >::check(L,2))) ) return false;
 		return true;
@@ -878,7 +878,7 @@ public:
 	inline static bool _lg_typecheck_rotate_overload_5(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
 		if( (!(Luna< osg::Vec3d >::check(L,2))) ) return false;
 		return true;
@@ -887,13 +887,13 @@ public:
 	inline static bool _lg_typecheck_rotate_overload_6(lua_State *L) {
 		if( lua_gettop(L)!=6 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
 		if( (!(Luna< osg::Vec3f >::check(L,2))) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,92303204) ) return false;
 		if( (!(Luna< osg::Vec3f >::check(L,4))) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,92303204) ) return false;
 		if( (!(Luna< osg::Vec3f >::check(L,6))) ) return false;
 		return true;
@@ -902,13 +902,13 @@ public:
 	inline static bool _lg_typecheck_rotate_overload_7(lua_State *L) {
 		if( lua_gettop(L)!=6 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303202) ) return false;
 		if( (!(Luna< osg::Vec3d >::check(L,2))) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,92303202) ) return false;
 		if( (!(Luna< osg::Vec3d >::check(L,4))) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,92303202) ) return false;
 		if( (!(Luna< osg::Vec3d >::check(L,6))) ) return false;
 		return true;
@@ -939,44 +939,44 @@ public:
 	inline static bool _lg_typecheck_ortho(lua_State *L) {
 		if( lua_gettop(L)!=6 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_ortho2D(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_frustum(lua_State *L) {
 		if( lua_gettop(L)!=6 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_perspective(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -1071,16 +1071,16 @@ public:
 	inline static bool _lg_typecheck_op_call_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_op_call_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 

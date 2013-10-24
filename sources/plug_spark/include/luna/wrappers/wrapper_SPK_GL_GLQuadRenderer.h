@@ -501,8 +501,8 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,73657533) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -510,8 +510,8 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,73657533) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -530,7 +530,7 @@ public:
 	inline static bool _lg_typecheck_public_glGetProcAddress(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -561,7 +561,7 @@ public:
 	inline static bool _lg_typecheck_public_enablePointParameterGLExt(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 		if( lua_isboolean(L,2)==0 ) return false;
 		return true;
 	}
@@ -589,15 +589,13 @@ public:
 	// void SPK::GL::GLRenderer::public_initBlending() const
 	static int _bind_public_initBlending(lua_State *L) {
 		if (!_lg_typecheck_public_initBlending(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::public_initBlending() const function, expected prototype:\nvoid SPK::GL::GLRenderer::public_initBlending() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::public_initBlending() const function, expected prototype:\nvoid SPK::GL::GLRenderer::public_initBlending() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::public_initBlending() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::public_initBlending() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_initBlending();
 
@@ -607,15 +605,13 @@ public:
 	// void SPK::GL::GLRenderer::public_initRenderingHints() const
 	static int _bind_public_initRenderingHints(lua_State *L) {
 		if (!_lg_typecheck_public_initRenderingHints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::public_initRenderingHints() const function, expected prototype:\nvoid SPK::GL::GLRenderer::public_initRenderingHints() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLRenderer::public_initRenderingHints() const function, expected prototype:\nvoid SPK::GL::GLRenderer::public_initRenderingHints() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::public_initRenderingHints() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLRenderer::public_initRenderingHints() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_initRenderingHints();
 
@@ -625,8 +621,7 @@ public:
 	// void SPK::Registerable::public_registerChild(SPK::Registerable * child, bool registerAll)
 	static int _bind_public_registerChild(lua_State *L) {
 		if (!_lg_typecheck_public_registerChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Registerable::public_registerChild(SPK::Registerable * child, bool registerAll) function, expected prototype:\nvoid SPK::Registerable::public_registerChild(SPK::Registerable * child, bool registerAll)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Registerable::public_registerChild(SPK::Registerable * child, bool registerAll) function, expected prototype:\nvoid SPK::Registerable::public_registerChild(SPK::Registerable * child, bool registerAll)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* child=(Luna< SPK::Registerable >::check(L,2));
@@ -634,8 +629,7 @@ public:
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_registerChild(SPK::Registerable *, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_registerChild(SPK::Registerable *, bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_registerChild(child, registerAll);
 
@@ -645,8 +639,7 @@ public:
 	// SPK::Registerable * SPK::Registerable::public_copyChild(SPK::Registerable * child, bool createBase)
 	static int _bind_public_copyChild(lua_State *L) {
 		if (!_lg_typecheck_public_copyChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::Registerable::public_copyChild(SPK::Registerable * child, bool createBase) function, expected prototype:\nSPK::Registerable * SPK::Registerable::public_copyChild(SPK::Registerable * child, bool createBase)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::Registerable::public_copyChild(SPK::Registerable * child, bool createBase) function, expected prototype:\nSPK::Registerable * SPK::Registerable::public_copyChild(SPK::Registerable * child, bool createBase)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* child=(Luna< SPK::Registerable >::check(L,2));
@@ -654,8 +647,7 @@ public:
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Registerable::public_copyChild(SPK::Registerable *, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::Registerable::public_copyChild(SPK::Registerable *, bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::Registerable * lret = self->public_copyChild(child, createBase);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -668,8 +660,7 @@ public:
 	// bool SPK::Registerable::public_destroyChild(SPK::Registerable * child, bool keepChildren)
 	static int _bind_public_destroyChild(lua_State *L) {
 		if (!_lg_typecheck_public_destroyChild(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::Registerable::public_destroyChild(SPK::Registerable * child, bool keepChildren) function, expected prototype:\nbool SPK::Registerable::public_destroyChild(SPK::Registerable * child, bool keepChildren)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::Registerable::public_destroyChild(SPK::Registerable * child, bool keepChildren) function, expected prototype:\nbool SPK::Registerable::public_destroyChild(SPK::Registerable * child, bool keepChildren)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* child=(Luna< SPK::Registerable >::check(L,2));
@@ -677,8 +668,7 @@ public:
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Registerable::public_destroyChild(SPK::Registerable *, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::Registerable::public_destroyChild(SPK::Registerable *, bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_destroyChild(child, keepChildren);
 		lua_pushboolean(L,lret?1:0);
@@ -689,16 +679,14 @@ public:
 	// void SPK::Registerable::public_incrementChildReference(SPK::Registerable * child)
 	static int _bind_public_incrementChildReference(lua_State *L) {
 		if (!_lg_typecheck_public_incrementChildReference(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Registerable::public_incrementChildReference(SPK::Registerable * child) function, expected prototype:\nvoid SPK::Registerable::public_incrementChildReference(SPK::Registerable * child)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Registerable::public_incrementChildReference(SPK::Registerable * child) function, expected prototype:\nvoid SPK::Registerable::public_incrementChildReference(SPK::Registerable * child)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* child=(Luna< SPK::Registerable >::check(L,2));
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_incrementChildReference(SPK::Registerable *). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_incrementChildReference(SPK::Registerable *). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_incrementChildReference(child);
 
@@ -708,16 +696,14 @@ public:
 	// void SPK::Registerable::public_decrementChildReference(SPK::Registerable * child)
 	static int _bind_public_decrementChildReference(lua_State *L) {
 		if (!_lg_typecheck_public_decrementChildReference(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Registerable::public_decrementChildReference(SPK::Registerable * child) function, expected prototype:\nvoid SPK::Registerable::public_decrementChildReference(SPK::Registerable * child)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Registerable::public_decrementChildReference(SPK::Registerable * child) function, expected prototype:\nvoid SPK::Registerable::public_decrementChildReference(SPK::Registerable * child)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* child=(Luna< SPK::Registerable >::check(L,2));
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_decrementChildReference(SPK::Registerable *). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Registerable::public_decrementChildReference(SPK::Registerable *). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_decrementChildReference(child);
 
@@ -727,8 +713,7 @@ public:
 	// static void SPK::Registerable::public_registerObject(SPK::Registerable * obj, bool registerAll = false)
 	static int _bind_public_registerObject(lua_State *L) {
 		if (!_lg_typecheck_public_registerObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void SPK::Registerable::public_registerObject(SPK::Registerable * obj, bool registerAll = false) function, expected prototype:\nstatic void SPK::Registerable::public_registerObject(SPK::Registerable * obj, bool registerAll = false)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in static void SPK::Registerable::public_registerObject(SPK::Registerable * obj, bool registerAll = false) function, expected prototype:\nstatic void SPK::Registerable::public_registerObject(SPK::Registerable * obj, bool registerAll = false)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -738,8 +723,7 @@ public:
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::Registerable >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void SPK::Registerable::public_registerObject(SPK::Registerable *, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static void SPK::Registerable::public_registerObject(SPK::Registerable *, bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_registerObject(obj, registerAll);
 
@@ -749,8 +733,7 @@ public:
 	// bool SPK::BufferHandler::public_prepareBuffers(const SPK::Group & group)
 	static int _bind_public_prepareBuffers(lua_State *L) {
 		if (!_lg_typecheck_public_prepareBuffers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::BufferHandler::public_prepareBuffers(const SPK::Group & group) function, expected prototype:\nbool SPK::BufferHandler::public_prepareBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::BufferHandler::public_prepareBuffers(const SPK::Group & group) function, expected prototype:\nbool SPK::BufferHandler::public_prepareBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -761,8 +744,7 @@ public:
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::BufferHandler >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::BufferHandler::public_prepareBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::BufferHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::BufferHandler::public_prepareBuffers(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::BufferHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_prepareBuffers(group);
 		lua_pushboolean(L,lret?1:0);
@@ -773,8 +755,7 @@ public:
 	// void SPK::QuadRendererInterface::public_computeAtlasCoordinates(const SPK::Particle & particle) const
 	static int _bind_public_computeAtlasCoordinates(lua_State *L) {
 		if (!_lg_typecheck_public_computeAtlasCoordinates(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::QuadRendererInterface::public_computeAtlasCoordinates(const SPK::Particle & particle) const function, expected prototype:\nvoid SPK::QuadRendererInterface::public_computeAtlasCoordinates(const SPK::Particle & particle) const\nClass arguments details:\narg 1 ID = 73657533\n");
+			luaL_error(L, "luna typecheck failed in void SPK::QuadRendererInterface::public_computeAtlasCoordinates(const SPK::Particle & particle) const function, expected prototype:\nvoid SPK::QuadRendererInterface::public_computeAtlasCoordinates(const SPK::Particle & particle) const\nClass arguments details:\narg 1 ID = 73657533\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Particle* particle_ptr=(Luna< SPK::Particle >::check(L,2));
@@ -785,8 +766,7 @@ public:
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::QuadRendererInterface >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::QuadRendererInterface::public_computeAtlasCoordinates(const SPK::Particle &) const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::QuadRendererInterface::public_computeAtlasCoordinates(const SPK::Particle &) const. Got : '%s'\n%s",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_computeAtlasCoordinates(particle);
 
@@ -796,15 +776,13 @@ public:
 	// float SPK::QuadRendererInterface::public_textureAtlasU0() const
 	static int _bind_public_textureAtlasU0(lua_State *L) {
 		if (!_lg_typecheck_public_textureAtlasU0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float SPK::QuadRendererInterface::public_textureAtlasU0() const function, expected prototype:\nfloat SPK::QuadRendererInterface::public_textureAtlasU0() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float SPK::QuadRendererInterface::public_textureAtlasU0() const function, expected prototype:\nfloat SPK::QuadRendererInterface::public_textureAtlasU0() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::QuadRendererInterface >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasU0() const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasU0() const. Got : '%s'\n%s",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->public_textureAtlasU0();
 		lua_pushnumber(L,lret);
@@ -815,15 +793,13 @@ public:
 	// float SPK::QuadRendererInterface::public_textureAtlasU1() const
 	static int _bind_public_textureAtlasU1(lua_State *L) {
 		if (!_lg_typecheck_public_textureAtlasU1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float SPK::QuadRendererInterface::public_textureAtlasU1() const function, expected prototype:\nfloat SPK::QuadRendererInterface::public_textureAtlasU1() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float SPK::QuadRendererInterface::public_textureAtlasU1() const function, expected prototype:\nfloat SPK::QuadRendererInterface::public_textureAtlasU1() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::QuadRendererInterface >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasU1() const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasU1() const. Got : '%s'\n%s",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->public_textureAtlasU1();
 		lua_pushnumber(L,lret);
@@ -834,15 +810,13 @@ public:
 	// float SPK::QuadRendererInterface::public_textureAtlasV0() const
 	static int _bind_public_textureAtlasV0(lua_State *L) {
 		if (!_lg_typecheck_public_textureAtlasV0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float SPK::QuadRendererInterface::public_textureAtlasV0() const function, expected prototype:\nfloat SPK::QuadRendererInterface::public_textureAtlasV0() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float SPK::QuadRendererInterface::public_textureAtlasV0() const function, expected prototype:\nfloat SPK::QuadRendererInterface::public_textureAtlasV0() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::QuadRendererInterface >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasV0() const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasV0() const. Got : '%s'\n%s",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->public_textureAtlasV0();
 		lua_pushnumber(L,lret);
@@ -853,15 +827,13 @@ public:
 	// float SPK::QuadRendererInterface::public_textureAtlasV1() const
 	static int _bind_public_textureAtlasV1(lua_State *L) {
 		if (!_lg_typecheck_public_textureAtlasV1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float SPK::QuadRendererInterface::public_textureAtlasV1() const function, expected prototype:\nfloat SPK::QuadRendererInterface::public_textureAtlasV1() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float SPK::QuadRendererInterface::public_textureAtlasV1() const function, expected prototype:\nfloat SPK::QuadRendererInterface::public_textureAtlasV1() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::QuadRendererInterface >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasV1() const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasV1() const. Got : '%s'\n%s",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->public_textureAtlasV1();
 		lua_pushnumber(L,lret);
@@ -872,8 +844,7 @@ public:
 	// bool SPK::Oriented3DRendererInterface::public_precomputeOrientation3D(const SPK::Group & group, const SPK::Vector3D & look, const SPK::Vector3D & up, const SPK::Vector3D & pos)
 	static int _bind_public_precomputeOrientation3D(lua_State *L) {
 		if (!_lg_typecheck_public_precomputeOrientation3D(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::Oriented3DRendererInterface::public_precomputeOrientation3D(const SPK::Group & group, const SPK::Vector3D & look, const SPK::Vector3D & up, const SPK::Vector3D & pos) function, expected prototype:\nbool SPK::Oriented3DRendererInterface::public_precomputeOrientation3D(const SPK::Group & group, const SPK::Vector3D & look, const SPK::Vector3D & up, const SPK::Vector3D & pos)\nClass arguments details:\narg 1 ID = 31337102\narg 2 ID = 70092749\narg 3 ID = 70092749\narg 4 ID = 70092749\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::Oriented3DRendererInterface::public_precomputeOrientation3D(const SPK::Group & group, const SPK::Vector3D & look, const SPK::Vector3D & up, const SPK::Vector3D & pos) function, expected prototype:\nbool SPK::Oriented3DRendererInterface::public_precomputeOrientation3D(const SPK::Group & group, const SPK::Vector3D & look, const SPK::Vector3D & up, const SPK::Vector3D & pos)\nClass arguments details:\narg 1 ID = 31337102\narg 2 ID = 70092749\narg 3 ID = 70092749\narg 4 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -899,8 +870,7 @@ public:
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::Oriented3DRendererInterface >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::Oriented3DRendererInterface::public_precomputeOrientation3D(const SPK::Group &, const SPK::Vector3D &, const SPK::Vector3D &, const SPK::Vector3D &). Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::Oriented3DRendererInterface::public_precomputeOrientation3D(const SPK::Group &, const SPK::Vector3D &, const SPK::Vector3D &, const SPK::Vector3D &). Got : '%s'\n%s",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_precomputeOrientation3D(group, look, up, pos);
 		lua_pushboolean(L,lret?1:0);
@@ -911,15 +881,13 @@ public:
 	// void SPK::Oriented3DRendererInterface::public_computeGlobalOrientation3D()
 	static int _bind_public_computeGlobalOrientation3D(lua_State *L) {
 		if (!_lg_typecheck_public_computeGlobalOrientation3D(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::public_computeGlobalOrientation3D() function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::public_computeGlobalOrientation3D()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::public_computeGlobalOrientation3D() function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::public_computeGlobalOrientation3D()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::Oriented3DRendererInterface >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Oriented3DRendererInterface::public_computeGlobalOrientation3D(). Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Oriented3DRendererInterface::public_computeGlobalOrientation3D(). Got : '%s'\n%s",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_computeGlobalOrientation3D();
 
@@ -929,8 +897,7 @@ public:
 	// void SPK::Oriented3DRendererInterface::public_computeSingleOrientation3D(const SPK::Particle & particle)
 	static int _bind_public_computeSingleOrientation3D(lua_State *L) {
 		if (!_lg_typecheck_public_computeSingleOrientation3D(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::public_computeSingleOrientation3D(const SPK::Particle & particle) function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::public_computeSingleOrientation3D(const SPK::Particle & particle)\nClass arguments details:\narg 1 ID = 73657533\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::public_computeSingleOrientation3D(const SPK::Particle & particle) function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::public_computeSingleOrientation3D(const SPK::Particle & particle)\nClass arguments details:\narg 1 ID = 73657533\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Particle* particle_ptr=(Luna< SPK::Particle >::check(L,2));
@@ -941,8 +908,7 @@ public:
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::Oriented3DRendererInterface >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Oriented3DRendererInterface::public_computeSingleOrientation3D(const SPK::Particle &). Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Oriented3DRendererInterface::public_computeSingleOrientation3D(const SPK::Particle &). Got : '%s'\n%s",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_computeSingleOrientation3D(particle);
 
@@ -952,8 +918,7 @@ public:
 	// void SPK::Oriented3DRendererInterface::public_scaleQuadVectors(const SPK::Particle & particle, float scaleX, float scaleY) const
 	static int _bind_public_scaleQuadVectors(lua_State *L) {
 		if (!_lg_typecheck_public_scaleQuadVectors(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::public_scaleQuadVectors(const SPK::Particle & particle, float scaleX, float scaleY) const function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::public_scaleQuadVectors(const SPK::Particle & particle, float scaleX, float scaleY) const\nClass arguments details:\narg 1 ID = 73657533\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::public_scaleQuadVectors(const SPK::Particle & particle, float scaleX, float scaleY) const function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::public_scaleQuadVectors(const SPK::Particle & particle, float scaleX, float scaleY) const\nClass arguments details:\narg 1 ID = 73657533\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Particle* particle_ptr=(Luna< SPK::Particle >::check(L,2));
@@ -966,8 +931,7 @@ public:
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::Oriented3DRendererInterface >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Oriented3DRendererInterface::public_scaleQuadVectors(const SPK::Particle &, float, float) const. Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Oriented3DRendererInterface::public_scaleQuadVectors(const SPK::Particle &, float, float) const. Got : '%s'\n%s",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_scaleQuadVectors(particle, scaleX, scaleY);
 
@@ -977,8 +941,7 @@ public:
 	// void SPK::Oriented3DRendererInterface::public_rotateAndScaleQuadVectors(const SPK::Particle & particle, float scaleX, float scaleY) const
 	static int _bind_public_rotateAndScaleQuadVectors(lua_State *L) {
 		if (!_lg_typecheck_public_rotateAndScaleQuadVectors(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::public_rotateAndScaleQuadVectors(const SPK::Particle & particle, float scaleX, float scaleY) const function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::public_rotateAndScaleQuadVectors(const SPK::Particle & particle, float scaleX, float scaleY) const\nClass arguments details:\narg 1 ID = 73657533\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::public_rotateAndScaleQuadVectors(const SPK::Particle & particle, float scaleX, float scaleY) const function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::public_rotateAndScaleQuadVectors(const SPK::Particle & particle, float scaleX, float scaleY) const\nClass arguments details:\narg 1 ID = 73657533\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Particle* particle_ptr=(Luna< SPK::Particle >::check(L,2));
@@ -991,8 +954,7 @@ public:
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::Oriented3DRendererInterface >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Oriented3DRendererInterface::public_rotateAndScaleQuadVectors(const SPK::Particle &, float, float) const. Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Oriented3DRendererInterface::public_rotateAndScaleQuadVectors(const SPK::Particle &, float, float) const. Got : '%s'\n%s",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_rotateAndScaleQuadVectors(particle, scaleX, scaleY);
 
@@ -1002,15 +964,13 @@ public:
 	// const SPK::Vector3D & SPK::Oriented3DRendererInterface::public_quadUp() const
 	static int _bind_public_quadUp(lua_State *L) {
 		if (!_lg_typecheck_public_quadUp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const SPK::Vector3D & SPK::Oriented3DRendererInterface::public_quadUp() const function, expected prototype:\nconst SPK::Vector3D & SPK::Oriented3DRendererInterface::public_quadUp() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const SPK::Vector3D & SPK::Oriented3DRendererInterface::public_quadUp() const function, expected prototype:\nconst SPK::Vector3D & SPK::Oriented3DRendererInterface::public_quadUp() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::Oriented3DRendererInterface >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Oriented3DRendererInterface::public_quadUp() const. Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Oriented3DRendererInterface::public_quadUp() const. Got : '%s'\n%s",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const SPK::Vector3D* lret = &self->public_quadUp();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1023,15 +983,13 @@ public:
 	// const SPK::Vector3D & SPK::Oriented3DRendererInterface::public_quadSide() const
 	static int _bind_public_quadSide(lua_State *L) {
 		if (!_lg_typecheck_public_quadSide(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const SPK::Vector3D & SPK::Oriented3DRendererInterface::public_quadSide() const function, expected prototype:\nconst SPK::Vector3D & SPK::Oriented3DRendererInterface::public_quadSide() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const SPK::Vector3D & SPK::Oriented3DRendererInterface::public_quadSide() const function, expected prototype:\nconst SPK::Vector3D & SPK::Oriented3DRendererInterface::public_quadSide() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::Oriented3DRendererInterface >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Oriented3DRendererInterface::public_quadSide() const. Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const SPK::Vector3D & SPK::Oriented3DRendererInterface::public_quadSide() const. Got : '%s'\n%s",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const SPK::Vector3D* lret = &self->public_quadSide();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1044,16 +1002,14 @@ public:
 	// static void * SPK::GL::GLExtHandler::public_glGetProcAddress(const char * name)
 	static int _bind_public_glGetProcAddress(lua_State *L) {
 		if (!_lg_typecheck_public_glGetProcAddress(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void * SPK::GL::GLExtHandler::public_glGetProcAddress(const char * name) function, expected prototype:\nstatic void * SPK::GL::GLExtHandler::public_glGetProcAddress(const char * name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void * SPK::GL::GLExtHandler::public_glGetProcAddress(const char * name) function, expected prototype:\nstatic void * SPK::GL::GLExtHandler::public_glGetProcAddress(const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * name=(const char *)lua_tostring(L,1);
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::GL::GLExtHandler >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void * SPK::GL::GLExtHandler::public_glGetProcAddress(const char *). Got : '%s'",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static void * SPK::GL::GLExtHandler::public_glGetProcAddress(const char *). Got : '%s'\n%s",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->public_glGetProcAddress(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1066,15 +1022,13 @@ public:
 	// static GLExtension SPK::GL::GLExtHandler::public_getPointSpriteGLExt()
 	static int _bind_public_getPointSpriteGLExt(lua_State *L) {
 		if (!_lg_typecheck_public_getPointSpriteGLExt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static GLExtension SPK::GL::GLExtHandler::public_getPointSpriteGLExt() function, expected prototype:\nstatic GLExtension SPK::GL::GLExtHandler::public_getPointSpriteGLExt()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static GLExtension SPK::GL::GLExtHandler::public_getPointSpriteGLExt() function, expected prototype:\nstatic GLExtension SPK::GL::GLExtHandler::public_getPointSpriteGLExt()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::GL::GLExtHandler >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static GLExtension SPK::GL::GLExtHandler::public_getPointSpriteGLExt(). Got : '%s'",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static GLExtension SPK::GL::GLExtHandler::public_getPointSpriteGLExt(). Got : '%s'\n%s",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		GLExtension lret = self->public_getPointSpriteGLExt();
 		lua_pushnumber(L,lret);
@@ -1085,15 +1039,13 @@ public:
 	// static void SPK::GL::GLExtHandler::public_enablePointSpriteGLExt()
 	static int _bind_public_enablePointSpriteGLExt(lua_State *L) {
 		if (!_lg_typecheck_public_enablePointSpriteGLExt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void SPK::GL::GLExtHandler::public_enablePointSpriteGLExt() function, expected prototype:\nstatic void SPK::GL::GLExtHandler::public_enablePointSpriteGLExt()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void SPK::GL::GLExtHandler::public_enablePointSpriteGLExt() function, expected prototype:\nstatic void SPK::GL::GLExtHandler::public_enablePointSpriteGLExt()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::GL::GLExtHandler >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void SPK::GL::GLExtHandler::public_enablePointSpriteGLExt(). Got : '%s'",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static void SPK::GL::GLExtHandler::public_enablePointSpriteGLExt(). Got : '%s'\n%s",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_enablePointSpriteGLExt();
 
@@ -1103,15 +1055,13 @@ public:
 	// static void SPK::GL::GLExtHandler::public_disablePointSpriteGLExt()
 	static int _bind_public_disablePointSpriteGLExt(lua_State *L) {
 		if (!_lg_typecheck_public_disablePointSpriteGLExt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void SPK::GL::GLExtHandler::public_disablePointSpriteGLExt() function, expected prototype:\nstatic void SPK::GL::GLExtHandler::public_disablePointSpriteGLExt()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void SPK::GL::GLExtHandler::public_disablePointSpriteGLExt() function, expected prototype:\nstatic void SPK::GL::GLExtHandler::public_disablePointSpriteGLExt()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::GL::GLExtHandler >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void SPK::GL::GLExtHandler::public_disablePointSpriteGLExt(). Got : '%s'",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static void SPK::GL::GLExtHandler::public_disablePointSpriteGLExt(). Got : '%s'\n%s",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_disablePointSpriteGLExt();
 
@@ -1121,15 +1071,13 @@ public:
 	// static GLExtension SPK::GL::GLExtHandler::public_getPointParameterGLExt()
 	static int _bind_public_getPointParameterGLExt(lua_State *L) {
 		if (!_lg_typecheck_public_getPointParameterGLExt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static GLExtension SPK::GL::GLExtHandler::public_getPointParameterGLExt() function, expected prototype:\nstatic GLExtension SPK::GL::GLExtHandler::public_getPointParameterGLExt()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static GLExtension SPK::GL::GLExtHandler::public_getPointParameterGLExt() function, expected prototype:\nstatic GLExtension SPK::GL::GLExtHandler::public_getPointParameterGLExt()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::GL::GLExtHandler >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static GLExtension SPK::GL::GLExtHandler::public_getPointParameterGLExt(). Got : '%s'",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static GLExtension SPK::GL::GLExtHandler::public_getPointParameterGLExt(). Got : '%s'\n%s",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		GLExtension lret = self->public_getPointParameterGLExt();
 		lua_pushnumber(L,lret);
@@ -1140,8 +1088,7 @@ public:
 	// static void SPK::GL::GLExtHandler::public_enablePointParameterGLExt(float size, bool distance)
 	static int _bind_public_enablePointParameterGLExt(lua_State *L) {
 		if (!_lg_typecheck_public_enablePointParameterGLExt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void SPK::GL::GLExtHandler::public_enablePointParameterGLExt(float size, bool distance) function, expected prototype:\nstatic void SPK::GL::GLExtHandler::public_enablePointParameterGLExt(float size, bool distance)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void SPK::GL::GLExtHandler::public_enablePointParameterGLExt(float size, bool distance) function, expected prototype:\nstatic void SPK::GL::GLExtHandler::public_enablePointParameterGLExt(float size, bool distance)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float size=(float)lua_tonumber(L,1);
@@ -1149,8 +1096,7 @@ public:
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::GL::GLExtHandler >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void SPK::GL::GLExtHandler::public_enablePointParameterGLExt(float, bool). Got : '%s'",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static void SPK::GL::GLExtHandler::public_enablePointParameterGLExt(float, bool). Got : '%s'\n%s",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_enablePointParameterGLExt(size, distance);
 
@@ -1160,15 +1106,13 @@ public:
 	// static void SPK::GL::GLExtHandler::public_disablePointParameterGLExt()
 	static int _bind_public_disablePointParameterGLExt(lua_State *L) {
 		if (!_lg_typecheck_public_disablePointParameterGLExt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void SPK::GL::GLExtHandler::public_disablePointParameterGLExt() function, expected prototype:\nstatic void SPK::GL::GLExtHandler::public_disablePointParameterGLExt()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void SPK::GL::GLExtHandler::public_disablePointParameterGLExt() function, expected prototype:\nstatic void SPK::GL::GLExtHandler::public_disablePointParameterGLExt()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::GL::GLExtHandler >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void SPK::GL::GLExtHandler::public_disablePointParameterGLExt(). Got : '%s'",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static void SPK::GL::GLExtHandler::public_disablePointParameterGLExt(). Got : '%s'\n%s",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_disablePointParameterGLExt();
 
@@ -1178,15 +1122,13 @@ public:
 	// static GLExtension SPK::GL::GLExtHandler::public_getTexture3DGLExt()
 	static int _bind_public_getTexture3DGLExt(lua_State *L) {
 		if (!_lg_typecheck_public_getTexture3DGLExt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static GLExtension SPK::GL::GLExtHandler::public_getTexture3DGLExt() function, expected prototype:\nstatic GLExtension SPK::GL::GLExtHandler::public_getTexture3DGLExt()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static GLExtension SPK::GL::GLExtHandler::public_getTexture3DGLExt() function, expected prototype:\nstatic GLExtension SPK::GL::GLExtHandler::public_getTexture3DGLExt()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::GL::GLExtHandler >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static GLExtension SPK::GL::GLExtHandler::public_getTexture3DGLExt(). Got : '%s'",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static GLExtension SPK::GL::GLExtHandler::public_getTexture3DGLExt(). Got : '%s'\n%s",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		GLExtension lret = self->public_getTexture3DGLExt();
 		lua_pushnumber(L,lret);
@@ -1197,15 +1139,13 @@ public:
 	// static GLExtension SPK::GL::GLExtHandler::public_getShaderGLExt()
 	static int _bind_public_getShaderGLExt(lua_State *L) {
 		if (!_lg_typecheck_public_getShaderGLExt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static GLExtension SPK::GL::GLExtHandler::public_getShaderGLExt() function, expected prototype:\nstatic GLExtension SPK::GL::GLExtHandler::public_getShaderGLExt()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static GLExtension SPK::GL::GLExtHandler::public_getShaderGLExt() function, expected prototype:\nstatic GLExtension SPK::GL::GLExtHandler::public_getShaderGLExt()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_GL_GLQuadRenderer* self=Luna< SPK::GL::GLExtHandler >::checkSubType< wrapper_SPK_GL_GLQuadRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static GLExtension SPK::GL::GLExtHandler::public_getShaderGLExt(). Got : '%s'",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static GLExtension SPK::GL::GLExtHandler::public_getShaderGLExt(). Got : '%s'\n%s",typeid(Luna< SPK::GL::GLExtHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		GLExtension lret = self->public_getShaderGLExt();
 		lua_pushnumber(L,lret);

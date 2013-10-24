@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btRaycastVehicle::btVehicleTuning*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btRaycastVehicle::btVehicleTuning*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRaycastVehicle::btVehicleTuning* rhs =(Luna< btRaycastVehicle::btVehicleTuning >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRaycastVehicle::btVehicleTuning* self= (btRaycastVehicle::btVehicleTuning*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -147,42 +143,42 @@ public:
 	inline static bool _lg_typecheck_setSuspensionStiffness(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setSuspensionCompression(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setSuspensionDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setMaxSuspensionTravelCm(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setFrictionSlip(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setMaxSuspensionForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -194,8 +190,7 @@ public:
 	// btRaycastVehicle::btVehicleTuning::btVehicleTuning()
 	static btRaycastVehicle::btVehicleTuning* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btRaycastVehicle::btVehicleTuning::btVehicleTuning() function, expected prototype:\nbtRaycastVehicle::btVehicleTuning::btVehicleTuning()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btRaycastVehicle::btVehicleTuning::btVehicleTuning() function, expected prototype:\nbtRaycastVehicle::btVehicleTuning::btVehicleTuning()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -207,15 +202,13 @@ public:
 	// float btRaycastVehicle::btVehicleTuning::m_suspensionStiffness()
 	static int _bind_getSuspensionStiffness(lua_State *L) {
 		if (!_lg_typecheck_getSuspensionStiffness(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_suspensionStiffness() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_suspensionStiffness()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_suspensionStiffness() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_suspensionStiffness()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle::btVehicleTuning* self=(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRaycastVehicle::btVehicleTuning::m_suspensionStiffness(). Got : '%s'",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRaycastVehicle::btVehicleTuning::m_suspensionStiffness(). Got : '%s'\n%s",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_suspensionStiffness;
 		lua_pushnumber(L,lret);
@@ -226,15 +219,13 @@ public:
 	// float btRaycastVehicle::btVehicleTuning::m_suspensionCompression()
 	static int _bind_getSuspensionCompression(lua_State *L) {
 		if (!_lg_typecheck_getSuspensionCompression(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_suspensionCompression() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_suspensionCompression()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_suspensionCompression() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_suspensionCompression()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle::btVehicleTuning* self=(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRaycastVehicle::btVehicleTuning::m_suspensionCompression(). Got : '%s'",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRaycastVehicle::btVehicleTuning::m_suspensionCompression(). Got : '%s'\n%s",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_suspensionCompression;
 		lua_pushnumber(L,lret);
@@ -245,15 +236,13 @@ public:
 	// float btRaycastVehicle::btVehicleTuning::m_suspensionDamping()
 	static int _bind_getSuspensionDamping(lua_State *L) {
 		if (!_lg_typecheck_getSuspensionDamping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_suspensionDamping() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_suspensionDamping()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_suspensionDamping() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_suspensionDamping()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle::btVehicleTuning* self=(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRaycastVehicle::btVehicleTuning::m_suspensionDamping(). Got : '%s'",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRaycastVehicle::btVehicleTuning::m_suspensionDamping(). Got : '%s'\n%s",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_suspensionDamping;
 		lua_pushnumber(L,lret);
@@ -264,15 +253,13 @@ public:
 	// float btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm()
 	static int _bind_getMaxSuspensionTravelCm(lua_State *L) {
 		if (!_lg_typecheck_getMaxSuspensionTravelCm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle::btVehicleTuning* self=(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm(). Got : '%s'",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm(). Got : '%s'\n%s",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_maxSuspensionTravelCm;
 		lua_pushnumber(L,lret);
@@ -283,15 +270,13 @@ public:
 	// float btRaycastVehicle::btVehicleTuning::m_frictionSlip()
 	static int _bind_getFrictionSlip(lua_State *L) {
 		if (!_lg_typecheck_getFrictionSlip(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_frictionSlip() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_frictionSlip()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_frictionSlip() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_frictionSlip()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle::btVehicleTuning* self=(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRaycastVehicle::btVehicleTuning::m_frictionSlip(). Got : '%s'",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRaycastVehicle::btVehicleTuning::m_frictionSlip(). Got : '%s'\n%s",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_frictionSlip;
 		lua_pushnumber(L,lret);
@@ -302,15 +287,13 @@ public:
 	// float btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce()
 	static int _bind_getMaxSuspensionForce(lua_State *L) {
 		if (!_lg_typecheck_getMaxSuspensionForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce() function, expected prototype:\nfloat btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRaycastVehicle::btVehicleTuning* self=(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce(). Got : '%s'",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce(). Got : '%s'\n%s",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_maxSuspensionForce;
 		lua_pushnumber(L,lret);
@@ -321,16 +304,14 @@ public:
 	// void btRaycastVehicle::btVehicleTuning::m_suspensionStiffness(float value)
 	static int _bind_setSuspensionStiffness(lua_State *L) {
 		if (!_lg_typecheck_setSuspensionStiffness(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_suspensionStiffness(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_suspensionStiffness(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_suspensionStiffness(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_suspensionStiffness(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btRaycastVehicle::btVehicleTuning* self=(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::btVehicleTuning::m_suspensionStiffness(float). Got : '%s'",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::btVehicleTuning::m_suspensionStiffness(float). Got : '%s'\n%s",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_suspensionStiffness = value;
 
@@ -340,16 +321,14 @@ public:
 	// void btRaycastVehicle::btVehicleTuning::m_suspensionCompression(float value)
 	static int _bind_setSuspensionCompression(lua_State *L) {
 		if (!_lg_typecheck_setSuspensionCompression(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_suspensionCompression(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_suspensionCompression(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_suspensionCompression(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_suspensionCompression(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btRaycastVehicle::btVehicleTuning* self=(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::btVehicleTuning::m_suspensionCompression(float). Got : '%s'",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::btVehicleTuning::m_suspensionCompression(float). Got : '%s'\n%s",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_suspensionCompression = value;
 
@@ -359,16 +338,14 @@ public:
 	// void btRaycastVehicle::btVehicleTuning::m_suspensionDamping(float value)
 	static int _bind_setSuspensionDamping(lua_State *L) {
 		if (!_lg_typecheck_setSuspensionDamping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_suspensionDamping(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_suspensionDamping(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_suspensionDamping(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_suspensionDamping(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btRaycastVehicle::btVehicleTuning* self=(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::btVehicleTuning::m_suspensionDamping(float). Got : '%s'",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::btVehicleTuning::m_suspensionDamping(float). Got : '%s'\n%s",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_suspensionDamping = value;
 
@@ -378,16 +355,14 @@ public:
 	// void btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm(float value)
 	static int _bind_setMaxSuspensionTravelCm(lua_State *L) {
 		if (!_lg_typecheck_setMaxSuspensionTravelCm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btRaycastVehicle::btVehicleTuning* self=(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm(float). Got : '%s'",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::btVehicleTuning::m_maxSuspensionTravelCm(float). Got : '%s'\n%s",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_maxSuspensionTravelCm = value;
 
@@ -397,16 +372,14 @@ public:
 	// void btRaycastVehicle::btVehicleTuning::m_frictionSlip(float value)
 	static int _bind_setFrictionSlip(lua_State *L) {
 		if (!_lg_typecheck_setFrictionSlip(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_frictionSlip(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_frictionSlip(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_frictionSlip(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_frictionSlip(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btRaycastVehicle::btVehicleTuning* self=(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::btVehicleTuning::m_frictionSlip(float). Got : '%s'",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::btVehicleTuning::m_frictionSlip(float). Got : '%s'\n%s",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_frictionSlip = value;
 
@@ -416,16 +389,14 @@ public:
 	// void btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce(float value)
 	static int _bind_setMaxSuspensionForce(lua_State *L) {
 		if (!_lg_typecheck_setMaxSuspensionForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce(float value) function, expected prototype:\nvoid btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btRaycastVehicle::btVehicleTuning* self=(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce(float). Got : '%s'",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRaycastVehicle::btVehicleTuning::m_maxSuspensionForce(float). Got : '%s'\n%s",typeid(Luna< btRaycastVehicle::btVehicleTuning >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_maxSuspensionForce = value;
 

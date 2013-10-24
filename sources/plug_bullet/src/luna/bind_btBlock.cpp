@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btBlock*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btBlock*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBlock* rhs =(Luna< btBlock >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBlock* self= (btBlock*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btBlock >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -124,7 +120,7 @@ public:
 	inline static bool _lg_typecheck_setAddress(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -138,15 +134,13 @@ public:
 	// btBlock * btBlock::previous()
 	static int _bind_getPrevious(lua_State *L) {
 		if (!_lg_typecheck_getPrevious(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBlock * btBlock::previous() function, expected prototype:\nbtBlock * btBlock::previous()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btBlock * btBlock::previous() function, expected prototype:\nbtBlock * btBlock::previous()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBlock* self=(Luna< btBlock >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btBlock * btBlock::previous(). Got : '%s'",typeid(Luna< btBlock >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btBlock * btBlock::previous(). Got : '%s'\n%s",typeid(Luna< btBlock >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btBlock * lret = self->previous;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -159,15 +153,13 @@ public:
 	// unsigned char * btBlock::address()
 	static int _bind_getAddress(lua_State *L) {
 		if (!_lg_typecheck_getAddress(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char * btBlock::address() function, expected prototype:\nunsigned char * btBlock::address()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char * btBlock::address() function, expected prototype:\nunsigned char * btBlock::address()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBlock* self=(Luna< btBlock >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char * btBlock::address(). Got : '%s'",typeid(Luna< btBlock >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char * btBlock::address(). Got : '%s'\n%s",typeid(Luna< btBlock >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char * lret = self->address;
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
@@ -178,16 +170,14 @@ public:
 	// void btBlock::previous(btBlock * value)
 	static int _bind_setPrevious(lua_State *L) {
 		if (!_lg_typecheck_setPrevious(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBlock::previous(btBlock * value) function, expected prototype:\nvoid btBlock::previous(btBlock * value)\nClass arguments details:\narg 1 ID = 60616493\n");
+			luaL_error(L, "luna typecheck failed in void btBlock::previous(btBlock * value) function, expected prototype:\nvoid btBlock::previous(btBlock * value)\nClass arguments details:\narg 1 ID = 60616493\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBlock* value=(Luna< btBlock >::check(L,2));
 
 		btBlock* self=(Luna< btBlock >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBlock::previous(btBlock *). Got : '%s'",typeid(Luna< btBlock >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBlock::previous(btBlock *). Got : '%s'\n%s",typeid(Luna< btBlock >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->previous = value;
 
@@ -197,16 +187,14 @@ public:
 	// void btBlock::address(unsigned char * value)
 	static int _bind_setAddress(lua_State *L) {
 		if (!_lg_typecheck_setAddress(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBlock::address(unsigned char * value) function, expected prototype:\nvoid btBlock::address(unsigned char * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btBlock::address(unsigned char * value) function, expected prototype:\nvoid btBlock::address(unsigned char * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char value = (unsigned char)(lua_tointeger(L,2));
 
 		btBlock* self=(Luna< btBlock >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBlock::address(unsigned char *). Got : '%s'",typeid(Luna< btBlock >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBlock::address(unsigned char *). Got : '%s'\n%s",typeid(Luna< btBlock >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->address = &value;
 

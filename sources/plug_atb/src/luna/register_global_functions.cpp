@@ -7,7 +7,7 @@
 inline static bool _lg_typecheck_TwNewBar(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -59,14 +59,14 @@ inline static bool _lg_typecheck_TwGetBarCount(lua_State *L) {
 inline static bool _lg_typecheck_TwGetBarByIndex(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_TwGetBarByName(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -81,8 +81,8 @@ inline static bool _lg_typecheck_TwAddSeparator(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,81187440)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isstring(L,3)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( lua_type(L,3)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -90,7 +90,7 @@ inline static bool _lg_typecheck_TwRemoveVar(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,81187440)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -104,22 +104,22 @@ inline static bool _lg_typecheck_TwRemoveAllVars(lua_State *L) {
 inline static bool _lg_typecheck_TwDefine(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_TwDefineEnumFromString(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_TwInit(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -139,15 +139,15 @@ inline static bool _lg_typecheck_TwDraw(lua_State *L) {
 inline static bool _lg_typecheck_TwWindowSize(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_TwSetCurrentWindow(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
@@ -160,46 +160,46 @@ inline static bool _lg_typecheck_TwGetCurrentWindow(lua_State *L) {
 inline static bool _lg_typecheck_TwWindowExists(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_TwKeyPressed(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_TwKeyTest(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_TwMouseButton(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_TwMouseMotion(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_TwMouseWheel(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
@@ -226,8 +226,7 @@ inline static bool _lg_typecheck_setupStringCopy(lua_State *L) {
 // TwBar * TwNewBar(const char * barName)
 static int _bind_TwNewBar(lua_State *L) {
 	if (!_lg_typecheck_TwNewBar(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in TwBar * TwNewBar(const char * barName) function, expected prototype:\nTwBar * TwNewBar(const char * barName)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in TwBar * TwNewBar(const char * barName) function, expected prototype:\nTwBar * TwNewBar(const char * barName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * barName=(const char *)lua_tostring(L,1);
@@ -243,8 +242,7 @@ static int _bind_TwNewBar(lua_State *L) {
 // int TwDeleteBar(TwBar * bar)
 static int _bind_TwDeleteBar(lua_State *L) {
 	if (!_lg_typecheck_TwDeleteBar(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwDeleteBar(TwBar * bar) function, expected prototype:\nint TwDeleteBar(TwBar * bar)\nClass arguments details:\narg 1 ID = 81187440\n");
+		luaL_error(L, "luna typecheck failed in int TwDeleteBar(TwBar * bar) function, expected prototype:\nint TwDeleteBar(TwBar * bar)\nClass arguments details:\narg 1 ID = 81187440\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	TwBar* bar=(Luna< TwBar >::check(L,1));
@@ -258,8 +256,7 @@ static int _bind_TwDeleteBar(lua_State *L) {
 // int TwDeleteAllBars()
 static int _bind_TwDeleteAllBars(lua_State *L) {
 	if (!_lg_typecheck_TwDeleteAllBars(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwDeleteAllBars() function, expected prototype:\nint TwDeleteAllBars()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int TwDeleteAllBars() function, expected prototype:\nint TwDeleteAllBars()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -272,8 +269,7 @@ static int _bind_TwDeleteAllBars(lua_State *L) {
 // int TwSetTopBar(const TwBar * bar)
 static int _bind_TwSetTopBar(lua_State *L) {
 	if (!_lg_typecheck_TwSetTopBar(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwSetTopBar(const TwBar * bar) function, expected prototype:\nint TwSetTopBar(const TwBar * bar)\nClass arguments details:\narg 1 ID = 81187440\n");
+		luaL_error(L, "luna typecheck failed in int TwSetTopBar(const TwBar * bar) function, expected prototype:\nint TwSetTopBar(const TwBar * bar)\nClass arguments details:\narg 1 ID = 81187440\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const TwBar* bar=(Luna< TwBar >::check(L,1));
@@ -287,8 +283,7 @@ static int _bind_TwSetTopBar(lua_State *L) {
 // TwBar * TwGetTopBar()
 static int _bind_TwGetTopBar(lua_State *L) {
 	if (!_lg_typecheck_TwGetTopBar(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in TwBar * TwGetTopBar() function, expected prototype:\nTwBar * TwGetTopBar()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in TwBar * TwGetTopBar() function, expected prototype:\nTwBar * TwGetTopBar()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -303,8 +298,7 @@ static int _bind_TwGetTopBar(lua_State *L) {
 // int TwSetBottomBar(const TwBar * bar)
 static int _bind_TwSetBottomBar(lua_State *L) {
 	if (!_lg_typecheck_TwSetBottomBar(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwSetBottomBar(const TwBar * bar) function, expected prototype:\nint TwSetBottomBar(const TwBar * bar)\nClass arguments details:\narg 1 ID = 81187440\n");
+		luaL_error(L, "luna typecheck failed in int TwSetBottomBar(const TwBar * bar) function, expected prototype:\nint TwSetBottomBar(const TwBar * bar)\nClass arguments details:\narg 1 ID = 81187440\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const TwBar* bar=(Luna< TwBar >::check(L,1));
@@ -318,8 +312,7 @@ static int _bind_TwSetBottomBar(lua_State *L) {
 // TwBar * TwGetBottomBar()
 static int _bind_TwGetBottomBar(lua_State *L) {
 	if (!_lg_typecheck_TwGetBottomBar(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in TwBar * TwGetBottomBar() function, expected prototype:\nTwBar * TwGetBottomBar()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in TwBar * TwGetBottomBar() function, expected prototype:\nTwBar * TwGetBottomBar()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -334,8 +327,7 @@ static int _bind_TwGetBottomBar(lua_State *L) {
 // int TwGetBarCount()
 static int _bind_TwGetBarCount(lua_State *L) {
 	if (!_lg_typecheck_TwGetBarCount(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwGetBarCount() function, expected prototype:\nint TwGetBarCount()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int TwGetBarCount() function, expected prototype:\nint TwGetBarCount()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -348,8 +340,7 @@ static int _bind_TwGetBarCount(lua_State *L) {
 // TwBar * TwGetBarByIndex(int barIndex)
 static int _bind_TwGetBarByIndex(lua_State *L) {
 	if (!_lg_typecheck_TwGetBarByIndex(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in TwBar * TwGetBarByIndex(int barIndex) function, expected prototype:\nTwBar * TwGetBarByIndex(int barIndex)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in TwBar * TwGetBarByIndex(int barIndex) function, expected prototype:\nTwBar * TwGetBarByIndex(int barIndex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int barIndex=(int)lua_tointeger(L,1);
@@ -365,8 +356,7 @@ static int _bind_TwGetBarByIndex(lua_State *L) {
 // TwBar * TwGetBarByName(const char * barName)
 static int _bind_TwGetBarByName(lua_State *L) {
 	if (!_lg_typecheck_TwGetBarByName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in TwBar * TwGetBarByName(const char * barName) function, expected prototype:\nTwBar * TwGetBarByName(const char * barName)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in TwBar * TwGetBarByName(const char * barName) function, expected prototype:\nTwBar * TwGetBarByName(const char * barName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * barName=(const char *)lua_tostring(L,1);
@@ -382,8 +372,7 @@ static int _bind_TwGetBarByName(lua_State *L) {
 // int TwRefreshBar(TwBar * bar)
 static int _bind_TwRefreshBar(lua_State *L) {
 	if (!_lg_typecheck_TwRefreshBar(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwRefreshBar(TwBar * bar) function, expected prototype:\nint TwRefreshBar(TwBar * bar)\nClass arguments details:\narg 1 ID = 81187440\n");
+		luaL_error(L, "luna typecheck failed in int TwRefreshBar(TwBar * bar) function, expected prototype:\nint TwRefreshBar(TwBar * bar)\nClass arguments details:\narg 1 ID = 81187440\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	TwBar* bar=(Luna< TwBar >::check(L,1));
@@ -397,8 +386,7 @@ static int _bind_TwRefreshBar(lua_State *L) {
 // int TwAddSeparator(TwBar * bar, const char * name, const char * def)
 static int _bind_TwAddSeparator(lua_State *L) {
 	if (!_lg_typecheck_TwAddSeparator(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwAddSeparator(TwBar * bar, const char * name, const char * def) function, expected prototype:\nint TwAddSeparator(TwBar * bar, const char * name, const char * def)\nClass arguments details:\narg 1 ID = 81187440\n");
+		luaL_error(L, "luna typecheck failed in int TwAddSeparator(TwBar * bar, const char * name, const char * def) function, expected prototype:\nint TwAddSeparator(TwBar * bar, const char * name, const char * def)\nClass arguments details:\narg 1 ID = 81187440\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	TwBar* bar=(Luna< TwBar >::check(L,1));
@@ -414,8 +402,7 @@ static int _bind_TwAddSeparator(lua_State *L) {
 // int TwRemoveVar(TwBar * bar, const char * name)
 static int _bind_TwRemoveVar(lua_State *L) {
 	if (!_lg_typecheck_TwRemoveVar(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwRemoveVar(TwBar * bar, const char * name) function, expected prototype:\nint TwRemoveVar(TwBar * bar, const char * name)\nClass arguments details:\narg 1 ID = 81187440\n");
+		luaL_error(L, "luna typecheck failed in int TwRemoveVar(TwBar * bar, const char * name) function, expected prototype:\nint TwRemoveVar(TwBar * bar, const char * name)\nClass arguments details:\narg 1 ID = 81187440\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	TwBar* bar=(Luna< TwBar >::check(L,1));
@@ -430,8 +417,7 @@ static int _bind_TwRemoveVar(lua_State *L) {
 // int TwRemoveAllVars(TwBar * bar)
 static int _bind_TwRemoveAllVars(lua_State *L) {
 	if (!_lg_typecheck_TwRemoveAllVars(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwRemoveAllVars(TwBar * bar) function, expected prototype:\nint TwRemoveAllVars(TwBar * bar)\nClass arguments details:\narg 1 ID = 81187440\n");
+		luaL_error(L, "luna typecheck failed in int TwRemoveAllVars(TwBar * bar) function, expected prototype:\nint TwRemoveAllVars(TwBar * bar)\nClass arguments details:\narg 1 ID = 81187440\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	TwBar* bar=(Luna< TwBar >::check(L,1));
@@ -445,8 +431,7 @@ static int _bind_TwRemoveAllVars(lua_State *L) {
 // int TwDefine(const char * def)
 static int _bind_TwDefine(lua_State *L) {
 	if (!_lg_typecheck_TwDefine(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwDefine(const char * def) function, expected prototype:\nint TwDefine(const char * def)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int TwDefine(const char * def) function, expected prototype:\nint TwDefine(const char * def)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * def=(const char *)lua_tostring(L,1);
@@ -460,8 +445,7 @@ static int _bind_TwDefine(lua_State *L) {
 // TwType TwDefineEnumFromString(const char * name, const char * enumString)
 static int _bind_TwDefineEnumFromString(lua_State *L) {
 	if (!_lg_typecheck_TwDefineEnumFromString(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in TwType TwDefineEnumFromString(const char * name, const char * enumString) function, expected prototype:\nTwType TwDefineEnumFromString(const char * name, const char * enumString)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in TwType TwDefineEnumFromString(const char * name, const char * enumString) function, expected prototype:\nTwType TwDefineEnumFromString(const char * name, const char * enumString)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * name=(const char *)lua_tostring(L,1);
@@ -476,8 +460,7 @@ static int _bind_TwDefineEnumFromString(lua_State *L) {
 // int TwInit(TwGraphAPI graphAPI, void * device)
 static int _bind_TwInit(lua_State *L) {
 	if (!_lg_typecheck_TwInit(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwInit(TwGraphAPI graphAPI, void * device) function, expected prototype:\nint TwInit(TwGraphAPI graphAPI, void * device)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int TwInit(TwGraphAPI graphAPI, void * device) function, expected prototype:\nint TwInit(TwGraphAPI graphAPI, void * device)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	TwGraphAPI graphAPI=(TwGraphAPI)lua_tointeger(L,1);
@@ -492,8 +475,7 @@ static int _bind_TwInit(lua_State *L) {
 // int TwTerminate()
 static int _bind_TwTerminate(lua_State *L) {
 	if (!_lg_typecheck_TwTerminate(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwTerminate() function, expected prototype:\nint TwTerminate()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int TwTerminate() function, expected prototype:\nint TwTerminate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -506,8 +488,7 @@ static int _bind_TwTerminate(lua_State *L) {
 // int TwDraw()
 static int _bind_TwDraw(lua_State *L) {
 	if (!_lg_typecheck_TwDraw(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwDraw() function, expected prototype:\nint TwDraw()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int TwDraw() function, expected prototype:\nint TwDraw()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -520,8 +501,7 @@ static int _bind_TwDraw(lua_State *L) {
 // int TwWindowSize(int width, int height)
 static int _bind_TwWindowSize(lua_State *L) {
 	if (!_lg_typecheck_TwWindowSize(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwWindowSize(int width, int height) function, expected prototype:\nint TwWindowSize(int width, int height)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int TwWindowSize(int width, int height) function, expected prototype:\nint TwWindowSize(int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int width=(int)lua_tointeger(L,1);
@@ -536,8 +516,7 @@ static int _bind_TwWindowSize(lua_State *L) {
 // int TwSetCurrentWindow(int windowID)
 static int _bind_TwSetCurrentWindow(lua_State *L) {
 	if (!_lg_typecheck_TwSetCurrentWindow(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwSetCurrentWindow(int windowID) function, expected prototype:\nint TwSetCurrentWindow(int windowID)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int TwSetCurrentWindow(int windowID) function, expected prototype:\nint TwSetCurrentWindow(int windowID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int windowID=(int)lua_tointeger(L,1);
@@ -551,8 +530,7 @@ static int _bind_TwSetCurrentWindow(lua_State *L) {
 // int TwGetCurrentWindow()
 static int _bind_TwGetCurrentWindow(lua_State *L) {
 	if (!_lg_typecheck_TwGetCurrentWindow(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwGetCurrentWindow() function, expected prototype:\nint TwGetCurrentWindow()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int TwGetCurrentWindow() function, expected prototype:\nint TwGetCurrentWindow()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -565,8 +543,7 @@ static int _bind_TwGetCurrentWindow(lua_State *L) {
 // int TwWindowExists(int windowID)
 static int _bind_TwWindowExists(lua_State *L) {
 	if (!_lg_typecheck_TwWindowExists(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwWindowExists(int windowID) function, expected prototype:\nint TwWindowExists(int windowID)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int TwWindowExists(int windowID) function, expected prototype:\nint TwWindowExists(int windowID)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int windowID=(int)lua_tointeger(L,1);
@@ -580,8 +557,7 @@ static int _bind_TwWindowExists(lua_State *L) {
 // int TwKeyPressed(int key, int modifiers)
 static int _bind_TwKeyPressed(lua_State *L) {
 	if (!_lg_typecheck_TwKeyPressed(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwKeyPressed(int key, int modifiers) function, expected prototype:\nint TwKeyPressed(int key, int modifiers)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int TwKeyPressed(int key, int modifiers) function, expected prototype:\nint TwKeyPressed(int key, int modifiers)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int key=(int)lua_tointeger(L,1);
@@ -596,8 +572,7 @@ static int _bind_TwKeyPressed(lua_State *L) {
 // int TwKeyTest(int key, int modifiers)
 static int _bind_TwKeyTest(lua_State *L) {
 	if (!_lg_typecheck_TwKeyTest(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwKeyTest(int key, int modifiers) function, expected prototype:\nint TwKeyTest(int key, int modifiers)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int TwKeyTest(int key, int modifiers) function, expected prototype:\nint TwKeyTest(int key, int modifiers)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int key=(int)lua_tointeger(L,1);
@@ -612,8 +587,7 @@ static int _bind_TwKeyTest(lua_State *L) {
 // int TwMouseButton(TwMouseAction action, TwMouseButtonID button)
 static int _bind_TwMouseButton(lua_State *L) {
 	if (!_lg_typecheck_TwMouseButton(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwMouseButton(TwMouseAction action, TwMouseButtonID button) function, expected prototype:\nint TwMouseButton(TwMouseAction action, TwMouseButtonID button)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int TwMouseButton(TwMouseAction action, TwMouseButtonID button) function, expected prototype:\nint TwMouseButton(TwMouseAction action, TwMouseButtonID button)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	TwMouseAction action=(TwMouseAction)lua_tointeger(L,1);
@@ -628,8 +602,7 @@ static int _bind_TwMouseButton(lua_State *L) {
 // int TwMouseMotion(int mouseX, int mouseY)
 static int _bind_TwMouseMotion(lua_State *L) {
 	if (!_lg_typecheck_TwMouseMotion(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwMouseMotion(int mouseX, int mouseY) function, expected prototype:\nint TwMouseMotion(int mouseX, int mouseY)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int TwMouseMotion(int mouseX, int mouseY) function, expected prototype:\nint TwMouseMotion(int mouseX, int mouseY)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int mouseX=(int)lua_tointeger(L,1);
@@ -644,8 +617,7 @@ static int _bind_TwMouseMotion(lua_State *L) {
 // int TwMouseWheel(int pos)
 static int _bind_TwMouseWheel(lua_State *L) {
 	if (!_lg_typecheck_TwMouseWheel(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int TwMouseWheel(int pos) function, expected prototype:\nint TwMouseWheel(int pos)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int TwMouseWheel(int pos) function, expected prototype:\nint TwMouseWheel(int pos)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int pos=(int)lua_tointeger(L,1);
@@ -659,8 +631,7 @@ static int _bind_TwMouseWheel(lua_State *L) {
 // const char * TwGetLastError()
 static int _bind_TwGetLastError(lua_State *L) {
 	if (!_lg_typecheck_TwGetLastError(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const char * TwGetLastError() function, expected prototype:\nconst char * TwGetLastError()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const char * TwGetLastError() function, expected prototype:\nconst char * TwGetLastError()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -673,8 +644,7 @@ static int _bind_TwGetLastError(lua_State *L) {
 // void setupErrorHandler()
 static int _bind_setupErrorHandler(lua_State *L) {
 	if (!_lg_typecheck_setupErrorHandler(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void setupErrorHandler() function, expected prototype:\nvoid setupErrorHandler()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void setupErrorHandler() function, expected prototype:\nvoid setupErrorHandler()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -686,8 +656,7 @@ static int _bind_setupErrorHandler(lua_State *L) {
 // void setupStringCopy()
 static int _bind_setupStringCopy(lua_State *L) {
 	if (!_lg_typecheck_setupStringCopy(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void setupStringCopy() function, expected prototype:\nvoid setupStringCopy()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void setupStringCopy() function, expected prototype:\nvoid setupStringCopy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 

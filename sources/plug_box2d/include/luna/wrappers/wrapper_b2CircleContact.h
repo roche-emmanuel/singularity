@@ -95,9 +95,9 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,92969381)) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,92969381)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,76186022)) ) return false;
 		return true;
 	}
@@ -107,15 +107,13 @@ public:
 	// void b2Contact::public_FlagForFiltering()
 	static int _bind_public_FlagForFiltering(lua_State *L) {
 		if (!_lg_typecheck_public_FlagForFiltering(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Contact::public_FlagForFiltering() function, expected prototype:\nvoid b2Contact::public_FlagForFiltering()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Contact::public_FlagForFiltering() function, expected prototype:\nvoid b2Contact::public_FlagForFiltering()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_b2CircleContact* self=Luna< b2Contact >::checkSubType< wrapper_b2CircleContact >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Contact::public_FlagForFiltering(). Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Contact::public_FlagForFiltering(). Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_FlagForFiltering();
 
@@ -125,16 +123,14 @@ public:
 	// void b2Contact::public_Update(b2ContactListener * listener)
 	static int _bind_public_Update(lua_State *L) {
 		if (!_lg_typecheck_public_Update(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Contact::public_Update(b2ContactListener * listener) function, expected prototype:\nvoid b2Contact::public_Update(b2ContactListener * listener)\nClass arguments details:\narg 1 ID = 55252344\n");
+			luaL_error(L, "luna typecheck failed in void b2Contact::public_Update(b2ContactListener * listener) function, expected prototype:\nvoid b2Contact::public_Update(b2ContactListener * listener)\nClass arguments details:\narg 1 ID = 55252344\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2ContactListener* listener=(Luna< b2ContactListener >::check(L,2));
 
 		wrapper_b2CircleContact* self=Luna< b2Contact >::checkSubType< wrapper_b2CircleContact >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Contact::public_Update(b2ContactListener *). Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Contact::public_Update(b2ContactListener *). Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_Update(listener);
 
@@ -144,15 +140,13 @@ public:
 	// static void b2Contact::public_InitializeRegisters()
 	static int _bind_public_InitializeRegisters(lua_State *L) {
 		if (!_lg_typecheck_public_InitializeRegisters(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void b2Contact::public_InitializeRegisters() function, expected prototype:\nstatic void b2Contact::public_InitializeRegisters()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void b2Contact::public_InitializeRegisters() function, expected prototype:\nstatic void b2Contact::public_InitializeRegisters()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_b2CircleContact* self=Luna< b2Contact >::checkSubType< wrapper_b2CircleContact >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static void b2Contact::public_InitializeRegisters(). Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static void b2Contact::public_InitializeRegisters(). Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_InitializeRegisters();
 
@@ -162,8 +156,7 @@ public:
 	// static b2Contact * b2Contact::public_Create(b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB, b2BlockAllocator * allocator)
 	static int _bind_public_Create(lua_State *L) {
 		if (!_lg_typecheck_public_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static b2Contact * b2Contact::public_Create(b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB, b2BlockAllocator * allocator) function, expected prototype:\nstatic b2Contact * b2Contact::public_Create(b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB, b2BlockAllocator * allocator)\nClass arguments details:\narg 1 ID = 92969381\narg 3 ID = 92969381\narg 5 ID = 76186022\n");
+			luaL_error(L, "luna typecheck failed in static b2Contact * b2Contact::public_Create(b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB, b2BlockAllocator * allocator) function, expected prototype:\nstatic b2Contact * b2Contact::public_Create(b2Fixture * fixtureA, signed int indexA, b2Fixture * fixtureB, signed int indexB, b2BlockAllocator * allocator)\nClass arguments details:\narg 1 ID = 92969381\narg 3 ID = 92969381\narg 5 ID = 76186022\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Fixture* fixtureA=(Luna< b2Fixture >::check(L,1));
@@ -174,8 +167,7 @@ public:
 
 		wrapper_b2CircleContact* self=Luna< b2Contact >::checkSubType< wrapper_b2CircleContact >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static b2Contact * b2Contact::public_Create(b2Fixture *, signed int, b2Fixture *, signed int, b2BlockAllocator *). Got : '%s'",typeid(Luna< b2Contact >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static b2Contact * b2Contact::public_Create(b2Fixture *, signed int, b2Fixture *, signed int, b2BlockAllocator *). Got : '%s'\n%s",typeid(Luna< b2Contact >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Contact * lret = self->public_Create(fixtureA, indexA, fixtureB, indexB, allocator);
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSimulationIslandManager* self=(Luna< btSimulationIslandManager >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btSimulationIslandManager*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btSimulationIslandManager*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSimulationIslandManager* rhs =(Luna< btSimulationIslandManager >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSimulationIslandManager* self= (btSimulationIslandManager*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btSimulationIslandManager >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -144,7 +139,7 @@ public:
 	inline static bool _lg_typecheck_initUnionFind(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -230,8 +225,7 @@ public:
 	// btSimulationIslandManager::btSimulationIslandManager()
 	static btSimulationIslandManager* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSimulationIslandManager::btSimulationIslandManager() function, expected prototype:\nbtSimulationIslandManager::btSimulationIslandManager()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btSimulationIslandManager::btSimulationIslandManager() function, expected prototype:\nbtSimulationIslandManager::btSimulationIslandManager()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -241,8 +235,7 @@ public:
 	// btSimulationIslandManager::btSimulationIslandManager(lua_Table * data)
 	static btSimulationIslandManager* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSimulationIslandManager::btSimulationIslandManager(lua_Table * data) function, expected prototype:\nbtSimulationIslandManager::btSimulationIslandManager(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btSimulationIslandManager::btSimulationIslandManager(lua_Table * data) function, expected prototype:\nbtSimulationIslandManager::btSimulationIslandManager(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -263,16 +256,14 @@ public:
 	// void btSimulationIslandManager::initUnionFind(int n)
 	static int _bind_initUnionFind(lua_State *L) {
 		if (!_lg_typecheck_initUnionFind(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::initUnionFind(int n) function, expected prototype:\nvoid btSimulationIslandManager::initUnionFind(int n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::initUnionFind(int n) function, expected prototype:\nvoid btSimulationIslandManager::initUnionFind(int n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int n=(int)lua_tointeger(L,2);
 
 		btSimulationIslandManager* self=(Luna< btSimulationIslandManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::initUnionFind(int). Got : '%s'",typeid(Luna< btSimulationIslandManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::initUnionFind(int). Got : '%s'\n%s",typeid(Luna< btSimulationIslandManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->initUnionFind(n);
 
@@ -282,15 +273,13 @@ public:
 	// btUnionFind & btSimulationIslandManager::getUnionFind()
 	static int _bind_getUnionFind(lua_State *L) {
 		if (!_lg_typecheck_getUnionFind(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btUnionFind & btSimulationIslandManager::getUnionFind() function, expected prototype:\nbtUnionFind & btSimulationIslandManager::getUnionFind()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btUnionFind & btSimulationIslandManager::getUnionFind() function, expected prototype:\nbtUnionFind & btSimulationIslandManager::getUnionFind()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimulationIslandManager* self=(Luna< btSimulationIslandManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btUnionFind & btSimulationIslandManager::getUnionFind(). Got : '%s'",typeid(Luna< btSimulationIslandManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btUnionFind & btSimulationIslandManager::getUnionFind(). Got : '%s'\n%s",typeid(Luna< btSimulationIslandManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btUnionFind* lret = &self->getUnionFind();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -303,8 +292,7 @@ public:
 	// void btSimulationIslandManager::updateActivationState(btCollisionWorld * colWorld, btDispatcher * dispatcher)
 	static int _bind_updateActivationState(lua_State *L) {
 		if (!_lg_typecheck_updateActivationState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::updateActivationState(btCollisionWorld * colWorld, btDispatcher * dispatcher) function, expected prototype:\nvoid btSimulationIslandManager::updateActivationState(btCollisionWorld * colWorld, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 62162664\narg 2 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::updateActivationState(btCollisionWorld * colWorld, btDispatcher * dispatcher) function, expected prototype:\nvoid btSimulationIslandManager::updateActivationState(btCollisionWorld * colWorld, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 62162664\narg 2 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld* colWorld=(Luna< btCollisionWorld >::check(L,2));
@@ -312,8 +300,7 @@ public:
 
 		btSimulationIslandManager* self=(Luna< btSimulationIslandManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::updateActivationState(btCollisionWorld *, btDispatcher *). Got : '%s'",typeid(Luna< btSimulationIslandManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::updateActivationState(btCollisionWorld *, btDispatcher *). Got : '%s'\n%s",typeid(Luna< btSimulationIslandManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->updateActivationState(colWorld, dispatcher);
 
@@ -323,16 +310,14 @@ public:
 	// void btSimulationIslandManager::storeIslandActivationState(btCollisionWorld * world)
 	static int _bind_storeIslandActivationState(lua_State *L) {
 		if (!_lg_typecheck_storeIslandActivationState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::storeIslandActivationState(btCollisionWorld * world) function, expected prototype:\nvoid btSimulationIslandManager::storeIslandActivationState(btCollisionWorld * world)\nClass arguments details:\narg 1 ID = 62162664\n");
+			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::storeIslandActivationState(btCollisionWorld * world) function, expected prototype:\nvoid btSimulationIslandManager::storeIslandActivationState(btCollisionWorld * world)\nClass arguments details:\narg 1 ID = 62162664\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld* world=(Luna< btCollisionWorld >::check(L,2));
 
 		btSimulationIslandManager* self=(Luna< btSimulationIslandManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::storeIslandActivationState(btCollisionWorld *). Got : '%s'",typeid(Luna< btSimulationIslandManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::storeIslandActivationState(btCollisionWorld *). Got : '%s'\n%s",typeid(Luna< btSimulationIslandManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->storeIslandActivationState(world);
 
@@ -342,8 +327,7 @@ public:
 	// void btSimulationIslandManager::findUnions(btDispatcher * dispatcher, btCollisionWorld * colWorld)
 	static int _bind_findUnions(lua_State *L) {
 		if (!_lg_typecheck_findUnions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::findUnions(btDispatcher * dispatcher, btCollisionWorld * colWorld) function, expected prototype:\nvoid btSimulationIslandManager::findUnions(btDispatcher * dispatcher, btCollisionWorld * colWorld)\nClass arguments details:\narg 1 ID = 71097681\narg 2 ID = 62162664\n");
+			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::findUnions(btDispatcher * dispatcher, btCollisionWorld * colWorld) function, expected prototype:\nvoid btSimulationIslandManager::findUnions(btDispatcher * dispatcher, btCollisionWorld * colWorld)\nClass arguments details:\narg 1 ID = 71097681\narg 2 ID = 62162664\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDispatcher* dispatcher=(Luna< btDispatcher >::check(L,2));
@@ -351,8 +335,7 @@ public:
 
 		btSimulationIslandManager* self=(Luna< btSimulationIslandManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::findUnions(btDispatcher *, btCollisionWorld *). Got : '%s'",typeid(Luna< btSimulationIslandManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::findUnions(btDispatcher *, btCollisionWorld *). Got : '%s'\n%s",typeid(Luna< btSimulationIslandManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->findUnions(dispatcher, colWorld);
 
@@ -362,8 +345,7 @@ public:
 	// void btSimulationIslandManager::buildAndProcessIslands(btDispatcher * dispatcher, btCollisionWorld * collisionWorld, btSimulationIslandManager::IslandCallback * callback)
 	static int _bind_buildAndProcessIslands(lua_State *L) {
 		if (!_lg_typecheck_buildAndProcessIslands(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::buildAndProcessIslands(btDispatcher * dispatcher, btCollisionWorld * collisionWorld, btSimulationIslandManager::IslandCallback * callback) function, expected prototype:\nvoid btSimulationIslandManager::buildAndProcessIslands(btDispatcher * dispatcher, btCollisionWorld * collisionWorld, btSimulationIslandManager::IslandCallback * callback)\nClass arguments details:\narg 1 ID = 71097681\narg 2 ID = 62162664\narg 3 ID = 56758259\n");
+			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::buildAndProcessIslands(btDispatcher * dispatcher, btCollisionWorld * collisionWorld, btSimulationIslandManager::IslandCallback * callback) function, expected prototype:\nvoid btSimulationIslandManager::buildAndProcessIslands(btDispatcher * dispatcher, btCollisionWorld * collisionWorld, btSimulationIslandManager::IslandCallback * callback)\nClass arguments details:\narg 1 ID = 71097681\narg 2 ID = 62162664\narg 3 ID = 56758259\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDispatcher* dispatcher=(Luna< btDispatcher >::check(L,2));
@@ -372,8 +354,7 @@ public:
 
 		btSimulationIslandManager* self=(Luna< btSimulationIslandManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::buildAndProcessIslands(btDispatcher *, btCollisionWorld *, btSimulationIslandManager::IslandCallback *). Got : '%s'",typeid(Luna< btSimulationIslandManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::buildAndProcessIslands(btDispatcher *, btCollisionWorld *, btSimulationIslandManager::IslandCallback *). Got : '%s'\n%s",typeid(Luna< btSimulationIslandManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->buildAndProcessIslands(dispatcher, collisionWorld, callback);
 
@@ -383,8 +364,7 @@ public:
 	// void btSimulationIslandManager::buildIslands(btDispatcher * dispatcher, btCollisionWorld * colWorld)
 	static int _bind_buildIslands(lua_State *L) {
 		if (!_lg_typecheck_buildIslands(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::buildIslands(btDispatcher * dispatcher, btCollisionWorld * colWorld) function, expected prototype:\nvoid btSimulationIslandManager::buildIslands(btDispatcher * dispatcher, btCollisionWorld * colWorld)\nClass arguments details:\narg 1 ID = 71097681\narg 2 ID = 62162664\n");
+			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::buildIslands(btDispatcher * dispatcher, btCollisionWorld * colWorld) function, expected prototype:\nvoid btSimulationIslandManager::buildIslands(btDispatcher * dispatcher, btCollisionWorld * colWorld)\nClass arguments details:\narg 1 ID = 71097681\narg 2 ID = 62162664\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDispatcher* dispatcher=(Luna< btDispatcher >::check(L,2));
@@ -392,8 +372,7 @@ public:
 
 		btSimulationIslandManager* self=(Luna< btSimulationIslandManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::buildIslands(btDispatcher *, btCollisionWorld *). Got : '%s'",typeid(Luna< btSimulationIslandManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::buildIslands(btDispatcher *, btCollisionWorld *). Got : '%s'\n%s",typeid(Luna< btSimulationIslandManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->buildIslands(dispatcher, colWorld);
 
@@ -403,15 +382,13 @@ public:
 	// bool btSimulationIslandManager::getSplitIslands()
 	static int _bind_getSplitIslands(lua_State *L) {
 		if (!_lg_typecheck_getSplitIslands(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btSimulationIslandManager::getSplitIslands() function, expected prototype:\nbool btSimulationIslandManager::getSplitIslands()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btSimulationIslandManager::getSplitIslands() function, expected prototype:\nbool btSimulationIslandManager::getSplitIslands()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSimulationIslandManager* self=(Luna< btSimulationIslandManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btSimulationIslandManager::getSplitIslands(). Got : '%s'",typeid(Luna< btSimulationIslandManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btSimulationIslandManager::getSplitIslands(). Got : '%s'\n%s",typeid(Luna< btSimulationIslandManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getSplitIslands();
 		lua_pushboolean(L,lret?1:0);
@@ -422,16 +399,14 @@ public:
 	// void btSimulationIslandManager::setSplitIslands(bool doSplitIslands)
 	static int _bind_setSplitIslands(lua_State *L) {
 		if (!_lg_typecheck_setSplitIslands(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::setSplitIslands(bool doSplitIslands) function, expected prototype:\nvoid btSimulationIslandManager::setSplitIslands(bool doSplitIslands)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::setSplitIslands(bool doSplitIslands) function, expected prototype:\nvoid btSimulationIslandManager::setSplitIslands(bool doSplitIslands)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool doSplitIslands=(bool)(lua_toboolean(L,2)==1);
 
 		btSimulationIslandManager* self=(Luna< btSimulationIslandManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::setSplitIslands(bool). Got : '%s'",typeid(Luna< btSimulationIslandManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::setSplitIslands(bool). Got : '%s'\n%s",typeid(Luna< btSimulationIslandManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSplitIslands(doSplitIslands);
 
@@ -441,8 +416,7 @@ public:
 	// void btSimulationIslandManager::base_updateActivationState(btCollisionWorld * colWorld, btDispatcher * dispatcher)
 	static int _bind_base_updateActivationState(lua_State *L) {
 		if (!_lg_typecheck_base_updateActivationState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::base_updateActivationState(btCollisionWorld * colWorld, btDispatcher * dispatcher) function, expected prototype:\nvoid btSimulationIslandManager::base_updateActivationState(btCollisionWorld * colWorld, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 62162664\narg 2 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::base_updateActivationState(btCollisionWorld * colWorld, btDispatcher * dispatcher) function, expected prototype:\nvoid btSimulationIslandManager::base_updateActivationState(btCollisionWorld * colWorld, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 62162664\narg 2 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld* colWorld=(Luna< btCollisionWorld >::check(L,2));
@@ -450,8 +424,7 @@ public:
 
 		btSimulationIslandManager* self=(Luna< btSimulationIslandManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::base_updateActivationState(btCollisionWorld *, btDispatcher *). Got : '%s'",typeid(Luna< btSimulationIslandManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::base_updateActivationState(btCollisionWorld *, btDispatcher *). Got : '%s'\n%s",typeid(Luna< btSimulationIslandManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimulationIslandManager::updateActivationState(colWorld, dispatcher);
 
@@ -461,16 +434,14 @@ public:
 	// void btSimulationIslandManager::base_storeIslandActivationState(btCollisionWorld * world)
 	static int _bind_base_storeIslandActivationState(lua_State *L) {
 		if (!_lg_typecheck_base_storeIslandActivationState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::base_storeIslandActivationState(btCollisionWorld * world) function, expected prototype:\nvoid btSimulationIslandManager::base_storeIslandActivationState(btCollisionWorld * world)\nClass arguments details:\narg 1 ID = 62162664\n");
+			luaL_error(L, "luna typecheck failed in void btSimulationIslandManager::base_storeIslandActivationState(btCollisionWorld * world) function, expected prototype:\nvoid btSimulationIslandManager::base_storeIslandActivationState(btCollisionWorld * world)\nClass arguments details:\narg 1 ID = 62162664\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld* world=(Luna< btCollisionWorld >::check(L,2));
 
 		btSimulationIslandManager* self=(Luna< btSimulationIslandManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::base_storeIslandActivationState(btCollisionWorld *). Got : '%s'",typeid(Luna< btSimulationIslandManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimulationIslandManager::base_storeIslandActivationState(btCollisionWorld *). Got : '%s'\n%s",typeid(Luna< btSimulationIslandManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSimulationIslandManager::storeIslandActivationState(world);
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglGraph*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglGraph*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglGraph* rhs =(Luna< mglGraph >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglGraph* self= (mglGraph*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< mglGraph >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -130,9 +125,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>3 ) return false;
 
-		if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>0 && (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -157,9 +152,9 @@ public:
 		if( luatop<1 || luatop>4 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -198,7 +193,7 @@ public:
 	inline static bool _lg_typecheck_SetPlotId(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -212,14 +207,14 @@ public:
 	inline static bool _lg_typecheck_SetAlphaDef(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetTranspType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -233,7 +228,7 @@ public:
 	inline static bool _lg_typecheck_Light_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -249,12 +244,12 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>6 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,56902440) ) return false;
 		if( (!(Luna< mglPoint >::check(L,3))) ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -262,21 +257,21 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<4 || luatop>7 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,56902440) ) return false;
 		if( (!(Luna< mglPoint >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,56902440) ) return false;
 		if( (!(Luna< mglPoint >::check(L,4))) ) return false;
-		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
-		if( luatop>6 && lua_isnumber(L,7)==0 ) return false;
+		if( luatop>4 && (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetAmbient(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -284,43 +279,43 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetBarWidth(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetMarkSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetArrowSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetMeshNum(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetFaceNum(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -342,21 +337,21 @@ public:
 	inline static bool _lg_typecheck_CutOff(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetFontSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetFontDef(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -364,8 +359,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -373,8 +368,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -382,8 +377,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -391,8 +386,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -419,14 +414,14 @@ public:
 	inline static bool _lg_typecheck_SetPalette(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetDefScheme(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -439,8 +434,8 @@ public:
 	inline static bool _lg_typecheck_SetWarn(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -462,9 +457,9 @@ public:
 	inline static bool _lg_typecheck_SetRange_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -472,7 +467,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
@@ -519,12 +514,12 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<5 || luatop>7 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
-		if( luatop>6 && lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -550,9 +545,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -560,24 +555,24 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>5 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetCoor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_Ternary(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -599,8 +594,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -608,9 +603,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>4 ) return false;
 
-		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -618,9 +613,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -628,8 +623,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
 		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
 		return true;
 	}
@@ -638,10 +633,10 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<4 || luatop>5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
 		if( luatop>4 && lua_isboolean(L,5)==0 ) return false;
 		return true;
 	}
@@ -650,10 +645,10 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -661,15 +656,15 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetTickTempl(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -677,8 +672,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -700,12 +695,12 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<4 || luatop>7 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
-		if( luatop>6 && lua_isnumber(L,7)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -713,12 +708,12 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<6 || luatop>7 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -726,10 +721,10 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<5 || luatop>6 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		if( luatop>5 && lua_isboolean(L,6)==0 ) return false;
 		return true;
 	}
@@ -738,9 +733,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -748,27 +743,27 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<4 || luatop>5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_StickPlot(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetPlotFactor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -788,9 +783,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>4 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -798,9 +793,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -808,26 +803,26 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_RotateN(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_Perspective(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -835,27 +830,27 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_Zoom(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetSize(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -863,14 +858,14 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_StartGroup(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -883,7 +878,7 @@ public:
 	inline static bool _lg_typecheck_Highlight(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -891,7 +886,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -900,8 +895,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>3 ) return false;
 
-		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -909,8 +904,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -918,8 +913,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>4 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
 		return true;
 	}
@@ -928,8 +923,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -937,8 +932,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -946,8 +941,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -955,8 +950,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -964,8 +959,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -973,8 +968,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -982,8 +977,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -991,8 +986,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>4 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
 		return true;
 	}
@@ -1001,8 +996,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1010,8 +1005,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1019,8 +1014,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>4 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
 		return true;
 	}
@@ -1029,8 +1024,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>4 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		if( luatop>3 && lua_isboolean(L,4)==0 ) return false;
 		return true;
 	}
@@ -1039,8 +1034,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1077,28 +1072,28 @@ public:
 	inline static bool _lg_typecheck_DelFrame(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_GetFrame(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetFrame(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_ShowFrame(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -1106,8 +1101,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -1121,8 +1116,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1130,7 +1125,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -1138,8 +1133,8 @@ public:
 	inline static bool _lg_typecheck_GetRGB_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -1152,8 +1147,8 @@ public:
 	inline static bool _lg_typecheck_GetRGBA_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -1166,8 +1161,8 @@ public:
 	inline static bool _lg_typecheck_GetBGRN(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -1186,8 +1181,8 @@ public:
 	inline static bool _lg_typecheck_CalcXYZ(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -1201,23 +1196,23 @@ public:
 	inline static bool _lg_typecheck_SetObjId(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_GetObjId(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_GetSplId(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -1225,9 +1220,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -1241,23 +1236,23 @@ public:
 	inline static bool _lg_typecheck_MPI_Send(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_MPI_Recv(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_Clf_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -1278,7 +1273,7 @@ public:
 		if( luatop<2 || luatop>3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56902440) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -1287,7 +1282,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,56902440) ) return false;
 		if( (!(Luna< mglPoint >::check(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1303,8 +1298,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1318,8 +1313,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1331,8 +1326,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1342,8 +1337,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,56902440) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,56902440) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -1355,8 +1350,8 @@ public:
 		if( !Luna<void>::has_uniqueid(L,3,56902440) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,56902440) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,56902440) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 		return true;
 	}
 
@@ -1368,7 +1363,7 @@ public:
 		if( (!(Luna< mglPoint >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,56902440) ) return false;
 		if( (!(Luna< mglPoint >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1380,8 +1375,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1395,8 +1390,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1412,8 +1407,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1425,7 +1420,7 @@ public:
 		if( !Luna<void>::has_uniqueid(L,3,56902440) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,56902440) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,56902440) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1434,11 +1429,11 @@ public:
 		if( luatop<4 || luatop>7 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56902440) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
-		if( luatop>6 && lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -1447,11 +1442,11 @@ public:
 		if( luatop<4 || luatop>7 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56902440) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
-		if( luatop>6 && lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -1460,11 +1455,11 @@ public:
 		if( luatop<4 || luatop>7 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56902440) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
-		if( luatop>6 && lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -1474,10 +1469,10 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,56902440) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,56902440) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
-		if( luatop>6 && lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -1486,8 +1481,8 @@ public:
 		if( luatop<3 || luatop>4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56902440) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1497,8 +1492,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,56902440) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,56902440) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1507,8 +1502,8 @@ public:
 		if( luatop<3 || luatop>4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56902440) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1518,8 +1513,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,56902440) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,56902440) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1529,9 +1524,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,56902440) ) return false;
 		if( (!(Luna< mglPoint >::check(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -1539,11 +1534,11 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<4 || luatop>6 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -1555,9 +1550,9 @@ public:
 		if( (!(Luna< mglPoint >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,56902440) ) return false;
 		if( (!(Luna< mglPoint >::check(L,3))) ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -1571,9 +1566,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1585,9 +1580,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1597,9 +1592,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1607,7 +1602,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>3 ) return false;
 
-		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -1616,9 +1611,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>4 ) return false;
 
-		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1626,9 +1621,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>4 ) return false;
 
-		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1642,8 +1637,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1653,8 +1648,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1662,10 +1657,10 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1679,9 +1674,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1693,9 +1688,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1705,9 +1700,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1715,7 +1710,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1723,11 +1718,11 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<4 || luatop>6 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -1737,7 +1732,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1747,19 +1742,19 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
-		if( luatop>6 && lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_AddLegend(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1773,10 +1768,10 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1784,16 +1779,16 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>4 ) return false;
 
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetLegendMarks(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -1807,8 +1802,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1820,8 +1815,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1831,8 +1826,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1846,8 +1841,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1859,8 +1854,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1870,8 +1865,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1880,8 +1875,8 @@ public:
 		if( luatop<2 || luatop>4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1895,8 +1890,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1908,8 +1903,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1919,8 +1914,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1936,8 +1931,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1951,8 +1946,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1964,8 +1959,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1979,8 +1974,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -1992,8 +1987,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2003,8 +1998,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2016,8 +2011,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2031,8 +2026,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2046,8 +2041,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2059,8 +2054,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2070,8 +2065,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2085,8 +2080,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2098,8 +2093,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2109,8 +2104,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2122,8 +2117,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2133,8 +2128,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2143,8 +2138,8 @@ public:
 		if( luatop<2 || luatop>4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2156,8 +2151,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2167,8 +2162,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2186,8 +2181,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2203,8 +2198,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2216,8 +2211,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2231,8 +2226,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2242,8 +2237,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2259,9 +2254,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2275,9 +2270,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2289,9 +2284,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2301,9 +2296,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2313,9 +2308,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2323,13 +2318,13 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<5 || luatop>7 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2345,8 +2340,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2360,9 +2355,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2376,8 +2371,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2389,9 +2384,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2403,8 +2398,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2414,9 +2409,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2426,8 +2421,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2441,8 +2436,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2452,8 +2447,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2467,8 +2462,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2478,8 +2473,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2493,8 +2488,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2504,8 +2499,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2519,8 +2514,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2530,8 +2525,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2545,8 +2540,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2556,8 +2551,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2571,8 +2566,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2582,8 +2577,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2597,8 +2592,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2608,8 +2603,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2625,8 +2620,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2638,8 +2633,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2653,8 +2648,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2664,8 +2659,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2681,8 +2676,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2694,8 +2689,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2709,8 +2704,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2720,8 +2715,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2737,8 +2732,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2750,8 +2745,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2765,8 +2760,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2776,8 +2771,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2793,8 +2788,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2806,8 +2801,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2821,8 +2816,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2832,8 +2827,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2849,8 +2844,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2862,8 +2857,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2877,8 +2872,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2888,8 +2883,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2905,9 +2900,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isnumber(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2917,9 +2912,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2935,9 +2930,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isnumber(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2947,9 +2942,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2957,7 +2952,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<6 || luatop>8 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
@@ -2966,8 +2961,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2975,11 +2970,11 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -2995,8 +2990,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3006,8 +3001,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3023,8 +3018,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3034,8 +3029,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3053,9 +3048,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
-		if( luatop>7 && lua_isnumber(L,8)==0 ) return false;
-		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TNUMBER ) return false;
+		if( luatop>8 && lua_type(L,9)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3067,9 +3062,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3085,9 +3080,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isnumber(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3097,9 +3092,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3117,9 +3112,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
-		if( luatop>7 && lua_isnumber(L,8)==0 ) return false;
-		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TNUMBER ) return false;
+		if( luatop>8 && lua_type(L,9)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3131,9 +3126,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3149,9 +3144,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isnumber(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3161,9 +3156,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3179,10 +3174,10 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
-		if( luatop>7 && (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-		if( luatop>8 && (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( luatop>7 && (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( luatop>8 && (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 		return true;
 	}
 
@@ -3190,7 +3185,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<7 || luatop>9 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
@@ -3199,9 +3194,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
-		if( luatop>8 && (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
+		if( luatop>8 && (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 		return true;
 	}
 
@@ -3217,8 +3212,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3230,8 +3225,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3247,8 +3242,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3260,8 +3255,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3277,8 +3272,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3290,8 +3285,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3307,8 +3302,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3320,8 +3315,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3337,9 +3332,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3351,9 +3346,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3361,7 +3356,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<7 || luatop>9 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
@@ -3372,8 +3367,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,7))) ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
-		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
+		if( luatop>8 && lua_type(L,9)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3381,13 +3376,13 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<4 || luatop>6 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3405,8 +3400,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3418,8 +3413,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3427,7 +3422,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<7 || luatop>9 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
@@ -3438,8 +3433,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,7))) ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
-		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
+		if( luatop>8 && lua_type(L,9)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3447,13 +3442,13 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<4 || luatop>6 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3471,8 +3466,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3484,8 +3479,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3501,8 +3496,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3514,8 +3509,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3531,8 +3526,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3552,8 +3547,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,7))) ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
-		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
+		if( luatop>8 && lua_type(L,9)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3569,8 +3564,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3582,8 +3577,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3603,8 +3598,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,7))) ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
-		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
+		if( luatop>8 && lua_type(L,9)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3618,8 +3613,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3639,9 +3634,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,7))) ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
-		if( luatop>8 && lua_isnumber(L,9)==0 ) return false;
-		if( luatop>9 && lua_isstring(L,10)==0 ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
+		if( luatop>8 && lua_type(L,9)!=LUA_TNUMBER ) return false;
+		if( luatop>9 && lua_type(L,10)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3655,9 +3650,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3673,8 +3668,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3686,8 +3681,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3707,8 +3702,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,7))) ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
-		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
+		if( luatop>8 && lua_type(L,9)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3722,8 +3717,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3741,8 +3736,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3756,8 +3751,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3779,8 +3774,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,7))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,8))) ) return false;
-		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
-		if( luatop>9 && lua_isstring(L,10)==0 ) return false;
+		if( luatop>8 && lua_type(L,9)!=LUA_TSTRING ) return false;
+		if( luatop>9 && lua_type(L,10)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3796,8 +3791,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3813,8 +3808,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3828,8 +3823,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3839,8 +3834,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3856,9 +3851,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isnumber(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3870,9 +3865,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3892,9 +3887,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,7))) ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
-		if( luatop>8 && lua_isnumber(L,9)==0 ) return false;
-		if( luatop>9 && lua_isstring(L,10)==0 ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
+		if( luatop>8 && lua_type(L,9)!=LUA_TNUMBER ) return false;
+		if( luatop>9 && lua_type(L,10)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3908,9 +3903,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3919,9 +3914,9 @@ public:
 		if( luatop<2 || luatop>5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3930,9 +3925,9 @@ public:
 		if( luatop<2 || luatop>5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3941,9 +3936,9 @@ public:
 		if( luatop<2 || luatop>5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3953,9 +3948,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3967,9 +3962,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3979,9 +3974,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -3993,9 +3988,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4005,9 +4000,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4019,9 +4014,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4031,9 +4026,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4045,9 +4040,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4057,9 +4052,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4071,9 +4066,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4083,9 +4078,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4097,9 +4092,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4107,9 +4102,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>4 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4117,11 +4112,11 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<5 || luatop>6 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
-		if( lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4129,9 +4124,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>4 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4139,11 +4134,11 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<5 || luatop>6 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
-		if( lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4161,8 +4156,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4178,8 +4173,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4193,8 +4188,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4212,8 +4207,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4229,8 +4224,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4244,8 +4239,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4261,8 +4256,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4280,8 +4275,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4299,8 +4294,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4320,8 +4315,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,7))) ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
-		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
+		if( luatop>8 && lua_type(L,9)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4335,8 +4330,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4352,8 +4347,8 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4364,8 +4359,8 @@ public:
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4375,9 +4370,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4387,11 +4382,11 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::checkSubType< mglData >(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4403,9 +4398,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
-		if( lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4417,11 +4412,11 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
-		if( lua_isstring(L,5)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( lua_type(L,5)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,45413231) ) return false;
 		if( (!(Luna< mglDataA >::checkSubType< mglData >(L,6))) ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4435,9 +4430,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( lua_isstring(L,5)==0 ) return false;
-		if( lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4451,11 +4446,11 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( lua_isstring(L,5)==0 ) return false;
-		if( lua_isstring(L,6)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( lua_type(L,6)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,45413231) ) return false;
 		if( (!(Luna< mglDataA >::checkSubType< mglData >(L,7))) ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4471,9 +4466,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( lua_isstring(L,6)==0 ) return false;
-		if( lua_isstring(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4489,11 +4484,11 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( lua_isstring(L,6)==0 ) return false;
-		if( lua_isstring(L,7)==0 ) return false;
+		if( lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( lua_type(L,7)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,45413231) ) return false;
 		if( (!(Luna< mglDataA >::checkSubType< mglData >(L,8))) ) return false;
-		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		if( luatop>8 && lua_type(L,9)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4503,9 +4498,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4515,11 +4510,11 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::checkSubType< mglData >(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4529,9 +4524,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4541,11 +4536,11 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::checkSubType< mglData >(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4557,9 +4552,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
-		if( lua_isstring(L,5)==0 ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4571,11 +4566,11 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
-		if( lua_isstring(L,5)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( lua_type(L,5)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,45413231) ) return false;
 		if( (!(Luna< mglDataA >::checkSubType< mglData >(L,6))) ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4589,9 +4584,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( lua_isstring(L,5)==0 ) return false;
-		if( lua_isstring(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4605,11 +4600,11 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( lua_isstring(L,5)==0 ) return false;
-		if( lua_isstring(L,6)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( lua_type(L,6)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,45413231) ) return false;
 		if( (!(Luna< mglDataA >::checkSubType< mglData >(L,7))) ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4625,9 +4620,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( lua_isstring(L,6)==0 ) return false;
-		if( lua_isstring(L,7)==0 ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4643,11 +4638,11 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( lua_isstring(L,6)==0 ) return false;
-		if( lua_isstring(L,7)==0 ) return false;
+		if( lua_type(L,6)!=LUA_TSTRING ) return false;
+		if( lua_type(L,7)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,45413231) ) return false;
 		if( (!(Luna< mglDataA >::checkSubType< mglData >(L,8))) ) return false;
-		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		if( luatop>8 && lua_type(L,9)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4665,9 +4660,9 @@ public:
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
-		if( lua_isstring(L,7)==0 ) return false;
-		if( lua_isstring(L,8)==0 ) return false;
-		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		if( lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( lua_type(L,8)!=LUA_TSTRING ) return false;
+		if( luatop>8 && lua_type(L,9)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4685,11 +4680,11 @@ public:
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,6))) ) return false;
-		if( lua_isstring(L,7)==0 ) return false;
-		if( lua_isstring(L,8)==0 ) return false;
+		if( lua_type(L,7)!=LUA_TSTRING ) return false;
+		if( lua_type(L,8)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,9,45413231) ) return false;
 		if( (!(Luna< mglDataA >::checkSubType< mglData >(L,9))) ) return false;
-		if( luatop>9 && lua_isstring(L,10)==0 ) return false;
+		if( luatop>9 && lua_type(L,10)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4698,9 +4693,9 @@ public:
 		if( luatop<2 || luatop>5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,56902440) ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -4714,12 +4709,12 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<4 || luatop>7 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4729,8 +4724,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::checkSubType< mglData >(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4740,10 +4735,10 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::checkSubType< mglData >(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4753,12 +4748,12 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::checkSubType< mglData >(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4768,8 +4763,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::checkSubType< mglDataC >(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4779,10 +4774,10 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::checkSubType< mglDataC >(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4792,12 +4787,12 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,45413231) ) return false;
 		if( (!(Luna< mglDataA >::checkSubType< mglDataC >(L,2))) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4809,7 +4804,7 @@ public:
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4821,7 +4816,7 @@ public:
 		if( (!(Luna< mglDataA >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
-		if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4835,7 +4830,7 @@ public:
 		if( (!(Luna< mglDataA >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
-		if( luatop>4 && lua_isstring(L,5)==0 ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4851,7 +4846,7 @@ public:
 		if( (!(Luna< mglDataA >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,45413231) ) return false;
 		if( (!(Luna< mglDataA >::check(L,5))) ) return false;
-		if( luatop>5 && lua_isstring(L,6)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -4894,8 +4889,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -4907,8 +4902,7 @@ public:
 	// mglGraph::mglGraph(int kind = 0, int width = 600, int height = 400)
 	static mglGraph* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglGraph::mglGraph(int kind = 0, int width = 600, int height = 400) function, expected prototype:\nmglGraph::mglGraph(int kind = 0, int width = 600, int height = 400)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglGraph::mglGraph(int kind = 0, int width = 600, int height = 400) function, expected prototype:\nmglGraph::mglGraph(int kind = 0, int width = 600, int height = 400)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -4923,8 +4917,7 @@ public:
 	// mglGraph::mglGraph(const mglGraph & graph)
 	static mglGraph* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglGraph::mglGraph(const mglGraph & graph) function, expected prototype:\nmglGraph::mglGraph(const mglGraph & graph)\nClass arguments details:\narg 1 ID = 48672486\n");
+			luaL_error(L, "luna typecheck failed in mglGraph::mglGraph(const mglGraph & graph) function, expected prototype:\nmglGraph::mglGraph(const mglGraph & graph)\nClass arguments details:\narg 1 ID = 48672486\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const mglGraph* graph_ptr=(Luna< mglGraph >::check(L,1));
@@ -4939,8 +4932,7 @@ public:
 	// mglGraph::mglGraph(mglBase * graph)
 	static mglGraph* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglGraph::mglGraph(mglBase * graph) function, expected prototype:\nmglGraph::mglGraph(mglBase * graph)\nClass arguments details:\narg 1 ID = 88502113\n");
+			luaL_error(L, "luna typecheck failed in mglGraph::mglGraph(mglBase * graph) function, expected prototype:\nmglGraph::mglGraph(mglBase * graph)\nClass arguments details:\narg 1 ID = 88502113\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglBase* graph=(Luna< mglBase >::check(L,1));
@@ -4951,8 +4943,7 @@ public:
 	// mglGraph::mglGraph(lua_Table * data, int kind = 0, int width = 600, int height = 400)
 	static mglGraph* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglGraph::mglGraph(lua_Table * data, int kind = 0, int width = 600, int height = 400) function, expected prototype:\nmglGraph::mglGraph(lua_Table * data, int kind = 0, int width = 600, int height = 400)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglGraph::mglGraph(lua_Table * data, int kind = 0, int width = 600, int height = 400) function, expected prototype:\nmglGraph::mglGraph(lua_Table * data, int kind = 0, int width = 600, int height = 400)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -4967,8 +4958,7 @@ public:
 	// mglGraph::mglGraph(lua_Table * data, const mglGraph & graph)
 	static mglGraph* _bind_ctor_overload_5(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglGraph::mglGraph(lua_Table * data, const mglGraph & graph) function, expected prototype:\nmglGraph::mglGraph(lua_Table * data, const mglGraph & graph)\nClass arguments details:\narg 2 ID = 48672486\n");
+			luaL_error(L, "luna typecheck failed in mglGraph::mglGraph(lua_Table * data, const mglGraph & graph) function, expected prototype:\nmglGraph::mglGraph(lua_Table * data, const mglGraph & graph)\nClass arguments details:\narg 2 ID = 48672486\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const mglGraph* graph_ptr=(Luna< mglGraph >::check(L,2));
@@ -4983,8 +4973,7 @@ public:
 	// mglGraph::mglGraph(lua_Table * data, mglBase * graph)
 	static mglGraph* _bind_ctor_overload_6(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglGraph::mglGraph(lua_Table * data, mglBase * graph) function, expected prototype:\nmglGraph::mglGraph(lua_Table * data, mglBase * graph)\nClass arguments details:\narg 2 ID = 88502113\n");
+			luaL_error(L, "luna typecheck failed in mglGraph::mglGraph(lua_Table * data, mglBase * graph) function, expected prototype:\nmglGraph::mglGraph(lua_Table * data, mglBase * graph)\nClass arguments details:\narg 2 ID = 88502113\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglBase* graph=(Luna< mglBase >::check(L,2));
@@ -5010,15 +4999,13 @@ public:
 	// mglBase * mglGraph::Self()
 	static int _bind_Self(lua_State *L) {
 		if (!_lg_typecheck_Self(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglBase * mglGraph::Self() function, expected prototype:\nmglBase * mglGraph::Self()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglBase * mglGraph::Self() function, expected prototype:\nmglBase * mglGraph::Self()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglBase * mglGraph::Self(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglBase * mglGraph::Self(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglBase * lret = self->Self();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -5031,15 +5018,13 @@ public:
 	// void mglGraph::DefaultPlotParam()
 	static int _bind_DefaultPlotParam(lua_State *L) {
 		if (!_lg_typecheck_DefaultPlotParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::DefaultPlotParam() function, expected prototype:\nvoid mglGraph::DefaultPlotParam()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::DefaultPlotParam() function, expected prototype:\nvoid mglGraph::DefaultPlotParam()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::DefaultPlotParam(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::DefaultPlotParam(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DefaultPlotParam();
 
@@ -5049,16 +5034,14 @@ public:
 	// void mglGraph::SetPlotId(const char * id)
 	static int _bind_SetPlotId(lua_State *L) {
 		if (!_lg_typecheck_SetPlotId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetPlotId(const char * id) function, expected prototype:\nvoid mglGraph::SetPlotId(const char * id)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetPlotId(const char * id) function, expected prototype:\nvoid mglGraph::SetPlotId(const char * id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * id=(const char *)lua_tostring(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetPlotId(const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetPlotId(const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetPlotId(id);
 
@@ -5068,16 +5051,14 @@ public:
 	// void mglGraph::Alpha(bool enable)
 	static int _bind_Alpha(lua_State *L) {
 		if (!_lg_typecheck_Alpha(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Alpha(bool enable) function, expected prototype:\nvoid mglGraph::Alpha(bool enable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Alpha(bool enable) function, expected prototype:\nvoid mglGraph::Alpha(bool enable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enable=(bool)(lua_toboolean(L,2)==1);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Alpha(bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Alpha(bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Alpha(enable);
 
@@ -5087,16 +5068,14 @@ public:
 	// void mglGraph::SetAlphaDef(double alpha)
 	static int _bind_SetAlphaDef(lua_State *L) {
 		if (!_lg_typecheck_SetAlphaDef(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetAlphaDef(double alpha) function, expected prototype:\nvoid mglGraph::SetAlphaDef(double alpha)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetAlphaDef(double alpha) function, expected prototype:\nvoid mglGraph::SetAlphaDef(double alpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double alpha=(double)lua_tonumber(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetAlphaDef(double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetAlphaDef(double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAlphaDef(alpha);
 
@@ -5106,16 +5085,14 @@ public:
 	// void mglGraph::SetTranspType(int type)
 	static int _bind_SetTranspType(lua_State *L) {
 		if (!_lg_typecheck_SetTranspType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetTranspType(int type) function, expected prototype:\nvoid mglGraph::SetTranspType(int type)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetTranspType(int type) function, expected prototype:\nvoid mglGraph::SetTranspType(int type)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int type=(int)lua_tointeger(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetTranspType(int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetTranspType(int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTranspType(type);
 
@@ -5125,16 +5102,14 @@ public:
 	// void mglGraph::Light(bool enable)
 	static int _bind_Light_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Light_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Light(bool enable) function, expected prototype:\nvoid mglGraph::Light(bool enable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Light(bool enable) function, expected prototype:\nvoid mglGraph::Light(bool enable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enable=(bool)(lua_toboolean(L,2)==1);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Light(bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Light(bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Light(enable);
 
@@ -5144,8 +5119,7 @@ public:
 	// void mglGraph::Light(int n, bool enable)
 	static int _bind_Light_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Light_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Light(int n, bool enable) function, expected prototype:\nvoid mglGraph::Light(int n, bool enable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Light(int n, bool enable) function, expected prototype:\nvoid mglGraph::Light(int n, bool enable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int n=(int)lua_tointeger(L,2);
@@ -5153,8 +5127,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Light(int, bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Light(int, bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Light(n, enable);
 
@@ -5173,16 +5146,14 @@ public:
 	// void mglGraph::SetDifLight(bool dif)
 	static int _bind_SetDifLight(lua_State *L) {
 		if (!_lg_typecheck_SetDifLight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetDifLight(bool dif) function, expected prototype:\nvoid mglGraph::SetDifLight(bool dif)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetDifLight(bool dif) function, expected prototype:\nvoid mglGraph::SetDifLight(bool dif)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool dif=(bool)(lua_toboolean(L,2)==1);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetDifLight(bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetDifLight(bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetDifLight(dif);
 
@@ -5192,8 +5163,7 @@ public:
 	// void mglGraph::AddLight(int n, mglPoint p, char col = 'w', double bright = 0.5, double ap = 0)
 	static int _bind_AddLight_overload_1(lua_State *L) {
 		if (!_lg_typecheck_AddLight_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::AddLight(int n, mglPoint p, char col = 'w', double bright = 0.5, double ap = 0) function, expected prototype:\nvoid mglGraph::AddLight(int n, mglPoint p, char col = 'w', double bright = 0.5, double ap = 0)\nClass arguments details:\narg 2 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::AddLight(int n, mglPoint p, char col = 'w', double bright = 0.5, double ap = 0) function, expected prototype:\nvoid mglGraph::AddLight(int n, mglPoint p, char col = 'w', double bright = 0.5, double ap = 0)\nClass arguments details:\narg 2 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -5210,8 +5180,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::AddLight(int, mglPoint, char, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::AddLight(int, mglPoint, char, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddLight(n, p, col, bright, ap);
 
@@ -5221,8 +5190,7 @@ public:
 	// void mglGraph::AddLight(int n, mglPoint r, mglPoint p, char col = 'w', double bright = 0.5, double ap = 0)
 	static int _bind_AddLight_overload_2(lua_State *L) {
 		if (!_lg_typecheck_AddLight_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::AddLight(int n, mglPoint r, mglPoint p, char col = 'w', double bright = 0.5, double ap = 0) function, expected prototype:\nvoid mglGraph::AddLight(int n, mglPoint r, mglPoint p, char col = 'w', double bright = 0.5, double ap = 0)\nClass arguments details:\narg 2 ID = 56902440\narg 3 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::AddLight(int n, mglPoint r, mglPoint p, char col = 'w', double bright = 0.5, double ap = 0) function, expected prototype:\nvoid mglGraph::AddLight(int n, mglPoint r, mglPoint p, char col = 'w', double bright = 0.5, double ap = 0)\nClass arguments details:\narg 2 ID = 56902440\narg 3 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -5244,8 +5212,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::AddLight(int, mglPoint, mglPoint, char, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::AddLight(int, mglPoint, mglPoint, char, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddLight(n, r, p, col, bright, ap);
 
@@ -5264,16 +5231,14 @@ public:
 	// void mglGraph::SetAmbient(double i)
 	static int _bind_SetAmbient(lua_State *L) {
 		if (!_lg_typecheck_SetAmbient(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetAmbient(double i) function, expected prototype:\nvoid mglGraph::SetAmbient(double i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetAmbient(double i) function, expected prototype:\nvoid mglGraph::SetAmbient(double i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double i=(double)lua_tonumber(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetAmbient(double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetAmbient(double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAmbient(i);
 
@@ -5283,8 +5248,7 @@ public:
 	// void mglGraph::Fog(double d, double dz = 0.25)
 	static int _bind_Fog(lua_State *L) {
 		if (!_lg_typecheck_Fog(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Fog(double d, double dz = 0.25) function, expected prototype:\nvoid mglGraph::Fog(double d, double dz = 0.25)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Fog(double d, double dz = 0.25) function, expected prototype:\nvoid mglGraph::Fog(double d, double dz = 0.25)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -5294,8 +5258,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Fog(double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Fog(double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Fog(d, dz);
 
@@ -5305,16 +5268,14 @@ public:
 	// void mglGraph::SetBarWidth(double width)
 	static int _bind_SetBarWidth(lua_State *L) {
 		if (!_lg_typecheck_SetBarWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetBarWidth(double width) function, expected prototype:\nvoid mglGraph::SetBarWidth(double width)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetBarWidth(double width) function, expected prototype:\nvoid mglGraph::SetBarWidth(double width)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double width=(double)lua_tonumber(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetBarWidth(double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetBarWidth(double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetBarWidth(width);
 
@@ -5324,16 +5285,14 @@ public:
 	// void mglGraph::SetMarkSize(double size)
 	static int _bind_SetMarkSize(lua_State *L) {
 		if (!_lg_typecheck_SetMarkSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetMarkSize(double size) function, expected prototype:\nvoid mglGraph::SetMarkSize(double size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetMarkSize(double size) function, expected prototype:\nvoid mglGraph::SetMarkSize(double size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double size=(double)lua_tonumber(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetMarkSize(double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetMarkSize(double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMarkSize(size);
 
@@ -5343,16 +5302,14 @@ public:
 	// void mglGraph::SetArrowSize(double size)
 	static int _bind_SetArrowSize(lua_State *L) {
 		if (!_lg_typecheck_SetArrowSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetArrowSize(double size) function, expected prototype:\nvoid mglGraph::SetArrowSize(double size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetArrowSize(double size) function, expected prototype:\nvoid mglGraph::SetArrowSize(double size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double size=(double)lua_tonumber(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetArrowSize(double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetArrowSize(double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetArrowSize(size);
 
@@ -5362,16 +5319,14 @@ public:
 	// void mglGraph::SetMeshNum(int num)
 	static int _bind_SetMeshNum(lua_State *L) {
 		if (!_lg_typecheck_SetMeshNum(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetMeshNum(int num) function, expected prototype:\nvoid mglGraph::SetMeshNum(int num)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetMeshNum(int num) function, expected prototype:\nvoid mglGraph::SetMeshNum(int num)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int num=(int)lua_tointeger(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetMeshNum(int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetMeshNum(int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMeshNum(num);
 
@@ -5381,16 +5336,14 @@ public:
 	// void mglGraph::SetFaceNum(int num)
 	static int _bind_SetFaceNum(lua_State *L) {
 		if (!_lg_typecheck_SetFaceNum(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetFaceNum(int num) function, expected prototype:\nvoid mglGraph::SetFaceNum(int num)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetFaceNum(int num) function, expected prototype:\nvoid mglGraph::SetFaceNum(int num)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int num=(int)lua_tointeger(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetFaceNum(int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetFaceNum(int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFaceNum(num);
 
@@ -5400,16 +5353,14 @@ public:
 	// void mglGraph::SetCut(bool cut)
 	static int _bind_SetCut(lua_State *L) {
 		if (!_lg_typecheck_SetCut(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetCut(bool cut) function, expected prototype:\nvoid mglGraph::SetCut(bool cut)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetCut(bool cut) function, expected prototype:\nvoid mglGraph::SetCut(bool cut)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool cut=(bool)(lua_toboolean(L,2)==1);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetCut(bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetCut(bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCut(cut);
 
@@ -5419,8 +5370,7 @@ public:
 	// void mglGraph::SetCutBox(mglPoint p1, mglPoint p2)
 	static int _bind_SetCutBox(lua_State *L) {
 		if (!_lg_typecheck_SetCutBox(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetCutBox(mglPoint p1, mglPoint p2) function, expected prototype:\nvoid mglGraph::SetCutBox(mglPoint p1, mglPoint p2)\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetCutBox(mglPoint p1, mglPoint p2) function, expected prototype:\nvoid mglGraph::SetCutBox(mglPoint p1, mglPoint p2)\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglPoint* p1_ptr=(Luna< mglPoint >::check(L,2));
@@ -5436,8 +5386,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetCutBox(mglPoint, mglPoint). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetCutBox(mglPoint, mglPoint). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCutBox(p1, p2);
 
@@ -5447,16 +5396,14 @@ public:
 	// void mglGraph::CutOff(const char * EqC)
 	static int _bind_CutOff(lua_State *L) {
 		if (!_lg_typecheck_CutOff(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::CutOff(const char * EqC) function, expected prototype:\nvoid mglGraph::CutOff(const char * EqC)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::CutOff(const char * EqC) function, expected prototype:\nvoid mglGraph::CutOff(const char * EqC)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * EqC=(const char *)lua_tostring(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::CutOff(const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::CutOff(const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CutOff(EqC);
 
@@ -5466,16 +5413,14 @@ public:
 	// void mglGraph::SetFontSize(double size)
 	static int _bind_SetFontSize(lua_State *L) {
 		if (!_lg_typecheck_SetFontSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetFontSize(double size) function, expected prototype:\nvoid mglGraph::SetFontSize(double size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetFontSize(double size) function, expected prototype:\nvoid mglGraph::SetFontSize(double size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double size=(double)lua_tonumber(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetFontSize(double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetFontSize(double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFontSize(size);
 
@@ -5485,16 +5430,14 @@ public:
 	// void mglGraph::SetFontDef(const char * fnt)
 	static int _bind_SetFontDef(lua_State *L) {
 		if (!_lg_typecheck_SetFontDef(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetFontDef(const char * fnt) function, expected prototype:\nvoid mglGraph::SetFontDef(const char * fnt)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetFontDef(const char * fnt) function, expected prototype:\nvoid mglGraph::SetFontDef(const char * fnt)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * fnt=(const char *)lua_tostring(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetFontDef(const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetFontDef(const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFontDef(fnt);
 
@@ -5504,8 +5447,7 @@ public:
 	// void mglGraph::SetFontSizePT(double pt, int dpi = 72)
 	static int _bind_SetFontSizePT(lua_State *L) {
 		if (!_lg_typecheck_SetFontSizePT(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetFontSizePT(double pt, int dpi = 72) function, expected prototype:\nvoid mglGraph::SetFontSizePT(double pt, int dpi = 72)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetFontSizePT(double pt, int dpi = 72) function, expected prototype:\nvoid mglGraph::SetFontSizePT(double pt, int dpi = 72)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -5515,8 +5457,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetFontSizePT(double, int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetFontSizePT(double, int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFontSizePT(pt, dpi);
 
@@ -5526,8 +5467,7 @@ public:
 	// void mglGraph::SetFontSizeCM(double cm, int dpi = 72)
 	static int _bind_SetFontSizeCM(lua_State *L) {
 		if (!_lg_typecheck_SetFontSizeCM(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetFontSizeCM(double cm, int dpi = 72) function, expected prototype:\nvoid mglGraph::SetFontSizeCM(double cm, int dpi = 72)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetFontSizeCM(double cm, int dpi = 72) function, expected prototype:\nvoid mglGraph::SetFontSizeCM(double cm, int dpi = 72)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -5537,8 +5477,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetFontSizeCM(double, int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetFontSizeCM(double, int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFontSizeCM(cm, dpi);
 
@@ -5548,8 +5487,7 @@ public:
 	// void mglGraph::SetFontSizeIN(double in, int dpi = 72)
 	static int _bind_SetFontSizeIN(lua_State *L) {
 		if (!_lg_typecheck_SetFontSizeIN(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetFontSizeIN(double in, int dpi = 72) function, expected prototype:\nvoid mglGraph::SetFontSizeIN(double in, int dpi = 72)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetFontSizeIN(double in, int dpi = 72) function, expected prototype:\nvoid mglGraph::SetFontSizeIN(double in, int dpi = 72)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -5559,8 +5497,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetFontSizeIN(double, int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetFontSizeIN(double, int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFontSizeIN(in, dpi);
 
@@ -5570,8 +5507,7 @@ public:
 	// void mglGraph::LoadFont(const char * name, const char * path = NULL)
 	static int _bind_LoadFont(lua_State *L) {
 		if (!_lg_typecheck_LoadFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::LoadFont(const char * name, const char * path = NULL) function, expected prototype:\nvoid mglGraph::LoadFont(const char * name, const char * path = NULL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::LoadFont(const char * name, const char * path = NULL) function, expected prototype:\nvoid mglGraph::LoadFont(const char * name, const char * path = NULL)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -5581,8 +5517,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::LoadFont(const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::LoadFont(const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LoadFont(name, path);
 
@@ -5592,16 +5527,14 @@ public:
 	// void mglGraph::CopyFont(const mglGraph * GR)
 	static int _bind_CopyFont(lua_State *L) {
 		if (!_lg_typecheck_CopyFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::CopyFont(const mglGraph * GR) function, expected prototype:\nvoid mglGraph::CopyFont(const mglGraph * GR)\nClass arguments details:\narg 1 ID = 48672486\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::CopyFont(const mglGraph * GR) function, expected prototype:\nvoid mglGraph::CopyFont(const mglGraph * GR)\nClass arguments details:\narg 1 ID = 48672486\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const mglGraph* GR=(Luna< mglGraph >::check(L,2));
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::CopyFont(const mglGraph *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::CopyFont(const mglGraph *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CopyFont(GR);
 
@@ -5611,15 +5544,13 @@ public:
 	// void mglGraph::RestoreFont()
 	static int _bind_RestoreFont(lua_State *L) {
 		if (!_lg_typecheck_RestoreFont(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::RestoreFont() function, expected prototype:\nvoid mglGraph::RestoreFont()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::RestoreFont() function, expected prototype:\nvoid mglGraph::RestoreFont()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::RestoreFont(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::RestoreFont(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RestoreFont();
 
@@ -5629,16 +5560,14 @@ public:
 	// void mglGraph::SetRotatedText(bool rotated)
 	static int _bind_SetRotatedText(lua_State *L) {
 		if (!_lg_typecheck_SetRotatedText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetRotatedText(bool rotated) function, expected prototype:\nvoid mglGraph::SetRotatedText(bool rotated)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetRotatedText(bool rotated) function, expected prototype:\nvoid mglGraph::SetRotatedText(bool rotated)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool rotated=(bool)(lua_toboolean(L,2)==1);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetRotatedText(bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetRotatedText(bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRotatedText(rotated);
 
@@ -5648,16 +5577,14 @@ public:
 	// void mglGraph::SetPalette(const char * colors)
 	static int _bind_SetPalette(lua_State *L) {
 		if (!_lg_typecheck_SetPalette(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetPalette(const char * colors) function, expected prototype:\nvoid mglGraph::SetPalette(const char * colors)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetPalette(const char * colors) function, expected prototype:\nvoid mglGraph::SetPalette(const char * colors)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * colors=(const char *)lua_tostring(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetPalette(const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetPalette(const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetPalette(colors);
 
@@ -5667,16 +5594,14 @@ public:
 	// void mglGraph::SetDefScheme(const char * sch)
 	static int _bind_SetDefScheme(lua_State *L) {
 		if (!_lg_typecheck_SetDefScheme(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetDefScheme(const char * sch) function, expected prototype:\nvoid mglGraph::SetDefScheme(const char * sch)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetDefScheme(const char * sch) function, expected prototype:\nvoid mglGraph::SetDefScheme(const char * sch)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * sch=(const char *)lua_tostring(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetDefScheme(const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetDefScheme(const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetDefScheme(sch);
 
@@ -5686,15 +5611,13 @@ public:
 	// int mglGraph::GetWarn()
 	static int _bind_GetWarn(lua_State *L) {
 		if (!_lg_typecheck_GetWarn(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int mglGraph::GetWarn() function, expected prototype:\nint mglGraph::GetWarn()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int mglGraph::GetWarn() function, expected prototype:\nint mglGraph::GetWarn()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int mglGraph::GetWarn(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int mglGraph::GetWarn(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetWarn();
 		lua_pushnumber(L,lret);
@@ -5705,8 +5628,7 @@ public:
 	// void mglGraph::SetWarn(int code, const char * info)
 	static int _bind_SetWarn(lua_State *L) {
 		if (!_lg_typecheck_SetWarn(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetWarn(int code, const char * info) function, expected prototype:\nvoid mglGraph::SetWarn(int code, const char * info)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetWarn(int code, const char * info) function, expected prototype:\nvoid mglGraph::SetWarn(int code, const char * info)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int code=(int)lua_tointeger(L,2);
@@ -5714,8 +5636,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetWarn(int, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetWarn(int, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetWarn(code, info);
 
@@ -5725,15 +5646,13 @@ public:
 	// const char * mglGraph::Message()
 	static int _bind_Message(lua_State *L) {
 		if (!_lg_typecheck_Message(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * mglGraph::Message() function, expected prototype:\nconst char * mglGraph::Message()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * mglGraph::Message() function, expected prototype:\nconst char * mglGraph::Message()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * mglGraph::Message(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * mglGraph::Message(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->Message();
 		lua_pushstring(L,lret);
@@ -5744,8 +5663,7 @@ public:
 	// void mglGraph::ZoomAxis(mglPoint p1 = mglPoint (0, 0, 0, 0), mglPoint p2 = mglPoint (1, 1, 1, 1))
 	static int _bind_ZoomAxis(lua_State *L) {
 		if (!_lg_typecheck_ZoomAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ZoomAxis(mglPoint p1 = mglPoint (0, 0, 0, 0), mglPoint p2 = mglPoint (1, 1, 1, 1)) function, expected prototype:\nvoid mglGraph::ZoomAxis(mglPoint p1 = mglPoint (0, 0, 0, 0), mglPoint p2 = mglPoint (1, 1, 1, 1))\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ZoomAxis(mglPoint p1 = mglPoint (0, 0, 0, 0), mglPoint p2 = mglPoint (1, 1, 1, 1)) function, expected prototype:\nvoid mglGraph::ZoomAxis(mglPoint p1 = mglPoint (0, 0, 0, 0), mglPoint p2 = mglPoint (1, 1, 1, 1))\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -5763,8 +5681,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ZoomAxis(mglPoint, mglPoint). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ZoomAxis(mglPoint, mglPoint). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ZoomAxis(p1, p2);
 
@@ -5774,8 +5691,7 @@ public:
 	// void mglGraph::SetRange(char dir, double v1, double v2)
 	static int _bind_SetRange_overload_1(lua_State *L) {
 		if (!_lg_typecheck_SetRange_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetRange(char dir, double v1, double v2) function, expected prototype:\nvoid mglGraph::SetRange(char dir, double v1, double v2)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetRange(char dir, double v1, double v2) function, expected prototype:\nvoid mglGraph::SetRange(char dir, double v1, double v2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		char dir=(char)lua_tointeger(L,2);
@@ -5784,8 +5700,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetRange(char, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetRange(char, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRange(dir, v1, v2);
 
@@ -5795,8 +5710,7 @@ public:
 	// void mglGraph::SetRange(char dir, const mglDataA & dat, bool add = false)
 	static int _bind_SetRange_overload_2(lua_State *L) {
 		if (!_lg_typecheck_SetRange_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetRange(char dir, const mglDataA & dat, bool add = false) function, expected prototype:\nvoid mglGraph::SetRange(char dir, const mglDataA & dat, bool add = false)\nClass arguments details:\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetRange(char dir, const mglDataA & dat, bool add = false) function, expected prototype:\nvoid mglGraph::SetRange(char dir, const mglDataA & dat, bool add = false)\nClass arguments details:\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -5811,8 +5725,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetRange(char, const mglDataA &, bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetRange(char, const mglDataA &, bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRange(dir, dat, add);
 
@@ -5831,8 +5744,7 @@ public:
 	// void mglGraph::SetRanges(const mglDataA & xx, const mglDataA & yy, const mglDataA & zz, const mglDataA & cc)
 	static int _bind_SetRanges_overload_1(lua_State *L) {
 		if (!_lg_typecheck_SetRanges_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetRanges(const mglDataA & xx, const mglDataA & yy, const mglDataA & zz, const mglDataA & cc) function, expected prototype:\nvoid mglGraph::SetRanges(const mglDataA & xx, const mglDataA & yy, const mglDataA & zz, const mglDataA & cc)\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetRanges(const mglDataA & xx, const mglDataA & yy, const mglDataA & zz, const mglDataA & cc) function, expected prototype:\nvoid mglGraph::SetRanges(const mglDataA & xx, const mglDataA & yy, const mglDataA & zz, const mglDataA & cc)\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const mglDataA* xx_ptr=(Luna< mglDataA >::check(L,2));
@@ -5858,8 +5770,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetRanges(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetRanges(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRanges(xx, yy, zz, cc);
 
@@ -5869,8 +5780,7 @@ public:
 	// void mglGraph::SetRanges(const mglDataA & xx, const mglDataA & yy, const mglDataA & zz)
 	static int _bind_SetRanges_overload_2(lua_State *L) {
 		if (!_lg_typecheck_SetRanges_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetRanges(const mglDataA & xx, const mglDataA & yy, const mglDataA & zz) function, expected prototype:\nvoid mglGraph::SetRanges(const mglDataA & xx, const mglDataA & yy, const mglDataA & zz)\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetRanges(const mglDataA & xx, const mglDataA & yy, const mglDataA & zz) function, expected prototype:\nvoid mglGraph::SetRanges(const mglDataA & xx, const mglDataA & yy, const mglDataA & zz)\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const mglDataA* xx_ptr=(Luna< mglDataA >::check(L,2));
@@ -5891,8 +5801,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetRanges(const mglDataA &, const mglDataA &, const mglDataA &). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetRanges(const mglDataA &, const mglDataA &, const mglDataA &). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRanges(xx, yy, zz);
 
@@ -5902,8 +5811,7 @@ public:
 	// void mglGraph::SetRanges(const mglDataA & xx, const mglDataA & yy)
 	static int _bind_SetRanges_overload_3(lua_State *L) {
 		if (!_lg_typecheck_SetRanges_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetRanges(const mglDataA & xx, const mglDataA & yy) function, expected prototype:\nvoid mglGraph::SetRanges(const mglDataA & xx, const mglDataA & yy)\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetRanges(const mglDataA & xx, const mglDataA & yy) function, expected prototype:\nvoid mglGraph::SetRanges(const mglDataA & xx, const mglDataA & yy)\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const mglDataA* xx_ptr=(Luna< mglDataA >::check(L,2));
@@ -5919,8 +5827,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetRanges(const mglDataA &, const mglDataA &). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetRanges(const mglDataA &, const mglDataA &). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRanges(xx, yy);
 
@@ -5930,8 +5837,7 @@ public:
 	// void mglGraph::SetRanges(double x1, double x2, double y1, double y2, double z1 = 0, double z2 = 0)
 	static int _bind_SetRanges_overload_4(lua_State *L) {
 		if (!_lg_typecheck_SetRanges_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetRanges(double x1, double x2, double y1, double y2, double z1 = 0, double z2 = 0) function, expected prototype:\nvoid mglGraph::SetRanges(double x1, double x2, double y1, double y2, double z1 = 0, double z2 = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetRanges(double x1, double x2, double y1, double y2, double z1 = 0, double z2 = 0) function, expected prototype:\nvoid mglGraph::SetRanges(double x1, double x2, double y1, double y2, double z1 = 0, double z2 = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -5945,8 +5851,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetRanges(double, double, double, double, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetRanges(double, double, double, double, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRanges(x1, x2, y1, y2, z1, z2);
 
@@ -5956,8 +5861,7 @@ public:
 	// void mglGraph::SetRanges(mglPoint p1, mglPoint p2)
 	static int _bind_SetRanges_overload_5(lua_State *L) {
 		if (!_lg_typecheck_SetRanges_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetRanges(mglPoint p1, mglPoint p2) function, expected prototype:\nvoid mglGraph::SetRanges(mglPoint p1, mglPoint p2)\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetRanges(mglPoint p1, mglPoint p2) function, expected prototype:\nvoid mglGraph::SetRanges(mglPoint p1, mglPoint p2)\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglPoint* p1_ptr=(Luna< mglPoint >::check(L,2));
@@ -5973,8 +5877,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetRanges(mglPoint, mglPoint). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetRanges(mglPoint, mglPoint). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetRanges(p1, p2);
 
@@ -5996,8 +5899,7 @@ public:
 	// void mglGraph::SetOrigin(mglPoint p)
 	static int _bind_SetOrigin_overload_1(lua_State *L) {
 		if (!_lg_typecheck_SetOrigin_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetOrigin(mglPoint p) function, expected prototype:\nvoid mglGraph::SetOrigin(mglPoint p)\nClass arguments details:\narg 1 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetOrigin(mglPoint p) function, expected prototype:\nvoid mglGraph::SetOrigin(mglPoint p)\nClass arguments details:\narg 1 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglPoint* p_ptr=(Luna< mglPoint >::check(L,2));
@@ -6008,8 +5910,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetOrigin(mglPoint). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetOrigin(mglPoint). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetOrigin(p);
 
@@ -6019,8 +5920,7 @@ public:
 	// void mglGraph::SetOrigin(double x0, double y0, double z0 = NaN)
 	static int _bind_SetOrigin_overload_2(lua_State *L) {
 		if (!_lg_typecheck_SetOrigin_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetOrigin(double x0, double y0, double z0 = NaN) function, expected prototype:\nvoid mglGraph::SetOrigin(double x0, double y0, double z0 = NaN)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetOrigin(double x0, double y0, double z0 = NaN) function, expected prototype:\nvoid mglGraph::SetOrigin(double x0, double y0, double z0 = NaN)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6031,8 +5931,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetOrigin(double, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetOrigin(double, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetOrigin(x0, y0, z0);
 
@@ -6051,8 +5950,7 @@ public:
 	// void mglGraph::SetFunc(const char * EqX, const char * EqY, const char * EqZ = NULL, const char * EqA = NULL)
 	static int _bind_SetFunc(lua_State *L) {
 		if (!_lg_typecheck_SetFunc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetFunc(const char * EqX, const char * EqY, const char * EqZ = NULL, const char * EqA = NULL) function, expected prototype:\nvoid mglGraph::SetFunc(const char * EqX, const char * EqY, const char * EqZ = NULL, const char * EqA = NULL)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetFunc(const char * EqX, const char * EqY, const char * EqZ = NULL, const char * EqA = NULL) function, expected prototype:\nvoid mglGraph::SetFunc(const char * EqX, const char * EqY, const char * EqZ = NULL, const char * EqA = NULL)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6064,8 +5962,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetFunc(const char *, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetFunc(const char *, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFunc(EqX, EqY, EqZ, EqA);
 
@@ -6075,16 +5972,14 @@ public:
 	// void mglGraph::SetCoor(int how)
 	static int _bind_SetCoor(lua_State *L) {
 		if (!_lg_typecheck_SetCoor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetCoor(int how) function, expected prototype:\nvoid mglGraph::SetCoor(int how)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetCoor(int how) function, expected prototype:\nvoid mglGraph::SetCoor(int how)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int how=(int)lua_tointeger(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetCoor(int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetCoor(int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetCoor(how);
 
@@ -6094,16 +5989,14 @@ public:
 	// void mglGraph::Ternary(int val)
 	static int _bind_Ternary(lua_State *L) {
 		if (!_lg_typecheck_Ternary(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Ternary(int val) function, expected prototype:\nvoid mglGraph::Ternary(int val)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Ternary(int val) function, expected prototype:\nvoid mglGraph::Ternary(int val)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int val=(int)lua_tointeger(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Ternary(int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Ternary(int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Ternary(val);
 
@@ -6113,16 +6006,14 @@ public:
 	// void mglGraph::SetTickRotate(bool val)
 	static int _bind_SetTickRotate(lua_State *L) {
 		if (!_lg_typecheck_SetTickRotate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetTickRotate(bool val) function, expected prototype:\nvoid mglGraph::SetTickRotate(bool val)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetTickRotate(bool val) function, expected prototype:\nvoid mglGraph::SetTickRotate(bool val)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool val=(bool)(lua_toboolean(L,2)==1);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetTickRotate(bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetTickRotate(bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTickRotate(val);
 
@@ -6132,16 +6023,14 @@ public:
 	// void mglGraph::SetTickSkip(bool val)
 	static int _bind_SetTickSkip(lua_State *L) {
 		if (!_lg_typecheck_SetTickSkip(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetTickSkip(bool val) function, expected prototype:\nvoid mglGraph::SetTickSkip(bool val)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetTickSkip(bool val) function, expected prototype:\nvoid mglGraph::SetTickSkip(bool val)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool val=(bool)(lua_toboolean(L,2)==1);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetTickSkip(bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetTickSkip(bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTickSkip(val);
 
@@ -6151,8 +6040,7 @@ public:
 	// void mglGraph::SetTickLen(double len, double stt = 1)
 	static int _bind_SetTickLen(lua_State *L) {
 		if (!_lg_typecheck_SetTickLen(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetTickLen(double len, double stt = 1) function, expected prototype:\nvoid mglGraph::SetTickLen(double len, double stt = 1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetTickLen(double len, double stt = 1) function, expected prototype:\nvoid mglGraph::SetTickLen(double len, double stt = 1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6162,8 +6050,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetTickLen(double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetTickLen(double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTickLen(len, stt);
 
@@ -6173,8 +6060,7 @@ public:
 	// void mglGraph::SetAxisStl(const char * stl = "k", const char * tck = 0, const char * sub = 0)
 	static int _bind_SetAxisStl(lua_State *L) {
 		if (!_lg_typecheck_SetAxisStl(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetAxisStl(const char * stl = \"k\", const char * tck = 0, const char * sub = 0) function, expected prototype:\nvoid mglGraph::SetAxisStl(const char * stl = \"k\", const char * tck = 0, const char * sub = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetAxisStl(const char * stl = \"k\", const char * tck = 0, const char * sub = 0) function, expected prototype:\nvoid mglGraph::SetAxisStl(const char * stl = \"k\", const char * tck = 0, const char * sub = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6185,8 +6071,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetAxisStl(const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetAxisStl(const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAxisStl(stl, tck, sub);
 
@@ -6196,8 +6081,7 @@ public:
 	// void mglGraph::SetTicksTime(char dir, double d = 0, const char * t = "")
 	static int _bind_SetTicksTime(lua_State *L) {
 		if (!_lg_typecheck_SetTicksTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetTicksTime(char dir, double d = 0, const char * t = \"\") function, expected prototype:\nvoid mglGraph::SetTicksTime(char dir, double d = 0, const char * t = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetTicksTime(char dir, double d = 0, const char * t = \"\") function, expected prototype:\nvoid mglGraph::SetTicksTime(char dir, double d = 0, const char * t = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6208,8 +6092,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetTicksTime(char, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetTicksTime(char, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTicksTime(dir, d, t);
 
@@ -6219,8 +6102,7 @@ public:
 	// void mglGraph::SetTicksVal(char dir, const char * lbl, bool add = false)
 	static int _bind_SetTicksVal_overload_1(lua_State *L) {
 		if (!_lg_typecheck_SetTicksVal_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetTicksVal(char dir, const char * lbl, bool add = false) function, expected prototype:\nvoid mglGraph::SetTicksVal(char dir, const char * lbl, bool add = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetTicksVal(char dir, const char * lbl, bool add = false) function, expected prototype:\nvoid mglGraph::SetTicksVal(char dir, const char * lbl, bool add = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6231,8 +6113,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetTicksVal(char, const char *, bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetTicksVal(char, const char *, bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTicksVal(dir, lbl, add);
 
@@ -6242,8 +6123,7 @@ public:
 	// void mglGraph::SetTicksVal(char dir, const mglDataA & v, const char * lbl, bool add = false)
 	static int _bind_SetTicksVal_overload_2(lua_State *L) {
 		if (!_lg_typecheck_SetTicksVal_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetTicksVal(char dir, const mglDataA & v, const char * lbl, bool add = false) function, expected prototype:\nvoid mglGraph::SetTicksVal(char dir, const mglDataA & v, const char * lbl, bool add = false)\nClass arguments details:\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetTicksVal(char dir, const mglDataA & v, const char * lbl, bool add = false) function, expected prototype:\nvoid mglGraph::SetTicksVal(char dir, const mglDataA & v, const char * lbl, bool add = false)\nClass arguments details:\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6259,8 +6139,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetTicksVal(char, const mglDataA &, const char *, bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetTicksVal(char, const mglDataA &, const char *, bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTicksVal(dir, v, lbl, add);
 
@@ -6279,8 +6158,7 @@ public:
 	// void mglGraph::SetTicks(char dir, double d = 0, int ns = 0, double org = NaN)
 	static int _bind_SetTicks(lua_State *L) {
 		if (!_lg_typecheck_SetTicks(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetTicks(char dir, double d = 0, int ns = 0, double org = NaN) function, expected prototype:\nvoid mglGraph::SetTicks(char dir, double d = 0, int ns = 0, double org = NaN)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetTicks(char dir, double d = 0, int ns = 0, double org = NaN) function, expected prototype:\nvoid mglGraph::SetTicks(char dir, double d = 0, int ns = 0, double org = NaN)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6292,8 +6170,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetTicks(char, double, int, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetTicks(char, double, int, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTicks(dir, d, ns, org);
 
@@ -6303,8 +6180,7 @@ public:
 	// void mglGraph::Adjust(const char * dir = "xyzc")
 	static int _bind_Adjust(lua_State *L) {
 		if (!_lg_typecheck_Adjust(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Adjust(const char * dir = \"xyzc\") function, expected prototype:\nvoid mglGraph::Adjust(const char * dir = \"xyzc\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Adjust(const char * dir = \"xyzc\") function, expected prototype:\nvoid mglGraph::Adjust(const char * dir = \"xyzc\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6313,8 +6189,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Adjust(const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Adjust(const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Adjust(dir);
 
@@ -6324,8 +6199,7 @@ public:
 	// void mglGraph::SetTickTempl(char dir, const char * t)
 	static int _bind_SetTickTempl(lua_State *L) {
 		if (!_lg_typecheck_SetTickTempl(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetTickTempl(char dir, const char * t) function, expected prototype:\nvoid mglGraph::SetTickTempl(char dir, const char * t)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetTickTempl(char dir, const char * t) function, expected prototype:\nvoid mglGraph::SetTickTempl(char dir, const char * t)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		char dir=(char)lua_tointeger(L,2);
@@ -6333,8 +6207,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetTickTempl(char, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetTickTempl(char, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTickTempl(dir, t);
 
@@ -6344,8 +6217,7 @@ public:
 	// void mglGraph::SetTuneTicks(int tune, double fact_pos = 1.15)
 	static int _bind_SetTuneTicks(lua_State *L) {
 		if (!_lg_typecheck_SetTuneTicks(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetTuneTicks(int tune, double fact_pos = 1.15) function, expected prototype:\nvoid mglGraph::SetTuneTicks(int tune, double fact_pos = 1.15)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetTuneTicks(int tune, double fact_pos = 1.15) function, expected prototype:\nvoid mglGraph::SetTuneTicks(int tune, double fact_pos = 1.15)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6355,8 +6227,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetTuneTicks(int, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetTuneTicks(int, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTuneTicks(tune, fact_pos);
 
@@ -6366,8 +6237,7 @@ public:
 	// void mglGraph::SetTickShift(mglPoint p)
 	static int _bind_SetTickShift(lua_State *L) {
 		if (!_lg_typecheck_SetTickShift(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetTickShift(mglPoint p) function, expected prototype:\nvoid mglGraph::SetTickShift(mglPoint p)\nClass arguments details:\narg 1 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetTickShift(mglPoint p) function, expected prototype:\nvoid mglGraph::SetTickShift(mglPoint p)\nClass arguments details:\narg 1 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglPoint* p_ptr=(Luna< mglPoint >::check(L,2));
@@ -6378,8 +6248,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetTickShift(mglPoint). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetTickShift(mglPoint). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTickShift(p);
 
@@ -6389,16 +6258,14 @@ public:
 	// void mglGraph::SetTimeUTC(bool enable)
 	static int _bind_SetTimeUTC(lua_State *L) {
 		if (!_lg_typecheck_SetTimeUTC(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetTimeUTC(bool enable) function, expected prototype:\nvoid mglGraph::SetTimeUTC(bool enable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetTimeUTC(bool enable) function, expected prototype:\nvoid mglGraph::SetTimeUTC(bool enable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enable=(bool)(lua_toboolean(L,2)==1);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetTimeUTC(bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetTimeUTC(bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTimeUTC(enable);
 
@@ -6408,8 +6275,7 @@ public:
 	// void mglGraph::SubPlot(int nx, int ny, int m, const char * style = "<>_^", double dx = 0, double dy = 0)
 	static int _bind_SubPlot(lua_State *L) {
 		if (!_lg_typecheck_SubPlot(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SubPlot(int nx, int ny, int m, const char * style = \"<>_^\", double dx = 0, double dy = 0) function, expected prototype:\nvoid mglGraph::SubPlot(int nx, int ny, int m, const char * style = \"<>_^\", double dx = 0, double dy = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SubPlot(int nx, int ny, int m, const char * style = \"<>_^\", double dx = 0, double dy = 0) function, expected prototype:\nvoid mglGraph::SubPlot(int nx, int ny, int m, const char * style = \"<>_^\", double dx = 0, double dy = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6423,8 +6289,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SubPlot(int, int, int, const char *, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SubPlot(int, int, int, const char *, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SubPlot(nx, ny, m, style, dx, dy);
 
@@ -6434,8 +6299,7 @@ public:
 	// void mglGraph::MultiPlot(int nx, int ny, int m, int dx, int dy, const char * style = "<>_^")
 	static int _bind_MultiPlot(lua_State *L) {
 		if (!_lg_typecheck_MultiPlot(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::MultiPlot(int nx, int ny, int m, int dx, int dy, const char * style = \"<>_^\") function, expected prototype:\nvoid mglGraph::MultiPlot(int nx, int ny, int m, int dx, int dy, const char * style = \"<>_^\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::MultiPlot(int nx, int ny, int m, int dx, int dy, const char * style = \"<>_^\") function, expected prototype:\nvoid mglGraph::MultiPlot(int nx, int ny, int m, int dx, int dy, const char * style = \"<>_^\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6449,8 +6313,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::MultiPlot(int, int, int, int, int, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::MultiPlot(int, int, int, int, int, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MultiPlot(nx, ny, m, dx, dy, style);
 
@@ -6460,8 +6323,7 @@ public:
 	// void mglGraph::InPlot(double x1, double x2, double y1, double y2, bool rel = true)
 	static int _bind_InPlot(lua_State *L) {
 		if (!_lg_typecheck_InPlot(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::InPlot(double x1, double x2, double y1, double y2, bool rel = true) function, expected prototype:\nvoid mglGraph::InPlot(double x1, double x2, double y1, double y2, bool rel = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::InPlot(double x1, double x2, double y1, double y2, bool rel = true) function, expected prototype:\nvoid mglGraph::InPlot(double x1, double x2, double y1, double y2, bool rel = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6474,8 +6336,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::InPlot(double, double, double, double, bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::InPlot(double, double, double, double, bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->InPlot(x1, x2, y1, y2, rel);
 
@@ -6485,8 +6346,7 @@ public:
 	// void mglGraph::ColumnPlot(int num, int ind, double d = 0)
 	static int _bind_ColumnPlot(lua_State *L) {
 		if (!_lg_typecheck_ColumnPlot(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ColumnPlot(int num, int ind, double d = 0) function, expected prototype:\nvoid mglGraph::ColumnPlot(int num, int ind, double d = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ColumnPlot(int num, int ind, double d = 0) function, expected prototype:\nvoid mglGraph::ColumnPlot(int num, int ind, double d = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6497,8 +6357,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ColumnPlot(int, int, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ColumnPlot(int, int, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ColumnPlot(num, ind, d);
 
@@ -6508,8 +6367,7 @@ public:
 	// void mglGraph::GridPlot(int nx, int ny, int ind, double d = 0)
 	static int _bind_GridPlot(lua_State *L) {
 		if (!_lg_typecheck_GridPlot(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::GridPlot(int nx, int ny, int ind, double d = 0) function, expected prototype:\nvoid mglGraph::GridPlot(int nx, int ny, int ind, double d = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::GridPlot(int nx, int ny, int ind, double d = 0) function, expected prototype:\nvoid mglGraph::GridPlot(int nx, int ny, int ind, double d = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6521,8 +6379,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::GridPlot(int, int, int, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::GridPlot(int, int, int, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GridPlot(nx, ny, ind, d);
 
@@ -6532,8 +6389,7 @@ public:
 	// void mglGraph::StickPlot(int num, int i, double tet, double phi)
 	static int _bind_StickPlot(lua_State *L) {
 		if (!_lg_typecheck_StickPlot(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::StickPlot(int num, int i, double tet, double phi) function, expected prototype:\nvoid mglGraph::StickPlot(int num, int i, double tet, double phi)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::StickPlot(int num, int i, double tet, double phi) function, expected prototype:\nvoid mglGraph::StickPlot(int num, int i, double tet, double phi)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int num=(int)lua_tointeger(L,2);
@@ -6543,8 +6399,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::StickPlot(int, int, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::StickPlot(int, int, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StickPlot(num, i, tet, phi);
 
@@ -6554,16 +6409,14 @@ public:
 	// void mglGraph::SetPlotFactor(double val)
 	static int _bind_SetPlotFactor(lua_State *L) {
 		if (!_lg_typecheck_SetPlotFactor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetPlotFactor(double val) function, expected prototype:\nvoid mglGraph::SetPlotFactor(double val)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetPlotFactor(double val) function, expected prototype:\nvoid mglGraph::SetPlotFactor(double val)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double val=(double)lua_tonumber(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetPlotFactor(double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetPlotFactor(double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetPlotFactor(val);
 
@@ -6573,15 +6426,13 @@ public:
 	// void mglGraph::Push()
 	static int _bind_Push(lua_State *L) {
 		if (!_lg_typecheck_Push(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Push() function, expected prototype:\nvoid mglGraph::Push()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Push() function, expected prototype:\nvoid mglGraph::Push()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Push(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Push(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Push();
 
@@ -6591,15 +6442,13 @@ public:
 	// void mglGraph::Pop()
 	static int _bind_Pop(lua_State *L) {
 		if (!_lg_typecheck_Pop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Pop() function, expected prototype:\nvoid mglGraph::Pop()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Pop() function, expected prototype:\nvoid mglGraph::Pop()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Pop(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Pop(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Pop();
 
@@ -6609,8 +6458,7 @@ public:
 	// void mglGraph::Title(const char * title, const char * stl = "", double size = -2)
 	static int _bind_Title(lua_State *L) {
 		if (!_lg_typecheck_Title(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Title(const char * title, const char * stl = \"\", double size = -2) function, expected prototype:\nvoid mglGraph::Title(const char * title, const char * stl = \"\", double size = -2)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Title(const char * title, const char * stl = \"\", double size = -2) function, expected prototype:\nvoid mglGraph::Title(const char * title, const char * stl = \"\", double size = -2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6621,8 +6469,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Title(const char *, const char *, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Title(const char *, const char *, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Title(title, stl, size);
 
@@ -6632,8 +6479,7 @@ public:
 	// void mglGraph::Aspect(double Ax, double Ay, double Az = 1)
 	static int _bind_Aspect(lua_State *L) {
 		if (!_lg_typecheck_Aspect(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Aspect(double Ax, double Ay, double Az = 1) function, expected prototype:\nvoid mglGraph::Aspect(double Ax, double Ay, double Az = 1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Aspect(double Ax, double Ay, double Az = 1) function, expected prototype:\nvoid mglGraph::Aspect(double Ax, double Ay, double Az = 1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6644,8 +6490,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Aspect(double, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Aspect(double, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Aspect(Ax, Ay, Az);
 
@@ -6655,8 +6500,7 @@ public:
 	// void mglGraph::Rotate(double TetX, double TetZ = 0, double TetY = 0)
 	static int _bind_Rotate(lua_State *L) {
 		if (!_lg_typecheck_Rotate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Rotate(double TetX, double TetZ = 0, double TetY = 0) function, expected prototype:\nvoid mglGraph::Rotate(double TetX, double TetZ = 0, double TetY = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Rotate(double TetX, double TetZ = 0, double TetY = 0) function, expected prototype:\nvoid mglGraph::Rotate(double TetX, double TetZ = 0, double TetY = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6667,8 +6511,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Rotate(double, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Rotate(double, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Rotate(TetX, TetZ, TetY);
 
@@ -6678,8 +6521,7 @@ public:
 	// void mglGraph::RotateN(double Tet, double x, double y, double z)
 	static int _bind_RotateN(lua_State *L) {
 		if (!_lg_typecheck_RotateN(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::RotateN(double Tet, double x, double y, double z) function, expected prototype:\nvoid mglGraph::RotateN(double Tet, double x, double y, double z)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::RotateN(double Tet, double x, double y, double z) function, expected prototype:\nvoid mglGraph::RotateN(double Tet, double x, double y, double z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double Tet=(double)lua_tonumber(L,2);
@@ -6689,8 +6531,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::RotateN(double, double, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::RotateN(double, double, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RotateN(Tet, x, y, z);
 
@@ -6700,16 +6541,14 @@ public:
 	// void mglGraph::Perspective(double val)
 	static int _bind_Perspective(lua_State *L) {
 		if (!_lg_typecheck_Perspective(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Perspective(double val) function, expected prototype:\nvoid mglGraph::Perspective(double val)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Perspective(double val) function, expected prototype:\nvoid mglGraph::Perspective(double val)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double val=(double)lua_tonumber(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Perspective(double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Perspective(double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Perspective(val);
 
@@ -6719,8 +6558,7 @@ public:
 	// void mglGraph::View(double TetX, double TetZ = 0, double TetY = 0)
 	static int _bind_View(lua_State *L) {
 		if (!_lg_typecheck_View(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::View(double TetX, double TetZ = 0, double TetY = 0) function, expected prototype:\nvoid mglGraph::View(double TetX, double TetZ = 0, double TetY = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::View(double TetX, double TetZ = 0, double TetY = 0) function, expected prototype:\nvoid mglGraph::View(double TetX, double TetZ = 0, double TetY = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6731,8 +6569,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::View(double, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::View(double, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->View(TetX, TetZ, TetY);
 
@@ -6742,8 +6579,7 @@ public:
 	// void mglGraph::Zoom(double x1, double y1, double x2, double y2)
 	static int _bind_Zoom(lua_State *L) {
 		if (!_lg_typecheck_Zoom(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Zoom(double x1, double y1, double x2, double y2) function, expected prototype:\nvoid mglGraph::Zoom(double x1, double y1, double x2, double y2)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Zoom(double x1, double y1, double x2, double y2) function, expected prototype:\nvoid mglGraph::Zoom(double x1, double y1, double x2, double y2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double x1=(double)lua_tonumber(L,2);
@@ -6753,8 +6589,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Zoom(double, double, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Zoom(double, double, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Zoom(x1, y1, x2, y2);
 
@@ -6764,8 +6599,7 @@ public:
 	// void mglGraph::SetSize(int width, int height)
 	static int _bind_SetSize(lua_State *L) {
 		if (!_lg_typecheck_SetSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetSize(int width, int height) function, expected prototype:\nvoid mglGraph::SetSize(int width, int height)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetSize(int width, int height) function, expected prototype:\nvoid mglGraph::SetSize(int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int width=(int)lua_tointeger(L,2);
@@ -6773,8 +6607,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetSize(int, int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetSize(int, int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetSize(width, height);
 
@@ -6784,8 +6617,7 @@ public:
 	// void mglGraph::SetQuality(int qual = 2)
 	static int _bind_SetQuality(lua_State *L) {
 		if (!_lg_typecheck_SetQuality(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetQuality(int qual = 2) function, expected prototype:\nvoid mglGraph::SetQuality(int qual = 2)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetQuality(int qual = 2) function, expected prototype:\nvoid mglGraph::SetQuality(int qual = 2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6794,8 +6626,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetQuality(int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetQuality(int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetQuality(qual);
 
@@ -6805,16 +6636,14 @@ public:
 	// void mglGraph::StartGroup(const char * name)
 	static int _bind_StartGroup(lua_State *L) {
 		if (!_lg_typecheck_StartGroup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::StartGroup(const char * name) function, expected prototype:\nvoid mglGraph::StartGroup(const char * name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::StartGroup(const char * name) function, expected prototype:\nvoid mglGraph::StartGroup(const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * name=(const char *)lua_tostring(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::StartGroup(const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::StartGroup(const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StartGroup(name);
 
@@ -6824,15 +6653,13 @@ public:
 	// void mglGraph::EndGroup()
 	static int _bind_EndGroup(lua_State *L) {
 		if (!_lg_typecheck_EndGroup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::EndGroup() function, expected prototype:\nvoid mglGraph::EndGroup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::EndGroup() function, expected prototype:\nvoid mglGraph::EndGroup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::EndGroup(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::EndGroup(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EndGroup();
 
@@ -6842,16 +6669,14 @@ public:
 	// void mglGraph::Highlight(int id)
 	static int _bind_Highlight(lua_State *L) {
 		if (!_lg_typecheck_Highlight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Highlight(int id) function, expected prototype:\nvoid mglGraph::Highlight(int id)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Highlight(int id) function, expected prototype:\nvoid mglGraph::Highlight(int id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int id=(int)lua_tointeger(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Highlight(int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Highlight(int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Highlight(id);
 
@@ -6861,8 +6686,7 @@ public:
 	// void mglGraph::ShowImage(const char * viewer, bool keep = 0)
 	static int _bind_ShowImage(lua_State *L) {
 		if (!_lg_typecheck_ShowImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ShowImage(const char * viewer, bool keep = 0) function, expected prototype:\nvoid mglGraph::ShowImage(const char * viewer, bool keep = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ShowImage(const char * viewer, bool keep = 0) function, expected prototype:\nvoid mglGraph::ShowImage(const char * viewer, bool keep = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6872,8 +6696,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ShowImage(const char *, bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ShowImage(const char *, bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ShowImage(viewer, keep);
 
@@ -6883,8 +6706,7 @@ public:
 	// void mglGraph::WriteFrame(const char * fname = 0, const char * descr = "")
 	static int _bind_WriteFrame(lua_State *L) {
 		if (!_lg_typecheck_WriteFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::WriteFrame(const char * fname = 0, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteFrame(const char * fname = 0, const char * descr = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::WriteFrame(const char * fname = 0, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteFrame(const char * fname = 0, const char * descr = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6894,8 +6716,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::WriteFrame(const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::WriteFrame(const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteFrame(fname, descr);
 
@@ -6905,8 +6726,7 @@ public:
 	// void mglGraph::WriteJPEG(const char * fname, const char * descr = "")
 	static int _bind_WriteJPEG(lua_State *L) {
 		if (!_lg_typecheck_WriteJPEG(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::WriteJPEG(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteJPEG(const char * fname, const char * descr = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::WriteJPEG(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteJPEG(const char * fname, const char * descr = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6916,8 +6736,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::WriteJPEG(const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::WriteJPEG(const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteJPEG(fname, descr);
 
@@ -6927,8 +6746,7 @@ public:
 	// void mglGraph::WritePNG(const char * fname, const char * descr = "", bool alpha = true)
 	static int _bind_WritePNG(lua_State *L) {
 		if (!_lg_typecheck_WritePNG(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::WritePNG(const char * fname, const char * descr = \"\", bool alpha = true) function, expected prototype:\nvoid mglGraph::WritePNG(const char * fname, const char * descr = \"\", bool alpha = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::WritePNG(const char * fname, const char * descr = \"\", bool alpha = true) function, expected prototype:\nvoid mglGraph::WritePNG(const char * fname, const char * descr = \"\", bool alpha = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6939,8 +6757,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::WritePNG(const char *, const char *, bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::WritePNG(const char *, const char *, bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WritePNG(fname, descr, alpha);
 
@@ -6950,8 +6767,7 @@ public:
 	// void mglGraph::WriteBMP(const char * fname, const char * descr = "")
 	static int _bind_WriteBMP(lua_State *L) {
 		if (!_lg_typecheck_WriteBMP(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::WriteBMP(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteBMP(const char * fname, const char * descr = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::WriteBMP(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteBMP(const char * fname, const char * descr = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6961,8 +6777,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::WriteBMP(const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::WriteBMP(const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteBMP(fname, descr);
 
@@ -6972,8 +6787,7 @@ public:
 	// void mglGraph::WriteTGA(const char * fname, const char * descr = "")
 	static int _bind_WriteTGA(lua_State *L) {
 		if (!_lg_typecheck_WriteTGA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::WriteTGA(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteTGA(const char * fname, const char * descr = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::WriteTGA(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteTGA(const char * fname, const char * descr = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -6983,8 +6797,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::WriteTGA(const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::WriteTGA(const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteTGA(fname, descr);
 
@@ -6994,8 +6807,7 @@ public:
 	// void mglGraph::WriteEPS(const char * fname, const char * descr = "")
 	static int _bind_WriteEPS(lua_State *L) {
 		if (!_lg_typecheck_WriteEPS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::WriteEPS(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteEPS(const char * fname, const char * descr = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::WriteEPS(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteEPS(const char * fname, const char * descr = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -7005,8 +6817,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::WriteEPS(const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::WriteEPS(const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteEPS(fname, descr);
 
@@ -7016,8 +6827,7 @@ public:
 	// void mglGraph::WriteTEX(const char * fname, const char * descr = "")
 	static int _bind_WriteTEX(lua_State *L) {
 		if (!_lg_typecheck_WriteTEX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::WriteTEX(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteTEX(const char * fname, const char * descr = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::WriteTEX(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteTEX(const char * fname, const char * descr = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -7027,8 +6837,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::WriteTEX(const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::WriteTEX(const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteTEX(fname, descr);
 
@@ -7038,8 +6847,7 @@ public:
 	// void mglGraph::WriteBPS(const char * fname, const char * descr = "")
 	static int _bind_WriteBPS(lua_State *L) {
 		if (!_lg_typecheck_WriteBPS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::WriteBPS(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteBPS(const char * fname, const char * descr = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::WriteBPS(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteBPS(const char * fname, const char * descr = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -7049,8 +6857,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::WriteBPS(const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::WriteBPS(const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteBPS(fname, descr);
 
@@ -7060,8 +6867,7 @@ public:
 	// void mglGraph::WriteSVG(const char * fname, const char * descr = "")
 	static int _bind_WriteSVG(lua_State *L) {
 		if (!_lg_typecheck_WriteSVG(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::WriteSVG(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteSVG(const char * fname, const char * descr = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::WriteSVG(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteSVG(const char * fname, const char * descr = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -7071,8 +6877,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::WriteSVG(const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::WriteSVG(const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteSVG(fname, descr);
 
@@ -7082,8 +6887,7 @@ public:
 	// void mglGraph::WriteGIF(const char * fname, const char * descr = "")
 	static int _bind_WriteGIF(lua_State *L) {
 		if (!_lg_typecheck_WriteGIF(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::WriteGIF(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteGIF(const char * fname, const char * descr = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::WriteGIF(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteGIF(const char * fname, const char * descr = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -7093,8 +6897,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::WriteGIF(const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::WriteGIF(const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteGIF(fname, descr);
 
@@ -7104,8 +6907,7 @@ public:
 	// void mglGraph::WriteOBJ(const char * fname, const char * descr = "", bool use_png = true)
 	static int _bind_WriteOBJ(lua_State *L) {
 		if (!_lg_typecheck_WriteOBJ(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::WriteOBJ(const char * fname, const char * descr = \"\", bool use_png = true) function, expected prototype:\nvoid mglGraph::WriteOBJ(const char * fname, const char * descr = \"\", bool use_png = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::WriteOBJ(const char * fname, const char * descr = \"\", bool use_png = true) function, expected prototype:\nvoid mglGraph::WriteOBJ(const char * fname, const char * descr = \"\", bool use_png = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -7116,8 +6918,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::WriteOBJ(const char *, const char *, bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::WriteOBJ(const char *, const char *, bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteOBJ(fname, descr, use_png);
 
@@ -7127,8 +6928,7 @@ public:
 	// void mglGraph::WriteXYZ(const char * fname, const char * descr = "")
 	static int _bind_WriteXYZ(lua_State *L) {
 		if (!_lg_typecheck_WriteXYZ(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::WriteXYZ(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteXYZ(const char * fname, const char * descr = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::WriteXYZ(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteXYZ(const char * fname, const char * descr = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -7138,8 +6938,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::WriteXYZ(const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::WriteXYZ(const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteXYZ(fname, descr);
 
@@ -7149,8 +6948,7 @@ public:
 	// void mglGraph::WriteSTL(const char * fname, const char * descr = "")
 	static int _bind_WriteSTL(lua_State *L) {
 		if (!_lg_typecheck_WriteSTL(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::WriteSTL(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteSTL(const char * fname, const char * descr = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::WriteSTL(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteSTL(const char * fname, const char * descr = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -7160,8 +6958,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::WriteSTL(const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::WriteSTL(const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteSTL(fname, descr);
 
@@ -7171,8 +6968,7 @@ public:
 	// void mglGraph::WriteOFF(const char * fname, const char * descr = "", bool colored = false)
 	static int _bind_WriteOFF(lua_State *L) {
 		if (!_lg_typecheck_WriteOFF(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::WriteOFF(const char * fname, const char * descr = \"\", bool colored = false) function, expected prototype:\nvoid mglGraph::WriteOFF(const char * fname, const char * descr = \"\", bool colored = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::WriteOFF(const char * fname, const char * descr = \"\", bool colored = false) function, expected prototype:\nvoid mglGraph::WriteOFF(const char * fname, const char * descr = \"\", bool colored = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -7183,8 +6979,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::WriteOFF(const char *, const char *, bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::WriteOFF(const char *, const char *, bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteOFF(fname, descr, colored);
 
@@ -7194,8 +6989,7 @@ public:
 	// void mglGraph::WritePRC(const char * fname, const char * descr = "", bool make_pdf = true)
 	static int _bind_WritePRC(lua_State *L) {
 		if (!_lg_typecheck_WritePRC(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::WritePRC(const char * fname, const char * descr = \"\", bool make_pdf = true) function, expected prototype:\nvoid mglGraph::WritePRC(const char * fname, const char * descr = \"\", bool make_pdf = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::WritePRC(const char * fname, const char * descr = \"\", bool make_pdf = true) function, expected prototype:\nvoid mglGraph::WritePRC(const char * fname, const char * descr = \"\", bool make_pdf = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -7206,8 +7000,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::WritePRC(const char *, const char *, bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::WritePRC(const char *, const char *, bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WritePRC(fname, descr, make_pdf);
 
@@ -7217,8 +7010,7 @@ public:
 	// void mglGraph::WriteJSON(const char * fname, const char * descr = "")
 	static int _bind_WriteJSON(lua_State *L) {
 		if (!_lg_typecheck_WriteJSON(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::WriteJSON(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteJSON(const char * fname, const char * descr = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::WriteJSON(const char * fname, const char * descr = \"\") function, expected prototype:\nvoid mglGraph::WriteJSON(const char * fname, const char * descr = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -7228,8 +7020,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::WriteJSON(const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::WriteJSON(const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WriteJSON(fname, descr);
 
@@ -7239,15 +7030,13 @@ public:
 	// void mglGraph::Finish()
 	static int _bind_Finish(lua_State *L) {
 		if (!_lg_typecheck_Finish(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Finish() function, expected prototype:\nvoid mglGraph::Finish()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Finish() function, expected prototype:\nvoid mglGraph::Finish()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Finish(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Finish(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Finish();
 
@@ -7257,15 +7046,13 @@ public:
 	// void mglGraph::NewFrame()
 	static int _bind_NewFrame(lua_State *L) {
 		if (!_lg_typecheck_NewFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::NewFrame() function, expected prototype:\nvoid mglGraph::NewFrame()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::NewFrame() function, expected prototype:\nvoid mglGraph::NewFrame()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::NewFrame(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::NewFrame(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->NewFrame();
 
@@ -7275,15 +7062,13 @@ public:
 	// void mglGraph::EndFrame()
 	static int _bind_EndFrame(lua_State *L) {
 		if (!_lg_typecheck_EndFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::EndFrame() function, expected prototype:\nvoid mglGraph::EndFrame()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::EndFrame() function, expected prototype:\nvoid mglGraph::EndFrame()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::EndFrame(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::EndFrame(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EndFrame();
 
@@ -7293,15 +7078,13 @@ public:
 	// int mglGraph::GetNumFrame()
 	static int _bind_GetNumFrame(lua_State *L) {
 		if (!_lg_typecheck_GetNumFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int mglGraph::GetNumFrame() function, expected prototype:\nint mglGraph::GetNumFrame()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int mglGraph::GetNumFrame() function, expected prototype:\nint mglGraph::GetNumFrame()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int mglGraph::GetNumFrame(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int mglGraph::GetNumFrame(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetNumFrame();
 		lua_pushnumber(L,lret);
@@ -7312,15 +7095,13 @@ public:
 	// void mglGraph::ResetFrames()
 	static int _bind_ResetFrames(lua_State *L) {
 		if (!_lg_typecheck_ResetFrames(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ResetFrames() function, expected prototype:\nvoid mglGraph::ResetFrames()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ResetFrames() function, expected prototype:\nvoid mglGraph::ResetFrames()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ResetFrames(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ResetFrames(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ResetFrames();
 
@@ -7330,16 +7111,14 @@ public:
 	// void mglGraph::DelFrame(int i)
 	static int _bind_DelFrame(lua_State *L) {
 		if (!_lg_typecheck_DelFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::DelFrame(int i) function, expected prototype:\nvoid mglGraph::DelFrame(int i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::DelFrame(int i) function, expected prototype:\nvoid mglGraph::DelFrame(int i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int i=(int)lua_tointeger(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::DelFrame(int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::DelFrame(int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DelFrame(i);
 
@@ -7349,16 +7128,14 @@ public:
 	// void mglGraph::GetFrame(int i)
 	static int _bind_GetFrame(lua_State *L) {
 		if (!_lg_typecheck_GetFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::GetFrame(int i) function, expected prototype:\nvoid mglGraph::GetFrame(int i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::GetFrame(int i) function, expected prototype:\nvoid mglGraph::GetFrame(int i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int i=(int)lua_tointeger(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::GetFrame(int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::GetFrame(int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetFrame(i);
 
@@ -7368,16 +7145,14 @@ public:
 	// void mglGraph::SetFrame(int i)
 	static int _bind_SetFrame(lua_State *L) {
 		if (!_lg_typecheck_SetFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetFrame(int i) function, expected prototype:\nvoid mglGraph::SetFrame(int i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetFrame(int i) function, expected prototype:\nvoid mglGraph::SetFrame(int i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int i=(int)lua_tointeger(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetFrame(int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetFrame(int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFrame(i);
 
@@ -7387,16 +7162,14 @@ public:
 	// void mglGraph::ShowFrame(int i)
 	static int _bind_ShowFrame(lua_State *L) {
 		if (!_lg_typecheck_ShowFrame(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ShowFrame(int i) function, expected prototype:\nvoid mglGraph::ShowFrame(int i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ShowFrame(int i) function, expected prototype:\nvoid mglGraph::ShowFrame(int i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int i=(int)lua_tointeger(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ShowFrame(int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ShowFrame(int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ShowFrame(i);
 
@@ -7406,8 +7179,7 @@ public:
 	// void mglGraph::StartGIF(const char * fname, int ms = 100)
 	static int _bind_StartGIF(lua_State *L) {
 		if (!_lg_typecheck_StartGIF(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::StartGIF(const char * fname, int ms = 100) function, expected prototype:\nvoid mglGraph::StartGIF(const char * fname, int ms = 100)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::StartGIF(const char * fname, int ms = 100) function, expected prototype:\nvoid mglGraph::StartGIF(const char * fname, int ms = 100)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -7417,8 +7189,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::StartGIF(const char *, int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::StartGIF(const char *, int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StartGIF(fname, ms);
 
@@ -7428,15 +7199,13 @@ public:
 	// void mglGraph::CloseGIF()
 	static int _bind_CloseGIF(lua_State *L) {
 		if (!_lg_typecheck_CloseGIF(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::CloseGIF() function, expected prototype:\nvoid mglGraph::CloseGIF()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::CloseGIF() function, expected prototype:\nvoid mglGraph::CloseGIF()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::CloseGIF(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::CloseGIF(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CloseGIF();
 
@@ -7446,8 +7215,7 @@ public:
 	// void mglGraph::ExportMGLD(const char * fname, const char * descr = 0)
 	static int _bind_ExportMGLD(lua_State *L) {
 		if (!_lg_typecheck_ExportMGLD(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ExportMGLD(const char * fname, const char * descr = 0) function, expected prototype:\nvoid mglGraph::ExportMGLD(const char * fname, const char * descr = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ExportMGLD(const char * fname, const char * descr = 0) function, expected prototype:\nvoid mglGraph::ExportMGLD(const char * fname, const char * descr = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -7457,8 +7225,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ExportMGLD(const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ExportMGLD(const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ExportMGLD(fname, descr);
 
@@ -7468,8 +7235,7 @@ public:
 	// void mglGraph::ImportMGLD(const char * fname, bool add = false)
 	static int _bind_ImportMGLD(lua_State *L) {
 		if (!_lg_typecheck_ImportMGLD(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ImportMGLD(const char * fname, bool add = false) function, expected prototype:\nvoid mglGraph::ImportMGLD(const char * fname, bool add = false)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ImportMGLD(const char * fname, bool add = false) function, expected prototype:\nvoid mglGraph::ImportMGLD(const char * fname, bool add = false)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -7479,8 +7245,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ImportMGLD(const char *, bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ImportMGLD(const char *, bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ImportMGLD(fname, add);
 
@@ -7490,8 +7255,7 @@ public:
 	// void mglGraph::GetRGB(char * imgdata, int imglen)
 	static int _bind_GetRGB_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetRGB_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::GetRGB(char * imgdata, int imglen) function, expected prototype:\nvoid mglGraph::GetRGB(char * imgdata, int imglen)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::GetRGB(char * imgdata, int imglen) function, expected prototype:\nvoid mglGraph::GetRGB(char * imgdata, int imglen)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		char* imgdata=(char*)Luna< void >::check(L,2);
@@ -7499,8 +7263,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::GetRGB(char *, int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::GetRGB(char *, int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetRGB(imgdata, imglen);
 
@@ -7510,15 +7273,13 @@ public:
 	// const unsigned char * mglGraph::GetRGB()
 	static int _bind_GetRGB_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetRGB_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const unsigned char * mglGraph::GetRGB() function, expected prototype:\nconst unsigned char * mglGraph::GetRGB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const unsigned char * mglGraph::GetRGB() function, expected prototype:\nconst unsigned char * mglGraph::GetRGB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const unsigned char * mglGraph::GetRGB(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const unsigned char * mglGraph::GetRGB(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const unsigned char * lret = self->GetRGB();
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
@@ -7538,8 +7299,7 @@ public:
 	// void mglGraph::GetRGBA(char * imgdata, int imglen)
 	static int _bind_GetRGBA_overload_1(lua_State *L) {
 		if (!_lg_typecheck_GetRGBA_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::GetRGBA(char * imgdata, int imglen) function, expected prototype:\nvoid mglGraph::GetRGBA(char * imgdata, int imglen)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::GetRGBA(char * imgdata, int imglen) function, expected prototype:\nvoid mglGraph::GetRGBA(char * imgdata, int imglen)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		char* imgdata=(char*)Luna< void >::check(L,2);
@@ -7547,8 +7307,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::GetRGBA(char *, int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::GetRGBA(char *, int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetRGBA(imgdata, imglen);
 
@@ -7558,15 +7317,13 @@ public:
 	// const unsigned char * mglGraph::GetRGBA()
 	static int _bind_GetRGBA_overload_2(lua_State *L) {
 		if (!_lg_typecheck_GetRGBA_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const unsigned char * mglGraph::GetRGBA() function, expected prototype:\nconst unsigned char * mglGraph::GetRGBA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const unsigned char * mglGraph::GetRGBA() function, expected prototype:\nconst unsigned char * mglGraph::GetRGBA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const unsigned char * mglGraph::GetRGBA(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const unsigned char * mglGraph::GetRGBA(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const unsigned char * lret = self->GetRGBA();
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
@@ -7586,8 +7343,7 @@ public:
 	// void mglGraph::GetBGRN(unsigned char * imgdata, int imglen)
 	static int _bind_GetBGRN(lua_State *L) {
 		if (!_lg_typecheck_GetBGRN(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::GetBGRN(unsigned char * imgdata, int imglen) function, expected prototype:\nvoid mglGraph::GetBGRN(unsigned char * imgdata, int imglen)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::GetBGRN(unsigned char * imgdata, int imglen) function, expected prototype:\nvoid mglGraph::GetBGRN(unsigned char * imgdata, int imglen)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char imgdata = (unsigned char)(lua_tointeger(L,2));
@@ -7595,8 +7351,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::GetBGRN(unsigned char *, int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::GetBGRN(unsigned char *, int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetBGRN(&imgdata, imglen);
 
@@ -7606,15 +7361,13 @@ public:
 	// int mglGraph::GetWidth()
 	static int _bind_GetWidth(lua_State *L) {
 		if (!_lg_typecheck_GetWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int mglGraph::GetWidth() function, expected prototype:\nint mglGraph::GetWidth()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int mglGraph::GetWidth() function, expected prototype:\nint mglGraph::GetWidth()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int mglGraph::GetWidth(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int mglGraph::GetWidth(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetWidth();
 		lua_pushnumber(L,lret);
@@ -7625,15 +7378,13 @@ public:
 	// int mglGraph::GetHeight()
 	static int _bind_GetHeight(lua_State *L) {
 		if (!_lg_typecheck_GetHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int mglGraph::GetHeight() function, expected prototype:\nint mglGraph::GetHeight()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int mglGraph::GetHeight() function, expected prototype:\nint mglGraph::GetHeight()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int mglGraph::GetHeight(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int mglGraph::GetHeight(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetHeight();
 		lua_pushnumber(L,lret);
@@ -7644,8 +7395,7 @@ public:
 	// mglPoint mglGraph::CalcXYZ(int xs, int ys)
 	static int _bind_CalcXYZ(lua_State *L) {
 		if (!_lg_typecheck_CalcXYZ(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglPoint mglGraph::CalcXYZ(int xs, int ys) function, expected prototype:\nmglPoint mglGraph::CalcXYZ(int xs, int ys)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglPoint mglGraph::CalcXYZ(int xs, int ys) function, expected prototype:\nmglPoint mglGraph::CalcXYZ(int xs, int ys)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int xs=(int)lua_tointeger(L,2);
@@ -7653,8 +7403,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglPoint mglGraph::CalcXYZ(int, int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglPoint mglGraph::CalcXYZ(int, int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglPoint stack_lret = self->CalcXYZ(xs, ys);
 		mglPoint* lret = new mglPoint(stack_lret);
@@ -7668,8 +7417,7 @@ public:
 	// mglPoint mglGraph::CalcScr(mglPoint p)
 	static int _bind_CalcScr(lua_State *L) {
 		if (!_lg_typecheck_CalcScr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglPoint mglGraph::CalcScr(mglPoint p) function, expected prototype:\nmglPoint mglGraph::CalcScr(mglPoint p)\nClass arguments details:\narg 1 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in mglPoint mglGraph::CalcScr(mglPoint p) function, expected prototype:\nmglPoint mglGraph::CalcScr(mglPoint p)\nClass arguments details:\narg 1 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglPoint* p_ptr=(Luna< mglPoint >::check(L,2));
@@ -7680,8 +7428,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglPoint mglGraph::CalcScr(mglPoint). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglPoint mglGraph::CalcScr(mglPoint). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglPoint stack_lret = self->CalcScr(p);
 		mglPoint* lret = new mglPoint(stack_lret);
@@ -7695,16 +7442,14 @@ public:
 	// void mglGraph::SetObjId(int id)
 	static int _bind_SetObjId(lua_State *L) {
 		if (!_lg_typecheck_SetObjId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetObjId(int id) function, expected prototype:\nvoid mglGraph::SetObjId(int id)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetObjId(int id) function, expected prototype:\nvoid mglGraph::SetObjId(int id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int id=(int)lua_tointeger(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetObjId(int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetObjId(int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetObjId(id);
 
@@ -7714,17 +7459,15 @@ public:
 	// int mglGraph::GetObjId(long x, long y)
 	static int _bind_GetObjId(lua_State *L) {
 		if (!_lg_typecheck_GetObjId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int mglGraph::GetObjId(long x, long y) function, expected prototype:\nint mglGraph::GetObjId(long x, long y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int mglGraph::GetObjId(long x, long y) function, expected prototype:\nint mglGraph::GetObjId(long x, long y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long x=(long)lua_tointeger(L,2);
-		long y=(long)lua_tointeger(L,3);
+		long x=(long)lua_tonumber(L,2);
+		long y=(long)lua_tonumber(L,3);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int mglGraph::GetObjId(long, long). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int mglGraph::GetObjId(long, long). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetObjId(x, y);
 		lua_pushnumber(L,lret);
@@ -7735,17 +7478,15 @@ public:
 	// int mglGraph::GetSplId(long x, long y)
 	static int _bind_GetSplId(lua_State *L) {
 		if (!_lg_typecheck_GetSplId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int mglGraph::GetSplId(long x, long y) function, expected prototype:\nint mglGraph::GetSplId(long x, long y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int mglGraph::GetSplId(long x, long y) function, expected prototype:\nint mglGraph::GetSplId(long x, long y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long x=(long)lua_tointeger(L,2);
-		long y=(long)lua_tointeger(L,3);
+		long x=(long)lua_tonumber(L,2);
+		long y=(long)lua_tonumber(L,3);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int mglGraph::GetSplId(long, long). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int mglGraph::GetSplId(long, long). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetSplId(x, y);
 		lua_pushnumber(L,lret);
@@ -7756,8 +7497,7 @@ public:
 	// long mglGraph::IsActive(int xs, int ys, int d = 1)
 	static int _bind_IsActive(lua_State *L) {
 		if (!_lg_typecheck_IsActive(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long mglGraph::IsActive(int xs, int ys, int d = 1) function, expected prototype:\nlong mglGraph::IsActive(int xs, int ys, int d = 1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long mglGraph::IsActive(int xs, int ys, int d = 1) function, expected prototype:\nlong mglGraph::IsActive(int xs, int ys, int d = 1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -7768,8 +7508,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long mglGraph::IsActive(int, int, int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long mglGraph::IsActive(int, int, int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->IsActive(xs, ys, d);
 		lua_pushnumber(L,lret);
@@ -7780,16 +7519,14 @@ public:
 	// void mglGraph::Combine(const mglGraph * g)
 	static int _bind_Combine(lua_State *L) {
 		if (!_lg_typecheck_Combine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Combine(const mglGraph * g) function, expected prototype:\nvoid mglGraph::Combine(const mglGraph * g)\nClass arguments details:\narg 1 ID = 48672486\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Combine(const mglGraph * g) function, expected prototype:\nvoid mglGraph::Combine(const mglGraph * g)\nClass arguments details:\narg 1 ID = 48672486\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const mglGraph* g=(Luna< mglGraph >::check(L,2));
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Combine(const mglGraph *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Combine(const mglGraph *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Combine(g);
 
@@ -7799,16 +7536,14 @@ public:
 	// void mglGraph::MPI_Send(int id)
 	static int _bind_MPI_Send(lua_State *L) {
 		if (!_lg_typecheck_MPI_Send(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::MPI_Send(int id) function, expected prototype:\nvoid mglGraph::MPI_Send(int id)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::MPI_Send(int id) function, expected prototype:\nvoid mglGraph::MPI_Send(int id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int id=(int)lua_tointeger(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::MPI_Send(int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::MPI_Send(int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MPI_Send(id);
 
@@ -7818,16 +7553,14 @@ public:
 	// void mglGraph::MPI_Recv(int id)
 	static int _bind_MPI_Recv(lua_State *L) {
 		if (!_lg_typecheck_MPI_Recv(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::MPI_Recv(int id) function, expected prototype:\nvoid mglGraph::MPI_Recv(int id)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::MPI_Recv(int id) function, expected prototype:\nvoid mglGraph::MPI_Recv(int id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int id=(int)lua_tointeger(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::MPI_Recv(int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::MPI_Recv(int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->MPI_Recv(id);
 
@@ -7837,8 +7570,7 @@ public:
 	// void mglGraph::Clf(double r, double g, double b)
 	static int _bind_Clf_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Clf_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Clf(double r, double g, double b) function, expected prototype:\nvoid mglGraph::Clf(double r, double g, double b)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Clf(double r, double g, double b) function, expected prototype:\nvoid mglGraph::Clf(double r, double g, double b)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double r=(double)lua_tonumber(L,2);
@@ -7847,8 +7579,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Clf(double, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Clf(double, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Clf(r, g, b);
 
@@ -7858,15 +7589,13 @@ public:
 	// void mglGraph::Clf()
 	static int _bind_Clf_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Clf_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Clf() function, expected prototype:\nvoid mglGraph::Clf()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Clf() function, expected prototype:\nvoid mglGraph::Clf()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Clf(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Clf(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Clf();
 
@@ -7885,15 +7614,13 @@ public:
 	// void mglGraph::ClearUnused()
 	static int _bind_ClearUnused(lua_State *L) {
 		if (!_lg_typecheck_ClearUnused(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ClearUnused() function, expected prototype:\nvoid mglGraph::ClearUnused()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ClearUnused() function, expected prototype:\nvoid mglGraph::ClearUnused()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ClearUnused(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ClearUnused(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClearUnused();
 
@@ -7903,8 +7630,7 @@ public:
 	// void mglGraph::Ball(mglPoint p, char c = 'r')
 	static int _bind_Ball(lua_State *L) {
 		if (!_lg_typecheck_Ball(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Ball(mglPoint p, char c = 'r') function, expected prototype:\nvoid mglGraph::Ball(mglPoint p, char c = 'r')\nClass arguments details:\narg 1 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Ball(mglPoint p, char c = 'r') function, expected prototype:\nvoid mglGraph::Ball(mglPoint p, char c = 'r')\nClass arguments details:\narg 1 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -7918,8 +7644,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Ball(mglPoint, char). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Ball(mglPoint, char). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Ball(p, c);
 
@@ -7929,8 +7654,7 @@ public:
 	// void mglGraph::Mark(mglPoint p, const char * mark)
 	static int _bind_Mark_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Mark_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Mark(mglPoint p, const char * mark) function, expected prototype:\nvoid mglGraph::Mark(mglPoint p, const char * mark)\nClass arguments details:\narg 1 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Mark(mglPoint p, const char * mark) function, expected prototype:\nvoid mglGraph::Mark(mglPoint p, const char * mark)\nClass arguments details:\narg 1 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglPoint* p_ptr=(Luna< mglPoint >::check(L,2));
@@ -7942,8 +7666,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Mark(mglPoint, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Mark(mglPoint, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Mark(p, mark);
 
@@ -7953,8 +7676,7 @@ public:
 	// void mglGraph::Mark(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * pen, const char * opt = "")
 	static int _bind_Mark_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Mark_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Mark(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * pen, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Mark(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * pen, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Mark(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * pen, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Mark(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * pen, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -7984,8 +7706,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Mark(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Mark(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Mark(x, y, z, r, pen, opt);
 
@@ -7995,8 +7716,7 @@ public:
 	// void mglGraph::Mark(const mglDataA & x, const mglDataA & y, const mglDataA & r, const char * pen, const char * opt = "")
 	static int _bind_Mark_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Mark_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Mark(const mglDataA & x, const mglDataA & y, const mglDataA & r, const char * pen, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Mark(const mglDataA & x, const mglDataA & y, const mglDataA & r, const char * pen, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Mark(const mglDataA & x, const mglDataA & y, const mglDataA & r, const char * pen, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Mark(const mglDataA & x, const mglDataA & y, const mglDataA & r, const char * pen, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8021,8 +7741,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Mark(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Mark(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Mark(x, y, r, pen, opt);
 
@@ -8032,8 +7751,7 @@ public:
 	// void mglGraph::Mark(const mglDataA & y, const mglDataA & r, const char * pen, const char * opt = "")
 	static int _bind_Mark_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Mark_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Mark(const mglDataA & y, const mglDataA & r, const char * pen, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Mark(const mglDataA & y, const mglDataA & r, const char * pen, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Mark(const mglDataA & y, const mglDataA & r, const char * pen, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Mark(const mglDataA & y, const mglDataA & r, const char * pen, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8053,8 +7771,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Mark(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Mark(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Mark(y, r, pen, opt);
 
@@ -8075,8 +7792,7 @@ public:
 	// void mglGraph::Line(mglPoint p1, mglPoint p2, const char * pen = "B", int n = 2)
 	static int _bind_Line(lua_State *L) {
 		if (!_lg_typecheck_Line(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Line(mglPoint p1, mglPoint p2, const char * pen = \"B\", int n = 2) function, expected prototype:\nvoid mglGraph::Line(mglPoint p1, mglPoint p2, const char * pen = \"B\", int n = 2)\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Line(mglPoint p1, mglPoint p2, const char * pen = \"B\", int n = 2) function, expected prototype:\nvoid mglGraph::Line(mglPoint p1, mglPoint p2, const char * pen = \"B\", int n = 2)\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8096,8 +7812,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Line(mglPoint, mglPoint, const char *, int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Line(mglPoint, mglPoint, const char *, int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Line(p1, p2, pen, n);
 
@@ -8107,8 +7822,7 @@ public:
 	// void mglGraph::Curve(mglPoint p1, mglPoint d1, mglPoint p2, mglPoint d2, const char * pen = "B", int n = 100)
 	static int _bind_Curve(lua_State *L) {
 		if (!_lg_typecheck_Curve(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Curve(mglPoint p1, mglPoint d1, mglPoint p2, mglPoint d2, const char * pen = \"B\", int n = 100) function, expected prototype:\nvoid mglGraph::Curve(mglPoint p1, mglPoint d1, mglPoint p2, mglPoint d2, const char * pen = \"B\", int n = 100)\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\narg 3 ID = 56902440\narg 4 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Curve(mglPoint p1, mglPoint d1, mglPoint p2, mglPoint d2, const char * pen = \"B\", int n = 100) function, expected prototype:\nvoid mglGraph::Curve(mglPoint p1, mglPoint d1, mglPoint p2, mglPoint d2, const char * pen = \"B\", int n = 100)\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\narg 3 ID = 56902440\narg 4 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8138,8 +7852,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Curve(mglPoint, mglPoint, mglPoint, mglPoint, const char *, int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Curve(mglPoint, mglPoint, mglPoint, mglPoint, const char *, int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Curve(p1, d1, p2, d2, pen, n);
 
@@ -8149,8 +7862,7 @@ public:
 	// void mglGraph::Error(mglPoint p, mglPoint e, const char * pen = "k")
 	static int _bind_Error_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Error_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Error(mglPoint p, mglPoint e, const char * pen = \"k\") function, expected prototype:\nvoid mglGraph::Error(mglPoint p, mglPoint e, const char * pen = \"k\")\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Error(mglPoint p, mglPoint e, const char * pen = \"k\") function, expected prototype:\nvoid mglGraph::Error(mglPoint p, mglPoint e, const char * pen = \"k\")\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8169,8 +7881,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Error(mglPoint, mglPoint, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Error(mglPoint, mglPoint, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Error(p, e, pen);
 
@@ -8180,8 +7891,7 @@ public:
 	// void mglGraph::Error(const mglDataA & y, const mglDataA & ey, const char * pen = "", const char * opt = "")
 	static int _bind_Error_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Error_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Error(const mglDataA & y, const mglDataA & ey, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Error(const mglDataA & y, const mglDataA & ey, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Error(const mglDataA & y, const mglDataA & ey, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Error(const mglDataA & y, const mglDataA & ey, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8201,8 +7911,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Error(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Error(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Error(y, ey, pen, opt);
 
@@ -8212,8 +7921,7 @@ public:
 	// void mglGraph::Error(const mglDataA & x, const mglDataA & y, const mglDataA & ey, const char * pen = "", const char * opt = "")
 	static int _bind_Error_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Error_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Error(const mglDataA & x, const mglDataA & y, const mglDataA & ey, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Error(const mglDataA & x, const mglDataA & y, const mglDataA & ey, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Error(const mglDataA & x, const mglDataA & y, const mglDataA & ey, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Error(const mglDataA & x, const mglDataA & y, const mglDataA & ey, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8238,8 +7946,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Error(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Error(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Error(x, y, ey, pen, opt);
 
@@ -8249,8 +7956,7 @@ public:
 	// void mglGraph::Error(const mglDataA & x, const mglDataA & y, const mglDataA & ex, const mglDataA & ey, const char * pen = "", const char * opt = "")
 	static int _bind_Error_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Error_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Error(const mglDataA & x, const mglDataA & y, const mglDataA & ex, const mglDataA & ey, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Error(const mglDataA & x, const mglDataA & y, const mglDataA & ex, const mglDataA & ey, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Error(const mglDataA & x, const mglDataA & y, const mglDataA & ex, const mglDataA & ey, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Error(const mglDataA & x, const mglDataA & y, const mglDataA & ex, const mglDataA & ey, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8280,8 +7986,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Error(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Error(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Error(x, y, ex, ey, pen, opt);
 
@@ -8302,8 +8007,7 @@ public:
 	// void mglGraph::Face(mglPoint p1, mglPoint p2, mglPoint p3, mglPoint p4, const char * stl = "r")
 	static int _bind_Face(lua_State *L) {
 		if (!_lg_typecheck_Face(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Face(mglPoint p1, mglPoint p2, mglPoint p3, mglPoint p4, const char * stl = \"r\") function, expected prototype:\nvoid mglGraph::Face(mglPoint p1, mglPoint p2, mglPoint p3, mglPoint p4, const char * stl = \"r\")\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\narg 3 ID = 56902440\narg 4 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Face(mglPoint p1, mglPoint p2, mglPoint p3, mglPoint p4, const char * stl = \"r\") function, expected prototype:\nvoid mglGraph::Face(mglPoint p1, mglPoint p2, mglPoint p3, mglPoint p4, const char * stl = \"r\")\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\narg 3 ID = 56902440\narg 4 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8332,8 +8036,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Face(mglPoint, mglPoint, mglPoint, mglPoint, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Face(mglPoint, mglPoint, mglPoint, mglPoint, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Face(p1, p2, p3, p4, stl);
 
@@ -8343,8 +8046,7 @@ public:
 	// void mglGraph::FaceX(mglPoint p, double wy, double wz, const char * stl = "w", double dx = 0, double dy = 0)
 	static int _bind_FaceX(lua_State *L) {
 		if (!_lg_typecheck_FaceX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::FaceX(mglPoint p, double wy, double wz, const char * stl = \"w\", double dx = 0, double dy = 0) function, expected prototype:\nvoid mglGraph::FaceX(mglPoint p, double wy, double wz, const char * stl = \"w\", double dx = 0, double dy = 0)\nClass arguments details:\narg 1 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::FaceX(mglPoint p, double wy, double wz, const char * stl = \"w\", double dx = 0, double dy = 0) function, expected prototype:\nvoid mglGraph::FaceX(mglPoint p, double wy, double wz, const char * stl = \"w\", double dx = 0, double dy = 0)\nClass arguments details:\narg 1 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8362,8 +8064,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::FaceX(mglPoint, double, double, const char *, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::FaceX(mglPoint, double, double, const char *, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FaceX(p, wy, wz, stl, dx, dy);
 
@@ -8373,8 +8074,7 @@ public:
 	// void mglGraph::FaceY(mglPoint p, double wx, double wz, const char * stl = "w", double dx = 0, double dy = 0)
 	static int _bind_FaceY(lua_State *L) {
 		if (!_lg_typecheck_FaceY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::FaceY(mglPoint p, double wx, double wz, const char * stl = \"w\", double dx = 0, double dy = 0) function, expected prototype:\nvoid mglGraph::FaceY(mglPoint p, double wx, double wz, const char * stl = \"w\", double dx = 0, double dy = 0)\nClass arguments details:\narg 1 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::FaceY(mglPoint p, double wx, double wz, const char * stl = \"w\", double dx = 0, double dy = 0) function, expected prototype:\nvoid mglGraph::FaceY(mglPoint p, double wx, double wz, const char * stl = \"w\", double dx = 0, double dy = 0)\nClass arguments details:\narg 1 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8392,8 +8092,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::FaceY(mglPoint, double, double, const char *, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::FaceY(mglPoint, double, double, const char *, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FaceY(p, wx, wz, stl, dx, dy);
 
@@ -8403,8 +8102,7 @@ public:
 	// void mglGraph::FaceZ(mglPoint p, double wx, double wy, const char * stl = "w", double dx = 0, double dy = 0)
 	static int _bind_FaceZ(lua_State *L) {
 		if (!_lg_typecheck_FaceZ(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::FaceZ(mglPoint p, double wx, double wy, const char * stl = \"w\", double dx = 0, double dy = 0) function, expected prototype:\nvoid mglGraph::FaceZ(mglPoint p, double wx, double wy, const char * stl = \"w\", double dx = 0, double dy = 0)\nClass arguments details:\narg 1 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::FaceZ(mglPoint p, double wx, double wy, const char * stl = \"w\", double dx = 0, double dy = 0) function, expected prototype:\nvoid mglGraph::FaceZ(mglPoint p, double wx, double wy, const char * stl = \"w\", double dx = 0, double dy = 0)\nClass arguments details:\narg 1 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8422,8 +8120,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::FaceZ(mglPoint, double, double, const char *, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::FaceZ(mglPoint, double, double, const char *, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FaceZ(p, wx, wy, stl, dx, dy);
 
@@ -8433,8 +8130,7 @@ public:
 	// void mglGraph::Drop(mglPoint p, mglPoint d, double r, const char * col = "r", double shift = 1, double ap = 1)
 	static int _bind_Drop(lua_State *L) {
 		if (!_lg_typecheck_Drop(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Drop(mglPoint p, mglPoint d, double r, const char * col = \"r\", double shift = 1, double ap = 1) function, expected prototype:\nvoid mglGraph::Drop(mglPoint p, mglPoint d, double r, const char * col = \"r\", double shift = 1, double ap = 1)\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Drop(mglPoint p, mglPoint d, double r, const char * col = \"r\", double shift = 1, double ap = 1) function, expected prototype:\nvoid mglGraph::Drop(mglPoint p, mglPoint d, double r, const char * col = \"r\", double shift = 1, double ap = 1)\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8456,8 +8152,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Drop(mglPoint, mglPoint, double, const char *, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Drop(mglPoint, mglPoint, double, const char *, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Drop(p, d, r, col, shift, ap);
 
@@ -8467,8 +8162,7 @@ public:
 	// void mglGraph::Sphere(mglPoint p, double r, const char * col = "r")
 	static int _bind_Sphere(lua_State *L) {
 		if (!_lg_typecheck_Sphere(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Sphere(mglPoint p, double r, const char * col = \"r\") function, expected prototype:\nvoid mglGraph::Sphere(mglPoint p, double r, const char * col = \"r\")\nClass arguments details:\narg 1 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Sphere(mglPoint p, double r, const char * col = \"r\") function, expected prototype:\nvoid mglGraph::Sphere(mglPoint p, double r, const char * col = \"r\")\nClass arguments details:\narg 1 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8483,8 +8177,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Sphere(mglPoint, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Sphere(mglPoint, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Sphere(p, r, col);
 
@@ -8494,8 +8187,7 @@ public:
 	// void mglGraph::Ellipse(mglPoint p1, mglPoint p2, double r, const char * stl = "r")
 	static int _bind_Ellipse(lua_State *L) {
 		if (!_lg_typecheck_Ellipse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Ellipse(mglPoint p1, mglPoint p2, double r, const char * stl = \"r\") function, expected prototype:\nvoid mglGraph::Ellipse(mglPoint p1, mglPoint p2, double r, const char * stl = \"r\")\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Ellipse(mglPoint p1, mglPoint p2, double r, const char * stl = \"r\") function, expected prototype:\nvoid mglGraph::Ellipse(mglPoint p1, mglPoint p2, double r, const char * stl = \"r\")\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8515,8 +8207,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Ellipse(mglPoint, mglPoint, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Ellipse(mglPoint, mglPoint, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Ellipse(p1, p2, r, stl);
 
@@ -8526,8 +8217,7 @@ public:
 	// void mglGraph::Circle(mglPoint p, double r, const char * stl = "r")
 	static int _bind_Circle(lua_State *L) {
 		if (!_lg_typecheck_Circle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Circle(mglPoint p, double r, const char * stl = \"r\") function, expected prototype:\nvoid mglGraph::Circle(mglPoint p, double r, const char * stl = \"r\")\nClass arguments details:\narg 1 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Circle(mglPoint p, double r, const char * stl = \"r\") function, expected prototype:\nvoid mglGraph::Circle(mglPoint p, double r, const char * stl = \"r\")\nClass arguments details:\narg 1 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8542,8 +8232,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Circle(mglPoint, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Circle(mglPoint, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Circle(p, r, stl);
 
@@ -8553,8 +8242,7 @@ public:
 	// void mglGraph::Rhomb(mglPoint p1, mglPoint p2, double r, const char * stl = "r")
 	static int _bind_Rhomb(lua_State *L) {
 		if (!_lg_typecheck_Rhomb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Rhomb(mglPoint p1, mglPoint p2, double r, const char * stl = \"r\") function, expected prototype:\nvoid mglGraph::Rhomb(mglPoint p1, mglPoint p2, double r, const char * stl = \"r\")\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Rhomb(mglPoint p1, mglPoint p2, double r, const char * stl = \"r\") function, expected prototype:\nvoid mglGraph::Rhomb(mglPoint p1, mglPoint p2, double r, const char * stl = \"r\")\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8574,8 +8262,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Rhomb(mglPoint, mglPoint, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Rhomb(mglPoint, mglPoint, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Rhomb(p1, p2, r, stl);
 
@@ -8585,8 +8272,7 @@ public:
 	// void mglGraph::Puts(mglPoint p, const char * text, const char * font = ":C", double size = -1)
 	static int _bind_Puts_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Puts_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Puts(mglPoint p, const char * text, const char * font = \":C\", double size = -1) function, expected prototype:\nvoid mglGraph::Puts(mglPoint p, const char * text, const char * font = \":C\", double size = -1)\nClass arguments details:\narg 1 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Puts(mglPoint p, const char * text, const char * font = \":C\", double size = -1) function, expected prototype:\nvoid mglGraph::Puts(mglPoint p, const char * text, const char * font = \":C\", double size = -1)\nClass arguments details:\narg 1 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8602,8 +8288,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Puts(mglPoint, const char *, const char *, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Puts(mglPoint, const char *, const char *, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Puts(p, text, font, size);
 
@@ -8613,8 +8298,7 @@ public:
 	// void mglGraph::Puts(double x, double y, const char * text, const char * font = ":AC", double size = -1)
 	static int _bind_Puts_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Puts_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Puts(double x, double y, const char * text, const char * font = \":AC\", double size = -1) function, expected prototype:\nvoid mglGraph::Puts(double x, double y, const char * text, const char * font = \":AC\", double size = -1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Puts(double x, double y, const char * text, const char * font = \":AC\", double size = -1) function, expected prototype:\nvoid mglGraph::Puts(double x, double y, const char * text, const char * font = \":AC\", double size = -1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8627,8 +8311,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Puts(double, double, const char *, const char *, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Puts(double, double, const char *, const char *, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Puts(x, y, text, font, size);
 
@@ -8638,8 +8321,7 @@ public:
 	// void mglGraph::Puts(mglPoint p, mglPoint d, const char * text, const char * font = ":L", double size = -1)
 	static int _bind_Puts_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Puts_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Puts(mglPoint p, mglPoint d, const char * text, const char * font = \":L\", double size = -1) function, expected prototype:\nvoid mglGraph::Puts(mglPoint p, mglPoint d, const char * text, const char * font = \":L\", double size = -1)\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Puts(mglPoint p, mglPoint d, const char * text, const char * font = \":L\", double size = -1) function, expected prototype:\nvoid mglGraph::Puts(mglPoint p, mglPoint d, const char * text, const char * font = \":L\", double size = -1)\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8660,8 +8342,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Puts(mglPoint, mglPoint, const char *, const char *, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Puts(mglPoint, mglPoint, const char *, const char *, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Puts(p, d, text, font, size);
 
@@ -8681,8 +8362,7 @@ public:
 	// void mglGraph::Text(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * text, const char * font = "", const char * opt = "")
 	static int _bind_Text_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Text_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Text(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * text, const char * font = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Text(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * text, const char * font = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Text(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * text, const char * font = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Text(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * text, const char * font = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8708,8 +8388,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Text(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Text(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Text(x, y, z, text, font, opt);
 
@@ -8719,8 +8398,7 @@ public:
 	// void mglGraph::Text(const mglDataA & x, const mglDataA & y, const char * text, const char * font = "", const char * opt = "")
 	static int _bind_Text_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Text_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Text(const mglDataA & x, const mglDataA & y, const char * text, const char * font = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Text(const mglDataA & x, const mglDataA & y, const char * text, const char * font = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Text(const mglDataA & x, const mglDataA & y, const char * text, const char * font = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Text(const mglDataA & x, const mglDataA & y, const char * text, const char * font = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8741,8 +8419,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Text(const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Text(const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Text(x, y, text, font, opt);
 
@@ -8752,8 +8429,7 @@ public:
 	// void mglGraph::Text(const mglDataA & y, const char * text, const char * font = "", const char * opt = "")
 	static int _bind_Text_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Text_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Text(const mglDataA & y, const char * text, const char * font = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Text(const mglDataA & y, const char * text, const char * font = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Text(const mglDataA & y, const char * text, const char * font = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Text(const mglDataA & y, const char * text, const char * font = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8769,8 +8445,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Text(const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Text(const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Text(y, text, font, opt);
 
@@ -8790,8 +8465,7 @@ public:
 	// void mglGraph::Box(const char * col = "", bool ticks = true)
 	static int _bind_Box(lua_State *L) {
 		if (!_lg_typecheck_Box(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Box(const char * col = \"\", bool ticks = true) function, expected prototype:\nvoid mglGraph::Box(const char * col = \"\", bool ticks = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Box(const char * col = \"\", bool ticks = true) function, expected prototype:\nvoid mglGraph::Box(const char * col = \"\", bool ticks = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8801,8 +8475,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Box(const char *, bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Box(const char *, bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Box(col, ticks);
 
@@ -8812,8 +8485,7 @@ public:
 	// void mglGraph::Axis(const char * dir = "xyzt", const char * stl = "", const char * opt = "")
 	static int _bind_Axis(lua_State *L) {
 		if (!_lg_typecheck_Axis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Axis(const char * dir = \"xyzt\", const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Axis(const char * dir = \"xyzt\", const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Axis(const char * dir = \"xyzt\", const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Axis(const char * dir = \"xyzt\", const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8824,8 +8496,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Axis(const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Axis(const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Axis(dir, stl, opt);
 
@@ -8835,8 +8506,7 @@ public:
 	// void mglGraph::Grid(const char * dir = "xyzt", const char * pen = "B", const char * opt = "")
 	static int _bind_Grid_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Grid_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Grid(const char * dir = \"xyzt\", const char * pen = \"B\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Grid(const char * dir = \"xyzt\", const char * pen = \"B\", const char * opt = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Grid(const char * dir = \"xyzt\", const char * pen = \"B\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Grid(const char * dir = \"xyzt\", const char * pen = \"B\", const char * opt = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8847,8 +8517,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Grid(const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Grid(const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Grid(dir, pen, opt);
 
@@ -8858,8 +8527,7 @@ public:
 	// void mglGraph::Grid(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = "", const char * opt = "")
 	static int _bind_Grid_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Grid_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Grid(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Grid(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Grid(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Grid(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8884,8 +8552,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Grid(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Grid(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Grid(x, y, z, stl, opt);
 
@@ -8895,8 +8562,7 @@ public:
 	// void mglGraph::Grid(const mglDataA & z, const char * stl = "", const char * opt = "")
 	static int _bind_Grid_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Grid_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Grid(const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Grid(const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Grid(const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Grid(const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8911,8 +8577,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Grid(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Grid(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Grid(z, stl, opt);
 
@@ -8932,8 +8597,7 @@ public:
 	// void mglGraph::Label(char dir, const char * text, double pos = +1, const char * opt = "")
 	static int _bind_Label_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Label_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Label(char dir, const char * text, double pos = +1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Label(char dir, const char * text, double pos = +1, const char * opt = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Label(char dir, const char * text, double pos = +1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Label(char dir, const char * text, double pos = +1, const char * opt = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8945,8 +8609,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Label(char, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Label(char, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Label(dir, text, pos, opt);
 
@@ -8956,8 +8619,7 @@ public:
 	// void mglGraph::Label(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * text, const char * fnt = "", const char * opt = "")
 	static int _bind_Label_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Label_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Label(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * text, const char * fnt = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Label(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * text, const char * fnt = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Label(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * text, const char * fnt = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Label(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * text, const char * fnt = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -8983,8 +8645,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Label(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Label(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Label(x, y, z, text, fnt, opt);
 
@@ -8994,8 +8655,7 @@ public:
 	// void mglGraph::Label(const mglDataA & x, const mglDataA & y, const char * text, const char * fnt = "", const char * opt = "")
 	static int _bind_Label_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Label_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Label(const mglDataA & x, const mglDataA & y, const char * text, const char * fnt = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Label(const mglDataA & x, const mglDataA & y, const char * text, const char * fnt = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Label(const mglDataA & x, const mglDataA & y, const char * text, const char * fnt = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Label(const mglDataA & x, const mglDataA & y, const char * text, const char * fnt = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9016,8 +8676,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Label(const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Label(const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Label(x, y, text, fnt, opt);
 
@@ -9027,8 +8686,7 @@ public:
 	// void mglGraph::Label(const mglDataA & y, const char * text, const char * fnt = "", const char * opt = "")
 	static int _bind_Label_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Label_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Label(const mglDataA & y, const char * text, const char * fnt = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Label(const mglDataA & y, const char * text, const char * fnt = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Label(const mglDataA & y, const char * text, const char * fnt = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Label(const mglDataA & y, const char * text, const char * fnt = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9044,8 +8702,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Label(const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Label(const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Label(y, text, fnt, opt);
 
@@ -9066,8 +8723,7 @@ public:
 	// void mglGraph::Colorbar(const char * sch = "")
 	static int _bind_Colorbar_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Colorbar_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Colorbar(const char * sch = \"\") function, expected prototype:\nvoid mglGraph::Colorbar(const char * sch = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Colorbar(const char * sch = \"\") function, expected prototype:\nvoid mglGraph::Colorbar(const char * sch = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9076,8 +8732,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Colorbar(const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Colorbar(const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Colorbar(sch);
 
@@ -9087,8 +8742,7 @@ public:
 	// void mglGraph::Colorbar(const char * sch, double x, double y, double w = 1, double h = 1)
 	static int _bind_Colorbar_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Colorbar_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Colorbar(const char * sch, double x, double y, double w = 1, double h = 1) function, expected prototype:\nvoid mglGraph::Colorbar(const char * sch, double x, double y, double w = 1, double h = 1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Colorbar(const char * sch, double x, double y, double w = 1, double h = 1) function, expected prototype:\nvoid mglGraph::Colorbar(const char * sch, double x, double y, double w = 1, double h = 1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9101,8 +8755,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Colorbar(const char *, double, double, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Colorbar(const char *, double, double, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Colorbar(sch, x, y, w, h);
 
@@ -9112,8 +8765,7 @@ public:
 	// void mglGraph::Colorbar(const mglDataA & val, const char * sch = "")
 	static int _bind_Colorbar_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Colorbar_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Colorbar(const mglDataA & val, const char * sch = \"\") function, expected prototype:\nvoid mglGraph::Colorbar(const mglDataA & val, const char * sch = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Colorbar(const mglDataA & val, const char * sch = \"\") function, expected prototype:\nvoid mglGraph::Colorbar(const mglDataA & val, const char * sch = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9127,8 +8779,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Colorbar(const mglDataA &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Colorbar(const mglDataA &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Colorbar(val, sch);
 
@@ -9138,8 +8789,7 @@ public:
 	// void mglGraph::Colorbar(const mglDataA & val, const char * sch, double x, double y, double w = 1, double h = 1)
 	static int _bind_Colorbar_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Colorbar_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Colorbar(const mglDataA & val, const char * sch, double x, double y, double w = 1, double h = 1) function, expected prototype:\nvoid mglGraph::Colorbar(const mglDataA & val, const char * sch, double x, double y, double w = 1, double h = 1)\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Colorbar(const mglDataA & val, const char * sch, double x, double y, double w = 1, double h = 1) function, expected prototype:\nvoid mglGraph::Colorbar(const mglDataA & val, const char * sch, double x, double y, double w = 1, double h = 1)\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9157,8 +8807,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Colorbar(const mglDataA &, const char *, double, double, double, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Colorbar(const mglDataA &, const char *, double, double, double, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Colorbar(val, sch, x, y, w, h);
 
@@ -9179,8 +8828,7 @@ public:
 	// void mglGraph::AddLegend(const char * text, const char * style)
 	static int _bind_AddLegend(lua_State *L) {
 		if (!_lg_typecheck_AddLegend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::AddLegend(const char * text, const char * style) function, expected prototype:\nvoid mglGraph::AddLegend(const char * text, const char * style)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::AddLegend(const char * text, const char * style) function, expected prototype:\nvoid mglGraph::AddLegend(const char * text, const char * style)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * text=(const char *)lua_tostring(L,2);
@@ -9188,8 +8836,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::AddLegend(const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::AddLegend(const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddLegend(text, style);
 
@@ -9199,15 +8846,13 @@ public:
 	// void mglGraph::ClearLegend()
 	static int _bind_ClearLegend(lua_State *L) {
 		if (!_lg_typecheck_ClearLegend(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ClearLegend() function, expected prototype:\nvoid mglGraph::ClearLegend()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ClearLegend() function, expected prototype:\nvoid mglGraph::ClearLegend()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ClearLegend(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ClearLegend(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ClearLegend();
 
@@ -9217,8 +8862,7 @@ public:
 	// void mglGraph::Legend(double x, double y, const char * font = "#", const char * opt = "")
 	static int _bind_Legend_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Legend_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Legend(double x, double y, const char * font = \"#\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Legend(double x, double y, const char * font = \"#\", const char * opt = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Legend(double x, double y, const char * font = \"#\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Legend(double x, double y, const char * font = \"#\", const char * opt = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9230,8 +8874,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Legend(double, double, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Legend(double, double, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Legend(x, y, font, opt);
 
@@ -9241,8 +8884,7 @@ public:
 	// void mglGraph::Legend(int where = 3, const char * font = "#", const char * opt = "")
 	static int _bind_Legend_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Legend_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Legend(int where = 3, const char * font = \"#\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Legend(int where = 3, const char * font = \"#\", const char * opt = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Legend(int where = 3, const char * font = \"#\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Legend(int where = 3, const char * font = \"#\", const char * opt = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9253,8 +8895,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Legend(int, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Legend(int, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Legend(where, font, opt);
 
@@ -9273,16 +8914,14 @@ public:
 	// void mglGraph::SetLegendMarks(int num)
 	static int _bind_SetLegendMarks(lua_State *L) {
 		if (!_lg_typecheck_SetLegendMarks(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SetLegendMarks(int num) function, expected prototype:\nvoid mglGraph::SetLegendMarks(int num)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SetLegendMarks(int num) function, expected prototype:\nvoid mglGraph::SetLegendMarks(int num)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int num=(int)lua_tointeger(L,2);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SetLegendMarks(int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SetLegendMarks(int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetLegendMarks(num);
 
@@ -9292,8 +8931,7 @@ public:
 	// void mglGraph::Plot(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = "", const char * opt = "")
 	static int _bind_Plot_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Plot_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Plot(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Plot(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Plot(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Plot(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9318,8 +8956,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Plot(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Plot(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Plot(x, y, z, pen, opt);
 
@@ -9329,8 +8966,7 @@ public:
 	// void mglGraph::Plot(const mglDataA & x, const mglDataA & y, const char * pen = "", const char * opt = "")
 	static int _bind_Plot_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Plot_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Plot(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Plot(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Plot(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Plot(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9350,8 +8986,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Plot(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Plot(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Plot(x, y, pen, opt);
 
@@ -9361,8 +8996,7 @@ public:
 	// void mglGraph::Plot(const mglDataA & y, const char * pen = "", const char * opt = "")
 	static int _bind_Plot_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Plot_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Plot(const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Plot(const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Plot(const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Plot(const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9377,8 +9011,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Plot(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Plot(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Plot(y, pen, opt);
 
@@ -9398,8 +9031,7 @@ public:
 	// void mglGraph::Tape(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = "", const char * opt = "")
 	static int _bind_Tape_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Tape_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Tape(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tape(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Tape(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tape(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9424,8 +9056,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Tape(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Tape(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Tape(x, y, z, pen, opt);
 
@@ -9435,8 +9066,7 @@ public:
 	// void mglGraph::Tape(const mglDataA & x, const mglDataA & y, const char * pen = "", const char * opt = "")
 	static int _bind_Tape_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Tape_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Tape(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tape(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Tape(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tape(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9456,8 +9086,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Tape(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Tape(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Tape(x, y, pen, opt);
 
@@ -9467,8 +9096,7 @@ public:
 	// void mglGraph::Tape(const mglDataA & y, const char * pen = "", const char * opt = "")
 	static int _bind_Tape_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Tape_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Tape(const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tape(const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Tape(const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tape(const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9483,8 +9111,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Tape(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Tape(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Tape(y, pen, opt);
 
@@ -9504,8 +9131,7 @@ public:
 	// void mglGraph::Radar(const mglDataA & a, const char * pen = "", const char * opt = "")
 	static int _bind_Radar(lua_State *L) {
 		if (!_lg_typecheck_Radar(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Radar(const mglDataA & a, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Radar(const mglDataA & a, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Radar(const mglDataA & a, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Radar(const mglDataA & a, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9520,8 +9146,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Radar(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Radar(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Radar(a, pen, opt);
 
@@ -9531,8 +9156,7 @@ public:
 	// void mglGraph::Step(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = "", const char * opt = "")
 	static int _bind_Step_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Step_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Step(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Step(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Step(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Step(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9557,8 +9181,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Step(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Step(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Step(x, y, z, pen, opt);
 
@@ -9568,8 +9191,7 @@ public:
 	// void mglGraph::Step(const mglDataA & x, const mglDataA & y, const char * pen = "", const char * opt = "")
 	static int _bind_Step_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Step_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Step(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Step(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Step(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Step(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9589,8 +9211,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Step(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Step(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Step(x, y, pen, opt);
 
@@ -9600,8 +9221,7 @@ public:
 	// void mglGraph::Step(const mglDataA & y, const char * pen = "", const char * opt = "")
 	static int _bind_Step_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Step_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Step(const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Step(const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Step(const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Step(const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9616,8 +9236,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Step(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Step(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Step(y, pen, opt);
 
@@ -9637,8 +9256,7 @@ public:
 	// void mglGraph::Tens(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * pen = "", const char * opt = "")
 	static int _bind_Tens_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Tens_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Tens(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tens(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Tens(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tens(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9668,8 +9286,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Tens(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Tens(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Tens(x, y, z, c, pen, opt);
 
@@ -9679,8 +9296,7 @@ public:
 	// void mglGraph::Tens(const mglDataA & x, const mglDataA & y, const mglDataA & c, const char * pen = "", const char * opt = "")
 	static int _bind_Tens_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Tens_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Tens(const mglDataA & x, const mglDataA & y, const mglDataA & c, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tens(const mglDataA & x, const mglDataA & y, const mglDataA & c, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Tens(const mglDataA & x, const mglDataA & y, const mglDataA & c, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tens(const mglDataA & x, const mglDataA & y, const mglDataA & c, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9705,8 +9321,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Tens(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Tens(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Tens(x, y, c, pen, opt);
 
@@ -9716,8 +9331,7 @@ public:
 	// void mglGraph::Tens(const mglDataA & y, const mglDataA & c, const char * pen = "", const char * opt = "")
 	static int _bind_Tens_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Tens_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Tens(const mglDataA & y, const mglDataA & c, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tens(const mglDataA & y, const mglDataA & c, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Tens(const mglDataA & y, const mglDataA & c, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tens(const mglDataA & y, const mglDataA & c, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9737,8 +9351,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Tens(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Tens(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Tens(y, c, pen, opt);
 
@@ -9758,8 +9371,7 @@ public:
 	// void mglGraph::Area(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = "", const char * opt = "")
 	static int _bind_Area_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Area_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Area(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Area(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Area(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Area(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9784,8 +9396,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Area(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Area(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Area(x, y, z, pen, opt);
 
@@ -9795,8 +9406,7 @@ public:
 	// void mglGraph::Area(const mglDataA & x, const mglDataA & y, const char * pen = "", const char * opt = "")
 	static int _bind_Area_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Area_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Area(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Area(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Area(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Area(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9816,8 +9426,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Area(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Area(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Area(x, y, pen, opt);
 
@@ -9827,8 +9436,7 @@ public:
 	// void mglGraph::Area(const mglDataA & y, const char * pen = "", const char * opt = "")
 	static int _bind_Area_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Area_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Area(const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Area(const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Area(const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Area(const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9843,8 +9451,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Area(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Area(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Area(y, pen, opt);
 
@@ -9864,8 +9471,7 @@ public:
 	// void mglGraph::Region(const mglDataA & y1, const mglDataA & y2, const char * pen = "", const char * opt = "")
 	static int _bind_Region_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Region_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Region(const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Region(const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Region(const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Region(const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9885,8 +9491,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Region(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Region(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Region(y1, y2, pen, opt);
 
@@ -9896,8 +9501,7 @@ public:
 	// void mglGraph::Region(const mglDataA & x, const mglDataA & y1, const mglDataA & y2, const char * pen = "", const char * opt = "")
 	static int _bind_Region_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Region_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Region(const mglDataA & x, const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Region(const mglDataA & x, const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Region(const mglDataA & x, const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Region(const mglDataA & x, const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9922,8 +9526,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Region(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Region(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Region(x, y1, y2, pen, opt);
 
@@ -9942,8 +9545,7 @@ public:
 	// void mglGraph::Stem(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = "", const char * opt = "")
 	static int _bind_Stem_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Stem_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Stem(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Stem(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Stem(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Stem(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -9968,8 +9570,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Stem(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Stem(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Stem(x, y, z, pen, opt);
 
@@ -9979,8 +9580,7 @@ public:
 	// void mglGraph::Stem(const mglDataA & x, const mglDataA & y, const char * pen = "", const char * opt = "")
 	static int _bind_Stem_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Stem_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Stem(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Stem(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Stem(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Stem(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10000,8 +9600,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Stem(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Stem(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Stem(x, y, pen, opt);
 
@@ -10011,8 +9610,7 @@ public:
 	// void mglGraph::Stem(const mglDataA & y, const char * pen = "", const char * opt = "")
 	static int _bind_Stem_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Stem_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Stem(const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Stem(const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Stem(const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Stem(const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10027,8 +9625,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Stem(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Stem(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Stem(y, pen, opt);
 
@@ -10048,8 +9645,7 @@ public:
 	// void mglGraph::Bars(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = "", const char * opt = "")
 	static int _bind_Bars_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Bars_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Bars(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Bars(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Bars(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Bars(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10074,8 +9670,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Bars(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Bars(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Bars(x, y, z, pen, opt);
 
@@ -10085,8 +9680,7 @@ public:
 	// void mglGraph::Bars(const mglDataA & x, const mglDataA & y, const char * pen = "", const char * opt = "")
 	static int _bind_Bars_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Bars_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Bars(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Bars(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Bars(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Bars(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10106,8 +9700,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Bars(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Bars(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Bars(x, y, pen, opt);
 
@@ -10117,8 +9710,7 @@ public:
 	// void mglGraph::Bars(const mglDataA & y, const char * pen = "", const char * opt = "")
 	static int _bind_Bars_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Bars_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Bars(const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Bars(const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Bars(const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Bars(const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10133,8 +9725,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Bars(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Bars(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Bars(y, pen, opt);
 
@@ -10154,8 +9745,7 @@ public:
 	// void mglGraph::Barh(const mglDataA & y, const mglDataA & v, const char * pen = "", const char * opt = "")
 	static int _bind_Barh_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Barh_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Barh(const mglDataA & y, const mglDataA & v, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Barh(const mglDataA & y, const mglDataA & v, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Barh(const mglDataA & y, const mglDataA & v, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Barh(const mglDataA & y, const mglDataA & v, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10175,8 +9765,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Barh(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Barh(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Barh(y, v, pen, opt);
 
@@ -10186,8 +9775,7 @@ public:
 	// void mglGraph::Barh(const mglDataA & v, const char * pen = "", const char * opt = "")
 	static int _bind_Barh_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Barh_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Barh(const mglDataA & v, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Barh(const mglDataA & v, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Barh(const mglDataA & v, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Barh(const mglDataA & v, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10202,8 +9790,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Barh(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Barh(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Barh(v, pen, opt);
 
@@ -10222,8 +9809,7 @@ public:
 	// void mglGraph::Chart(const mglDataA & a, const char * colors = "", const char * opt = "")
 	static int _bind_Chart(lua_State *L) {
 		if (!_lg_typecheck_Chart(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Chart(const mglDataA & a, const char * colors = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Chart(const mglDataA & a, const char * colors = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Chart(const mglDataA & a, const char * colors = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Chart(const mglDataA & a, const char * colors = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10238,8 +9824,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Chart(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Chart(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Chart(a, colors, opt);
 
@@ -10249,8 +9834,7 @@ public:
 	// void mglGraph::BoxPlot(const mglDataA & x, const mglDataA & y, const char * pen = "", const char * opt = "")
 	static int _bind_BoxPlot_overload_1(lua_State *L) {
 		if (!_lg_typecheck_BoxPlot_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::BoxPlot(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::BoxPlot(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::BoxPlot(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::BoxPlot(const mglDataA & x, const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10270,8 +9854,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::BoxPlot(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::BoxPlot(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BoxPlot(x, y, pen, opt);
 
@@ -10281,8 +9864,7 @@ public:
 	// void mglGraph::BoxPlot(const mglDataA & y, const char * pen = "", const char * opt = "")
 	static int _bind_BoxPlot_overload_2(lua_State *L) {
 		if (!_lg_typecheck_BoxPlot_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::BoxPlot(const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::BoxPlot(const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::BoxPlot(const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::BoxPlot(const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10297,8 +9879,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::BoxPlot(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::BoxPlot(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BoxPlot(y, pen, opt);
 
@@ -10317,8 +9898,7 @@ public:
 	// void mglGraph::Candle(const mglDataA & x, const mglDataA & v1, const mglDataA & v2, const mglDataA & y1, const mglDataA & y2, const char * pen = "", const char * opt = "")
 	static int _bind_Candle_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Candle_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Candle(const mglDataA & x, const mglDataA & v1, const mglDataA & v2, const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Candle(const mglDataA & x, const mglDataA & v1, const mglDataA & v2, const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Candle(const mglDataA & x, const mglDataA & v1, const mglDataA & v2, const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Candle(const mglDataA & x, const mglDataA & v1, const mglDataA & v2, const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10353,8 +9933,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Candle(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Candle(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Candle(x, v1, v2, y1, y2, pen, opt);
 
@@ -10364,8 +9943,7 @@ public:
 	// void mglGraph::Candle(const mglDataA & v1, const mglDataA & v2, const mglDataA & y1, const mglDataA & y2, const char * pen = "", const char * opt = "")
 	static int _bind_Candle_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Candle_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Candle(const mglDataA & v1, const mglDataA & v2, const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Candle(const mglDataA & v1, const mglDataA & v2, const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Candle(const mglDataA & v1, const mglDataA & v2, const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Candle(const mglDataA & v1, const mglDataA & v2, const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10395,8 +9973,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Candle(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Candle(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Candle(v1, v2, y1, y2, pen, opt);
 
@@ -10406,8 +9983,7 @@ public:
 	// void mglGraph::Candle(const mglDataA & v1, const mglDataA & v2, const char * pen = "", const char * opt = "")
 	static int _bind_Candle_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Candle_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Candle(const mglDataA & v1, const mglDataA & v2, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Candle(const mglDataA & v1, const mglDataA & v2, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Candle(const mglDataA & v1, const mglDataA & v2, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Candle(const mglDataA & v1, const mglDataA & v2, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10427,8 +10003,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Candle(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Candle(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Candle(v1, v2, pen, opt);
 
@@ -10438,8 +10013,7 @@ public:
 	// void mglGraph::Candle(const mglDataA & y, const mglDataA & y1, const mglDataA & y2, const char * pen = "", const char * opt = "")
 	static int _bind_Candle_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Candle_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Candle(const mglDataA & y, const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Candle(const mglDataA & y, const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Candle(const mglDataA & y, const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Candle(const mglDataA & y, const mglDataA & y1, const mglDataA & y2, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10464,8 +10038,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Candle(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Candle(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Candle(y, y1, y2, pen, opt);
 
@@ -10475,8 +10048,7 @@ public:
 	// void mglGraph::Candle(const mglDataA & y, const char * pen = "", const char * opt = "")
 	static int _bind_Candle_overload_5(lua_State *L) {
 		if (!_lg_typecheck_Candle_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Candle(const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Candle(const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Candle(const mglDataA & y, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Candle(const mglDataA & y, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10491,8 +10063,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Candle(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Candle(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Candle(y, pen, opt);
 
@@ -10514,8 +10085,7 @@ public:
 	// void mglGraph::TextMark(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * text, const char * fnt = "", const char * opt = "")
 	static int _bind_TextMark_overload_1(lua_State *L) {
 		if (!_lg_typecheck_TextMark_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::TextMark(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * text, const char * fnt = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TextMark(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * text, const char * fnt = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::TextMark(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * text, const char * fnt = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TextMark(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * text, const char * fnt = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10546,8 +10116,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::TextMark(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::TextMark(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextMark(x, y, z, r, text, fnt, opt);
 
@@ -10557,8 +10126,7 @@ public:
 	// void mglGraph::TextMark(const mglDataA & x, const mglDataA & y, const mglDataA & r, const char * text, const char * fnt = "", const char * opt = "")
 	static int _bind_TextMark_overload_2(lua_State *L) {
 		if (!_lg_typecheck_TextMark_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::TextMark(const mglDataA & x, const mglDataA & y, const mglDataA & r, const char * text, const char * fnt = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TextMark(const mglDataA & x, const mglDataA & y, const mglDataA & r, const char * text, const char * fnt = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::TextMark(const mglDataA & x, const mglDataA & y, const mglDataA & r, const char * text, const char * fnt = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TextMark(const mglDataA & x, const mglDataA & y, const mglDataA & r, const char * text, const char * fnt = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10584,8 +10152,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::TextMark(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::TextMark(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextMark(x, y, r, text, fnt, opt);
 
@@ -10595,8 +10162,7 @@ public:
 	// void mglGraph::TextMark(const mglDataA & y, const mglDataA & r, const char * text, const char * fnt = "", const char * opt = "")
 	static int _bind_TextMark_overload_3(lua_State *L) {
 		if (!_lg_typecheck_TextMark_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::TextMark(const mglDataA & y, const mglDataA & r, const char * text, const char * fnt = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TextMark(const mglDataA & y, const mglDataA & r, const char * text, const char * fnt = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::TextMark(const mglDataA & y, const mglDataA & r, const char * text, const char * fnt = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TextMark(const mglDataA & y, const mglDataA & r, const char * text, const char * fnt = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10617,8 +10183,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::TextMark(const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::TextMark(const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextMark(y, r, text, fnt, opt);
 
@@ -10628,8 +10193,7 @@ public:
 	// void mglGraph::TextMark(const mglDataA & y, const char * text, const char * fnt = "", const char * opt = "")
 	static int _bind_TextMark_overload_4(lua_State *L) {
 		if (!_lg_typecheck_TextMark_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::TextMark(const mglDataA & y, const char * text, const char * fnt = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TextMark(const mglDataA & y, const char * text, const char * fnt = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::TextMark(const mglDataA & y, const char * text, const char * fnt = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TextMark(const mglDataA & y, const char * text, const char * fnt = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10645,8 +10209,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::TextMark(const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::TextMark(const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextMark(y, text, fnt, opt);
 
@@ -10667,8 +10230,7 @@ public:
 	// void mglGraph::Table(const mglDataA & val, const char * text, const char * fnt = "#|", const char * opt = "")
 	static int _bind_Table_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Table_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Table(const mglDataA & val, const char * text, const char * fnt = \"#|\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Table(const mglDataA & val, const char * text, const char * fnt = \"#|\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Table(const mglDataA & val, const char * text, const char * fnt = \"#|\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Table(const mglDataA & val, const char * text, const char * fnt = \"#|\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10684,8 +10246,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Table(const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Table(const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Table(val, text, fnt, opt);
 
@@ -10695,8 +10256,7 @@ public:
 	// void mglGraph::Table(double x, double y, const mglDataA & val, const char * text, const char * fnt = "#|", const char * opt = "")
 	static int _bind_Table_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Table_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Table(double x, double y, const mglDataA & val, const char * text, const char * fnt = \"#|\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Table(double x, double y, const mglDataA & val, const char * text, const char * fnt = \"#|\", const char * opt = \"\")\nClass arguments details:\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Table(double x, double y, const mglDataA & val, const char * text, const char * fnt = \"#|\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Table(double x, double y, const mglDataA & val, const char * text, const char * fnt = \"#|\", const char * opt = \"\")\nClass arguments details:\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10714,8 +10274,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Table(double, double, const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Table(double, double, const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Table(x, y, val, text, fnt, opt);
 
@@ -10734,8 +10293,7 @@ public:
 	// void mglGraph::Tube(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * pen = "", const char * opt = "")
 	static int _bind_Tube_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Tube_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Tube(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tube(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Tube(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tube(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10765,8 +10323,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Tube(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Tube(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Tube(x, y, z, r, pen, opt);
 
@@ -10776,8 +10333,7 @@ public:
 	// void mglGraph::Tube(const mglDataA & x, const mglDataA & y, const mglDataA & z, double r, const char * pen = "", const char * opt = "")
 	static int _bind_Tube_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Tube_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Tube(const mglDataA & x, const mglDataA & y, const mglDataA & z, double r, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tube(const mglDataA & x, const mglDataA & y, const mglDataA & z, double r, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Tube(const mglDataA & x, const mglDataA & y, const mglDataA & z, double r, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tube(const mglDataA & x, const mglDataA & y, const mglDataA & z, double r, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10803,8 +10359,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Tube(const mglDataA &, const mglDataA &, const mglDataA &, double, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Tube(const mglDataA &, const mglDataA &, const mglDataA &, double, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Tube(x, y, z, r, pen, opt);
 
@@ -10814,8 +10369,7 @@ public:
 	// void mglGraph::Tube(const mglDataA & x, const mglDataA & y, const mglDataA & r, const char * pen = "", const char * opt = "")
 	static int _bind_Tube_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Tube_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Tube(const mglDataA & x, const mglDataA & y, const mglDataA & r, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tube(const mglDataA & x, const mglDataA & y, const mglDataA & r, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Tube(const mglDataA & x, const mglDataA & y, const mglDataA & r, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tube(const mglDataA & x, const mglDataA & y, const mglDataA & r, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10840,8 +10394,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Tube(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Tube(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Tube(x, y, r, pen, opt);
 
@@ -10851,8 +10404,7 @@ public:
 	// void mglGraph::Tube(const mglDataA & x, const mglDataA & y, double r, const char * pen = "", const char * opt = "")
 	static int _bind_Tube_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Tube_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Tube(const mglDataA & x, const mglDataA & y, double r, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tube(const mglDataA & x, const mglDataA & y, double r, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Tube(const mglDataA & x, const mglDataA & y, double r, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tube(const mglDataA & x, const mglDataA & y, double r, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10873,8 +10425,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Tube(const mglDataA &, const mglDataA &, double, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Tube(const mglDataA &, const mglDataA &, double, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Tube(x, y, r, pen, opt);
 
@@ -10884,8 +10435,7 @@ public:
 	// void mglGraph::Tube(const mglDataA & y, const mglDataA & r, const char * pen = "", const char * opt = "")
 	static int _bind_Tube_overload_5(lua_State *L) {
 		if (!_lg_typecheck_Tube_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Tube(const mglDataA & y, const mglDataA & r, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tube(const mglDataA & y, const mglDataA & r, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Tube(const mglDataA & y, const mglDataA & r, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tube(const mglDataA & y, const mglDataA & r, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10905,8 +10455,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Tube(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Tube(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Tube(y, r, pen, opt);
 
@@ -10916,8 +10465,7 @@ public:
 	// void mglGraph::Tube(const mglDataA & y, double r, const char * pen = "", const char * opt = "")
 	static int _bind_Tube_overload_6(lua_State *L) {
 		if (!_lg_typecheck_Tube_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Tube(const mglDataA & y, double r, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tube(const mglDataA & y, double r, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Tube(const mglDataA & y, double r, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tube(const mglDataA & y, double r, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10933,8 +10481,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Tube(const mglDataA &, double, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Tube(const mglDataA &, double, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Tube(y, r, pen, opt);
 
@@ -10957,8 +10504,7 @@ public:
 	// void mglGraph::Torus(const mglDataA & r, const mglDataA & z, const char * pen = "", const char * opt = "")
 	static int _bind_Torus(lua_State *L) {
 		if (!_lg_typecheck_Torus(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Torus(const mglDataA & r, const mglDataA & z, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Torus(const mglDataA & r, const mglDataA & z, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Torus(const mglDataA & r, const mglDataA & z, const char * pen = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Torus(const mglDataA & r, const mglDataA & z, const char * pen = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -10978,8 +10524,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Torus(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Torus(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Torus(r, z, pen, opt);
 
@@ -10989,8 +10534,7 @@ public:
 	// void mglGraph::Mesh(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = "", const char * opt = "")
 	static int _bind_Mesh_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Mesh_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Mesh(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Mesh(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Mesh(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Mesh(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11015,8 +10559,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Mesh(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Mesh(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Mesh(x, y, z, stl, opt);
 
@@ -11026,8 +10569,7 @@ public:
 	// void mglGraph::Mesh(const mglDataA & z, const char * stl = "", const char * opt = "")
 	static int _bind_Mesh_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Mesh_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Mesh(const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Mesh(const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Mesh(const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Mesh(const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11042,8 +10584,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Mesh(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Mesh(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Mesh(z, stl, opt);
 
@@ -11062,8 +10603,7 @@ public:
 	// void mglGraph::Fall(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = "", const char * opt = "")
 	static int _bind_Fall_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Fall_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Fall(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Fall(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Fall(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Fall(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11088,8 +10628,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Fall(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Fall(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Fall(x, y, z, stl, opt);
 
@@ -11099,8 +10638,7 @@ public:
 	// void mglGraph::Fall(const mglDataA & z, const char * stl = "", const char * opt = "")
 	static int _bind_Fall_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Fall_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Fall(const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Fall(const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Fall(const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Fall(const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11115,8 +10653,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Fall(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Fall(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Fall(z, stl, opt);
 
@@ -11135,8 +10672,7 @@ public:
 	// void mglGraph::Belt(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = "", const char * opt = "")
 	static int _bind_Belt_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Belt_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Belt(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Belt(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Belt(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Belt(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11161,8 +10697,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Belt(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Belt(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Belt(x, y, z, stl, opt);
 
@@ -11172,8 +10707,7 @@ public:
 	// void mglGraph::Belt(const mglDataA & z, const char * stl = "", const char * opt = "")
 	static int _bind_Belt_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Belt_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Belt(const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Belt(const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Belt(const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Belt(const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11188,8 +10722,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Belt(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Belt(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Belt(z, stl, opt);
 
@@ -11208,8 +10741,7 @@ public:
 	// void mglGraph::Surf(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = "", const char * opt = "")
 	static int _bind_Surf_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Surf_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Surf(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Surf(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11234,8 +10766,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Surf(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Surf(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Surf(x, y, z, stl, opt);
 
@@ -11245,8 +10776,7 @@ public:
 	// void mglGraph::Surf(const mglDataA & z, const char * stl = "", const char * opt = "")
 	static int _bind_Surf_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Surf_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Surf(const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf(const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Surf(const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf(const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11261,8 +10791,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Surf(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Surf(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Surf(z, stl, opt);
 
@@ -11281,8 +10810,7 @@ public:
 	// void mglGraph::Tile(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = "", const char * opt = "")
 	static int _bind_Tile_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Tile_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Tile(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tile(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Tile(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tile(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11307,8 +10835,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Tile(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Tile(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Tile(x, y, z, stl, opt);
 
@@ -11318,8 +10845,7 @@ public:
 	// void mglGraph::Tile(const mglDataA & z, const char * stl = "", const char * opt = "")
 	static int _bind_Tile_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Tile_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Tile(const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tile(const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Tile(const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Tile(const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11334,8 +10860,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Tile(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Tile(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Tile(z, stl, opt);
 
@@ -11354,8 +10879,7 @@ public:
 	// void mglGraph::Dens(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = "", const char * opt = "")
 	static int _bind_Dens_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Dens_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Dens(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Dens(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Dens(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Dens(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11380,8 +10904,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Dens(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Dens(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Dens(x, y, z, stl, opt);
 
@@ -11391,8 +10914,7 @@ public:
 	// void mglGraph::Dens(const mglDataA & z, const char * stl = "", const char * opt = "")
 	static int _bind_Dens_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Dens_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Dens(const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Dens(const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Dens(const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Dens(const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11407,8 +10929,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Dens(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Dens(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Dens(z, stl, opt);
 
@@ -11427,8 +10948,7 @@ public:
 	// void mglGraph::Boxs(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = "", const char * opt = "")
 	static int _bind_Boxs_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Boxs_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Boxs(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Boxs(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Boxs(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Boxs(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11453,8 +10973,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Boxs(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Boxs(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Boxs(x, y, z, stl, opt);
 
@@ -11464,8 +10983,7 @@ public:
 	// void mglGraph::Boxs(const mglDataA & z, const char * stl = "", const char * opt = "")
 	static int _bind_Boxs_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Boxs_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Boxs(const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Boxs(const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Boxs(const mglDataA & z, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Boxs(const mglDataA & z, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11480,8 +10998,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Boxs(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Boxs(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Boxs(z, stl, opt);
 
@@ -11500,8 +11017,7 @@ public:
 	// void mglGraph::Cont(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_Cont_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Cont_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Cont(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cont(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Cont(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cont(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11531,8 +11047,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Cont(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Cont(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Cont(v, x, y, z, sch, opt);
 
@@ -11542,8 +11057,7 @@ public:
 	// void mglGraph::Cont(const mglDataA & v, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_Cont_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Cont_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Cont(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cont(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Cont(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cont(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11563,8 +11077,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Cont(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Cont(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Cont(v, z, sch, opt);
 
@@ -11574,8 +11087,7 @@ public:
 	// void mglGraph::Cont(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_Cont_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Cont_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Cont(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cont(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Cont(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cont(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11600,8 +11112,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Cont(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Cont(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Cont(x, y, z, sch, opt);
 
@@ -11611,8 +11122,7 @@ public:
 	// void mglGraph::Cont(const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_Cont_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Cont_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Cont(const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cont(const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Cont(const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cont(const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11627,8 +11137,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Cont(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Cont(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Cont(z, sch, opt);
 
@@ -11649,8 +11158,7 @@ public:
 	// void mglGraph::ContF(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_ContF_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ContF_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContF(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContF(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContF(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContF(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11680,8 +11188,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContF(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContF(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContF(v, x, y, z, sch, opt);
 
@@ -11691,8 +11198,7 @@ public:
 	// void mglGraph::ContF(const mglDataA & v, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_ContF_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ContF_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContF(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContF(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContF(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContF(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11712,8 +11218,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContF(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContF(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContF(v, z, sch, opt);
 
@@ -11723,8 +11228,7 @@ public:
 	// void mglGraph::ContF(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_ContF_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ContF_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContF(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContF(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContF(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContF(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11749,8 +11253,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContF(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContF(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContF(x, y, z, sch, opt);
 
@@ -11760,8 +11263,7 @@ public:
 	// void mglGraph::ContF(const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_ContF_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ContF_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContF(const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContF(const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContF(const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContF(const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11776,8 +11278,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContF(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContF(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContF(z, sch, opt);
 
@@ -11798,8 +11299,7 @@ public:
 	// void mglGraph::ContD(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_ContD_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ContD_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContD(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContD(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContD(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContD(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11829,8 +11329,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContD(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContD(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContD(v, x, y, z, sch, opt);
 
@@ -11840,8 +11339,7 @@ public:
 	// void mglGraph::ContD(const mglDataA & v, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_ContD_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ContD_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContD(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContD(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContD(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContD(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11861,8 +11359,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContD(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContD(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContD(v, z, sch, opt);
 
@@ -11872,8 +11369,7 @@ public:
 	// void mglGraph::ContD(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_ContD_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ContD_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContD(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContD(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContD(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContD(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11898,8 +11394,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContD(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContD(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContD(x, y, z, sch, opt);
 
@@ -11909,8 +11404,7 @@ public:
 	// void mglGraph::ContD(const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_ContD_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ContD_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContD(const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContD(const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContD(const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContD(const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11925,8 +11419,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContD(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContD(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContD(z, sch, opt);
 
@@ -11947,8 +11440,7 @@ public:
 	// void mglGraph::ContV(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_ContV_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ContV_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContV(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContV(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContV(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContV(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -11978,8 +11470,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContV(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContV(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContV(v, x, y, z, sch, opt);
 
@@ -11989,8 +11480,7 @@ public:
 	// void mglGraph::ContV(const mglDataA & v, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_ContV_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ContV_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContV(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContV(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContV(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContV(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12010,8 +11500,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContV(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContV(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContV(v, z, sch, opt);
 
@@ -12021,8 +11510,7 @@ public:
 	// void mglGraph::ContV(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_ContV_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ContV_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContV(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContV(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContV(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContV(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12047,8 +11535,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContV(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContV(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContV(x, y, z, sch, opt);
 
@@ -12058,8 +11545,7 @@ public:
 	// void mglGraph::ContV(const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_ContV_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ContV_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContV(const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContV(const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContV(const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContV(const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12074,8 +11560,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContV(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContV(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContV(z, sch, opt);
 
@@ -12096,8 +11581,7 @@ public:
 	// void mglGraph::Axial(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_Axial_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Axial_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Axial(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Axial(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Axial(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Axial(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12127,8 +11611,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Axial(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Axial(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Axial(v, x, y, z, sch, opt);
 
@@ -12138,8 +11621,7 @@ public:
 	// void mglGraph::Axial(const mglDataA & v, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_Axial_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Axial_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Axial(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Axial(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Axial(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Axial(const mglDataA & v, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12159,8 +11641,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Axial(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Axial(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Axial(v, z, sch, opt);
 
@@ -12170,8 +11651,7 @@ public:
 	// void mglGraph::Axial(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_Axial_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Axial_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Axial(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Axial(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Axial(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Axial(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12196,8 +11676,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Axial(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Axial(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Axial(x, y, z, sch, opt);
 
@@ -12207,8 +11686,7 @@ public:
 	// void mglGraph::Axial(const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_Axial_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Axial_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Axial(const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Axial(const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Axial(const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Axial(const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12223,8 +11701,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Axial(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Axial(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Axial(z, sch, opt);
 
@@ -12245,8 +11722,7 @@ public:
 	// void mglGraph::Grid3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = "", double sVal = -1, const char * opt = "")
 	static int _bind_Grid3_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Grid3_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Grid3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Grid3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Grid3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Grid3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12277,8 +11753,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Grid3(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Grid3(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Grid3(x, y, z, a, stl, sVal, opt);
 
@@ -12288,8 +11763,7 @@ public:
 	// void mglGraph::Grid3(const mglDataA & a, const char * stl = "", double sVal = -1, const char * opt = "")
 	static int _bind_Grid3_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Grid3_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Grid3(const mglDataA & a, const char * stl = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Grid3(const mglDataA & a, const char * stl = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Grid3(const mglDataA & a, const char * stl = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Grid3(const mglDataA & a, const char * stl = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12305,8 +11779,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Grid3(const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Grid3(const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Grid3(a, stl, sVal, opt);
 
@@ -12325,8 +11798,7 @@ public:
 	// void mglGraph::Dens3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = "", double sVal = -1, const char * opt = "")
 	static int _bind_Dens3_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Dens3_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Dens3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Dens3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Dens3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Dens3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12357,8 +11829,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Dens3(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Dens3(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Dens3(x, y, z, a, stl, sVal, opt);
 
@@ -12368,8 +11839,7 @@ public:
 	// void mglGraph::Dens3(const mglDataA & a, const char * stl = "", double sVal = -1, const char * opt = "")
 	static int _bind_Dens3_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Dens3_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Dens3(const mglDataA & a, const char * stl = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Dens3(const mglDataA & a, const char * stl = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Dens3(const mglDataA & a, const char * stl = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Dens3(const mglDataA & a, const char * stl = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12385,8 +11855,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Dens3(const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Dens3(const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Dens3(a, stl, sVal, opt);
 
@@ -12405,8 +11874,7 @@ public:
 	// void mglGraph::Surf3(double Val, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = "", const char * opt = "")
 	static int _bind_Surf3_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Surf3_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3(double Val, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3(double Val, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3(double Val, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3(double Val, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12437,8 +11905,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Surf3(double, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Surf3(double, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Surf3(Val, x, y, z, a, stl, opt);
 
@@ -12448,8 +11915,7 @@ public:
 	// void mglGraph::Surf3(double Val, const mglDataA & a, const char * stl = "", const char * opt = "")
 	static int _bind_Surf3_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Surf3_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3(double Val, const mglDataA & a, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3(double Val, const mglDataA & a, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3(double Val, const mglDataA & a, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3(double Val, const mglDataA & a, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12465,8 +11931,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Surf3(double, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Surf3(double, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Surf3(Val, a, stl, opt);
 
@@ -12476,8 +11941,7 @@ public:
 	// void mglGraph::Surf3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = "", const char * opt = "")
 	static int _bind_Surf3_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Surf3_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12507,8 +11971,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Surf3(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Surf3(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Surf3(x, y, z, a, stl, opt);
 
@@ -12518,8 +11981,7 @@ public:
 	// void mglGraph::Surf3(const mglDataA & a, const char * stl = "", const char * opt = "")
 	static int _bind_Surf3_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Surf3_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3(const mglDataA & a, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3(const mglDataA & a, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3(const mglDataA & a, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3(const mglDataA & a, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12534,8 +11996,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Surf3(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Surf3(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Surf3(a, stl, opt);
 
@@ -12556,8 +12017,7 @@ public:
 	// void mglGraph::Cloud(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = "", const char * opt = "")
 	static int _bind_Cloud_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Cloud_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Cloud(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cloud(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Cloud(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cloud(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12587,8 +12047,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Cloud(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Cloud(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Cloud(x, y, z, a, stl, opt);
 
@@ -12598,8 +12057,7 @@ public:
 	// void mglGraph::Cloud(const mglDataA & a, const char * stl = "", const char * opt = "")
 	static int _bind_Cloud_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Cloud_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Cloud(const mglDataA & a, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cloud(const mglDataA & a, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Cloud(const mglDataA & a, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cloud(const mglDataA & a, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12614,8 +12072,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Cloud(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Cloud(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Cloud(a, stl, opt);
 
@@ -12634,8 +12091,7 @@ public:
 	// void mglGraph::Cont3(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = "", double sVal = -1, const char * opt = "")
 	static int _bind_Cont3_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Cont3_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Cont3(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cont3(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Cont3(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cont3(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12671,8 +12127,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Cont3(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Cont3(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Cont3(v, x, y, z, a, sch, sVal, opt);
 
@@ -12682,8 +12137,7 @@ public:
 	// void mglGraph::Cont3(const mglDataA & v, const mglDataA & a, const char * sch = "", double sVal = -1, const char * opt = "")
 	static int _bind_Cont3_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Cont3_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Cont3(const mglDataA & v, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cont3(const mglDataA & v, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Cont3(const mglDataA & v, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cont3(const mglDataA & v, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12704,8 +12158,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Cont3(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Cont3(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Cont3(v, a, sch, sVal, opt);
 
@@ -12715,8 +12168,7 @@ public:
 	// void mglGraph::Cont3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = "", double sVal = -1, const char * opt = "")
 	static int _bind_Cont3_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Cont3_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Cont3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cont3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Cont3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cont3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12747,8 +12199,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Cont3(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Cont3(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Cont3(x, y, z, a, sch, sVal, opt);
 
@@ -12758,8 +12209,7 @@ public:
 	// void mglGraph::Cont3(const mglDataA & a, const char * sch = "", double sVal = -1, const char * opt = "")
 	static int _bind_Cont3_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Cont3_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Cont3(const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cont3(const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Cont3(const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Cont3(const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12775,8 +12225,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Cont3(const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Cont3(const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Cont3(a, sch, sVal, opt);
 
@@ -12797,8 +12246,7 @@ public:
 	// void mglGraph::ContF3(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = "", double sVal = -1, const char * opt = "")
 	static int _bind_ContF3_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ContF3_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContF3(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContF3(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContF3(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContF3(const mglDataA & v, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12834,8 +12282,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContF3(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContF3(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContF3(v, x, y, z, a, sch, sVal, opt);
 
@@ -12845,8 +12292,7 @@ public:
 	// void mglGraph::ContF3(const mglDataA & v, const mglDataA & a, const char * sch = "", double sVal = -1, const char * opt = "")
 	static int _bind_ContF3_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ContF3_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContF3(const mglDataA & v, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContF3(const mglDataA & v, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContF3(const mglDataA & v, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContF3(const mglDataA & v, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12867,8 +12313,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContF3(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContF3(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContF3(v, a, sch, sVal, opt);
 
@@ -12878,8 +12323,7 @@ public:
 	// void mglGraph::ContF3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = "", double sVal = -1, const char * opt = "")
 	static int _bind_ContF3_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ContF3_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContF3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContF3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContF3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContF3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12910,8 +12354,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContF3(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContF3(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContF3(x, y, z, a, sch, sVal, opt);
 
@@ -12921,8 +12364,7 @@ public:
 	// void mglGraph::ContF3(const mglDataA & a, const char * sch = "", double sVal = -1, const char * opt = "")
 	static int _bind_ContF3_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ContF3_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContF3(const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContF3(const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContF3(const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContF3(const mglDataA & a, const char * sch = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12938,8 +12380,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContF3(const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContF3(const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContF3(a, sch, sVal, opt);
 
@@ -12960,8 +12401,7 @@ public:
 	// void mglGraph::Beam(const mglDataA & tr, const mglDataA & g1, const mglDataA & g2, const mglDataA & a, double r, const char * stl = 0, int flag = 0, int num = 3)
 	static int _bind_Beam_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Beam_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Beam(const mglDataA & tr, const mglDataA & g1, const mglDataA & g2, const mglDataA & a, double r, const char * stl = 0, int flag = 0, int num = 3) function, expected prototype:\nvoid mglGraph::Beam(const mglDataA & tr, const mglDataA & g1, const mglDataA & g2, const mglDataA & a, double r, const char * stl = 0, int flag = 0, int num = 3)\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Beam(const mglDataA & tr, const mglDataA & g1, const mglDataA & g2, const mglDataA & a, double r, const char * stl = 0, int flag = 0, int num = 3) function, expected prototype:\nvoid mglGraph::Beam(const mglDataA & tr, const mglDataA & g1, const mglDataA & g2, const mglDataA & a, double r, const char * stl = 0, int flag = 0, int num = 3)\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -12993,8 +12433,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Beam(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, double, const char *, int, int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Beam(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, double, const char *, int, int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Beam(tr, g1, g2, a, r, stl, flag, num);
 
@@ -13004,8 +12443,7 @@ public:
 	// void mglGraph::Beam(double val, const mglDataA & tr, const mglDataA & g1, const mglDataA & g2, const mglDataA & a, double r, const char * stl = NULL, int flag = 0)
 	static int _bind_Beam_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Beam_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Beam(double val, const mglDataA & tr, const mglDataA & g1, const mglDataA & g2, const mglDataA & a, double r, const char * stl = NULL, int flag = 0) function, expected prototype:\nvoid mglGraph::Beam(double val, const mglDataA & tr, const mglDataA & g1, const mglDataA & g2, const mglDataA & a, double r, const char * stl = NULL, int flag = 0)\nClass arguments details:\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Beam(double val, const mglDataA & tr, const mglDataA & g1, const mglDataA & g2, const mglDataA & a, double r, const char * stl = NULL, int flag = 0) function, expected prototype:\nvoid mglGraph::Beam(double val, const mglDataA & tr, const mglDataA & g1, const mglDataA & g2, const mglDataA & a, double r, const char * stl = NULL, int flag = 0)\nClass arguments details:\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13037,8 +12475,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Beam(double, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, double, const char *, int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Beam(double, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, double, const char *, int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Beam(val, tr, g1, g2, a, r, stl, flag);
 
@@ -13057,8 +12494,7 @@ public:
 	// void mglGraph::TileS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * stl = "", const char * opt = "")
 	static int _bind_TileS_overload_1(lua_State *L) {
 		if (!_lg_typecheck_TileS_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::TileS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TileS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::TileS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TileS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & r, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13088,8 +12524,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::TileS(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::TileS(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TileS(x, y, z, r, stl, opt);
 
@@ -13099,8 +12534,7 @@ public:
 	// void mglGraph::TileS(const mglDataA & z, const mglDataA & r, const char * stl = "", const char * opt = "")
 	static int _bind_TileS_overload_2(lua_State *L) {
 		if (!_lg_typecheck_TileS_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::TileS(const mglDataA & z, const mglDataA & r, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TileS(const mglDataA & z, const mglDataA & r, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::TileS(const mglDataA & z, const mglDataA & r, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TileS(const mglDataA & z, const mglDataA & r, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13120,8 +12554,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::TileS(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::TileS(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TileS(z, r, stl, opt);
 
@@ -13140,8 +12573,7 @@ public:
 	// void mglGraph::SurfC(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = "", const char * opt = "")
 	static int _bind_SurfC_overload_1(lua_State *L) {
 		if (!_lg_typecheck_SurfC_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SurfC(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::SurfC(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SurfC(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::SurfC(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13171,8 +12603,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SurfC(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SurfC(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SurfC(x, y, z, c, sch, opt);
 
@@ -13182,8 +12613,7 @@ public:
 	// void mglGraph::SurfC(const mglDataA & z, const mglDataA & c, const char * sch = "", const char * opt = "")
 	static int _bind_SurfC_overload_2(lua_State *L) {
 		if (!_lg_typecheck_SurfC_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SurfC(const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::SurfC(const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SurfC(const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::SurfC(const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13203,8 +12633,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SurfC(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SurfC(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SurfC(z, c, sch, opt);
 
@@ -13223,8 +12652,7 @@ public:
 	// void mglGraph::SurfA(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = "", const char * opt = "")
 	static int _bind_SurfA_overload_1(lua_State *L) {
 		if (!_lg_typecheck_SurfA_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SurfA(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::SurfA(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SurfA(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::SurfA(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13254,8 +12682,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SurfA(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SurfA(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SurfA(x, y, z, c, sch, opt);
 
@@ -13265,8 +12692,7 @@ public:
 	// void mglGraph::SurfA(const mglDataA & z, const mglDataA & c, const char * sch = "", const char * opt = "")
 	static int _bind_SurfA_overload_2(lua_State *L) {
 		if (!_lg_typecheck_SurfA_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::SurfA(const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::SurfA(const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::SurfA(const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::SurfA(const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13286,8 +12712,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::SurfA(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::SurfA(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SurfA(z, c, sch, opt);
 
@@ -13306,8 +12731,7 @@ public:
 	// void mglGraph::Map(const mglDataA & x, const mglDataA & y, const mglDataA & a, const mglDataA & b, const char * sch = "", const char * opt = "")
 	static int _bind_Map_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Map_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Map(const mglDataA & x, const mglDataA & y, const mglDataA & a, const mglDataA & b, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Map(const mglDataA & x, const mglDataA & y, const mglDataA & a, const mglDataA & b, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Map(const mglDataA & x, const mglDataA & y, const mglDataA & a, const mglDataA & b, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Map(const mglDataA & x, const mglDataA & y, const mglDataA & a, const mglDataA & b, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13337,8 +12761,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Map(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Map(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Map(x, y, a, b, sch, opt);
 
@@ -13348,8 +12771,7 @@ public:
 	// void mglGraph::Map(const mglDataA & a, const mglDataA & b, const char * sch = "", const char * opt = "")
 	static int _bind_Map_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Map_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Map(const mglDataA & a, const mglDataA & b, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Map(const mglDataA & a, const mglDataA & b, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Map(const mglDataA & a, const mglDataA & b, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Map(const mglDataA & a, const mglDataA & b, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13369,8 +12791,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Map(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Map(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Map(a, b, sch, opt);
 
@@ -13389,8 +12810,7 @@ public:
 	// void mglGraph::STFA(const mglDataA & x, const mglDataA & y, const mglDataA & re, const mglDataA & im, int dn, const char * sch = "", const char * opt = "")
 	static int _bind_STFA_overload_1(lua_State *L) {
 		if (!_lg_typecheck_STFA_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::STFA(const mglDataA & x, const mglDataA & y, const mglDataA & re, const mglDataA & im, int dn, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::STFA(const mglDataA & x, const mglDataA & y, const mglDataA & re, const mglDataA & im, int dn, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::STFA(const mglDataA & x, const mglDataA & y, const mglDataA & re, const mglDataA & im, int dn, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::STFA(const mglDataA & x, const mglDataA & y, const mglDataA & re, const mglDataA & im, int dn, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13421,8 +12841,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::STFA(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, int, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::STFA(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, int, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->STFA(x, y, re, im, dn, sch, opt);
 
@@ -13432,8 +12851,7 @@ public:
 	// void mglGraph::STFA(const mglDataA & re, const mglDataA & im, int dn, const char * sch = "", const char * opt = "")
 	static int _bind_STFA_overload_2(lua_State *L) {
 		if (!_lg_typecheck_STFA_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::STFA(const mglDataA & re, const mglDataA & im, int dn, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::STFA(const mglDataA & re, const mglDataA & im, int dn, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::STFA(const mglDataA & re, const mglDataA & im, int dn, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::STFA(const mglDataA & re, const mglDataA & im, int dn, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13454,8 +12872,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::STFA(const mglDataA &, const mglDataA &, int, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::STFA(const mglDataA &, const mglDataA &, int, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->STFA(re, im, dn, sch, opt);
 
@@ -13474,8 +12891,7 @@ public:
 	// void mglGraph::Surf3A(double Val, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = "", const char * opt = "")
 	static int _bind_Surf3A_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Surf3A_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3A(double Val, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3A(double Val, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3A(double Val, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3A(double Val, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13511,8 +12927,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Surf3A(double, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Surf3A(double, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Surf3A(Val, x, y, z, a, b, stl, opt);
 
@@ -13522,8 +12937,7 @@ public:
 	// void mglGraph::Surf3A(double Val, const mglDataA & a, const mglDataA & b, const char * stl = "", const char * opt = "")
 	static int _bind_Surf3A_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Surf3A_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3A(double Val, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3A(double Val, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3A(double Val, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3A(double Val, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13544,8 +12958,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Surf3A(double, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Surf3A(double, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Surf3A(Val, a, b, stl, opt);
 
@@ -13555,8 +12968,7 @@ public:
 	// void mglGraph::Surf3A(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = "", const char * opt = "")
 	static int _bind_Surf3A_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Surf3A_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3A(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3A(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3A(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3A(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13591,8 +13003,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Surf3A(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Surf3A(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Surf3A(x, y, z, a, b, stl, opt);
 
@@ -13602,8 +13013,7 @@ public:
 	// void mglGraph::Surf3A(const mglDataA & a, const mglDataA & b, const char * stl = "", const char * opt = "")
 	static int _bind_Surf3A_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Surf3A_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3A(const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3A(const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3A(const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3A(const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13623,8 +13033,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Surf3A(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Surf3A(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Surf3A(a, b, stl, opt);
 
@@ -13645,8 +13054,7 @@ public:
 	// void mglGraph::Surf3C(double Val, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = "", const char * opt = "")
 	static int _bind_Surf3C_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Surf3C_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3C(double Val, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3C(double Val, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3C(double Val, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3C(double Val, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13682,8 +13090,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Surf3C(double, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Surf3C(double, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Surf3C(Val, x, y, z, a, b, stl, opt);
 
@@ -13693,8 +13100,7 @@ public:
 	// void mglGraph::Surf3C(double Val, const mglDataA & a, const mglDataA & b, const char * stl = "", const char * opt = "")
 	static int _bind_Surf3C_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Surf3C_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3C(double Val, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3C(double Val, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3C(double Val, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3C(double Val, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13715,8 +13121,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Surf3C(double, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Surf3C(double, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Surf3C(Val, a, b, stl, opt);
 
@@ -13726,8 +13131,7 @@ public:
 	// void mglGraph::Surf3C(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = "", const char * opt = "")
 	static int _bind_Surf3C_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Surf3C_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3C(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3C(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3C(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3C(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13762,8 +13166,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Surf3C(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Surf3C(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Surf3C(x, y, z, a, b, stl, opt);
 
@@ -13773,8 +13176,7 @@ public:
 	// void mglGraph::Surf3C(const mglDataA & a, const mglDataA & b, const char * stl = "", const char * opt = "")
 	static int _bind_Surf3C_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Surf3C_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3C(const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3C(const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Surf3C(const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Surf3C(const mglDataA & a, const mglDataA & b, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13794,8 +13196,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Surf3C(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Surf3C(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Surf3C(a, b, stl, opt);
 
@@ -13816,8 +13217,7 @@ public:
 	// void mglGraph::Dew(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = "", const char * opt = "")
 	static int _bind_Dew_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Dew_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Dew(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Dew(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Dew(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Dew(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13847,8 +13247,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Dew(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Dew(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Dew(x, y, ax, ay, sch, opt);
 
@@ -13858,8 +13257,7 @@ public:
 	// void mglGraph::Dew(const mglDataA & ax, const mglDataA & ay, const char * sch = "", const char * opt = "")
 	static int _bind_Dew_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Dew_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Dew(const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Dew(const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Dew(const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Dew(const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13879,8 +13277,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Dew(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Dew(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Dew(ax, ay, sch, opt);
 
@@ -13899,8 +13296,7 @@ public:
 	// void mglGraph::Traj(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = "", const char * opt = "")
 	static int _bind_Traj_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Traj_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Traj(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Traj(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Traj(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Traj(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13930,8 +13326,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Traj(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Traj(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Traj(x, y, ax, ay, sch, opt);
 
@@ -13941,8 +13336,7 @@ public:
 	// void mglGraph::Traj(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = "", const char * opt = "")
 	static int _bind_Traj_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Traj_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Traj(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Traj(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Traj(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Traj(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -13982,8 +13376,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Traj(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Traj(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Traj(x, y, z, ax, ay, az, sch, opt);
 
@@ -14002,8 +13395,7 @@ public:
 	// void mglGraph::Vect(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = "", const char * opt = "")
 	static int _bind_Vect_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Vect_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Vect(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Vect(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Vect(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Vect(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14033,8 +13425,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Vect(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Vect(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Vect(x, y, ax, ay, sch, opt);
 
@@ -14044,8 +13435,7 @@ public:
 	// void mglGraph::Vect(const mglDataA & ax, const mglDataA & ay, const char * sch = "", const char * opt = "")
 	static int _bind_Vect_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Vect_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Vect(const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Vect(const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Vect(const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Vect(const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14065,8 +13455,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Vect(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Vect(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Vect(ax, ay, sch, opt);
 
@@ -14076,8 +13465,7 @@ public:
 	// void mglGraph::Vect(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = "", const char * opt = "")
 	static int _bind_Vect_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Vect_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Vect(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Vect(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Vect(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Vect(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14117,8 +13505,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Vect(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Vect(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Vect(x, y, z, ax, ay, az, sch, opt);
 
@@ -14128,8 +13515,7 @@ public:
 	// void mglGraph::Vect(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = "", const char * opt = "")
 	static int _bind_Vect_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Vect_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Vect(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Vect(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Vect(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Vect(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14154,8 +13540,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Vect(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Vect(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Vect(ax, ay, az, sch, opt);
 
@@ -14176,8 +13561,7 @@ public:
 	// void mglGraph::Vect3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * stl = "", double sVal = -1, const char * opt = "")
 	static int _bind_Vect3_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Vect3_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Vect3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * stl = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Vect3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * stl = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Vect3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * stl = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Vect3(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * stl = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14218,8 +13602,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Vect3(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Vect3(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Vect3(x, y, z, ax, ay, az, stl, sVal, opt);
 
@@ -14229,8 +13612,7 @@ public:
 	// void mglGraph::Vect3(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * stl = "", double sVal = -1, const char * opt = "")
 	static int _bind_Vect3_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Vect3_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Vect3(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * stl = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Vect3(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * stl = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Vect3(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * stl = \"\", double sVal = -1, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Vect3(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * stl = \"\", double sVal = -1, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14256,8 +13638,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Vect3(const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Vect3(const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Vect3(ax, ay, az, stl, sVal, opt);
 
@@ -14276,8 +13657,7 @@ public:
 	// void mglGraph::Flow(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = "", const char * opt = "")
 	static int _bind_Flow_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Flow_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Flow(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Flow(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Flow(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Flow(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14307,8 +13687,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Flow(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Flow(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Flow(x, y, ax, ay, sch, opt);
 
@@ -14318,8 +13697,7 @@ public:
 	// void mglGraph::Flow(const mglDataA & ax, const mglDataA & ay, const char * sch = "", const char * opt = "")
 	static int _bind_Flow_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Flow_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Flow(const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Flow(const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Flow(const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Flow(const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14339,8 +13717,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Flow(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Flow(const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Flow(ax, ay, sch, opt);
 
@@ -14350,8 +13727,7 @@ public:
 	// void mglGraph::Flow(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = "", const char * opt = "")
 	static int _bind_Flow_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Flow_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Flow(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Flow(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Flow(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Flow(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14391,8 +13767,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Flow(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Flow(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Flow(x, y, z, ax, ay, az, sch, opt);
 
@@ -14402,8 +13777,7 @@ public:
 	// void mglGraph::Flow(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = "", const char * opt = "")
 	static int _bind_Flow_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Flow_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Flow(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Flow(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Flow(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Flow(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14428,8 +13802,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Flow(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Flow(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Flow(ax, ay, az, sch, opt);
 
@@ -14450,8 +13823,7 @@ public:
 	// void mglGraph::FlowP(mglPoint p, const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = "", const char * opt = "")
 	static int _bind_FlowP_overload_1(lua_State *L) {
 		if (!_lg_typecheck_FlowP_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::FlowP(mglPoint p, const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::FlowP(mglPoint p, const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::FlowP(mglPoint p, const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::FlowP(mglPoint p, const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14486,8 +13858,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::FlowP(mglPoint, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::FlowP(mglPoint, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlowP(p, x, y, ax, ay, sch, opt);
 
@@ -14497,8 +13868,7 @@ public:
 	// void mglGraph::FlowP(mglPoint p, const mglDataA & ax, const mglDataA & ay, const char * sch = "", const char * opt = "")
 	static int _bind_FlowP_overload_2(lua_State *L) {
 		if (!_lg_typecheck_FlowP_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::FlowP(mglPoint p, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::FlowP(mglPoint p, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::FlowP(mglPoint p, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::FlowP(mglPoint p, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14523,8 +13893,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::FlowP(mglPoint, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::FlowP(mglPoint, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlowP(p, ax, ay, sch, opt);
 
@@ -14534,8 +13903,7 @@ public:
 	// void mglGraph::FlowP(mglPoint p, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = "", const char * opt = "")
 	static int _bind_FlowP_overload_3(lua_State *L) {
 		if (!_lg_typecheck_FlowP_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::FlowP(mglPoint p, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::FlowP(mglPoint p, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\narg 7 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::FlowP(mglPoint p, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::FlowP(mglPoint p, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\narg 7 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14580,8 +13948,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::FlowP(mglPoint, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::FlowP(mglPoint, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlowP(p, x, y, z, ax, ay, az, sch, opt);
 
@@ -14591,8 +13958,7 @@ public:
 	// void mglGraph::FlowP(mglPoint p, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = "", const char * opt = "")
 	static int _bind_FlowP_overload_4(lua_State *L) {
 		if (!_lg_typecheck_FlowP_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::FlowP(mglPoint p, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::FlowP(mglPoint p, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::FlowP(mglPoint p, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::FlowP(mglPoint p, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 56902440\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14622,8 +13988,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::FlowP(mglPoint, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::FlowP(mglPoint, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FlowP(p, ax, ay, az, sch, opt);
 
@@ -14644,8 +14009,7 @@ public:
 	// void mglGraph::Grad(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & phi, const char * sch = "", const char * opt = "")
 	static int _bind_Grad_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Grad_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Grad(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & phi, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Grad(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & phi, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Grad(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & phi, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Grad(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & phi, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14675,8 +14039,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Grad(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Grad(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Grad(x, y, z, phi, sch, opt);
 
@@ -14686,8 +14049,7 @@ public:
 	// void mglGraph::Grad(const mglDataA & x, const mglDataA & y, const mglDataA & phi, const char * sch = "", const char * opt = "")
 	static int _bind_Grad_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Grad_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Grad(const mglDataA & x, const mglDataA & y, const mglDataA & phi, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Grad(const mglDataA & x, const mglDataA & y, const mglDataA & phi, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Grad(const mglDataA & x, const mglDataA & y, const mglDataA & phi, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Grad(const mglDataA & x, const mglDataA & y, const mglDataA & phi, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14712,8 +14074,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Grad(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Grad(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Grad(x, y, phi, sch, opt);
 
@@ -14723,8 +14084,7 @@ public:
 	// void mglGraph::Grad(const mglDataA & phi, const char * sch = "", const char * opt = "")
 	static int _bind_Grad_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Grad_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Grad(const mglDataA & phi, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Grad(const mglDataA & phi, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Grad(const mglDataA & phi, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Grad(const mglDataA & phi, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14739,8 +14099,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Grad(const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Grad(const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Grad(phi, sch, opt);
 
@@ -14760,8 +14119,7 @@ public:
 	// void mglGraph::Pipe(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = "", double r0 = 0.05, const char * opt = "")
 	static int _bind_Pipe_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Pipe_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Pipe(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", double r0 = 0.05, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Pipe(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", double r0 = 0.05, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Pipe(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", double r0 = 0.05, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Pipe(const mglDataA & x, const mglDataA & y, const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", double r0 = 0.05, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14792,8 +14150,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Pipe(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Pipe(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Pipe(x, y, ax, ay, sch, r0, opt);
 
@@ -14803,8 +14160,7 @@ public:
 	// void mglGraph::Pipe(const mglDataA & ax, const mglDataA & ay, const char * sch = "", double r0 = 0.05, const char * opt = "")
 	static int _bind_Pipe_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Pipe_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Pipe(const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", double r0 = 0.05, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Pipe(const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", double r0 = 0.05, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Pipe(const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", double r0 = 0.05, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Pipe(const mglDataA & ax, const mglDataA & ay, const char * sch = \"\", double r0 = 0.05, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14825,8 +14181,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Pipe(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Pipe(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Pipe(ax, ay, sch, r0, opt);
 
@@ -14836,8 +14191,7 @@ public:
 	// void mglGraph::Pipe(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = "", double r0 = 0.05, const char * opt = "")
 	static int _bind_Pipe_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Pipe_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Pipe(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", double r0 = 0.05, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Pipe(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", double r0 = 0.05, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Pipe(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", double r0 = 0.05, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Pipe(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", double r0 = 0.05, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14878,8 +14232,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Pipe(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Pipe(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Pipe(x, y, z, ax, ay, az, sch, r0, opt);
 
@@ -14889,8 +14242,7 @@ public:
 	// void mglGraph::Pipe(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = "", double r0 = 0.05, const char * opt = "")
 	static int _bind_Pipe_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Pipe_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Pipe(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", double r0 = 0.05, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Pipe(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", double r0 = 0.05, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Pipe(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", double r0 = 0.05, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Pipe(const mglDataA & ax, const mglDataA & ay, const mglDataA & az, const char * sch = \"\", double r0 = 0.05, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14916,8 +14268,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Pipe(const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Pipe(const mglDataA &, const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Pipe(ax, ay, az, sch, r0, opt);
 
@@ -14938,8 +14289,7 @@ public:
 	// void mglGraph::DensX(const mglDataA & a, const char * stl = "", double sVal = NaN, const char * opt = "")
 	static int _bind_DensX(lua_State *L) {
 		if (!_lg_typecheck_DensX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::DensX(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::DensX(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::DensX(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::DensX(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14955,8 +14305,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::DensX(const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::DensX(const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DensX(a, stl, sVal, opt);
 
@@ -14966,8 +14315,7 @@ public:
 	// void mglGraph::DensY(const mglDataA & a, const char * stl = "", double sVal = NaN, const char * opt = "")
 	static int _bind_DensY(lua_State *L) {
 		if (!_lg_typecheck_DensY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::DensY(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::DensY(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::DensY(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::DensY(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -14983,8 +14331,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::DensY(const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::DensY(const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DensY(a, stl, sVal, opt);
 
@@ -14994,8 +14341,7 @@ public:
 	// void mglGraph::DensZ(const mglDataA & a, const char * stl = "", double sVal = NaN, const char * opt = "")
 	static int _bind_DensZ(lua_State *L) {
 		if (!_lg_typecheck_DensZ(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::DensZ(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::DensZ(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::DensZ(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::DensZ(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15011,8 +14357,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::DensZ(const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::DensZ(const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DensZ(a, stl, sVal, opt);
 
@@ -15022,8 +14367,7 @@ public:
 	// void mglGraph::ContX(const mglDataA & a, const char * stl = "", double sVal = NaN, const char * opt = "")
 	static int _bind_ContX_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ContX_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContX(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContX(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContX(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContX(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15039,8 +14383,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContX(const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContX(const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContX(a, stl, sVal, opt);
 
@@ -15050,8 +14393,7 @@ public:
 	// void mglGraph::ContX(const mglDataA & v, const mglDataA & a, const char * stl = "", double sVal = NaN, const char * opt = "")
 	static int _bind_ContX_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ContX_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContX(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContX(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContX(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContX(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15072,8 +14414,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContX(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContX(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContX(v, a, stl, sVal, opt);
 
@@ -15092,8 +14433,7 @@ public:
 	// void mglGraph::ContY(const mglDataA & a, const char * stl = "", double sVal = NaN, const char * opt = "")
 	static int _bind_ContY_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ContY_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContY(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContY(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContY(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContY(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15109,8 +14449,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContY(const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContY(const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContY(a, stl, sVal, opt);
 
@@ -15120,8 +14459,7 @@ public:
 	// void mglGraph::ContY(const mglDataA & v, const mglDataA & a, const char * stl = "", double sVal = NaN, const char * opt = "")
 	static int _bind_ContY_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ContY_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContY(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContY(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContY(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContY(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15142,8 +14480,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContY(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContY(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContY(v, a, stl, sVal, opt);
 
@@ -15162,8 +14499,7 @@ public:
 	// void mglGraph::ContZ(const mglDataA & a, const char * stl = "", double sVal = NaN, const char * opt = "")
 	static int _bind_ContZ_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ContZ_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContZ(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContZ(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContZ(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContZ(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15179,8 +14515,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContZ(const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContZ(const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContZ(a, stl, sVal, opt);
 
@@ -15190,8 +14525,7 @@ public:
 	// void mglGraph::ContZ(const mglDataA & v, const mglDataA & a, const char * stl = "", double sVal = NaN, const char * opt = "")
 	static int _bind_ContZ_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ContZ_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContZ(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContZ(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContZ(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContZ(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15212,8 +14546,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContZ(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContZ(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContZ(v, a, stl, sVal, opt);
 
@@ -15232,8 +14565,7 @@ public:
 	// void mglGraph::ContFX(const mglDataA & a, const char * stl = "", double sVal = NaN, const char * opt = "")
 	static int _bind_ContFX_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ContFX_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContFX(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContFX(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContFX(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContFX(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15249,8 +14581,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContFX(const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContFX(const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContFX(a, stl, sVal, opt);
 
@@ -15260,8 +14591,7 @@ public:
 	// void mglGraph::ContFX(const mglDataA & v, const mglDataA & a, const char * stl = "", double sVal = NaN, const char * opt = "")
 	static int _bind_ContFX_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ContFX_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContFX(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContFX(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContFX(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContFX(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15282,8 +14612,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContFX(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContFX(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContFX(v, a, stl, sVal, opt);
 
@@ -15302,8 +14631,7 @@ public:
 	// void mglGraph::ContFY(const mglDataA & a, const char * stl = "", double sVal = NaN, const char * opt = "")
 	static int _bind_ContFY_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ContFY_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContFY(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContFY(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContFY(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContFY(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15319,8 +14647,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContFY(const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContFY(const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContFY(a, stl, sVal, opt);
 
@@ -15330,8 +14657,7 @@ public:
 	// void mglGraph::ContFY(const mglDataA & v, const mglDataA & a, const char * stl = "", double sVal = NaN, const char * opt = "")
 	static int _bind_ContFY_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ContFY_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContFY(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContFY(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContFY(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContFY(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15352,8 +14678,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContFY(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContFY(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContFY(v, a, stl, sVal, opt);
 
@@ -15372,8 +14697,7 @@ public:
 	// void mglGraph::ContFZ(const mglDataA & a, const char * stl = "", double sVal = NaN, const char * opt = "")
 	static int _bind_ContFZ_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ContFZ_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContFZ(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContFZ(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContFZ(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContFZ(const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15389,8 +14713,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContFZ(const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContFZ(const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContFZ(a, stl, sVal, opt);
 
@@ -15400,8 +14723,7 @@ public:
 	// void mglGraph::ContFZ(const mglDataA & v, const mglDataA & a, const char * stl = "", double sVal = NaN, const char * opt = "")
 	static int _bind_ContFZ_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ContFZ_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::ContFZ(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContFZ(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::ContFZ(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::ContFZ(const mglDataA & v, const mglDataA & a, const char * stl = \"\", double sVal = NaN, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15422,8 +14744,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::ContFZ(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::ContFZ(const mglDataA &, const mglDataA &, const char *, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ContFZ(v, a, stl, sVal, opt);
 
@@ -15442,8 +14763,7 @@ public:
 	// void mglGraph::FPlot(const char * fy, const char * stl = "", const char * opt = "")
 	static int _bind_FPlot_overload_1(lua_State *L) {
 		if (!_lg_typecheck_FPlot_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::FPlot(const char * fy, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::FPlot(const char * fy, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::FPlot(const char * fy, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::FPlot(const char * fy, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15454,8 +14774,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::FPlot(const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::FPlot(const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FPlot(fy, stl, opt);
 
@@ -15465,8 +14784,7 @@ public:
 	// void mglGraph::FPlot(const char * fx, const char * fy, const char * fz, const char * stl, const char * opt = "")
 	static int _bind_FPlot_overload_2(lua_State *L) {
 		if (!_lg_typecheck_FPlot_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::FPlot(const char * fx, const char * fy, const char * fz, const char * stl, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::FPlot(const char * fx, const char * fy, const char * fz, const char * stl, const char * opt = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::FPlot(const char * fx, const char * fy, const char * fz, const char * stl, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::FPlot(const char * fx, const char * fy, const char * fz, const char * stl, const char * opt = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15479,8 +14797,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::FPlot(const char *, const char *, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::FPlot(const char *, const char *, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FPlot(fx, fy, fz, stl, opt);
 
@@ -15499,8 +14816,7 @@ public:
 	// void mglGraph::FSurf(const char * fz, const char * stl = "", const char * opt = "")
 	static int _bind_FSurf_overload_1(lua_State *L) {
 		if (!_lg_typecheck_FSurf_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::FSurf(const char * fz, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::FSurf(const char * fz, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::FSurf(const char * fz, const char * stl = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::FSurf(const char * fz, const char * stl = \"\", const char * opt = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15511,8 +14827,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::FSurf(const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::FSurf(const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FSurf(fz, stl, opt);
 
@@ -15522,8 +14837,7 @@ public:
 	// void mglGraph::FSurf(const char * fx, const char * fy, const char * fz, const char * stl, const char * opt = "")
 	static int _bind_FSurf_overload_2(lua_State *L) {
 		if (!_lg_typecheck_FSurf_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::FSurf(const char * fx, const char * fy, const char * fz, const char * stl, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::FSurf(const char * fx, const char * fy, const char * fz, const char * stl, const char * opt = \"\")\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::FSurf(const char * fx, const char * fy, const char * fz, const char * stl, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::FSurf(const char * fx, const char * fy, const char * fz, const char * stl, const char * opt = \"\")\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15536,8 +14850,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::FSurf(const char *, const char *, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::FSurf(const char *, const char *, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FSurf(fx, fy, fz, stl, opt);
 
@@ -15556,8 +14869,7 @@ public:
 	// void mglGraph::TriPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = "", const char * opt = "")
 	static int _bind_TriPlot_overload_1(lua_State *L) {
 		if (!_lg_typecheck_TriPlot_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::TriPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TriPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::TriPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TriPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15592,8 +14904,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::TriPlot(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::TriPlot(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TriPlot(nums, x, y, z, c, sch, opt);
 
@@ -15603,8 +14914,7 @@ public:
 	// void mglGraph::TriPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_TriPlot_overload_2(lua_State *L) {
 		if (!_lg_typecheck_TriPlot_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::TriPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TriPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::TriPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TriPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15634,8 +14944,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::TriPlot(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::TriPlot(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TriPlot(nums, x, y, z, sch, opt);
 
@@ -15645,8 +14954,7 @@ public:
 	// void mglGraph::TriPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const char * sch = "", const char * opt = "")
 	static int _bind_TriPlot_overload_3(lua_State *L) {
 		if (!_lg_typecheck_TriPlot_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::TriPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TriPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::TriPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TriPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15671,8 +14979,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::TriPlot(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::TriPlot(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TriPlot(nums, x, y, sch, opt);
 
@@ -15692,8 +14999,7 @@ public:
 	// void mglGraph::QuadPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = "", const char * opt = "")
 	static int _bind_QuadPlot_overload_1(lua_State *L) {
 		if (!_lg_typecheck_QuadPlot_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::QuadPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::QuadPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::QuadPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::QuadPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & c, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15728,8 +15034,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::QuadPlot(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::QuadPlot(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->QuadPlot(nums, x, y, z, c, sch, opt);
 
@@ -15739,8 +15044,7 @@ public:
 	// void mglGraph::QuadPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_QuadPlot_overload_2(lua_State *L) {
 		if (!_lg_typecheck_QuadPlot_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::QuadPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::QuadPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::QuadPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::QuadPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15770,8 +15074,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::QuadPlot(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::QuadPlot(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->QuadPlot(nums, x, y, z, sch, opt);
 
@@ -15781,8 +15084,7 @@ public:
 	// void mglGraph::QuadPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const char * sch = "", const char * opt = "")
 	static int _bind_QuadPlot_overload_3(lua_State *L) {
 		if (!_lg_typecheck_QuadPlot_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::QuadPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::QuadPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::QuadPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::QuadPlot(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15807,8 +15109,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::QuadPlot(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::QuadPlot(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->QuadPlot(nums, x, y, sch, opt);
 
@@ -15828,8 +15129,7 @@ public:
 	// void mglGraph::TriCont(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_TriCont_overload_1(lua_State *L) {
 		if (!_lg_typecheck_TriCont_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::TriCont(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TriCont(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::TriCont(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TriCont(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15859,8 +15159,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::TriCont(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::TriCont(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TriCont(nums, x, y, z, sch, opt);
 
@@ -15870,8 +15169,7 @@ public:
 	// void mglGraph::TriCont(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = "", const char * opt = "")
 	static int _bind_TriCont_overload_2(lua_State *L) {
 		if (!_lg_typecheck_TriCont_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::TriCont(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TriCont(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::TriCont(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TriCont(const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15906,8 +15204,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::TriCont(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::TriCont(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TriCont(nums, x, y, z, a, sch, opt);
 
@@ -15926,8 +15223,7 @@ public:
 	// void mglGraph::TriContV(const mglDataA & v, const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_TriContV_overload_1(lua_State *L) {
 		if (!_lg_typecheck_TriContV_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::TriContV(const mglDataA & v, const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TriContV(const mglDataA & v, const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::TriContV(const mglDataA & v, const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TriContV(const mglDataA & v, const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -15962,8 +15258,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::TriContV(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::TriContV(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TriContV(v, nums, x, y, z, sch, opt);
 
@@ -15973,8 +15268,7 @@ public:
 	// void mglGraph::TriContV(const mglDataA & v, const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = "", const char * opt = "")
 	static int _bind_TriContV_overload_2(lua_State *L) {
 		if (!_lg_typecheck_TriContV_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::TriContV(const mglDataA & v, const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TriContV(const mglDataA & v, const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::TriContV(const mglDataA & v, const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::TriContV(const mglDataA & v, const mglDataA & nums, const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 6 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16014,8 +15308,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::TriContV(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::TriContV(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TriContV(v, nums, x, y, z, a, sch, opt);
 
@@ -16034,8 +15327,7 @@ public:
 	// void mglGraph::Dots(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_Dots_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Dots_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Dots(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Dots(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Dots(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Dots(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16060,8 +15352,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Dots(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Dots(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Dots(x, y, z, sch, opt);
 
@@ -16071,8 +15362,7 @@ public:
 	// void mglGraph::Dots(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = "", const char * opt = "")
 	static int _bind_Dots_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Dots_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Dots(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Dots(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Dots(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Dots(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16102,8 +15392,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Dots(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Dots(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Dots(x, y, z, a, sch, opt);
 
@@ -16122,8 +15411,7 @@ public:
 	// void mglGraph::Crust(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = "", const char * opt = "")
 	static int _bind_Crust(lua_State *L) {
 		if (!_lg_typecheck_Crust(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Crust(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Crust(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Crust(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Crust(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * sch = \"\", const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16148,8 +15436,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Crust(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Crust(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Crust(x, y, z, sch, opt);
 
@@ -16159,8 +15446,7 @@ public:
 	// mglData mglGraph::Fit(const mglDataA & y, const char * eq, const char * var, const char * opt = "")
 	static int _bind_Fit_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Fit_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit(const mglDataA & y, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit(const mglDataA & y, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit(const mglDataA & y, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit(const mglDataA & y, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16176,8 +15462,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit(const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit(const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->Fit(y, eq, var, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16191,8 +15476,7 @@ public:
 	// mglData mglGraph::Fit(const mglDataA & y, const char * eq, const char * var, mglData & ini, const char * opt = "")
 	static int _bind_Fit_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Fit_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit(const mglDataA & y, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit(const mglDataA & y, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit(const mglDataA & y, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit(const mglDataA & y, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16213,8 +15497,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit(const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit(const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->Fit(y, eq, var, ini, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16228,8 +15511,7 @@ public:
 	// mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const char * eq, const char * var, const char * opt = "")
 	static int _bind_Fit_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Fit_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16250,8 +15532,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit(const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit(const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->Fit(x, y, eq, var, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16265,8 +15546,7 @@ public:
 	// mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const char * eq, const char * var, mglData & ini, const char * opt = "")
 	static int _bind_Fit_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Fit_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 5 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 5 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16292,8 +15572,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit(const mglDataA &, const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit(const mglDataA &, const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->Fit(x, y, eq, var, ini, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16307,8 +15586,7 @@ public:
 	// mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * eq, const char * var, const char * opt = "")
 	static int _bind_Fit_overload_5(lua_State *L) {
 		if (!_lg_typecheck_Fit_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16334,8 +15612,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->Fit(x, y, z, eq, var, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16349,8 +15626,7 @@ public:
 	// mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * eq, const char * var, mglData & ini, const char * opt = "")
 	static int _bind_Fit_overload_6(lua_State *L) {
 		if (!_lg_typecheck_Fit_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 6 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 6 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16381,8 +15657,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->Fit(x, y, z, eq, var, ini, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16396,8 +15671,7 @@ public:
 	// mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * eq, const char * var, const char * opt = "")
 	static int _bind_Fit_overload_7(lua_State *L) {
 		if (!_lg_typecheck_Fit_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16428,8 +15702,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->Fit(x, y, z, a, eq, var, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16443,8 +15716,7 @@ public:
 	// mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * eq, const char * var, mglData & ini, const char * opt = "")
 	static int _bind_Fit_overload_8(lua_State *L) {
 		if (!_lg_typecheck_Fit_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 7 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 7 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16480,8 +15752,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->Fit(x, y, z, a, eq, var, ini, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16510,8 +15781,7 @@ public:
 	// mglData mglGraph::Fit2(const mglDataA & z, const char * eq, const char * var, const char * opt = "")
 	static int _bind_Fit2_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Fit2_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit2(const mglDataA & z, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit2(const mglDataA & z, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit2(const mglDataA & z, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit2(const mglDataA & z, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16527,8 +15797,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit2(const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit2(const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->Fit2(z, eq, var, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16542,8 +15811,7 @@ public:
 	// mglData mglGraph::Fit2(const mglDataA & z, const char * eq, const char * var, mglData & ini, const char * opt = "")
 	static int _bind_Fit2_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Fit2_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit2(const mglDataA & z, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit2(const mglDataA & z, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit2(const mglDataA & z, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit2(const mglDataA & z, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16564,8 +15832,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit2(const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit2(const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->Fit2(z, eq, var, ini, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16588,8 +15855,7 @@ public:
 	// mglData mglGraph::Fit3(const mglDataA & a, const char * eq, const char * var, const char * opt = "")
 	static int _bind_Fit3_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Fit3_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit3(const mglDataA & a, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit3(const mglDataA & a, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit3(const mglDataA & a, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit3(const mglDataA & a, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16605,8 +15871,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit3(const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit3(const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->Fit3(a, eq, var, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16620,8 +15885,7 @@ public:
 	// mglData mglGraph::Fit3(const mglDataA & a, const char * eq, const char * var, mglData & ini, const char * opt = "")
 	static int _bind_Fit3_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Fit3_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit3(const mglDataA & a, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit3(const mglDataA & a, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::Fit3(const mglDataA & a, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Fit3(const mglDataA & a, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16642,8 +15906,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit3(const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::Fit3(const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->Fit3(a, eq, var, ini, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16666,8 +15929,7 @@ public:
 	// mglData mglGraph::FitS(const mglDataA & y, const mglDataA & s, const char * eq, const char * var, const char * opt = "")
 	static int _bind_FitS_overload_1(lua_State *L) {
 		if (!_lg_typecheck_FitS_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::FitS(const mglDataA & y, const mglDataA & s, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::FitS(const mglDataA & y, const mglDataA & s, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::FitS(const mglDataA & y, const mglDataA & s, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::FitS(const mglDataA & y, const mglDataA & s, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16688,8 +15950,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::FitS(const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::FitS(const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->FitS(y, s, eq, var, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16703,8 +15964,7 @@ public:
 	// mglData mglGraph::FitS(const mglDataA & y, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = "")
 	static int _bind_FitS_overload_2(lua_State *L) {
 		if (!_lg_typecheck_FitS_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::FitS(const mglDataA & y, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::FitS(const mglDataA & y, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 5 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::FitS(const mglDataA & y, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::FitS(const mglDataA & y, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 5 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16730,8 +15990,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::FitS(const mglDataA &, const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::FitS(const mglDataA &, const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->FitS(y, s, eq, var, ini, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16745,8 +16004,7 @@ public:
 	// mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & s, const char * eq, const char * var, const char * opt = "")
 	static int _bind_FitS_overload_3(lua_State *L) {
 		if (!_lg_typecheck_FitS_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & s, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & s, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & s, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & s, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16772,8 +16030,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::FitS(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::FitS(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->FitS(x, y, s, eq, var, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16787,8 +16044,7 @@ public:
 	// mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = "")
 	static int _bind_FitS_overload_4(lua_State *L) {
 		if (!_lg_typecheck_FitS_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 6 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 6 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16819,8 +16075,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::FitS(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::FitS(const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->FitS(x, y, s, eq, var, ini, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16834,8 +16089,7 @@ public:
 	// mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & s, const char * eq, const char * var, const char * opt = "")
 	static int _bind_FitS_overload_5(lua_State *L) {
 		if (!_lg_typecheck_FitS_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & s, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & s, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & s, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & s, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16866,8 +16120,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::FitS(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::FitS(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->FitS(x, y, z, s, eq, var, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16881,8 +16134,7 @@ public:
 	// mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = "")
 	static int _bind_FitS_overload_6(lua_State *L) {
 		if (!_lg_typecheck_FitS_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 7 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 7 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16918,8 +16170,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::FitS(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::FitS(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->FitS(x, y, z, s, eq, var, ini, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16933,8 +16184,7 @@ public:
 	// mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & s, const char * eq, const char * var, const char * opt = "")
 	static int _bind_FitS_overload_7(lua_State *L) {
 		if (!_lg_typecheck_FitS_overload_7(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & s, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & s, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & s, const char * eq, const char * var, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & s, const char * eq, const char * var, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -16970,8 +16220,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::FitS(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::FitS(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->FitS(x, y, z, a, s, eq, var, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -16985,8 +16234,7 @@ public:
 	// mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = "")
 	static int _bind_FitS_overload_8(lua_State *L) {
 		if (!_lg_typecheck_FitS_overload_8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 8 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::FitS(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const mglDataA & s, const char * eq, const char * var, mglData & ini, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\narg 5 ID = 45413231\narg 8 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -17027,8 +16275,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::FitS(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::FitS(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *, const char *, mglData &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->FitS(x, y, z, a, s, eq, var, ini, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -17057,8 +16304,7 @@ public:
 	// void mglGraph::PutsFit(mglPoint p, const char * prefix = 0, const char * font = "", double size = -1)
 	static int _bind_PutsFit(lua_State *L) {
 		if (!_lg_typecheck_PutsFit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::PutsFit(mglPoint p, const char * prefix = 0, const char * font = \"\", double size = -1) function, expected prototype:\nvoid mglGraph::PutsFit(mglPoint p, const char * prefix = 0, const char * font = \"\", double size = -1)\nClass arguments details:\narg 1 ID = 56902440\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::PutsFit(mglPoint p, const char * prefix = 0, const char * font = \"\", double size = -1) function, expected prototype:\nvoid mglGraph::PutsFit(mglPoint p, const char * prefix = 0, const char * font = \"\", double size = -1)\nClass arguments details:\narg 1 ID = 56902440\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -17074,8 +16320,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::PutsFit(mglPoint, const char *, const char *, double). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::PutsFit(mglPoint, const char *, const char *, double). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PutsFit(p, prefix, font, size);
 
@@ -17085,15 +16330,13 @@ public:
 	// const char * mglGraph::GetFit()
 	static int _bind_GetFit(lua_State *L) {
 		if (!_lg_typecheck_GetFit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * mglGraph::GetFit() function, expected prototype:\nconst char * mglGraph::GetFit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * mglGraph::GetFit() function, expected prototype:\nconst char * mglGraph::GetFit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * mglGraph::GetFit(). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * mglGraph::GetFit(). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->GetFit();
 		lua_pushstring(L,lret);
@@ -17104,8 +16347,7 @@ public:
 	// mglData mglGraph::PDE(const char * ham, const mglDataA & ini_re, const mglDataA & ini_im, double dz = 0.1, double k0 = 100, const char * opt = "")
 	static int _bind_PDE(lua_State *L) {
 		if (!_lg_typecheck_PDE(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::PDE(const char * ham, const mglDataA & ini_re, const mglDataA & ini_im, double dz = 0.1, double k0 = 100, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::PDE(const char * ham, const mglDataA & ini_re, const mglDataA & ini_im, double dz = 0.1, double k0 = 100, const char * opt = \"\")\nClass arguments details:\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::PDE(const char * ham, const mglDataA & ini_re, const mglDataA & ini_im, double dz = 0.1, double k0 = 100, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::PDE(const char * ham, const mglDataA & ini_re, const mglDataA & ini_im, double dz = 0.1, double k0 = 100, const char * opt = \"\")\nClass arguments details:\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -17127,8 +16369,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::PDE(const char *, const mglDataA &, const mglDataA &, double, double, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::PDE(const char *, const mglDataA &, const mglDataA &, double, double, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->PDE(ham, ini_re, ini_im, dz, k0, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -17142,8 +16383,7 @@ public:
 	// void mglGraph::Fill(mglData & u, const char * eq, const char * opt = "")
 	static int _bind_Fill_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Fill_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Fill(mglData & u, const char * eq, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Fill(mglData & u, const char * eq, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Fill(mglData & u, const char * eq, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Fill(mglData & u, const char * eq, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -17158,8 +16398,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Fill(mglData &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Fill(mglData &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Fill(u, eq, opt);
 
@@ -17169,8 +16408,7 @@ public:
 	// void mglGraph::Fill(mglData & u, const char * eq, const mglDataA & v, const char * opt = "")
 	static int _bind_Fill_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Fill_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Fill(mglData & u, const char * eq, const mglDataA & v, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Fill(mglData & u, const char * eq, const mglDataA & v, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Fill(mglData & u, const char * eq, const mglDataA & v, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Fill(mglData & u, const char * eq, const mglDataA & v, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -17190,8 +16428,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Fill(mglData &, const char *, const mglDataA &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Fill(mglData &, const char *, const mglDataA &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Fill(u, eq, v, opt);
 
@@ -17201,8 +16438,7 @@ public:
 	// void mglGraph::Fill(mglData & u, const char * eq, const mglDataA & v, const mglDataA & w, const char * opt = "")
 	static int _bind_Fill_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Fill_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Fill(mglData & u, const char * eq, const mglDataA & v, const mglDataA & w, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Fill(mglData & u, const char * eq, const mglDataA & v, const mglDataA & w, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Fill(mglData & u, const char * eq, const mglDataA & v, const mglDataA & w, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Fill(mglData & u, const char * eq, const mglDataA & v, const mglDataA & w, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -17227,8 +16463,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Fill(mglData &, const char *, const mglDataA &, const mglDataA &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Fill(mglData &, const char *, const mglDataA &, const mglDataA &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Fill(u, eq, v, w, opt);
 
@@ -17238,8 +16473,7 @@ public:
 	// void mglGraph::Fill(mglDataC & u, const char * eq, const char * opt = "")
 	static int _bind_Fill_overload_4(lua_State *L) {
 		if (!_lg_typecheck_Fill_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Fill(mglDataC & u, const char * eq, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Fill(mglDataC & u, const char * eq, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Fill(mglDataC & u, const char * eq, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Fill(mglDataC & u, const char * eq, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -17254,8 +16488,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Fill(mglDataC &, const char *, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Fill(mglDataC &, const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Fill(u, eq, opt);
 
@@ -17265,8 +16498,7 @@ public:
 	// void mglGraph::Fill(mglDataC & u, const char * eq, const mglDataA & v, const char * opt = "")
 	static int _bind_Fill_overload_5(lua_State *L) {
 		if (!_lg_typecheck_Fill_overload_5(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Fill(mglDataC & u, const char * eq, const mglDataA & v, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Fill(mglDataC & u, const char * eq, const mglDataA & v, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Fill(mglDataC & u, const char * eq, const mglDataA & v, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Fill(mglDataC & u, const char * eq, const mglDataA & v, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -17286,8 +16518,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Fill(mglDataC &, const char *, const mglDataA &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Fill(mglDataC &, const char *, const mglDataA &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Fill(u, eq, v, opt);
 
@@ -17297,8 +16528,7 @@ public:
 	// void mglGraph::Fill(mglDataC & u, const char * eq, const mglDataA & v, const mglDataA & w, const char * opt = "")
 	static int _bind_Fill_overload_6(lua_State *L) {
 		if (!_lg_typecheck_Fill_overload_6(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Fill(mglDataC & u, const char * eq, const mglDataA & v, const mglDataA & w, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Fill(mglDataC & u, const char * eq, const mglDataA & v, const mglDataA & w, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Fill(mglDataC & u, const char * eq, const mglDataA & v, const mglDataA & w, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::Fill(mglDataC & u, const char * eq, const mglDataA & v, const mglDataA & w, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -17323,8 +16553,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Fill(mglDataC &, const char *, const mglDataA &, const mglDataA &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Fill(mglDataC &, const char *, const mglDataA &, const mglDataA &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Fill(u, eq, v, w, opt);
 
@@ -17347,8 +16576,7 @@ public:
 	// void mglGraph::DataGrid(mglData & d, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * opt = "")
 	static int _bind_DataGrid(lua_State *L) {
 		if (!_lg_typecheck_DataGrid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::DataGrid(mglData & d, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::DataGrid(mglData & d, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::DataGrid(mglData & d, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * opt = \"\") function, expected prototype:\nvoid mglGraph::DataGrid(mglData & d, const mglDataA & x, const mglDataA & y, const mglDataA & z, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -17377,8 +16605,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::DataGrid(mglData &, const mglDataA &, const mglDataA &, const mglDataA &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::DataGrid(mglData &, const mglDataA &, const mglDataA &, const mglDataA &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DataGrid(d, x, y, z, opt);
 
@@ -17388,8 +16615,7 @@ public:
 	// mglData mglGraph::Hist(const mglDataA & x, const mglDataA & a, const char * opt = "")
 	static int _bind_Hist_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Hist_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::Hist(const mglDataA & x, const mglDataA & a, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Hist(const mglDataA & x, const mglDataA & a, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::Hist(const mglDataA & x, const mglDataA & a, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Hist(const mglDataA & x, const mglDataA & a, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -17408,8 +16634,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::Hist(const mglDataA &, const mglDataA &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::Hist(const mglDataA &, const mglDataA &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->Hist(x, a, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -17423,8 +16648,7 @@ public:
 	// mglData mglGraph::Hist(const mglDataA & x, const mglDataA & y, const mglDataA & a, const char * opt = "")
 	static int _bind_Hist_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Hist_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::Hist(const mglDataA & x, const mglDataA & y, const mglDataA & a, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Hist(const mglDataA & x, const mglDataA & y, const mglDataA & a, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::Hist(const mglDataA & x, const mglDataA & y, const mglDataA & a, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Hist(const mglDataA & x, const mglDataA & y, const mglDataA & a, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -17448,8 +16672,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::Hist(const mglDataA &, const mglDataA &, const mglDataA &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::Hist(const mglDataA &, const mglDataA &, const mglDataA &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->Hist(x, y, a, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -17463,8 +16686,7 @@ public:
 	// mglData mglGraph::Hist(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * opt = "")
 	static int _bind_Hist_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Hist_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglData mglGraph::Hist(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Hist(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n");
+			luaL_error(L, "luna typecheck failed in mglData mglGraph::Hist(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * opt = \"\") function, expected prototype:\nmglData mglGraph::Hist(const mglDataA & x, const mglDataA & y, const mglDataA & z, const mglDataA & a, const char * opt = \"\")\nClass arguments details:\narg 1 ID = 45413231\narg 2 ID = 45413231\narg 3 ID = 45413231\narg 4 ID = 45413231\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -17493,8 +16715,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglData mglGraph::Hist(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglData mglGraph::Hist(const mglDataA &, const mglDataA &, const mglDataA &, const mglDataA &, const char *). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglData stack_lret = self->Hist(x, y, z, a, opt);
 		mglData* lret = new mglData(stack_lret);
@@ -17518,16 +16739,14 @@ public:
 	// void mglGraph::Compression(bool arg1)
 	static int _bind_Compression(lua_State *L) {
 		if (!_lg_typecheck_Compression(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::Compression(bool arg1) function, expected prototype:\nvoid mglGraph::Compression(bool arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::Compression(bool arg1) function, expected prototype:\nvoid mglGraph::Compression(bool arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool _arg1=(bool)(lua_toboolean(L,2)==1);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::Compression(bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::Compression(bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Compression(_arg1);
 
@@ -17537,16 +16756,14 @@ public:
 	// void mglGraph::VertexColor(bool enable)
 	static int _bind_VertexColor(lua_State *L) {
 		if (!_lg_typecheck_VertexColor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::VertexColor(bool enable) function, expected prototype:\nvoid mglGraph::VertexColor(bool enable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::VertexColor(bool enable) function, expected prototype:\nvoid mglGraph::VertexColor(bool enable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enable=(bool)(lua_toboolean(L,2)==1);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::VertexColor(bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::VertexColor(bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->VertexColor(enable);
 
@@ -17556,16 +16773,14 @@ public:
 	// void mglGraph::DoubleSided(bool enable)
 	static int _bind_DoubleSided(lua_State *L) {
 		if (!_lg_typecheck_DoubleSided(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::DoubleSided(bool enable) function, expected prototype:\nvoid mglGraph::DoubleSided(bool enable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::DoubleSided(bool enable) function, expected prototype:\nvoid mglGraph::DoubleSided(bool enable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool enable=(bool)(lua_toboolean(L,2)==1);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::DoubleSided(bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::DoubleSided(bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DoubleSided(enable);
 
@@ -17575,16 +16790,14 @@ public:
 	// void mglGraph::TextureColor(bool arg1)
 	static int _bind_TextureColor(lua_State *L) {
 		if (!_lg_typecheck_TextureColor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::TextureColor(bool arg1) function, expected prototype:\nvoid mglGraph::TextureColor(bool arg1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::TextureColor(bool arg1) function, expected prototype:\nvoid mglGraph::TextureColor(bool arg1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool _arg1=(bool)(lua_toboolean(L,2)==1);
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::TextureColor(bool). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::TextureColor(bool). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->TextureColor(_arg1);
 
@@ -17594,8 +16807,7 @@ public:
 	// osg::Image * mglGraph::asImage(mglGraph * gr)
 	static int _bind_asImage(lua_State *L) {
 		if (!_lg_typecheck_asImage(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Image * mglGraph::asImage(mglGraph * gr) function, expected prototype:\nosg::Image * mglGraph::asImage(mglGraph * gr)\nClass arguments details:\narg 1 ID = 48672486\n");
+			luaL_error(L, "luna typecheck failed in osg::Image * mglGraph::asImage(mglGraph * gr) function, expected prototype:\nosg::Image * mglGraph::asImage(mglGraph * gr)\nClass arguments details:\narg 1 ID = 48672486\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglGraph* gr=(Luna< mglGraph >::check(L,1));
@@ -17611,8 +16823,7 @@ public:
 	// void mglGraph::base_SetFontSizePT(double pt, int dpi = 72)
 	static int _bind_base_SetFontSizePT(lua_State *L) {
 		if (!_lg_typecheck_base_SetFontSizePT(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGraph::base_SetFontSizePT(double pt, int dpi = 72) function, expected prototype:\nvoid mglGraph::base_SetFontSizePT(double pt, int dpi = 72)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGraph::base_SetFontSizePT(double pt, int dpi = 72) function, expected prototype:\nvoid mglGraph::base_SetFontSizePT(double pt, int dpi = 72)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -17622,8 +16833,7 @@ public:
 
 		mglGraph* self=(Luna< mglGraph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGraph::base_SetFontSizePT(double, int). Got : '%s'",typeid(Luna< mglGraph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGraph::base_SetFontSizePT(double, int). Got : '%s'\n%s",typeid(Luna< mglGraph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mglGraph::SetFontSizePT(pt, dpi);
 

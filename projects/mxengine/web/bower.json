@@ -8,6 +8,7 @@
 		"requirejs": null,
 		"requirejs-text": null,
 		"almond": null,
-		"raphael": null
+		"raphael": null,
+		"raphael.export": null
 	}
 }

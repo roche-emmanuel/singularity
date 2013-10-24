@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		GrahamVector3* self= (GrahamVector3*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btVector3 >::check(L,1));
@@ -67,7 +65,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,91544891) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -88,14 +86,14 @@ public:
 	inline static bool _lg_typecheck_setAngle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setOrgIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -107,8 +105,7 @@ public:
 	// GrahamVector3::GrahamVector3(const btVector3 & org, int orgIndex)
 	static GrahamVector3* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in GrahamVector3::GrahamVector3(const btVector3 & org, int orgIndex) function, expected prototype:\nGrahamVector3::GrahamVector3(const btVector3 & org, int orgIndex)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in GrahamVector3::GrahamVector3(const btVector3 & org, int orgIndex) function, expected prototype:\nGrahamVector3::GrahamVector3(const btVector3 & org, int orgIndex)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* org_ptr=(Luna< btVector3 >::check(L,1));
@@ -126,15 +123,13 @@ public:
 	// float GrahamVector3::m_angle()
 	static int _bind_getAngle(lua_State *L) {
 		if (!_lg_typecheck_getAngle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float GrahamVector3::m_angle() function, expected prototype:\nfloat GrahamVector3::m_angle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float GrahamVector3::m_angle() function, expected prototype:\nfloat GrahamVector3::m_angle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GrahamVector3* self=Luna< btVector3 >::checkSubType< GrahamVector3 >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float GrahamVector3::m_angle(). Got : '%s'",typeid(Luna< btVector3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float GrahamVector3::m_angle(). Got : '%s'\n%s",typeid(Luna< btVector3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_angle;
 		lua_pushnumber(L,lret);
@@ -145,15 +140,13 @@ public:
 	// int GrahamVector3::m_orgIndex()
 	static int _bind_getOrgIndex(lua_State *L) {
 		if (!_lg_typecheck_getOrgIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int GrahamVector3::m_orgIndex() function, expected prototype:\nint GrahamVector3::m_orgIndex()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int GrahamVector3::m_orgIndex() function, expected prototype:\nint GrahamVector3::m_orgIndex()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GrahamVector3* self=Luna< btVector3 >::checkSubType< GrahamVector3 >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int GrahamVector3::m_orgIndex(). Got : '%s'",typeid(Luna< btVector3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int GrahamVector3::m_orgIndex(). Got : '%s'\n%s",typeid(Luna< btVector3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_orgIndex;
 		lua_pushnumber(L,lret);
@@ -164,16 +157,14 @@ public:
 	// void GrahamVector3::m_angle(float value)
 	static int _bind_setAngle(lua_State *L) {
 		if (!_lg_typecheck_setAngle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GrahamVector3::m_angle(float value) function, expected prototype:\nvoid GrahamVector3::m_angle(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GrahamVector3::m_angle(float value) function, expected prototype:\nvoid GrahamVector3::m_angle(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		GrahamVector3* self=Luna< btVector3 >::checkSubType< GrahamVector3 >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GrahamVector3::m_angle(float). Got : '%s'",typeid(Luna< btVector3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GrahamVector3::m_angle(float). Got : '%s'\n%s",typeid(Luna< btVector3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_angle = value;
 
@@ -183,16 +174,14 @@ public:
 	// void GrahamVector3::m_orgIndex(int value)
 	static int _bind_setOrgIndex(lua_State *L) {
 		if (!_lg_typecheck_setOrgIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GrahamVector3::m_orgIndex(int value) function, expected prototype:\nvoid GrahamVector3::m_orgIndex(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GrahamVector3::m_orgIndex(int value) function, expected prototype:\nvoid GrahamVector3::m_orgIndex(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		GrahamVector3* self=Luna< btVector3 >::checkSubType< GrahamVector3 >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GrahamVector3::m_orgIndex(int). Got : '%s'",typeid(Luna< btVector3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GrahamVector3::m_orgIndex(int). Got : '%s'\n%s",typeid(Luna< btVector3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_orgIndex = value;
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglFormula*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglFormula*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglFormula* rhs =(Luna< mglFormula >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglFormula* self= (mglFormula*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< mglFormula >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -103,7 +99,7 @@ public:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -113,22 +109,22 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_Calc_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=7 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -136,24 +132,24 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>6 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_CalcD_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=8 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
-		if( lua_isnumber(L,8)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,8)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -165,8 +161,7 @@ public:
 	// mglFormula::mglFormula(const char * str)
 	static mglFormula* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglFormula::mglFormula(const char * str) function, expected prototype:\nmglFormula::mglFormula(const char * str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglFormula::mglFormula(const char * str) function, expected prototype:\nmglFormula::mglFormula(const char * str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,1);
@@ -179,8 +174,7 @@ public:
 	// double mglFormula::Calc(double x, double y = 0, double z = 0, double u = 0) const
 	static int _bind_Calc_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Calc_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double mglFormula::Calc(double x, double y = 0, double z = 0, double u = 0) const function, expected prototype:\ndouble mglFormula::Calc(double x, double y = 0, double z = 0, double u = 0) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double mglFormula::Calc(double x, double y = 0, double z = 0, double u = 0) const function, expected prototype:\ndouble mglFormula::Calc(double x, double y = 0, double z = 0, double u = 0) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -192,8 +186,7 @@ public:
 
 		mglFormula* self=(Luna< mglFormula >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double mglFormula::Calc(double, double, double, double) const. Got : '%s'",typeid(Luna< mglFormula >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double mglFormula::Calc(double, double, double, double) const. Got : '%s'\n%s",typeid(Luna< mglFormula >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->Calc(x, y, z, u);
 		lua_pushnumber(L,lret);
@@ -204,8 +197,7 @@ public:
 	// double mglFormula::Calc(double x, double y, double z, double u, double v, double w) const
 	static int _bind_Calc_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Calc_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double mglFormula::Calc(double x, double y, double z, double u, double v, double w) const function, expected prototype:\ndouble mglFormula::Calc(double x, double y, double z, double u, double v, double w) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double mglFormula::Calc(double x, double y, double z, double u, double v, double w) const function, expected prototype:\ndouble mglFormula::Calc(double x, double y, double z, double u, double v, double w) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double x=(double)lua_tonumber(L,2);
@@ -217,8 +209,7 @@ public:
 
 		mglFormula* self=(Luna< mglFormula >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double mglFormula::Calc(double, double, double, double, double, double) const. Got : '%s'",typeid(Luna< mglFormula >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double mglFormula::Calc(double, double, double, double, double, double) const. Got : '%s'\n%s",typeid(Luna< mglFormula >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->Calc(x, y, z, u, v, w);
 		lua_pushnumber(L,lret);
@@ -238,8 +229,7 @@ public:
 	// double mglFormula::CalcD(char diff, double x, double y = 0, double z = 0, double u = 0) const
 	static int _bind_CalcD_overload_1(lua_State *L) {
 		if (!_lg_typecheck_CalcD_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double mglFormula::CalcD(char diff, double x, double y = 0, double z = 0, double u = 0) const function, expected prototype:\ndouble mglFormula::CalcD(char diff, double x, double y = 0, double z = 0, double u = 0) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double mglFormula::CalcD(char diff, double x, double y = 0, double z = 0, double u = 0) const function, expected prototype:\ndouble mglFormula::CalcD(char diff, double x, double y = 0, double z = 0, double u = 0) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -252,8 +242,7 @@ public:
 
 		mglFormula* self=(Luna< mglFormula >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double mglFormula::CalcD(char, double, double, double, double) const. Got : '%s'",typeid(Luna< mglFormula >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double mglFormula::CalcD(char, double, double, double, double) const. Got : '%s'\n%s",typeid(Luna< mglFormula >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->CalcD(diff, x, y, z, u);
 		lua_pushnumber(L,lret);
@@ -264,8 +253,7 @@ public:
 	// double mglFormula::CalcD(char diff, double x, double y, double z, double u, double v, double w) const
 	static int _bind_CalcD_overload_2(lua_State *L) {
 		if (!_lg_typecheck_CalcD_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double mglFormula::CalcD(char diff, double x, double y, double z, double u, double v, double w) const function, expected prototype:\ndouble mglFormula::CalcD(char diff, double x, double y, double z, double u, double v, double w) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double mglFormula::CalcD(char diff, double x, double y, double z, double u, double v, double w) const function, expected prototype:\ndouble mglFormula::CalcD(char diff, double x, double y, double z, double u, double v, double w) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		char diff=(char)lua_tointeger(L,2);
@@ -278,8 +266,7 @@ public:
 
 		mglFormula* self=(Luna< mglFormula >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double mglFormula::CalcD(char, double, double, double, double, double, double) const. Got : '%s'",typeid(Luna< mglFormula >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double mglFormula::CalcD(char, double, double, double, double, double, double) const. Got : '%s'\n%s",typeid(Luna< mglFormula >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->CalcD(diff, x, y, z, u, v, w);
 		lua_pushnumber(L,lret);

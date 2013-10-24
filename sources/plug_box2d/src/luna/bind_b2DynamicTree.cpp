@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2DynamicTree*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2DynamicTree*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2DynamicTree* rhs =(Luna< b2DynamicTree >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2DynamicTree* self= (b2DynamicTree*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2DynamicTree >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -119,14 +115,14 @@ public:
 	inline static bool _lg_typecheck_DestroyProxy(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_MoveProxy(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,53833672) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,54494886) ) return false;
 		return true;
@@ -135,14 +131,14 @@ public:
 	inline static bool _lg_typecheck_GetUserData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_GetFatAABB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -184,8 +180,7 @@ public:
 	// b2DynamicTree::b2DynamicTree()
 	static b2DynamicTree* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2DynamicTree::b2DynamicTree() function, expected prototype:\nb2DynamicTree::b2DynamicTree()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2DynamicTree::b2DynamicTree() function, expected prototype:\nb2DynamicTree::b2DynamicTree()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -197,8 +192,7 @@ public:
 	// signed int b2DynamicTree::CreateProxy(const b2AABB & aabb, void * userData)
 	static int _bind_CreateProxy(lua_State *L) {
 		if (!_lg_typecheck_CreateProxy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2DynamicTree::CreateProxy(const b2AABB & aabb, void * userData) function, expected prototype:\nsigned int b2DynamicTree::CreateProxy(const b2AABB & aabb, void * userData)\nClass arguments details:\narg 1 ID = 53833672\n");
+			luaL_error(L, "luna typecheck failed in signed int b2DynamicTree::CreateProxy(const b2AABB & aabb, void * userData) function, expected prototype:\nsigned int b2DynamicTree::CreateProxy(const b2AABB & aabb, void * userData)\nClass arguments details:\narg 1 ID = 53833672\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2AABB* aabb_ptr=(Luna< b2AABB >::check(L,2));
@@ -210,8 +204,7 @@ public:
 
 		b2DynamicTree* self=(Luna< b2DynamicTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2DynamicTree::CreateProxy(const b2AABB &, void *). Got : '%s'",typeid(Luna< b2DynamicTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2DynamicTree::CreateProxy(const b2AABB &, void *). Got : '%s'\n%s",typeid(Luna< b2DynamicTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->CreateProxy(aabb, userData);
 		lua_pushnumber(L,lret);
@@ -222,16 +215,14 @@ public:
 	// void b2DynamicTree::DestroyProxy(signed int proxyId)
 	static int _bind_DestroyProxy(lua_State *L) {
 		if (!_lg_typecheck_DestroyProxy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2DynamicTree::DestroyProxy(signed int proxyId) function, expected prototype:\nvoid b2DynamicTree::DestroyProxy(signed int proxyId)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2DynamicTree::DestroyProxy(signed int proxyId) function, expected prototype:\nvoid b2DynamicTree::DestroyProxy(signed int proxyId)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int proxyId=(signed int)lua_tointeger(L,2);
 
 		b2DynamicTree* self=(Luna< b2DynamicTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2DynamicTree::DestroyProxy(signed int). Got : '%s'",typeid(Luna< b2DynamicTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2DynamicTree::DestroyProxy(signed int). Got : '%s'\n%s",typeid(Luna< b2DynamicTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->DestroyProxy(proxyId);
 
@@ -241,8 +232,7 @@ public:
 	// bool b2DynamicTree::MoveProxy(signed int proxyId, const b2AABB & aabb1, const b2Vec2 & displacement)
 	static int _bind_MoveProxy(lua_State *L) {
 		if (!_lg_typecheck_MoveProxy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2DynamicTree::MoveProxy(signed int proxyId, const b2AABB & aabb1, const b2Vec2 & displacement) function, expected prototype:\nbool b2DynamicTree::MoveProxy(signed int proxyId, const b2AABB & aabb1, const b2Vec2 & displacement)\nClass arguments details:\narg 2 ID = 53833672\narg 3 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in bool b2DynamicTree::MoveProxy(signed int proxyId, const b2AABB & aabb1, const b2Vec2 & displacement) function, expected prototype:\nbool b2DynamicTree::MoveProxy(signed int proxyId, const b2AABB & aabb1, const b2Vec2 & displacement)\nClass arguments details:\narg 2 ID = 53833672\narg 3 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int proxyId=(signed int)lua_tointeger(L,2);
@@ -259,8 +249,7 @@ public:
 
 		b2DynamicTree* self=(Luna< b2DynamicTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2DynamicTree::MoveProxy(signed int, const b2AABB &, const b2Vec2 &). Got : '%s'",typeid(Luna< b2DynamicTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2DynamicTree::MoveProxy(signed int, const b2AABB &, const b2Vec2 &). Got : '%s'\n%s",typeid(Luna< b2DynamicTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->MoveProxy(proxyId, aabb1, displacement);
 		lua_pushboolean(L,lret?1:0);
@@ -271,16 +260,14 @@ public:
 	// void * b2DynamicTree::GetUserData(signed int proxyId) const
 	static int _bind_GetUserData(lua_State *L) {
 		if (!_lg_typecheck_GetUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * b2DynamicTree::GetUserData(signed int proxyId) const function, expected prototype:\nvoid * b2DynamicTree::GetUserData(signed int proxyId) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * b2DynamicTree::GetUserData(signed int proxyId) const function, expected prototype:\nvoid * b2DynamicTree::GetUserData(signed int proxyId) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int proxyId=(signed int)lua_tointeger(L,2);
 
 		b2DynamicTree* self=(Luna< b2DynamicTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * b2DynamicTree::GetUserData(signed int) const. Got : '%s'",typeid(Luna< b2DynamicTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * b2DynamicTree::GetUserData(signed int) const. Got : '%s'\n%s",typeid(Luna< b2DynamicTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->GetUserData(proxyId);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -293,16 +280,14 @@ public:
 	// const b2AABB & b2DynamicTree::GetFatAABB(signed int proxyId) const
 	static int _bind_GetFatAABB(lua_State *L) {
 		if (!_lg_typecheck_GetFatAABB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2AABB & b2DynamicTree::GetFatAABB(signed int proxyId) const function, expected prototype:\nconst b2AABB & b2DynamicTree::GetFatAABB(signed int proxyId) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2AABB & b2DynamicTree::GetFatAABB(signed int proxyId) const function, expected prototype:\nconst b2AABB & b2DynamicTree::GetFatAABB(signed int proxyId) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int proxyId=(signed int)lua_tointeger(L,2);
 
 		b2DynamicTree* self=(Luna< b2DynamicTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2AABB & b2DynamicTree::GetFatAABB(signed int) const. Got : '%s'",typeid(Luna< b2DynamicTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2AABB & b2DynamicTree::GetFatAABB(signed int) const. Got : '%s'\n%s",typeid(Luna< b2DynamicTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2AABB* lret = &self->GetFatAABB(proxyId);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -315,15 +300,13 @@ public:
 	// void b2DynamicTree::Validate() const
 	static int _bind_Validate(lua_State *L) {
 		if (!_lg_typecheck_Validate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2DynamicTree::Validate() const function, expected prototype:\nvoid b2DynamicTree::Validate() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2DynamicTree::Validate() const function, expected prototype:\nvoid b2DynamicTree::Validate() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2DynamicTree* self=(Luna< b2DynamicTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2DynamicTree::Validate() const. Got : '%s'",typeid(Luna< b2DynamicTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2DynamicTree::Validate() const. Got : '%s'\n%s",typeid(Luna< b2DynamicTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Validate();
 
@@ -333,15 +316,13 @@ public:
 	// signed int b2DynamicTree::GetHeight() const
 	static int _bind_GetHeight(lua_State *L) {
 		if (!_lg_typecheck_GetHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2DynamicTree::GetHeight() const function, expected prototype:\nsigned int b2DynamicTree::GetHeight() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2DynamicTree::GetHeight() const function, expected prototype:\nsigned int b2DynamicTree::GetHeight() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2DynamicTree* self=(Luna< b2DynamicTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2DynamicTree::GetHeight() const. Got : '%s'",typeid(Luna< b2DynamicTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2DynamicTree::GetHeight() const. Got : '%s'\n%s",typeid(Luna< b2DynamicTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->GetHeight();
 		lua_pushnumber(L,lret);
@@ -352,15 +333,13 @@ public:
 	// signed int b2DynamicTree::GetMaxBalance() const
 	static int _bind_GetMaxBalance(lua_State *L) {
 		if (!_lg_typecheck_GetMaxBalance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2DynamicTree::GetMaxBalance() const function, expected prototype:\nsigned int b2DynamicTree::GetMaxBalance() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2DynamicTree::GetMaxBalance() const function, expected prototype:\nsigned int b2DynamicTree::GetMaxBalance() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2DynamicTree* self=(Luna< b2DynamicTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2DynamicTree::GetMaxBalance() const. Got : '%s'",typeid(Luna< b2DynamicTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2DynamicTree::GetMaxBalance() const. Got : '%s'\n%s",typeid(Luna< b2DynamicTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->GetMaxBalance();
 		lua_pushnumber(L,lret);
@@ -371,15 +350,13 @@ public:
 	// float b2DynamicTree::GetAreaRatio() const
 	static int _bind_GetAreaRatio(lua_State *L) {
 		if (!_lg_typecheck_GetAreaRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2DynamicTree::GetAreaRatio() const function, expected prototype:\nfloat b2DynamicTree::GetAreaRatio() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2DynamicTree::GetAreaRatio() const function, expected prototype:\nfloat b2DynamicTree::GetAreaRatio() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2DynamicTree* self=(Luna< b2DynamicTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2DynamicTree::GetAreaRatio() const. Got : '%s'",typeid(Luna< b2DynamicTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2DynamicTree::GetAreaRatio() const. Got : '%s'\n%s",typeid(Luna< b2DynamicTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetAreaRatio();
 		lua_pushnumber(L,lret);
@@ -390,15 +367,13 @@ public:
 	// void b2DynamicTree::RebuildBottomUp()
 	static int _bind_RebuildBottomUp(lua_State *L) {
 		if (!_lg_typecheck_RebuildBottomUp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2DynamicTree::RebuildBottomUp() function, expected prototype:\nvoid b2DynamicTree::RebuildBottomUp()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2DynamicTree::RebuildBottomUp() function, expected prototype:\nvoid b2DynamicTree::RebuildBottomUp()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2DynamicTree* self=(Luna< b2DynamicTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2DynamicTree::RebuildBottomUp(). Got : '%s'",typeid(Luna< b2DynamicTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2DynamicTree::RebuildBottomUp(). Got : '%s'\n%s",typeid(Luna< b2DynamicTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->RebuildBottomUp();
 

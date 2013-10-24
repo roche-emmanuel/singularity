@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(HullResult*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(HullResult*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		HullResult* rhs =(Luna< HullResult >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		HullResult* self= (HullResult*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< HullResult >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -154,7 +150,7 @@ public:
 	inline static bool _lg_typecheck_setNumOutputVertices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -168,14 +164,14 @@ public:
 	inline static bool _lg_typecheck_setNumFaces(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setNumIndices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -194,8 +190,7 @@ public:
 	// HullResult::HullResult()
 	static HullResult* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in HullResult::HullResult() function, expected prototype:\nHullResult::HullResult()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in HullResult::HullResult() function, expected prototype:\nHullResult::HullResult()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -207,15 +202,13 @@ public:
 	// bool HullResult::mPolygons()
 	static int _bind_getPolygons(lua_State *L) {
 		if (!_lg_typecheck_getPolygons(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool HullResult::mPolygons() function, expected prototype:\nbool HullResult::mPolygons()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool HullResult::mPolygons() function, expected prototype:\nbool HullResult::mPolygons()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		HullResult* self=(Luna< HullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool HullResult::mPolygons(). Got : '%s'",typeid(Luna< HullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool HullResult::mPolygons(). Got : '%s'\n%s",typeid(Luna< HullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->mPolygons;
 		lua_pushboolean(L,lret?1:0);
@@ -226,15 +219,13 @@ public:
 	// unsigned int HullResult::mNumOutputVertices()
 	static int _bind_getNumOutputVertices(lua_State *L) {
 		if (!_lg_typecheck_getNumOutputVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int HullResult::mNumOutputVertices() function, expected prototype:\nunsigned int HullResult::mNumOutputVertices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int HullResult::mNumOutputVertices() function, expected prototype:\nunsigned int HullResult::mNumOutputVertices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		HullResult* self=(Luna< HullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int HullResult::mNumOutputVertices(). Got : '%s'",typeid(Luna< HullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int HullResult::mNumOutputVertices(). Got : '%s'\n%s",typeid(Luna< HullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->mNumOutputVertices;
 		lua_pushnumber(L,lret);
@@ -245,15 +236,13 @@ public:
 	// btAlignedObjectArray< btVector3 > HullResult::m_OutputVertices()
 	static int _bind_getOutputVertices(lua_State *L) {
 		if (!_lg_typecheck_getOutputVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btVector3 > HullResult::m_OutputVertices() function, expected prototype:\nbtAlignedObjectArray< btVector3 > HullResult::m_OutputVertices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btVector3 > HullResult::m_OutputVertices() function, expected prototype:\nbtAlignedObjectArray< btVector3 > HullResult::m_OutputVertices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		HullResult* self=(Luna< HullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btVector3 > HullResult::m_OutputVertices(). Got : '%s'",typeid(Luna< HullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btVector3 > HullResult::m_OutputVertices(). Got : '%s'\n%s",typeid(Luna< HullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< btVector3 >* lret = &self->m_OutputVertices;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -266,15 +255,13 @@ public:
 	// unsigned int HullResult::mNumFaces()
 	static int _bind_getNumFaces(lua_State *L) {
 		if (!_lg_typecheck_getNumFaces(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int HullResult::mNumFaces() function, expected prototype:\nunsigned int HullResult::mNumFaces()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int HullResult::mNumFaces() function, expected prototype:\nunsigned int HullResult::mNumFaces()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		HullResult* self=(Luna< HullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int HullResult::mNumFaces(). Got : '%s'",typeid(Luna< HullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int HullResult::mNumFaces(). Got : '%s'\n%s",typeid(Luna< HullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->mNumFaces;
 		lua_pushnumber(L,lret);
@@ -285,15 +272,13 @@ public:
 	// unsigned int HullResult::mNumIndices()
 	static int _bind_getNumIndices(lua_State *L) {
 		if (!_lg_typecheck_getNumIndices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int HullResult::mNumIndices() function, expected prototype:\nunsigned int HullResult::mNumIndices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int HullResult::mNumIndices() function, expected prototype:\nunsigned int HullResult::mNumIndices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		HullResult* self=(Luna< HullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int HullResult::mNumIndices(). Got : '%s'",typeid(Luna< HullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int HullResult::mNumIndices(). Got : '%s'\n%s",typeid(Luna< HullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->mNumIndices;
 		lua_pushnumber(L,lret);
@@ -304,15 +289,13 @@ public:
 	// btAlignedObjectArray< unsigned int > HullResult::m_Indices()
 	static int _bind_getIndices(lua_State *L) {
 		if (!_lg_typecheck_getIndices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< unsigned int > HullResult::m_Indices() function, expected prototype:\nbtAlignedObjectArray< unsigned int > HullResult::m_Indices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< unsigned int > HullResult::m_Indices() function, expected prototype:\nbtAlignedObjectArray< unsigned int > HullResult::m_Indices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		HullResult* self=(Luna< HullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< unsigned int > HullResult::m_Indices(). Got : '%s'",typeid(Luna< HullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< unsigned int > HullResult::m_Indices(). Got : '%s'\n%s",typeid(Luna< HullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< unsigned int >* lret = &self->m_Indices;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -325,16 +308,14 @@ public:
 	// void HullResult::mPolygons(bool value)
 	static int _bind_setPolygons(lua_State *L) {
 		if (!_lg_typecheck_setPolygons(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void HullResult::mPolygons(bool value) function, expected prototype:\nvoid HullResult::mPolygons(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void HullResult::mPolygons(bool value) function, expected prototype:\nvoid HullResult::mPolygons(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		HullResult* self=(Luna< HullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void HullResult::mPolygons(bool). Got : '%s'",typeid(Luna< HullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void HullResult::mPolygons(bool). Got : '%s'\n%s",typeid(Luna< HullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mPolygons = value;
 
@@ -344,16 +325,14 @@ public:
 	// void HullResult::mNumOutputVertices(unsigned int value)
 	static int _bind_setNumOutputVertices(lua_State *L) {
 		if (!_lg_typecheck_setNumOutputVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void HullResult::mNumOutputVertices(unsigned int value) function, expected prototype:\nvoid HullResult::mNumOutputVertices(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void HullResult::mNumOutputVertices(unsigned int value) function, expected prototype:\nvoid HullResult::mNumOutputVertices(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		HullResult* self=(Luna< HullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void HullResult::mNumOutputVertices(unsigned int). Got : '%s'",typeid(Luna< HullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void HullResult::mNumOutputVertices(unsigned int). Got : '%s'\n%s",typeid(Luna< HullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mNumOutputVertices = value;
 
@@ -363,8 +342,7 @@ public:
 	// void HullResult::m_OutputVertices(btAlignedObjectArray< btVector3 > value)
 	static int _bind_setOutputVertices(lua_State *L) {
 		if (!_lg_typecheck_setOutputVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void HullResult::m_OutputVertices(btAlignedObjectArray< btVector3 > value) function, expected prototype:\nvoid HullResult::m_OutputVertices(btAlignedObjectArray< btVector3 > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void HullResult::m_OutputVertices(btAlignedObjectArray< btVector3 > value) function, expected prototype:\nvoid HullResult::m_OutputVertices(btAlignedObjectArray< btVector3 > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< btVector3 >* value_ptr=(Luna< btAlignedObjectArray< btVector3 > >::check(L,2));
@@ -375,8 +353,7 @@ public:
 
 		HullResult* self=(Luna< HullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void HullResult::m_OutputVertices(btAlignedObjectArray< btVector3 >). Got : '%s'",typeid(Luna< HullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void HullResult::m_OutputVertices(btAlignedObjectArray< btVector3 >). Got : '%s'\n%s",typeid(Luna< HullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_OutputVertices = value;
 
@@ -386,16 +363,14 @@ public:
 	// void HullResult::mNumFaces(unsigned int value)
 	static int _bind_setNumFaces(lua_State *L) {
 		if (!_lg_typecheck_setNumFaces(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void HullResult::mNumFaces(unsigned int value) function, expected prototype:\nvoid HullResult::mNumFaces(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void HullResult::mNumFaces(unsigned int value) function, expected prototype:\nvoid HullResult::mNumFaces(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		HullResult* self=(Luna< HullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void HullResult::mNumFaces(unsigned int). Got : '%s'",typeid(Luna< HullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void HullResult::mNumFaces(unsigned int). Got : '%s'\n%s",typeid(Luna< HullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mNumFaces = value;
 
@@ -405,16 +380,14 @@ public:
 	// void HullResult::mNumIndices(unsigned int value)
 	static int _bind_setNumIndices(lua_State *L) {
 		if (!_lg_typecheck_setNumIndices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void HullResult::mNumIndices(unsigned int value) function, expected prototype:\nvoid HullResult::mNumIndices(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void HullResult::mNumIndices(unsigned int value) function, expected prototype:\nvoid HullResult::mNumIndices(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		HullResult* self=(Luna< HullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void HullResult::mNumIndices(unsigned int). Got : '%s'",typeid(Luna< HullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void HullResult::mNumIndices(unsigned int). Got : '%s'\n%s",typeid(Luna< HullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->mNumIndices = value;
 
@@ -424,8 +397,7 @@ public:
 	// void HullResult::m_Indices(btAlignedObjectArray< unsigned int > value)
 	static int _bind_setIndices(lua_State *L) {
 		if (!_lg_typecheck_setIndices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void HullResult::m_Indices(btAlignedObjectArray< unsigned int > value) function, expected prototype:\nvoid HullResult::m_Indices(btAlignedObjectArray< unsigned int > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void HullResult::m_Indices(btAlignedObjectArray< unsigned int > value) function, expected prototype:\nvoid HullResult::m_Indices(btAlignedObjectArray< unsigned int > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< unsigned int >* value_ptr=(Luna< btAlignedObjectArray< unsigned int > >::check(L,2));
@@ -436,8 +408,7 @@ public:
 
 		HullResult* self=(Luna< HullResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void HullResult::m_Indices(btAlignedObjectArray< unsigned int >). Got : '%s'",typeid(Luna< HullResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void HullResult::m_Indices(btAlignedObjectArray< unsigned int >). Got : '%s'\n%s",typeid(Luna< HullResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_Indices = value;
 

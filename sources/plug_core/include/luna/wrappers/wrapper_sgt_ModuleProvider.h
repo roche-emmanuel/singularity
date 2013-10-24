@@ -28,14 +28,6 @@ public:
 			_obj.callFunction<void>();
 		}
 	};
-	wrapper_sgt_ModuleProvider(lua_State* L, lua_Table* dum, const sgt::ModuleProvider & tm, const osg::CopyOp & co = sgtCopyOp::SHALLOW_COPY) 
-		: sgt::ModuleProvider(tm, co), luna_wrapper_base(L) { 
-		register_protected_methods(L);
-		if(_obj.pushFunction("buildInstance")) {
-			_obj.pushArg((sgt::ModuleProvider*)this);
-			_obj.callFunction<void>();
-		}
-	};
 
 
 	// Private virtual methods:
@@ -43,7 +35,7 @@ public:
 	// Protected virtual methods:
 
 	// Public virtual methods:
-	// void osg::Object::setThreadSafeRefUnref(bool threadSafe)
+	// void osg::Referenced::setThreadSafeRefUnref(bool threadSafe)
 	void setThreadSafeRefUnref(bool threadSafe) {
 		if(_obj.pushFunction("setThreadSafeRefUnref")) {
 			_obj.pushArg((sgt::ModuleProvider*)this);
@@ -52,142 +44,6 @@ public:
 		}
 
 		return ModuleProvider::setThreadSafeRefUnref(threadSafe);
-	};
-
-	// void osg::Object::setName(const std::string & name)
-	void setName(const std::string & name) {
-		if(_obj.pushFunction("setName")) {
-			_obj.pushArg((sgt::ModuleProvider*)this);
-			_obj.pushArg(name);
-			return (_obj.callFunction<void>());
-		}
-
-		return ModuleProvider::setName(name);
-	};
-
-	// void osg::Object::computeDataVariance()
-	void computeDataVariance() {
-		if(_obj.pushFunction("computeDataVariance")) {
-			_obj.pushArg((sgt::ModuleProvider*)this);
-			return (_obj.callFunction<void>());
-		}
-
-		return ModuleProvider::computeDataVariance();
-	};
-
-	// void osg::Object::setUserData(osg::Referenced * obj)
-	void setUserData(osg::Referenced * obj) {
-		if(_obj.pushFunction("setUserData")) {
-			_obj.pushArg((sgt::ModuleProvider*)this);
-			_obj.pushArg(obj);
-			return (_obj.callFunction<void>());
-		}
-
-		return ModuleProvider::setUserData(obj);
-	};
-
-	// osg::Referenced * osg::Object::getUserData()
-	osg::Referenced * getUserData() {
-		if(_obj.pushFunction("getUserData")) {
-			_obj.pushArg((sgt::ModuleProvider*)this);
-			return (_obj.callFunction<osg::Referenced*>());
-		}
-
-		return ModuleProvider::getUserData();
-	};
-
-	// const osg::Referenced * osg::Object::getUserData() const
-	const osg::Referenced * getUserData() const {
-		if(_obj.pushFunction("getUserData")) {
-			_obj.pushArg((sgt::ModuleProvider*)this);
-			return (_obj.callFunction<osg::Referenced*>());
-		}
-
-		return ModuleProvider::getUserData();
-	};
-
-	// void osg::Object::resizeGLObjectBuffers(unsigned int arg1)
-	void resizeGLObjectBuffers(unsigned int arg1) {
-		if(_obj.pushFunction("resizeGLObjectBuffers")) {
-			_obj.pushArg((sgt::ModuleProvider*)this);
-			_obj.pushArg(arg1);
-			return (_obj.callFunction<void>());
-		}
-
-		return ModuleProvider::resizeGLObjectBuffers(arg1);
-	};
-
-	// void osg::Object::releaseGLObjects(osg::State * arg1 = 0) const
-	void releaseGLObjects(osg::State * arg1 = 0) const {
-		if(_obj.pushFunction("releaseGLObjects")) {
-			_obj.pushArg((sgt::ModuleProvider*)this);
-			_obj.pushArg(arg1);
-			return (_obj.callFunction<void>());
-		}
-
-		return ModuleProvider::releaseGLObjects(arg1);
-	};
-
-	// osg::Object * sgt::ModuleProvider::cloneType() const
-	osg::Object * cloneType() const {
-		if(_obj.pushFunction("cloneType")) {
-			_obj.pushArg((sgt::ModuleProvider*)this);
-			return (_obj.callFunction<osg::Object*>());
-		}
-
-		return ModuleProvider::cloneType();
-	};
-
-	// osg::Object * sgt::ModuleProvider::clone() const
-	osg::Object * clone() const {
-		if(_obj.pushFunction("clone")) {
-			_obj.pushArg((sgt::ModuleProvider*)this);
-			return (_obj.callFunction<osg::Object*>());
-		}
-
-		return ModuleProvider::clone();
-	};
-
-	// osg::Object * sgt::ModuleProvider::clone(const osg::CopyOp & arg1) const
-	osg::Object * clone(const osg::CopyOp & arg1) const {
-		if(_obj.pushFunction("clone")) {
-			_obj.pushArg((sgt::ModuleProvider*)this);
-			_obj.pushArg(&arg1);
-			return (_obj.callFunction<osg::Object*>());
-		}
-
-		return ModuleProvider::clone(arg1);
-	};
-
-	// bool sgt::ModuleProvider::isSameKindAs(const osg::Object * obj) const
-	bool isSameKindAs(const osg::Object * obj) const {
-		if(_obj.pushFunction("isSameKindAs")) {
-			_obj.pushArg((sgt::ModuleProvider*)this);
-			_obj.pushArg(obj);
-			return (_obj.callFunction<bool>());
-		}
-
-		return ModuleProvider::isSameKindAs(obj);
-	};
-
-	// const char * sgt::ModuleProvider::libraryName() const
-	const char * libraryName() const {
-		if(_obj.pushFunction("libraryName")) {
-			_obj.pushArg((sgt::ModuleProvider*)this);
-			return (_obj.callFunction<const char*>());
-		}
-
-		return ModuleProvider::libraryName();
-	};
-
-	// const char * sgt::ModuleProvider::className() const
-	const char * className() const {
-		if(_obj.pushFunction("className")) {
-			_obj.pushArg((sgt::ModuleProvider*)this);
-			return (_obj.callFunction<const char*>());
-		}
-
-		return ModuleProvider::className();
 	};
 
 

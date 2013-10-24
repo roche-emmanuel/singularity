@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglMatrix*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglMatrix*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglMatrix* rhs =(Luna< mglMatrix >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglMatrix* self= (mglMatrix*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< mglMatrix >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -141,28 +137,28 @@ public:
 	inline static bool _lg_typecheck_setX(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setY(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setZ(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setPf(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -181,8 +177,7 @@ public:
 	// mglMatrix::mglMatrix()
 	static mglMatrix* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglMatrix::mglMatrix() function, expected prototype:\nmglMatrix::mglMatrix()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglMatrix::mglMatrix() function, expected prototype:\nmglMatrix::mglMatrix()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -194,15 +189,13 @@ public:
 	// void mglMatrix::clear()
 	static int _bind_clear(lua_State *L) {
 		if (!_lg_typecheck_clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglMatrix::clear() function, expected prototype:\nvoid mglMatrix::clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglMatrix::clear() function, expected prototype:\nvoid mglMatrix::clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglMatrix* self=(Luna< mglMatrix >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglMatrix::clear(). Got : '%s'",typeid(Luna< mglMatrix >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglMatrix::clear(). Got : '%s'\n%s",typeid(Luna< mglMatrix >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->clear();
 
@@ -212,15 +205,13 @@ public:
 	// double mglMatrix::x()
 	static int _bind_getX(lua_State *L) {
 		if (!_lg_typecheck_getX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double mglMatrix::x() function, expected prototype:\ndouble mglMatrix::x()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double mglMatrix::x() function, expected prototype:\ndouble mglMatrix::x()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglMatrix* self=(Luna< mglMatrix >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double mglMatrix::x(). Got : '%s'",typeid(Luna< mglMatrix >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double mglMatrix::x(). Got : '%s'\n%s",typeid(Luna< mglMatrix >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->x;
 		lua_pushnumber(L,lret);
@@ -231,15 +222,13 @@ public:
 	// double mglMatrix::y()
 	static int _bind_getY(lua_State *L) {
 		if (!_lg_typecheck_getY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double mglMatrix::y() function, expected prototype:\ndouble mglMatrix::y()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double mglMatrix::y() function, expected prototype:\ndouble mglMatrix::y()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglMatrix* self=(Luna< mglMatrix >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double mglMatrix::y(). Got : '%s'",typeid(Luna< mglMatrix >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double mglMatrix::y(). Got : '%s'\n%s",typeid(Luna< mglMatrix >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->y;
 		lua_pushnumber(L,lret);
@@ -250,15 +239,13 @@ public:
 	// double mglMatrix::z()
 	static int _bind_getZ(lua_State *L) {
 		if (!_lg_typecheck_getZ(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double mglMatrix::z() function, expected prototype:\ndouble mglMatrix::z()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double mglMatrix::z() function, expected prototype:\ndouble mglMatrix::z()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglMatrix* self=(Luna< mglMatrix >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double mglMatrix::z(). Got : '%s'",typeid(Luna< mglMatrix >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double mglMatrix::z(). Got : '%s'\n%s",typeid(Luna< mglMatrix >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->z;
 		lua_pushnumber(L,lret);
@@ -269,15 +256,13 @@ public:
 	// double mglMatrix::pf()
 	static int _bind_getPf(lua_State *L) {
 		if (!_lg_typecheck_getPf(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double mglMatrix::pf() function, expected prototype:\ndouble mglMatrix::pf()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double mglMatrix::pf() function, expected prototype:\ndouble mglMatrix::pf()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglMatrix* self=(Luna< mglMatrix >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double mglMatrix::pf(). Got : '%s'",typeid(Luna< mglMatrix >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double mglMatrix::pf(). Got : '%s'\n%s",typeid(Luna< mglMatrix >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->pf;
 		lua_pushnumber(L,lret);
@@ -288,16 +273,14 @@ public:
 	// void mglMatrix::x(double value)
 	static int _bind_setX(lua_State *L) {
 		if (!_lg_typecheck_setX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglMatrix::x(double value) function, expected prototype:\nvoid mglMatrix::x(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglMatrix::x(double value) function, expected prototype:\nvoid mglMatrix::x(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		mglMatrix* self=(Luna< mglMatrix >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglMatrix::x(double). Got : '%s'",typeid(Luna< mglMatrix >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglMatrix::x(double). Got : '%s'\n%s",typeid(Luna< mglMatrix >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->x = value;
 
@@ -307,16 +290,14 @@ public:
 	// void mglMatrix::y(double value)
 	static int _bind_setY(lua_State *L) {
 		if (!_lg_typecheck_setY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglMatrix::y(double value) function, expected prototype:\nvoid mglMatrix::y(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglMatrix::y(double value) function, expected prototype:\nvoid mglMatrix::y(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		mglMatrix* self=(Luna< mglMatrix >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglMatrix::y(double). Got : '%s'",typeid(Luna< mglMatrix >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglMatrix::y(double). Got : '%s'\n%s",typeid(Luna< mglMatrix >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->y = value;
 
@@ -326,16 +307,14 @@ public:
 	// void mglMatrix::z(double value)
 	static int _bind_setZ(lua_State *L) {
 		if (!_lg_typecheck_setZ(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglMatrix::z(double value) function, expected prototype:\nvoid mglMatrix::z(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglMatrix::z(double value) function, expected prototype:\nvoid mglMatrix::z(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		mglMatrix* self=(Luna< mglMatrix >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglMatrix::z(double). Got : '%s'",typeid(Luna< mglMatrix >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglMatrix::z(double). Got : '%s'\n%s",typeid(Luna< mglMatrix >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->z = value;
 
@@ -345,16 +324,14 @@ public:
 	// void mglMatrix::pf(double value)
 	static int _bind_setPf(lua_State *L) {
 		if (!_lg_typecheck_setPf(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglMatrix::pf(double value) function, expected prototype:\nvoid mglMatrix::pf(double value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglMatrix::pf(double value) function, expected prototype:\nvoid mglMatrix::pf(double value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double value=(double)lua_tonumber(L,2);
 
 		mglMatrix* self=(Luna< mglMatrix >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglMatrix::pf(double). Got : '%s'",typeid(Luna< mglMatrix >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglMatrix::pf(double). Got : '%s'\n%s",typeid(Luna< mglMatrix >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pf = value;
 
@@ -366,8 +343,7 @@ public:
 	// mglMatrix & mglMatrix::operator=(const mglMatrix & a)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglMatrix & mglMatrix::operator=(const mglMatrix & a) function, expected prototype:\nmglMatrix & mglMatrix::operator=(const mglMatrix & a)\nClass arguments details:\narg 1 ID = 65490073\n");
+			luaL_error(L, "luna typecheck failed in mglMatrix & mglMatrix::operator=(const mglMatrix & a) function, expected prototype:\nmglMatrix & mglMatrix::operator=(const mglMatrix & a)\nClass arguments details:\narg 1 ID = 65490073\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const mglMatrix* a_ptr=(Luna< mglMatrix >::check(L,2));
@@ -378,8 +354,7 @@ public:
 
 		mglMatrix* self=(Luna< mglMatrix >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglMatrix & mglMatrix::operator=(const mglMatrix &). Got : '%s'",typeid(Luna< mglMatrix >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglMatrix & mglMatrix::operator=(const mglMatrix &). Got : '%s'\n%s",typeid(Luna< mglMatrix >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const mglMatrix* lret = &self->operator=(a);
 		if(!lret) return 0; // Do not write NULL pointers.

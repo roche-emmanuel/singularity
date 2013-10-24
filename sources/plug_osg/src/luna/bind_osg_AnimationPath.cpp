@@ -159,7 +159,7 @@ public:
 	inline static bool _lg_typecheck_getMatrix_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,18903840) ) return false;
 		if( (!(Luna< osg::Matrixf >::check(L,3))) ) return false;
 		return true;
@@ -168,7 +168,7 @@ public:
 	inline static bool _lg_typecheck_getMatrix_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,18903838) ) return false;
 		if( (!(Luna< osg::Matrixd >::check(L,3))) ) return false;
 		return true;
@@ -177,7 +177,7 @@ public:
 	inline static bool _lg_typecheck_getInverse_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,18903840) ) return false;
 		if( (!(Luna< osg::Matrixf >::check(L,3))) ) return false;
 		return true;
@@ -186,7 +186,7 @@ public:
 	inline static bool _lg_typecheck_getInverse_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,18903838) ) return false;
 		if( (!(Luna< osg::Matrixd >::check(L,3))) ) return false;
 		return true;
@@ -195,7 +195,7 @@ public:
 	inline static bool _lg_typecheck_getInterpolatedControlPoint(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,19942584) ) return false;
 		return true;
 	}
@@ -203,7 +203,7 @@ public:
 	inline static bool _lg_typecheck_insert(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,19942584) ) return false;
 		return true;
 	}
@@ -229,7 +229,7 @@ public:
 	inline static bool _lg_typecheck_setLoopMode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -294,7 +294,7 @@ public:
 	inline static bool _lg_typecheck_base_setName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -366,7 +366,7 @@ public:
 	inline static bool _lg_typecheck_base_getInterpolatedControlPoint(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,19942584) ) return false;
 		return true;
 	}

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btDbvt::sStkCLN*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btDbvt::sStkCLN*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDbvt::sStkCLN* rhs =(Luna< btDbvt::sStkCLN >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDbvt::sStkCLN* self= (btDbvt::sStkCLN*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btDbvt::sStkCLN >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -137,8 +133,7 @@ public:
 	// btDbvt::sStkCLN::sStkCLN(const btDbvtNode * n, btDbvtNode * p)
 	static btDbvt::sStkCLN* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btDbvt::sStkCLN::sStkCLN(const btDbvtNode * n, btDbvtNode * p) function, expected prototype:\nbtDbvt::sStkCLN::sStkCLN(const btDbvtNode * n, btDbvtNode * p)\nClass arguments details:\narg 1 ID = 91335778\narg 2 ID = 91335778\n");
+			luaL_error(L, "luna typecheck failed in btDbvt::sStkCLN::sStkCLN(const btDbvtNode * n, btDbvtNode * p) function, expected prototype:\nbtDbvt::sStkCLN::sStkCLN(const btDbvtNode * n, btDbvtNode * p)\nClass arguments details:\narg 1 ID = 91335778\narg 2 ID = 91335778\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btDbvtNode* n=(Luna< btDbvtNode >::check(L,1));
@@ -152,15 +147,13 @@ public:
 	// const btDbvtNode * btDbvt::sStkCLN::node()
 	static int _bind_getNode(lua_State *L) {
 		if (!_lg_typecheck_getNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btDbvtNode * btDbvt::sStkCLN::node() function, expected prototype:\nconst btDbvtNode * btDbvt::sStkCLN::node()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btDbvtNode * btDbvt::sStkCLN::node() function, expected prototype:\nconst btDbvtNode * btDbvt::sStkCLN::node()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDbvt::sStkCLN* self=(Luna< btDbvt::sStkCLN >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btDbvtNode * btDbvt::sStkCLN::node(). Got : '%s'",typeid(Luna< btDbvt::sStkCLN >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btDbvtNode * btDbvt::sStkCLN::node(). Got : '%s'\n%s",typeid(Luna< btDbvt::sStkCLN >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btDbvtNode * lret = self->node;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -173,15 +166,13 @@ public:
 	// btDbvtNode * btDbvt::sStkCLN::parent()
 	static int _bind_getParent(lua_State *L) {
 		if (!_lg_typecheck_getParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btDbvtNode * btDbvt::sStkCLN::parent() function, expected prototype:\nbtDbvtNode * btDbvt::sStkCLN::parent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btDbvtNode * btDbvt::sStkCLN::parent() function, expected prototype:\nbtDbvtNode * btDbvt::sStkCLN::parent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDbvt::sStkCLN* self=(Luna< btDbvt::sStkCLN >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btDbvtNode * btDbvt::sStkCLN::parent(). Got : '%s'",typeid(Luna< btDbvt::sStkCLN >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btDbvtNode * btDbvt::sStkCLN::parent(). Got : '%s'\n%s",typeid(Luna< btDbvt::sStkCLN >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btDbvtNode * lret = self->parent;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -194,16 +185,14 @@ public:
 	// void btDbvt::sStkCLN::parent(btDbvtNode * value)
 	static int _bind_setParent(lua_State *L) {
 		if (!_lg_typecheck_setParent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDbvt::sStkCLN::parent(btDbvtNode * value) function, expected prototype:\nvoid btDbvt::sStkCLN::parent(btDbvtNode * value)\nClass arguments details:\narg 1 ID = 91335778\n");
+			luaL_error(L, "luna typecheck failed in void btDbvt::sStkCLN::parent(btDbvtNode * value) function, expected prototype:\nvoid btDbvt::sStkCLN::parent(btDbvtNode * value)\nClass arguments details:\narg 1 ID = 91335778\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDbvtNode* value=(Luna< btDbvtNode >::check(L,2));
 
 		btDbvt::sStkCLN* self=(Luna< btDbvt::sStkCLN >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDbvt::sStkCLN::parent(btDbvtNode *). Got : '%s'",typeid(Luna< btDbvt::sStkCLN >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDbvt::sStkCLN::parent(btDbvtNode *). Got : '%s'\n%s",typeid(Luna< btDbvt::sStkCLN >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->parent = value;
 

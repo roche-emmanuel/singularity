@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btGenericMemoryPool*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btGenericMemoryPool*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGenericMemoryPool* rhs =(Luna< btGenericMemoryPool >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGenericMemoryPool* self= (btGenericMemoryPool*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btGenericMemoryPool >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -103,8 +99,8 @@ public:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -113,8 +109,8 @@ public:
 	inline static bool _lg_typecheck_init_pool(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -157,14 +153,14 @@ public:
 	inline static bool _lg_typecheck_get_element_data(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_allocate(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -202,7 +198,7 @@ public:
 	inline static bool _lg_typecheck_setPool(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -223,14 +219,14 @@ public:
 	inline static bool _lg_typecheck_set_allocated_count(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_set_free_nodes_count(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -242,8 +238,7 @@ public:
 	// btGenericMemoryPool::btGenericMemoryPool(size_t element_size, size_t element_count)
 	static btGenericMemoryPool* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGenericMemoryPool::btGenericMemoryPool(size_t element_size, size_t element_count) function, expected prototype:\nbtGenericMemoryPool::btGenericMemoryPool(size_t element_size, size_t element_count)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGenericMemoryPool::btGenericMemoryPool(size_t element_size, size_t element_count) function, expected prototype:\nbtGenericMemoryPool::btGenericMemoryPool(size_t element_size, size_t element_count)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t element_size=(size_t)lua_tointeger(L,1);
@@ -257,8 +252,7 @@ public:
 	// void btGenericMemoryPool::init_pool(size_t element_size, size_t element_count)
 	static int _bind_init_pool(lua_State *L) {
 		if (!_lg_typecheck_init_pool(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::init_pool(size_t element_size, size_t element_count) function, expected prototype:\nvoid btGenericMemoryPool::init_pool(size_t element_size, size_t element_count)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::init_pool(size_t element_size, size_t element_count) function, expected prototype:\nvoid btGenericMemoryPool::init_pool(size_t element_size, size_t element_count)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t element_size=(size_t)lua_tointeger(L,2);
@@ -266,8 +260,7 @@ public:
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGenericMemoryPool::init_pool(size_t, size_t). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGenericMemoryPool::init_pool(size_t, size_t). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->init_pool(element_size, element_count);
 
@@ -277,15 +270,13 @@ public:
 	// void btGenericMemoryPool::end_pool()
 	static int _bind_end_pool(lua_State *L) {
 		if (!_lg_typecheck_end_pool(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::end_pool() function, expected prototype:\nvoid btGenericMemoryPool::end_pool()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::end_pool() function, expected prototype:\nvoid btGenericMemoryPool::end_pool()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGenericMemoryPool::end_pool(). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGenericMemoryPool::end_pool(). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->end_pool();
 
@@ -295,15 +286,13 @@ public:
 	// size_t btGenericMemoryPool::get_pool_capacity()
 	static int _bind_get_pool_capacity(lua_State *L) {
 		if (!_lg_typecheck_get_pool_capacity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t btGenericMemoryPool::get_pool_capacity() function, expected prototype:\nsize_t btGenericMemoryPool::get_pool_capacity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t btGenericMemoryPool::get_pool_capacity() function, expected prototype:\nsize_t btGenericMemoryPool::get_pool_capacity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t btGenericMemoryPool::get_pool_capacity(). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t btGenericMemoryPool::get_pool_capacity(). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->get_pool_capacity();
 		lua_pushnumber(L,lret);
@@ -314,15 +303,13 @@ public:
 	// size_t btGenericMemoryPool::gem_element_size()
 	static int _bind_gem_element_size(lua_State *L) {
 		if (!_lg_typecheck_gem_element_size(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t btGenericMemoryPool::gem_element_size() function, expected prototype:\nsize_t btGenericMemoryPool::gem_element_size()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t btGenericMemoryPool::gem_element_size() function, expected prototype:\nsize_t btGenericMemoryPool::gem_element_size()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t btGenericMemoryPool::gem_element_size(). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t btGenericMemoryPool::gem_element_size(). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->gem_element_size();
 		lua_pushnumber(L,lret);
@@ -333,15 +320,13 @@ public:
 	// size_t btGenericMemoryPool::get_max_element_count()
 	static int _bind_get_max_element_count(lua_State *L) {
 		if (!_lg_typecheck_get_max_element_count(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t btGenericMemoryPool::get_max_element_count() function, expected prototype:\nsize_t btGenericMemoryPool::get_max_element_count()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t btGenericMemoryPool::get_max_element_count() function, expected prototype:\nsize_t btGenericMemoryPool::get_max_element_count()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t btGenericMemoryPool::get_max_element_count(). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t btGenericMemoryPool::get_max_element_count(). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->get_max_element_count();
 		lua_pushnumber(L,lret);
@@ -352,15 +337,13 @@ public:
 	// size_t btGenericMemoryPool::get_allocated_count()
 	static int _bind_get_allocated_count(lua_State *L) {
 		if (!_lg_typecheck_get_allocated_count(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t btGenericMemoryPool::get_allocated_count() function, expected prototype:\nsize_t btGenericMemoryPool::get_allocated_count()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t btGenericMemoryPool::get_allocated_count() function, expected prototype:\nsize_t btGenericMemoryPool::get_allocated_count()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t btGenericMemoryPool::get_allocated_count(). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t btGenericMemoryPool::get_allocated_count(). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->get_allocated_count();
 		lua_pushnumber(L,lret);
@@ -371,15 +354,13 @@ public:
 	// size_t btGenericMemoryPool::get_free_positions_count()
 	static int _bind_get_free_positions_count(lua_State *L) {
 		if (!_lg_typecheck_get_free_positions_count(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t btGenericMemoryPool::get_free_positions_count() function, expected prototype:\nsize_t btGenericMemoryPool::get_free_positions_count()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t btGenericMemoryPool::get_free_positions_count() function, expected prototype:\nsize_t btGenericMemoryPool::get_free_positions_count()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t btGenericMemoryPool::get_free_positions_count(). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t btGenericMemoryPool::get_free_positions_count(). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->get_free_positions_count();
 		lua_pushnumber(L,lret);
@@ -390,16 +371,14 @@ public:
 	// void * btGenericMemoryPool::get_element_data(size_t element_index)
 	static int _bind_get_element_data(lua_State *L) {
 		if (!_lg_typecheck_get_element_data(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * btGenericMemoryPool::get_element_data(size_t element_index) function, expected prototype:\nvoid * btGenericMemoryPool::get_element_data(size_t element_index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * btGenericMemoryPool::get_element_data(size_t element_index) function, expected prototype:\nvoid * btGenericMemoryPool::get_element_data(size_t element_index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t element_index=(size_t)lua_tointeger(L,2);
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * btGenericMemoryPool::get_element_data(size_t). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * btGenericMemoryPool::get_element_data(size_t). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->get_element_data(element_index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -412,16 +391,14 @@ public:
 	// void * btGenericMemoryPool::allocate(size_t size_bytes)
 	static int _bind_allocate(lua_State *L) {
 		if (!_lg_typecheck_allocate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * btGenericMemoryPool::allocate(size_t size_bytes) function, expected prototype:\nvoid * btGenericMemoryPool::allocate(size_t size_bytes)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * btGenericMemoryPool::allocate(size_t size_bytes) function, expected prototype:\nvoid * btGenericMemoryPool::allocate(size_t size_bytes)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t size_bytes=(size_t)lua_tointeger(L,2);
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * btGenericMemoryPool::allocate(size_t). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * btGenericMemoryPool::allocate(size_t). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->allocate(size_bytes);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -434,16 +411,14 @@ public:
 	// bool btGenericMemoryPool::freeMemory(void * pointer)
 	static int _bind_freeMemory(lua_State *L) {
 		if (!_lg_typecheck_freeMemory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGenericMemoryPool::freeMemory(void * pointer) function, expected prototype:\nbool btGenericMemoryPool::freeMemory(void * pointer)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGenericMemoryPool::freeMemory(void * pointer) function, expected prototype:\nbool btGenericMemoryPool::freeMemory(void * pointer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* pointer=(Luna< void >::check(L,2));
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGenericMemoryPool::freeMemory(void *). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGenericMemoryPool::freeMemory(void *). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->freeMemory(pointer);
 		lua_pushboolean(L,lret?1:0);
@@ -454,15 +429,13 @@ public:
 	// unsigned char * btGenericMemoryPool::m_pool()
 	static int _bind_getPool(lua_State *L) {
 		if (!_lg_typecheck_getPool(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned char * btGenericMemoryPool::m_pool() function, expected prototype:\nunsigned char * btGenericMemoryPool::m_pool()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned char * btGenericMemoryPool::m_pool() function, expected prototype:\nunsigned char * btGenericMemoryPool::m_pool()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned char * btGenericMemoryPool::m_pool(). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned char * btGenericMemoryPool::m_pool(). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned char * lret = self->m_pool;
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
@@ -473,15 +446,13 @@ public:
 	// size_t * btGenericMemoryPool::m_free_nodes()
 	static int _bind_get_free_nodes(lua_State *L) {
 		if (!_lg_typecheck_get_free_nodes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t * btGenericMemoryPool::m_free_nodes() function, expected prototype:\nsize_t * btGenericMemoryPool::m_free_nodes()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t * btGenericMemoryPool::m_free_nodes() function, expected prototype:\nsize_t * btGenericMemoryPool::m_free_nodes()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t * btGenericMemoryPool::m_free_nodes(). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t * btGenericMemoryPool::m_free_nodes(). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t * lret = self->m_free_nodes;
 		lua_pushnumber(L,*lret);
@@ -492,15 +463,13 @@ public:
 	// size_t * btGenericMemoryPool::m_allocated_sizes()
 	static int _bind_get_allocated_sizes(lua_State *L) {
 		if (!_lg_typecheck_get_allocated_sizes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t * btGenericMemoryPool::m_allocated_sizes() function, expected prototype:\nsize_t * btGenericMemoryPool::m_allocated_sizes()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t * btGenericMemoryPool::m_allocated_sizes() function, expected prototype:\nsize_t * btGenericMemoryPool::m_allocated_sizes()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t * btGenericMemoryPool::m_allocated_sizes(). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t * btGenericMemoryPool::m_allocated_sizes(). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t * lret = self->m_allocated_sizes;
 		lua_pushnumber(L,*lret);
@@ -511,15 +480,13 @@ public:
 	// size_t btGenericMemoryPool::m_free_nodes_count()
 	static int _bind_get_free_nodes_count(lua_State *L) {
 		if (!_lg_typecheck_get_free_nodes_count(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in size_t btGenericMemoryPool::m_free_nodes_count() function, expected prototype:\nsize_t btGenericMemoryPool::m_free_nodes_count()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in size_t btGenericMemoryPool::m_free_nodes_count() function, expected prototype:\nsize_t btGenericMemoryPool::m_free_nodes_count()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call size_t btGenericMemoryPool::m_free_nodes_count(). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call size_t btGenericMemoryPool::m_free_nodes_count(). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		size_t lret = self->m_free_nodes_count;
 		lua_pushnumber(L,lret);
@@ -530,16 +497,14 @@ public:
 	// void btGenericMemoryPool::m_pool(unsigned char * value)
 	static int _bind_setPool(lua_State *L) {
 		if (!_lg_typecheck_setPool(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::m_pool(unsigned char * value) function, expected prototype:\nvoid btGenericMemoryPool::m_pool(unsigned char * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::m_pool(unsigned char * value) function, expected prototype:\nvoid btGenericMemoryPool::m_pool(unsigned char * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned char value = (unsigned char)(lua_tointeger(L,2));
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGenericMemoryPool::m_pool(unsigned char *). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGenericMemoryPool::m_pool(unsigned char *). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_pool = &value;
 
@@ -549,16 +514,14 @@ public:
 	// void btGenericMemoryPool::m_free_nodes(size_t * value)
 	static int _bind_set_free_nodes(lua_State *L) {
 		if (!_lg_typecheck_set_free_nodes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::m_free_nodes(size_t * value) function, expected prototype:\nvoid btGenericMemoryPool::m_free_nodes(size_t * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::m_free_nodes(size_t * value) function, expected prototype:\nvoid btGenericMemoryPool::m_free_nodes(size_t * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t* value=(size_t*)Luna< void >::check(L,2);
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGenericMemoryPool::m_free_nodes(size_t *). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGenericMemoryPool::m_free_nodes(size_t *). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_free_nodes = value;
 
@@ -568,16 +531,14 @@ public:
 	// void btGenericMemoryPool::m_allocated_sizes(size_t * value)
 	static int _bind_set_allocated_sizes(lua_State *L) {
 		if (!_lg_typecheck_set_allocated_sizes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::m_allocated_sizes(size_t * value) function, expected prototype:\nvoid btGenericMemoryPool::m_allocated_sizes(size_t * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::m_allocated_sizes(size_t * value) function, expected prototype:\nvoid btGenericMemoryPool::m_allocated_sizes(size_t * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t* value=(size_t*)Luna< void >::check(L,2);
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGenericMemoryPool::m_allocated_sizes(size_t *). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGenericMemoryPool::m_allocated_sizes(size_t *). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_allocated_sizes = value;
 
@@ -587,16 +548,14 @@ public:
 	// void btGenericMemoryPool::m_allocated_count(size_t value)
 	static int _bind_set_allocated_count(lua_State *L) {
 		if (!_lg_typecheck_set_allocated_count(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::m_allocated_count(size_t value) function, expected prototype:\nvoid btGenericMemoryPool::m_allocated_count(size_t value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::m_allocated_count(size_t value) function, expected prototype:\nvoid btGenericMemoryPool::m_allocated_count(size_t value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t value=(size_t)lua_tointeger(L,2);
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGenericMemoryPool::m_allocated_count(size_t). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGenericMemoryPool::m_allocated_count(size_t). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_allocated_count = value;
 
@@ -606,16 +565,14 @@ public:
 	// void btGenericMemoryPool::m_free_nodes_count(size_t value)
 	static int _bind_set_free_nodes_count(lua_State *L) {
 		if (!_lg_typecheck_set_free_nodes_count(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::m_free_nodes_count(size_t value) function, expected prototype:\nvoid btGenericMemoryPool::m_free_nodes_count(size_t value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGenericMemoryPool::m_free_nodes_count(size_t value) function, expected prototype:\nvoid btGenericMemoryPool::m_free_nodes_count(size_t value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t value=(size_t)lua_tointeger(L,2);
 
 		btGenericMemoryPool* self=(Luna< btGenericMemoryPool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGenericMemoryPool::m_free_nodes_count(size_t). Got : '%s'",typeid(Luna< btGenericMemoryPool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGenericMemoryPool::m_free_nodes_count(size_t). Got : '%s'\n%s",typeid(Luna< btGenericMemoryPool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_free_nodes_count = value;
 

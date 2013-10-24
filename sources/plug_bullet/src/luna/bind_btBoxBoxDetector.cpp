@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDiscreteCollisionDetectorInterface* self=(Luna< btDiscreteCollisionDetectorInterface >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBoxBoxDetector* self= (btBoxBoxDetector*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btDiscreteCollisionDetectorInterface >::check(L,1));
@@ -154,8 +151,7 @@ public:
 	// btBoxBoxDetector::btBoxBoxDetector(const btBoxShape * box1, const btBoxShape * box2)
 	static btBoxBoxDetector* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBoxBoxDetector::btBoxBoxDetector(const btBoxShape * box1, const btBoxShape * box2) function, expected prototype:\nbtBoxBoxDetector::btBoxBoxDetector(const btBoxShape * box1, const btBoxShape * box2)\nClass arguments details:\narg 1 ID = 58243831\narg 2 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in btBoxBoxDetector::btBoxBoxDetector(const btBoxShape * box1, const btBoxShape * box2) function, expected prototype:\nbtBoxBoxDetector::btBoxBoxDetector(const btBoxShape * box1, const btBoxShape * box2)\nClass arguments details:\narg 1 ID = 58243831\narg 2 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btBoxShape* box1=(Luna< btCollisionShape >::checkSubType< btBoxShape >(L,1));
@@ -167,8 +163,7 @@ public:
 	// btBoxBoxDetector::btBoxBoxDetector(lua_Table * data, const btBoxShape * box1, const btBoxShape * box2)
 	static btBoxBoxDetector* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBoxBoxDetector::btBoxBoxDetector(lua_Table * data, const btBoxShape * box1, const btBoxShape * box2) function, expected prototype:\nbtBoxBoxDetector::btBoxBoxDetector(lua_Table * data, const btBoxShape * box1, const btBoxShape * box2)\nClass arguments details:\narg 2 ID = 58243831\narg 3 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in btBoxBoxDetector::btBoxBoxDetector(lua_Table * data, const btBoxShape * box1, const btBoxShape * box2) function, expected prototype:\nbtBoxBoxDetector::btBoxBoxDetector(lua_Table * data, const btBoxShape * box1, const btBoxShape * box2)\nClass arguments details:\narg 2 ID = 58243831\narg 3 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btBoxShape* box1=(Luna< btCollisionShape >::checkSubType< btBoxShape >(L,2));
@@ -191,8 +186,7 @@ public:
 	// void btBoxBoxDetector::getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false)
 	static int _bind_getClosestPoints(lua_State *L) {
 		if (!_lg_typecheck_getClosestPoints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBoxBoxDetector::getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false) function, expected prototype:\nvoid btBoxBoxDetector::getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false)\nClass arguments details:\narg 1 ID = 99215612\narg 2 ID = 25324514\narg 3 ID = 63441741\n");
+			luaL_error(L, "luna typecheck failed in void btBoxBoxDetector::getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false) function, expected prototype:\nvoid btBoxBoxDetector::getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false)\nClass arguments details:\narg 1 ID = 99215612\narg 2 ID = 25324514\narg 3 ID = 63441741\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -212,8 +206,7 @@ public:
 
 		btBoxBoxDetector* self=Luna< btDiscreteCollisionDetectorInterface >::checkSubType< btBoxBoxDetector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBoxBoxDetector::getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput &, btDiscreteCollisionDetectorInterface::Result &, class btIDebugDraw *, bool). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBoxBoxDetector::getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput &, btDiscreteCollisionDetectorInterface::Result &, class btIDebugDraw *, bool). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getClosestPoints(input, output, debugDraw, swapResults);
 
@@ -223,15 +216,13 @@ public:
 	// const btBoxShape * btBoxBoxDetector::m_box1()
 	static int _bind_getBox1(lua_State *L) {
 		if (!_lg_typecheck_getBox1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btBoxShape * btBoxBoxDetector::m_box1() function, expected prototype:\nconst btBoxShape * btBoxBoxDetector::m_box1()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btBoxShape * btBoxBoxDetector::m_box1() function, expected prototype:\nconst btBoxShape * btBoxBoxDetector::m_box1()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBoxBoxDetector* self=Luna< btDiscreteCollisionDetectorInterface >::checkSubType< btBoxBoxDetector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btBoxShape * btBoxBoxDetector::m_box1(). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btBoxShape * btBoxBoxDetector::m_box1(). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btBoxShape * lret = self->m_box1;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -244,15 +235,13 @@ public:
 	// const btBoxShape * btBoxBoxDetector::m_box2()
 	static int _bind_getBox2(lua_State *L) {
 		if (!_lg_typecheck_getBox2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btBoxShape * btBoxBoxDetector::m_box2() function, expected prototype:\nconst btBoxShape * btBoxBoxDetector::m_box2()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btBoxShape * btBoxBoxDetector::m_box2() function, expected prototype:\nconst btBoxShape * btBoxBoxDetector::m_box2()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBoxBoxDetector* self=Luna< btDiscreteCollisionDetectorInterface >::checkSubType< btBoxBoxDetector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btBoxShape * btBoxBoxDetector::m_box2(). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btBoxShape * btBoxBoxDetector::m_box2(). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btBoxShape * lret = self->m_box2;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -265,8 +254,7 @@ public:
 	// void btBoxBoxDetector::base_getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false)
 	static int _bind_base_getClosestPoints(lua_State *L) {
 		if (!_lg_typecheck_base_getClosestPoints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBoxBoxDetector::base_getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false) function, expected prototype:\nvoid btBoxBoxDetector::base_getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false)\nClass arguments details:\narg 1 ID = 99215612\narg 2 ID = 25324514\narg 3 ID = 63441741\n");
+			luaL_error(L, "luna typecheck failed in void btBoxBoxDetector::base_getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false) function, expected prototype:\nvoid btBoxBoxDetector::base_getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false)\nClass arguments details:\narg 1 ID = 99215612\narg 2 ID = 25324514\narg 3 ID = 63441741\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -286,8 +274,7 @@ public:
 
 		btBoxBoxDetector* self=Luna< btDiscreteCollisionDetectorInterface >::checkSubType< btBoxBoxDetector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBoxBoxDetector::base_getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput &, btDiscreteCollisionDetectorInterface::Result &, class btIDebugDraw *, bool). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBoxBoxDetector::base_getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput &, btDiscreteCollisionDetectorInterface::Result &, class btIDebugDraw *, bool). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btBoxBoxDetector::getClosestPoints(input, output, debugDraw, swapResults);
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btMaterial*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btMaterial*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMaterial* rhs =(Luna< btMaterial >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMaterial* self= (btMaterial*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btMaterial >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -109,8 +105,8 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -131,14 +127,14 @@ public:
 	inline static bool _lg_typecheck_setFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setRestitution(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -150,8 +146,7 @@ public:
 	// btMaterial::btMaterial()
 	static btMaterial* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMaterial::btMaterial() function, expected prototype:\nbtMaterial::btMaterial()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btMaterial::btMaterial() function, expected prototype:\nbtMaterial::btMaterial()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -161,8 +156,7 @@ public:
 	// btMaterial::btMaterial(float fric, float rest)
 	static btMaterial* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMaterial::btMaterial(float fric, float rest) function, expected prototype:\nbtMaterial::btMaterial(float fric, float rest)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btMaterial::btMaterial(float fric, float rest) function, expected prototype:\nbtMaterial::btMaterial(float fric, float rest)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float fric=(float)lua_tonumber(L,1);
@@ -185,15 +179,13 @@ public:
 	// float btMaterial::m_friction()
 	static int _bind_getFriction(lua_State *L) {
 		if (!_lg_typecheck_getFriction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btMaterial::m_friction() function, expected prototype:\nfloat btMaterial::m_friction()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btMaterial::m_friction() function, expected prototype:\nfloat btMaterial::m_friction()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMaterial* self=(Luna< btMaterial >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btMaterial::m_friction(). Got : '%s'",typeid(Luna< btMaterial >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btMaterial::m_friction(). Got : '%s'\n%s",typeid(Luna< btMaterial >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_friction;
 		lua_pushnumber(L,lret);
@@ -204,15 +196,13 @@ public:
 	// float btMaterial::m_restitution()
 	static int _bind_getRestitution(lua_State *L) {
 		if (!_lg_typecheck_getRestitution(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btMaterial::m_restitution() function, expected prototype:\nfloat btMaterial::m_restitution()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btMaterial::m_restitution() function, expected prototype:\nfloat btMaterial::m_restitution()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMaterial* self=(Luna< btMaterial >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btMaterial::m_restitution(). Got : '%s'",typeid(Luna< btMaterial >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btMaterial::m_restitution(). Got : '%s'\n%s",typeid(Luna< btMaterial >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_restitution;
 		lua_pushnumber(L,lret);
@@ -223,16 +213,14 @@ public:
 	// void btMaterial::m_friction(float value)
 	static int _bind_setFriction(lua_State *L) {
 		if (!_lg_typecheck_setFriction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMaterial::m_friction(float value) function, expected prototype:\nvoid btMaterial::m_friction(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMaterial::m_friction(float value) function, expected prototype:\nvoid btMaterial::m_friction(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btMaterial* self=(Luna< btMaterial >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMaterial::m_friction(float). Got : '%s'",typeid(Luna< btMaterial >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMaterial::m_friction(float). Got : '%s'\n%s",typeid(Luna< btMaterial >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_friction = value;
 
@@ -242,16 +230,14 @@ public:
 	// void btMaterial::m_restitution(float value)
 	static int _bind_setRestitution(lua_State *L) {
 		if (!_lg_typecheck_setRestitution(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMaterial::m_restitution(float value) function, expected prototype:\nvoid btMaterial::m_restitution(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMaterial::m_restitution(float value) function, expected prototype:\nvoid btMaterial::m_restitution(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btMaterial* self=(Luna< btMaterial >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMaterial::m_restitution(float). Got : '%s'",typeid(Luna< btMaterial >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMaterial::m_restitution(float). Got : '%s'\n%s",typeid(Luna< btMaterial >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_restitution = value;
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(TwEnumVal*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(TwEnumVal*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		TwEnumVal* rhs =(Luna< TwEnumVal >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		TwEnumVal* self= (TwEnumVal*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< TwEnumVal >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -117,7 +113,7 @@ public:
 	inline static bool _lg_typecheck_setValue(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -131,15 +127,13 @@ public:
 	// int TwEnumVal::Value()
 	static int _bind_getValue(lua_State *L) {
 		if (!_lg_typecheck_getValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int TwEnumVal::Value() function, expected prototype:\nint TwEnumVal::Value()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int TwEnumVal::Value() function, expected prototype:\nint TwEnumVal::Value()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		TwEnumVal* self=(Luna< TwEnumVal >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int TwEnumVal::Value(). Got : '%s'",typeid(Luna< TwEnumVal >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int TwEnumVal::Value(). Got : '%s'\n%s",typeid(Luna< TwEnumVal >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Value;
 		lua_pushnumber(L,lret);
@@ -150,15 +144,13 @@ public:
 	// const char * TwEnumVal::Label()
 	static int _bind_getLabel(lua_State *L) {
 		if (!_lg_typecheck_getLabel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * TwEnumVal::Label() function, expected prototype:\nconst char * TwEnumVal::Label()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * TwEnumVal::Label() function, expected prototype:\nconst char * TwEnumVal::Label()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		TwEnumVal* self=(Luna< TwEnumVal >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * TwEnumVal::Label(). Got : '%s'",typeid(Luna< TwEnumVal >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * TwEnumVal::Label(). Got : '%s'\n%s",typeid(Luna< TwEnumVal >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->Label;
 		lua_pushstring(L,lret);
@@ -169,16 +161,14 @@ public:
 	// void TwEnumVal::Value(int value)
 	static int _bind_setValue(lua_State *L) {
 		if (!_lg_typecheck_setValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void TwEnumVal::Value(int value) function, expected prototype:\nvoid TwEnumVal::Value(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void TwEnumVal::Value(int value) function, expected prototype:\nvoid TwEnumVal::Value(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		TwEnumVal* self=(Luna< TwEnumVal >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void TwEnumVal::Value(int). Got : '%s'",typeid(Luna< TwEnumVal >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void TwEnumVal::Value(int). Got : '%s'\n%s",typeid(Luna< TwEnumVal >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Value = value;
 

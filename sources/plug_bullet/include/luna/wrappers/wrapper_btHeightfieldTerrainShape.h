@@ -222,15 +222,15 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_getVertex(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 		return true;
 	}
@@ -238,14 +238,14 @@ public:
 	inline static bool _lg_typecheck_public_initialize(lua_State *L) {
 		if( lua_gettop(L)!=10 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
-		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-		if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 		if( lua_isboolean(L,10)==0 ) return false;
 		return true;
 	}
@@ -255,8 +255,7 @@ public:
 	// void btHeightfieldTerrainShape::public_quantizeWithClamp(int * out, const btVector3 & point, int isMax) const
 	static int _bind_public_quantizeWithClamp(lua_State *L) {
 		if (!_lg_typecheck_public_quantizeWithClamp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHeightfieldTerrainShape::public_quantizeWithClamp(int * out, const btVector3 & point, int isMax) const function, expected prototype:\nvoid btHeightfieldTerrainShape::public_quantizeWithClamp(int * out, const btVector3 & point, int isMax) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btHeightfieldTerrainShape::public_quantizeWithClamp(int * out, const btVector3 & point, int isMax) const function, expected prototype:\nvoid btHeightfieldTerrainShape::public_quantizeWithClamp(int * out, const btVector3 & point, int isMax) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int* out=(int*)Luna< void >::check(L,2);
@@ -269,8 +268,7 @@ public:
 
 		wrapper_btHeightfieldTerrainShape* self=Luna< btCollisionShape >::checkSubType< wrapper_btHeightfieldTerrainShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHeightfieldTerrainShape::public_quantizeWithClamp(int *, const btVector3 &, int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHeightfieldTerrainShape::public_quantizeWithClamp(int *, const btVector3 &, int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_quantizeWithClamp(out, point, isMax);
 
@@ -280,8 +278,7 @@ public:
 	// void btHeightfieldTerrainShape::public_getVertex(int x, int y, btVector3 & vertex) const
 	static int _bind_public_getVertex(lua_State *L) {
 		if (!_lg_typecheck_public_getVertex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHeightfieldTerrainShape::public_getVertex(int x, int y, btVector3 & vertex) const function, expected prototype:\nvoid btHeightfieldTerrainShape::public_getVertex(int x, int y, btVector3 & vertex) const\nClass arguments details:\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btHeightfieldTerrainShape::public_getVertex(int x, int y, btVector3 & vertex) const function, expected prototype:\nvoid btHeightfieldTerrainShape::public_getVertex(int x, int y, btVector3 & vertex) const\nClass arguments details:\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int x=(int)lua_tointeger(L,2);
@@ -294,8 +291,7 @@ public:
 
 		wrapper_btHeightfieldTerrainShape* self=Luna< btCollisionShape >::checkSubType< wrapper_btHeightfieldTerrainShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHeightfieldTerrainShape::public_getVertex(int, int, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHeightfieldTerrainShape::public_getVertex(int, int, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_getVertex(x, y, vertex);
 
@@ -305,13 +301,12 @@ public:
 	// void btHeightfieldTerrainShape::public_initialize(int heightStickWidth, int heightStickLength, const void * heightfieldData, float heightScale, float minHeight, float maxHeight, int upAxis, PHY_ScalarType heightDataType, bool flipQuadEdges)
 	static int _bind_public_initialize(lua_State *L) {
 		if (!_lg_typecheck_public_initialize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHeightfieldTerrainShape::public_initialize(int heightStickWidth, int heightStickLength, const void * heightfieldData, float heightScale, float minHeight, float maxHeight, int upAxis, PHY_ScalarType heightDataType, bool flipQuadEdges) function, expected prototype:\nvoid btHeightfieldTerrainShape::public_initialize(int heightStickWidth, int heightStickLength, const void * heightfieldData, float heightScale, float minHeight, float maxHeight, int upAxis, PHY_ScalarType heightDataType, bool flipQuadEdges)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btHeightfieldTerrainShape::public_initialize(int heightStickWidth, int heightStickLength, const void * heightfieldData, float heightScale, float minHeight, float maxHeight, int upAxis, PHY_ScalarType heightDataType, bool flipQuadEdges) function, expected prototype:\nvoid btHeightfieldTerrainShape::public_initialize(int heightStickWidth, int heightStickLength, const void * heightfieldData, float heightScale, float minHeight, float maxHeight, int upAxis, PHY_ScalarType heightDataType, bool flipQuadEdges)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int heightStickWidth=(int)lua_tointeger(L,2);
 		int heightStickLength=(int)lua_tointeger(L,3);
-		void* heightfieldData=(Luna< void >::check(L,4));
+		const void* heightfieldData=(Luna< void >::check(L,4));
 		float heightScale=(float)lua_tonumber(L,5);
 		float minHeight=(float)lua_tonumber(L,6);
 		float maxHeight=(float)lua_tonumber(L,7);
@@ -321,8 +316,7 @@ public:
 
 		wrapper_btHeightfieldTerrainShape* self=Luna< btCollisionShape >::checkSubType< wrapper_btHeightfieldTerrainShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHeightfieldTerrainShape::public_initialize(int, int, const void *, float, float, float, int, PHY_ScalarType, bool). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHeightfieldTerrainShape::public_initialize(int, int, const void *, float, float, float, int, PHY_ScalarType, bool). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_initialize(heightStickWidth, heightStickLength, heightfieldData, heightScale, minHeight, maxHeight, upAxis, heightDataType, flipQuadEdges);
 

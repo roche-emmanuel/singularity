@@ -44,15 +44,8 @@ define(['log','jquery','config','raphael','base/Tools'], function(log,$,cfg,raph
 			var xr = tools.getBlockWidth();
 			var yr = tools.getBlockHeight();
 			
-			// Set the font size. We leave one pixel above, and one pixel under.
-			var fsize = Math.floor(yr-2);
-			var test = $('#compute');
-			test.css('fontSize',fsize);
-			var height = test.height(); //(test.clientHeight);
-			var width = test.width(); //(test.clientWidth);
-			
-			// Compute the letter-spacing value and padding in pixels:
-			var ls = xr-width;
+			var fsize = tools.getFontSize();
+			var ls = tools.getLetterSpacing()
 			var pad = ls/2.0;
 			
 			// Update the styles on the body element:
@@ -63,7 +56,30 @@ define(['log','jquery','config','raphael','base/Tools'], function(log,$,cfg,raph
 			//$('#target_name').css({letterSpacing: ls+xr/2.0, marginRight: -ls-xr/2.0})
 			// $('.lastchar').css({letterSpacing: ls/2.0});
 			
-			$("<style type='text/css'> .lastchar{ letter-spacing:"+(ls/2.0)+"px;} </style>").appendTo("head");
+			var str = ".textslot { \
+				position: absolute; \
+				text-shadow: -1px -1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, 1px 1px 1px #000; \
+				letter-spacing: {0}px; \
+				padding-left: {1}px; \
+				padding-right: {1}px; \
+				padding-top: 1px; \
+				padding-bottom: 1px; \
+				margin-right: {2}px; \
+				font-size: {3}px; \
+				line-height: {3}px; \
+				min-height: {3}px; \
+				max-height: {3}px; \
+				height: {3}px; \
+			}";
+			
+			str = tools.format(str,ls,pad,-ls,fsize,fsize)
+			tools.addStyleRule(str);
+			
+			str = ".lastchar { \
+				letter-spacing:{0}px; \
+			}";
+			str = tools.format(str,(ls/2.0))
+			tools.addStyleRule(str);
 			
 			// change the lastchar rule itself:
 			// for (i in document.styleSheets[0].rules) {

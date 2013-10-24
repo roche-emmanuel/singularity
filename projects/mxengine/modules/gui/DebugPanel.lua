@@ -1,55 +1,69 @@
-local Class = require("classBuilder"){name="DebugPanel",bases="gui.BasicTurretComponent"};
+local Class = require("classBuilder"){name="DebugPanel",bases="gui.wx.InterfaceComponent"};
 
-
-function Class:buildComponent(intf)	
-	intf:pushSizerH{text="Debugging",prop=0,flags=wx.wxALL+wx.wxEXPAND, function()
-		intf:addBoolEntry{name="dump_state",caption="Dump state",style=0,
-						  flags=wx.wxALIGN_CENTER_VERTICAL,
-						  tip="Dump the turret state", 
-						  handler="dumpTurretState", validItemOnly=true,
-						  }
-		intf:addBoolEntry{name="grid_state",caption="Fill state grid",style=0,
-						  flags=wx.wxALIGN_CENTER_VERTICAL,
-						  tip="Use the turret state to fill the state grid", 
-						  --handler="toggleFillGrid", validItemOnly=true,
-						  }
+function Class:buildComponent(intf)
+	
+	intf:pushSizer{text="Debugging",orient=wx.wxVERTICAL,prop=0,flags=wx.wxEXPAND}
+		self._fpsSt = intf:addStaticText{text="Current framerate: 0 FPS"}
+		intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxEXPAND}
+		intf:addCheckBox{text="Debug textures",tip="Toggle VBSHook debug outputs",
+							 handler="toggleVBSHookDebug"}
+		intf:addCheckBox{text="With Depth surfaces",tip="Toggle VBSHook depth surfaces display",
+						 handler="toggleVBSHookDepthSurface"}								 
+							 
 		intf:addSpacer{prop=1}
-		intf:addActionButtonEntry{name="reload_web_pages",caption="reload",src="reload",tip="Reload all web views",handler="reloadWebPages",validItemOnly=true}
-	end}
+		intf:addBitmapButton{src="check",tip="Perform mission level unit tests",
+							 -- flags=wx.wxALIGN_RIGHT,
+							 handler="performMissionUnitTests"}
+		intf:addBitmapButton{src="check@earth",tip="Perform global level unit tests",
+							 -- flags=wx.wxALIGN_RIGHT,
+							 handler="performGlobalUnitTests"}
+		intf:popSizer()
+	intf:popSizer()
+	
+	self:connectFPSTimer()
 end
 
-function Class:dumpTurretState(data)
-	self:info("Toggling turret state dump to ",data.value)	
-	local dmap = data.item
+function Class:connectFPSTimer()
+	-- use the scheduler to update the FPS display:
+	local scheduler = require "gui.wx.Scheduler"
+	local fh = require "fusion.FusionHandler"
+	scheduler:addTimer{frequency=10,callback=function(event) 
+		-- self:info("writing FPS value!")
+		self._fpsSt:SetLabel(("Current framerate: %.2f FPS."):format(fh:getFPS():at(1)))
+	end}	
+end
 
-	local turret = self:getTurret(data)
+function Class:toggleVBSHookDebug(intf,event)
+	local comp = require "engine.CompositeHandler"
+	local handler = comp:getHandler("MainHandler")
+	self:check(handler,"Invalid main handler.")
 	
-	local prevCB = dmap:get("dumpStateCB")
-	if prevCB then
-		turret:removeListener(prevCB)
+	self:info("Should toggle VBSHook debug state to: ",event:IsChecked())
+	handler:setDebugTextures(event:IsChecked())
+end
+
+function Class:toggleVBSHookDepthSurface(intf,event)
+	local comp = require "engine.CompositeHandler"
+	local handler = comp:getHandler("MainHandler")
+	self:check(handler,"Invalid main handler.")
+	
+	self:info("Should toggle Depth surface state to: ",event:IsChecked())
+	handler:setWithDepthSurface(event:IsChecked())
+end
+
+function Class:performMissionUnitTests()
+	if not self:isMissionRunning() then
+		self:error("Cannot perform mission tests when no mission is running.")
+		return
 	end
 	
-	if data.value then
-		local cb = turret:addListener{turret.EVT_POST_UPDATE,function()
-			self:info("Turret ",turret:getName()," state:\n",turret:getState():getTable())
-		end}
-		dmap:set("dumpStateCB",cb)
-	end
+	local tester = require "utils.MissionUnitTests"
+	tester:run()
 end
 
-function Class:reloadWebPages(data)
-	local dmap = data.item
-	local turret = dmap:fetch("turret")
-
-	local AweOverlay = require "display.effects.AweOverlay"
-	
-	-- find all the webView components, and reload them:
-	turret:getComponents():foreach(function(comp)
-		if comp:isInstanceOf(AweOverlay) then
-			comp:reload()
-		end
-	end)
+function Class:performGlobalUnitTests()
+	local tester = require "utils.GlobalUnitTests"
+	tester:run()
 end
-
 
 return Class 

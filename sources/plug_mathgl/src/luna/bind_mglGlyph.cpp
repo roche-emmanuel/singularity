@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglGlyph* self= (mglGlyph*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< mglGlyph >::check(L,1));
@@ -52,14 +50,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -93,8 +90,8 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -103,8 +100,8 @@ public:
 	inline static bool _lg_typecheck_Create(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -135,14 +132,14 @@ public:
 	inline static bool _lg_typecheck_setNt(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setNl(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -182,8 +179,7 @@ public:
 	// mglGlyph::mglGlyph()
 	static mglGlyph* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglGlyph::mglGlyph() function, expected prototype:\nmglGlyph::mglGlyph()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglGlyph::mglGlyph() function, expected prototype:\nmglGlyph::mglGlyph()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -193,8 +189,7 @@ public:
 	// mglGlyph::mglGlyph(const mglGlyph & a)
 	static mglGlyph* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglGlyph::mglGlyph(const mglGlyph & a) function, expected prototype:\nmglGlyph::mglGlyph(const mglGlyph & a)\nClass arguments details:\narg 1 ID = 48516804\n");
+			luaL_error(L, "luna typecheck failed in mglGlyph::mglGlyph(const mglGlyph & a) function, expected prototype:\nmglGlyph::mglGlyph(const mglGlyph & a)\nClass arguments details:\narg 1 ID = 48516804\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const mglGlyph* a_ptr=(Luna< mglGlyph >::check(L,1));
@@ -209,12 +204,11 @@ public:
 	// mglGlyph::mglGlyph(long Nt, long Nl)
 	static mglGlyph* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglGlyph::mglGlyph(long Nt, long Nl) function, expected prototype:\nmglGlyph::mglGlyph(long Nt, long Nl)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglGlyph::mglGlyph(long Nt, long Nl) function, expected prototype:\nmglGlyph::mglGlyph(long Nt, long Nl)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long Nt=(long)lua_tointeger(L,1);
-		long Nl=(long)lua_tointeger(L,2);
+		long Nt=(long)lua_tonumber(L,1);
+		long Nl=(long)lua_tonumber(L,2);
 
 		return new mglGlyph(Nt, Nl);
 	}
@@ -234,17 +228,15 @@ public:
 	// void mglGlyph::Create(long Nt, long Nl)
 	static int _bind_Create(lua_State *L) {
 		if (!_lg_typecheck_Create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGlyph::Create(long Nt, long Nl) function, expected prototype:\nvoid mglGlyph::Create(long Nt, long Nl)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGlyph::Create(long Nt, long Nl) function, expected prototype:\nvoid mglGlyph::Create(long Nt, long Nl)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long Nt=(long)lua_tointeger(L,2);
-		long Nl=(long)lua_tointeger(L,3);
+		long Nt=(long)lua_tonumber(L,2);
+		long Nl=(long)lua_tonumber(L,3);
 
 		mglGlyph* self=(Luna< mglGlyph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGlyph::Create(long, long). Got : '%s'",typeid(Luna< mglGlyph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGlyph::Create(long, long). Got : '%s'\n%s",typeid(Luna< mglGlyph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Create(Nt, Nl);
 
@@ -254,15 +246,13 @@ public:
 	// long mglGlyph::nt()
 	static int _bind_getNt(lua_State *L) {
 		if (!_lg_typecheck_getNt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long mglGlyph::nt() function, expected prototype:\nlong mglGlyph::nt()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long mglGlyph::nt() function, expected prototype:\nlong mglGlyph::nt()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGlyph* self=(Luna< mglGlyph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long mglGlyph::nt(). Got : '%s'",typeid(Luna< mglGlyph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long mglGlyph::nt(). Got : '%s'\n%s",typeid(Luna< mglGlyph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->nt;
 		lua_pushnumber(L,lret);
@@ -273,15 +263,13 @@ public:
 	// long mglGlyph::nl()
 	static int _bind_getNl(lua_State *L) {
 		if (!_lg_typecheck_getNl(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long mglGlyph::nl() function, expected prototype:\nlong mglGlyph::nl()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long mglGlyph::nl() function, expected prototype:\nlong mglGlyph::nl()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGlyph* self=(Luna< mglGlyph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long mglGlyph::nl(). Got : '%s'",typeid(Luna< mglGlyph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long mglGlyph::nl(). Got : '%s'\n%s",typeid(Luna< mglGlyph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->nl;
 		lua_pushnumber(L,lret);
@@ -292,15 +280,13 @@ public:
 	// short * mglGlyph::trig()
 	static int _bind_getTrig(lua_State *L) {
 		if (!_lg_typecheck_getTrig(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short * mglGlyph::trig() function, expected prototype:\nshort * mglGlyph::trig()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short * mglGlyph::trig() function, expected prototype:\nshort * mglGlyph::trig()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGlyph* self=(Luna< mglGlyph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short * mglGlyph::trig(). Got : '%s'",typeid(Luna< mglGlyph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short * mglGlyph::trig(). Got : '%s'\n%s",typeid(Luna< mglGlyph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short * lret = self->trig;
 		lua_pushnumber(L,*lret);
@@ -311,15 +297,13 @@ public:
 	// short * mglGlyph::line()
 	static int _bind_getLine(lua_State *L) {
 		if (!_lg_typecheck_getLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short * mglGlyph::line() function, expected prototype:\nshort * mglGlyph::line()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short * mglGlyph::line() function, expected prototype:\nshort * mglGlyph::line()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGlyph* self=(Luna< mglGlyph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short * mglGlyph::line(). Got : '%s'",typeid(Luna< mglGlyph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short * mglGlyph::line(). Got : '%s'\n%s",typeid(Luna< mglGlyph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short * lret = self->line;
 		lua_pushnumber(L,*lret);
@@ -330,16 +314,14 @@ public:
 	// void mglGlyph::nt(long value)
 	static int _bind_setNt(lua_State *L) {
 		if (!_lg_typecheck_setNt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGlyph::nt(long value) function, expected prototype:\nvoid mglGlyph::nt(long value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGlyph::nt(long value) function, expected prototype:\nvoid mglGlyph::nt(long value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long value=(long)lua_tointeger(L,2);
+		long value=(long)lua_tonumber(L,2);
 
 		mglGlyph* self=(Luna< mglGlyph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGlyph::nt(long). Got : '%s'",typeid(Luna< mglGlyph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGlyph::nt(long). Got : '%s'\n%s",typeid(Luna< mglGlyph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->nt = value;
 
@@ -349,16 +331,14 @@ public:
 	// void mglGlyph::nl(long value)
 	static int _bind_setNl(lua_State *L) {
 		if (!_lg_typecheck_setNl(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGlyph::nl(long value) function, expected prototype:\nvoid mglGlyph::nl(long value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGlyph::nl(long value) function, expected prototype:\nvoid mglGlyph::nl(long value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		long value=(long)lua_tointeger(L,2);
+		long value=(long)lua_tonumber(L,2);
 
 		mglGlyph* self=(Luna< mglGlyph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGlyph::nl(long). Got : '%s'",typeid(Luna< mglGlyph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGlyph::nl(long). Got : '%s'\n%s",typeid(Luna< mglGlyph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->nl = value;
 
@@ -368,16 +348,14 @@ public:
 	// void mglGlyph::trig(short * value)
 	static int _bind_setTrig(lua_State *L) {
 		if (!_lg_typecheck_setTrig(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGlyph::trig(short * value) function, expected prototype:\nvoid mglGlyph::trig(short * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGlyph::trig(short * value) function, expected prototype:\nvoid mglGlyph::trig(short * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		short* value=(short*)Luna< void >::check(L,2);
 
 		mglGlyph* self=(Luna< mglGlyph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGlyph::trig(short *). Got : '%s'",typeid(Luna< mglGlyph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGlyph::trig(short *). Got : '%s'\n%s",typeid(Luna< mglGlyph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->trig = value;
 
@@ -387,16 +365,14 @@ public:
 	// void mglGlyph::line(short * value)
 	static int _bind_setLine(lua_State *L) {
 		if (!_lg_typecheck_setLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGlyph::line(short * value) function, expected prototype:\nvoid mglGlyph::line(short * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGlyph::line(short * value) function, expected prototype:\nvoid mglGlyph::line(short * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		short* value=(short*)Luna< void >::check(L,2);
 
 		mglGlyph* self=(Luna< mglGlyph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGlyph::line(short *). Got : '%s'",typeid(Luna< mglGlyph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGlyph::line(short *). Got : '%s'\n%s",typeid(Luna< mglGlyph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->line = value;
 
@@ -408,8 +384,7 @@ public:
 	// bool mglGlyph::operator==(const mglGlyph & g)
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool mglGlyph::operator==(const mglGlyph & g) function, expected prototype:\nbool mglGlyph::operator==(const mglGlyph & g)\nClass arguments details:\narg 1 ID = 48516804\n");
+			luaL_error(L, "luna typecheck failed in bool mglGlyph::operator==(const mglGlyph & g) function, expected prototype:\nbool mglGlyph::operator==(const mglGlyph & g)\nClass arguments details:\narg 1 ID = 48516804\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const mglGlyph* g_ptr=(Luna< mglGlyph >::check(L,2));
@@ -420,8 +395,7 @@ public:
 
 		mglGlyph* self=(Luna< mglGlyph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool mglGlyph::operator==(const mglGlyph &). Got : '%s'",typeid(Luna< mglGlyph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool mglGlyph::operator==(const mglGlyph &). Got : '%s'\n%s",typeid(Luna< mglGlyph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->operator==(g);
 		lua_pushboolean(L,lret?1:0);
@@ -432,8 +406,7 @@ public:
 	// mglGlyph & mglGlyph::operator=(const mglGlyph & a)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglGlyph & mglGlyph::operator=(const mglGlyph & a) function, expected prototype:\nmglGlyph & mglGlyph::operator=(const mglGlyph & a)\nClass arguments details:\narg 1 ID = 48516804\n");
+			luaL_error(L, "luna typecheck failed in mglGlyph & mglGlyph::operator=(const mglGlyph & a) function, expected prototype:\nmglGlyph & mglGlyph::operator=(const mglGlyph & a)\nClass arguments details:\narg 1 ID = 48516804\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const mglGlyph* a_ptr=(Luna< mglGlyph >::check(L,2));
@@ -444,8 +417,7 @@ public:
 
 		mglGlyph* self=(Luna< mglGlyph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglGlyph & mglGlyph::operator=(const mglGlyph &). Got : '%s'",typeid(Luna< mglGlyph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglGlyph & mglGlyph::operator=(const mglGlyph &). Got : '%s'\n%s",typeid(Luna< mglGlyph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const mglGlyph* lret = &self->operator=(a);
 		if(!lret) return 0; // Do not write NULL pointers.

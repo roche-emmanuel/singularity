@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		BasicVariableCallback* self= (BasicVariableCallback*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -125,8 +122,7 @@ public:
 	// BasicVariableCallback::BasicVariableCallback()
 	static BasicVariableCallback* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in BasicVariableCallback::BasicVariableCallback() function, expected prototype:\nBasicVariableCallback::BasicVariableCallback()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in BasicVariableCallback::BasicVariableCallback() function, expected prototype:\nBasicVariableCallback::BasicVariableCallback()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -136,8 +132,7 @@ public:
 	// BasicVariableCallback::BasicVariableCallback(lua_Table * data)
 	static BasicVariableCallback* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in BasicVariableCallback::BasicVariableCallback(lua_Table * data) function, expected prototype:\nBasicVariableCallback::BasicVariableCallback(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in BasicVariableCallback::BasicVariableCallback(lua_Table * data) function, expected prototype:\nBasicVariableCallback::BasicVariableCallback(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -158,16 +153,14 @@ public:
 	// void BasicVariableCallback::setReadOnly(bool ro)
 	static int _bind_setReadOnly(lua_State *L) {
 		if (!_lg_typecheck_setReadOnly(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void BasicVariableCallback::setReadOnly(bool ro) function, expected prototype:\nvoid BasicVariableCallback::setReadOnly(bool ro)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void BasicVariableCallback::setReadOnly(bool ro) function, expected prototype:\nvoid BasicVariableCallback::setReadOnly(bool ro)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool ro=(bool)(lua_toboolean(L,2)==1);
 
 		BasicVariableCallback* self=Luna< osg::Referenced >::checkSubType< BasicVariableCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void BasicVariableCallback::setReadOnly(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void BasicVariableCallback::setReadOnly(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setReadOnly(ro);
 
@@ -177,15 +170,13 @@ public:
 	// bool BasicVariableCallback::getReadOnly()
 	static int _bind_getReadOnly(lua_State *L) {
 		if (!_lg_typecheck_getReadOnly(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool BasicVariableCallback::getReadOnly() function, expected prototype:\nbool BasicVariableCallback::getReadOnly()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool BasicVariableCallback::getReadOnly() function, expected prototype:\nbool BasicVariableCallback::getReadOnly()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		BasicVariableCallback* self=Luna< osg::Referenced >::checkSubType< BasicVariableCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool BasicVariableCallback::getReadOnly(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool BasicVariableCallback::getReadOnly(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getReadOnly();
 		lua_pushboolean(L,lret?1:0);

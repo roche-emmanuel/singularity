@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedObject* self=(Luna< btTypedObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSliderConstraint* self= (btSliderConstraint*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btTypedObject >::check(L,1));
@@ -174,8 +171,8 @@ public:
 		if( !Luna<void>::has_uniqueid(L,4,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,91544891) ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
-		if( lua_isnumber(L,8)==0 ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,8)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -236,7 +233,7 @@ public:
 	inline static bool _lg_typecheck_setLowerLinLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -249,7 +246,7 @@ public:
 	inline static bool _lg_typecheck_setUpperLinLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -262,7 +259,7 @@ public:
 	inline static bool _lg_typecheck_setLowerAngLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -275,7 +272,7 @@ public:
 	inline static bool _lg_typecheck_setUpperAngLimit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -396,126 +393,126 @@ public:
 	inline static bool _lg_typecheck_setSoftnessDirLin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setRestitutionDirLin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDampingDirLin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setSoftnessDirAng(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setRestitutionDirAng(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDampingDirAng(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setSoftnessLimLin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setRestitutionLimLin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDampingLimLin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setSoftnessLimAng(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setRestitutionLimAng(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDampingLimAng(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setSoftnessOrthoLin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setRestitutionOrthoLin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDampingOrthoLin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setSoftnessOrthoAng(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setRestitutionOrthoAng(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDampingOrthoAng(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -535,7 +532,7 @@ public:
 	inline static bool _lg_typecheck_setTargetLinMotorVelocity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -548,7 +545,7 @@ public:
 	inline static bool _lg_typecheck_setMaxLinMotorForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -574,7 +571,7 @@ public:
 	inline static bool _lg_typecheck_setTargetAngMotorVelocity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -587,7 +584,7 @@ public:
 	inline static bool _lg_typecheck_setMaxAngMotorForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -690,9 +687,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -700,8 +697,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -721,9 +718,9 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,36629303) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -732,7 +729,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,65712094) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,65712094) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -754,9 +751,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -764,8 +761,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -783,8 +780,7 @@ public:
 	// btSliderConstraint::btSliderConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)
 	static btSliderConstraint* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSliderConstraint::btSliderConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA) function, expected prototype:\nbtSliderConstraint::btSliderConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 13247377\narg 4 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btSliderConstraint::btSliderConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA) function, expected prototype:\nbtSliderConstraint::btSliderConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 13247377\narg 4 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* rbA_ptr=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,1));
@@ -815,8 +811,7 @@ public:
 	// btSliderConstraint::btSliderConstraint(btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameA)
 	static btSliderConstraint* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSliderConstraint::btSliderConstraint(btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameA) function, expected prototype:\nbtSliderConstraint::btSliderConstraint(btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameA)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btSliderConstraint::btSliderConstraint(btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameA) function, expected prototype:\nbtSliderConstraint::btSliderConstraint(btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameA)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* rbB_ptr=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,1));
@@ -837,8 +832,7 @@ public:
 	// btSliderConstraint::btSliderConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)
 	static btSliderConstraint* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSliderConstraint::btSliderConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA) function, expected prototype:\nbtSliderConstraint::btSliderConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 85758361\narg 4 ID = 13247377\narg 5 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btSliderConstraint::btSliderConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA) function, expected prototype:\nbtSliderConstraint::btSliderConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 85758361\narg 4 ID = 13247377\narg 5 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* rbA_ptr=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,2));
@@ -869,8 +863,7 @@ public:
 	// btSliderConstraint::btSliderConstraint(lua_Table * data, btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameA)
 	static btSliderConstraint* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSliderConstraint::btSliderConstraint(lua_Table * data, btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameA) function, expected prototype:\nbtSliderConstraint::btSliderConstraint(lua_Table * data, btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameA)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btSliderConstraint::btSliderConstraint(lua_Table * data, btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameA) function, expected prototype:\nbtSliderConstraint::btSliderConstraint(lua_Table * data, btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameA)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* rbB_ptr=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,2));
@@ -904,16 +897,14 @@ public:
 	// void btSliderConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 * info)
 	static int _bind_getInfo1(lua_State *L) {
 		if (!_lg_typecheck_getInfo1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btSliderConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btSliderConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo1* info=(Luna< btTypedConstraint::btConstraintInfo1 >::check(L,2));
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getInfo1(info);
 
@@ -923,16 +914,14 @@ public:
 	// void btSliderConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 * info)
 	static int _bind_getInfo1NonVirtual(lua_State *L) {
 		if (!_lg_typecheck_getInfo1NonVirtual(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btSliderConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btSliderConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo1* info=(Luna< btTypedConstraint::btConstraintInfo1 >::check(L,2));
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getInfo1NonVirtual(info);
 
@@ -942,16 +931,14 @@ public:
 	// void btSliderConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info)
 	static int _bind_getInfo2(lua_State *L) {
 		if (!_lg_typecheck_getInfo2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info) function, expected prototype:\nvoid btSliderConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info)\nClass arguments details:\narg 1 ID = 17243936\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info) function, expected prototype:\nvoid btSliderConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info)\nClass arguments details:\narg 1 ID = 17243936\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo2* info=(Luna< btTypedConstraint::btConstraintInfo2 >::check(L,2));
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getInfo2(info);
 
@@ -961,8 +948,7 @@ public:
 	// void btSliderConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & linVelA, const btVector3 & linVelB, float rbAinvMass, float rbBinvMass)
 	static int _bind_getInfo2NonVirtual(lua_State *L) {
 		if (!_lg_typecheck_getInfo2NonVirtual(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & linVelA, const btVector3 & linVelB, float rbAinvMass, float rbBinvMass) function, expected prototype:\nvoid btSliderConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & linVelA, const btVector3 & linVelB, float rbAinvMass, float rbBinvMass)\nClass arguments details:\narg 1 ID = 17243936\narg 2 ID = 13247377\narg 3 ID = 13247377\narg 4 ID = 91544891\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & linVelA, const btVector3 & linVelB, float rbAinvMass, float rbBinvMass) function, expected prototype:\nvoid btSliderConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & linVelA, const btVector3 & linVelB, float rbAinvMass, float rbBinvMass)\nClass arguments details:\narg 1 ID = 17243936\narg 2 ID = 13247377\narg 3 ID = 13247377\narg 4 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo2* info=(Luna< btTypedConstraint::btConstraintInfo2 >::check(L,2));
@@ -991,8 +977,7 @@ public:
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 *, const btTransform &, const btTransform &, const btVector3 &, const btVector3 &, float, float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 *, const btTransform &, const btTransform &, const btVector3 &, const btVector3 &, float, float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getInfo2NonVirtual(info, transA, transB, linVelA, linVelB, rbAinvMass, rbBinvMass);
 
@@ -1002,15 +987,13 @@ public:
 	// const btRigidBody & btSliderConstraint::getRigidBodyA() const
 	static int _bind_getRigidBodyA(lua_State *L) {
 		if (!_lg_typecheck_getRigidBodyA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btRigidBody & btSliderConstraint::getRigidBodyA() const function, expected prototype:\nconst btRigidBody & btSliderConstraint::getRigidBodyA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btRigidBody & btSliderConstraint::getRigidBodyA() const function, expected prototype:\nconst btRigidBody & btSliderConstraint::getRigidBodyA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btRigidBody & btSliderConstraint::getRigidBodyA() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btRigidBody & btSliderConstraint::getRigidBodyA() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btRigidBody* lret = &self->getRigidBodyA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1023,15 +1006,13 @@ public:
 	// const btRigidBody & btSliderConstraint::getRigidBodyB() const
 	static int _bind_getRigidBodyB(lua_State *L) {
 		if (!_lg_typecheck_getRigidBodyB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btRigidBody & btSliderConstraint::getRigidBodyB() const function, expected prototype:\nconst btRigidBody & btSliderConstraint::getRigidBodyB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btRigidBody & btSliderConstraint::getRigidBodyB() const function, expected prototype:\nconst btRigidBody & btSliderConstraint::getRigidBodyB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btRigidBody & btSliderConstraint::getRigidBodyB() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btRigidBody & btSliderConstraint::getRigidBodyB() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btRigidBody* lret = &self->getRigidBodyB();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1044,15 +1025,13 @@ public:
 	// const btTransform & btSliderConstraint::getCalculatedTransformA() const
 	static int _bind_getCalculatedTransformA(lua_State *L) {
 		if (!_lg_typecheck_getCalculatedTransformA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btTransform & btSliderConstraint::getCalculatedTransformA() const function, expected prototype:\nconst btTransform & btSliderConstraint::getCalculatedTransformA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btTransform & btSliderConstraint::getCalculatedTransformA() const function, expected prototype:\nconst btTransform & btSliderConstraint::getCalculatedTransformA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btTransform & btSliderConstraint::getCalculatedTransformA() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btTransform & btSliderConstraint::getCalculatedTransformA() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getCalculatedTransformA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1065,15 +1044,13 @@ public:
 	// const btTransform & btSliderConstraint::getCalculatedTransformB() const
 	static int _bind_getCalculatedTransformB(lua_State *L) {
 		if (!_lg_typecheck_getCalculatedTransformB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btTransform & btSliderConstraint::getCalculatedTransformB() const function, expected prototype:\nconst btTransform & btSliderConstraint::getCalculatedTransformB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btTransform & btSliderConstraint::getCalculatedTransformB() const function, expected prototype:\nconst btTransform & btSliderConstraint::getCalculatedTransformB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btTransform & btSliderConstraint::getCalculatedTransformB() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btTransform & btSliderConstraint::getCalculatedTransformB() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getCalculatedTransformB();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1086,15 +1063,13 @@ public:
 	// const btTransform & btSliderConstraint::getFrameOffsetA() const
 	static int _bind_getFrameOffsetA_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getFrameOffsetA_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btTransform & btSliderConstraint::getFrameOffsetA() const function, expected prototype:\nconst btTransform & btSliderConstraint::getFrameOffsetA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btTransform & btSliderConstraint::getFrameOffsetA() const function, expected prototype:\nconst btTransform & btSliderConstraint::getFrameOffsetA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btTransform & btSliderConstraint::getFrameOffsetA() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btTransform & btSliderConstraint::getFrameOffsetA() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getFrameOffsetA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1107,15 +1082,13 @@ public:
 	// btTransform & btSliderConstraint::getFrameOffsetA()
 	static int _bind_getFrameOffsetA_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getFrameOffsetA_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform & btSliderConstraint::getFrameOffsetA() function, expected prototype:\nbtTransform & btSliderConstraint::getFrameOffsetA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform & btSliderConstraint::getFrameOffsetA() function, expected prototype:\nbtTransform & btSliderConstraint::getFrameOffsetA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform & btSliderConstraint::getFrameOffsetA(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform & btSliderConstraint::getFrameOffsetA(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getFrameOffsetA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1137,15 +1110,13 @@ public:
 	// const btTransform & btSliderConstraint::getFrameOffsetB() const
 	static int _bind_getFrameOffsetB_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getFrameOffsetB_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btTransform & btSliderConstraint::getFrameOffsetB() const function, expected prototype:\nconst btTransform & btSliderConstraint::getFrameOffsetB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btTransform & btSliderConstraint::getFrameOffsetB() const function, expected prototype:\nconst btTransform & btSliderConstraint::getFrameOffsetB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btTransform & btSliderConstraint::getFrameOffsetB() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btTransform & btSliderConstraint::getFrameOffsetB() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getFrameOffsetB();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1158,15 +1129,13 @@ public:
 	// btTransform & btSliderConstraint::getFrameOffsetB()
 	static int _bind_getFrameOffsetB_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getFrameOffsetB_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform & btSliderConstraint::getFrameOffsetB() function, expected prototype:\nbtTransform & btSliderConstraint::getFrameOffsetB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform & btSliderConstraint::getFrameOffsetB() function, expected prototype:\nbtTransform & btSliderConstraint::getFrameOffsetB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform & btSliderConstraint::getFrameOffsetB(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform & btSliderConstraint::getFrameOffsetB(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getFrameOffsetB();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1188,15 +1157,13 @@ public:
 	// float btSliderConstraint::getLowerLinLimit()
 	static int _bind_getLowerLinLimit(lua_State *L) {
 		if (!_lg_typecheck_getLowerLinLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getLowerLinLimit() function, expected prototype:\nfloat btSliderConstraint::getLowerLinLimit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getLowerLinLimit() function, expected prototype:\nfloat btSliderConstraint::getLowerLinLimit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getLowerLinLimit(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getLowerLinLimit(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getLowerLinLimit();
 		lua_pushnumber(L,lret);
@@ -1207,16 +1174,14 @@ public:
 	// void btSliderConstraint::setLowerLinLimit(float lowerLimit)
 	static int _bind_setLowerLinLimit(lua_State *L) {
 		if (!_lg_typecheck_setLowerLinLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setLowerLinLimit(float lowerLimit) function, expected prototype:\nvoid btSliderConstraint::setLowerLinLimit(float lowerLimit)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setLowerLinLimit(float lowerLimit) function, expected prototype:\nvoid btSliderConstraint::setLowerLinLimit(float lowerLimit)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float lowerLimit=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setLowerLinLimit(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setLowerLinLimit(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLowerLinLimit(lowerLimit);
 
@@ -1226,15 +1191,13 @@ public:
 	// float btSliderConstraint::getUpperLinLimit()
 	static int _bind_getUpperLinLimit(lua_State *L) {
 		if (!_lg_typecheck_getUpperLinLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getUpperLinLimit() function, expected prototype:\nfloat btSliderConstraint::getUpperLinLimit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getUpperLinLimit() function, expected prototype:\nfloat btSliderConstraint::getUpperLinLimit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getUpperLinLimit(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getUpperLinLimit(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getUpperLinLimit();
 		lua_pushnumber(L,lret);
@@ -1245,16 +1208,14 @@ public:
 	// void btSliderConstraint::setUpperLinLimit(float upperLimit)
 	static int _bind_setUpperLinLimit(lua_State *L) {
 		if (!_lg_typecheck_setUpperLinLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setUpperLinLimit(float upperLimit) function, expected prototype:\nvoid btSliderConstraint::setUpperLinLimit(float upperLimit)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setUpperLinLimit(float upperLimit) function, expected prototype:\nvoid btSliderConstraint::setUpperLinLimit(float upperLimit)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float upperLimit=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setUpperLinLimit(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setUpperLinLimit(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setUpperLinLimit(upperLimit);
 
@@ -1264,15 +1225,13 @@ public:
 	// float btSliderConstraint::getLowerAngLimit()
 	static int _bind_getLowerAngLimit(lua_State *L) {
 		if (!_lg_typecheck_getLowerAngLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getLowerAngLimit() function, expected prototype:\nfloat btSliderConstraint::getLowerAngLimit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getLowerAngLimit() function, expected prototype:\nfloat btSliderConstraint::getLowerAngLimit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getLowerAngLimit(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getLowerAngLimit(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getLowerAngLimit();
 		lua_pushnumber(L,lret);
@@ -1283,16 +1242,14 @@ public:
 	// void btSliderConstraint::setLowerAngLimit(float lowerLimit)
 	static int _bind_setLowerAngLimit(lua_State *L) {
 		if (!_lg_typecheck_setLowerAngLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setLowerAngLimit(float lowerLimit) function, expected prototype:\nvoid btSliderConstraint::setLowerAngLimit(float lowerLimit)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setLowerAngLimit(float lowerLimit) function, expected prototype:\nvoid btSliderConstraint::setLowerAngLimit(float lowerLimit)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float lowerLimit=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setLowerAngLimit(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setLowerAngLimit(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLowerAngLimit(lowerLimit);
 
@@ -1302,15 +1259,13 @@ public:
 	// float btSliderConstraint::getUpperAngLimit()
 	static int _bind_getUpperAngLimit(lua_State *L) {
 		if (!_lg_typecheck_getUpperAngLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getUpperAngLimit() function, expected prototype:\nfloat btSliderConstraint::getUpperAngLimit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getUpperAngLimit() function, expected prototype:\nfloat btSliderConstraint::getUpperAngLimit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getUpperAngLimit(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getUpperAngLimit(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getUpperAngLimit();
 		lua_pushnumber(L,lret);
@@ -1321,16 +1276,14 @@ public:
 	// void btSliderConstraint::setUpperAngLimit(float upperLimit)
 	static int _bind_setUpperAngLimit(lua_State *L) {
 		if (!_lg_typecheck_setUpperAngLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setUpperAngLimit(float upperLimit) function, expected prototype:\nvoid btSliderConstraint::setUpperAngLimit(float upperLimit)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setUpperAngLimit(float upperLimit) function, expected prototype:\nvoid btSliderConstraint::setUpperAngLimit(float upperLimit)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float upperLimit=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setUpperAngLimit(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setUpperAngLimit(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setUpperAngLimit(upperLimit);
 
@@ -1340,15 +1293,13 @@ public:
 	// bool btSliderConstraint::getUseLinearReferenceFrameA()
 	static int _bind_getUseLinearReferenceFrameA(lua_State *L) {
 		if (!_lg_typecheck_getUseLinearReferenceFrameA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btSliderConstraint::getUseLinearReferenceFrameA() function, expected prototype:\nbool btSliderConstraint::getUseLinearReferenceFrameA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btSliderConstraint::getUseLinearReferenceFrameA() function, expected prototype:\nbool btSliderConstraint::getUseLinearReferenceFrameA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btSliderConstraint::getUseLinearReferenceFrameA(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btSliderConstraint::getUseLinearReferenceFrameA(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getUseLinearReferenceFrameA();
 		lua_pushboolean(L,lret?1:0);
@@ -1359,15 +1310,13 @@ public:
 	// float btSliderConstraint::getSoftnessDirLin()
 	static int _bind_getSoftnessDirLin(lua_State *L) {
 		if (!_lg_typecheck_getSoftnessDirLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getSoftnessDirLin() function, expected prototype:\nfloat btSliderConstraint::getSoftnessDirLin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getSoftnessDirLin() function, expected prototype:\nfloat btSliderConstraint::getSoftnessDirLin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getSoftnessDirLin(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getSoftnessDirLin(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getSoftnessDirLin();
 		lua_pushnumber(L,lret);
@@ -1378,15 +1327,13 @@ public:
 	// float btSliderConstraint::getRestitutionDirLin()
 	static int _bind_getRestitutionDirLin(lua_State *L) {
 		if (!_lg_typecheck_getRestitutionDirLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getRestitutionDirLin() function, expected prototype:\nfloat btSliderConstraint::getRestitutionDirLin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getRestitutionDirLin() function, expected prototype:\nfloat btSliderConstraint::getRestitutionDirLin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getRestitutionDirLin(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getRestitutionDirLin(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getRestitutionDirLin();
 		lua_pushnumber(L,lret);
@@ -1397,15 +1344,13 @@ public:
 	// float btSliderConstraint::getDampingDirLin()
 	static int _bind_getDampingDirLin(lua_State *L) {
 		if (!_lg_typecheck_getDampingDirLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getDampingDirLin() function, expected prototype:\nfloat btSliderConstraint::getDampingDirLin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getDampingDirLin() function, expected prototype:\nfloat btSliderConstraint::getDampingDirLin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getDampingDirLin(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getDampingDirLin(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getDampingDirLin();
 		lua_pushnumber(L,lret);
@@ -1416,15 +1361,13 @@ public:
 	// float btSliderConstraint::getSoftnessDirAng()
 	static int _bind_getSoftnessDirAng(lua_State *L) {
 		if (!_lg_typecheck_getSoftnessDirAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getSoftnessDirAng() function, expected prototype:\nfloat btSliderConstraint::getSoftnessDirAng()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getSoftnessDirAng() function, expected prototype:\nfloat btSliderConstraint::getSoftnessDirAng()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getSoftnessDirAng(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getSoftnessDirAng(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getSoftnessDirAng();
 		lua_pushnumber(L,lret);
@@ -1435,15 +1378,13 @@ public:
 	// float btSliderConstraint::getRestitutionDirAng()
 	static int _bind_getRestitutionDirAng(lua_State *L) {
 		if (!_lg_typecheck_getRestitutionDirAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getRestitutionDirAng() function, expected prototype:\nfloat btSliderConstraint::getRestitutionDirAng()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getRestitutionDirAng() function, expected prototype:\nfloat btSliderConstraint::getRestitutionDirAng()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getRestitutionDirAng(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getRestitutionDirAng(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getRestitutionDirAng();
 		lua_pushnumber(L,lret);
@@ -1454,15 +1395,13 @@ public:
 	// float btSliderConstraint::getDampingDirAng()
 	static int _bind_getDampingDirAng(lua_State *L) {
 		if (!_lg_typecheck_getDampingDirAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getDampingDirAng() function, expected prototype:\nfloat btSliderConstraint::getDampingDirAng()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getDampingDirAng() function, expected prototype:\nfloat btSliderConstraint::getDampingDirAng()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getDampingDirAng(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getDampingDirAng(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getDampingDirAng();
 		lua_pushnumber(L,lret);
@@ -1473,15 +1412,13 @@ public:
 	// float btSliderConstraint::getSoftnessLimLin()
 	static int _bind_getSoftnessLimLin(lua_State *L) {
 		if (!_lg_typecheck_getSoftnessLimLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getSoftnessLimLin() function, expected prototype:\nfloat btSliderConstraint::getSoftnessLimLin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getSoftnessLimLin() function, expected prototype:\nfloat btSliderConstraint::getSoftnessLimLin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getSoftnessLimLin(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getSoftnessLimLin(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getSoftnessLimLin();
 		lua_pushnumber(L,lret);
@@ -1492,15 +1429,13 @@ public:
 	// float btSliderConstraint::getRestitutionLimLin()
 	static int _bind_getRestitutionLimLin(lua_State *L) {
 		if (!_lg_typecheck_getRestitutionLimLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getRestitutionLimLin() function, expected prototype:\nfloat btSliderConstraint::getRestitutionLimLin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getRestitutionLimLin() function, expected prototype:\nfloat btSliderConstraint::getRestitutionLimLin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getRestitutionLimLin(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getRestitutionLimLin(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getRestitutionLimLin();
 		lua_pushnumber(L,lret);
@@ -1511,15 +1446,13 @@ public:
 	// float btSliderConstraint::getDampingLimLin()
 	static int _bind_getDampingLimLin(lua_State *L) {
 		if (!_lg_typecheck_getDampingLimLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getDampingLimLin() function, expected prototype:\nfloat btSliderConstraint::getDampingLimLin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getDampingLimLin() function, expected prototype:\nfloat btSliderConstraint::getDampingLimLin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getDampingLimLin(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getDampingLimLin(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getDampingLimLin();
 		lua_pushnumber(L,lret);
@@ -1530,15 +1463,13 @@ public:
 	// float btSliderConstraint::getSoftnessLimAng()
 	static int _bind_getSoftnessLimAng(lua_State *L) {
 		if (!_lg_typecheck_getSoftnessLimAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getSoftnessLimAng() function, expected prototype:\nfloat btSliderConstraint::getSoftnessLimAng()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getSoftnessLimAng() function, expected prototype:\nfloat btSliderConstraint::getSoftnessLimAng()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getSoftnessLimAng(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getSoftnessLimAng(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getSoftnessLimAng();
 		lua_pushnumber(L,lret);
@@ -1549,15 +1480,13 @@ public:
 	// float btSliderConstraint::getRestitutionLimAng()
 	static int _bind_getRestitutionLimAng(lua_State *L) {
 		if (!_lg_typecheck_getRestitutionLimAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getRestitutionLimAng() function, expected prototype:\nfloat btSliderConstraint::getRestitutionLimAng()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getRestitutionLimAng() function, expected prototype:\nfloat btSliderConstraint::getRestitutionLimAng()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getRestitutionLimAng(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getRestitutionLimAng(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getRestitutionLimAng();
 		lua_pushnumber(L,lret);
@@ -1568,15 +1497,13 @@ public:
 	// float btSliderConstraint::getDampingLimAng()
 	static int _bind_getDampingLimAng(lua_State *L) {
 		if (!_lg_typecheck_getDampingLimAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getDampingLimAng() function, expected prototype:\nfloat btSliderConstraint::getDampingLimAng()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getDampingLimAng() function, expected prototype:\nfloat btSliderConstraint::getDampingLimAng()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getDampingLimAng(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getDampingLimAng(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getDampingLimAng();
 		lua_pushnumber(L,lret);
@@ -1587,15 +1514,13 @@ public:
 	// float btSliderConstraint::getSoftnessOrthoLin()
 	static int _bind_getSoftnessOrthoLin(lua_State *L) {
 		if (!_lg_typecheck_getSoftnessOrthoLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getSoftnessOrthoLin() function, expected prototype:\nfloat btSliderConstraint::getSoftnessOrthoLin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getSoftnessOrthoLin() function, expected prototype:\nfloat btSliderConstraint::getSoftnessOrthoLin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getSoftnessOrthoLin(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getSoftnessOrthoLin(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getSoftnessOrthoLin();
 		lua_pushnumber(L,lret);
@@ -1606,15 +1531,13 @@ public:
 	// float btSliderConstraint::getRestitutionOrthoLin()
 	static int _bind_getRestitutionOrthoLin(lua_State *L) {
 		if (!_lg_typecheck_getRestitutionOrthoLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getRestitutionOrthoLin() function, expected prototype:\nfloat btSliderConstraint::getRestitutionOrthoLin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getRestitutionOrthoLin() function, expected prototype:\nfloat btSliderConstraint::getRestitutionOrthoLin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getRestitutionOrthoLin(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getRestitutionOrthoLin(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getRestitutionOrthoLin();
 		lua_pushnumber(L,lret);
@@ -1625,15 +1548,13 @@ public:
 	// float btSliderConstraint::getDampingOrthoLin()
 	static int _bind_getDampingOrthoLin(lua_State *L) {
 		if (!_lg_typecheck_getDampingOrthoLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getDampingOrthoLin() function, expected prototype:\nfloat btSliderConstraint::getDampingOrthoLin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getDampingOrthoLin() function, expected prototype:\nfloat btSliderConstraint::getDampingOrthoLin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getDampingOrthoLin(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getDampingOrthoLin(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getDampingOrthoLin();
 		lua_pushnumber(L,lret);
@@ -1644,15 +1565,13 @@ public:
 	// float btSliderConstraint::getSoftnessOrthoAng()
 	static int _bind_getSoftnessOrthoAng(lua_State *L) {
 		if (!_lg_typecheck_getSoftnessOrthoAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getSoftnessOrthoAng() function, expected prototype:\nfloat btSliderConstraint::getSoftnessOrthoAng()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getSoftnessOrthoAng() function, expected prototype:\nfloat btSliderConstraint::getSoftnessOrthoAng()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getSoftnessOrthoAng(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getSoftnessOrthoAng(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getSoftnessOrthoAng();
 		lua_pushnumber(L,lret);
@@ -1663,15 +1582,13 @@ public:
 	// float btSliderConstraint::getRestitutionOrthoAng()
 	static int _bind_getRestitutionOrthoAng(lua_State *L) {
 		if (!_lg_typecheck_getRestitutionOrthoAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getRestitutionOrthoAng() function, expected prototype:\nfloat btSliderConstraint::getRestitutionOrthoAng()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getRestitutionOrthoAng() function, expected prototype:\nfloat btSliderConstraint::getRestitutionOrthoAng()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getRestitutionOrthoAng(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getRestitutionOrthoAng(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getRestitutionOrthoAng();
 		lua_pushnumber(L,lret);
@@ -1682,15 +1599,13 @@ public:
 	// float btSliderConstraint::getDampingOrthoAng()
 	static int _bind_getDampingOrthoAng(lua_State *L) {
 		if (!_lg_typecheck_getDampingOrthoAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getDampingOrthoAng() function, expected prototype:\nfloat btSliderConstraint::getDampingOrthoAng()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getDampingOrthoAng() function, expected prototype:\nfloat btSliderConstraint::getDampingOrthoAng()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getDampingOrthoAng(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getDampingOrthoAng(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getDampingOrthoAng();
 		lua_pushnumber(L,lret);
@@ -1701,16 +1616,14 @@ public:
 	// void btSliderConstraint::setSoftnessDirLin(float softnessDirLin)
 	static int _bind_setSoftnessDirLin(lua_State *L) {
 		if (!_lg_typecheck_setSoftnessDirLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setSoftnessDirLin(float softnessDirLin) function, expected prototype:\nvoid btSliderConstraint::setSoftnessDirLin(float softnessDirLin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setSoftnessDirLin(float softnessDirLin) function, expected prototype:\nvoid btSliderConstraint::setSoftnessDirLin(float softnessDirLin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float softnessDirLin=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setSoftnessDirLin(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setSoftnessDirLin(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSoftnessDirLin(softnessDirLin);
 
@@ -1720,16 +1633,14 @@ public:
 	// void btSliderConstraint::setRestitutionDirLin(float restitutionDirLin)
 	static int _bind_setRestitutionDirLin(lua_State *L) {
 		if (!_lg_typecheck_setRestitutionDirLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setRestitutionDirLin(float restitutionDirLin) function, expected prototype:\nvoid btSliderConstraint::setRestitutionDirLin(float restitutionDirLin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setRestitutionDirLin(float restitutionDirLin) function, expected prototype:\nvoid btSliderConstraint::setRestitutionDirLin(float restitutionDirLin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float restitutionDirLin=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setRestitutionDirLin(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setRestitutionDirLin(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRestitutionDirLin(restitutionDirLin);
 
@@ -1739,16 +1650,14 @@ public:
 	// void btSliderConstraint::setDampingDirLin(float dampingDirLin)
 	static int _bind_setDampingDirLin(lua_State *L) {
 		if (!_lg_typecheck_setDampingDirLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setDampingDirLin(float dampingDirLin) function, expected prototype:\nvoid btSliderConstraint::setDampingDirLin(float dampingDirLin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setDampingDirLin(float dampingDirLin) function, expected prototype:\nvoid btSliderConstraint::setDampingDirLin(float dampingDirLin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float dampingDirLin=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setDampingDirLin(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setDampingDirLin(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDampingDirLin(dampingDirLin);
 
@@ -1758,16 +1667,14 @@ public:
 	// void btSliderConstraint::setSoftnessDirAng(float softnessDirAng)
 	static int _bind_setSoftnessDirAng(lua_State *L) {
 		if (!_lg_typecheck_setSoftnessDirAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setSoftnessDirAng(float softnessDirAng) function, expected prototype:\nvoid btSliderConstraint::setSoftnessDirAng(float softnessDirAng)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setSoftnessDirAng(float softnessDirAng) function, expected prototype:\nvoid btSliderConstraint::setSoftnessDirAng(float softnessDirAng)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float softnessDirAng=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setSoftnessDirAng(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setSoftnessDirAng(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSoftnessDirAng(softnessDirAng);
 
@@ -1777,16 +1684,14 @@ public:
 	// void btSliderConstraint::setRestitutionDirAng(float restitutionDirAng)
 	static int _bind_setRestitutionDirAng(lua_State *L) {
 		if (!_lg_typecheck_setRestitutionDirAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setRestitutionDirAng(float restitutionDirAng) function, expected prototype:\nvoid btSliderConstraint::setRestitutionDirAng(float restitutionDirAng)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setRestitutionDirAng(float restitutionDirAng) function, expected prototype:\nvoid btSliderConstraint::setRestitutionDirAng(float restitutionDirAng)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float restitutionDirAng=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setRestitutionDirAng(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setRestitutionDirAng(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRestitutionDirAng(restitutionDirAng);
 
@@ -1796,16 +1701,14 @@ public:
 	// void btSliderConstraint::setDampingDirAng(float dampingDirAng)
 	static int _bind_setDampingDirAng(lua_State *L) {
 		if (!_lg_typecheck_setDampingDirAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setDampingDirAng(float dampingDirAng) function, expected prototype:\nvoid btSliderConstraint::setDampingDirAng(float dampingDirAng)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setDampingDirAng(float dampingDirAng) function, expected prototype:\nvoid btSliderConstraint::setDampingDirAng(float dampingDirAng)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float dampingDirAng=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setDampingDirAng(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setDampingDirAng(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDampingDirAng(dampingDirAng);
 
@@ -1815,16 +1718,14 @@ public:
 	// void btSliderConstraint::setSoftnessLimLin(float softnessLimLin)
 	static int _bind_setSoftnessLimLin(lua_State *L) {
 		if (!_lg_typecheck_setSoftnessLimLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setSoftnessLimLin(float softnessLimLin) function, expected prototype:\nvoid btSliderConstraint::setSoftnessLimLin(float softnessLimLin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setSoftnessLimLin(float softnessLimLin) function, expected prototype:\nvoid btSliderConstraint::setSoftnessLimLin(float softnessLimLin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float softnessLimLin=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setSoftnessLimLin(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setSoftnessLimLin(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSoftnessLimLin(softnessLimLin);
 
@@ -1834,16 +1735,14 @@ public:
 	// void btSliderConstraint::setRestitutionLimLin(float restitutionLimLin)
 	static int _bind_setRestitutionLimLin(lua_State *L) {
 		if (!_lg_typecheck_setRestitutionLimLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setRestitutionLimLin(float restitutionLimLin) function, expected prototype:\nvoid btSliderConstraint::setRestitutionLimLin(float restitutionLimLin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setRestitutionLimLin(float restitutionLimLin) function, expected prototype:\nvoid btSliderConstraint::setRestitutionLimLin(float restitutionLimLin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float restitutionLimLin=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setRestitutionLimLin(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setRestitutionLimLin(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRestitutionLimLin(restitutionLimLin);
 
@@ -1853,16 +1752,14 @@ public:
 	// void btSliderConstraint::setDampingLimLin(float dampingLimLin)
 	static int _bind_setDampingLimLin(lua_State *L) {
 		if (!_lg_typecheck_setDampingLimLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setDampingLimLin(float dampingLimLin) function, expected prototype:\nvoid btSliderConstraint::setDampingLimLin(float dampingLimLin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setDampingLimLin(float dampingLimLin) function, expected prototype:\nvoid btSliderConstraint::setDampingLimLin(float dampingLimLin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float dampingLimLin=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setDampingLimLin(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setDampingLimLin(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDampingLimLin(dampingLimLin);
 
@@ -1872,16 +1769,14 @@ public:
 	// void btSliderConstraint::setSoftnessLimAng(float softnessLimAng)
 	static int _bind_setSoftnessLimAng(lua_State *L) {
 		if (!_lg_typecheck_setSoftnessLimAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setSoftnessLimAng(float softnessLimAng) function, expected prototype:\nvoid btSliderConstraint::setSoftnessLimAng(float softnessLimAng)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setSoftnessLimAng(float softnessLimAng) function, expected prototype:\nvoid btSliderConstraint::setSoftnessLimAng(float softnessLimAng)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float softnessLimAng=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setSoftnessLimAng(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setSoftnessLimAng(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSoftnessLimAng(softnessLimAng);
 
@@ -1891,16 +1786,14 @@ public:
 	// void btSliderConstraint::setRestitutionLimAng(float restitutionLimAng)
 	static int _bind_setRestitutionLimAng(lua_State *L) {
 		if (!_lg_typecheck_setRestitutionLimAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setRestitutionLimAng(float restitutionLimAng) function, expected prototype:\nvoid btSliderConstraint::setRestitutionLimAng(float restitutionLimAng)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setRestitutionLimAng(float restitutionLimAng) function, expected prototype:\nvoid btSliderConstraint::setRestitutionLimAng(float restitutionLimAng)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float restitutionLimAng=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setRestitutionLimAng(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setRestitutionLimAng(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRestitutionLimAng(restitutionLimAng);
 
@@ -1910,16 +1803,14 @@ public:
 	// void btSliderConstraint::setDampingLimAng(float dampingLimAng)
 	static int _bind_setDampingLimAng(lua_State *L) {
 		if (!_lg_typecheck_setDampingLimAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setDampingLimAng(float dampingLimAng) function, expected prototype:\nvoid btSliderConstraint::setDampingLimAng(float dampingLimAng)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setDampingLimAng(float dampingLimAng) function, expected prototype:\nvoid btSliderConstraint::setDampingLimAng(float dampingLimAng)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float dampingLimAng=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setDampingLimAng(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setDampingLimAng(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDampingLimAng(dampingLimAng);
 
@@ -1929,16 +1820,14 @@ public:
 	// void btSliderConstraint::setSoftnessOrthoLin(float softnessOrthoLin)
 	static int _bind_setSoftnessOrthoLin(lua_State *L) {
 		if (!_lg_typecheck_setSoftnessOrthoLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setSoftnessOrthoLin(float softnessOrthoLin) function, expected prototype:\nvoid btSliderConstraint::setSoftnessOrthoLin(float softnessOrthoLin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setSoftnessOrthoLin(float softnessOrthoLin) function, expected prototype:\nvoid btSliderConstraint::setSoftnessOrthoLin(float softnessOrthoLin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float softnessOrthoLin=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setSoftnessOrthoLin(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setSoftnessOrthoLin(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSoftnessOrthoLin(softnessOrthoLin);
 
@@ -1948,16 +1837,14 @@ public:
 	// void btSliderConstraint::setRestitutionOrthoLin(float restitutionOrthoLin)
 	static int _bind_setRestitutionOrthoLin(lua_State *L) {
 		if (!_lg_typecheck_setRestitutionOrthoLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setRestitutionOrthoLin(float restitutionOrthoLin) function, expected prototype:\nvoid btSliderConstraint::setRestitutionOrthoLin(float restitutionOrthoLin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setRestitutionOrthoLin(float restitutionOrthoLin) function, expected prototype:\nvoid btSliderConstraint::setRestitutionOrthoLin(float restitutionOrthoLin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float restitutionOrthoLin=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setRestitutionOrthoLin(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setRestitutionOrthoLin(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRestitutionOrthoLin(restitutionOrthoLin);
 
@@ -1967,16 +1854,14 @@ public:
 	// void btSliderConstraint::setDampingOrthoLin(float dampingOrthoLin)
 	static int _bind_setDampingOrthoLin(lua_State *L) {
 		if (!_lg_typecheck_setDampingOrthoLin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setDampingOrthoLin(float dampingOrthoLin) function, expected prototype:\nvoid btSliderConstraint::setDampingOrthoLin(float dampingOrthoLin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setDampingOrthoLin(float dampingOrthoLin) function, expected prototype:\nvoid btSliderConstraint::setDampingOrthoLin(float dampingOrthoLin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float dampingOrthoLin=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setDampingOrthoLin(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setDampingOrthoLin(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDampingOrthoLin(dampingOrthoLin);
 
@@ -1986,16 +1871,14 @@ public:
 	// void btSliderConstraint::setSoftnessOrthoAng(float softnessOrthoAng)
 	static int _bind_setSoftnessOrthoAng(lua_State *L) {
 		if (!_lg_typecheck_setSoftnessOrthoAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setSoftnessOrthoAng(float softnessOrthoAng) function, expected prototype:\nvoid btSliderConstraint::setSoftnessOrthoAng(float softnessOrthoAng)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setSoftnessOrthoAng(float softnessOrthoAng) function, expected prototype:\nvoid btSliderConstraint::setSoftnessOrthoAng(float softnessOrthoAng)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float softnessOrthoAng=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setSoftnessOrthoAng(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setSoftnessOrthoAng(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSoftnessOrthoAng(softnessOrthoAng);
 
@@ -2005,16 +1888,14 @@ public:
 	// void btSliderConstraint::setRestitutionOrthoAng(float restitutionOrthoAng)
 	static int _bind_setRestitutionOrthoAng(lua_State *L) {
 		if (!_lg_typecheck_setRestitutionOrthoAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setRestitutionOrthoAng(float restitutionOrthoAng) function, expected prototype:\nvoid btSliderConstraint::setRestitutionOrthoAng(float restitutionOrthoAng)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setRestitutionOrthoAng(float restitutionOrthoAng) function, expected prototype:\nvoid btSliderConstraint::setRestitutionOrthoAng(float restitutionOrthoAng)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float restitutionOrthoAng=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setRestitutionOrthoAng(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setRestitutionOrthoAng(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRestitutionOrthoAng(restitutionOrthoAng);
 
@@ -2024,16 +1905,14 @@ public:
 	// void btSliderConstraint::setDampingOrthoAng(float dampingOrthoAng)
 	static int _bind_setDampingOrthoAng(lua_State *L) {
 		if (!_lg_typecheck_setDampingOrthoAng(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setDampingOrthoAng(float dampingOrthoAng) function, expected prototype:\nvoid btSliderConstraint::setDampingOrthoAng(float dampingOrthoAng)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setDampingOrthoAng(float dampingOrthoAng) function, expected prototype:\nvoid btSliderConstraint::setDampingOrthoAng(float dampingOrthoAng)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float dampingOrthoAng=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setDampingOrthoAng(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setDampingOrthoAng(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDampingOrthoAng(dampingOrthoAng);
 
@@ -2043,16 +1922,14 @@ public:
 	// void btSliderConstraint::setPoweredLinMotor(bool onOff)
 	static int _bind_setPoweredLinMotor(lua_State *L) {
 		if (!_lg_typecheck_setPoweredLinMotor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setPoweredLinMotor(bool onOff) function, expected prototype:\nvoid btSliderConstraint::setPoweredLinMotor(bool onOff)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setPoweredLinMotor(bool onOff) function, expected prototype:\nvoid btSliderConstraint::setPoweredLinMotor(bool onOff)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool onOff=(bool)(lua_toboolean(L,2)==1);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setPoweredLinMotor(bool). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setPoweredLinMotor(bool). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPoweredLinMotor(onOff);
 
@@ -2062,15 +1939,13 @@ public:
 	// bool btSliderConstraint::getPoweredLinMotor()
 	static int _bind_getPoweredLinMotor(lua_State *L) {
 		if (!_lg_typecheck_getPoweredLinMotor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btSliderConstraint::getPoweredLinMotor() function, expected prototype:\nbool btSliderConstraint::getPoweredLinMotor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btSliderConstraint::getPoweredLinMotor() function, expected prototype:\nbool btSliderConstraint::getPoweredLinMotor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btSliderConstraint::getPoweredLinMotor(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btSliderConstraint::getPoweredLinMotor(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getPoweredLinMotor();
 		lua_pushboolean(L,lret?1:0);
@@ -2081,16 +1956,14 @@ public:
 	// void btSliderConstraint::setTargetLinMotorVelocity(float targetLinMotorVelocity)
 	static int _bind_setTargetLinMotorVelocity(lua_State *L) {
 		if (!_lg_typecheck_setTargetLinMotorVelocity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setTargetLinMotorVelocity(float targetLinMotorVelocity) function, expected prototype:\nvoid btSliderConstraint::setTargetLinMotorVelocity(float targetLinMotorVelocity)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setTargetLinMotorVelocity(float targetLinMotorVelocity) function, expected prototype:\nvoid btSliderConstraint::setTargetLinMotorVelocity(float targetLinMotorVelocity)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float targetLinMotorVelocity=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setTargetLinMotorVelocity(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setTargetLinMotorVelocity(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTargetLinMotorVelocity(targetLinMotorVelocity);
 
@@ -2100,15 +1973,13 @@ public:
 	// float btSliderConstraint::getTargetLinMotorVelocity()
 	static int _bind_getTargetLinMotorVelocity(lua_State *L) {
 		if (!_lg_typecheck_getTargetLinMotorVelocity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getTargetLinMotorVelocity() function, expected prototype:\nfloat btSliderConstraint::getTargetLinMotorVelocity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getTargetLinMotorVelocity() function, expected prototype:\nfloat btSliderConstraint::getTargetLinMotorVelocity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getTargetLinMotorVelocity(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getTargetLinMotorVelocity(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getTargetLinMotorVelocity();
 		lua_pushnumber(L,lret);
@@ -2119,16 +1990,14 @@ public:
 	// void btSliderConstraint::setMaxLinMotorForce(float maxLinMotorForce)
 	static int _bind_setMaxLinMotorForce(lua_State *L) {
 		if (!_lg_typecheck_setMaxLinMotorForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setMaxLinMotorForce(float maxLinMotorForce) function, expected prototype:\nvoid btSliderConstraint::setMaxLinMotorForce(float maxLinMotorForce)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setMaxLinMotorForce(float maxLinMotorForce) function, expected prototype:\nvoid btSliderConstraint::setMaxLinMotorForce(float maxLinMotorForce)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float maxLinMotorForce=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setMaxLinMotorForce(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setMaxLinMotorForce(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMaxLinMotorForce(maxLinMotorForce);
 
@@ -2138,15 +2007,13 @@ public:
 	// float btSliderConstraint::getMaxLinMotorForce()
 	static int _bind_getMaxLinMotorForce(lua_State *L) {
 		if (!_lg_typecheck_getMaxLinMotorForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getMaxLinMotorForce() function, expected prototype:\nfloat btSliderConstraint::getMaxLinMotorForce()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getMaxLinMotorForce() function, expected prototype:\nfloat btSliderConstraint::getMaxLinMotorForce()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getMaxLinMotorForce(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getMaxLinMotorForce(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getMaxLinMotorForce();
 		lua_pushnumber(L,lret);
@@ -2157,16 +2024,14 @@ public:
 	// void btSliderConstraint::setPoweredAngMotor(bool onOff)
 	static int _bind_setPoweredAngMotor(lua_State *L) {
 		if (!_lg_typecheck_setPoweredAngMotor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setPoweredAngMotor(bool onOff) function, expected prototype:\nvoid btSliderConstraint::setPoweredAngMotor(bool onOff)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setPoweredAngMotor(bool onOff) function, expected prototype:\nvoid btSliderConstraint::setPoweredAngMotor(bool onOff)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool onOff=(bool)(lua_toboolean(L,2)==1);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setPoweredAngMotor(bool). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setPoweredAngMotor(bool). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPoweredAngMotor(onOff);
 
@@ -2176,15 +2041,13 @@ public:
 	// bool btSliderConstraint::getPoweredAngMotor()
 	static int _bind_getPoweredAngMotor(lua_State *L) {
 		if (!_lg_typecheck_getPoweredAngMotor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btSliderConstraint::getPoweredAngMotor() function, expected prototype:\nbool btSliderConstraint::getPoweredAngMotor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btSliderConstraint::getPoweredAngMotor() function, expected prototype:\nbool btSliderConstraint::getPoweredAngMotor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btSliderConstraint::getPoweredAngMotor(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btSliderConstraint::getPoweredAngMotor(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getPoweredAngMotor();
 		lua_pushboolean(L,lret?1:0);
@@ -2195,16 +2058,14 @@ public:
 	// void btSliderConstraint::setTargetAngMotorVelocity(float targetAngMotorVelocity)
 	static int _bind_setTargetAngMotorVelocity(lua_State *L) {
 		if (!_lg_typecheck_setTargetAngMotorVelocity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setTargetAngMotorVelocity(float targetAngMotorVelocity) function, expected prototype:\nvoid btSliderConstraint::setTargetAngMotorVelocity(float targetAngMotorVelocity)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setTargetAngMotorVelocity(float targetAngMotorVelocity) function, expected prototype:\nvoid btSliderConstraint::setTargetAngMotorVelocity(float targetAngMotorVelocity)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float targetAngMotorVelocity=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setTargetAngMotorVelocity(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setTargetAngMotorVelocity(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTargetAngMotorVelocity(targetAngMotorVelocity);
 
@@ -2214,15 +2075,13 @@ public:
 	// float btSliderConstraint::getTargetAngMotorVelocity()
 	static int _bind_getTargetAngMotorVelocity(lua_State *L) {
 		if (!_lg_typecheck_getTargetAngMotorVelocity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getTargetAngMotorVelocity() function, expected prototype:\nfloat btSliderConstraint::getTargetAngMotorVelocity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getTargetAngMotorVelocity() function, expected prototype:\nfloat btSliderConstraint::getTargetAngMotorVelocity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getTargetAngMotorVelocity(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getTargetAngMotorVelocity(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getTargetAngMotorVelocity();
 		lua_pushnumber(L,lret);
@@ -2233,16 +2092,14 @@ public:
 	// void btSliderConstraint::setMaxAngMotorForce(float maxAngMotorForce)
 	static int _bind_setMaxAngMotorForce(lua_State *L) {
 		if (!_lg_typecheck_setMaxAngMotorForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setMaxAngMotorForce(float maxAngMotorForce) function, expected prototype:\nvoid btSliderConstraint::setMaxAngMotorForce(float maxAngMotorForce)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setMaxAngMotorForce(float maxAngMotorForce) function, expected prototype:\nvoid btSliderConstraint::setMaxAngMotorForce(float maxAngMotorForce)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float maxAngMotorForce=(float)lua_tonumber(L,2);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setMaxAngMotorForce(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setMaxAngMotorForce(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMaxAngMotorForce(maxAngMotorForce);
 
@@ -2252,15 +2109,13 @@ public:
 	// float btSliderConstraint::getMaxAngMotorForce()
 	static int _bind_getMaxAngMotorForce(lua_State *L) {
 		if (!_lg_typecheck_getMaxAngMotorForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getMaxAngMotorForce() function, expected prototype:\nfloat btSliderConstraint::getMaxAngMotorForce()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getMaxAngMotorForce() function, expected prototype:\nfloat btSliderConstraint::getMaxAngMotorForce()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getMaxAngMotorForce(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getMaxAngMotorForce(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getMaxAngMotorForce();
 		lua_pushnumber(L,lret);
@@ -2271,15 +2126,13 @@ public:
 	// float btSliderConstraint::getLinearPos() const
 	static int _bind_getLinearPos(lua_State *L) {
 		if (!_lg_typecheck_getLinearPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getLinearPos() const function, expected prototype:\nfloat btSliderConstraint::getLinearPos() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getLinearPos() const function, expected prototype:\nfloat btSliderConstraint::getLinearPos() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getLinearPos() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getLinearPos() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getLinearPos();
 		lua_pushnumber(L,lret);
@@ -2290,15 +2143,13 @@ public:
 	// float btSliderConstraint::getAngularPos() const
 	static int _bind_getAngularPos(lua_State *L) {
 		if (!_lg_typecheck_getAngularPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getAngularPos() const function, expected prototype:\nfloat btSliderConstraint::getAngularPos() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getAngularPos() const function, expected prototype:\nfloat btSliderConstraint::getAngularPos() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getAngularPos() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getAngularPos() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getAngularPos();
 		lua_pushnumber(L,lret);
@@ -2309,15 +2160,13 @@ public:
 	// bool btSliderConstraint::getSolveLinLimit()
 	static int _bind_getSolveLinLimit(lua_State *L) {
 		if (!_lg_typecheck_getSolveLinLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btSliderConstraint::getSolveLinLimit() function, expected prototype:\nbool btSliderConstraint::getSolveLinLimit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btSliderConstraint::getSolveLinLimit() function, expected prototype:\nbool btSliderConstraint::getSolveLinLimit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btSliderConstraint::getSolveLinLimit(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btSliderConstraint::getSolveLinLimit(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getSolveLinLimit();
 		lua_pushboolean(L,lret?1:0);
@@ -2328,15 +2177,13 @@ public:
 	// float btSliderConstraint::getLinDepth()
 	static int _bind_getLinDepth(lua_State *L) {
 		if (!_lg_typecheck_getLinDepth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getLinDepth() function, expected prototype:\nfloat btSliderConstraint::getLinDepth()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getLinDepth() function, expected prototype:\nfloat btSliderConstraint::getLinDepth()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getLinDepth(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getLinDepth(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getLinDepth();
 		lua_pushnumber(L,lret);
@@ -2347,15 +2194,13 @@ public:
 	// bool btSliderConstraint::getSolveAngLimit()
 	static int _bind_getSolveAngLimit(lua_State *L) {
 		if (!_lg_typecheck_getSolveAngLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btSliderConstraint::getSolveAngLimit() function, expected prototype:\nbool btSliderConstraint::getSolveAngLimit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btSliderConstraint::getSolveAngLimit() function, expected prototype:\nbool btSliderConstraint::getSolveAngLimit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btSliderConstraint::getSolveAngLimit(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btSliderConstraint::getSolveAngLimit(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getSolveAngLimit();
 		lua_pushboolean(L,lret?1:0);
@@ -2366,15 +2211,13 @@ public:
 	// float btSliderConstraint::getAngDepth()
 	static int _bind_getAngDepth(lua_State *L) {
 		if (!_lg_typecheck_getAngDepth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getAngDepth() function, expected prototype:\nfloat btSliderConstraint::getAngDepth()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getAngDepth() function, expected prototype:\nfloat btSliderConstraint::getAngDepth()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getAngDepth(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getAngDepth(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getAngDepth();
 		lua_pushnumber(L,lret);
@@ -2385,8 +2228,7 @@ public:
 	// void btSliderConstraint::calculateTransforms(const btTransform & transA, const btTransform & transB)
 	static int _bind_calculateTransforms(lua_State *L) {
 		if (!_lg_typecheck_calculateTransforms(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::calculateTransforms(const btTransform & transA, const btTransform & transB) function, expected prototype:\nvoid btSliderConstraint::calculateTransforms(const btTransform & transA, const btTransform & transB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::calculateTransforms(const btTransform & transA, const btTransform & transB) function, expected prototype:\nvoid btSliderConstraint::calculateTransforms(const btTransform & transA, const btTransform & transB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* transA_ptr=(Luna< btTransform >::check(L,2));
@@ -2402,8 +2244,7 @@ public:
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::calculateTransforms(const btTransform &, const btTransform &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::calculateTransforms(const btTransform &, const btTransform &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->calculateTransforms(transA, transB);
 
@@ -2413,15 +2254,13 @@ public:
 	// void btSliderConstraint::testLinLimits()
 	static int _bind_testLinLimits(lua_State *L) {
 		if (!_lg_typecheck_testLinLimits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::testLinLimits() function, expected prototype:\nvoid btSliderConstraint::testLinLimits()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::testLinLimits() function, expected prototype:\nvoid btSliderConstraint::testLinLimits()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::testLinLimits(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::testLinLimits(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->testLinLimits();
 
@@ -2431,15 +2270,13 @@ public:
 	// void btSliderConstraint::testAngLimits()
 	static int _bind_testAngLimits(lua_State *L) {
 		if (!_lg_typecheck_testAngLimits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::testAngLimits() function, expected prototype:\nvoid btSliderConstraint::testAngLimits()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::testAngLimits() function, expected prototype:\nvoid btSliderConstraint::testAngLimits()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::testAngLimits(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::testAngLimits(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->testAngLimits();
 
@@ -2449,15 +2286,13 @@ public:
 	// btVector3 btSliderConstraint::getAncorInA()
 	static int _bind_getAncorInA(lua_State *L) {
 		if (!_lg_typecheck_getAncorInA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btSliderConstraint::getAncorInA() function, expected prototype:\nbtVector3 btSliderConstraint::getAncorInA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btSliderConstraint::getAncorInA() function, expected prototype:\nbtVector3 btSliderConstraint::getAncorInA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btSliderConstraint::getAncorInA(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btSliderConstraint::getAncorInA(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->getAncorInA();
 		btVector3* lret = new btVector3(stack_lret);
@@ -2471,15 +2306,13 @@ public:
 	// btVector3 btSliderConstraint::getAncorInB()
 	static int _bind_getAncorInB(lua_State *L) {
 		if (!_lg_typecheck_getAncorInB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btSliderConstraint::getAncorInB() function, expected prototype:\nbtVector3 btSliderConstraint::getAncorInB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btSliderConstraint::getAncorInB() function, expected prototype:\nbtVector3 btSliderConstraint::getAncorInB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btSliderConstraint::getAncorInB(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btSliderConstraint::getAncorInB(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->getAncorInB();
 		btVector3* lret = new btVector3(stack_lret);
@@ -2493,15 +2326,13 @@ public:
 	// bool btSliderConstraint::getUseFrameOffset()
 	static int _bind_getUseFrameOffset(lua_State *L) {
 		if (!_lg_typecheck_getUseFrameOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btSliderConstraint::getUseFrameOffset() function, expected prototype:\nbool btSliderConstraint::getUseFrameOffset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btSliderConstraint::getUseFrameOffset() function, expected prototype:\nbool btSliderConstraint::getUseFrameOffset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btSliderConstraint::getUseFrameOffset(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btSliderConstraint::getUseFrameOffset(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getUseFrameOffset();
 		lua_pushboolean(L,lret?1:0);
@@ -2512,16 +2343,14 @@ public:
 	// void btSliderConstraint::setUseFrameOffset(bool frameOffsetOnOff)
 	static int _bind_setUseFrameOffset(lua_State *L) {
 		if (!_lg_typecheck_setUseFrameOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setUseFrameOffset(bool frameOffsetOnOff) function, expected prototype:\nvoid btSliderConstraint::setUseFrameOffset(bool frameOffsetOnOff)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setUseFrameOffset(bool frameOffsetOnOff) function, expected prototype:\nvoid btSliderConstraint::setUseFrameOffset(bool frameOffsetOnOff)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool frameOffsetOnOff=(bool)(lua_toboolean(L,2)==1);
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setUseFrameOffset(bool). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setUseFrameOffset(bool). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setUseFrameOffset(frameOffsetOnOff);
 
@@ -2531,8 +2360,7 @@ public:
 	// void btSliderConstraint::setFrames(const btTransform & frameA, const btTransform & frameB)
 	static int _bind_setFrames(lua_State *L) {
 		if (!_lg_typecheck_setFrames(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setFrames(const btTransform & frameA, const btTransform & frameB) function, expected prototype:\nvoid btSliderConstraint::setFrames(const btTransform & frameA, const btTransform & frameB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setFrames(const btTransform & frameA, const btTransform & frameB) function, expected prototype:\nvoid btSliderConstraint::setFrames(const btTransform & frameA, const btTransform & frameB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* frameA_ptr=(Luna< btTransform >::check(L,2));
@@ -2548,8 +2376,7 @@ public:
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setFrames(const btTransform &, const btTransform &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setFrames(const btTransform &, const btTransform &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFrames(frameA, frameB);
 
@@ -2559,8 +2386,7 @@ public:
 	// void btSliderConstraint::setParam(int num, float value, int axis = -1)
 	static int _bind_setParam(lua_State *L) {
 		if (!_lg_typecheck_setParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setParam(int num, float value, int axis = -1) function, expected prototype:\nvoid btSliderConstraint::setParam(int num, float value, int axis = -1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::setParam(int num, float value, int axis = -1) function, expected prototype:\nvoid btSliderConstraint::setParam(int num, float value, int axis = -1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2571,8 +2397,7 @@ public:
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::setParam(int, float, int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::setParam(int, float, int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setParam(num, value, axis);
 
@@ -2582,8 +2407,7 @@ public:
 	// float btSliderConstraint::getParam(int num, int axis = -1) const
 	static int _bind_getParam(lua_State *L) {
 		if (!_lg_typecheck_getParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getParam(int num, int axis = -1) const function, expected prototype:\nfloat btSliderConstraint::getParam(int num, int axis = -1) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::getParam(int num, int axis = -1) const function, expected prototype:\nfloat btSliderConstraint::getParam(int num, int axis = -1) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2593,8 +2417,7 @@ public:
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::getParam(int, int) const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::getParam(int, int) const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getParam(num, axis);
 		lua_pushnumber(L,lret);
@@ -2605,15 +2428,13 @@ public:
 	// int btSliderConstraint::calculateSerializeBufferSize() const
 	static int _bind_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btSliderConstraint::calculateSerializeBufferSize() const function, expected prototype:\nint btSliderConstraint::calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btSliderConstraint::calculateSerializeBufferSize() const function, expected prototype:\nint btSliderConstraint::calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btSliderConstraint::calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btSliderConstraint::calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);
@@ -2624,15 +2445,13 @@ public:
 	// void btSliderConstraint::base_buildJacobian()
 	static int _bind_base_buildJacobian(lua_State *L) {
 		if (!_lg_typecheck_base_buildJacobian(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::base_buildJacobian() function, expected prototype:\nvoid btSliderConstraint::base_buildJacobian()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::base_buildJacobian() function, expected prototype:\nvoid btSliderConstraint::base_buildJacobian()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::base_buildJacobian(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::base_buildJacobian(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSliderConstraint::buildJacobian();
 
@@ -2642,8 +2461,7 @@ public:
 	// void btSliderConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep)
 	static int _bind_base_setupSolverConstraint(lua_State *L) {
 		if (!_lg_typecheck_base_setupSolverConstraint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep) function, expected prototype:\nvoid btSliderConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep)\nClass arguments details:\narg 1 ID = 1318117\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep) function, expected prototype:\nvoid btSliderConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep)\nClass arguments details:\narg 1 ID = 1318117\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConstraintArray* ca_ptr=(Luna< btAlignedObjectArray< btSolverConstraint > >::checkSubType< btConstraintArray >(L,2));
@@ -2657,8 +2475,7 @@ public:
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::base_setupSolverConstraint(btConstraintArray &, int, int, float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::base_setupSolverConstraint(btConstraintArray &, int, int, float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSliderConstraint::setupSolverConstraint(ca, solverBodyA, solverBodyB, timeStep);
 
@@ -2668,8 +2485,7 @@ public:
 	// void btSliderConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3)
 	static int _bind_base_solveConstraintObsolete(lua_State *L) {
 		if (!_lg_typecheck_base_solveConstraintObsolete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3) function, expected prototype:\nvoid btSliderConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3) function, expected prototype:\nvoid btSliderConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSolverBody* _arg1_ptr=(Luna< btSolverBody >::check(L,2));
@@ -2686,8 +2502,7 @@ public:
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::base_solveConstraintObsolete(btSolverBody &, btSolverBody &, float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::base_solveConstraintObsolete(btSolverBody &, btSolverBody &, float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSliderConstraint::solveConstraintObsolete(_arg1, _arg2, _arg3);
 
@@ -2697,16 +2512,14 @@ public:
 	// void btSliderConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info)
 	static int _bind_base_getInfo1(lua_State *L) {
 		if (!_lg_typecheck_base_getInfo1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btSliderConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btSliderConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo1* info=(Luna< btTypedConstraint::btConstraintInfo1 >::check(L,2));
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSliderConstraint::getInfo1(info);
 
@@ -2716,16 +2529,14 @@ public:
 	// void btSliderConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info)
 	static int _bind_base_getInfo2(lua_State *L) {
 		if (!_lg_typecheck_base_getInfo2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info) function, expected prototype:\nvoid btSliderConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info)\nClass arguments details:\narg 1 ID = 17243936\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info) function, expected prototype:\nvoid btSliderConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info)\nClass arguments details:\narg 1 ID = 17243936\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo2* info=(Luna< btTypedConstraint::btConstraintInfo2 >::check(L,2));
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSliderConstraint::getInfo2(info);
 
@@ -2735,8 +2546,7 @@ public:
 	// void btSliderConstraint::base_setParam(int num, float value, int axis = -1)
 	static int _bind_base_setParam(lua_State *L) {
 		if (!_lg_typecheck_base_setParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSliderConstraint::base_setParam(int num, float value, int axis = -1) function, expected prototype:\nvoid btSliderConstraint::base_setParam(int num, float value, int axis = -1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSliderConstraint::base_setParam(int num, float value, int axis = -1) function, expected prototype:\nvoid btSliderConstraint::base_setParam(int num, float value, int axis = -1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2747,8 +2557,7 @@ public:
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSliderConstraint::base_setParam(int, float, int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSliderConstraint::base_setParam(int, float, int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSliderConstraint::setParam(num, value, axis);
 
@@ -2758,8 +2567,7 @@ public:
 	// float btSliderConstraint::base_getParam(int num, int axis = -1) const
 	static int _bind_base_getParam(lua_State *L) {
 		if (!_lg_typecheck_base_getParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSliderConstraint::base_getParam(int num, int axis = -1) const function, expected prototype:\nfloat btSliderConstraint::base_getParam(int num, int axis = -1) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btSliderConstraint::base_getParam(int num, int axis = -1) const function, expected prototype:\nfloat btSliderConstraint::base_getParam(int num, int axis = -1) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -2769,8 +2577,7 @@ public:
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSliderConstraint::base_getParam(int, int) const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSliderConstraint::base_getParam(int, int) const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btSliderConstraint::getParam(num, axis);
 		lua_pushnumber(L,lret);
@@ -2781,15 +2588,13 @@ public:
 	// int btSliderConstraint::base_calculateSerializeBufferSize() const
 	static int _bind_base_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_base_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btSliderConstraint::base_calculateSerializeBufferSize() const function, expected prototype:\nint btSliderConstraint::base_calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btSliderConstraint::base_calculateSerializeBufferSize() const function, expected prototype:\nint btSliderConstraint::base_calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSliderConstraint* self=Luna< btTypedObject >::checkSubType< btSliderConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btSliderConstraint::base_calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btSliderConstraint::base_calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btSliderConstraint::calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);

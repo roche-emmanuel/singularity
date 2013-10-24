@@ -89,8 +89,7 @@ public:
 	// bool SPK::BufferHandler::public_prepareBuffers(const SPK::Group & group)
 	static int _bind_public_prepareBuffers(lua_State *L) {
 		if (!_lg_typecheck_public_prepareBuffers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::BufferHandler::public_prepareBuffers(const SPK::Group & group) function, expected prototype:\nbool SPK::BufferHandler::public_prepareBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::BufferHandler::public_prepareBuffers(const SPK::Group & group) function, expected prototype:\nbool SPK::BufferHandler::public_prepareBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -101,8 +100,7 @@ public:
 
 		wrapper_SPK_BufferHandler* self=Luna< SPK::BufferHandler >::checkSubType< wrapper_SPK_BufferHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::BufferHandler::public_prepareBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::BufferHandler >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::BufferHandler::public_prepareBuffers(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::BufferHandler >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_prepareBuffers(group);
 		lua_pushboolean(L,lret?1:0);

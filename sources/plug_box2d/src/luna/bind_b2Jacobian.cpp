@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Jacobian*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Jacobian*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Jacobian* rhs =(Luna< b2Jacobian >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Jacobian* self= (b2Jacobian*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Jacobian >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -130,14 +126,14 @@ public:
 	inline static bool _lg_typecheck_setAngularA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setAngularB(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -151,15 +147,13 @@ public:
 	// b2Vec2 b2Jacobian::linear()
 	static int _bind_getLinear(lua_State *L) {
 		if (!_lg_typecheck_getLinear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2Jacobian::linear() function, expected prototype:\nb2Vec2 b2Jacobian::linear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2Jacobian::linear() function, expected prototype:\nb2Vec2 b2Jacobian::linear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Jacobian* self=(Luna< b2Jacobian >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2Jacobian::linear(). Got : '%s'",typeid(Luna< b2Jacobian >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2Jacobian::linear(). Got : '%s'\n%s",typeid(Luna< b2Jacobian >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->linear;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -172,15 +166,13 @@ public:
 	// float b2Jacobian::angularA()
 	static int _bind_getAngularA(lua_State *L) {
 		if (!_lg_typecheck_getAngularA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Jacobian::angularA() function, expected prototype:\nfloat b2Jacobian::angularA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Jacobian::angularA() function, expected prototype:\nfloat b2Jacobian::angularA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Jacobian* self=(Luna< b2Jacobian >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Jacobian::angularA(). Got : '%s'",typeid(Luna< b2Jacobian >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Jacobian::angularA(). Got : '%s'\n%s",typeid(Luna< b2Jacobian >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->angularA;
 		lua_pushnumber(L,lret);
@@ -191,15 +183,13 @@ public:
 	// float b2Jacobian::angularB()
 	static int _bind_getAngularB(lua_State *L) {
 		if (!_lg_typecheck_getAngularB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Jacobian::angularB() function, expected prototype:\nfloat b2Jacobian::angularB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Jacobian::angularB() function, expected prototype:\nfloat b2Jacobian::angularB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Jacobian* self=(Luna< b2Jacobian >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Jacobian::angularB(). Got : '%s'",typeid(Luna< b2Jacobian >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Jacobian::angularB(). Got : '%s'\n%s",typeid(Luna< b2Jacobian >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->angularB;
 		lua_pushnumber(L,lret);
@@ -210,8 +200,7 @@ public:
 	// void b2Jacobian::linear(b2Vec2 value)
 	static int _bind_setLinear(lua_State *L) {
 		if (!_lg_typecheck_setLinear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Jacobian::linear(b2Vec2 value) function, expected prototype:\nvoid b2Jacobian::linear(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2Jacobian::linear(b2Vec2 value) function, expected prototype:\nvoid b2Jacobian::linear(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -222,8 +211,7 @@ public:
 
 		b2Jacobian* self=(Luna< b2Jacobian >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Jacobian::linear(b2Vec2). Got : '%s'",typeid(Luna< b2Jacobian >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Jacobian::linear(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2Jacobian >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->linear = value;
 
@@ -233,16 +221,14 @@ public:
 	// void b2Jacobian::angularA(float value)
 	static int _bind_setAngularA(lua_State *L) {
 		if (!_lg_typecheck_setAngularA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Jacobian::angularA(float value) function, expected prototype:\nvoid b2Jacobian::angularA(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Jacobian::angularA(float value) function, expected prototype:\nvoid b2Jacobian::angularA(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2Jacobian* self=(Luna< b2Jacobian >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Jacobian::angularA(float). Got : '%s'",typeid(Luna< b2Jacobian >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Jacobian::angularA(float). Got : '%s'\n%s",typeid(Luna< b2Jacobian >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->angularA = value;
 
@@ -252,16 +238,14 @@ public:
 	// void b2Jacobian::angularB(float value)
 	static int _bind_setAngularB(lua_State *L) {
 		if (!_lg_typecheck_setAngularB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Jacobian::angularB(float value) function, expected prototype:\nvoid b2Jacobian::angularB(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Jacobian::angularB(float value) function, expected prototype:\nvoid b2Jacobian::angularB(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2Jacobian* self=(Luna< b2Jacobian >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Jacobian::angularB(float). Got : '%s'",typeid(Luna< b2Jacobian >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Jacobian::angularB(float). Got : '%s'\n%s",typeid(Luna< b2Jacobian >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->angularB = value;
 

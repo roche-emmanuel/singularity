@@ -17,10 +17,11 @@ Lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/docgen/DocGen.lua	1346251815	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/docgen/DocGen.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/BookApp.lua	1379450708	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/BookApp.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/BasicInterface.lua	1380145423	1	gui.wx.BasicInterface
-/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/EntryInterface.lua	1376425529	1	gui.wx.EntryInterface
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/EntryInterface.lua	1380793675	1	gui.wx.EntryInterface
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/Builtin.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/Builtin.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/entries/StringEntry.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/entries/StringEntry.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/HandlerConnector.lua	1379488339	1	gui.wx.HandlerConnector
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/entries/StateChoiceEntry.lua	1380794079	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/entries/StateChoiceEntry.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/osg.lua	1366205260	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/osg.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/docgen/Topics.lua	1346231267	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/docgen/Topics.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/std/tree/UpwardsIterator.lua	1365493365	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/std/tree/UpwardsIterator.lua
@@ -124,7 +125,7 @@ Lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/land/Deformation.lua	1366231316	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/land/Deformation.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/land/TerrainNode.lua	1366233489	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/land/TerrainNode.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/misc/RedBirdApp.lua	1358935095	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/misc/RedBirdApp.lua
-/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/Entry.lua	1380035393	1	wx.Entry
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/Entry.lua	1380793902	1	wx.Entry
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/atb/Window.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/atb/Window.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/atb/Context.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/atb/Context.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/entries/ActionButtonEntry.lua	1378840492	1	gui.wx.entries.ActionButtonEntry
@@ -186,4 +187,4 @@ Lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/dev/seed_old.lua	1372628251	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/dev/seed_old.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/std/tree/SiblingIterator.lua	1365493365	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/std/tree/SiblingIterator.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/micropather/TestApp.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/micropather/TestApp.lua
-/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/buildclass.lua	1380543364	1	utils.buildclass
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/buildclass.lua	1381302419	1	utils.buildclass

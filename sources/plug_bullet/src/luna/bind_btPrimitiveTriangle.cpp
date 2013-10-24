@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btPrimitiveTriangle*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btPrimitiveTriangle*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPrimitiveTriangle* rhs =(Luna< btPrimitiveTriangle >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPrimitiveTriangle* self= (btPrimitiveTriangle*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btPrimitiveTriangle >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -124,7 +120,7 @@ public:
 	inline static bool _lg_typecheck_get_edge_plane(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		return true;
 	}
@@ -180,14 +176,14 @@ public:
 	inline static bool _lg_typecheck_setMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDummy(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -199,8 +195,7 @@ public:
 	// btPrimitiveTriangle::btPrimitiveTriangle()
 	static btPrimitiveTriangle* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btPrimitiveTriangle::btPrimitiveTriangle() function, expected prototype:\nbtPrimitiveTriangle::btPrimitiveTriangle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btPrimitiveTriangle::btPrimitiveTriangle() function, expected prototype:\nbtPrimitiveTriangle::btPrimitiveTriangle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -212,15 +207,13 @@ public:
 	// void btPrimitiveTriangle::buildTriPlane()
 	static int _bind_buildTriPlane(lua_State *L) {
 		if (!_lg_typecheck_buildTriPlane(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPrimitiveTriangle::buildTriPlane() function, expected prototype:\nvoid btPrimitiveTriangle::buildTriPlane()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btPrimitiveTriangle::buildTriPlane() function, expected prototype:\nvoid btPrimitiveTriangle::buildTriPlane()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPrimitiveTriangle* self=(Luna< btPrimitiveTriangle >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPrimitiveTriangle::buildTriPlane(). Got : '%s'",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPrimitiveTriangle::buildTriPlane(). Got : '%s'\n%s",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->buildTriPlane();
 
@@ -230,8 +223,7 @@ public:
 	// bool btPrimitiveTriangle::overlap_test_conservative(const btPrimitiveTriangle & other)
 	static int _bind_overlap_test_conservative(lua_State *L) {
 		if (!_lg_typecheck_overlap_test_conservative(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btPrimitiveTriangle::overlap_test_conservative(const btPrimitiveTriangle & other) function, expected prototype:\nbool btPrimitiveTriangle::overlap_test_conservative(const btPrimitiveTriangle & other)\nClass arguments details:\narg 1 ID = 79712881\n");
+			luaL_error(L, "luna typecheck failed in bool btPrimitiveTriangle::overlap_test_conservative(const btPrimitiveTriangle & other) function, expected prototype:\nbool btPrimitiveTriangle::overlap_test_conservative(const btPrimitiveTriangle & other)\nClass arguments details:\narg 1 ID = 79712881\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btPrimitiveTriangle* other_ptr=(Luna< btPrimitiveTriangle >::check(L,2));
@@ -242,8 +234,7 @@ public:
 
 		btPrimitiveTriangle* self=(Luna< btPrimitiveTriangle >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btPrimitiveTriangle::overlap_test_conservative(const btPrimitiveTriangle &). Got : '%s'",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btPrimitiveTriangle::overlap_test_conservative(const btPrimitiveTriangle &). Got : '%s'\n%s",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->overlap_test_conservative(other);
 		lua_pushboolean(L,lret?1:0);
@@ -254,8 +245,7 @@ public:
 	// void btPrimitiveTriangle::get_edge_plane(int edge_index, btVector4 & plane) const
 	static int _bind_get_edge_plane(lua_State *L) {
 		if (!_lg_typecheck_get_edge_plane(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPrimitiveTriangle::get_edge_plane(int edge_index, btVector4 & plane) const function, expected prototype:\nvoid btPrimitiveTriangle::get_edge_plane(int edge_index, btVector4 & plane) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btPrimitiveTriangle::get_edge_plane(int edge_index, btVector4 & plane) const function, expected prototype:\nvoid btPrimitiveTriangle::get_edge_plane(int edge_index, btVector4 & plane) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int edge_index=(int)lua_tointeger(L,2);
@@ -267,8 +257,7 @@ public:
 
 		btPrimitiveTriangle* self=(Luna< btPrimitiveTriangle >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPrimitiveTriangle::get_edge_plane(int, btVector4 &) const. Got : '%s'",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPrimitiveTriangle::get_edge_plane(int, btVector4 &) const. Got : '%s'\n%s",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->get_edge_plane(edge_index, plane);
 
@@ -278,8 +267,7 @@ public:
 	// void btPrimitiveTriangle::applyTransform(const btTransform & t)
 	static int _bind_applyTransform(lua_State *L) {
 		if (!_lg_typecheck_applyTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPrimitiveTriangle::applyTransform(const btTransform & t) function, expected prototype:\nvoid btPrimitiveTriangle::applyTransform(const btTransform & t)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btPrimitiveTriangle::applyTransform(const btTransform & t) function, expected prototype:\nvoid btPrimitiveTriangle::applyTransform(const btTransform & t)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* t_ptr=(Luna< btTransform >::check(L,2));
@@ -290,8 +278,7 @@ public:
 
 		btPrimitiveTriangle* self=(Luna< btPrimitiveTriangle >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPrimitiveTriangle::applyTransform(const btTransform &). Got : '%s'",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPrimitiveTriangle::applyTransform(const btTransform &). Got : '%s'\n%s",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->applyTransform(t);
 
@@ -301,8 +288,7 @@ public:
 	// int btPrimitiveTriangle::clip_triangle(btPrimitiveTriangle & other, btVector3 * clipped_points)
 	static int _bind_clip_triangle(lua_State *L) {
 		if (!_lg_typecheck_clip_triangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btPrimitiveTriangle::clip_triangle(btPrimitiveTriangle & other, btVector3 * clipped_points) function, expected prototype:\nint btPrimitiveTriangle::clip_triangle(btPrimitiveTriangle & other, btVector3 * clipped_points)\nClass arguments details:\narg 1 ID = 79712881\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in int btPrimitiveTriangle::clip_triangle(btPrimitiveTriangle & other, btVector3 * clipped_points) function, expected prototype:\nint btPrimitiveTriangle::clip_triangle(btPrimitiveTriangle & other, btVector3 * clipped_points)\nClass arguments details:\narg 1 ID = 79712881\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPrimitiveTriangle* other_ptr=(Luna< btPrimitiveTriangle >::check(L,2));
@@ -314,8 +300,7 @@ public:
 
 		btPrimitiveTriangle* self=(Luna< btPrimitiveTriangle >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btPrimitiveTriangle::clip_triangle(btPrimitiveTriangle &, btVector3 *). Got : '%s'",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btPrimitiveTriangle::clip_triangle(btPrimitiveTriangle &, btVector3 *). Got : '%s'\n%s",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->clip_triangle(other, clipped_points);
 		lua_pushnumber(L,lret);
@@ -326,8 +311,7 @@ public:
 	// bool btPrimitiveTriangle::find_triangle_collision_clip_method(btPrimitiveTriangle & other, GIM_TRIANGLE_CONTACT & contacts)
 	static int _bind_find_triangle_collision_clip_method(lua_State *L) {
 		if (!_lg_typecheck_find_triangle_collision_clip_method(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btPrimitiveTriangle::find_triangle_collision_clip_method(btPrimitiveTriangle & other, GIM_TRIANGLE_CONTACT & contacts) function, expected prototype:\nbool btPrimitiveTriangle::find_triangle_collision_clip_method(btPrimitiveTriangle & other, GIM_TRIANGLE_CONTACT & contacts)\nClass arguments details:\narg 1 ID = 79712881\narg 2 ID = 87059149\n");
+			luaL_error(L, "luna typecheck failed in bool btPrimitiveTriangle::find_triangle_collision_clip_method(btPrimitiveTriangle & other, GIM_TRIANGLE_CONTACT & contacts) function, expected prototype:\nbool btPrimitiveTriangle::find_triangle_collision_clip_method(btPrimitiveTriangle & other, GIM_TRIANGLE_CONTACT & contacts)\nClass arguments details:\narg 1 ID = 79712881\narg 2 ID = 87059149\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPrimitiveTriangle* other_ptr=(Luna< btPrimitiveTriangle >::check(L,2));
@@ -343,8 +327,7 @@ public:
 
 		btPrimitiveTriangle* self=(Luna< btPrimitiveTriangle >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btPrimitiveTriangle::find_triangle_collision_clip_method(btPrimitiveTriangle &, GIM_TRIANGLE_CONTACT &). Got : '%s'",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btPrimitiveTriangle::find_triangle_collision_clip_method(btPrimitiveTriangle &, GIM_TRIANGLE_CONTACT &). Got : '%s'\n%s",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->find_triangle_collision_clip_method(other, contacts);
 		lua_pushboolean(L,lret?1:0);
@@ -355,15 +338,13 @@ public:
 	// btVector4 btPrimitiveTriangle::m_plane()
 	static int _bind_getPlane(lua_State *L) {
 		if (!_lg_typecheck_getPlane(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector4 btPrimitiveTriangle::m_plane() function, expected prototype:\nbtVector4 btPrimitiveTriangle::m_plane()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector4 btPrimitiveTriangle::m_plane() function, expected prototype:\nbtVector4 btPrimitiveTriangle::m_plane()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPrimitiveTriangle* self=(Luna< btPrimitiveTriangle >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector4 btPrimitiveTriangle::m_plane(). Got : '%s'",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector4 btPrimitiveTriangle::m_plane(). Got : '%s'\n%s",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector4* lret = &self->m_plane;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -376,15 +357,13 @@ public:
 	// float btPrimitiveTriangle::m_margin()
 	static int _bind_getMargin(lua_State *L) {
 		if (!_lg_typecheck_getMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btPrimitiveTriangle::m_margin() function, expected prototype:\nfloat btPrimitiveTriangle::m_margin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btPrimitiveTriangle::m_margin() function, expected prototype:\nfloat btPrimitiveTriangle::m_margin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPrimitiveTriangle* self=(Luna< btPrimitiveTriangle >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btPrimitiveTriangle::m_margin(). Got : '%s'",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btPrimitiveTriangle::m_margin(). Got : '%s'\n%s",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_margin;
 		lua_pushnumber(L,lret);
@@ -395,15 +374,13 @@ public:
 	// float btPrimitiveTriangle::m_dummy()
 	static int _bind_getDummy(lua_State *L) {
 		if (!_lg_typecheck_getDummy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btPrimitiveTriangle::m_dummy() function, expected prototype:\nfloat btPrimitiveTriangle::m_dummy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btPrimitiveTriangle::m_dummy() function, expected prototype:\nfloat btPrimitiveTriangle::m_dummy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPrimitiveTriangle* self=(Luna< btPrimitiveTriangle >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btPrimitiveTriangle::m_dummy(). Got : '%s'",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btPrimitiveTriangle::m_dummy(). Got : '%s'\n%s",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_dummy;
 		lua_pushnumber(L,lret);
@@ -414,8 +391,7 @@ public:
 	// void btPrimitiveTriangle::m_plane(btVector4 value)
 	static int _bind_setPlane(lua_State *L) {
 		if (!_lg_typecheck_setPlane(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPrimitiveTriangle::m_plane(btVector4 value) function, expected prototype:\nvoid btPrimitiveTriangle::m_plane(btVector4 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btPrimitiveTriangle::m_plane(btVector4 value) function, expected prototype:\nvoid btPrimitiveTriangle::m_plane(btVector4 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector4* value_ptr=(Luna< btVector3 >::checkSubType< btVector4 >(L,2));
@@ -426,8 +402,7 @@ public:
 
 		btPrimitiveTriangle* self=(Luna< btPrimitiveTriangle >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPrimitiveTriangle::m_plane(btVector4). Got : '%s'",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPrimitiveTriangle::m_plane(btVector4). Got : '%s'\n%s",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_plane = value;
 
@@ -437,16 +412,14 @@ public:
 	// void btPrimitiveTriangle::m_margin(float value)
 	static int _bind_setMargin(lua_State *L) {
 		if (!_lg_typecheck_setMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPrimitiveTriangle::m_margin(float value) function, expected prototype:\nvoid btPrimitiveTriangle::m_margin(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btPrimitiveTriangle::m_margin(float value) function, expected prototype:\nvoid btPrimitiveTriangle::m_margin(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btPrimitiveTriangle* self=(Luna< btPrimitiveTriangle >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPrimitiveTriangle::m_margin(float). Got : '%s'",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPrimitiveTriangle::m_margin(float). Got : '%s'\n%s",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_margin = value;
 
@@ -456,16 +429,14 @@ public:
 	// void btPrimitiveTriangle::m_dummy(float value)
 	static int _bind_setDummy(lua_State *L) {
 		if (!_lg_typecheck_setDummy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPrimitiveTriangle::m_dummy(float value) function, expected prototype:\nvoid btPrimitiveTriangle::m_dummy(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btPrimitiveTriangle::m_dummy(float value) function, expected prototype:\nvoid btPrimitiveTriangle::m_dummy(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btPrimitiveTriangle* self=(Luna< btPrimitiveTriangle >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPrimitiveTriangle::m_dummy(float). Got : '%s'",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPrimitiveTriangle::m_dummy(float). Got : '%s'\n%s",typeid(Luna< btPrimitiveTriangle >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_dummy = value;
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglFont*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglFont*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglFont* rhs =(Luna< mglFont >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglFont* self= (mglFont*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< mglFont >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -104,8 +100,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>2 ) return false;
 
-		if( luatop>0 && lua_isstring(L,1)==0 ) return false;
-		if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+		if( luatop>0 && lua_type(L,1)!=LUA_TSTRING ) return false;
+		if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -115,8 +111,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -148,38 +144,38 @@ public:
 	inline static bool _lg_typecheck_Height_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_Height_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_Puts(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_Width(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_Internal(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -192,47 +188,47 @@ public:
 	inline static bool _lg_typecheck_GetTr(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_GetLn(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_GetNt(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_GetNl(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_GetWidth(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_GetFact(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -270,8 +266,7 @@ public:
 	// mglFont::mglFont(const char * name = 0, const char * path = 0)
 	static mglFont* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglFont::mglFont(const char * name = 0, const char * path = 0) function, expected prototype:\nmglFont::mglFont(const char * name = 0, const char * path = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglFont::mglFont(const char * name = 0, const char * path = 0) function, expected prototype:\nmglFont::mglFont(const char * name = 0, const char * path = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -287,8 +282,7 @@ public:
 	// bool mglFont::Load(const char * base, const char * path = 0)
 	static int _bind_Load(lua_State *L) {
 		if (!_lg_typecheck_Load(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool mglFont::Load(const char * base, const char * path = 0) function, expected prototype:\nbool mglFont::Load(const char * base, const char * path = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool mglFont::Load(const char * base, const char * path = 0) function, expected prototype:\nbool mglFont::Load(const char * base, const char * path = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -298,8 +292,7 @@ public:
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool mglFont::Load(const char *, const char *). Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool mglFont::Load(const char *, const char *). Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Load(base, path);
 		lua_pushboolean(L,lret?1:0);
@@ -310,15 +303,13 @@ public:
 	// void mglFont::Clear()
 	static int _bind_Clear(lua_State *L) {
 		if (!_lg_typecheck_Clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglFont::Clear() function, expected prototype:\nvoid mglFont::Clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglFont::Clear() function, expected prototype:\nvoid mglFont::Clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglFont::Clear(). Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglFont::Clear(). Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Clear();
 
@@ -328,16 +319,14 @@ public:
 	// void mglFont::Copy(mglFont * arg1)
 	static int _bind_Copy(lua_State *L) {
 		if (!_lg_typecheck_Copy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglFont::Copy(mglFont * arg1) function, expected prototype:\nvoid mglFont::Copy(mglFont * arg1)\nClass arguments details:\narg 1 ID = 88634591\n");
+			luaL_error(L, "luna typecheck failed in void mglFont::Copy(mglFont * arg1) function, expected prototype:\nvoid mglFont::Copy(mglFont * arg1)\nClass arguments details:\narg 1 ID = 88634591\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglFont* _arg1=(Luna< mglFont >::check(L,2));
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglFont::Copy(mglFont *). Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglFont::Copy(mglFont *). Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Copy(_arg1);
 
@@ -347,15 +336,13 @@ public:
 	// void mglFont::Restore()
 	static int _bind_Restore(lua_State *L) {
 		if (!_lg_typecheck_Restore(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglFont::Restore() function, expected prototype:\nvoid mglFont::Restore()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglFont::Restore() function, expected prototype:\nvoid mglFont::Restore()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglFont::Restore(). Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglFont::Restore(). Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Restore();
 
@@ -365,15 +352,13 @@ public:
 	// bool mglFont::Ready() const
 	static int _bind_Ready(lua_State *L) {
 		if (!_lg_typecheck_Ready(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool mglFont::Ready() const function, expected prototype:\nbool mglFont::Ready() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool mglFont::Ready() const function, expected prototype:\nbool mglFont::Ready() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool mglFont::Ready() const. Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool mglFont::Ready() const. Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Ready();
 		lua_pushboolean(L,lret?1:0);
@@ -384,16 +369,14 @@ public:
 	// float mglFont::Height(int font) const
 	static int _bind_Height_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Height_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float mglFont::Height(int font) const function, expected prototype:\nfloat mglFont::Height(int font) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float mglFont::Height(int font) const function, expected prototype:\nfloat mglFont::Height(int font) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int font=(int)lua_tointeger(L,2);
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float mglFont::Height(int) const. Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float mglFont::Height(int) const. Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->Height(font);
 		lua_pushnumber(L,lret);
@@ -404,16 +387,14 @@ public:
 	// float mglFont::Height(const char * how) const
 	static int _bind_Height_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Height_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float mglFont::Height(const char * how) const function, expected prototype:\nfloat mglFont::Height(const char * how) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float mglFont::Height(const char * how) const function, expected prototype:\nfloat mglFont::Height(const char * how) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * how=(const char *)lua_tostring(L,2);
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float mglFont::Height(const char *) const. Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float mglFont::Height(const char *) const. Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->Height(how);
 		lua_pushnumber(L,lret);
@@ -433,8 +414,7 @@ public:
 	// float mglFont::Puts(const char * str, const char * how, float col) const
 	static int _bind_Puts(lua_State *L) {
 		if (!_lg_typecheck_Puts(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float mglFont::Puts(const char * str, const char * how, float col) const function, expected prototype:\nfloat mglFont::Puts(const char * str, const char * how, float col) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float mglFont::Puts(const char * str, const char * how, float col) const function, expected prototype:\nfloat mglFont::Puts(const char * str, const char * how, float col) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,2);
@@ -443,8 +423,7 @@ public:
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float mglFont::Puts(const char *, const char *, float) const. Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float mglFont::Puts(const char *, const char *, float) const. Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->Puts(str, how, col);
 		lua_pushnumber(L,lret);
@@ -455,8 +434,7 @@ public:
 	// float mglFont::Width(const char * str, const char * how) const
 	static int _bind_Width(lua_State *L) {
 		if (!_lg_typecheck_Width(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float mglFont::Width(const char * str, const char * how) const function, expected prototype:\nfloat mglFont::Width(const char * str, const char * how) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float mglFont::Width(const char * str, const char * how) const function, expected prototype:\nfloat mglFont::Width(const char * str, const char * how) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,2);
@@ -464,8 +442,7 @@ public:
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float mglFont::Width(const char *, const char *) const. Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float mglFont::Width(const char *, const char *) const. Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->Width(str, how);
 		lua_pushnumber(L,lret);
@@ -476,16 +453,14 @@ public:
 	// long mglFont::Internal(unsigned int s) const
 	static int _bind_Internal(lua_State *L) {
 		if (!_lg_typecheck_Internal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in long mglFont::Internal(unsigned int s) const function, expected prototype:\nlong mglFont::Internal(unsigned int s) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in long mglFont::Internal(unsigned int s) const function, expected prototype:\nlong mglFont::Internal(unsigned int s) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned s=(unsigned)lua_tointeger(L,2);
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call long mglFont::Internal(unsigned int) const. Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call long mglFont::Internal(unsigned int) const. Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		long lret = self->Internal(s);
 		lua_pushnumber(L,lret);
@@ -496,15 +471,13 @@ public:
 	// unsigned int mglFont::GetNumGlyph() const
 	static int _bind_GetNumGlyph(lua_State *L) {
 		if (!_lg_typecheck_GetNumGlyph(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int mglFont::GetNumGlyph() const function, expected prototype:\nunsigned int mglFont::GetNumGlyph() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int mglFont::GetNumGlyph() const function, expected prototype:\nunsigned int mglFont::GetNumGlyph() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int mglFont::GetNumGlyph() const. Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int mglFont::GetNumGlyph() const. Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->GetNumGlyph();
 		lua_pushnumber(L,lret);
@@ -515,17 +488,15 @@ public:
 	// const short * mglFont::GetTr(int s, long j) const
 	static int _bind_GetTr(lua_State *L) {
 		if (!_lg_typecheck_GetTr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const short * mglFont::GetTr(int s, long j) const function, expected prototype:\nconst short * mglFont::GetTr(int s, long j) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const short * mglFont::GetTr(int s, long j) const function, expected prototype:\nconst short * mglFont::GetTr(int s, long j) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int s=(int)lua_tointeger(L,2);
-		long j=(long)lua_tointeger(L,3);
+		long j=(long)lua_tonumber(L,3);
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const short * mglFont::GetTr(int, long) const. Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const short * mglFont::GetTr(int, long) const. Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const short * lret = self->GetTr(s, j);
 		lua_pushnumber(L,*lret);
@@ -536,17 +507,15 @@ public:
 	// const short * mglFont::GetLn(int s, long j) const
 	static int _bind_GetLn(lua_State *L) {
 		if (!_lg_typecheck_GetLn(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const short * mglFont::GetLn(int s, long j) const function, expected prototype:\nconst short * mglFont::GetLn(int s, long j) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const short * mglFont::GetLn(int s, long j) const function, expected prototype:\nconst short * mglFont::GetLn(int s, long j) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int s=(int)lua_tointeger(L,2);
-		long j=(long)lua_tointeger(L,3);
+		long j=(long)lua_tonumber(L,3);
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const short * mglFont::GetLn(int, long) const. Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const short * mglFont::GetLn(int, long) const. Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const short * lret = self->GetLn(s, j);
 		lua_pushnumber(L,*lret);
@@ -557,17 +526,15 @@ public:
 	// int mglFont::GetNt(int s, long j) const
 	static int _bind_GetNt(lua_State *L) {
 		if (!_lg_typecheck_GetNt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int mglFont::GetNt(int s, long j) const function, expected prototype:\nint mglFont::GetNt(int s, long j) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int mglFont::GetNt(int s, long j) const function, expected prototype:\nint mglFont::GetNt(int s, long j) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int s=(int)lua_tointeger(L,2);
-		long j=(long)lua_tointeger(L,3);
+		long j=(long)lua_tonumber(L,3);
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int mglFont::GetNt(int, long) const. Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int mglFont::GetNt(int, long) const. Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetNt(s, j);
 		lua_pushnumber(L,lret);
@@ -578,17 +545,15 @@ public:
 	// int mglFont::GetNl(int s, long j) const
 	static int _bind_GetNl(lua_State *L) {
 		if (!_lg_typecheck_GetNl(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int mglFont::GetNl(int s, long j) const function, expected prototype:\nint mglFont::GetNl(int s, long j) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int mglFont::GetNl(int s, long j) const function, expected prototype:\nint mglFont::GetNl(int s, long j) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int s=(int)lua_tointeger(L,2);
-		long j=(long)lua_tointeger(L,3);
+		long j=(long)lua_tonumber(L,3);
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int mglFont::GetNl(int, long) const. Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int mglFont::GetNl(int, long) const. Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->GetNl(s, j);
 		lua_pushnumber(L,lret);
@@ -599,17 +564,15 @@ public:
 	// short mglFont::GetWidth(int s, long j) const
 	static int _bind_GetWidth(lua_State *L) {
 		if (!_lg_typecheck_GetWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short mglFont::GetWidth(int s, long j) const function, expected prototype:\nshort mglFont::GetWidth(int s, long j) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short mglFont::GetWidth(int s, long j) const function, expected prototype:\nshort mglFont::GetWidth(int s, long j) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int s=(int)lua_tointeger(L,2);
-		long j=(long)lua_tointeger(L,3);
+		long j=(long)lua_tonumber(L,3);
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short mglFont::GetWidth(int, long) const. Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short mglFont::GetWidth(int, long) const. Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short lret = self->GetWidth(s, j);
 		lua_pushnumber(L,lret);
@@ -620,16 +583,14 @@ public:
 	// float mglFont::GetFact(int s) const
 	static int _bind_GetFact(lua_State *L) {
 		if (!_lg_typecheck_GetFact(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float mglFont::GetFact(int s) const function, expected prototype:\nfloat mglFont::GetFact(int s) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float mglFont::GetFact(int s) const function, expected prototype:\nfloat mglFont::GetFact(int s) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int s=(int)lua_tointeger(L,2);
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float mglFont::GetFact(int) const. Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float mglFont::GetFact(int) const. Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetFact(s);
 		lua_pushnumber(L,lret);
@@ -640,15 +601,13 @@ public:
 	// mglBase * mglFont::gr()
 	static int _bind_getGr(lua_State *L) {
 		if (!_lg_typecheck_getGr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglBase * mglFont::gr() function, expected prototype:\nmglBase * mglFont::gr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglBase * mglFont::gr() function, expected prototype:\nmglBase * mglFont::gr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call mglBase * mglFont::gr(). Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call mglBase * mglFont::gr(). Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		mglBase * lret = self->gr;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -661,15 +620,13 @@ public:
 	// bool mglFont::parse()
 	static int _bind_getParse(lua_State *L) {
 		if (!_lg_typecheck_getParse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool mglFont::parse() function, expected prototype:\nbool mglFont::parse()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool mglFont::parse() function, expected prototype:\nbool mglFont::parse()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool mglFont::parse(). Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool mglFont::parse(). Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->parse;
 		lua_pushboolean(L,lret?1:0);
@@ -680,16 +637,14 @@ public:
 	// void mglFont::gr(mglBase * value)
 	static int _bind_setGr(lua_State *L) {
 		if (!_lg_typecheck_setGr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglFont::gr(mglBase * value) function, expected prototype:\nvoid mglFont::gr(mglBase * value)\nClass arguments details:\narg 1 ID = 88502113\n");
+			luaL_error(L, "luna typecheck failed in void mglFont::gr(mglBase * value) function, expected prototype:\nvoid mglFont::gr(mglBase * value)\nClass arguments details:\narg 1 ID = 88502113\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglBase* value=(Luna< mglBase >::check(L,2));
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglFont::gr(mglBase *). Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglFont::gr(mglBase *). Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->gr = value;
 
@@ -699,16 +654,14 @@ public:
 	// void mglFont::parse(bool value)
 	static int _bind_setParse(lua_State *L) {
 		if (!_lg_typecheck_setParse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglFont::parse(bool value) function, expected prototype:\nvoid mglFont::parse(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglFont::parse(bool value) function, expected prototype:\nvoid mglFont::parse(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		mglFont* self=(Luna< mglFont >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglFont::parse(bool). Got : '%s'",typeid(Luna< mglFont >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglFont::parse(bool). Got : '%s'\n%s",typeid(Luna< mglFont >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->parse = value;
 

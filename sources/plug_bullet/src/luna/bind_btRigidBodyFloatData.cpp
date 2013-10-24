@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btRigidBodyFloatData*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btRigidBodyFloatData*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBodyFloatData* rhs =(Luna< btRigidBodyFloatData >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBodyFloatData* self= (btRigidBodyFloatData*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btRigidBodyFloatData >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -308,70 +304,70 @@ public:
 	inline static bool _lg_typecheck_setInverseMass(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setLinearDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setAngularDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setAdditionalDampingFactor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setAdditionalLinearDampingThresholdSqr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setAdditionalAngularDampingThresholdSqr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setAdditionalAngularDampingFactor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setLinearSleepingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setAngularSleepingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setAdditionalDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -385,15 +381,13 @@ public:
 	// btCollisionObjectFloatData btRigidBodyFloatData::m_collisionObjectData()
 	static int _bind_getCollisionObjectData(lua_State *L) {
 		if (!_lg_typecheck_getCollisionObjectData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionObjectFloatData btRigidBodyFloatData::m_collisionObjectData() function, expected prototype:\nbtCollisionObjectFloatData btRigidBodyFloatData::m_collisionObjectData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btCollisionObjectFloatData btRigidBodyFloatData::m_collisionObjectData() function, expected prototype:\nbtCollisionObjectFloatData btRigidBodyFloatData::m_collisionObjectData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btCollisionObjectFloatData btRigidBodyFloatData::m_collisionObjectData(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btCollisionObjectFloatData btRigidBodyFloatData::m_collisionObjectData(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btCollisionObjectFloatData* lret = &self->m_collisionObjectData;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -406,15 +400,13 @@ public:
 	// btMatrix3x3FloatData btRigidBodyFloatData::m_invInertiaTensorWorld()
 	static int _bind_getInvInertiaTensorWorld(lua_State *L) {
 		if (!_lg_typecheck_getInvInertiaTensorWorld(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3FloatData btRigidBodyFloatData::m_invInertiaTensorWorld() function, expected prototype:\nbtMatrix3x3FloatData btRigidBodyFloatData::m_invInertiaTensorWorld()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3FloatData btRigidBodyFloatData::m_invInertiaTensorWorld() function, expected prototype:\nbtMatrix3x3FloatData btRigidBodyFloatData::m_invInertiaTensorWorld()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btMatrix3x3FloatData btRigidBodyFloatData::m_invInertiaTensorWorld(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btMatrix3x3FloatData btRigidBodyFloatData::m_invInertiaTensorWorld(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btMatrix3x3FloatData* lret = &self->m_invInertiaTensorWorld;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -427,15 +419,13 @@ public:
 	// btVector3FloatData btRigidBodyFloatData::m_linearVelocity()
 	static int _bind_getLinearVelocity(lua_State *L) {
 		if (!_lg_typecheck_getLinearVelocity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_linearVelocity() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_linearVelocity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_linearVelocity() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_linearVelocity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_linearVelocity(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_linearVelocity(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3FloatData* lret = &self->m_linearVelocity;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -448,15 +438,13 @@ public:
 	// btVector3FloatData btRigidBodyFloatData::m_angularVelocity()
 	static int _bind_getAngularVelocity(lua_State *L) {
 		if (!_lg_typecheck_getAngularVelocity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_angularVelocity() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_angularVelocity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_angularVelocity() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_angularVelocity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_angularVelocity(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_angularVelocity(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3FloatData* lret = &self->m_angularVelocity;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -469,15 +457,13 @@ public:
 	// btVector3FloatData btRigidBodyFloatData::m_angularFactor()
 	static int _bind_getAngularFactor(lua_State *L) {
 		if (!_lg_typecheck_getAngularFactor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_angularFactor() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_angularFactor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_angularFactor() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_angularFactor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_angularFactor(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_angularFactor(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3FloatData* lret = &self->m_angularFactor;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -490,15 +476,13 @@ public:
 	// btVector3FloatData btRigidBodyFloatData::m_linearFactor()
 	static int _bind_getLinearFactor(lua_State *L) {
 		if (!_lg_typecheck_getLinearFactor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_linearFactor() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_linearFactor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_linearFactor() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_linearFactor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_linearFactor(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_linearFactor(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3FloatData* lret = &self->m_linearFactor;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -511,15 +495,13 @@ public:
 	// btVector3FloatData btRigidBodyFloatData::m_gravity()
 	static int _bind_getGravity(lua_State *L) {
 		if (!_lg_typecheck_getGravity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_gravity() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_gravity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_gravity() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_gravity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_gravity(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_gravity(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3FloatData* lret = &self->m_gravity;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -532,15 +514,13 @@ public:
 	// btVector3FloatData btRigidBodyFloatData::m_gravity_acceleration()
 	static int _bind_get_gravity_acceleration(lua_State *L) {
 		if (!_lg_typecheck_get_gravity_acceleration(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_gravity_acceleration() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_gravity_acceleration()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_gravity_acceleration() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_gravity_acceleration()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_gravity_acceleration(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_gravity_acceleration(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3FloatData* lret = &self->m_gravity_acceleration;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -553,15 +533,13 @@ public:
 	// btVector3FloatData btRigidBodyFloatData::m_invInertiaLocal()
 	static int _bind_getInvInertiaLocal(lua_State *L) {
 		if (!_lg_typecheck_getInvInertiaLocal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_invInertiaLocal() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_invInertiaLocal()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_invInertiaLocal() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_invInertiaLocal()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_invInertiaLocal(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_invInertiaLocal(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3FloatData* lret = &self->m_invInertiaLocal;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -574,15 +552,13 @@ public:
 	// btVector3FloatData btRigidBodyFloatData::m_totalForce()
 	static int _bind_getTotalForce(lua_State *L) {
 		if (!_lg_typecheck_getTotalForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_totalForce() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_totalForce()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_totalForce() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_totalForce()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_totalForce(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_totalForce(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3FloatData* lret = &self->m_totalForce;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -595,15 +571,13 @@ public:
 	// btVector3FloatData btRigidBodyFloatData::m_totalTorque()
 	static int _bind_getTotalTorque(lua_State *L) {
 		if (!_lg_typecheck_getTotalTorque(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_totalTorque() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_totalTorque()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3FloatData btRigidBodyFloatData::m_totalTorque() function, expected prototype:\nbtVector3FloatData btRigidBodyFloatData::m_totalTorque()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_totalTorque(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3FloatData btRigidBodyFloatData::m_totalTorque(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3FloatData* lret = &self->m_totalTorque;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -616,15 +590,13 @@ public:
 	// float btRigidBodyFloatData::m_inverseMass()
 	static int _bind_getInverseMass(lua_State *L) {
 		if (!_lg_typecheck_getInverseMass(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_inverseMass() function, expected prototype:\nfloat btRigidBodyFloatData::m_inverseMass()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_inverseMass() function, expected prototype:\nfloat btRigidBodyFloatData::m_inverseMass()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_inverseMass(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_inverseMass(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_inverseMass;
 		lua_pushnumber(L,lret);
@@ -635,15 +607,13 @@ public:
 	// float btRigidBodyFloatData::m_linearDamping()
 	static int _bind_getLinearDamping(lua_State *L) {
 		if (!_lg_typecheck_getLinearDamping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_linearDamping() function, expected prototype:\nfloat btRigidBodyFloatData::m_linearDamping()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_linearDamping() function, expected prototype:\nfloat btRigidBodyFloatData::m_linearDamping()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_linearDamping(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_linearDamping(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_linearDamping;
 		lua_pushnumber(L,lret);
@@ -654,15 +624,13 @@ public:
 	// float btRigidBodyFloatData::m_angularDamping()
 	static int _bind_getAngularDamping(lua_State *L) {
 		if (!_lg_typecheck_getAngularDamping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_angularDamping() function, expected prototype:\nfloat btRigidBodyFloatData::m_angularDamping()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_angularDamping() function, expected prototype:\nfloat btRigidBodyFloatData::m_angularDamping()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_angularDamping(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_angularDamping(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_angularDamping;
 		lua_pushnumber(L,lret);
@@ -673,15 +641,13 @@ public:
 	// float btRigidBodyFloatData::m_additionalDampingFactor()
 	static int _bind_getAdditionalDampingFactor(lua_State *L) {
 		if (!_lg_typecheck_getAdditionalDampingFactor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_additionalDampingFactor() function, expected prototype:\nfloat btRigidBodyFloatData::m_additionalDampingFactor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_additionalDampingFactor() function, expected prototype:\nfloat btRigidBodyFloatData::m_additionalDampingFactor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_additionalDampingFactor(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_additionalDampingFactor(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_additionalDampingFactor;
 		lua_pushnumber(L,lret);
@@ -692,15 +658,13 @@ public:
 	// float btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr()
 	static int _bind_getAdditionalLinearDampingThresholdSqr(lua_State *L) {
 		if (!_lg_typecheck_getAdditionalLinearDampingThresholdSqr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr() function, expected prototype:\nfloat btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr() function, expected prototype:\nfloat btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_additionalLinearDampingThresholdSqr;
 		lua_pushnumber(L,lret);
@@ -711,15 +675,13 @@ public:
 	// float btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr()
 	static int _bind_getAdditionalAngularDampingThresholdSqr(lua_State *L) {
 		if (!_lg_typecheck_getAdditionalAngularDampingThresholdSqr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr() function, expected prototype:\nfloat btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr() function, expected prototype:\nfloat btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_additionalAngularDampingThresholdSqr;
 		lua_pushnumber(L,lret);
@@ -730,15 +692,13 @@ public:
 	// float btRigidBodyFloatData::m_additionalAngularDampingFactor()
 	static int _bind_getAdditionalAngularDampingFactor(lua_State *L) {
 		if (!_lg_typecheck_getAdditionalAngularDampingFactor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_additionalAngularDampingFactor() function, expected prototype:\nfloat btRigidBodyFloatData::m_additionalAngularDampingFactor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_additionalAngularDampingFactor() function, expected prototype:\nfloat btRigidBodyFloatData::m_additionalAngularDampingFactor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_additionalAngularDampingFactor(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_additionalAngularDampingFactor(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_additionalAngularDampingFactor;
 		lua_pushnumber(L,lret);
@@ -749,15 +709,13 @@ public:
 	// float btRigidBodyFloatData::m_linearSleepingThreshold()
 	static int _bind_getLinearSleepingThreshold(lua_State *L) {
 		if (!_lg_typecheck_getLinearSleepingThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_linearSleepingThreshold() function, expected prototype:\nfloat btRigidBodyFloatData::m_linearSleepingThreshold()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_linearSleepingThreshold() function, expected prototype:\nfloat btRigidBodyFloatData::m_linearSleepingThreshold()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_linearSleepingThreshold(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_linearSleepingThreshold(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_linearSleepingThreshold;
 		lua_pushnumber(L,lret);
@@ -768,15 +726,13 @@ public:
 	// float btRigidBodyFloatData::m_angularSleepingThreshold()
 	static int _bind_getAngularSleepingThreshold(lua_State *L) {
 		if (!_lg_typecheck_getAngularSleepingThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_angularSleepingThreshold() function, expected prototype:\nfloat btRigidBodyFloatData::m_angularSleepingThreshold()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btRigidBodyFloatData::m_angularSleepingThreshold() function, expected prototype:\nfloat btRigidBodyFloatData::m_angularSleepingThreshold()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_angularSleepingThreshold(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btRigidBodyFloatData::m_angularSleepingThreshold(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_angularSleepingThreshold;
 		lua_pushnumber(L,lret);
@@ -787,15 +743,13 @@ public:
 	// int btRigidBodyFloatData::m_additionalDamping()
 	static int _bind_getAdditionalDamping(lua_State *L) {
 		if (!_lg_typecheck_getAdditionalDamping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btRigidBodyFloatData::m_additionalDamping() function, expected prototype:\nint btRigidBodyFloatData::m_additionalDamping()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btRigidBodyFloatData::m_additionalDamping() function, expected prototype:\nint btRigidBodyFloatData::m_additionalDamping()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btRigidBodyFloatData::m_additionalDamping(). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btRigidBodyFloatData::m_additionalDamping(). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_additionalDamping;
 		lua_pushnumber(L,lret);
@@ -806,8 +760,7 @@ public:
 	// void btRigidBodyFloatData::m_collisionObjectData(btCollisionObjectFloatData value)
 	static int _bind_setCollisionObjectData(lua_State *L) {
 		if (!_lg_typecheck_setCollisionObjectData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_collisionObjectData(btCollisionObjectFloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_collisionObjectData(btCollisionObjectFloatData value)\nClass arguments details:\narg 1 ID = 5462649\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_collisionObjectData(btCollisionObjectFloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_collisionObjectData(btCollisionObjectFloatData value)\nClass arguments details:\narg 1 ID = 5462649\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionObjectFloatData* value_ptr=(Luna< btCollisionObjectFloatData >::check(L,2));
@@ -818,8 +771,7 @@ public:
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_collisionObjectData(btCollisionObjectFloatData). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_collisionObjectData(btCollisionObjectFloatData). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_collisionObjectData = value;
 
@@ -829,8 +781,7 @@ public:
 	// void btRigidBodyFloatData::m_invInertiaTensorWorld(btMatrix3x3FloatData value)
 	static int _bind_setInvInertiaTensorWorld(lua_State *L) {
 		if (!_lg_typecheck_setInvInertiaTensorWorld(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_invInertiaTensorWorld(btMatrix3x3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_invInertiaTensorWorld(btMatrix3x3FloatData value)\nClass arguments details:\narg 1 ID = 4769007\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_invInertiaTensorWorld(btMatrix3x3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_invInertiaTensorWorld(btMatrix3x3FloatData value)\nClass arguments details:\narg 1 ID = 4769007\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMatrix3x3FloatData* value_ptr=(Luna< btMatrix3x3FloatData >::check(L,2));
@@ -841,8 +792,7 @@ public:
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_invInertiaTensorWorld(btMatrix3x3FloatData). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_invInertiaTensorWorld(btMatrix3x3FloatData). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_invInertiaTensorWorld = value;
 
@@ -852,8 +802,7 @@ public:
 	// void btRigidBodyFloatData::m_linearVelocity(btVector3FloatData value)
 	static int _bind_setLinearVelocity(lua_State *L) {
 		if (!_lg_typecheck_setLinearVelocity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_linearVelocity(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_linearVelocity(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_linearVelocity(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_linearVelocity(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3FloatData* value_ptr=(Luna< btVector3FloatData >::check(L,2));
@@ -864,8 +813,7 @@ public:
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_linearVelocity(btVector3FloatData). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_linearVelocity(btVector3FloatData). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_linearVelocity = value;
 
@@ -875,8 +823,7 @@ public:
 	// void btRigidBodyFloatData::m_angularVelocity(btVector3FloatData value)
 	static int _bind_setAngularVelocity(lua_State *L) {
 		if (!_lg_typecheck_setAngularVelocity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_angularVelocity(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_angularVelocity(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_angularVelocity(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_angularVelocity(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3FloatData* value_ptr=(Luna< btVector3FloatData >::check(L,2));
@@ -887,8 +834,7 @@ public:
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_angularVelocity(btVector3FloatData). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_angularVelocity(btVector3FloatData). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_angularVelocity = value;
 
@@ -898,8 +844,7 @@ public:
 	// void btRigidBodyFloatData::m_angularFactor(btVector3FloatData value)
 	static int _bind_setAngularFactor(lua_State *L) {
 		if (!_lg_typecheck_setAngularFactor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_angularFactor(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_angularFactor(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_angularFactor(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_angularFactor(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3FloatData* value_ptr=(Luna< btVector3FloatData >::check(L,2));
@@ -910,8 +855,7 @@ public:
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_angularFactor(btVector3FloatData). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_angularFactor(btVector3FloatData). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_angularFactor = value;
 
@@ -921,8 +865,7 @@ public:
 	// void btRigidBodyFloatData::m_linearFactor(btVector3FloatData value)
 	static int _bind_setLinearFactor(lua_State *L) {
 		if (!_lg_typecheck_setLinearFactor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_linearFactor(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_linearFactor(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_linearFactor(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_linearFactor(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3FloatData* value_ptr=(Luna< btVector3FloatData >::check(L,2));
@@ -933,8 +876,7 @@ public:
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_linearFactor(btVector3FloatData). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_linearFactor(btVector3FloatData). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_linearFactor = value;
 
@@ -944,8 +886,7 @@ public:
 	// void btRigidBodyFloatData::m_gravity(btVector3FloatData value)
 	static int _bind_setGravity(lua_State *L) {
 		if (!_lg_typecheck_setGravity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_gravity(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_gravity(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_gravity(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_gravity(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3FloatData* value_ptr=(Luna< btVector3FloatData >::check(L,2));
@@ -956,8 +897,7 @@ public:
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_gravity(btVector3FloatData). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_gravity(btVector3FloatData). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_gravity = value;
 
@@ -967,8 +907,7 @@ public:
 	// void btRigidBodyFloatData::m_gravity_acceleration(btVector3FloatData value)
 	static int _bind_set_gravity_acceleration(lua_State *L) {
 		if (!_lg_typecheck_set_gravity_acceleration(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_gravity_acceleration(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_gravity_acceleration(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_gravity_acceleration(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_gravity_acceleration(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3FloatData* value_ptr=(Luna< btVector3FloatData >::check(L,2));
@@ -979,8 +918,7 @@ public:
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_gravity_acceleration(btVector3FloatData). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_gravity_acceleration(btVector3FloatData). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_gravity_acceleration = value;
 
@@ -990,8 +928,7 @@ public:
 	// void btRigidBodyFloatData::m_invInertiaLocal(btVector3FloatData value)
 	static int _bind_setInvInertiaLocal(lua_State *L) {
 		if (!_lg_typecheck_setInvInertiaLocal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_invInertiaLocal(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_invInertiaLocal(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_invInertiaLocal(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_invInertiaLocal(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3FloatData* value_ptr=(Luna< btVector3FloatData >::check(L,2));
@@ -1002,8 +939,7 @@ public:
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_invInertiaLocal(btVector3FloatData). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_invInertiaLocal(btVector3FloatData). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_invInertiaLocal = value;
 
@@ -1013,8 +949,7 @@ public:
 	// void btRigidBodyFloatData::m_totalForce(btVector3FloatData value)
 	static int _bind_setTotalForce(lua_State *L) {
 		if (!_lg_typecheck_setTotalForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_totalForce(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_totalForce(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_totalForce(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_totalForce(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3FloatData* value_ptr=(Luna< btVector3FloatData >::check(L,2));
@@ -1025,8 +960,7 @@ public:
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_totalForce(btVector3FloatData). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_totalForce(btVector3FloatData). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_totalForce = value;
 
@@ -1036,8 +970,7 @@ public:
 	// void btRigidBodyFloatData::m_totalTorque(btVector3FloatData value)
 	static int _bind_setTotalTorque(lua_State *L) {
 		if (!_lg_typecheck_setTotalTorque(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_totalTorque(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_totalTorque(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_totalTorque(btVector3FloatData value) function, expected prototype:\nvoid btRigidBodyFloatData::m_totalTorque(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3FloatData* value_ptr=(Luna< btVector3FloatData >::check(L,2));
@@ -1048,8 +981,7 @@ public:
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_totalTorque(btVector3FloatData). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_totalTorque(btVector3FloatData). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_totalTorque = value;
 
@@ -1059,16 +991,14 @@ public:
 	// void btRigidBodyFloatData::m_inverseMass(float value)
 	static int _bind_setInverseMass(lua_State *L) {
 		if (!_lg_typecheck_setInverseMass(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_inverseMass(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_inverseMass(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_inverseMass(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_inverseMass(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_inverseMass(float). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_inverseMass(float). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_inverseMass = value;
 
@@ -1078,16 +1008,14 @@ public:
 	// void btRigidBodyFloatData::m_linearDamping(float value)
 	static int _bind_setLinearDamping(lua_State *L) {
 		if (!_lg_typecheck_setLinearDamping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_linearDamping(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_linearDamping(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_linearDamping(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_linearDamping(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_linearDamping(float). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_linearDamping(float). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_linearDamping = value;
 
@@ -1097,16 +1025,14 @@ public:
 	// void btRigidBodyFloatData::m_angularDamping(float value)
 	static int _bind_setAngularDamping(lua_State *L) {
 		if (!_lg_typecheck_setAngularDamping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_angularDamping(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_angularDamping(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_angularDamping(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_angularDamping(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_angularDamping(float). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_angularDamping(float). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_angularDamping = value;
 
@@ -1116,16 +1042,14 @@ public:
 	// void btRigidBodyFloatData::m_additionalDampingFactor(float value)
 	static int _bind_setAdditionalDampingFactor(lua_State *L) {
 		if (!_lg_typecheck_setAdditionalDampingFactor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_additionalDampingFactor(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_additionalDampingFactor(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_additionalDampingFactor(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_additionalDampingFactor(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_additionalDampingFactor(float). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_additionalDampingFactor(float). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_additionalDampingFactor = value;
 
@@ -1135,16 +1059,14 @@ public:
 	// void btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr(float value)
 	static int _bind_setAdditionalLinearDampingThresholdSqr(lua_State *L) {
 		if (!_lg_typecheck_setAdditionalLinearDampingThresholdSqr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr(float). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_additionalLinearDampingThresholdSqr(float). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_additionalLinearDampingThresholdSqr = value;
 
@@ -1154,16 +1076,14 @@ public:
 	// void btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr(float value)
 	static int _bind_setAdditionalAngularDampingThresholdSqr(lua_State *L) {
 		if (!_lg_typecheck_setAdditionalAngularDampingThresholdSqr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr(float). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_additionalAngularDampingThresholdSqr(float). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_additionalAngularDampingThresholdSqr = value;
 
@@ -1173,16 +1093,14 @@ public:
 	// void btRigidBodyFloatData::m_additionalAngularDampingFactor(float value)
 	static int _bind_setAdditionalAngularDampingFactor(lua_State *L) {
 		if (!_lg_typecheck_setAdditionalAngularDampingFactor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_additionalAngularDampingFactor(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_additionalAngularDampingFactor(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_additionalAngularDampingFactor(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_additionalAngularDampingFactor(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_additionalAngularDampingFactor(float). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_additionalAngularDampingFactor(float). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_additionalAngularDampingFactor = value;
 
@@ -1192,16 +1110,14 @@ public:
 	// void btRigidBodyFloatData::m_linearSleepingThreshold(float value)
 	static int _bind_setLinearSleepingThreshold(lua_State *L) {
 		if (!_lg_typecheck_setLinearSleepingThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_linearSleepingThreshold(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_linearSleepingThreshold(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_linearSleepingThreshold(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_linearSleepingThreshold(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_linearSleepingThreshold(float). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_linearSleepingThreshold(float). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_linearSleepingThreshold = value;
 
@@ -1211,16 +1127,14 @@ public:
 	// void btRigidBodyFloatData::m_angularSleepingThreshold(float value)
 	static int _bind_setAngularSleepingThreshold(lua_State *L) {
 		if (!_lg_typecheck_setAngularSleepingThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_angularSleepingThreshold(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_angularSleepingThreshold(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_angularSleepingThreshold(float value) function, expected prototype:\nvoid btRigidBodyFloatData::m_angularSleepingThreshold(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_angularSleepingThreshold(float). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_angularSleepingThreshold(float). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_angularSleepingThreshold = value;
 
@@ -1230,16 +1144,14 @@ public:
 	// void btRigidBodyFloatData::m_additionalDamping(int value)
 	static int _bind_setAdditionalDamping(lua_State *L) {
 		if (!_lg_typecheck_setAdditionalDamping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_additionalDamping(int value) function, expected prototype:\nvoid btRigidBodyFloatData::m_additionalDamping(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btRigidBodyFloatData::m_additionalDamping(int value) function, expected prototype:\nvoid btRigidBodyFloatData::m_additionalDamping(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btRigidBodyFloatData* self=(Luna< btRigidBodyFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_additionalDamping(int). Got : '%s'",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btRigidBodyFloatData::m_additionalDamping(int). Got : '%s'\n%s",typeid(Luna< btRigidBodyFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_additionalDamping = value;
 

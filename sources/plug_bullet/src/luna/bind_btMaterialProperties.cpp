@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btMaterialProperties*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btMaterialProperties*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMaterialProperties* rhs =(Luna< btMaterialProperties >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMaterialProperties* self= (btMaterialProperties*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btMaterialProperties >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -153,42 +149,42 @@ public:
 	inline static bool _lg_typecheck_setNumMaterials(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setMaterialStride(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setMaterialType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setNumTriangles(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setTriangleMaterialStride(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setTriangleType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -202,15 +198,13 @@ public:
 	// int btMaterialProperties::m_numMaterials()
 	static int _bind_getNumMaterials(lua_State *L) {
 		if (!_lg_typecheck_getNumMaterials(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btMaterialProperties::m_numMaterials() function, expected prototype:\nint btMaterialProperties::m_numMaterials()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btMaterialProperties::m_numMaterials() function, expected prototype:\nint btMaterialProperties::m_numMaterials()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMaterialProperties* self=(Luna< btMaterialProperties >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btMaterialProperties::m_numMaterials(). Got : '%s'",typeid(Luna< btMaterialProperties >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btMaterialProperties::m_numMaterials(). Got : '%s'\n%s",typeid(Luna< btMaterialProperties >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_numMaterials;
 		lua_pushnumber(L,lret);
@@ -221,15 +215,13 @@ public:
 	// const unsigned char * btMaterialProperties::m_materialBase()
 	static int _bind_getMaterialBase(lua_State *L) {
 		if (!_lg_typecheck_getMaterialBase(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const unsigned char * btMaterialProperties::m_materialBase() function, expected prototype:\nconst unsigned char * btMaterialProperties::m_materialBase()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const unsigned char * btMaterialProperties::m_materialBase() function, expected prototype:\nconst unsigned char * btMaterialProperties::m_materialBase()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMaterialProperties* self=(Luna< btMaterialProperties >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const unsigned char * btMaterialProperties::m_materialBase(). Got : '%s'",typeid(Luna< btMaterialProperties >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const unsigned char * btMaterialProperties::m_materialBase(). Got : '%s'\n%s",typeid(Luna< btMaterialProperties >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const unsigned char * lret = self->m_materialBase;
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
@@ -240,15 +232,13 @@ public:
 	// int btMaterialProperties::m_materialStride()
 	static int _bind_getMaterialStride(lua_State *L) {
 		if (!_lg_typecheck_getMaterialStride(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btMaterialProperties::m_materialStride() function, expected prototype:\nint btMaterialProperties::m_materialStride()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btMaterialProperties::m_materialStride() function, expected prototype:\nint btMaterialProperties::m_materialStride()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMaterialProperties* self=(Luna< btMaterialProperties >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btMaterialProperties::m_materialStride(). Got : '%s'",typeid(Luna< btMaterialProperties >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btMaterialProperties::m_materialStride(). Got : '%s'\n%s",typeid(Luna< btMaterialProperties >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_materialStride;
 		lua_pushnumber(L,lret);
@@ -259,15 +249,13 @@ public:
 	// PHY_ScalarType btMaterialProperties::m_materialType()
 	static int _bind_getMaterialType(lua_State *L) {
 		if (!_lg_typecheck_getMaterialType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in PHY_ScalarType btMaterialProperties::m_materialType() function, expected prototype:\nPHY_ScalarType btMaterialProperties::m_materialType()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in PHY_ScalarType btMaterialProperties::m_materialType() function, expected prototype:\nPHY_ScalarType btMaterialProperties::m_materialType()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMaterialProperties* self=(Luna< btMaterialProperties >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call PHY_ScalarType btMaterialProperties::m_materialType(). Got : '%s'",typeid(Luna< btMaterialProperties >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call PHY_ScalarType btMaterialProperties::m_materialType(). Got : '%s'\n%s",typeid(Luna< btMaterialProperties >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		PHY_ScalarType lret = self->m_materialType;
 		lua_pushnumber(L,lret);
@@ -278,15 +266,13 @@ public:
 	// int btMaterialProperties::m_numTriangles()
 	static int _bind_getNumTriangles(lua_State *L) {
 		if (!_lg_typecheck_getNumTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btMaterialProperties::m_numTriangles() function, expected prototype:\nint btMaterialProperties::m_numTriangles()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btMaterialProperties::m_numTriangles() function, expected prototype:\nint btMaterialProperties::m_numTriangles()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMaterialProperties* self=(Luna< btMaterialProperties >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btMaterialProperties::m_numTriangles(). Got : '%s'",typeid(Luna< btMaterialProperties >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btMaterialProperties::m_numTriangles(). Got : '%s'\n%s",typeid(Luna< btMaterialProperties >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_numTriangles;
 		lua_pushnumber(L,lret);
@@ -297,15 +283,13 @@ public:
 	// const unsigned char * btMaterialProperties::m_triangleMaterialsBase()
 	static int _bind_getTriangleMaterialsBase(lua_State *L) {
 		if (!_lg_typecheck_getTriangleMaterialsBase(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const unsigned char * btMaterialProperties::m_triangleMaterialsBase() function, expected prototype:\nconst unsigned char * btMaterialProperties::m_triangleMaterialsBase()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const unsigned char * btMaterialProperties::m_triangleMaterialsBase() function, expected prototype:\nconst unsigned char * btMaterialProperties::m_triangleMaterialsBase()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMaterialProperties* self=(Luna< btMaterialProperties >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const unsigned char * btMaterialProperties::m_triangleMaterialsBase(). Got : '%s'",typeid(Luna< btMaterialProperties >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const unsigned char * btMaterialProperties::m_triangleMaterialsBase(). Got : '%s'\n%s",typeid(Luna< btMaterialProperties >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const unsigned char * lret = self->m_triangleMaterialsBase;
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
@@ -316,15 +300,13 @@ public:
 	// int btMaterialProperties::m_triangleMaterialStride()
 	static int _bind_getTriangleMaterialStride(lua_State *L) {
 		if (!_lg_typecheck_getTriangleMaterialStride(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btMaterialProperties::m_triangleMaterialStride() function, expected prototype:\nint btMaterialProperties::m_triangleMaterialStride()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btMaterialProperties::m_triangleMaterialStride() function, expected prototype:\nint btMaterialProperties::m_triangleMaterialStride()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMaterialProperties* self=(Luna< btMaterialProperties >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btMaterialProperties::m_triangleMaterialStride(). Got : '%s'",typeid(Luna< btMaterialProperties >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btMaterialProperties::m_triangleMaterialStride(). Got : '%s'\n%s",typeid(Luna< btMaterialProperties >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_triangleMaterialStride;
 		lua_pushnumber(L,lret);
@@ -335,15 +317,13 @@ public:
 	// PHY_ScalarType btMaterialProperties::m_triangleType()
 	static int _bind_getTriangleType(lua_State *L) {
 		if (!_lg_typecheck_getTriangleType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in PHY_ScalarType btMaterialProperties::m_triangleType() function, expected prototype:\nPHY_ScalarType btMaterialProperties::m_triangleType()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in PHY_ScalarType btMaterialProperties::m_triangleType() function, expected prototype:\nPHY_ScalarType btMaterialProperties::m_triangleType()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMaterialProperties* self=(Luna< btMaterialProperties >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call PHY_ScalarType btMaterialProperties::m_triangleType(). Got : '%s'",typeid(Luna< btMaterialProperties >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call PHY_ScalarType btMaterialProperties::m_triangleType(). Got : '%s'\n%s",typeid(Luna< btMaterialProperties >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		PHY_ScalarType lret = self->m_triangleType;
 		lua_pushnumber(L,lret);
@@ -354,16 +334,14 @@ public:
 	// void btMaterialProperties::m_numMaterials(int value)
 	static int _bind_setNumMaterials(lua_State *L) {
 		if (!_lg_typecheck_setNumMaterials(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_numMaterials(int value) function, expected prototype:\nvoid btMaterialProperties::m_numMaterials(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_numMaterials(int value) function, expected prototype:\nvoid btMaterialProperties::m_numMaterials(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btMaterialProperties* self=(Luna< btMaterialProperties >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMaterialProperties::m_numMaterials(int). Got : '%s'",typeid(Luna< btMaterialProperties >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMaterialProperties::m_numMaterials(int). Got : '%s'\n%s",typeid(Luna< btMaterialProperties >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_numMaterials = value;
 
@@ -373,16 +351,14 @@ public:
 	// void btMaterialProperties::m_materialStride(int value)
 	static int _bind_setMaterialStride(lua_State *L) {
 		if (!_lg_typecheck_setMaterialStride(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_materialStride(int value) function, expected prototype:\nvoid btMaterialProperties::m_materialStride(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_materialStride(int value) function, expected prototype:\nvoid btMaterialProperties::m_materialStride(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btMaterialProperties* self=(Luna< btMaterialProperties >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMaterialProperties::m_materialStride(int). Got : '%s'",typeid(Luna< btMaterialProperties >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMaterialProperties::m_materialStride(int). Got : '%s'\n%s",typeid(Luna< btMaterialProperties >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_materialStride = value;
 
@@ -392,16 +368,14 @@ public:
 	// void btMaterialProperties::m_materialType(PHY_ScalarType value)
 	static int _bind_setMaterialType(lua_State *L) {
 		if (!_lg_typecheck_setMaterialType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_materialType(PHY_ScalarType value) function, expected prototype:\nvoid btMaterialProperties::m_materialType(PHY_ScalarType value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_materialType(PHY_ScalarType value) function, expected prototype:\nvoid btMaterialProperties::m_materialType(PHY_ScalarType value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		PHY_ScalarType value=(PHY_ScalarType)lua_tointeger(L,2);
 
 		btMaterialProperties* self=(Luna< btMaterialProperties >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMaterialProperties::m_materialType(PHY_ScalarType). Got : '%s'",typeid(Luna< btMaterialProperties >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMaterialProperties::m_materialType(PHY_ScalarType). Got : '%s'\n%s",typeid(Luna< btMaterialProperties >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_materialType = value;
 
@@ -411,16 +385,14 @@ public:
 	// void btMaterialProperties::m_numTriangles(int value)
 	static int _bind_setNumTriangles(lua_State *L) {
 		if (!_lg_typecheck_setNumTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_numTriangles(int value) function, expected prototype:\nvoid btMaterialProperties::m_numTriangles(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_numTriangles(int value) function, expected prototype:\nvoid btMaterialProperties::m_numTriangles(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btMaterialProperties* self=(Luna< btMaterialProperties >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMaterialProperties::m_numTriangles(int). Got : '%s'",typeid(Luna< btMaterialProperties >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMaterialProperties::m_numTriangles(int). Got : '%s'\n%s",typeid(Luna< btMaterialProperties >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_numTriangles = value;
 
@@ -430,16 +402,14 @@ public:
 	// void btMaterialProperties::m_triangleMaterialStride(int value)
 	static int _bind_setTriangleMaterialStride(lua_State *L) {
 		if (!_lg_typecheck_setTriangleMaterialStride(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_triangleMaterialStride(int value) function, expected prototype:\nvoid btMaterialProperties::m_triangleMaterialStride(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_triangleMaterialStride(int value) function, expected prototype:\nvoid btMaterialProperties::m_triangleMaterialStride(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btMaterialProperties* self=(Luna< btMaterialProperties >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMaterialProperties::m_triangleMaterialStride(int). Got : '%s'",typeid(Luna< btMaterialProperties >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMaterialProperties::m_triangleMaterialStride(int). Got : '%s'\n%s",typeid(Luna< btMaterialProperties >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_triangleMaterialStride = value;
 
@@ -449,16 +419,14 @@ public:
 	// void btMaterialProperties::m_triangleType(PHY_ScalarType value)
 	static int _bind_setTriangleType(lua_State *L) {
 		if (!_lg_typecheck_setTriangleType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_triangleType(PHY_ScalarType value) function, expected prototype:\nvoid btMaterialProperties::m_triangleType(PHY_ScalarType value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMaterialProperties::m_triangleType(PHY_ScalarType value) function, expected prototype:\nvoid btMaterialProperties::m_triangleType(PHY_ScalarType value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		PHY_ScalarType value=(PHY_ScalarType)lua_tointeger(L,2);
 
 		btMaterialProperties* self=(Luna< btMaterialProperties >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMaterialProperties::m_triangleType(PHY_ScalarType). Got : '%s'",typeid(Luna< btMaterialProperties >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMaterialProperties::m_triangleType(PHY_ScalarType). Got : '%s'\n%s",typeid(Luna< btMaterialProperties >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_triangleType = value;
 

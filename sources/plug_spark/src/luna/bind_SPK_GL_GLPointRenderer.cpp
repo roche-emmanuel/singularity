@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::GL::GLPointRenderer* self= (SPK::GL::GLPointRenderer*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< SPK::Registerable >::check(L,1));
@@ -130,7 +127,7 @@ public:
 		if( luatop<1 || luatop>2 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
+		if( luatop>1 && lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -145,14 +142,14 @@ public:
 	inline static bool _lg_typecheck_setType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setTexture(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -186,14 +183,14 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>1 ) return false;
 
-		if( luatop>0 && lua_isnumber(L,1)==0 ) return false;
+		if( luatop>0 && lua_type(L,1)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_findByName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -214,7 +211,7 @@ public:
 	inline static bool _lg_typecheck_base_enableRenderingHint(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( lua_isboolean(L,3)==0 ) return false;
 		return true;
 	}
@@ -222,14 +219,14 @@ public:
 	inline static bool _lg_typecheck_base_setAlphaTestThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_isRenderingHintEnabled(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -243,14 +240,14 @@ public:
 	inline static bool _lg_typecheck_base_setBlending(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_setSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -263,7 +260,7 @@ public:
 	inline static bool _lg_typecheck_base_setType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -282,8 +279,7 @@ public:
 	// SPK::GL::GLPointRenderer::GLPointRenderer(lua_Table * data, float size = 1.0f)
 	static SPK::GL::GLPointRenderer* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::GL::GLPointRenderer::GLPointRenderer(lua_Table * data, float size = 1.0f) function, expected prototype:\nSPK::GL::GLPointRenderer::GLPointRenderer(lua_Table * data, float size = 1.0f)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::GL::GLPointRenderer::GLPointRenderer(lua_Table * data, float size = 1.0f) function, expected prototype:\nSPK::GL::GLPointRenderer::GLPointRenderer(lua_Table * data, float size = 1.0f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -298,15 +294,13 @@ public:
 	// std::string SPK::GL::GLPointRenderer::getClassName() const
 	static int _bind_getClassName(lua_State *L) {
 		if (!_lg_typecheck_getClassName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string SPK::GL::GLPointRenderer::getClassName() const function, expected prototype:\nstd::string SPK::GL::GLPointRenderer::getClassName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string SPK::GL::GLPointRenderer::getClassName() const function, expected prototype:\nstd::string SPK::GL::GLPointRenderer::getClassName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::GL::GLPointRenderer::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string SPK::GL::GLPointRenderer::getClassName() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -317,16 +311,14 @@ public:
 	// bool SPK::GL::GLPointRenderer::setType(SPK::PointType type)
 	static int _bind_setType(lua_State *L) {
 		if (!_lg_typecheck_setType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::GL::GLPointRenderer::setType(SPK::PointType type) function, expected prototype:\nbool SPK::GL::GLPointRenderer::setType(SPK::PointType type)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::GL::GLPointRenderer::setType(SPK::PointType type) function, expected prototype:\nbool SPK::GL::GLPointRenderer::setType(SPK::PointType type)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::PointType type=(SPK::PointType)lua_tointeger(L,2);
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::GL::GLPointRenderer::setType(SPK::PointType). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::GL::GLPointRenderer::setType(SPK::PointType). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->setType(type);
 		lua_pushboolean(L,lret?1:0);
@@ -337,16 +329,14 @@ public:
 	// void SPK::GL::GLPointRenderer::setTexture(unsigned int textureIndex)
 	static int _bind_setTexture(lua_State *L) {
 		if (!_lg_typecheck_setTexture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::setTexture(unsigned int textureIndex) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::setTexture(unsigned int textureIndex)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::setTexture(unsigned int textureIndex) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::setTexture(unsigned int textureIndex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int textureIndex=(unsigned int)lua_tointeger(L,2);
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::setTexture(unsigned int). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::setTexture(unsigned int). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTexture(textureIndex);
 
@@ -356,16 +346,14 @@ public:
 	// bool SPK::GL::GLPointRenderer::enableWorldSize(bool worldSizeEnabled)
 	static int _bind_enableWorldSize(lua_State *L) {
 		if (!_lg_typecheck_enableWorldSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::GL::GLPointRenderer::enableWorldSize(bool worldSizeEnabled) function, expected prototype:\nbool SPK::GL::GLPointRenderer::enableWorldSize(bool worldSizeEnabled)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::GL::GLPointRenderer::enableWorldSize(bool worldSizeEnabled) function, expected prototype:\nbool SPK::GL::GLPointRenderer::enableWorldSize(bool worldSizeEnabled)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool worldSizeEnabled=(bool)(lua_toboolean(L,2)==1);
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::GL::GLPointRenderer::enableWorldSize(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::GL::GLPointRenderer::enableWorldSize(bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->enableWorldSize(worldSizeEnabled);
 		lua_pushboolean(L,lret?1:0);
@@ -376,15 +364,13 @@ public:
 	// unsigned int SPK::GL::GLPointRenderer::getTexture() const
 	static int _bind_getTexture(lua_State *L) {
 		if (!_lg_typecheck_getTexture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int SPK::GL::GLPointRenderer::getTexture() const function, expected prototype:\nunsigned int SPK::GL::GLPointRenderer::getTexture() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int SPK::GL::GLPointRenderer::getTexture() const function, expected prototype:\nunsigned int SPK::GL::GLPointRenderer::getTexture() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int SPK::GL::GLPointRenderer::getTexture() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int SPK::GL::GLPointRenderer::getTexture() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getTexture();
 		lua_pushnumber(L,lret);
@@ -395,15 +381,13 @@ public:
 	// bool SPK::GL::GLPointRenderer::isWorldSizeEnabled() const
 	static int _bind_isWorldSizeEnabled(lua_State *L) {
 		if (!_lg_typecheck_isWorldSizeEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::GL::GLPointRenderer::isWorldSizeEnabled() const function, expected prototype:\nbool SPK::GL::GLPointRenderer::isWorldSizeEnabled() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::GL::GLPointRenderer::isWorldSizeEnabled() const function, expected prototype:\nbool SPK::GL::GLPointRenderer::isWorldSizeEnabled() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::GL::GLPointRenderer::isWorldSizeEnabled() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::GL::GLPointRenderer::isWorldSizeEnabled() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isWorldSizeEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -414,8 +398,7 @@ public:
 	// void SPK::GL::GLPointRenderer::render(const SPK::Group & group)
 	static int _bind_render(lua_State *L) {
 		if (!_lg_typecheck_render(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::render(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::render(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::render(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::render(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -426,8 +409,7 @@ public:
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::render(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::render(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->render(group);
 
@@ -437,8 +419,7 @@ public:
 	// static SPK::GL::GLPointRenderer * SPK::GL::GLPointRenderer::create(float size = 1.0f)
 	static int _bind_create(lua_State *L) {
 		if (!_lg_typecheck_create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static SPK::GL::GLPointRenderer * SPK::GL::GLPointRenderer::create(float size = 1.0f) function, expected prototype:\nstatic SPK::GL::GLPointRenderer * SPK::GL::GLPointRenderer::create(float size = 1.0f)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static SPK::GL::GLPointRenderer * SPK::GL::GLPointRenderer::create(float size = 1.0f) function, expected prototype:\nstatic SPK::GL::GLPointRenderer * SPK::GL::GLPointRenderer::create(float size = 1.0f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -456,16 +437,14 @@ public:
 	// SPK::Registerable * SPK::GL::GLPointRenderer::base_findByName(const std::string & name)
 	static int _bind_base_findByName(lua_State *L) {
 		if (!_lg_typecheck_base_findByName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::GL::GLPointRenderer::base_findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::GL::GLPointRenderer::base_findByName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::GL::GLPointRenderer::base_findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::GL::GLPointRenderer::base_findByName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::GL::GLPointRenderer::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::GL::GLPointRenderer::base_findByName(const std::string &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::Registerable * lret = self->GLPointRenderer::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -478,8 +457,7 @@ public:
 	// void SPK::GL::GLPointRenderer::base_createBuffers(const SPK::Group & group)
 	static int _bind_base_createBuffers(lua_State *L) {
 		if (!_lg_typecheck_base_createBuffers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::base_createBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::base_createBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::base_createBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::base_createBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -490,8 +468,7 @@ public:
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::base_createBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::base_createBuffers(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLPointRenderer::createBuffers(group);
 
@@ -501,8 +478,7 @@ public:
 	// void SPK::GL::GLPointRenderer::base_destroyBuffers(const SPK::Group & group)
 	static int _bind_base_destroyBuffers(lua_State *L) {
 		if (!_lg_typecheck_base_destroyBuffers(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::base_destroyBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::base_destroyBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::base_destroyBuffers(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::base_destroyBuffers(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -513,8 +489,7 @@ public:
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::base_destroyBuffers(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::base_destroyBuffers(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLPointRenderer::destroyBuffers(group);
 
@@ -524,8 +499,7 @@ public:
 	// void SPK::GL::GLPointRenderer::base_enableRenderingHint(SPK::RenderingHint renderingHint, bool enable)
 	static int _bind_base_enableRenderingHint(lua_State *L) {
 		if (!_lg_typecheck_base_enableRenderingHint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::base_enableRenderingHint(SPK::RenderingHint renderingHint, bool enable) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::base_enableRenderingHint(SPK::RenderingHint renderingHint, bool enable)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::base_enableRenderingHint(SPK::RenderingHint renderingHint, bool enable) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::base_enableRenderingHint(SPK::RenderingHint renderingHint, bool enable)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::RenderingHint renderingHint=(SPK::RenderingHint)lua_tointeger(L,2);
@@ -533,8 +507,7 @@ public:
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::base_enableRenderingHint(SPK::RenderingHint, bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::base_enableRenderingHint(SPK::RenderingHint, bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLPointRenderer::enableRenderingHint(renderingHint, enable);
 
@@ -544,16 +517,14 @@ public:
 	// void SPK::GL::GLPointRenderer::base_setAlphaTestThreshold(float alphaThreshold)
 	static int _bind_base_setAlphaTestThreshold(lua_State *L) {
 		if (!_lg_typecheck_base_setAlphaTestThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::base_setAlphaTestThreshold(float alphaThreshold) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::base_setAlphaTestThreshold(float alphaThreshold)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::base_setAlphaTestThreshold(float alphaThreshold) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::base_setAlphaTestThreshold(float alphaThreshold)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float alphaThreshold=(float)lua_tonumber(L,2);
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::base_setAlphaTestThreshold(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::base_setAlphaTestThreshold(float). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLPointRenderer::setAlphaTestThreshold(alphaThreshold);
 
@@ -563,16 +534,14 @@ public:
 	// bool SPK::GL::GLPointRenderer::base_isRenderingHintEnabled(SPK::RenderingHint renderingHint) const
 	static int _bind_base_isRenderingHintEnabled(lua_State *L) {
 		if (!_lg_typecheck_base_isRenderingHintEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::GL::GLPointRenderer::base_isRenderingHintEnabled(SPK::RenderingHint renderingHint) const function, expected prototype:\nbool SPK::GL::GLPointRenderer::base_isRenderingHintEnabled(SPK::RenderingHint renderingHint) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::GL::GLPointRenderer::base_isRenderingHintEnabled(SPK::RenderingHint renderingHint) const function, expected prototype:\nbool SPK::GL::GLPointRenderer::base_isRenderingHintEnabled(SPK::RenderingHint renderingHint) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::RenderingHint renderingHint=(SPK::RenderingHint)lua_tointeger(L,2);
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::GL::GLPointRenderer::base_isRenderingHintEnabled(SPK::RenderingHint) const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::GL::GLPointRenderer::base_isRenderingHintEnabled(SPK::RenderingHint) const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GLPointRenderer::isRenderingHintEnabled(renderingHint);
 		lua_pushboolean(L,lret?1:0);
@@ -583,16 +552,14 @@ public:
 	// void SPK::GL::GLPointRenderer::base_enableBlending(bool blendingEnabled)
 	static int _bind_base_enableBlending(lua_State *L) {
 		if (!_lg_typecheck_base_enableBlending(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::base_enableBlending(bool blendingEnabled) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::base_enableBlending(bool blendingEnabled)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::base_enableBlending(bool blendingEnabled) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::base_enableBlending(bool blendingEnabled)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool blendingEnabled=(bool)(lua_toboolean(L,2)==1);
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::base_enableBlending(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::base_enableBlending(bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLPointRenderer::enableBlending(blendingEnabled);
 
@@ -602,16 +569,14 @@ public:
 	// void SPK::GL::GLPointRenderer::base_setBlending(SPK::BlendingMode blendMode)
 	static int _bind_base_setBlending(lua_State *L) {
 		if (!_lg_typecheck_base_setBlending(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::base_setBlending(SPK::BlendingMode blendMode) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::base_setBlending(SPK::BlendingMode blendMode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::base_setBlending(SPK::BlendingMode blendMode) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::base_setBlending(SPK::BlendingMode blendMode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::BlendingMode blendMode=(SPK::BlendingMode)lua_tointeger(L,2);
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::base_setBlending(SPK::BlendingMode). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::base_setBlending(SPK::BlendingMode). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLPointRenderer::setBlending(blendMode);
 
@@ -621,16 +586,14 @@ public:
 	// void SPK::GL::GLPointRenderer::base_setSize(float size)
 	static int _bind_base_setSize(lua_State *L) {
 		if (!_lg_typecheck_base_setSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::base_setSize(float size) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::base_setSize(float size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::base_setSize(float size) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::base_setSize(float size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float size=(float)lua_tonumber(L,2);
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::base_setSize(float). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::base_setSize(float). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLPointRenderer::setSize(size);
 
@@ -640,15 +603,13 @@ public:
 	// std::string SPK::GL::GLPointRenderer::base_getClassName() const
 	static int _bind_base_getClassName(lua_State *L) {
 		if (!_lg_typecheck_base_getClassName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string SPK::GL::GLPointRenderer::base_getClassName() const function, expected prototype:\nstd::string SPK::GL::GLPointRenderer::base_getClassName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string SPK::GL::GLPointRenderer::base_getClassName() const function, expected prototype:\nstd::string SPK::GL::GLPointRenderer::base_getClassName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::GL::GLPointRenderer::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string SPK::GL::GLPointRenderer::base_getClassName() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->GLPointRenderer::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -659,16 +620,14 @@ public:
 	// bool SPK::GL::GLPointRenderer::base_setType(SPK::PointType type)
 	static int _bind_base_setType(lua_State *L) {
 		if (!_lg_typecheck_base_setType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::GL::GLPointRenderer::base_setType(SPK::PointType type) function, expected prototype:\nbool SPK::GL::GLPointRenderer::base_setType(SPK::PointType type)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::GL::GLPointRenderer::base_setType(SPK::PointType type) function, expected prototype:\nbool SPK::GL::GLPointRenderer::base_setType(SPK::PointType type)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::PointType type=(SPK::PointType)lua_tointeger(L,2);
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::GL::GLPointRenderer::base_setType(SPK::PointType). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::GL::GLPointRenderer::base_setType(SPK::PointType). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->GLPointRenderer::setType(type);
 		lua_pushboolean(L,lret?1:0);
@@ -679,8 +638,7 @@ public:
 	// void SPK::GL::GLPointRenderer::base_render(const SPK::Group & group)
 	static int _bind_base_render(lua_State *L) {
 		if (!_lg_typecheck_base_render(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::base_render(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::base_render(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::GL::GLPointRenderer::base_render(const SPK::Group & group) function, expected prototype:\nvoid SPK::GL::GLPointRenderer::base_render(const SPK::Group & group)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Group* group_ptr=(Luna< SPK::Registerable >::checkSubType< SPK::Group >(L,2));
@@ -691,8 +649,7 @@ public:
 
 		SPK::GL::GLPointRenderer* self=Luna< SPK::Registerable >::checkSubType< SPK::GL::GLPointRenderer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::base_render(const SPK::Group &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::GL::GLPointRenderer::base_render(const SPK::Group &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GLPointRenderer::render(group);
 
@@ -710,8 +667,7 @@ public:
 
 	static int _bind_baseCast_SPK_PointRendererInterface(lua_State *L) {
 		if (!_lg_typecheck_baseCast_SPK_PointRendererInterface(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in baseCast_SPK_PointRendererInterface function, expected prototype:\nbaseCast()");
+			luaL_error(L, "luna typecheck failed in baseCast_SPK_PointRendererInterface function, expected prototype:\nbaseCast(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
@@ -736,8 +692,7 @@ public:
 
 	static int _bind_baseCast_SPK_GL_GLExtHandler(lua_State *L) {
 		if (!_lg_typecheck_baseCast_SPK_GL_GLExtHandler(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in baseCast_SPK_GL_GLExtHandler function, expected prototype:\nbaseCast()");
+			luaL_error(L, "luna typecheck failed in baseCast_SPK_GL_GLExtHandler function, expected prototype:\nbaseCast(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));

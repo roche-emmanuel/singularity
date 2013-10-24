@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionShape* self=(Luna< btCollisionShape >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBvhTriangleMeshShape* self= (btBvhTriangleMeshShape*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCollisionShape >::check(L,1));
@@ -246,7 +243,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -259,7 +256,7 @@ public:
 	inline static bool _lg_typecheck_base_getContactBreakingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -278,7 +275,7 @@ public:
 	inline static bool _lg_typecheck_base_setMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -308,7 +305,7 @@ public:
 	inline static bool _lg_typecheck_base_calculateLocalInertia(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		return true;
 	}
@@ -355,8 +352,7 @@ public:
 	// btBvhTriangleMeshShape::btBvhTriangleMeshShape(btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, bool buildBvh = true)
 	static btBvhTriangleMeshShape* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBvhTriangleMeshShape::btBvhTriangleMeshShape(btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, bool buildBvh = true) function, expected prototype:\nbtBvhTriangleMeshShape::btBvhTriangleMeshShape(btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, bool buildBvh = true)\nClass arguments details:\narg 1 ID = 56402633\n");
+			luaL_error(L, "luna typecheck failed in btBvhTriangleMeshShape::btBvhTriangleMeshShape(btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, bool buildBvh = true) function, expected prototype:\nbtBvhTriangleMeshShape::btBvhTriangleMeshShape(btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, bool buildBvh = true)\nClass arguments details:\narg 1 ID = 56402633\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -371,8 +367,7 @@ public:
 	// btBvhTriangleMeshShape::btBvhTriangleMeshShape(btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax, bool buildBvh = true)
 	static btBvhTriangleMeshShape* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBvhTriangleMeshShape::btBvhTriangleMeshShape(btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax, bool buildBvh = true) function, expected prototype:\nbtBvhTriangleMeshShape::btBvhTriangleMeshShape(btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax, bool buildBvh = true)\nClass arguments details:\narg 1 ID = 56402633\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btBvhTriangleMeshShape::btBvhTriangleMeshShape(btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax, bool buildBvh = true) function, expected prototype:\nbtBvhTriangleMeshShape::btBvhTriangleMeshShape(btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax, bool buildBvh = true)\nClass arguments details:\narg 1 ID = 56402633\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -397,8 +392,7 @@ public:
 	// btBvhTriangleMeshShape::btBvhTriangleMeshShape(lua_Table * data, btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, bool buildBvh = true)
 	static btBvhTriangleMeshShape* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBvhTriangleMeshShape::btBvhTriangleMeshShape(lua_Table * data, btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, bool buildBvh = true) function, expected prototype:\nbtBvhTriangleMeshShape::btBvhTriangleMeshShape(lua_Table * data, btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, bool buildBvh = true)\nClass arguments details:\narg 2 ID = 56402633\n");
+			luaL_error(L, "luna typecheck failed in btBvhTriangleMeshShape::btBvhTriangleMeshShape(lua_Table * data, btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, bool buildBvh = true) function, expected prototype:\nbtBvhTriangleMeshShape::btBvhTriangleMeshShape(lua_Table * data, btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, bool buildBvh = true)\nClass arguments details:\narg 2 ID = 56402633\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -413,8 +407,7 @@ public:
 	// btBvhTriangleMeshShape::btBvhTriangleMeshShape(lua_Table * data, btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax, bool buildBvh = true)
 	static btBvhTriangleMeshShape* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBvhTriangleMeshShape::btBvhTriangleMeshShape(lua_Table * data, btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax, bool buildBvh = true) function, expected prototype:\nbtBvhTriangleMeshShape::btBvhTriangleMeshShape(lua_Table * data, btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax, bool buildBvh = true)\nClass arguments details:\narg 2 ID = 56402633\narg 4 ID = 91544891\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btBvhTriangleMeshShape::btBvhTriangleMeshShape(lua_Table * data, btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax, bool buildBvh = true) function, expected prototype:\nbtBvhTriangleMeshShape::btBvhTriangleMeshShape(lua_Table * data, btStridingMeshInterface * meshInterface, bool useQuantizedAabbCompression, const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax, bool buildBvh = true)\nClass arguments details:\narg 2 ID = 56402633\narg 4 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -452,15 +445,13 @@ public:
 	// bool btBvhTriangleMeshShape::getOwnsBvh() const
 	static int _bind_getOwnsBvh(lua_State *L) {
 		if (!_lg_typecheck_getOwnsBvh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btBvhTriangleMeshShape::getOwnsBvh() const function, expected prototype:\nbool btBvhTriangleMeshShape::getOwnsBvh() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btBvhTriangleMeshShape::getOwnsBvh() const function, expected prototype:\nbool btBvhTriangleMeshShape::getOwnsBvh() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btBvhTriangleMeshShape::getOwnsBvh() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btBvhTriangleMeshShape::getOwnsBvh() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getOwnsBvh();
 		lua_pushboolean(L,lret?1:0);
@@ -471,8 +462,7 @@ public:
 	// void btBvhTriangleMeshShape::performRaycast(btTriangleCallback * callback, const btVector3 & raySource, const btVector3 & rayTarget)
 	static int _bind_performRaycast(lua_State *L) {
 		if (!_lg_typecheck_performRaycast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::performRaycast(btTriangleCallback * callback, const btVector3 & raySource, const btVector3 & rayTarget) function, expected prototype:\nvoid btBvhTriangleMeshShape::performRaycast(btTriangleCallback * callback, const btVector3 & raySource, const btVector3 & rayTarget)\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::performRaycast(btTriangleCallback * callback, const btVector3 & raySource, const btVector3 & rayTarget) function, expected prototype:\nvoid btBvhTriangleMeshShape::performRaycast(btTriangleCallback * callback, const btVector3 & raySource, const btVector3 & rayTarget)\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleCallback* callback=(Luna< btTriangleCallback >::check(L,2));
@@ -489,8 +479,7 @@ public:
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::performRaycast(btTriangleCallback *, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::performRaycast(btTriangleCallback *, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->performRaycast(callback, raySource, rayTarget);
 
@@ -500,8 +489,7 @@ public:
 	// void btBvhTriangleMeshShape::performConvexcast(btTriangleCallback * callback, const btVector3 & boxSource, const btVector3 & boxTarget, const btVector3 & boxMin, const btVector3 & boxMax)
 	static int _bind_performConvexcast(lua_State *L) {
 		if (!_lg_typecheck_performConvexcast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::performConvexcast(btTriangleCallback * callback, const btVector3 & boxSource, const btVector3 & boxTarget, const btVector3 & boxMin, const btVector3 & boxMax) function, expected prototype:\nvoid btBvhTriangleMeshShape::performConvexcast(btTriangleCallback * callback, const btVector3 & boxSource, const btVector3 & boxTarget, const btVector3 & boxMin, const btVector3 & boxMax)\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::performConvexcast(btTriangleCallback * callback, const btVector3 & boxSource, const btVector3 & boxTarget, const btVector3 & boxMin, const btVector3 & boxMax) function, expected prototype:\nvoid btBvhTriangleMeshShape::performConvexcast(btTriangleCallback * callback, const btVector3 & boxSource, const btVector3 & boxTarget, const btVector3 & boxMin, const btVector3 & boxMax)\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleCallback* callback=(Luna< btTriangleCallback >::check(L,2));
@@ -528,8 +516,7 @@ public:
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::performConvexcast(btTriangleCallback *, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::performConvexcast(btTriangleCallback *, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->performConvexcast(callback, boxSource, boxTarget, boxMin, boxMax);
 
@@ -539,8 +526,7 @@ public:
 	// void btBvhTriangleMeshShape::processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const
 	static int _bind_processAllTriangles(lua_State *L) {
 		if (!_lg_typecheck_processAllTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btBvhTriangleMeshShape::processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btBvhTriangleMeshShape::processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleCallback* callback=(Luna< btTriangleCallback >::check(L,2));
@@ -557,8 +543,7 @@ public:
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::processAllTriangles(btTriangleCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::processAllTriangles(btTriangleCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->processAllTriangles(callback, aabbMin, aabbMax);
 
@@ -568,8 +553,7 @@ public:
 	// void btBvhTriangleMeshShape::refitTree(const btVector3 & aabbMin, const btVector3 & aabbMax)
 	static int _bind_refitTree(lua_State *L) {
 		if (!_lg_typecheck_refitTree(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::refitTree(const btVector3 & aabbMin, const btVector3 & aabbMax) function, expected prototype:\nvoid btBvhTriangleMeshShape::refitTree(const btVector3 & aabbMin, const btVector3 & aabbMax)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::refitTree(const btVector3 & aabbMin, const btVector3 & aabbMax) function, expected prototype:\nvoid btBvhTriangleMeshShape::refitTree(const btVector3 & aabbMin, const btVector3 & aabbMax)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* aabbMin_ptr=(Luna< btVector3 >::check(L,2));
@@ -585,8 +569,7 @@ public:
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::refitTree(const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::refitTree(const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->refitTree(aabbMin, aabbMax);
 
@@ -596,8 +579,7 @@ public:
 	// void btBvhTriangleMeshShape::partialRefitTree(const btVector3 & aabbMin, const btVector3 & aabbMax)
 	static int _bind_partialRefitTree(lua_State *L) {
 		if (!_lg_typecheck_partialRefitTree(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::partialRefitTree(const btVector3 & aabbMin, const btVector3 & aabbMax) function, expected prototype:\nvoid btBvhTriangleMeshShape::partialRefitTree(const btVector3 & aabbMin, const btVector3 & aabbMax)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::partialRefitTree(const btVector3 & aabbMin, const btVector3 & aabbMax) function, expected prototype:\nvoid btBvhTriangleMeshShape::partialRefitTree(const btVector3 & aabbMin, const btVector3 & aabbMax)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* aabbMin_ptr=(Luna< btVector3 >::check(L,2));
@@ -613,8 +595,7 @@ public:
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::partialRefitTree(const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::partialRefitTree(const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->partialRefitTree(aabbMin, aabbMax);
 
@@ -624,15 +605,13 @@ public:
 	// const char * btBvhTriangleMeshShape::getName() const
 	static int _bind_getName(lua_State *L) {
 		if (!_lg_typecheck_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * btBvhTriangleMeshShape::getName() const function, expected prototype:\nconst char * btBvhTriangleMeshShape::getName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * btBvhTriangleMeshShape::getName() const function, expected prototype:\nconst char * btBvhTriangleMeshShape::getName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * btBvhTriangleMeshShape::getName() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * btBvhTriangleMeshShape::getName() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->getName();
 		lua_pushstring(L,lret);
@@ -643,8 +622,7 @@ public:
 	// void btBvhTriangleMeshShape::setLocalScaling(const btVector3 & scaling)
 	static int _bind_setLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_setLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btBvhTriangleMeshShape::setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btBvhTriangleMeshShape::setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* scaling_ptr=(Luna< btVector3 >::check(L,2));
@@ -655,8 +633,7 @@ public:
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::setLocalScaling(const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::setLocalScaling(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLocalScaling(scaling);
 
@@ -666,15 +643,13 @@ public:
 	// btOptimizedBvh * btBvhTriangleMeshShape::getOptimizedBvh()
 	static int _bind_getOptimizedBvh(lua_State *L) {
 		if (!_lg_typecheck_getOptimizedBvh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btOptimizedBvh * btBvhTriangleMeshShape::getOptimizedBvh() function, expected prototype:\nbtOptimizedBvh * btBvhTriangleMeshShape::getOptimizedBvh()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btOptimizedBvh * btBvhTriangleMeshShape::getOptimizedBvh() function, expected prototype:\nbtOptimizedBvh * btBvhTriangleMeshShape::getOptimizedBvh()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btOptimizedBvh * btBvhTriangleMeshShape::getOptimizedBvh(). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btOptimizedBvh * btBvhTriangleMeshShape::getOptimizedBvh(). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btOptimizedBvh * lret = self->getOptimizedBvh();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -687,8 +662,7 @@ public:
 	// void btBvhTriangleMeshShape::setOptimizedBvh(btOptimizedBvh * bvh, const btVector3 & localScaling = btVector3 (1, 1, 1))
 	static int _bind_setOptimizedBvh(lua_State *L) {
 		if (!_lg_typecheck_setOptimizedBvh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::setOptimizedBvh(btOptimizedBvh * bvh, const btVector3 & localScaling = btVector3 (1, 1, 1)) function, expected prototype:\nvoid btBvhTriangleMeshShape::setOptimizedBvh(btOptimizedBvh * bvh, const btVector3 & localScaling = btVector3 (1, 1, 1))\nClass arguments details:\narg 1 ID = 63725098\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::setOptimizedBvh(btOptimizedBvh * bvh, const btVector3 & localScaling = btVector3 (1, 1, 1)) function, expected prototype:\nvoid btBvhTriangleMeshShape::setOptimizedBvh(btOptimizedBvh * bvh, const btVector3 & localScaling = btVector3 (1, 1, 1))\nClass arguments details:\narg 1 ID = 63725098\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -702,8 +676,7 @@ public:
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::setOptimizedBvh(btOptimizedBvh *, const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::setOptimizedBvh(btOptimizedBvh *, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setOptimizedBvh(bvh, localScaling);
 
@@ -713,15 +686,13 @@ public:
 	// void btBvhTriangleMeshShape::buildOptimizedBvh()
 	static int _bind_buildOptimizedBvh(lua_State *L) {
 		if (!_lg_typecheck_buildOptimizedBvh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::buildOptimizedBvh() function, expected prototype:\nvoid btBvhTriangleMeshShape::buildOptimizedBvh()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::buildOptimizedBvh() function, expected prototype:\nvoid btBvhTriangleMeshShape::buildOptimizedBvh()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::buildOptimizedBvh(). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::buildOptimizedBvh(). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->buildOptimizedBvh();
 
@@ -731,15 +702,13 @@ public:
 	// bool btBvhTriangleMeshShape::usesQuantizedAabbCompression() const
 	static int _bind_usesQuantizedAabbCompression(lua_State *L) {
 		if (!_lg_typecheck_usesQuantizedAabbCompression(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btBvhTriangleMeshShape::usesQuantizedAabbCompression() const function, expected prototype:\nbool btBvhTriangleMeshShape::usesQuantizedAabbCompression() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btBvhTriangleMeshShape::usesQuantizedAabbCompression() const function, expected prototype:\nbool btBvhTriangleMeshShape::usesQuantizedAabbCompression() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btBvhTriangleMeshShape::usesQuantizedAabbCompression() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btBvhTriangleMeshShape::usesQuantizedAabbCompression() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->usesQuantizedAabbCompression();
 		lua_pushboolean(L,lret?1:0);
@@ -750,15 +719,13 @@ public:
 	// int btBvhTriangleMeshShape::calculateSerializeBufferSize() const
 	static int _bind_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btBvhTriangleMeshShape::calculateSerializeBufferSize() const function, expected prototype:\nint btBvhTriangleMeshShape::calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btBvhTriangleMeshShape::calculateSerializeBufferSize() const function, expected prototype:\nint btBvhTriangleMeshShape::calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btBvhTriangleMeshShape::calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btBvhTriangleMeshShape::calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);
@@ -769,8 +736,7 @@ public:
 	// void btBvhTriangleMeshShape::base_getBoundingSphere(btVector3 & center, float & radius) const
 	static int _bind_base_getBoundingSphere(lua_State *L) {
 		if (!_lg_typecheck_base_getBoundingSphere(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::base_getBoundingSphere(btVector3 & center, float & radius) const function, expected prototype:\nvoid btBvhTriangleMeshShape::base_getBoundingSphere(btVector3 & center, float & radius) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::base_getBoundingSphere(btVector3 & center, float & radius) const function, expected prototype:\nvoid btBvhTriangleMeshShape::base_getBoundingSphere(btVector3 & center, float & radius) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* center_ptr=(Luna< btVector3 >::check(L,2));
@@ -782,26 +748,24 @@ public:
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::base_getBoundingSphere(btVector3 &, float &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::base_getBoundingSphere(btVector3 &, float &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btBvhTriangleMeshShape::getBoundingSphere(center, radius);
 
-		return 0;
+		lua_pushnumber(L,radius);
+		return 1;
 	}
 
 	// float btBvhTriangleMeshShape::base_getAngularMotionDisc() const
 	static int _bind_base_getAngularMotionDisc(lua_State *L) {
 		if (!_lg_typecheck_base_getAngularMotionDisc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btBvhTriangleMeshShape::base_getAngularMotionDisc() const function, expected prototype:\nfloat btBvhTriangleMeshShape::base_getAngularMotionDisc() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btBvhTriangleMeshShape::base_getAngularMotionDisc() const function, expected prototype:\nfloat btBvhTriangleMeshShape::base_getAngularMotionDisc() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btBvhTriangleMeshShape::base_getAngularMotionDisc() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btBvhTriangleMeshShape::base_getAngularMotionDisc() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btBvhTriangleMeshShape::getAngularMotionDisc();
 		lua_pushnumber(L,lret);
@@ -812,16 +776,14 @@ public:
 	// float btBvhTriangleMeshShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const
 	static int _bind_base_getContactBreakingThreshold(lua_State *L) {
 		if (!_lg_typecheck_base_getContactBreakingThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btBvhTriangleMeshShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const function, expected prototype:\nfloat btBvhTriangleMeshShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btBvhTriangleMeshShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const function, expected prototype:\nfloat btBvhTriangleMeshShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float defaultContactThresholdFactor=(float)lua_tonumber(L,2);
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btBvhTriangleMeshShape::base_getContactBreakingThreshold(float) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btBvhTriangleMeshShape::base_getContactBreakingThreshold(float) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btBvhTriangleMeshShape::getContactBreakingThreshold(defaultContactThresholdFactor);
 		lua_pushnumber(L,lret);
@@ -832,15 +794,13 @@ public:
 	// btVector3 btBvhTriangleMeshShape::base_getAnisotropicRollingFrictionDirection() const
 	static int _bind_base_getAnisotropicRollingFrictionDirection(lua_State *L) {
 		if (!_lg_typecheck_base_getAnisotropicRollingFrictionDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btBvhTriangleMeshShape::base_getAnisotropicRollingFrictionDirection() const function, expected prototype:\nbtVector3 btBvhTriangleMeshShape::base_getAnisotropicRollingFrictionDirection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btBvhTriangleMeshShape::base_getAnisotropicRollingFrictionDirection() const function, expected prototype:\nbtVector3 btBvhTriangleMeshShape::base_getAnisotropicRollingFrictionDirection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btBvhTriangleMeshShape::base_getAnisotropicRollingFrictionDirection() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btBvhTriangleMeshShape::base_getAnisotropicRollingFrictionDirection() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->btBvhTriangleMeshShape::getAnisotropicRollingFrictionDirection();
 		btVector3* lret = new btVector3(stack_lret);
@@ -854,15 +814,13 @@ public:
 	// float btBvhTriangleMeshShape::base_getMargin() const
 	static int _bind_base_getMargin(lua_State *L) {
 		if (!_lg_typecheck_base_getMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btBvhTriangleMeshShape::base_getMargin() const function, expected prototype:\nfloat btBvhTriangleMeshShape::base_getMargin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btBvhTriangleMeshShape::base_getMargin() const function, expected prototype:\nfloat btBvhTriangleMeshShape::base_getMargin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btBvhTriangleMeshShape::base_getMargin() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btBvhTriangleMeshShape::base_getMargin() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btBvhTriangleMeshShape::getMargin();
 		lua_pushnumber(L,lret);
@@ -873,16 +831,14 @@ public:
 	// void btBvhTriangleMeshShape::base_setMargin(float collisionMargin)
 	static int _bind_base_setMargin(lua_State *L) {
 		if (!_lg_typecheck_base_setMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::base_setMargin(float collisionMargin) function, expected prototype:\nvoid btBvhTriangleMeshShape::base_setMargin(float collisionMargin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::base_setMargin(float collisionMargin) function, expected prototype:\nvoid btBvhTriangleMeshShape::base_setMargin(float collisionMargin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float collisionMargin=(float)lua_tonumber(L,2);
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::base_setMargin(float). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::base_setMargin(float). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btBvhTriangleMeshShape::setMargin(collisionMargin);
 
@@ -892,8 +848,7 @@ public:
 	// btVector3 btBvhTriangleMeshShape::base_localGetSupportingVertex(const btVector3 & vec) const
 	static int _bind_base_localGetSupportingVertex(lua_State *L) {
 		if (!_lg_typecheck_base_localGetSupportingVertex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btBvhTriangleMeshShape::base_localGetSupportingVertex(const btVector3 & vec) const function, expected prototype:\nbtVector3 btBvhTriangleMeshShape::base_localGetSupportingVertex(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btBvhTriangleMeshShape::base_localGetSupportingVertex(const btVector3 & vec) const function, expected prototype:\nbtVector3 btBvhTriangleMeshShape::base_localGetSupportingVertex(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* vec_ptr=(Luna< btVector3 >::check(L,2));
@@ -904,8 +859,7 @@ public:
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btBvhTriangleMeshShape::base_localGetSupportingVertex(const btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btBvhTriangleMeshShape::base_localGetSupportingVertex(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->btBvhTriangleMeshShape::localGetSupportingVertex(vec);
 		btVector3* lret = new btVector3(stack_lret);
@@ -919,8 +873,7 @@ public:
 	// btVector3 btBvhTriangleMeshShape::base_localGetSupportingVertexWithoutMargin(const btVector3 & vec) const
 	static int _bind_base_localGetSupportingVertexWithoutMargin(lua_State *L) {
 		if (!_lg_typecheck_base_localGetSupportingVertexWithoutMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btBvhTriangleMeshShape::base_localGetSupportingVertexWithoutMargin(const btVector3 & vec) const function, expected prototype:\nbtVector3 btBvhTriangleMeshShape::base_localGetSupportingVertexWithoutMargin(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btBvhTriangleMeshShape::base_localGetSupportingVertexWithoutMargin(const btVector3 & vec) const function, expected prototype:\nbtVector3 btBvhTriangleMeshShape::base_localGetSupportingVertexWithoutMargin(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* vec_ptr=(Luna< btVector3 >::check(L,2));
@@ -931,8 +884,7 @@ public:
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btBvhTriangleMeshShape::base_localGetSupportingVertexWithoutMargin(const btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btBvhTriangleMeshShape::base_localGetSupportingVertexWithoutMargin(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->btBvhTriangleMeshShape::localGetSupportingVertexWithoutMargin(vec);
 		btVector3* lret = new btVector3(stack_lret);
@@ -946,8 +898,7 @@ public:
 	// void btBvhTriangleMeshShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_base_getAabb(lua_State *L) {
 		if (!_lg_typecheck_base_getAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btBvhTriangleMeshShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btBvhTriangleMeshShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* t_ptr=(Luna< btTransform >::check(L,2));
@@ -968,8 +919,7 @@ public:
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::base_getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::base_getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btBvhTriangleMeshShape::getAabb(t, aabbMin, aabbMax);
 
@@ -979,8 +929,7 @@ public:
 	// void btBvhTriangleMeshShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const
 	static int _bind_base_calculateLocalInertia(lua_State *L) {
 		if (!_lg_typecheck_base_calculateLocalInertia(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const function, expected prototype:\nvoid btBvhTriangleMeshShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const function, expected prototype:\nvoid btBvhTriangleMeshShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float mass=(float)lua_tonumber(L,2);
@@ -992,8 +941,7 @@ public:
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::base_calculateLocalInertia(float, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::base_calculateLocalInertia(float, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btBvhTriangleMeshShape::calculateLocalInertia(mass, inertia);
 
@@ -1003,15 +951,13 @@ public:
 	// const btVector3 & btBvhTriangleMeshShape::base_getLocalScaling() const
 	static int _bind_base_getLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_base_getLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 & btBvhTriangleMeshShape::base_getLocalScaling() const function, expected prototype:\nconst btVector3 & btBvhTriangleMeshShape::base_getLocalScaling() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 & btBvhTriangleMeshShape::base_getLocalScaling() const function, expected prototype:\nconst btVector3 & btBvhTriangleMeshShape::base_getLocalScaling() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 & btBvhTriangleMeshShape::base_getLocalScaling() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 & btBvhTriangleMeshShape::base_getLocalScaling() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->btBvhTriangleMeshShape::getLocalScaling();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1024,8 +970,7 @@ public:
 	// void btBvhTriangleMeshShape::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const
 	static int _bind_base_processAllTriangles(lua_State *L) {
 		if (!_lg_typecheck_base_processAllTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btBvhTriangleMeshShape::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btBvhTriangleMeshShape::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleCallback* callback=(Luna< btTriangleCallback >::check(L,2));
@@ -1042,8 +987,7 @@ public:
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::base_processAllTriangles(btTriangleCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::base_processAllTriangles(btTriangleCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btBvhTriangleMeshShape::processAllTriangles(callback, aabbMin, aabbMax);
 
@@ -1053,15 +997,13 @@ public:
 	// const char * btBvhTriangleMeshShape::base_getName() const
 	static int _bind_base_getName(lua_State *L) {
 		if (!_lg_typecheck_base_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * btBvhTriangleMeshShape::base_getName() const function, expected prototype:\nconst char * btBvhTriangleMeshShape::base_getName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * btBvhTriangleMeshShape::base_getName() const function, expected prototype:\nconst char * btBvhTriangleMeshShape::base_getName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * btBvhTriangleMeshShape::base_getName() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * btBvhTriangleMeshShape::base_getName() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->btBvhTriangleMeshShape::getName();
 		lua_pushstring(L,lret);
@@ -1072,8 +1014,7 @@ public:
 	// void btBvhTriangleMeshShape::base_setLocalScaling(const btVector3 & scaling)
 	static int _bind_base_setLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_base_setLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::base_setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btBvhTriangleMeshShape::base_setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBvhTriangleMeshShape::base_setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btBvhTriangleMeshShape::base_setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* scaling_ptr=(Luna< btVector3 >::check(L,2));
@@ -1084,8 +1025,7 @@ public:
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::base_setLocalScaling(const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBvhTriangleMeshShape::base_setLocalScaling(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btBvhTriangleMeshShape::setLocalScaling(scaling);
 
@@ -1095,15 +1035,13 @@ public:
 	// int btBvhTriangleMeshShape::base_calculateSerializeBufferSize() const
 	static int _bind_base_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_base_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btBvhTriangleMeshShape::base_calculateSerializeBufferSize() const function, expected prototype:\nint btBvhTriangleMeshShape::base_calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btBvhTriangleMeshShape::base_calculateSerializeBufferSize() const function, expected prototype:\nint btBvhTriangleMeshShape::base_calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBvhTriangleMeshShape* self=Luna< btCollisionShape >::checkSubType< btBvhTriangleMeshShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btBvhTriangleMeshShape::base_calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btBvhTriangleMeshShape::base_calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btBvhTriangleMeshShape::calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);

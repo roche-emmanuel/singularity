@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2FixtureDef*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2FixtureDef*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2FixtureDef* rhs =(Luna< b2FixtureDef >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2FixtureDef* self= (b2FixtureDef*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2FixtureDef >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -160,21 +156,21 @@ public:
 	inline static bool _lg_typecheck_setFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setRestitution(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDensity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -200,8 +196,7 @@ public:
 	// b2FixtureDef::b2FixtureDef()
 	static b2FixtureDef* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2FixtureDef::b2FixtureDef() function, expected prototype:\nb2FixtureDef::b2FixtureDef()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2FixtureDef::b2FixtureDef() function, expected prototype:\nb2FixtureDef::b2FixtureDef()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -213,15 +208,13 @@ public:
 	// const b2Shape * b2FixtureDef::shape()
 	static int _bind_getShape(lua_State *L) {
 		if (!_lg_typecheck_getShape(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Shape * b2FixtureDef::shape() function, expected prototype:\nconst b2Shape * b2FixtureDef::shape()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2Shape * b2FixtureDef::shape() function, expected prototype:\nconst b2Shape * b2FixtureDef::shape()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2FixtureDef* self=(Luna< b2FixtureDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Shape * b2FixtureDef::shape(). Got : '%s'",typeid(Luna< b2FixtureDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Shape * b2FixtureDef::shape(). Got : '%s'\n%s",typeid(Luna< b2FixtureDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Shape * lret = self->shape;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -234,15 +227,13 @@ public:
 	// void * b2FixtureDef::userData()
 	static int _bind_getUserData(lua_State *L) {
 		if (!_lg_typecheck_getUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * b2FixtureDef::userData() function, expected prototype:\nvoid * b2FixtureDef::userData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * b2FixtureDef::userData() function, expected prototype:\nvoid * b2FixtureDef::userData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2FixtureDef* self=(Luna< b2FixtureDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * b2FixtureDef::userData(). Got : '%s'",typeid(Luna< b2FixtureDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * b2FixtureDef::userData(). Got : '%s'\n%s",typeid(Luna< b2FixtureDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->userData;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -255,15 +246,13 @@ public:
 	// float b2FixtureDef::friction()
 	static int _bind_getFriction(lua_State *L) {
 		if (!_lg_typecheck_getFriction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2FixtureDef::friction() function, expected prototype:\nfloat b2FixtureDef::friction()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2FixtureDef::friction() function, expected prototype:\nfloat b2FixtureDef::friction()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2FixtureDef* self=(Luna< b2FixtureDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2FixtureDef::friction(). Got : '%s'",typeid(Luna< b2FixtureDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2FixtureDef::friction(). Got : '%s'\n%s",typeid(Luna< b2FixtureDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->friction;
 		lua_pushnumber(L,lret);
@@ -274,15 +263,13 @@ public:
 	// float b2FixtureDef::restitution()
 	static int _bind_getRestitution(lua_State *L) {
 		if (!_lg_typecheck_getRestitution(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2FixtureDef::restitution() function, expected prototype:\nfloat b2FixtureDef::restitution()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2FixtureDef::restitution() function, expected prototype:\nfloat b2FixtureDef::restitution()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2FixtureDef* self=(Luna< b2FixtureDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2FixtureDef::restitution(). Got : '%s'",typeid(Luna< b2FixtureDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2FixtureDef::restitution(). Got : '%s'\n%s",typeid(Luna< b2FixtureDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->restitution;
 		lua_pushnumber(L,lret);
@@ -293,15 +280,13 @@ public:
 	// float b2FixtureDef::density()
 	static int _bind_getDensity(lua_State *L) {
 		if (!_lg_typecheck_getDensity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2FixtureDef::density() function, expected prototype:\nfloat b2FixtureDef::density()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2FixtureDef::density() function, expected prototype:\nfloat b2FixtureDef::density()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2FixtureDef* self=(Luna< b2FixtureDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2FixtureDef::density(). Got : '%s'",typeid(Luna< b2FixtureDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2FixtureDef::density(). Got : '%s'\n%s",typeid(Luna< b2FixtureDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->density;
 		lua_pushnumber(L,lret);
@@ -312,15 +297,13 @@ public:
 	// bool b2FixtureDef::isSensor()
 	static int _bind_getIsSensor(lua_State *L) {
 		if (!_lg_typecheck_getIsSensor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2FixtureDef::isSensor() function, expected prototype:\nbool b2FixtureDef::isSensor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool b2FixtureDef::isSensor() function, expected prototype:\nbool b2FixtureDef::isSensor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2FixtureDef* self=(Luna< b2FixtureDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2FixtureDef::isSensor(). Got : '%s'",typeid(Luna< b2FixtureDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2FixtureDef::isSensor(). Got : '%s'\n%s",typeid(Luna< b2FixtureDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isSensor;
 		lua_pushboolean(L,lret?1:0);
@@ -331,15 +314,13 @@ public:
 	// b2Filter b2FixtureDef::filter()
 	static int _bind_getFilter(lua_State *L) {
 		if (!_lg_typecheck_getFilter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Filter b2FixtureDef::filter() function, expected prototype:\nb2Filter b2FixtureDef::filter()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Filter b2FixtureDef::filter() function, expected prototype:\nb2Filter b2FixtureDef::filter()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2FixtureDef* self=(Luna< b2FixtureDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Filter b2FixtureDef::filter(). Got : '%s'",typeid(Luna< b2FixtureDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Filter b2FixtureDef::filter(). Got : '%s'\n%s",typeid(Luna< b2FixtureDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Filter* lret = &self->filter;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -352,16 +333,14 @@ public:
 	// void b2FixtureDef::userData(void * value)
 	static int _bind_setUserData(lua_State *L) {
 		if (!_lg_typecheck_setUserData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2FixtureDef::userData(void * value) function, expected prototype:\nvoid b2FixtureDef::userData(void * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2FixtureDef::userData(void * value) function, expected prototype:\nvoid b2FixtureDef::userData(void * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* value=(Luna< void >::check(L,2));
 
 		b2FixtureDef* self=(Luna< b2FixtureDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2FixtureDef::userData(void *). Got : '%s'",typeid(Luna< b2FixtureDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2FixtureDef::userData(void *). Got : '%s'\n%s",typeid(Luna< b2FixtureDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->userData = value;
 
@@ -371,16 +350,14 @@ public:
 	// void b2FixtureDef::friction(float value)
 	static int _bind_setFriction(lua_State *L) {
 		if (!_lg_typecheck_setFriction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2FixtureDef::friction(float value) function, expected prototype:\nvoid b2FixtureDef::friction(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2FixtureDef::friction(float value) function, expected prototype:\nvoid b2FixtureDef::friction(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2FixtureDef* self=(Luna< b2FixtureDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2FixtureDef::friction(float). Got : '%s'",typeid(Luna< b2FixtureDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2FixtureDef::friction(float). Got : '%s'\n%s",typeid(Luna< b2FixtureDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->friction = value;
 
@@ -390,16 +367,14 @@ public:
 	// void b2FixtureDef::restitution(float value)
 	static int _bind_setRestitution(lua_State *L) {
 		if (!_lg_typecheck_setRestitution(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2FixtureDef::restitution(float value) function, expected prototype:\nvoid b2FixtureDef::restitution(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2FixtureDef::restitution(float value) function, expected prototype:\nvoid b2FixtureDef::restitution(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2FixtureDef* self=(Luna< b2FixtureDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2FixtureDef::restitution(float). Got : '%s'",typeid(Luna< b2FixtureDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2FixtureDef::restitution(float). Got : '%s'\n%s",typeid(Luna< b2FixtureDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->restitution = value;
 
@@ -409,16 +384,14 @@ public:
 	// void b2FixtureDef::density(float value)
 	static int _bind_setDensity(lua_State *L) {
 		if (!_lg_typecheck_setDensity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2FixtureDef::density(float value) function, expected prototype:\nvoid b2FixtureDef::density(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2FixtureDef::density(float value) function, expected prototype:\nvoid b2FixtureDef::density(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2FixtureDef* self=(Luna< b2FixtureDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2FixtureDef::density(float). Got : '%s'",typeid(Luna< b2FixtureDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2FixtureDef::density(float). Got : '%s'\n%s",typeid(Luna< b2FixtureDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->density = value;
 
@@ -428,16 +401,14 @@ public:
 	// void b2FixtureDef::isSensor(bool value)
 	static int _bind_setIsSensor(lua_State *L) {
 		if (!_lg_typecheck_setIsSensor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2FixtureDef::isSensor(bool value) function, expected prototype:\nvoid b2FixtureDef::isSensor(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2FixtureDef::isSensor(bool value) function, expected prototype:\nvoid b2FixtureDef::isSensor(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		b2FixtureDef* self=(Luna< b2FixtureDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2FixtureDef::isSensor(bool). Got : '%s'",typeid(Luna< b2FixtureDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2FixtureDef::isSensor(bool). Got : '%s'\n%s",typeid(Luna< b2FixtureDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->isSensor = value;
 
@@ -447,8 +418,7 @@ public:
 	// void b2FixtureDef::filter(b2Filter value)
 	static int _bind_setFilter(lua_State *L) {
 		if (!_lg_typecheck_setFilter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2FixtureDef::filter(b2Filter value) function, expected prototype:\nvoid b2FixtureDef::filter(b2Filter value)\nClass arguments details:\narg 1 ID = 15544248\n");
+			luaL_error(L, "luna typecheck failed in void b2FixtureDef::filter(b2Filter value) function, expected prototype:\nvoid b2FixtureDef::filter(b2Filter value)\nClass arguments details:\narg 1 ID = 15544248\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Filter* value_ptr=(Luna< b2Filter >::check(L,2));
@@ -459,8 +429,7 @@ public:
 
 		b2FixtureDef* self=(Luna< b2FixtureDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2FixtureDef::filter(b2Filter). Got : '%s'",typeid(Luna< b2FixtureDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2FixtureDef::filter(b2Filter). Got : '%s'\n%s",typeid(Luna< b2FixtureDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->filter = value;
 

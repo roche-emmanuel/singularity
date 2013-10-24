@@ -50,4 +50,3 @@ std::vector< mglPnt > => std::vector< mglPnt >
 std::vector< mglPrim > => std::vector< mglPrim >
 std::vector< mglGlyph > => std::vector< mglGlyph >
 std::vector< mglTexture > => std::vector< mglTexture >
-std::vector< long > => std::vector< long >

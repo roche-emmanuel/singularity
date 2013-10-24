@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2TOIOutput*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2TOIOutput*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2TOIOutput* rhs =(Luna< b2TOIOutput >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2TOIOutput* self= (b2TOIOutput*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2TOIOutput >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -117,14 +113,14 @@ public:
 	inline static bool _lg_typecheck_setState(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setT(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -138,15 +134,13 @@ public:
 	// b2TOIOutput::State b2TOIOutput::state()
 	static int _bind_getState(lua_State *L) {
 		if (!_lg_typecheck_getState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2TOIOutput::State b2TOIOutput::state() function, expected prototype:\nb2TOIOutput::State b2TOIOutput::state()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2TOIOutput::State b2TOIOutput::state() function, expected prototype:\nb2TOIOutput::State b2TOIOutput::state()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2TOIOutput* self=(Luna< b2TOIOutput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2TOIOutput::State b2TOIOutput::state(). Got : '%s'",typeid(Luna< b2TOIOutput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2TOIOutput::State b2TOIOutput::state(). Got : '%s'\n%s",typeid(Luna< b2TOIOutput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2TOIOutput::State lret = self->state;
 		lua_pushnumber(L,lret);
@@ -157,15 +151,13 @@ public:
 	// float b2TOIOutput::t()
 	static int _bind_getT(lua_State *L) {
 		if (!_lg_typecheck_getT(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2TOIOutput::t() function, expected prototype:\nfloat b2TOIOutput::t()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2TOIOutput::t() function, expected prototype:\nfloat b2TOIOutput::t()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2TOIOutput* self=(Luna< b2TOIOutput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2TOIOutput::t(). Got : '%s'",typeid(Luna< b2TOIOutput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2TOIOutput::t(). Got : '%s'\n%s",typeid(Luna< b2TOIOutput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->t;
 		lua_pushnumber(L,lret);
@@ -176,16 +168,14 @@ public:
 	// void b2TOIOutput::state(b2TOIOutput::State value)
 	static int _bind_setState(lua_State *L) {
 		if (!_lg_typecheck_setState(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2TOIOutput::state(b2TOIOutput::State value) function, expected prototype:\nvoid b2TOIOutput::state(b2TOIOutput::State value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2TOIOutput::state(b2TOIOutput::State value) function, expected prototype:\nvoid b2TOIOutput::state(b2TOIOutput::State value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2TOIOutput::State value=(b2TOIOutput::State)lua_tointeger(L,2);
 
 		b2TOIOutput* self=(Luna< b2TOIOutput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2TOIOutput::state(b2TOIOutput::State). Got : '%s'",typeid(Luna< b2TOIOutput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2TOIOutput::state(b2TOIOutput::State). Got : '%s'\n%s",typeid(Luna< b2TOIOutput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->state = value;
 
@@ -195,16 +185,14 @@ public:
 	// void b2TOIOutput::t(float value)
 	static int _bind_setT(lua_State *L) {
 		if (!_lg_typecheck_setT(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2TOIOutput::t(float value) function, expected prototype:\nvoid b2TOIOutput::t(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2TOIOutput::t(float value) function, expected prototype:\nvoid b2TOIOutput::t(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2TOIOutput* self=(Luna< b2TOIOutput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2TOIOutput::t(float). Got : '%s'",typeid(Luna< b2TOIOutput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2TOIOutput::t(float). Got : '%s'\n%s",typeid(Luna< b2TOIOutput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->t = value;
 

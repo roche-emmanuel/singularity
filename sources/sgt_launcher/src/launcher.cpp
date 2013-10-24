@@ -11,7 +11,7 @@
 #include <algorithm>
 
 
-#include "sgtCommon.h"
+#include "lunaCommon.h"
 #include "log/FileLogger.h"
 #include "log/StdLogger.h"
 #include "lua/ModuleProvider.h"
@@ -242,7 +242,7 @@ int main(int argc, char *argv[]) {
 		logDEBUG0_V("Loading core package from " << exepath+"packages/core.lpak" << "...");
 		sgtModuleProvider::loadPackage(exepath+"packages/core.lpak");
 		
-		sgt::String startModule = sgtModuleProvider::getModule("StartModule");
+		std::string startModule = sgtModuleProvider::getModule("StartModule");
 		
 		// load main module:
 		if(!startModule.empty()) {
